@@ -1,0 +1,5 @@
+footer {
+  flex-shrink: 0; /* prevent footer from beeing shrinked by main content */
+  height: 100px;
+  background: #464646;
+}

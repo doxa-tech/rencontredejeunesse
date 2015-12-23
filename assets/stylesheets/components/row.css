@@ -1,0 +1,17 @@
+.row {
+  display: flex;
+}
+
+.split2 {
+  flex: 0.5;
+}
+  .split2:first-child {
+    padding: 0 20px 0 0;
+  }
+
+.split4 {
+  flex: 1;
+}
+  .split4:not(:first-child) {
+    margin: 0 0 0 35px;
+  }
