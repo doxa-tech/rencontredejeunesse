@@ -1,0 +1,23 @@
+form.form {
+  width: 100%;
+}
+  form.form input, form.form textarea {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 0 0 12px 0;
+    background: #e8e8e8;
+    border: none;
+    color: #000;
+  }
+  form.form textarea {
+    height: 200px;
+  }
+  form.form input[type=submit] {
+    width: initial;
+    padding: 6px 60px;
+    float: right;
+    background: #8a8a8a;
+    color: #fff;
+    text-transform: uppercase;
+    -webkit-font-smoothing: antialiased;
+  }

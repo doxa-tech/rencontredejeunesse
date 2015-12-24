@@ -1,9 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700);
+
 @import 'base/global.css';
 @import 'base/reset.css';
 @import 'base/normalize.css';
 
 @import 'components/button.css';
+@import 'components/center.css';
+@import 'components/form.css';
+@import 'components/grey-box.css';
 @import 'components/row.css';
+@import 'components/tabs.css';
 
 @import 'layout/body.css';
 @import 'layout/container.css';
@@ -12,5 +18,8 @@
 @import 'layout/topbar.css';
 
 @import 'pages/about.css';
+@import 'pages/contact.css';
 @import 'pages/home.css';
+@import 'pages/inscription.css';
+@import 'pages/programmation.css';
 @import 'pages/vision16.css';

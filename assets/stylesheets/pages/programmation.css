@@ -1,0 +1,27 @@
+#container.programmation {
+  background: #000;
+  -webkit-font-smoothing: antialiased;
+}
+  #container.programmation .split4 {
+    background: #fff;
+  }
+  #container.programmation h1 {
+    color: #fff;
+  }
+
+  #container.programmation .big {
+    font-size: 1.5em;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  #container.programmation .mid {
+    font-size: 1.1em;
+    padding: 20px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  #container.programmation .tabs .tab-content .row > div {
+    padding: 10px 20px;
+  }

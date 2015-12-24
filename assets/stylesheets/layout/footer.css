@@ -1,5 +1,28 @@
 footer {
   flex-shrink: 0; /* prevent footer from beeing shrinked by main content */
-  height: 100px;
   background: #464646;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  padding: 50px 0 50px 0;
 }
+  footer .content {
+    width: 1000px;
+  }
+    footer .content p {
+      font-size: .8em;
+    }
+    footer .content .row {
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0 0 50px 0;
+    }
+    footer .content .rights {
+      text-transform: lowercase;
+    }
+    footer .content span:not(:first-child) {
+      padding: 0 0 0 7px;
+    }

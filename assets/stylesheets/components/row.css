@@ -1,12 +1,21 @@
 .row {
   display: flex;
 }
+.row.arround {
+  justify-content: space-around;
+}
 
 .split2 {
   flex: 0.5;
 }
   .split2:first-child {
     padding: 0 20px 0 0;
+  }
+
+.split3 {
+  justify-content: space-between;
+}
+  .split3:not(:first-child) {
   }
 
 .split4 {
