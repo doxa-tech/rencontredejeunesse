@@ -1,5 +1,7 @@
 #container {
-  flex: 1 0 auto;
+  flex-direction: column;
   display: flex;
   justify-content: center;
+  width: 1000px;
+  padding: 10px 0 90px 0;
 }

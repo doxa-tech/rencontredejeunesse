@@ -1,23 +1,23 @@
-#container.inscription {
+#inscription {
   background: #000;
   color: #fff;
   -webkit-font-smoothing: antialiased;
 }
 
-  #container.inscription .pre {
-    padding: 0 0 90px 0;
-  }
+#inscription .pre {
+  padding: 0 0 90px 0;
+}
 
-  #container.inscription .split3 {
-    display: flex;
-    flex-flow: column wrap;
-    height: 300px;
-    text-align: center;
-    padding: 20px 40px;
-  }
-    #container.inscription .split3 .middle span {
-      font-size: 3em;
-    }
-    #container.inscription .split3 .bottom a {
-      text-transform: uppercase;
-    }
+#inscription .split3 {
+  display: flex;
+  flex-flow: column wrap;
+  height: 300px;
+  text-align: center;
+  padding: 20px 40px;
+}
+#inscription .split3 .middle span {
+  font-size: 3em;
+}
+#inscription .split3 .bottom a {
+  text-transform: uppercase;
+}
