@@ -5,12 +5,12 @@ html, body {
 
 h1 {
   text-align: center;
-  padding: 0 0 50px 0;
+
   text-transform: uppercase;
   font-weight: lighter;
 }
 h1:not(:first-child) {
-  padding: 100px 0 50px 0;
+  padding: 20px 0 50px 0;
 }
 
 p:not(:last-child) {
@@ -40,13 +40,13 @@ a {
 }
 
 :-moz-placeholder { /* Firefox 18- */
-   color: #333;  
+   color: #333;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
-   color: #333;  
+   color: #333;
 }
 
 :-ms-input-placeholder {
-   color: #333;  
+   color: #333;
 }
