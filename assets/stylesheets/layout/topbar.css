@@ -12,7 +12,6 @@
     right: 0;
     background: #fff;
     z-index: 2;
-    opacity: .9;
   }
     #topbar nav a {
       text-transform: uppercase;
