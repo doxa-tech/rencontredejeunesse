@@ -9,15 +9,16 @@
 
 <body>
   <div id="topbar">
-    <nav>
-      <a data-scroll href="#home"><img src="assets/images/layout/logo.jpg"></a>
+    <nav data-gumshoe data-gumshoe-header>
+      <a data-scroll href="#home"><img class="logo" src="assets/images/layout/logo.jpg"></a>
       <a data-scroll href="#home">home</a>
       <a data-scroll href="#vision16">vision16</a>
-      <a data-scroll data-options='{ "easing": "linear" }' href="#about">a propos</a>
+      <a data-scroll href="#about">a propos</a>
       <a data-scroll href="#programmation">programmation</a>
       <a data-scroll href="#inscription">inscription</a>
       <a data-scroll href="#contact">contact</a>
-      <button><img src="assets/images/layout/burger.png"></button>
+      <button class="burger" id="burger-menu"><img src="assets/images/layout/burger.png"></button>
+      <button class="cross"><img src="assets/images/layout/cross.png"></button>
     </nav>
   </div>
   <div id="container">
@@ -258,8 +259,14 @@
   </footer>
 
   <script type="text/javascript" src="assets/javascripts/smooth-scroll.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/gumshoe.min.js"></script>
+  <script type="text/javascript" src="assets/javascripts/functions.js"></script>
+  <script type="text/javascript" src="assets/javascripts/header.js"></script>
   <script>
-    smoothScroll.init();
+    gumshoe.init();
+    smoothScroll.init({
+      offset: 70
+    });
   </script>
 </body>
 </html>

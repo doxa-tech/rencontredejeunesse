@@ -1,4 +1,5 @@
 #topbar {
+  z-index: 2;
 }
   #topbar nav {
     display: flex;
@@ -6,24 +7,64 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     background: #fff;
-    z-index: 2;
   }
+    #topbar nav img {
+      cursor: pointer;
+    }
     #topbar nav a {
       text-transform: uppercase;
       color: #000;
       padding: 0 20px;
       line-height: 0;
     }
+      #topbar nav a.active, #topbar nav a:hover {
+        font-weight: bold;
+      }
+
     #topbar nav button {
       display: none;
       background: none;
       border: none;
     }
+    #topbar nav button.cross {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+
+/*
+ * When mobile menu is open
+ */
+#topbar.open nav a:not(:first-of-type) {
+  flex: 0 0 100%;
+  text-align: right;
+  padding: 20px;
+  display: block;
+  border-top: 1px solid #BFBFBF;
+}
+#topbar.open button.burger {
+  display: none;
+}
+#topbar.open nav button.cross {
+  display: block;
+}
+  #topbar.open nav button.cross img {
+    width: initial !important;
+  }
+
+/*
+ * When header is fixed
+ */
+ body.fixed #topbar {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+ }
+   body.fixed #topbar nav img.logo {
+     height: 70px;
+   }
 
 /*
  * Responsiveness
@@ -33,23 +74,16 @@
   #topbar nav {
     justify-content: space-between !important;
   }
-  #topbar nav img {
+  /* reducing logo's size */
+  #topbar nav img.logo {
     width: 70px !important;
   }
+  /* hiding menu except logo */
   #topbar nav a:not(:first-of-type) {
     display: none;
   }
-  #topbar nav button {
+  /* displaying the burger */
+  #topbar nav button.burger {
     display: block;
   }
-}
-
-#topbar nav.mobile a:not(:first-of-type) {
-  flex: 0 0 100%;
-  text-align: right;
-  padding: 20px;
-  display: block;
-}
-#topbar nav.mobile button {
-  display: none;
 }

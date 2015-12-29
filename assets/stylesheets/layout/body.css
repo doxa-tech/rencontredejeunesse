@@ -1,15 +1,11 @@
 body {
   display: flex;
   flex-direction: column;
-  padding: 100px 0 0 0; /* fixed header */
 }
 
 /*
- * Responsiveness
+ * When header is fixed
  */
-@media (max-width: 900px)
-{
-  body {
-    padding: 73px 0 0 0 !important; /* fixed header */
-  }
+body.fixed {
+  padding: 100px 0 0 0;
 }
