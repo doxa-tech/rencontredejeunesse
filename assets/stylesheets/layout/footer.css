@@ -1,9 +1,20 @@
 footer {
-  flex-shrink: 0; /* prevent footer from beeing shrinked by main content */
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0; /* prevent footer from beeing shrinked by main content */
   background: #464646;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: #fff;
   text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
@@ -16,8 +27,14 @@ footer {
       font-size: .8em;
     }
     footer .content .row {
-      justify-content: space-between;
-      align-items: flex-end;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+      -webkit-box-align: end;
+      -webkit-align-items: flex-end;
+          -ms-flex-align: end;
+              align-items: flex-end;
       padding: 0 0 50px 0;
     }
     footer .content .rights {

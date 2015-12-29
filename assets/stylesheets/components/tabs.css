@@ -1,7 +1,15 @@
 .tabs {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
+    -webkit-flex-flow: row wrap;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
     color: #fff;
 }
 
@@ -18,7 +26,10 @@
 .tabs label {
     text-align: center;
     cursor: pointer;
-    flex: 1 0 auto;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 0 auto;
+        -ms-flex: 1 0 auto;
+            flex: 1 0 auto;
     text-transform: uppercase;
 }
   .tabs > label:not(.first) {
@@ -72,25 +83,55 @@
 
 .tab-content * {
     -webkit-animation: scale 0.7s ease-in-out;
-    -moz-animation: scale 0.7s ease-in-out;
     animation: scale 0.7s ease-in-out;
+}
+
+@-webkit-keyframes scale {
+
+  0% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+    opacity: 0;
+    filter: alpha(opacity=0);
+    }
+
+  50% {
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+    }
+
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    opacity: 1;
+    filter: alpha(opacity=100);
+  }
+
 }
 
 @keyframes scale {
 
   0% {
-    transform: scale(0.9);
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
     opacity: 0;
+    filter: alpha(opacity=0);
     }
 
   50% {
-    transform: scale(1.01);
+    -webkit-transform: scale(1.01);
+            transform: scale(1.01);
     opacity: 0.5;
+    filter: alpha(opacity=50);
     }
 
   100% {
-    transform: scale(1);
+    -webkit-transform: scale(1);
+            transform: scale(1);
     opacity: 1;
+    filter: alpha(opacity=100);
   }
 
 }
@@ -112,18 +153,29 @@
 @media (max-width: 900px)
 {
   .tabs {
-    justify-content: center !important;
+    -webkit-box-pack: center !important;
+    -webkit-justify-content: center !important;
+        -ms-flex-pack: center !important;
+            justify-content: center !important;
   }
   .tabs label {
-    flex: 0 0 80% !important;
+    -webkit-box-flex: 0 !important;
+    -webkit-flex: 0 0 80% !important;
+        -ms-flex: 0 0 80% !important;
+            flex: 0 0 80% !important;
     margin: 10px !important;
   }
   .tab-content {
     width: 80% !important;
   }
   .tab-content .row {
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
+    -webkit-flex-wrap: nowrap !important;
+        -ms-flex-wrap: nowrap !important;
+            flex-wrap: nowrap !important;
+    -webkit-box-pack: start !important;
+    -webkit-justify-content: flex-start !important;
+        -ms-flex-pack: start !important;
+            justify-content: flex-start !important;
   }
   .tab-content:before {
     content: none !important;
