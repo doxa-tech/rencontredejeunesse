@@ -105,3 +105,30 @@
 #tab4:checked ~ #tab-content4 {
     display: block;
 }
+
+/*
+ * Responsiveness
+ */
+@media (max-width: 900px)
+{
+  .tabs {
+    justify-content: center !important;
+  }
+  .tabs label {
+    flex: 0 0 80% !important;
+    margin: 10px !important;
+  }
+  .tab-content {
+    width: 80% !important;
+  }
+  .tab-content .row {
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+  }
+  .tab-content:before {
+    content: none !important;
+  }
+  .tabs [id^="tab"]:checked + label p {
+    background: #464646 !important;
+  }
+}

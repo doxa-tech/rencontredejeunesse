@@ -6,6 +6,13 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    z-index: 2;
+    opacity: .9;
   }
     #topbar nav a {
       text-transform: uppercase;
@@ -13,3 +20,37 @@
       padding: 0 20px;
       line-height: 0;
     }
+    #topbar nav button {
+      display: none;
+      background: none;
+      border: none;
+    }
+
+/*
+ * Responsiveness
+ */
+@media (max-width: 900px)
+{
+  #topbar nav {
+    justify-content: space-between !important;
+  }
+  #topbar nav img {
+    width: 70px !important;
+  }
+  #topbar nav a:not(:first-of-type) {
+    display: none;
+  }
+  #topbar nav button {
+    display: block;
+  }
+}
+
+#topbar nav.mobile a:not(:first-of-type) {
+  flex: 0 0 100%;
+  text-align: right;
+  padding: 20px;
+  display: block;
+}
+#topbar nav.mobile button {
+  display: none;
+}

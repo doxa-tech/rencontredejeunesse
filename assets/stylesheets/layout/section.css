@@ -8,3 +8,16 @@
   #container section .section-content {
     width: 1000px;
   }
+
+  /*
+   * Responsiveness
+   */
+  @media (max-width: 900px)
+  {
+    #container section .section-content {
+      width: 100% !important;
+    }
+    #container section .section-content > p {
+      padding: 20px !important;
+    }
+  }

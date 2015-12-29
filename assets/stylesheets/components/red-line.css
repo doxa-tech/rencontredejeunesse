@@ -4,3 +4,13 @@ span.red-line {
   left: 0;
   right: 0;
 }
+
+/*
+ * Responsiveness
+ */
+@media (max-width: 900px)
+{
+  span.red-line {
+    display: none !important;
+  }
+}

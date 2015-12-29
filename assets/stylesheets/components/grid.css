@@ -24,3 +24,19 @@
   .split4:not(:first-child) {
     margin: 0 0 0 35px;
   }
+
+/*
+ * Responsiveness
+ */
+@media (max-width: 900px)
+{
+  .row {
+    justify-content: center !important;
+    flex-wrap: wrap;
+  }
+  .split2, .split3, .split4 {
+    flex: 0 0 80% !important;
+    padding: 10px !important;
+    margin: 10px !important;
+  }
+}
