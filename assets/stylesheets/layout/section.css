@@ -15,6 +15,7 @@
   width: 100%;
   padding: 40px 0 50px 0;
   position: relative;
+  flex-shrink: 0; /* safari bug fixes */
 }
 #container section:not(:first-of-type)::before {
   content: "";
