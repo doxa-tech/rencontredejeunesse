@@ -13,7 +13,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   width: 100%;
-  padding: 80px 0 50px 0;
+  padding: 40px 0 50px 0;
   position: relative;
 }
 #container section:not(:first-of-type)::before {
