@@ -11,12 +11,12 @@
   <div id="topbar">
     <nav data-gumshoe data-gumshoe-header>
       <a data-scroll href="#home"><img class="logo" src="assets/images/layout/logo.jpg"></a>
-      <a data-scroll href="#home">home</a>
-      <a data-scroll href="#vision16">vision16</a>
-      <a data-scroll href="#about">a propos</a>
-      <a data-scroll href="#programmation">programmation</a>
-      <a data-scroll href="#inscription">inscription</a>
-      <a data-scroll href="#contact">contact</a>
+      <a data-scroll title="home" href="#home">home</a>
+      <a data-scroll title="vision16" href="#vision16">vision16</a>
+      <a data-scroll title="a propos" href="#about">a propos</a>
+      <a data-scroll title="programmation" href="#programmation">programmation</a>
+      <a data-scroll title="inscription" href="#inscription">inscription</a>
+      <a data-scroll title="contact" href="#contact">contact</a>
       <button class="burger" id="burger-menu"><img src="assets/images/layout/burger.png"></button>
       <button class="cross"><img src="assets/images/layout/cross.png"></button>
     </nav>
@@ -26,7 +26,6 @@
 
     <section id="vision16">
       <div class="section-content">
-        <span class="red-line"></span>
         <h1>Vision 2016</h1>
         <div class="row">
           <div class="split2">
@@ -45,7 +44,7 @@
           </div>
           <div class="split2 portrait" style="background:#000; height:500px;"></div>
         </div>
-        <span class="red-line"></span>
+  
       </div>
     </section>
 
@@ -91,7 +90,7 @@
 
     <section id="programmation">
         <div class="section-content">
-        <span class="red-line"></span>
+  
         <h1>Programmation</h1>
         <div class="row">
           <div class="split4">
@@ -154,26 +153,30 @@
                 <div><b>22h30</b></div><div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
               </div>
             </div>
-          </div> <!-- #tab-content1 -->
+          </div>
+
           <div id="tab-content2" class="tab-content grey">
             <h3>samedi</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div> <!-- #tab-content2 -->
+          </div>
+
           <div id="tab-content3" class="tab-content grey">
             <h3>dimanche</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div> <!-- #tab-content3 -->
+          </div>
+
           <div id="tab-content4" class="tab-content grey">
             <h3>2017</h3>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div> <!-- #tab-content3 -->
+          </div>
+
         </div>
       </div>
     </section>
 
     <section id="inscription">
         <div class="section-content">
-        <span class="red-line"></span>
+  
         <h1>Inscription</h1>
         <p class="pre">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <div class="row arround">
@@ -222,7 +225,6 @@
         </div>
       </div>
     </section>
-    <span class="red-line"></span>
     <section id="contact">
         <div class="section-content">
         <h1>Contact</h1>
@@ -265,7 +267,7 @@
   <script>
     gumshoe.init();
     smoothScroll.init({
-      offset: 70
+      offset: 71
     });
   </script>
 </body>

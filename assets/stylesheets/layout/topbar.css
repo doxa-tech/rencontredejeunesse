@@ -23,6 +23,7 @@
         -ms-flex-align: center;
             align-items: center;
     background: #fff;
+    border-bottom: 1px solid rgba(214,214,214,0.5);
   }
     #topbar nav img {
       cursor: pointer;
@@ -35,6 +36,13 @@
     }
       #topbar nav a.active, #topbar nav a:hover {
         font-weight: bold;
+      }
+      /* Prevents text shifting with bold hover */
+      #topbar nav a:after {
+        display:block;
+        content:attr(title);
+        font-weight:bold;
+        visibility:hidden;
       }
 
     #topbar nav button {
