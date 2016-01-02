@@ -231,11 +231,13 @@
         <p class="pre">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <div class="row">
           <div class="split2">
-            <form class="form">
-              <input type="text" placeholder="NOM">
-              <input type="text" placeholder="PRENOM">
-              <input type="text" placeholder="SUJET">
-              <textarea placeholder="TEXTE"></textarea>
+            <p id="flash-contact"></p>
+            <form action="contact.php" method="post" class="form">
+              <input name="lastname" type="text" placeholder="NOM">
+              <input name="firstname" type="text" placeholder="PRENOM">
+              <input name="email" type="text" placeholder="EMAIL">
+              <input name="object" type="text" placeholder="SUJET">
+              <textarea name="content" placeholder="TEXTE"></textarea>
               <input type="submit" value="envoyer">
             </form>
           </div>
@@ -264,11 +266,6 @@
   <script type="text/javascript" src="assets/javascripts/gumshoe.min.js"></script>
   <script type="text/javascript" src="assets/javascripts/functions.js"></script>
   <script type="text/javascript" src="assets/javascripts/header.js"></script>
-  <script>
-    gumshoe.init();
-    smoothScroll.init({
-      offset: 71
-    });
-  </script>
+  <script type="text/javascript" src="assets/javascripts/contact.js"></script>
 </body>
 </html>

@@ -1,3 +1,12 @@
+gumshoe.init();
+smoothScroll.init({
+  offset: 71
+});
+
+if (window.location.hash) {
+  smoothScroll.animateScroll(null, window.location.hash, { offset: 71 });
+}
+
 var $burger = document.getElementById("burger-menu"),
     $topbar = document.getElementById("topbar"),
     $body = document.body;
