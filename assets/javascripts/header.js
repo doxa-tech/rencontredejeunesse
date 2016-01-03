@@ -1,10 +1,13 @@
+var options = {
+      speed: 1000,
+      offset: 71
+};
+
 gumshoe.init();
-smoothScroll.init({
-  offset: 71
-});
+smoothScroll.init(options);
 
 if (window.location.hash) {
-  smoothScroll.animateScroll(null, window.location.hash, { offset: 71 });
+  smoothScroll.animateScroll(null, window.location.hash, options);
 }
 
 var $burger = document.getElementById("burger-menu"),

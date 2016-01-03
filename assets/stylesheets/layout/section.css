@@ -17,7 +17,7 @@
   position: relative;
   flex-shrink: 0; /* safari bug fixes */
 }
-#container section:not(:first-of-type)::before {
+#container section.red-line::before {
   content: "";
   position: absolute;
   left: 0;
