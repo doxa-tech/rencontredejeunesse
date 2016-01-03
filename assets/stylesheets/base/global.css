@@ -8,6 +8,7 @@ h1 {
   line-height: 3em;
   text-transform: uppercase;
   font-weight: lighter;
+  letter-spacing: 15px;
 }
 h1:not(:first-child) {
   padding-top: 1em;
