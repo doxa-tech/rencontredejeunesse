@@ -59,16 +59,24 @@
   }
 
   #programmation .plus {
-    flex: 0 !important;
+    -webkit-box-flex: 0 !important;
+    -webkit-flex: 0 !important;
+        -ms-flex: 0 !important;
+            flex: 0 !important;
   }
     #programmation .plus img {
       margin: 0 0 10px 0;
-      align-self: flex-end;
-      transition: all 1s ease;
+      -webkit-align-self: flex-end;
+          -ms-flex-item-align: end;
+              align-self: flex-end;
+      -webkit-transition: all 1s ease;
+              transition: all 1s ease;
       cursor: pointer;
     }
     #programmation .plus img:hover {
-      transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+          -ms-transform: rotate(360deg);
+              transform: rotate(360deg);
     }
 
 #prog-1 .lightbox .img {

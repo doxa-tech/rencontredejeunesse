@@ -15,8 +15,13 @@
   }
 
   #inscriptions .split3 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: column wrap;
+    -webkit-flex-flow: column wrap;
+        -ms-flex-flow: column wrap;
+            flex-flow: column wrap;
     height: 300px;
     text-align: center;
     padding: 20px 40px;

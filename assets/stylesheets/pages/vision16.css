@@ -5,9 +5,19 @@ section#vision16 {
   -webkit-font-smoothing: antialiased;
 }
   section#vision16 .row .split2:first-of-type {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
   section#vision16 .row .split2:nth-of-type(2) {
     font-size: 0; /* Prevents empty space */
@@ -28,7 +38,9 @@ section#vision16 {
 @media (max-width: 900px)
 {
   section#vision16 .row {
-    flex-wrap: wrap-reverse;
+    -webkit-flex-wrap: wrap-reverse;
+        -ms-flex-wrap: wrap-reverse;
+            flex-wrap: wrap-reverse;
   }
   section#vision16 .row .split2:nth-of-type(2) img.vision {
     top: 0;

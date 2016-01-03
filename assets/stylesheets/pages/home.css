@@ -5,7 +5,8 @@ section#home {
   padding: 0;
 }
   section#home video {
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
     width: 100%;
     cursor: pointer;
   }
