@@ -20,15 +20,15 @@ section#about {
     padding: 20px 0;
   }
 
-  section#about .lightbox-wrap .lightbox:nth-child(1) .img {
+  section#about div.lightbox-wrap:nth-of-type(1) .lightbox .img {
     background-image: url('../../images/lightbox/banner_RJ.png');
   }
-  section#about .lightbox-wrap .lightbox:nth-child(2) .img {
+  section#about div.lightbox-wrap:nth-of-type(2) .lightbox .img {
     background-image: url('../../images/lightbox/banner_activities.png');
   }
-  section#about .lightbox-wrap .lightbox:nth-child(3) .img {
+  section#about div.lightbox-wrap:nth-of-type(3) .lightbox .img {
     background-image: url('../../images/lightbox/banner_espace_G.png');
   }
-  section#about .lightbox-wrap .lightbox:nth-child(4) .img {
+  section#about div.lightbox-wrap:nth-of-type(4) .lightbox .img {
     background-image: url('../../images/lightbox/banner_FAQ.png');
   }
