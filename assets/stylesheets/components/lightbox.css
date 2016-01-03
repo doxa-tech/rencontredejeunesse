@@ -11,6 +11,9 @@
   align-items: center;
   display: none;
 }
+  .lightbox .img {
+    background-size: cover !important;
+  }
   .lightbox-wrap .lightbox {
     width: 80%;
     max-width: 1000px;
