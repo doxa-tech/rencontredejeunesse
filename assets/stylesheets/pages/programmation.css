@@ -62,6 +62,7 @@
       margin: 0 0 10px 0;
       align-self: flex-end;
       transition: all 1s ease;
+      cursor: pointer;
     }
     #programmation .plus img:hover {
       transform: rotate(360deg);
