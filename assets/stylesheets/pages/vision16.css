@@ -2,6 +2,7 @@ section#vision16 {
   background-color: #FA5456;
   color: white;
   padding-bottom: 0;
+  -webkit-font-smoothing: antialiased;
 }
   section#vision16 .row .split2:first-of-type {
     display: flex;

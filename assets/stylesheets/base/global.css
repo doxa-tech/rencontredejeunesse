@@ -1,6 +1,6 @@
 html, body {
   height: 100%;
-  font-family: 'Open sans';
+  font-family: 'texgyreadventor';
 }
 
 h1 {
@@ -10,6 +10,7 @@ h1 {
   font-weight: lighter;
   letter-spacing: 15px;
   word-break: break-all;
+  font-family: 'futura';
 }
 h1:not(:first-child) {
   padding-top: 1em;

@@ -83,3 +83,20 @@
 #prog-4 .lightbox .img {
   background-image: url('../../images/lightbox/contagious.jpg');
 }
+
+  #programmation .split4 .img {
+    background-size: cover;
+    height: 230px;
+  }
+    #programmation .row > div.split4 div.i1 {
+      background-image: url('../../images/pictures/todd.jpg');
+    }
+    #programmation .row > div.split4 div.i2 {
+      background-image: url('../../images/pictures/david.jpg');
+    }
+    #programmation .row > div.split4 div.i3 {
+      background-image: url('../../images/pictures/horizon.jpg');
+    }
+    #programmation .row > div.split4 div.i4 {
+      background-image: url('../../images/pictures/contagious.jpg');
+    }

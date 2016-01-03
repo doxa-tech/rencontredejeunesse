@@ -1,4 +1,11 @@
-#home {
+section#home {
   background: #000;
   height: 100vh;
+  overflow: hidden;
+  padding: 0;
 }
+  section#home video {
+    object-fit: cover;
+    width: 100%;
+    cursor: pointer;
+  }

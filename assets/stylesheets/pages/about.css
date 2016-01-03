@@ -23,18 +23,21 @@ section#about {
     padding: 20px 0;
   }
 
-#about-1 .lightbox .img {
-  background-image: url('../../images/lightbox/banner_RJ.png');
+.lightbox .img {
+  background-size: cover !important;
 }
-#about-2 .lightbox .img {
-  background-image: url('../../images/lightbox/banner_activites.png');
-}
-#about-3 .lightbox .img {
-  background-image: url('../../images/lightbox/banner_espace_G.png');
-}
-#about-4 .lightbox .img {
-  background-image: url('../../images/lightbox/banner_FAQ.png');
-}
+  #about-1 .lightbox .img {
+    background-image: url('../../images/lightbox/banner_RJ.png');
+  }
+  #about-2 .lightbox .img {
+    background-image: url('../../images/lightbox/banner_activites.png');
+  }
+  #about-3 .lightbox .img {
+    background-image: url('../../images/lightbox/banner_espace_G.png');
+  }
+  #about-4 .lightbox .img {
+    background-image: url('../../images/lightbox/banner_FAQ.png');
+  }
 
   section#about .img {
     height: 230px;
