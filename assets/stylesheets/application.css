@@ -7,9 +7,10 @@
 @import 'components/button.css';
 @import 'components/center.css';
 @import 'components/form.css';
-@import 'components/white-box.css';
 @import 'components/grid.css';
+@import 'components/lightbox.css';
 @import 'components/tabs.css';
+@import 'components/white-box.css';
 
 @import 'layout/body.css';
 @import 'layout/container.css';

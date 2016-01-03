@@ -1,0 +1,39 @@
+.lightbox-wrap {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.86);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+  .lightbox-wrap .lightbox {
+    width: 80%;
+    max-width: 1000px;
+    background: #fff;
+    position: relative;
+  }
+    .lightbox-wrap .lightbox button {
+      border: none;
+      background: none;
+      position: absolute;
+      top: 0;
+      right: 20px;
+    }
+    .lightbox-wrap .lightbox .img {
+      height: 200px;
+      background: #000;
+    }
+    .lightbox-wrap .lightbox .txt {
+      padding: 5%;
+      color: #000;
+    }
+      .lightbox-wrap .lightbox .txt h3 {
+        letter-spacing: 20px;
+        text-transform: uppercase;
+        padding: 0 0 20px 0;
+      }
