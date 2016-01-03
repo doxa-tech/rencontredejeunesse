@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $content = clean($_POST["content"]);
     if (is_valid($firstname) AND is_valid($lastname) AND is_email($email) AND strlen($object) < 100) {
       $headers = "From: {$firstname} {$lastname} <{$email}>";
-      mail("kocher.ke@gmail.com", $object, $content, $headers);
+      mail("info@rencontredejeunesse.ch", $object, $content, $headers);
       $success = true;
     } else {
       $success = false;
@@ -24,9 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 if($success) {
-  header("Location: /2016/?state=success#contact");
+  header("Location: /?state=success#contact");
 } else {
-  header("Location: /2016/?state=error#contact");
+  header("Location: /?state=error#contact");
 }
 
 function clean($data) {

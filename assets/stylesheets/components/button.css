@@ -1,12 +1,12 @@
-button.grey {
+button.blue {
   width: 100%;
   padding: 15px;
   border:none;
-  background: #959595;
+  background: #3d44ac;
   color: #fff;
   font-weight: lighter;
   transition: 0.4s;
 }
-  button.grey:hover {
+  button.blue:hover {
     background: #464646;
   }

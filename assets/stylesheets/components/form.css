@@ -5,7 +5,7 @@ form.form {
     width: 100%;
     padding: 6px 10px;
     margin: 0 0 12px 0;
-    background: #e8e8e8;
+    background-color:rgba(77,192,161,0.3);
     border: none;
     color: #000;
   }
@@ -16,7 +16,7 @@ form.form {
     width: initial;
     padding: 6px 60px;
     float: right;
-    background: #8a8a8a;
+    background: #4dc0a1;
     color: #fff;
     text-transform: uppercase;
     -webkit-font-smoothing: antialiased;

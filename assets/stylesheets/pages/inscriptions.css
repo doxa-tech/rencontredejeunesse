@@ -1,5 +1,10 @@
 #inscriptions {
-  background: #252525;
+  background-color: #4dc0a1;
+  background-image: url("../../images/layout/coralie_bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center bottom;
   color: #fff;
   -webkit-font-smoothing: antialiased;
 }

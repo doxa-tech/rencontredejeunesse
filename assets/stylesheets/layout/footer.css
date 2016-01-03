@@ -2,7 +2,7 @@ footer {
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;
           flex-shrink: 0; /* prevent footer from beeing shrinked by main content */
-  background: #464646;
+  background: black;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;

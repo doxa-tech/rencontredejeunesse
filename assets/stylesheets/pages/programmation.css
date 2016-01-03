@@ -1,5 +1,10 @@
 #programmation {
-  background: #000;
+  background-color: #3d44ac;
+  background-image: url("../../images/layout/fondfoule.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
   -webkit-font-smoothing: antialiased;
 }
   #programmation h1 {
