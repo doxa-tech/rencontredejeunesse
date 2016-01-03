@@ -58,6 +58,9 @@
     padding: 10px 20px;
   }
 
+  #programmation .plus {
+    flex: 0 !important;
+  }
     #programmation .plus img {
       margin: 0 0 10px 0;
       align-self: flex-end;
