@@ -4,20 +4,21 @@
   -webkit-font-smoothing: antialiased;
 }
 
-#inscriptions .pre {
-  padding: 0 0 90px 0;
-}
+  #inscriptions .pre {
+    padding: 0 0 90px 0;
+    text-align: center;
+  }
 
-#inscriptions .split3 {
-  display: flex;
-  flex-flow: column wrap;
-  height: 300px;
-  text-align: center;
-  padding: 20px 40px;
-}
-#inscriptions .split3 .middle span {
-  font-size: 3em;
-}
-#inscriptions .split3 .bottom a {
-  text-transform: uppercase;
-}
+  #inscriptions .split3 {
+    display: flex;
+    flex-flow: column wrap;
+    height: 300px;
+    text-align: center;
+    padding: 20px 40px;
+  }
+  #inscriptions .split3 .middle span {
+    font-size: 3em;
+  }
+  #inscriptions .split3 .bottom a {
+    text-transform: uppercase;
+  }
