@@ -181,6 +181,6 @@
     content: none !important;
   }
   .tabs [id^="tab"]:checked + label p {
-    background: #464646 !important;
+    background: #BBBFE6 !important;
   }
 }

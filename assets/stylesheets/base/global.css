@@ -35,8 +35,11 @@ cite {
 }
 
 a {
-  color: inherit;
+  color: #3d44ac;
 }
+  a:hover {
+    text-decoration: underline;
+  }
 
 ::-webkit-input-placeholder {
    color: #333;

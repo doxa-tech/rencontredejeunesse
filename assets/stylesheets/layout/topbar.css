@@ -36,6 +36,7 @@
     }
       #topbar nav a.active, #topbar nav a:hover {
         font-weight: bold;
+        text-decoration: overline;
       }
       /* Prevents text shifting with bold hover */
       #topbar nav a:after {
