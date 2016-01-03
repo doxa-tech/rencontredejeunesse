@@ -70,3 +70,16 @@
     #programmation .plus img:hover {
       transform: rotate(360deg);
     }
+
+#prog-1 .lightbox .img {
+  background-image: url('../../images/lightbox/todd.jpg');
+}
+#prog-2 .lightbox .img {
+  background-image: url('../../images/lightbox/david.jpg');
+}
+#prog-3 .lightbox .img {
+  background-image: url('../../images/lightbox/horizon.jpg');
+}
+#prog-4 .lightbox .img {
+  background-image: url('../../images/lightbox/contagious.jpg');
+}
