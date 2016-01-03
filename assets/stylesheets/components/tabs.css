@@ -65,7 +65,7 @@
     position: absolute;
     border-left: 9px solid transparent;
   	border-right: 9px solid transparent;
-  	border-bottom: 7px solid #959595;
+  	border-bottom: 7px solid white;
     top: -7px;
 }
 #tab-content1:before {
