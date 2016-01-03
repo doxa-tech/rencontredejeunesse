@@ -1,3 +1,6 @@
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                              window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
 function fadeOut(el, startCallback, endCallback){
   el.style.opacity = 1;
   typeof startCallback === "function" && startCallback();

@@ -14,11 +14,6 @@
     text-align: center;
   }
 
-  #inscriptions a {
-    padding: 0 0 90px 0;
-    text-align: center;
-  }
-
   #inscriptions .split3 {
     display: flex;
     flex-flow: column wrap;
@@ -28,6 +23,7 @@
   }
   #inscriptions .split3 .middle span {
     font-size: 3em;
+    font-family: 'futura';
   }
   #inscriptions .split3 .bottom a {
     text-transform: uppercase;

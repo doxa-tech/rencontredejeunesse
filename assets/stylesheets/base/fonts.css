@@ -1,25 +1,25 @@
 @font-face {
  font-family: 'futura';
- src: url(../../fonts/futura-light.ttf) format('truetype')
+ src: url(../../fonts/futura-light.ttf) format('truetype');
 }
 
 @font-face {
  font-family: 'texgyreadventor';
- src: url(../../fonts/texgyreadventor-bold.otf)
+ src: url(../../fonts/texgyreadventor-bold.otf);
  font-weight: bold;
 }
 @font-face {
  font-family: 'texgyreadventor';
- src: url(../../fonts/texgyreadventor-bolditalic.otf)
+ src: url(../../fonts/texgyreadventor-bolditalic.otf);
  font-weight: bold;
  font-style: italic;
 }
 @font-face {
  font-family: 'texgyreadventor';
- src: url(../../fonts/texgyreadventor-italic.otf)
+ src: url(../../fonts/texgyreadventor-italic.otf);
  font-style: italic;
 }
 @font-face {
  font-family: 'texgyreadventor';
- src: url(../../fonts/texgyreadventor-regular.otf)
+ src: url(../../fonts/texgyreadventor-regular.otf);
 }

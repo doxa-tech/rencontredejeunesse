@@ -27,7 +27,7 @@ $topbar.onclick = function(e) {
 };
 
 var displayHeader = function() {
-  var limit = 800;
+  var limit = 700;
   if(!$body.classList.contains("fixed") && window.pageYOffset > limit) {
     fadeIn($topbar, function() {
       removeScrollEvent();

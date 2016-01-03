@@ -28,6 +28,9 @@
     #topbar nav img {
       cursor: pointer;
     }
+    #topbar nav img.logo {
+      height: 70px;
+    }
     #topbar nav a {
       text-transform: uppercase;
       color: #000;
@@ -89,9 +92,6 @@
    left: 0;
    right: 0;
  }
-   body.fixed #topbar nav img.logo {
-     height: 70px;
-   }
 
 /*
  * Responsiveness

@@ -50,7 +50,8 @@
   transition: all 0.5s;
 }
 .tabs label p:hover {
-    background: #BBBFE6;
+  background: black;
+  color: white;
 }
 
 .tab-content {
