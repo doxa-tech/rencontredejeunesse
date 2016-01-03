@@ -1,6 +1,9 @@
 section#about {
   color: #3d44ac;
 }
+  section#about:before {
+    content: none !important;
+  }
   #about .split4 {
     display: -webkit-box;
     display: -webkit-flex;

@@ -1,4 +1,37 @@
-#vision16 {
-  background-color: #fd4f57;
+section#vision16 {
+  background-color: #FA5456;
   color: white;
+  padding-bottom: 0;
+}
+  section#vision16 .row .split2:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  section#vision16 .row .split2:nth-of-type(2) {
+    font-size: 0; /* Prevents empty space */
+    position: relative;
+  }
+    section#vision16 .row .split2:nth-of-type(2) img {
+      max-width: 100%;
+    }
+    section#vision16 .row .split2:nth-of-type(2) img.vision {
+      position: absolute;
+      top: 10%;
+      right: 10%;
+    }
+
+/*
+ * Responsiveness
+ */
+@media (max-width: 900px)
+{
+  section#vision16 .row {
+    flex-wrap: wrap-reverse;
+  }
+  section#vision16 .row .split2:nth-of-type(2) img.vision {
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
 }
