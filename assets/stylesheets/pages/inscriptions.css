@@ -1,23 +1,23 @@
-#inscription {
+#inscriptions {
   background: #252525;
   color: #fff;
   -webkit-font-smoothing: antialiased;
 }
 
-#inscription .pre {
+#inscriptions .pre {
   padding: 0 0 90px 0;
 }
 
-#inscription .split3 {
+#inscriptions .split3 {
   display: flex;
   flex-flow: column wrap;
   height: 300px;
   text-align: center;
   padding: 20px 40px;
 }
-#inscription .split3 .middle span {
+#inscriptions .split3 .middle span {
   font-size: 3em;
 }
-#inscription .split3 .bottom a {
+#inscriptions .split3 .bottom a {
   text-transform: uppercase;
 }
