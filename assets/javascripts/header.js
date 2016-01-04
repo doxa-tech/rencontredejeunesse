@@ -1,6 +1,6 @@
 var options = {
       speed: 1000,
-      offset: 71
+      offset: 70
 };
 
 gumshoe.init();
