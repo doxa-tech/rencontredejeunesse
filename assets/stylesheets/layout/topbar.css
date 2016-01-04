@@ -96,6 +96,12 @@
 /*
  * Responsiveness
  */
+@media (max-width: 1000px)
+{
+   #topbar nav a {
+     padding: 0 10px;
+   }
+ }
 @media (max-width: 900px)
 {
   #topbar nav {

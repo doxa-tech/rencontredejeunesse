@@ -53,7 +53,26 @@
         -ms-flex-wrap: wrap;
             flex-wrap: wrap;
   }
-  .split2, .split3, .split4 {
+  .split2, .split3 {
+    -webkit-box-flex: 0 !important;
+    -webkit-flex: 0 0 80% !important;
+        -ms-flex: 0 0 80% !important;
+            flex: 0 0 80% !important;
+    padding: 10px !important;
+    margin: 10px !important;
+  }
+  .split4 {
+    -webkit-box-flex: 0 !important;
+    -webkit-flex: 0 0 40% !important;
+        -ms-flex: 0 0 40% !important;
+            flex: 0 0 40% !important;
+    padding: 10px !important;
+    margin: 10px !important;
+  }
+}
+@media (max-width: 500px)
+{
+  .split4 {
     -webkit-box-flex: 0 !important;
     -webkit-flex: 0 0 80% !important;
         -ms-flex: 0 0 80% !important;
