@@ -46,3 +46,7 @@ footer {
     footer .content .split a {
       padding-right: 10px;
     }
+    footer .content a {
+      color: white;
+      text-decoration: none;
+    }

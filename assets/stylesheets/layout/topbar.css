@@ -24,12 +24,13 @@
             align-items: center;
     background: #fff;
     border-bottom: 1px solid rgba(214,214,214,0.5);
+    height: 70px;
   }
     #topbar nav img {
       cursor: pointer;
     }
     #topbar nav img.logo {
-      height: 70px;
+      height: 60px;
     }
     #topbar nav a {
       text-transform: uppercase;
