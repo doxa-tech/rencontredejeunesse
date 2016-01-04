@@ -94,6 +94,7 @@
 
   #programmation .split4 .thumb {
     background-size: cover;
+    background-position: center center;
     height: 230px;
   }
     #programmation .thumb:hover {
