@@ -92,10 +92,13 @@
   background-image: url('../../images/lightbox/contagious.jpg');
 }
 
-  #programmation .split4 .img {
+  #programmation .split4 .thumb {
     background-size: cover;
     height: 230px;
   }
+    #programmation .thumb:hover {
+      cursor: pointer;
+    }
     #programmation .row > div.split4 div.i1 {
       background-image: url('../../images/pictures/todd.jpg');
     }

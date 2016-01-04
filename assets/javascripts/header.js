@@ -26,8 +26,10 @@ $topbar.onclick = function(e) {
   }
 };
 
+var limit = document.getElementById('home').offsetHeight - 150;
+
 var displayHeader = function() {
-  var limit = 700;
+
   if(!$body.classList.contains("fixed") && window.pageYOffset > limit) {
     fadeIn($topbar, function() {
       removeScrollEvent();
