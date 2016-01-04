@@ -19,15 +19,20 @@
       -ms-flex-negative: 0;
           flex-shrink: 0; /* safari bug fixes */
 }
-#container section.red-line:before {
+#container section.line::before {
   content: "";
   position: absolute;
   left: 0;
   right: 0;
   top: 0;
-  background: red;
   height: 1px;
 }
+  #container section.red::before {
+    background-color: #fd4f57;
+  }
+  #container section.green::before {
+    background-color: #4dc0a1;
+  }
   #container section .section-content {
     width: 1000px;
   }
