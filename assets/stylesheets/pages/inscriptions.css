@@ -27,9 +27,17 @@
     padding: 20px 40px;
   }
   #inscriptions .split3 .middle span {
-    font-size: 3em;
+    font-size: 3.5em;
     font-family: 'futura';
   }
-  #inscriptions .split3 .bottom a {
+  #inscriptions .split3 .bottom p {
     text-transform: uppercase;
   }
+  #inscriptions .split3.disabled {
+    color: #A2A2A2;
+  }
+    #inscriptions .split3.disabled a {
+      pointer-events: none;
+      cursor: default;
+      color: #A2A2A2;
+    }

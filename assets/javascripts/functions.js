@@ -4,9 +4,11 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 function fadeOut(el, startCallback, endCallback){
   el.style.opacity = 1;
   typeof startCallback === "function" && startCallback();
+  console.log("start");
 
   (function fade() {
-    if ((el.style.opacity -= .1) < 0) {
+    el.style.opacity = Math.round((el.style.opacity - 0.1) * 10) / 10;
+    if (el.style.opacity < 0) {
       typeof endCallback === "function" && endCallback();
     } else {
       requestAnimationFrame(fade);
@@ -20,11 +22,12 @@ function fadeIn(el, startCallback, endCallback){
 
   (function fade() {
     var val = parseFloat(el.style.opacity);
-    if (!((val += .1) > 1)) {
+    val = Math.round((val + 0.1) * 10) / 10;
+    if (val > 1) {
+      typeof endCallback === "function" && endCallback();
+    } else {
       el.style.opacity = val;
       requestAnimationFrame(fade);
-    } else {
-      typeof endCallback === "function" && endCallback();
     }
   })();
 }

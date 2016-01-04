@@ -26,18 +26,34 @@ section#about {
   section#about .thumb {
     height: 230px;
     background-size: cover;
+    background-position: center center;
   }
+    section#about .thumb:hover {
+      cursor: pointer;
+    }
     section#about .split4:nth-of-type(1) .thumb {
-      background-image: url('../../images/pictures/la_rj.jpg');
+      background-image: url('../../images/pictures/rj.jpg');
+    }
+    section#about .split4:nth-of-type(1) .thumb:hover {
+      background-image: url('../../images/pictures/rj_hover.jpg');
     }
     section#about .split4:nth-of-type(2) .thumb {
       background-image: url('../../images/pictures/activites.jpg');
     }
+    section#about .split4:nth-of-type(2) .thumb:hover {
+      background-image: url('../../images/pictures/activites_hover.jpg');
+    }
     section#about .split4:nth-of-type(3) .thumb {
       background-image: url('../../images/pictures/espaceg.jpg');
     }
+    section#about .split4:nth-of-type(3) .thumb:hover {
+      background-image: url('../../images/pictures/espaceg_hover.jpg');
+    }
     section#about .split4:nth-of-type(4) .thumb {
       background-image: url('../../images/pictures/faq.jpg');
+    }
+    section#about .split4:nth-of-type(4) .thumb:hover {
+      background-image: url('../../images/pictures/faq_hover.jpg');
     }
 
   #about-1 .lightbox .img {
