@@ -25,6 +25,7 @@
     height: 300px;
     text-align: center;
     padding: 20px 40px;
+    flex-basis: 280px;
   }
   #inscriptions .split3 .middle span {
     font-size: 3.5em;
