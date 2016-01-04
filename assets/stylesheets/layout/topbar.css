@@ -47,6 +47,7 @@
         content:attr(title);
         font-weight:bold;
         visibility:hidden;
+        font-size: 1.02em;
       }
 
     #topbar nav button {
