@@ -31,9 +31,11 @@
     }
     #topbar nav img.logo {
       height: 60px;
+      margin: 5px 0;
     }
     #topbar nav a {
       text-transform: uppercase;
+      background-color: #fff;
       color: #000;
       padding: 0 20px;
       line-height: 0;
@@ -114,7 +116,7 @@
   }
   /* reducing logo's size */
   #topbar nav img.logo {
-    width: 70px !important;
+    width: 60px !important;
   }
   /* hiding menu except logo */
   #topbar nav a:not(:first-of-type) {
