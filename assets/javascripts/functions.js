@@ -4,7 +4,6 @@ window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequest
 function fadeOut(el, startCallback, endCallback){
   el.style.opacity = 1;
   typeof startCallback === "function" && startCallback();
-  console.log("start");
 
   (function fade() {
     el.style.opacity = Math.round((el.style.opacity - 0.1) * 10) / 10;
