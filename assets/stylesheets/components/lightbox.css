@@ -6,10 +6,6 @@
   top: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.86);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
       -ms-flex-pack: center;
@@ -20,6 +16,12 @@
           align-items: center;
   display: none;
 }
+  .lightbox-wrap.show {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
   .lightbox .img {
     background-size: cover !important;
   }

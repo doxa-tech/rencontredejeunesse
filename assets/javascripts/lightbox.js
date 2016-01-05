@@ -4,15 +4,15 @@ document.body.onclick = function(e) {
     var $content = document.getElementById(target.getAttribute("content"));
     fadeIn($content, function() {
       document.body.classList.add("noscroll");
-      $content.style.display = "flex";
+      $content.classList.add("show");
     });
   }
   if(target.classList.contains("lightbox-close")) {
     document.body.classList.remove("noscroll");
-    target.parentElement.parentElement.parentElement.style.display = "none";
+    target.parentElement.parentElement.parentElement.classList.remove("show");
   }
   if(target.classList.contains("lightbox-wrap")) {
     document.body.classList.remove("noscroll");
-    target.style.display = "none";
+    target.classList.remove("show");
   }
 };
