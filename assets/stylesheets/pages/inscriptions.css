@@ -44,7 +44,7 @@
   #inscriptions .split3.disabled {
     color: #A2A2A2;
   }
-    #inscriptions .split3.disabled button {
+    #inscriptions .split3.disabled .button {
       pointer-events: none;
       background-color: #A2A2A2;
     }

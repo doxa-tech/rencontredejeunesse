@@ -31,12 +31,13 @@
     max-height: 100%;
     overflow: auto;
   }
-    .lightbox-wrap .lightbox button {
+    .lightbox-wrap .lightbox .btn-close {
       border: none;
       background: none;
       position: absolute;
       top: 0;
       right: 20px;
+      cursor: pointer;
     }
     .lightbox-wrap .lightbox .img {
       height: 200px;

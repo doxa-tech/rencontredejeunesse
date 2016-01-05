@@ -1,9 +1,10 @@
 $video = document.getElementById("home-video");
-$video.onclick = function() {
-    if($video.paused) {
-      $video.play();
-      $video.controls = true;
+$video.addEventListener('click', function (event) {
+    event.preventDefault(); // Prevent the default behaviour in Firefox
+    if (this.paused) {
+    	  $video.controls = true;
+        this.play();
     } else {
-      $video.pause();
+        this.pause();
     }
-};
+});
