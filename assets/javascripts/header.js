@@ -12,16 +12,19 @@ if (window.location.hash) {
 
 var $burger = document.getElementById("burger-menu"),
     $topbar = document.getElementById("topbar"),
+    $video = document.getElementById("home-video"),
     $body = document.body;
 
 $burger.onclick = function(e) {
   if(!$topbar.classList.contains("open")) {
     $topbar.classList.add("open");
+    $video.style.visibility = "hidden"; // iOS 7 fix
     e.stopPropagation();
   }
 };
 $topbar.onclick = function(e) {
   if($topbar.classList.contains("open")) {
+    $video.style.visibility = "visible"; // iOS 7 fix
     $topbar.classList.remove("open");
   }
 };
