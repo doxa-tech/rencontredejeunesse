@@ -17,3 +17,10 @@
       -ms-flex-align: center;
           align-items: center;
 }
+
+  #container a {
+    color: #3d44ac;
+  }
+    #container a:hover {
+      text-decoration: underline;
+    }

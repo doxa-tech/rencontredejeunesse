@@ -8,13 +8,12 @@ if (isset($_POST["contact"])) {
 		$object = clean($_POST["object"]);
 		$content = clean($_POST["content"]);
 		if (is_valid($firstname) AND is_valid($lastname) AND is_email($email) AND is_valid($object)) {
-	      $headers	= "From: ".$firstname." ".$lastname." <".$email.">\r\n".
-	      			      "Reply-To: ".$email."\r\n".
-				  		      "MIME-Version: 1.0\r\n".
-				  		      "Content-type: text/html; charset=UTF-8\r\n";
-   	   mail("alex@megaphone.ch", $object, $content, $headers);
-   	   mail("info@rencontredejeunesse.ch", $object, $content, $headers);
-      	$success = true;
+	    $headers	= "From: Contact RJ <info@rencontredejeunesse.ch>\r\n".
+      			      "Reply-To: ".$email."\r\n".
+			  		      "MIME-Version: 1.0\r\n".
+			  		      "Content-type: text/plain; charset=UTF-8\r\n";
+   	  mail("info@rencontredejeunesse.ch", $object, $content, $headers);
+        $success = true;
     	}
 	}
 }

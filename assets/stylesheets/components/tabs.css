@@ -45,11 +45,11 @@
     margin-right: 0;
 }
 
-.tabs label p {
+.tabs label div {
   -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
   transition: all 0.5s;
 }
-.tabs label p:hover {
+.tabs label div:hover {
   background: black;
   color: white;
 }
@@ -137,10 +137,6 @@
 
 }
 
-.tabs [id^="tab"]:checked + label {
-
-}
-
 #tab1:checked ~ #tab-content1,
 #tab2:checked ~ #tab-content2,
 #tab3:checked ~ #tab-content3,
@@ -181,7 +177,7 @@
   .tab-content:before {
     content: none !important;
   }
-  .tabs [id^="tab"]:checked + label p {
+  .tabs [id^="tab"]:checked + label div {
     background: black;
     color: white;
   }
