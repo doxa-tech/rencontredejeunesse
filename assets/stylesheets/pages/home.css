@@ -15,11 +15,7 @@ section#home {
       background-size: cover;
       background-position: center bottom;
   }
-  section#home #home-video-wrap {
-    width: 100%;
-    height: 100%;
-  }
-    section#home #home-video-wrap iframe {
+    section#home iframe {
       position: absolute;
       left: 0; right: 0;
       top: 0; bottom: 0;
