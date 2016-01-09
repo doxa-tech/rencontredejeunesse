@@ -19,6 +19,7 @@ $burger.onclick = function(e) {
   if(!$topbar.classList.contains("open")) {
     $topbar.classList.add("open");
     $video.style.visibility = "hidden"; // iOS 7 fix
+    player.getIframe().style.display = "none";
     e.stopPropagation();
   }
 };
