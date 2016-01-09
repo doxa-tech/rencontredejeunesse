@@ -12,7 +12,7 @@ if (window.location.hash) {
 
 var $burger = document.getElementById("burger-menu"),
     $topbar = document.getElementById("topbar"),
-    $video = document.getElementById("home-video"),
+    $video = document.getElementById("home-video-wrap"),
     $body = document.body;
 
 $burger.onclick = function(e) {

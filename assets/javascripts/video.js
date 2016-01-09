@@ -8,8 +8,6 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 var player;
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('home-video', {
-    height: '100%',
-    width: '100%',
     videoId: '_Scym_ZG2Vw',
   });
 }
