@@ -5,7 +5,8 @@ section#home {
   padding: 0;
   position: relative;
 }
-  section#home .poster {
+  section#home #poster {
+      cursor: pointer;
       position: absolute;
       left: 0; right: 0;
       top: 0; bottom: 0;
