@@ -49,8 +49,14 @@
       padding: 5%;
       color: #000;
     }
+      .lightbox-wrap .lightbox p {
+        padding: 20px 0;
+      }
       .lightbox-wrap .lightbox .txt h3 {
         letter-spacing: 20px;
         text-transform: uppercase;
-        padding: 0 0 20px 0;
+        padding: 20px 0 0 0;
+      }
+      .lightbox-wrap .lightbox .txt h4 {
+        padding: 15px 0 0 0;
       }

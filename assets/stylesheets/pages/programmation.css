@@ -112,3 +112,14 @@
     #programmation .row > div.split4 div.i4 {
       background-image: url('../../images/pictures/contagious.jpg');
     }
+
+    @media (max-width: 900px)
+    {
+      section#programmation .schedule .row {
+        display: block !important;
+      }
+        section#programmation .schedule .row .split2 {
+          padding: 0 !important;
+          margin: 0 !important;
+        }
+    }
