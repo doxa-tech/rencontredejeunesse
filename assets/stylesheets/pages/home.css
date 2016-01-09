@@ -15,7 +15,7 @@ section#home {
       background-size: cover;
       background-position: center bottom;
   }
-  section#home #home-video-wrap, section#home #home-video {
+  section#home #home-video-wrap {
     width: 100%;
     height: 100%;
   }
