@@ -3,10 +3,14 @@ section#home {
   height: 100vh;
   overflow: hidden;
   padding: 0;
+  position: relative;
 }
-  section#home video {
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100%;
-    cursor: pointer;
+  section#home .poster {
+      position: absolute;
+      left: 0; right: 0;
+      top: 0; bottom: 0;
+      z-index: 2;
+      background-image: url('../../images/layout/rj_homepage.jpg');
+      background-size: cover;
+      background-position: center bottom;
   }
