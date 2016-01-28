@@ -6,8 +6,10 @@ var options = {
 gumshoe.init();
 smoothScroll.init(options);
 
-if (window.location.hash) {
-  smoothScroll.animateScroll(null, window.location.hash, options);
+window.onload = function() {
+  if (window.location.hash) {
+    smoothScroll.animateScroll(null, window.location.hash, options);
+  }
 }
 
 var $burger = document.getElementById("burger-menu"),
