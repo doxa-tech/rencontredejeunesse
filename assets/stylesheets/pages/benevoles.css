@@ -1,0 +1,10 @@
+section#benevoles {
+  background-image: url('../../images/benevoles/benevoles.jpg');
+  background-size: cover;
+  height: 100vh;
+  text-align: center;
+}
+  section#benevoles p {
+    background: #fff;
+    padding: 20px;
+  }
