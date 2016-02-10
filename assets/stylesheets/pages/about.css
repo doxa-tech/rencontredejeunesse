@@ -20,6 +20,12 @@ section#about {
     padding: 20px 0;
   }
 
+  #about ul {
+    font-size: 14px;
+    padding-left: 5%;
+    margin-bottom: 20px;
+  }
+
   section#about .thumb {
     height: 230px;
     background-size: cover;
