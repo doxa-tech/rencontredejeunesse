@@ -34,8 +34,8 @@
       cursor: pointer;
     }
     #topbar nav img.logo {
-      height: 60px;
-      margin: 5px 0;
+      height: 50px;
+      margin: 10px 0;
     }
     #topbar nav a {
       text-transform: uppercase;
@@ -120,7 +120,7 @@
   }
   /* reducing logo's size */
   #topbar nav img.logo {
-    width: 60px !important;
+    width: 50px !important;
   }
   /* hiding menu except logo */
   #topbar nav a:not(:first-of-type) {
