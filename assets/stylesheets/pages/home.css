@@ -11,7 +11,7 @@ section#home {
       left: 0; right: 0;
       top: 0; bottom: 0;
       z-index: 2;
-      background-image: url('../../images/layout/rj_homepage.jpg');
+      background-image: url('../../images/layout/rj_homepage.png');
       background-size: cover;
       background-position: center bottom;
   }
