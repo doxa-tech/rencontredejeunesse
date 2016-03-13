@@ -44,7 +44,7 @@ section#about {
             align-items: center;
   }
     section#about .thumb p {
-      font-size: 50px;
+      font-size: 30px;
       color: #fff;
       background: #3d44ac;
       -webkit-box-flex: 1;
