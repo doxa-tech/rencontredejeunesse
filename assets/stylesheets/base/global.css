@@ -8,7 +8,7 @@ h1 {
   line-height: 3em;
   text-transform: uppercase;
   letter-spacing: 15px;
-  word-break: break-all;
+  word-break: keep-all;
   font-family: 'futura', Arial, sans-serif;
 }
 h1:not(:first-child) {
