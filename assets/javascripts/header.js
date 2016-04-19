@@ -19,18 +19,18 @@ var $burger = document.getElementById("burger-menu"),
 $burger.onclick = function(e) {
   if(!$topbar.classList.contains("open")) {
     $topbar.classList.add("open");
-    player.getIframe().style.display = "none"; // iOS 7 fix
+    if(typeof player !== 'undefined') { player.getIframe().style.display = "none"; } // iOS 7 fix
     e.stopPropagation();
   }
 };
 $topbar.onclick = function(e) {
   if($topbar.classList.contains("open")) {
-    player.getIframe().style.display = "block"; // iOS 7 fix
+    if(typeof player !== 'undefined') { player.getIframe().style.display = "block"; } // iOS 7 fix
     $topbar.classList.remove("open");
   }
 };
 
-var limit = document.getElementById('home').offsetHeight - 150;
+var limit = document.getElementById('first-page').offsetHeight - 150;
 
 var displayHeader = function() {
 

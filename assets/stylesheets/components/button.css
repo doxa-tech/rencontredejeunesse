@@ -7,6 +7,15 @@
   transition: 0.4s;
 }
 
+	.disabled-button {
+		display: inline-block;
+	  width: 100%;
+	  padding: 15px;
+	  border:none;
+	  font-weight: lighter;
+		cursor: auto;
+	}
+
   .button.blue {
     background: #3d44ac;
     color: #fff;
@@ -21,3 +30,8 @@
     .button.green:hover {
       background: #3C9C82;
     }
+
+	button.disabled-green {
+		background: #4dc0a1;
+    color: #fff;
+	}
