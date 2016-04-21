@@ -43,6 +43,10 @@ section#home {
       section#home a.appstore {
         padding: 15px;
       }
+      section#home a.webversion {
+        color: #000;
+        padding: 15px;
+      }
       section#home img {
         z-index: 3;
       }
