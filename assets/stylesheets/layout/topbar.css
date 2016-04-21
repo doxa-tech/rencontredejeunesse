@@ -1,5 +1,5 @@
 #topbar {
-  z-index: 3;
+  z-index: 4;
   /* Fix safari bug */
   -webkit-flex-shrink: 0;
       -ms-flex-negative: 0;

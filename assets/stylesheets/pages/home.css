@@ -40,12 +40,19 @@ section#home {
         line-height: 1.2em;
         padding: 0 0 10px 0;
       }
-      section#home a.appstore {
-        padding: 15px;
+      section#home .links {
+        text-align: left;;
+      }
+      section#home a.appstore img {
+        padding: 0 15px;
+        width: 225px;
       }
       section#home a.webversion {
-        color: #000;
-        padding: 15px;
+        color: #fff;
+        background: #000;
+        padding: 3px 6px;
+        border-radius: 4px;
+        margin-left: 65px;
       }
       section#home img {
         z-index: 3;
@@ -91,9 +98,10 @@ section#home {
             -ms-flex-wrap: wrap-reverse;
                 flex-wrap: wrap-reverse;
       }
-      section#home .row .split2:nth-of-type(2) img.vision {
-        top: 0;
-        left: 0;
-        width: 100%;
+      section#home .links {
+        text-align: center;
+      }
+      section#home a.webversion {
+        margin-left: 0;
       }
     }
