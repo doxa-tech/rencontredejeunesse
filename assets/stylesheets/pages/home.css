@@ -92,7 +92,7 @@ section#home {
                 align-items: center;
       }
         section#home .row .split2:nth-of-type(2) .split2content {
-
+          width: 100%;
         }
 
         section#home .row .split2:nth-of-type(2) img.vision {
@@ -106,6 +106,9 @@ section#home {
      */
     @media (max-width: 900px)
     {
+      section#home .section-content {
+        display: block;
+      }
       section#home .row {
         -webkit-flex-wrap: wrap-reverse;
             -ms-flex-wrap: wrap-reverse;
