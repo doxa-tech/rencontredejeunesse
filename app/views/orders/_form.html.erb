@@ -1,0 +1,11 @@
+<%= form_for @order do |f| %>
+
+<!-- User information -->
+  <%= render "users/forms/information" %>
+<!-- -->
+
+<!-- Event specific information -->
+  <%= yield f %>
+<!-- -->
+
+<% end %>
