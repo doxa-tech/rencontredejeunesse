@@ -1,0 +1,19 @@
+<%= render layout: "orders/form" do |f| %>
+
+  <%= f.fields_for :product do |product_f| %>
+
+    <%= product_f.label :group %>
+    <%= product_f.text_field :group %>
+
+    <%= product_f.label :entries %>
+    <%= product_f.number_field :entries %>
+
+    <%= product_f.label :boy_beds %>
+    <%= product_f.number_field :boy_beds %>
+
+    <%= product_f.label :girl_beds %>
+    <%= product_f.number_field :girl_beds %>
+
+  <% end %>
+
+<% end %>

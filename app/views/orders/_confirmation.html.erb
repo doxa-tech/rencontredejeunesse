@@ -2,8 +2,57 @@
 
 <!-- User information -->
 
+<%= @order.user.firstname %>
+<%= @order.user.lastname %>
+<%= @order.user.email %>
+<%= @order.user.address %>
+<%= @order.user.npa %>
+<%= @order.user.city %>
+<%= @order.user.country_name %>
+
 <!-- -->
 
+<!-- Order information -->
+
+<%= @order.product.entries %>
+<%= @order.product.boy_beds %>
+<%= @order.product.girl_beds %>
+<%= @order.amount %>
+
+<!-- -->
+
+<%= link_to "Change", { action: "edit" } %>
+
 <!-- Postfinance form -->
+
+<form method="post" action="https://e-payment.postfinance.ch/ncol/test/orderstandard_utf8.asp">
+
+  <input type="hidden" name="PSPID" value="<%= Order::PSPID %>">
+
+  <input type="hidden" name="ORDERID" value="<%= @order.order_id %>">
+
+  <input type="hidden" name="AMOUNT" value="<%= @order.amount %>">
+
+  <input type="hidden" name="CURRENCY" value="CHF">
+
+  <input type="hidden" name="LANGUAGE" value="fr_FR">
+
+  <input type="hidden" name="CN" value="<%= @order.user.full_name %>">
+
+  <input type="hidden" name="EMAIL" value="<%= @order.user.email %>">
+
+  <input type="hidden" name="OWNERZIP" value="<%= @order.user.npa %>">
+
+  <input type="hidden" name="OWNERADDRESS" value="<%= @order.user.address %>">
+
+  <input type="hidden" name="OWNERCTY" value="<%= @order.user.country_name %>">
+
+  <input type="hidden" name="OWNERTOWN" value="<%= @order.user.city %>">
+
+  <input type="hidden" name="SHASIGN" value="<%= @order.shasign %>">
+
+  <input type="submit" value="Pay">
+
+</form>
 
 <!-- -->

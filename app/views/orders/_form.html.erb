@@ -1,11 +1,20 @@
-<%= form_for @order do |f| %>
+<%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
 
-<!-- User information -->
-  <%= render "users/forms/information" %>
-<!-- -->
+  <%= render "error_messages", object: f.object %>
 
-<!-- Event specific information -->
+  <!-- User information -->
+  <%= f.fields_for :user do |person_f| %>
+    <%= render "users/fields/information", f: person_f %>
+  <% end %>
+  <!-- -->
+
+  <!-- Event specific information -->
   <%= yield f %>
-<!-- -->
+  <!-- -->
+
+  <%= f.label :conditions %>
+  <%= f.check_box :conditions %>
+
+  <%= f.submit "Send" %>
 
 <% end %>
