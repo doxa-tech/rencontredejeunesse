@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   # ORDERS
   #
 
+  %w(confirmed canceled incertain declined).each do |status|
+    get "orders/#{status}", to: "orders##{status}"
+  end
+
   namespace :orders do
 
-    resources :rj, only: [:new, :create] do
-      get :confirmation, on: :collection
+    resources :rj, only: [:new, :create, :edit, :update] do
+      get :confirmation, on: :member
     end
 
   end
