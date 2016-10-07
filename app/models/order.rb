@@ -3,7 +3,6 @@ class Order < ApplicationRecord
   PSPID = "rencontreTEST"
 
   attr_accessor :conditions
-  enum status: [:progress, :accepted, :canceled, :incertain, :declined]
 
   belongs_to :user
   belongs_to :product, polymorphic: true
@@ -15,7 +14,7 @@ class Order < ApplicationRecord
   before_create :generate_id
   before_save :assign_amount
 
-  def shasign
+  def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
             "EMAIL=#{user.email}#{KEY}LANGUAGE=fr_FR#{KEY}ORDERID=#{order_id}#{KEY}"\
             "OWNERADDRESS=#{user.address}#{KEY}OWNERCTY=#{user.country_name}#{KEY}"\

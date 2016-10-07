@@ -5,7 +5,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.string :order_id
       t.integer :status
 
-      t.belongs_to :user, index: true
+      t.belongs_to :user, index: true, foreign_key: true
       t.references :product, polymorphic: true, index: true
 
       t.timestamps

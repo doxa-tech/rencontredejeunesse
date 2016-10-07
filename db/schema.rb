@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161005084905) do
+ActiveRecord::Schema.define(version: 20161007084936) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "amount"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20161005084905) do
     t.string   "firstname"
     t.string   "lastname"
     t.string   "email"
+    t.string   "phone"
     t.string   "address"
     t.integer  "npa"
     t.string   "city"
@@ -45,6 +46,16 @@ ActiveRecord::Schema.define(version: 20161005084905) do
     t.boolean  "newsletter"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.integer  "sector"
+    t.integer  "user_id"
+    t.string   "comment"
+    t.string   "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_volunteers_on_user_id"
   end
 
 end

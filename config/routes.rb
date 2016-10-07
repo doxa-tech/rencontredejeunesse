@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   %w(confirmed canceled incertain declined).each do |status|
     get "orders/#{status}", to: "orders##{status}"
   end
+  post "orders/update", to: "orders#update"
 
   namespace :orders do
 

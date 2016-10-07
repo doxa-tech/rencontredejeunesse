@@ -16,4 +16,25 @@
 
   <% end %>
 
+  <!-- Voluntering -->
+
+  <%= fields_for @volunteer do |volunteer_f| %>
+
+    <% VolunteerForm.sectors.each do |sector| %>
+
+    <%= volunteer_f.label sector %>
+    <%= volunteer_f.check_box sector %>
+
+    <% end %>
+
+    <%= volunteer_f.label :other %>
+    <%= volunteer_f.text_field :other %>
+
+    <%= volunteer_f.label :comment %>
+    <%= volunteer_f.text_area :comment %>
+
+  <% end %>
+
+  <!-- -->
+
 <% end %>
