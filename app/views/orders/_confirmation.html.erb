@@ -10,6 +10,10 @@
 <%= @order.user.city %>
 <%= @order.user.country_name %>
 
+<%= @volunteer.selected %>
+<%= @volunteer.other %>
+<%= @volunteer.comment %>
+
 <!-- -->
 
 <!-- Order information -->
@@ -49,7 +53,7 @@
 
   <input type="hidden" name="OWNERTOWN" value="<%= @order.user.city %>">
 
-  <input type="hidden" name="SHASIGN" value="<%= @order.shasign %>">
+  <input type="hidden" name="SHASIGN" value="<%= @order.shain %>">
 
   <input type="submit" value="Pay">
 
