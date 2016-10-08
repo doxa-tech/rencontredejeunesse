@@ -1,6 +1,6 @@
 class OrderMailer < ApplicationMailer
 
-  def confirmation(user, path)
-    mail(to: user, subject: "Confirmation d'inscription", template_path: "order_mail/#{path}")
+  def confirmation(email, path)
+    mail(to: email, subject: "Confirmation d'inscription", template_path: "order_mailer/#{path}")
   end
 end

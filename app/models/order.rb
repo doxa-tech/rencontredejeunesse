@@ -22,6 +22,10 @@ class Order < ApplicationRecord
     return Digest::SHA1.hexdigest(chain)
   end
 
+  def product_name
+    return product_type.demodulize.downcase
+  end
+
   private
 
   def assign_amount

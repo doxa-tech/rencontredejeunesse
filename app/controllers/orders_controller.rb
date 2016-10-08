@@ -20,8 +20,8 @@ class OrdersController < ApplicationController
       @order.payid = params[:PAYID]
       @order.save
       if @order.status == 5
-        OrderMailer.confirmation(@order.user.status, @order.product_type.underscore).deliver_now
-        VolunteerForm.new(session[:services]).save(@order.user) if session[:services]
+        OrderMailer.confirmation(@order.user.email, @order.product_type.underscore).deliver_now
+        Callback::Confirmation.send(@order.product_name)
       end
       head :ok
     else

@@ -3,15 +3,13 @@ class VolunteerForm
   include ActiveModel::Model
 
   def self.sectors
-    keys = Volunteer.sectors.keys
-    keys.delete("other")
-    return keys
+    return Volunteer.sectors.keys
   end
 
   attr_accessor *sectors, :other, :comment
 
   def save(user)
-    Volunteer.find_or_create_by!(sector: "other", other: self.send(:other), comment: self.comment, user: user) if self.other.present?
+    Volunteer.find_or_create_by!(other: self.other, comment: self.comment, user: user) if self.other.present?
     VolunteerForm.sectors.each do |sector|
       Volunteer.find_or_create_by!(sector: sector, comment: self.comment, user: user) if send(sector) == "1"
     end
