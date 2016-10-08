@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def canceled
   end
 
-  def incertain
+  def uncertain
   end
 
   def declined

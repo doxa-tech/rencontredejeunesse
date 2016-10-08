@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # ORDERS
   #
 
-  %w(confirmed canceled incertain declined).each do |status|
+  %w(confirmed canceled uncertain declined).each do |status|
     get "orders/#{status}", to: "orders##{status}"
   end
   post "orders/update", to: "orders#update"
