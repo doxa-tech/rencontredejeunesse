@@ -6,7 +6,11 @@ class OrdersController < ApplicationController
   def canceled
   end
 
+<<<<<<< HEAD
   def uncertain
+=======
+  def incertain
+>>>>>>> 8fd78ddd29b40d29ce11ba8f2506a80817a7552e
   end
 
   def declined
