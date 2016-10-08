@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  KEY = "M7RENCONTREDEJEUNESSE$"
-  PSPID = "rencontreTEST"
+  KEY = Rails.application.secrets.postfinance_key
+  PSPID = Rails.application.secrets.postfinance_pspid
 
   attr_accessor :conditions
 
