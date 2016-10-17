@@ -17,6 +17,11 @@ module Rencontredejeunesse
       g.stylesheets     false
       g.javascripts     false
       g.helper          false
+      g.factory_girl    false
     end
+
+    config.i18n.default_locale = :fr
+    config.time_zone = 'Bern'
+    config.i18n.available_locales = :fr
   end
 end

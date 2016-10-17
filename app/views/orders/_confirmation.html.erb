@@ -1,29 +1,32 @@
-<%= yield %>
+<h1>Confirmation de commande</h1>
 
-<!-- User information -->
+<div id="summary">
 
-<%= @order.user.firstname %>
-<%= @order.user.lastname %>
-<%= @order.user.email %>
-<%= @order.user.address %>
-<%= @order.user.npa %>
-<%= @order.user.city %>
-<%= @order.user.country_name %>
+  <%= yield %>
 
-<%= @volunteer.selected %>
-<%= @volunteer.other %>
-<%= @volunteer.comment %>
+  <!-- User information -->
 
-<!-- -->
+  <%= @order.user.firstname %>
+  <%= @order.user.lastname %>
+  <%= @order.user.email %>
+  <%= @order.user.address %>
+  <%= @order.user.npa %>
+  <%= @order.user.city %>
+  <%= @order.user.country_name %>
 
-<!-- Order information -->
+  <%= @volunteer.selected %>
+  <%= @volunteer.other %>
+  <%= @volunteer.comment %>
 
-<%= @order.product.entries %>
-<%= @order.product.boy_beds %>
-<%= @order.product.girl_beds %>
-<%= @order.amount %>
+  <!-- -->
 
-<!-- -->
+  <!-- Order information -->
+
+  <%= @order.amount %>
+
+  <!-- -->
+
+</div>
 
 <%= link_to "Change", { action: "edit" } %>
 

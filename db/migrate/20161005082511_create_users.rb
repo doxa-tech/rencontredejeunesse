@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.integer :npa
       t.string :city
       t.string :country
-      t.boolean :newsletter
+      t.boolean :newsletter, default: false
 
       t.timestamps
     end

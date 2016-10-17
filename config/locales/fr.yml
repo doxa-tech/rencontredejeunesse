@@ -1,0 +1,53 @@
+fr:
+  attributes:
+    firstname: "Prénom"
+    lastname: "Nom de famille"
+    address: "Adresse"
+    npa: "NPA"
+    city: "Ville"
+    country: "Pays"
+    phone: "Téléphone"
+  activerecord:
+    attributes:
+      order:
+        conditions: "J'ai lu les conditions générales et tous les participants les acceptent."
+      records/rj:
+        entries: "Nombre de forfaits"
+    errors:
+      models:
+        order:
+          attributes:
+            conditions:
+              accepted: "Veuillez accepter les conditions"
+  errors:
+    format: "%{message}"
+    messages:
+      accepted: "Le champ « %{attribute} » doit être accepté(e)"
+      blank: "Le champ « %{attribute} » doit être rempli(e)"
+      present: "Le champ « %{attribute} » doit être vide"
+      confirmation: "Le champ « %{attribute} » ne concorde pas avec %{attribute}"
+      empty: "Le champ « %{attribute} » doit être rempli(e)"
+      equal_to: "Le champ « %{attribute} » doit être égal à %{count}"
+      even: "Le champ « %{attribute} » doit être pair"
+      exclusion: "Le champ « %{attribute} » n'est pas disponible"
+      greater_than: "Le champ « %{attribute} » doit être supérieur à %{count}"
+      greater_than_or_equal_to: "Le champ « %{attribute} » doit être supérieur ou égal à %{count}"
+      inclusion: "Le champ « %{attribute} » n'est pas inclus(e) dans la liste"
+      invalid: "Le champ « %{attribute} » n'est pas valide"
+      less_than: "Le champ « %{attribute} » doit être inférieur à %{count}"
+      less_than_or_equal_to: "Le champ « %{attribute} » doit être inférieur ou égal à %{count}"
+      not_a_number: "Le champ « %{attribute} » n'est pas un nombre"
+      not_an_integer: "Le champ « %{attribute} » doit être un nombre entier"
+      odd: "Le champ « %{attribute} » doit être impair"
+      required: "Le champ « %{attribute} » doit exister"
+      taken: "Le champ « %{attribute} » n'est pas disponible"
+      too_long:
+        one: "Le champ « %{attribute} » est trop long (pas plus d'un caractère)"
+        other: "Le champ « %{attribute} » est trop long (pas plus de %{count} caractères)"
+      too_short:
+        one: "Le champ « %{attribute} » est trop court (au moins un caractère)"
+        other: "Le champ « %{attribute} » est trop court (au moins %{count} caractères)"
+      wrong_length:
+        one: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter un seul caractère)"
+        other: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter %{count} caractères)"
+      other_than: "Le champ « %{attribute} » doit être différent de %{count}"
