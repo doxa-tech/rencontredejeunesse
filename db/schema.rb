@@ -16,11 +16,12 @@ ActiveRecord::Schema.define(version: 20161007084936) do
     t.integer  "amount"
     t.string   "order_id"
     t.integer  "status"
+    t.integer  "payid",        limit: 8
     t.integer  "user_id"
     t.string   "product_type"
     t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -43,9 +44,9 @@ ActiveRecord::Schema.define(version: 20161007084936) do
     t.integer  "npa"
     t.string   "city"
     t.string   "country"
-    t.boolean  "newsletter"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "newsletter", default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "volunteers", force: :cascade do |t|

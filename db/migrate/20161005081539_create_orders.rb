@@ -4,7 +4,7 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.integer :amount
       t.string :order_id
       t.integer :status
-      t.integer :payid
+      t.integer :payid, limit: 8
 
       t.belongs_to :user, index: true, foreign_key: true
       t.references :product, polymorphic: true, index: true

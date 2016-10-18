@@ -1,4 +1,9 @@
 fr:
+  helpers:
+    submit:
+      order:
+        create: "S'inscrire"
+        update: "Mettre à jour"
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"

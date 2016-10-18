@@ -1,4 +1,8 @@
 class VolunteerForm
+  #
+  # Params structure
+  # "volunteer_form" => { "door"=>"1", "install"=>"0", "other"=>"", "comment"=>"" }
+  #
 
   include ActiveModel::Model
 

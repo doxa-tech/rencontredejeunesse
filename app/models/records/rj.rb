@@ -16,14 +16,14 @@ module Records
     before_validation :defaults_for_beds
 
     def calculate_amount
-      return ((entries * entry_price) + (boy_beds + girl_beds) * BED_PRICE + FEE) * 100
+      return ((entries * Rj.ENTRY_PRICE) + (boy_beds + girl_beds) * BED_PRICE + FEE) * 100
+    end
+
+    def self.ENTRY_PRICE
+      50
     end
 
     private
-
-    def entry_price
-      50
-    end
 
     def defaults_for_beds
       self.girl_beds ||= 0
