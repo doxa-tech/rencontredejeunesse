@@ -15,6 +15,10 @@ FactoryGirl.define do
     entries 1
   end
 
+  factory :login, class: Records::Rj do
+    entries 1
+  end
+
   factory :order do
     transient do
       product_name :rj

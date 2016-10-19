@@ -12,12 +12,11 @@ fr:
     city: "Ville"
     country: "Pays"
     phone: "Téléphone"
+    entries: "Nombre de forfaits"
   activerecord:
     attributes:
       order:
         conditions: "J'ai lu les conditions générales et tous les participants les acceptent."
-      records/rj:
-        entries: "Nombre de forfaits"
     errors:
       models:
         order:

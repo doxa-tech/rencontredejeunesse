@@ -1,5 +1,4 @@
-class Orders::RjController < ApplicationController
-  before_action :closed, only: [:edit, :update]
+class Orders::RjController < Orders::BaseController
 
   def new
     @order = order
@@ -33,7 +32,6 @@ class Orders::RjController < ApplicationController
   end
 
   def confirmation
-    @order = Order.find_by_order_id(params[:id])
     @volunteer = VolunteerForm.new(session[:volunteer_params])
   end
 
@@ -56,10 +54,5 @@ class Orders::RjController < ApplicationController
     order.product = Records::Rj.new
     order.assign_attributes(params)
     return order
-  end
-
-  def closed
-    @order = Order.find_by_order_id(params[:id])
-    redirect_to root_path, error: "Cette commande est déjà traitée." unless @order.status.nil?
   end
 end

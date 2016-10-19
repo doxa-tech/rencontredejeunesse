@@ -5,12 +5,12 @@ Feature: RJ order
   I want to order online
 
   Scenario: I successfully complete the inscription form
-    Given I visit the page to order an RJ entry
+    Given I visit the page to order a RJ entry
     When I complete the RJ form
     Then I should see the confirmation page
 
   Scenario: I miscomplete the inscription form
-    Given I visit the page to order an RJ entry
+    Given I visit the page to order a RJ entry
     When I miscomplete the order form
     Then I should see errors for the order form
 

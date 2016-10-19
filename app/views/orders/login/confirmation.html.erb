@@ -1,0 +1,8 @@
+<%= render layout: "orders/confirmation" do %>
+
+  <!-- Product information -->
+
+  <%= @order.product.entries %>
+  <%= @order.product.group %>
+
+<% end %>
