@@ -6,13 +6,13 @@
     <%= product_f.text_field :group %>
 
     <%= product_f.label :entries %>
-    <%= product_f.number_field :entries %>
+    <%= product_f.number_field :entries, class: "amount-entries" %>
 
     <%= product_f.label :boy_beds %>
-    <%= product_f.number_field :boy_beds %>
+    <%= product_f.number_field :boy_beds, class: "amount-boybeds"  %>
 
     <%= product_f.label :girl_beds %>
-    <%= product_f.number_field :girl_beds %>
+    <%= product_f.number_field :girl_beds, class: "amount-girlbeds"  %>
 
   <% end %>
 
@@ -37,4 +37,8 @@
 
   <!-- -->
 
+<% end %>
+
+<%= content_for :javascript do %>
+  <%= javascript_include_tag "orders/rj" %>
 <% end %>
