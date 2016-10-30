@@ -1,23 +1,29 @@
-<%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
+<div id="order">
+  <%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
 
-  <%= render "error_messages", object: f.object %>
+    <%= render "error_messages", object: f.object %>
 
-  <!-- User information -->
-  <%= f.fields_for :user do |person_f| %>
-    <%= render "users/fields/information", f: person_f %>
+    <!-- User information -->
+    <%= f.fields_for :user do |person_f| %>
+      <%= render "users/fields/information", f: person_f %>
+    <% end %>
+    <!-- -->
+
+    <!-- Event specific information -->
+    <%= yield f %>
+    <!-- -->
+
+    <div class="row checkbox">
+      <%= f.label :conditions %>
+      <%= f.check_box :conditions %>
+    </div>
+
+    <div class="price">
+      <div><strong>Frais d'inscription:</strong> 5 CHF</div>
+      <div><strong>Total:</strong> <span id="amount">0</span> CHF</div>
+    </div>
+
+    <%= f.submit %>
+
   <% end %>
-  <!-- -->
-
-  <!-- Event specific information -->
-  <%= yield f %>
-  <!-- -->
-
-  <%= f.label :conditions %>
-  <%= f.check_box :conditions %>
-
-  <div>Frais d'inscription: 5 CHF</div>
-  <div>Total: <span id="amount">0</span> CHF</div>
-
-  <%= f.submit %>
-
-<% end %>
+</div>

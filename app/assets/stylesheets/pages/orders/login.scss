@@ -1,0 +1,22 @@
+#container.order-login {
+
+  .drawbar {
+    background-color: black;
+    height: 130px;
+    display: flex;
+    margin-bottom: 40px;
+    justify-content: center;
+
+    .title {
+      color: white;
+      text-align: center;
+    }
+
+    .logo {
+      position: absolute;
+      left: 10px;
+      top: 30px;
+    }
+  }
+
+}

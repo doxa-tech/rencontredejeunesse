@@ -1,0 +1,60 @@
+#order {
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .column {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  .row.checkbox {
+
+    label {
+      display: flex;
+      align-items: center;
+      margin: 20px 5px 20px 0;
+    }
+
+    input {
+      margin: 20px 0;
+    }
+
+  }
+
+  input, select {
+    margin: 0 20px 20px 20px;
+    height: 27px;
+  }
+
+  label {
+    margin: 0 20px 4px 20px;
+  }
+
+  input[type=submit] {
+    background-color: #00AEE9;
+    padding: 5px 60px;
+    margin: 40px 0;
+    color: white;
+    box-sizing: content-box;
+    border: none;
+
+    &:hover {
+      background-color: #36ccff;
+    }
+  }
+
+  .price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}

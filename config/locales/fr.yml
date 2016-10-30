@@ -13,10 +13,11 @@ fr:
     country: "Pays"
     phone: "Téléphone"
     entries: "Nombre de forfaits"
+    group: "Groupe de jeunes ou église"
   activerecord:
     attributes:
       order:
-        conditions: "J'ai lu les conditions générales et tous les participants les acceptent."
+        conditions: "J'ai lu les conditions générales et les acceptent."
     errors:
       models:
         order:

@@ -1,28 +1,41 @@
 <!-- User information fields -->
 
-<%= f.label :firstname %>
-<%= f.text_field :firstname %>
+<div class="row">
+  <div class="column">
 
-<%= f.label :lastname %>
-<%= f.text_field :lastname %>
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname %>
 
-<%= f.label :email %>
-<%= f.email_field :email %>
+    <%= f.label :email %>
+    <%= f.email_field :email %>
 
-<%= f.label :phone %>
-<%= f.text_field :phone %>
+    <%= f.label :address %>
+    <%= f.text_field :address %>
 
-<%= f.label :address %>
-<%= f.text_field :address %>
+    <%= f.label :city %>
+    <%= f.text_field :city %>
 
-<%= f.label :npa %>
-<%= f.number_field :npa %>
+  </div>
 
-<%= f.label :city %>
-<%= f.text_field :city %>
+  <div class="column">
 
-<%= f.label :country %>
-<%= f.country_select :country, priority_countries: ["CH", "FR", "BE"] %>
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname %>
 
-<%= f.label :newsletter %>
-<%= f.check_box :newsletter %>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+
+    <%= f.label :npa %>
+    <%= f.number_field :npa %>
+
+    <%= f.label :country %>
+    <%= f.country_select :country, priority_countries: ["CH", "FR", "BE"] %>
+
+  </div>
+
+</div>
+
+<div class="row checkbox">
+  <%= f.label :newsletter %>
+  <%= f.check_box :newsletter %>
+</div>

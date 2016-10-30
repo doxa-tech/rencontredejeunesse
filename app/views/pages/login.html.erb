@@ -1,0 +1,91 @@
+<div id="login">
+
+  <section id="home">
+    <div class="banner">
+      <%= image_tag "layout/logo", class: "logo" %>
+      <h1>RJ LOGIN 17</h1>
+      <%= image_tag "icons/arrow" %>
+    </div>
+    <div class="drawbar">
+      <h1 class="date">28.01.<span class="underline">17</span></h1>
+      <p>Une journée destinée à équiper - connecter - encourager. Rejoins des centaines de leaders pour cette événement spécial !</p>
+    </div>
+  </section>
+
+  <section id="people">
+    <p class="intro">Plusieurs orateurs partageront leurs expérience durant la journée, dont:</p>
+    <div class="orators">
+      <div class="orator">
+        <%= image_tag "login/patrice", class: "round" %>
+        <p>Patrice Martorano<br>Eglise Bordeau rive droite</p>
+      </div>
+      <div class="orator">
+        <%= image_tag "login/daniel", class: "round" %>
+        <p>Daniel Darcey<br>Connect Genève</p>
+      </div>
+      <div class="orator plus">
+        <div class="plus">+</div>
+        <p>et d'autres encore</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="day">
+    <div class="content">
+
+      <h2>La journée</h2>
+
+      <div class="row">
+        <div class="activity">
+          <div class="icon left"><%= image_tag "icons/bible" %></div>
+          <h3>Input</h3>
+          <p>Une série de messages encourageants et édifiants seront donnés tout au long de la journée.</p>
+        </div>
+
+        <div class="activity">
+          <div class="icon right"><%= image_tag "icons/music" %></div>
+          <h3>Louange</h3>
+          <p>Un groupe de louange nous ménera dans la présence du Seigneur.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="activity">
+          <div class="icon left"><%= image_tag "icons/tool" %></div>
+          <h3>Ateliers</h3>
+          <p>Plusieurs ateliers seront proposés afin de donnés des clés concrètes pour le travail des leaders.</p>
+        </div>
+
+        <div class="activity">
+          <div class="icon right"><%= image_tag "icons/share" %></div>
+          <h3>Connexion</h3>
+          <p>Des temps libres durant l'événement permettent de discuter et partager avec d'autres leaders venant de toute la Suisse romande.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="practical">
+    <div class="content">
+      <h2>Participer</h2>
+      <p>La RJ Login dure une journée entière, <strong>le samedi 28 janvier 2017</strong>, dès 8h30.</p>
+      <p>Les frais d'entrée sont de <strong>25.-</strong>. Le repas du soir est compris, cependant il faut prévoir soit-même un repas pour midi (pique-nique ou magasins sur place). Il est possible de soit s'inscrire en ligne, soit sur place.</p>
+      <p>Rendez-vous dès 8h30 au <strong>CENTRER DE VIE</strong>, Rue des Mille-Boilles 4, 2000 Neuchâtel.</p>
+      <h3>Inscription et paiement en ligne</h3>
+      <%= link_to "S'inscrire", new_orders_login_path, class: "button" %>
+      <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2721.605333008204!2d6.906355315513699!3d46.98908597914856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478de1e12b1f0683%3A0xe8c0d74cf1cf55!2sCentre+de+Vie!5e0!3m2!1sen!2sch!4v1477760190470" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <section id="social">
+    <div class="icons">
+      <a href="/" target="_blank"><%= image_tag "icons/social/rj" %></a>
+      <a href="https://facebook.com/rencontredejeunesse" target="_blank"><%= image_tag "icons/social/fb" %></a>
+      <a href="https://www.instagram.com/rencontredejeunesse" target="_blank"><%= image_tag "icons/social/ig" %></a>
+    </div>
+    <p>©RJ Login 2017</p>
+    <p>info@rencontredejeunesse.ch</p>
+  </section>
+
+</div>

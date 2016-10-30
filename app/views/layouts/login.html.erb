@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RJ Login - Rencontre pour les leaders chrétiens - Equiper, Encourager, Connecter</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'login', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'login', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div id="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+section#social {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .icons {
+    margin: 40px 0 20px 0;
+
+    img {
+      margin: 0 20px;
+    }
+  }
+
+  p {
+    margin: 10px 0;
+  }
+
+}

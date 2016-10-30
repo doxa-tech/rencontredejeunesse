@@ -1,0 +1,42 @@
+section#practical {
+
+  display: flex;
+  justify-content: center;
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  h2 {
+    margin: 60px 0 30px 0;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.3em;
+  }
+
+  .button {
+    align-self: center;
+    background-color: #00AEE9;
+    padding: 10px 40px;
+    margin: 20px 0;
+    color: white;
+    font-size: 1.2em;
+
+    &:hover {
+      background-color: #36ccff;
+    }
+  }
+
+  #map {
+    margin: 20px 0;
+  }
+
+  p {
+    margin: 15px 0;
+  }
+}
