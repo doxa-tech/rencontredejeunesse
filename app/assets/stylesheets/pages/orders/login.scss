@@ -4,7 +4,6 @@
     background-color: black;
     height: 130px;
     display: flex;
-    margin-bottom: 40px;
     justify-content: center;
 
     .title {
@@ -16,6 +15,22 @@
       position: absolute;
       left: 10px;
       top: 30px;
+    }
+  }
+
+  /*
+    Edit
+  */
+
+  .back {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 30px 0;
+
+    a {
+      color: black;
+      border: 1px solid black;
+      padding: 10px;
     }
   }
 

@@ -1,6 +1,10 @@
 section#home {
   height: 100vh;
 
+  #arrow-down {
+    cursor: pointer;
+  }
+
   .logo {
     position: absolute;
     left: 50px;

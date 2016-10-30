@@ -1,8 +1,19 @@
+<% content_for :id, "order-login" %>
+
+<div class="drawbar">
+  <div class="logo"><%= image_tag "layout/logo" %></div>
+
+  <div class="title">
+    <h1>RJ Login 17</h1>
+    <h2>Confirmation</h2>
+  </div>
+</div>
+
 <%= render layout: "orders/confirmation" do %>
 
   <!-- Product information -->
 
-  <%= @order.product.entries %>
-  <%= @order.product.group %>
+  <p><strong>Nombre de forfaits:</strong> <%= @order.product.entries %></p>
+  <p><strong>Nom du groupe:</strong> <%= @order.product.group %></p>
 
 <% end %>

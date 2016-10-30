@@ -26,6 +26,10 @@ class Order < ApplicationRecord
     return product_type.demodulize.downcase
   end
 
+  def print_amount
+    amount / 100
+  end
+
   private
 
   def assign_amount

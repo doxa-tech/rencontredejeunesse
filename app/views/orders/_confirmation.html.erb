@@ -1,62 +1,73 @@
-<h1>Confirmation de commande</h1>
+<div id="order">
 
-<div id="summary">
+  <div id="summary">
 
-  <%= yield %>
+    <%= yield %>
 
-  <!-- User information -->
+    <!-- User information -->
 
-  <%= @order.user.firstname %>
-  <%= @order.user.lastname %>
-  <%= @order.user.email %>
-  <%= @order.user.phone %>
-  <%= @order.user.address %>
-  <%= @order.user.npa %>
-  <%= @order.user.city %>
-  <%= @order.user.country_name %>
+    <div class="row">
+
+      <div class="column">
+        <p><%= @order.user.firstname %></p>
+        <p><%= @order.user.email %></p>
+        <p><%= @order.user.npa %></p>
+        <p><%= @order.user.address %></p>
+      </div>
+
+      <div class="column">
+        <p><%= @order.user.lastname %></p>
+        <p><%= @order.user.phone %></p>
+        <p><%= @order.user.city %></p>
+        <p><%= @order.user.country_name %></p>
+      </div>
+
+    </div>
+
+    <!-- -->
+
+    <%= link_to image_tag("icons/edit") + " Changer vos informations", { action: "edit" }, class: "edit" %>
+
+    <!-- Order information -->
+
+    <p class="amount">Prix à payer: <%= @order.print_amount %> CHF</p>
+
+    <!-- -->
+
+  </div>
+
+  <!-- Postfinance form -->
+
+  <form method="post" action="https://e-payment.postfinance.ch/ncol/test/orderstandard_utf8.asp">
+
+    <input type="hidden" name="PSPID" value="<%= Order::PSPID %>">
+
+    <input type="hidden" name="ORDERID" value="<%= @order.order_id %>">
+
+    <input type="hidden" name="AMOUNT" value="<%= @order.amount %>">
+
+    <input type="hidden" name="CURRENCY" value="CHF">
+
+    <input type="hidden" name="LANGUAGE" value="fr_FR">
+
+    <input type="hidden" name="CN" value="<%= @order.user.full_name %>">
+
+    <input type="hidden" name="EMAIL" value="<%= @order.user.email %>">
+
+    <input type="hidden" name="OWNERZIP" value="<%= @order.user.npa %>">
+
+    <input type="hidden" name="OWNERADDRESS" value="<%= @order.user.address %>">
+
+    <input type="hidden" name="OWNERCTY" value="<%= @order.user.country_name %>">
+
+    <input type="hidden" name="OWNERTOWN" value="<%= @order.user.city %>">
+
+    <input type="hidden" name="SHASIGN" value="<%= @order.shain %>">
+
+    <%= image_tag "orders/pay-cards" %>
+    <input type="submit" value="Payer">
+
+  </form>
 
   <!-- -->
-
-  <!-- Order information -->
-
-  <%= @order.amount %>
-
-  <!-- -->
-
 </div>
-
-<%= link_to "Changer vos informations", { action: "edit" } %>
-
-<!-- Postfinance form -->
-
-<form method="post" action="https://e-payment.postfinance.ch/ncol/test/orderstandard_utf8.asp">
-
-  <input type="hidden" name="PSPID" value="<%= Order::PSPID %>">
-
-  <input type="hidden" name="ORDERID" value="<%= @order.order_id %>">
-
-  <input type="hidden" name="AMOUNT" value="<%= @order.amount %>">
-
-  <input type="hidden" name="CURRENCY" value="CHF">
-
-  <input type="hidden" name="LANGUAGE" value="fr_FR">
-
-  <input type="hidden" name="CN" value="<%= @order.user.full_name %>">
-
-  <input type="hidden" name="EMAIL" value="<%= @order.user.email %>">
-
-  <input type="hidden" name="OWNERZIP" value="<%= @order.user.npa %>">
-
-  <input type="hidden" name="OWNERADDRESS" value="<%= @order.user.address %>">
-
-  <input type="hidden" name="OWNERCTY" value="<%= @order.user.country_name %>">
-
-  <input type="hidden" name="OWNERTOWN" value="<%= @order.user.city %>">
-
-  <input type="hidden" name="SHASIGN" value="<%= @order.shain %>">
-
-  <input type="submit" value="Payer">
-
-</form>
-
-<!-- -->
