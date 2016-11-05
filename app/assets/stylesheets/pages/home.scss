@@ -1,0 +1,63 @@
+#container.home {
+
+  background: image-url("layout/fond_2017") no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  font-family: 'Libre Baskerville', serif;
+  position: relative;
+  overflow: hidden;
+
+  .content {
+    width: 300px;
+    margin: auto;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  h1 {
+    text-transform: uppercase;
+    letter-spacing: 25px;
+    line-height: 39px;
+    font-size: 16px;
+  }
+
+  .date {
+    font-weight: lighter;
+    color: #999;
+    font-style: italic;
+    letter-spacing: 7px;
+    font-size: 12px;
+  }
+
+  .logo img {
+    width: 28px;
+  }
+
+  div.login {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-family: 'Arial', serif;
+    font-size: 0.9em;
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+  }
+
+  div.login span {
+    margin-left: 5px;
+  }
+
+  div.login img {
+    margin-left: 5px;
+  }
+
+  div.login img:hover {
+    cursor: pointer;
+  }
+}
