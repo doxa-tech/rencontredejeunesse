@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
+gem 'pg'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -53,6 +56,16 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen'
+
+  gem "capistrano", "~> 3.6"
+  gem 'capistrano-maintenance', require: false
+  gem 'capistrano-server', git: 'https://github.com/JS-Tech/capistrano-server'
+  # rails specific capistrano funcitons
+  gem 'capistrano-rails'
+  # integrate bundler with capistrano
+  gem 'capistrano-bundler'
+  # if you are using RVM
+  gem 'capistrano-rvm'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
