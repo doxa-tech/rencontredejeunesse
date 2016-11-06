@@ -16,11 +16,16 @@ section#day {
   .row {
     display: flex;
     justify-content: space-around;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 
   .activity {
-    max-width: 400px;
-    height: 150px;
+    flex: 1;
+
+    margin: 0 20px 0 20px;
     padding: 20px;
     background-color: #00AEE9;
     color: white;
@@ -53,6 +58,6 @@ section#day {
   }
 
   h3 {
-    margin: 10px 0 20px 0;
+    margin: 20px 0 15px 0;
   }
 }

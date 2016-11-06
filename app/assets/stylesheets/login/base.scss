@@ -1,7 +1,16 @@
 #login {
 
+  p, h1, h2, h3, h4, h5 {
+    font-family: Helvetica, Roboto, Arial, sans-serif;
+  }
+
   section .content {
     width: 1000px;
+
+    @media (max-width: 1000px) {
+      width: 100%;
+      padding: 0 8px 0 8px;
+    }
   }
 
 }

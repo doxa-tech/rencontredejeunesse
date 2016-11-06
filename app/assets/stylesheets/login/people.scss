@@ -5,13 +5,18 @@ section#people {
   align-items: center;
 
   .intro {
-    margin: 60px 0 20px 0;
+    margin: 60px 5px 20px 5px;
     font-size: 1.2em;
+    text-align: center;
   }
 
   .orators {
     display: flex;
     text-align: center;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+    }
   }
 
   .orator {
