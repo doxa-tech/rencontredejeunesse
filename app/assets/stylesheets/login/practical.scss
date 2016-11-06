@@ -27,6 +27,11 @@ section#practical {
     color: white;
     font-size: 1.2em;
 
+    &.disabled {
+      background-color: #00AEE9;
+      pointer-events: none;
+    }
+
     &:hover {
       background-color: #36ccff;
     }
