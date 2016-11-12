@@ -1,8 +1,17 @@
 section#people {
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 
   .intro {
     margin: 60px 5px 20px 5px;
@@ -11,11 +20,16 @@ section#people {
   }
 
   .orators {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     text-align: center;
 
     @media (max-width: 600px) {
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
     }
   }
 
@@ -32,18 +46,32 @@ section#people {
       border-radius: 50%;
       height: 150px;
 
+      display: -webkit-box;
+
+      display: -ms-flexbox;
+
       display: flex;
-      justify-content: center;
-      align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
       color: white;
       font-size: 4em;
     }
 
     p {
       height: 60px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
     }
   }
 

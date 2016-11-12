@@ -3,8 +3,12 @@
   .drawbar {
     background-color: black;
     height: 130px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     .title {
       color: white;
@@ -23,8 +27,12 @@
   */
 
   .back {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 10px 0 30px 0;
 
     a {
