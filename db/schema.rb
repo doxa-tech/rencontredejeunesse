@@ -10,7 +10,69 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161019114243) do
+ActiveRecord::Schema.define(version: 20161120145638) do
+
+  create_table "adeia_action_permissions", force: :cascade do |t|
+    t.integer  "adeia_action_id"
+    t.integer  "adeia_permission_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["adeia_action_id"], name: "index_adeia_action_permissions_on_adeia_action_id"
+    t.index ["adeia_permission_id"], name: "index_adeia_action_permissions_on_adeia_permission_id"
+  end
+
+  create_table "adeia_actions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "adeia_elements", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "adeia_group_users", force: :cascade do |t|
+    t.integer  "adeia_group_id"
+    t.integer  "user_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["adeia_group_id"], name: "index_adeia_group_users_on_adeia_group_id"
+    t.index ["user_id"], name: "index_adeia_group_users_on_user_id"
+  end
+
+  create_table "adeia_groups", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "adeia_permissions", force: :cascade do |t|
+    t.string   "owner_type"
+    t.integer  "owner_id"
+    t.integer  "adeia_element_id"
+    t.integer  "permission_type"
+    t.boolean  "read_right",       default: false
+    t.boolean  "create_right",     default: false
+    t.boolean  "update_right",     default: false
+    t.boolean  "destroy_right",    default: false
+    t.integer  "resource_id"
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["adeia_element_id"], name: "index_adeia_permissions_on_adeia_element_id"
+    t.index ["owner_type", "owner_id"], name: "index_adeia_permissions_on_owner_type_and_owner_id"
+  end
+
+  create_table "adeia_tokens", force: :cascade do |t|
+    t.string   "token"
+    t.boolean  "is_valid"
+    t.integer  "adeia_permission_id"
+    t.date     "exp_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["adeia_permission_id"], name: "index_adeia_tokens_on_adeia_permission_id"
+  end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "amount"
@@ -51,9 +113,12 @@ ActiveRecord::Schema.define(version: 20161019114243) do
     t.integer  "npa"
     t.string   "city"
     t.string   "country"
-    t.boolean  "newsletter", default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "newsletter",      default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "remember_token"
+    t.string   "password_digest"
+    t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
   create_table "volunteers", force: :cascade do |t|

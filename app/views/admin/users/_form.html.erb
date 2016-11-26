@@ -1,0 +1,13 @@
+<%= form_for [:admin, @user] do |f| %>
+
+	<%= render "users/fields/information", f: f %>
+
+	<%= f.label :password %>
+	<%= f.password_field :password %>
+
+	<%= f.label :password_confirmation %>
+	<%= f.password_field :password_confirmation %>
+
+	<%= f.submit %>
+
+<% end %>

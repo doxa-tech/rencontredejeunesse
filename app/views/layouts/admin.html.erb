@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RJ Login - Rencontre pour les leaders chrétiens - Equiper, Encourager, Connecter</title>
+    <title>RJ admin</title>
     <%= csrf_meta_tags %>
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700" rel="stylesheet">
-    <%= stylesheet_link_tag    'login', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'login', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'admin', 'data-turbolinks-track': 'reload' %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,7 +16,9 @@
   <body>
 
     <%= render 'layouts/flash' %>
-    
+
+    <%= render 'layouts/admin/header' %>
+
     <div id="container">
       <%= yield %>
     </div>

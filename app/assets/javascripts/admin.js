@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree ./login
+//= require_tree ./admin
 //= require_tree ./sitewide
+//= require snaptable

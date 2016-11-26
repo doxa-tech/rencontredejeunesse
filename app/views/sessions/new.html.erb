@@ -1,0 +1,28 @@
+<% content_for :id, "signin" %>
+
+<div class="form">
+
+  <%= form_for :session, url: sessions_path do |f| %>
+
+    <div class="columns labels">
+      <div class="column">
+
+          <%= f.label :email %>
+          <%= f.label :password %>
+          <%= f.label :remember_me %>
+
+      </div>
+      <div class="column">
+
+        <%= f.text_field :email, placeholder: "Email" %>
+        <%= f.password_field :password, placeholder: "Mot de passe" %>
+        <%= f.check_box :remember_me %>
+
+      </div>
+    </div>
+
+    <%= f.button %>
+
+  <% end %>
+
+</div>

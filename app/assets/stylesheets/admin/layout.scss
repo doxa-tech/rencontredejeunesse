@@ -1,0 +1,37 @@
+body {
+  display: flex;
+
+  header {
+    flex-shrink: 0;
+    flex-grow: 0;
+    color: white;
+    background-color: #3d3d3e;
+    width: 250px;
+
+    a {
+      color: white;
+
+      &:hover {
+        color: #bdbcbc;
+      }
+    }
+
+    li {
+      margin: 0 0 20px 20px;
+    }
+
+    li.text {
+      margin: 30px 0 20px 10px;
+      color: #bdbcbc;
+    }
+
+    img {
+      margin: 10px 0 50px 10px;
+    }
+  }
+
+  #container {
+    width: 100%;
+  }
+
+}

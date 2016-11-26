@@ -7,4 +7,8 @@ class PagesController < ApplicationController
     render layout: "login"
   end
 
+  def dashboard
+    render layout: "admin"
+  end
+
 end

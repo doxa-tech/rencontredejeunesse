@@ -4,6 +4,16 @@ fr:
       order:
         create: "S'inscrire"
         update: "Mettre à jour"
+      create: "Créer"
+      submit: "Envoyer"
+      update: "Enregistrer"
+      session:
+        submit: "Se connecter"
+    label:
+      session:
+        email: "Email"
+        password: "Mot de passe"
+        remember_me: "Rester connecté"
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"
@@ -14,10 +24,17 @@ fr:
     phone: "Téléphone"
     entries: "Nombre de forfaits"
     group: "Groupe de jeunes ou église"
+    password: "Mot de passe"
+    password_confirmation: "Confirmation"
+    status: "Statut"
+    created_at: "Créé le"
   activerecord:
     attributes:
       order:
         conditions: "J'ai lu les conditions générales et les acceptent."
+        print_amount: "Montant"
+        user: "Personne"
+        order_id: "N° de commande"
     errors:
       models:
         order:

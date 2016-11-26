@@ -12,6 +12,7 @@
  *
  *= require_tree ./base
  *= require_tree ./components
- *= require_tree ./login
+ *= require_tree ./admin
  *= require_self
+ *= require snaptable
  */

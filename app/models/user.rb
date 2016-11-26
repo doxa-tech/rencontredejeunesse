@@ -1,6 +1,10 @@
 class User < ApplicationRecord
   has_many :orders
 
+  has_secure_password validations: false
+
+  before_save :create_remember_token
+
   validates :firstname, presence: true, length: { maximum: 30 }
   validates :lastname, presence: true, length: { maximum: 30 }
   validates :email, :format => { :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
@@ -17,5 +21,12 @@ class User < ApplicationRecord
 
   def full_name
     "#{firstname} #{lastname}"
+  end
+  alias name full_name
+
+  private
+
+  def create_remember_token
+    self.remember_token = SecureRandom.urlsafe_base64
   end
 end
