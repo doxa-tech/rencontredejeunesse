@@ -1,0 +1,30 @@
+<h1>Confirmation d'inscription</h1>
+<p>Merci pour votre commande.</p>
+<p>
+  Votre paiement a bien été reçu et votre inscription à la RJ Login est validé.
+</p>
+<p>
+  <li><%= @order.user.full_name %></li>
+
+  <li><%= @order.production.entries %> x entrée RJ Login CHF - <%= Records::Login::ENTRY_PRICE %>.-</li>
+  <li>Total: CHF <%= @order.print_amount %>.-</li>
+</p>
+
+<h2>Sur place</h2>
+
+<p>Pour obtenir votre entrée le jour de l'événement, veuillez imprimer cet email ou le conserver sur votre téléphone afin de présenter le code suivant au guichet.</p>
+<p><%= @order.human_id %></p>
+
+<p>
+  Pour tout complément d'information ou problème, vous pouvez envoyer un email à l'adresse commandes@rencontredejeunesse.ch</p>
+</p>
+
+<%= image_tag "layout/logo-black.png" %>
+
+<p>
+Copyright © 2016 Rencontre de Jeunesse, All rights reserved.
+Rencontre de Jeunesse
+N/A
+1607 Palézieux
+Switzerland
+</p>

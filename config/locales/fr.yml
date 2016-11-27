@@ -35,6 +35,7 @@ fr:
         print_amount: "Montant"
         user: "Personne"
         order_id: "N° de commande"
+        human_id: "N° d'entrée"
     errors:
       models:
         order:

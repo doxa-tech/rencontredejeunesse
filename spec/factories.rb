@@ -15,7 +15,7 @@ FactoryGirl.define do
     entries 1
   end
 
-  factory :login, class: Records::Rj do
+  factory :login, class: Records::Login do
     entries 1
   end
 

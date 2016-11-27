@@ -23,13 +23,13 @@ Rails.application.routes.draw do
 
   namespace :orders do
 
-    resources :rj, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
-    end
-
-    resources :login, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
-    end
+    # resources :rj, only: [:new, :create, :edit, :update] do
+    #   get :confirmation, on: :member
+    # end
+    #
+    # resources :login, only: [:new, :create, :edit, :update] do
+    #   get :confirmation, on: :member
+    # end
 
   end
 

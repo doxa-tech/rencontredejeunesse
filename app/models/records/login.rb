@@ -1,8 +1,8 @@
 module Records
 
   class Login < Record
-    FEE = 5
-    ENTRY_PRICE = 20
+    FEE = 2
+    ENTRY_PRICE = 25
 
     self.table_name = 'records_login'
 

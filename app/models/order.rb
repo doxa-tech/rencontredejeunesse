@@ -10,8 +10,10 @@ class Order < ApplicationRecord
   accepts_nested_attributes_for :product, :user
 
   validates :conditions, acceptance: true
+  validates :order_id, uniqueness: true
+  validates :human_id, uniqueness: true
 
-  before_create :generate_id
+  after_create :generate_id
   before_save :assign_amount
 
   def shain
@@ -37,7 +39,12 @@ class Order < ApplicationRecord
   end
 
   def generate_id
-    self.order_id = Time.now.to_i * rand(1000..9999)
+    loop do
+      self.order_id = Time.now.to_i * rand(1000..9999)
+      self.human_id = SecureRandom.hex(2).upcase
+      break if valid?
+    end
+    save
   end
 
 end

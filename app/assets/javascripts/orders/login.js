@@ -11,5 +11,5 @@ $(document).on("turbolinks:load", function() {
 
 function calculate_amount($entries) {
   var entries = parseInt($entries.val()) || 0;
-  return entries * 20 + 5
+  return entries * 25 + 2
 }
