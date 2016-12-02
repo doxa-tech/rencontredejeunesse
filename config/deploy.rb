@@ -7,6 +7,8 @@ set :deploy_user, "rencontredejeunesse"
 
 set :url, 'eebulle.ch'
 
+set :ssl, true
+
 # Default branch is :master
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
