@@ -14,12 +14,14 @@
     <!-- -->
 
     <div class="row checkbox">
-      <%= f.label :conditions %>
+      <%= f.label :conditions do %>
+        J'ai lu <%= link_to "les conditions générales", nil %> et les acceptent.
+      <% end %>
       <%= f.check_box :conditions %>
     </div>
 
     <div class="price">
-      <div><strong>Frais d'inscription:</strong> 5 CHF</div>
+      <div><strong>Frais d'inscription:</strong> 2 CHF</div>
       <div><strong>Total:</strong> <span id="amount">0</span> CHF</div>
     </div>
 

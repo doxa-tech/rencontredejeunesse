@@ -1,4 +1,6 @@
 class Orders::BaseController < ApplicationController
+  http_basic_authenticate_with name: "rj", password: Rails.application.secrets.basic_pwd, except: :index
+
   include OrdersHelper
 
   before_action :closed, only: [:edit, :update, :confirmation]
