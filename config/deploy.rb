@@ -5,7 +5,7 @@ set :application, 'rencontredejeunesse'
 set :repo_url, 'git@github.com:JS-Tech/rencontredejeunesse.git'
 set :deploy_user, "rencontredejeunesse"
 
-set :url, 'eebulle.ch'
+set :url, 'rencontredejeunesse.ch'
 
 set :ssl, true
 
