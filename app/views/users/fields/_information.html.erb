@@ -3,33 +3,25 @@
 <div class="row">
   <div class="column">
 
-    <%= f.label :firstname %>
-    <%= f.text_field :firstname %>
+    <%= f.text_field_with_label :firstname, required: true %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+    <%= f.email_field_with_label :email, required: true %>
 
-    <%= f.label :address %>
-    <%= f.text_field :address %>
+    <%= f.text_field_with_label :address, required: true %>
 
-    <%= f.label :city %>
-    <%= f.text_field :city %>
+    <%= f.text_field_with_label :city, required: true %>
 
   </div>
 
   <div class="column">
 
-    <%= f.label :lastname %>
-    <%= f.text_field :lastname %>
+    <%= f.text_field_with_label :lastname, required: true %>
 
-    <%= f.label :phone %>
-    <%= f.text_field :phone %>
+    <%= f.text_field_with_label :phone, required: true %>
 
-    <%= f.label :npa %>
-    <%= f.number_field :npa %>
+    <%= f.number_field_with_label :npa, required: true %>
 
-    <%= f.label :country %>
-    <%= f.country_select :country, priority_countries: ["CH", "FR", "BE"] %>
+    <%= f.country_select_with_label :country, priority_countries: ["CH", "FR", "BE"], required: true %>
 
   </div>
 

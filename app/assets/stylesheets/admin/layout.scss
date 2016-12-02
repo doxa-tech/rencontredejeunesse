@@ -26,12 +26,26 @@ body {
     }
 
     img {
-      margin: 10px 0 50px 10px;
+      margin: 10px 0 30px 10px;
     }
+
+    .signout {
+
+      margin: 0 0 50px 10px;
+
+      a {
+        border: 1px solid white;
+        padding: 5px;
+        border-radius: 4px;
+      }
+
+    }
+
   }
 
   #container {
     width: 100%;
+    overflow: auto;
   }
 
 }

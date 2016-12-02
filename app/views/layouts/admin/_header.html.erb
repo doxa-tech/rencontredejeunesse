@@ -1,6 +1,8 @@
 <header>
   <%= image_tag "layout/logo.png" %>
 
+  <div class="signout"><%= link_to "Déconnexion", signout_path, method: :delete %></div>
+
   <ul>
     <li class="text">Admininistration</li>
     <li><%= link_to "Utilisateurs", admin_users_path %></li>

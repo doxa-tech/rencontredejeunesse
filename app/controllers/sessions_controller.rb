@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
   def destroy
     require_login!
     sign_out
-    redirect_to login_path, success: "Déconnexion réussie"
+    redirect_to signin_path, success: "Déconnexion réussie"
   end
 end

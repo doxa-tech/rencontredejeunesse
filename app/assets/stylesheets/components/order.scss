@@ -56,6 +56,10 @@
     margin: 0 20px 4px 20px;
   }
 
+  label.required::after {
+    content: " *";
+  }
+
   input[type=submit] {
     background-color: #00AEE9;
     padding: 5px 60px;

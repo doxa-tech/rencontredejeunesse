@@ -5,8 +5,7 @@
     <%= product_f.label :group %>
     <%= product_f.text_field :group %>
 
-    <%= product_f.label :entries %>
-    <%= product_f.number_field :entries, class: "amount-entries" %>
+    <%= product_f.number_field_with_label :entries, class: "amount-entries", required: true %>
 
   <% end %>
 

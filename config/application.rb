@@ -23,5 +23,7 @@ module Rencontredejeunesse
     config.i18n.default_locale = :fr
     config.time_zone = 'Bern'
     config.i18n.available_locales = :fr
+
+    config.action_view.default_form_builder = "StandardFormBuilder"
   end
 end
