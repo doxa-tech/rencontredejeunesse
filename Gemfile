@@ -74,6 +74,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # authentication & authorization
 gem 'adeia'
 
-gem 'snaptable'
+gem 'snaptable'#, path: "../snaptable"
 
 gem 'bcrypt'
