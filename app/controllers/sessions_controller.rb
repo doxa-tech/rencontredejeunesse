@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :redirect_if_connected, except: :destroy
 
   def new
   end
@@ -18,5 +19,11 @@ class SessionsController < ApplicationController
     require_login!
     sign_out
     redirect_to signin_path, success: "Déconnexion réussie"
+  end
+
+  private
+
+  def redirect_if_connected
+    redirect_to dashboard_path if signed_in?
   end
 end
