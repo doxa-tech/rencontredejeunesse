@@ -9,11 +9,10 @@ server '82.196.4.249', user: 'rencontredejeunesse', roles: %w{web app db}, prima
 # See the example commented out section in the file
 # for more options.
 
-ask(:password, nil, echo: false)
+# ask(:password, nil, echo: false)
 
 set :ssh_options, {
-    password: fetch(:password),
     forward_agent: true,
     user: 'rencontredejeunesse',
-    port: 22
+    port: 77
 }
