@@ -37,14 +37,10 @@ Rails.application.routes.draw do
 
     resources :users, except: :show
 
-    scope :orders do
+    namespace :orders do
 
-      resources :rj, controller: :orders, only: [:show, :destroy] do
-        get "/", to: "orders#rj", on: :collection
-      end
-      resources :login, controller: :orders, only: [:show, :destroy] do
-        get "/", to: "orders#login", on: :collection
-      end
+      resources :rj, only: [:index, :show, :destroy]
+      resources :login, only: [:index, :show, :destroy]
 
     end
 

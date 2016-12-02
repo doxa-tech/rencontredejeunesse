@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.where("lower(email) = ?", params[:session][:email].strip.downcase).first
+    @user = User.with_password.where("lower(email) = ?", params[:session][:email].strip.downcase).first
     if @user && @user.authenticate(params[:session][:password])
       sign_in @user, permanent: params[:session][:remember_me] == "1"
       redirect_back_or dashboard_path, success: "Connexion réussie"

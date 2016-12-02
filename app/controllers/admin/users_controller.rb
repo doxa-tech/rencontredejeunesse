@@ -1,7 +1,7 @@
 class Admin::UsersController < Admin::BaseController
 
   def index
-		@table = Table.new(self, User)
+		@table = Table.new(self, User, User.with_password)
 		@table.respond
 	end
 

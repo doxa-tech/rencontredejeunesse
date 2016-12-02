@@ -1,0 +1,61 @@
+#form {
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .column {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      width: 300px;
+    }
+
+    .row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    input:not([type=checkbox]), select {
+      margin: 0 20px 20px 20px;
+      height: 27px;
+    }
+
+    label {
+      margin: 0 20px 4px 20px;
+    }
+
+    .row.checkbox {
+
+      label {
+        margin: 20px 5px 20px 0;
+      }
+
+      input {
+        margin: 20px 0;
+        height: auto;
+      }
+
+    }
+
+    input[type=submit] {
+      background-color: #00AEE9;
+      padding: 5px 60px;
+      margin: 20px 0;
+      color: white;
+      box-sizing: content-box;
+      border: none;
+
+      &:hover {
+        background-color: #36ccff;
+      }
+    }
+  }
+
+}

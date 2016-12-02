@@ -1,13 +1,17 @@
-<%= form_for [:admin, @user] do |f| %>
+<div id="form">
 
-	<%= render "users/fields/information", f: f %>
+	<%= form_for [:admin, @user] do |f| %>
 
-	<%= f.label :password %>
-	<%= f.password_field :password %>
+		<%= render "users/fields/information", f: f %>
 
-	<%= f.label :password_confirmation %>
-	<%= f.password_field :password_confirmation %>
+		<%= f.label :password %>
+		<%= f.password_field :password %>
 
-	<%= f.submit %>
+		<%= f.label :password_confirmation %>
+		<%= f.password_field :password_confirmation %>
 
-<% end %>
+		<%= f.submit %>
+
+	<% end %>
+
+</div>
