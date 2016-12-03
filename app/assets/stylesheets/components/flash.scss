@@ -2,7 +2,8 @@
   color: white;
   position: absolute;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   top: 10px;
   padding: 8px 27px 8px 8px;
   max-width: 300px;

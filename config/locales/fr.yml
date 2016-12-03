@@ -22,7 +22,6 @@ fr:
     city: "Ville"
     country: "Pays"
     phone: "Téléphone"
-    entries: "Nombre de forfaits"
     group: "Groupe de jeunes ou église"
     password: "Mot de passe"
     password_confirmation: "Confirmation"
@@ -30,6 +29,8 @@ fr:
     created_at: "Créé le"
   activerecord:
     attributes:
+      records/login:
+        entries: "Nombre d'entrées"
       order:
         conditions: "J'ai lu les conditions générales et les acceptent."
         print_amount: "Montant"
@@ -41,7 +42,7 @@ fr:
         order:
           attributes:
             conditions:
-              accepted: "Veuillez accepter les conditions"
+              accepted: "Veuillez accepter les conditions générales"
   errors:
     format: "%{message}"
     messages:

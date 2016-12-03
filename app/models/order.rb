@@ -29,7 +29,7 @@ class Order < ApplicationRecord
   end
 
   def print_amount
-    amount / 100
+    amount ? amount / 100 : 0
   end
 
   private

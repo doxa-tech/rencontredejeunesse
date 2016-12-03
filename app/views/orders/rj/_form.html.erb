@@ -40,5 +40,5 @@
 <% end %>
 
 <%= content_for :javascript do %>
-  <%= javascript_include_tag "orders/rj" %>
+  <%= javascript_include_tag "orders/rj", 'data-turbolinks-track': 'reload' %>
 <% end %>

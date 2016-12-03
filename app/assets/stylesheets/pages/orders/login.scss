@@ -20,6 +20,10 @@
       position: absolute;
       left: 10px;
       top: 30px;
+
+      @media (max-width: 400px) {
+        display: none;
+      }
     }
   }
 

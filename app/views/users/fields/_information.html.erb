@@ -1,28 +1,25 @@
 <!-- User information fields -->
 
-<div class="row">
-  <div class="column">
+<div class="user-information">
 
-    <%= f.text_field_with_label :firstname, required: true %>
-
-    <%= f.email_field_with_label :email, required: true %>
-
-    <%= f.text_field_with_label :address, required: true %>
-
-    <%= f.text_field_with_label :city, required: true %>
-
+  <div class="row">
+    <div><%= f.text_field_with_label :firstname, required: true %></div>
+    <div><%= f.text_field_with_label :lastname, required: true %></div>
   </div>
 
-  <div class="column">
+  <div class="row">
+    <div><%= f.email_field_with_label :email, required: true %></div>
+    <div><%= f.text_field_with_label :phone, required: true %></div>
+  </div>
 
-    <%= f.text_field_with_label :lastname, required: true %>
+  <div class="row">
+    <div><%= f.text_field_with_label :address, required: true %></div>
+    <div><%= f.number_field_with_label :npa, required: true %></div>
+  </div>
 
-    <%= f.text_field_with_label :phone, required: true %>
-
-    <%= f.number_field_with_label :npa, required: true %>
-
-    <%= f.country_select_with_label :country, priority_countries: ["CH", "FR", "BE"], required: true %>
-
+  <div class="row">
+    <div><%= f.text_field_with_label :city, required: true %></div>
+    <div><%= f.country_select_with_label :country, priority_countries: ["CH", "FR", "BE"], required: true %></div>
   </div>
 
 </div>

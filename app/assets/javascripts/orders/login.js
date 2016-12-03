@@ -1,5 +1,7 @@
 $(document).on("turbolinks:load", function() {
 
+  console.log("load");
+
   var $entries = $(".amount-entries"),
       $amount = $("#amount");
 

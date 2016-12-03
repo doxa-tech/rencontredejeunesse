@@ -6,7 +6,7 @@
 <p>
   <li><%= @order.user.full_name %></li>
 
-  <li><%= @order.product.entries %> x entrée RJ Login CHF - <%= Records::Login::ENTRY_PRICE %>.-</li>
+  <li><%= @order.product.entries %> x entrée(s) RJ Login - CHF <%= Records::Login::ENTRY_PRICE %>.-</li>
   <li>Total: CHF <%= @order.print_amount %>.-</li>
 </p>
 

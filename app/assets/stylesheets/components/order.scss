@@ -15,6 +15,8 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+
+    margin-top: 50px;
   }
 
   .column {
@@ -25,13 +27,56 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 300px;
   }
 
   .row {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+  }
+
+  .user-information {
+
+    max-width: 100%;
+
+    .row {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
+
+      div {
+        width: 50%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .row {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+
+        div {
+          width: 100%;
+        }
+
+      }
+
+    }
+
   }
 
   .row.checkbox {
@@ -101,11 +146,12 @@
     font-style: italic;
     margin-top: 30px;
     margin-bottom: 5px;
+    text-align: center;
   }
 
   #error {
 
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 
     .title {
       font-weight: bold;

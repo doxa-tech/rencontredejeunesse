@@ -1,9 +1,14 @@
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 
   header {
-    flex-shrink: 0;
-    flex-grow: 0;
+    -ms-flex-negative: 0;
+        flex-shrink: 0;
+    -webkit-box-flex: 0;
+        -ms-flex-positive: 0;
+            flex-grow: 0;
     color: white;
     background-color: #3d3d3e;
     width: 250px;
