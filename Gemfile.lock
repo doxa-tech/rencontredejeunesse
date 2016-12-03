@@ -99,6 +99,8 @@ GEM
     country_select (3.0.0)
       countries (~> 2.0)
       sort_alphabetical (~> 1.0)
+    css_parser (1.4.7)
+      addressable
     cucumber (2.4.0)
       builder (>= 2.1.2)
       cucumber-core (~> 1.5.0)
@@ -130,6 +132,7 @@ GEM
     gherkin (4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    htmlentities (4.3.4)
     i18n (0.7.0)
     i18n_data (0.7.0)
     jbuilder (2.6.1)
@@ -166,6 +169,12 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     pg (0.19.0)
+    premailer (1.8.7)
+      css_parser (>= 1.4.5)
+      htmlentities (>= 4.0.0)
+    premailer-rails (1.9.4)
+      actionmailer (>= 3, < 6)
+      premailer (~> 1.7, >= 1.7.9)
     public_suffix (2.0.4)
     puma (3.6.2)
     rack (2.0.1)
@@ -295,7 +304,9 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen
+  nokogiri
   pg
+  premailer-rails
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails-i18n (~> 5.0.0)

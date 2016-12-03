@@ -77,3 +77,7 @@ gem 'adeia'
 gem 'snaptable'
 
 gem 'bcrypt'
+
+# inline css in mailer
+gem 'nokogiri'
+gem 'premailer-rails'
