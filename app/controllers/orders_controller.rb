@@ -1,6 +1,7 @@
 require_relative "./orders/callbacks.rb"
 
 class OrdersController < ApplicationController
+  skip_before_action :verify_authenticity_token, only: :update
 
   def confirmed
   end
