@@ -1,7 +1,7 @@
 require_relative "./orders/callbacks.rb"
 
 class OrdersController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :update
+  before_action :update
 
   def confirmed
   end
@@ -15,24 +15,21 @@ class OrdersController < ApplicationController
   def declined
   end
 
+  private
+
   # request from Postfinance
   def update
-    if params[:SHASIGN] == shaout
+    if params[:SHASIGN] == shaout.upcase
       @order = Order.find_by_order_id(params[:orderID])
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]
       @order.save
       if @order.status == 5
         OrderMailer.confirmation(@order).deliver_now
-        Callbacks::Confirmation.send(@order.product_name, session[:volunteer_params], @order.user)
+        Orders::Callbacks::Confirmation.send(@order.product_name, session[:volunteer_params], @order.user)
       end
-      head :ok
-    else
-      head :unprocessable_entity
     end
   end
-
-  private
 
   def shaout
     chain = "AMOUNT=#{params[:amount]}#{Order::KEY}NCERROR=#{params[:NCERROR]}#{Order::KEY}"\
