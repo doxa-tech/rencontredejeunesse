@@ -19,7 +19,8 @@ Rails.application.routes.draw do
   %w(confirmed canceled uncertain declined).each do |status|
     get "orders/#{status}", to: "orders##{status}"
   end
-  post "orders/update", to: "orders#update"
+
+  post "orders/update", to: "orders#update", constraints: { subdomain: 'api' }
 
   namespace :orders do
 
