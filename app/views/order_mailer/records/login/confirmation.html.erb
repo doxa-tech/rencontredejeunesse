@@ -6,7 +6,7 @@
 <p>
   <li><%= @order.user.full_name %></li>
 
-  <li><%= @order.product.entries %> x entrée(s) RJ Login - CHF <%= Records::Login::ENTRY_PRICE %>.-</li>
+  <li><%= @order.product.entries %> x entrée(s) RJ Login - CHF <%= Records::Login::ENTRY_PRICE %>.-/pce</li>
   <li>Total: CHF <%= @order.print_amount %>.-</li>
 </p>
 
@@ -40,5 +40,5 @@
 </table>
 
 <p>
-  Pour tout complément d'information ou problème, vous pouvez envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch</p>
+  Pour tout complément d'information ou problème, vous pouvez envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch .</p>
 </p>
