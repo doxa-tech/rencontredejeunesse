@@ -25,5 +25,15 @@ module Rencontredejeunesse
     config.i18n.available_locales = :fr
 
     config.action_view.default_form_builder = "StandardFormBuilder"
+
+    # Mailer
+    config.action_mailer.smtp_settings = {
+      address:              'mail.infomaniak.ch',
+      port:                 587,
+      user_name:            'noreply@rencontredejeunesse.ch',
+      password:             Rails.application.secrets.email_pwd,
+    }
+
+    config.action_mailer.asset_host = 'rencontredejeunesse.ch'
   end
 end
