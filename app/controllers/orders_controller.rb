@@ -17,14 +17,14 @@ class OrdersController < ApplicationController
 
   # request from Postfinance
   def update
-    if params[:SHASIGN] == shaout
+    if params[:SHASIGN] == shaout.upcase
       @order = Order.find_by_order_id(params[:orderID])
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]
       @order.save
       if @order.status == 5
         OrderMailer.confirmation(@order).deliver_now
-        Callbacks::Confirmation.send(@order.product_name, session[:volunteer_params], @order.user)
+        Orders::Callbacks::Confirmation.send(@order.product_name, session[:volunteer_params], @order.user)
       end
       head :ok
     else
