@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get "orders/#{status}", to: "orders##{status}"
   end
 
-  post "orders/update", to: "orders#update", constraints: { subdomain: 'api' }
+  post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }
 
   namespace :orders do
 
