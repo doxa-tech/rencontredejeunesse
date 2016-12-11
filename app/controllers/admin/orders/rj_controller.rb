@@ -11,7 +11,7 @@ class Admin::Orders::RjController < Admin::BaseController
 
   def destroy
     Order.find(params[:id]).destroy
-		redirect_to dashboard_path, success: "Commande supprimée"
+		redirect_to admin_orders_rj_index_path, success: "Commande supprimée"
   end
 
 end

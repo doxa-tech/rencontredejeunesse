@@ -24,12 +24,17 @@ section#people {
     display: -ms-flexbox;
     display: flex;
     text-align: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
 
-    @media (max-width: 600px) {
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-          -ms-flex-direction: column;
-              flex-direction: column;
+    -ms-flex-pack: distribute;
+
+        justify-content: space-around;
+
+    width: 1000px;
+
+    @media (max-width: 1000px) {
+      width: 100%;
     }
   }
 
@@ -37,41 +42,13 @@ section#people {
     width: 150px;
     margin: 20px;
 
-    img, .plus {
+    img {
       margin-bottom: 10px;
-    }
-
-    .plus {
-      background-color: #00AEE9;
-      border-radius: 50%;
-      height: 150px;
-
-      display: -webkit-box;
-
-      display: -ms-flexbox;
-
-      display: flex;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      color: white;
-      font-size: 4em;
     }
 
     p {
       height: 60px;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
+
     }
   }
 
