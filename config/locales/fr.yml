@@ -31,6 +31,8 @@ fr:
     attributes:
       records/login:
         entries: "Nombre d'entrées"
+      records/rj:
+        entries: "Nombre de forfaits"
       order:
         conditions: "J'ai lu les conditions générales et les acceptent."
         print_amount: "Montant"

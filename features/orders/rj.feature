@@ -12,7 +12,7 @@ Feature: RJ order
   Scenario: I miscomplete the inscription form
     Given I visit the page to order a RJ entry
     When I miscomplete the order form
-    Then I should see errors for the order form
+    Then I should see errors for the RJ form
 
   Scenario: I successfully update my information
     Given I am on the confirmation page for a RJ entry
@@ -21,5 +21,6 @@ Feature: RJ order
 
   Scenario: I miscomplete the update form
     Given I am on the confirmation page for a RJ entry
-    When I miscomplete the update form
-    Then I should see errors for the order form
+    When I visit the order update page
+    When I miscomplete the RJ update form
+    Then I should see errors for the RJ form

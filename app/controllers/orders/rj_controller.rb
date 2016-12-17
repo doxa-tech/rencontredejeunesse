@@ -1,5 +1,5 @@
 class Orders::RjController < Orders::BaseController
-  http_basic_authenticate_with name: "rj", password: Rails.application.secrets.basic_pwd
+  http_basic_authenticate_with name: "rj", password: Rails.application.secrets.basic_pwd if Rails.env.production?
 
   def new
     @order = order

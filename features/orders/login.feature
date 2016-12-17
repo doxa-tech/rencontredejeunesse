@@ -12,7 +12,7 @@ Feature: Login order
   Scenario: I miscomplete the inscription form
     Given I visit the page to order a Login entry
     When I miscomplete the order form
-    Then I should see errors for the order form
+    Then I should see errors for the Login form
 
   Scenario: I successfully update my information
     Given I am on the confirmation page for a Login entry
@@ -21,5 +21,6 @@ Feature: Login order
 
   Scenario: I miscomplete the update form
     Given I am on the confirmation page for a Login entry
-    When I miscomplete the update form
-    Then I should see errors for the order form
+    When I visit the order update page
+    When I miscomplete the Login update form
+    Then I should see errors for the Login form
