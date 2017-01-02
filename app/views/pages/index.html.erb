@@ -1,13 +1,11 @@
-<% content_for :id, "home" %>
+<%= render "pages/sections/home" %>
 
-<div class="content">
-  <h1>Save<br>the<br>date</h1>
-  <p class="date">
-    05-07 MAI 2017
-  </p>
-  <p class="logo">
-    <%= image_tag "layout/logo-black.png" %>
-  </p>
-</div>
+<%= render "pages/sections/vision" %>
 
-<div class="login"><strong>RJ Login</strong><%= link_to image_tag("icons/plus.png"), login_path, id: "login-button" %></div>
+<%= render "pages/sections/anniversary" %>
+
+<%= render "pages/sections/program" %>
+
+<%= render "pages/sections/inscription" %>
+
+<%= render "pages/sections/contact" %>
