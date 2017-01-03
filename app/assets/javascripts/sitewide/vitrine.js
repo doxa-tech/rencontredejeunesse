@@ -13,7 +13,8 @@ $(document).on("ready page:load", function() {
   });
 
   // browser not supporting video looping
-  var video = document.getElementById('video');
+  var video = document.getElementsByTagName('video')[0];
+
   if (typeof video.loop == 'boolean') { // loop supported
     video.loop = true;
   } else { // loop property not supported
