@@ -9,7 +9,9 @@
     width: 100vw;
     height: 100vh;
     video, source {
+      height: 100%;
       width: 100%;
+      object-fit: cover;
     }
   }
 
@@ -28,6 +30,7 @@
     }
     .center {
       color: #fff;
+      margin: 0 50px;
       .inner-wrap {
         width: 400px;
         height: 400px;
