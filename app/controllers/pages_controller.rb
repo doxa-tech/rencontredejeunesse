@@ -1,7 +1,11 @@
 class PagesController < ApplicationController
 
   def index
-    render "vitrine"
+    render "vitrine.old"
+  end
+
+  def vitrine
+
   end
 
   def login

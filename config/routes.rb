@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get "login", to: "pages#login"
 
+  # TEMP
+  get "vitrine", to: "pages#vitrine"
+
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
   get "signin", to: "sessions#new"
@@ -27,7 +30,7 @@ Rails.application.routes.draw do
     resources :rj, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member
     end
-    
+
     resources :login, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member
     end
