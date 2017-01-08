@@ -220,11 +220,18 @@
   }
 }
 
-// @media (max-width: 420px) {
-//   .center {
-//     .inner-wrap {
-//       width: 300px !important;
-//       height: 300px !important;
-//     }
-//   }
-// }
+@media (max-width: 420px) {
+  .center {
+    .inner-wrap {
+      width: 300px !important;
+      height: 300px !important;
+    }
+  }
+  #soon {
+    padding: 90px 0 0 0 !important;
+  }
+  #behind {
+    padding: 80px 60px !important;
+    font-size: 25px !important;
+  }
+}
