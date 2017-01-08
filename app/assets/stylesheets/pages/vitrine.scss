@@ -269,6 +269,13 @@ video {
               flex: 1 0 100% !important;
     }
   }
+  html {
+    background: image-url('vitrine/smoke.png');
+    background-size: cover;
+  }
+  video {
+    display: none !important;
+  }
 }
 
 @media (max-width: 420px) {
