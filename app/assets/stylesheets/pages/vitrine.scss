@@ -108,7 +108,13 @@
           bottom: 0;
           background: #000;
           color: #fff;
+
           border-radius: 50%;
+          border-top-left-radius: 50%;
+          border-top-right-radius: 50%;
+          border-bottom-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+
           padding: 170px 0 0 0;
           -webkit-transition: opacity .4s .3s, -webkit-transform 800ms cubic-bezier(0.190, 1.000, 0.560, 1.000);
           transition: opacity .4s .3s, -webkit-transform 800ms cubic-bezier(0.190, 1.000, 0.560, 1.000);
@@ -137,7 +143,13 @@
           font-size: 30px;
           font-weight: bold;
           padding: 135px 60px;
+
           border-radius: 50%;
+          border-top-left-radius: 50%;
+          border-top-right-radius: 50%;
+          border-bottom-left-radius: 50%;
+          border-bottom-right-radius: 50%;
+
           border: 2px solid #000;
         }
       }
@@ -212,8 +224,8 @@ video::-webkit-media-controls {
 
 /* Crappy stuff, hide blue shadow on mobile */
 
--webkit-tap-highlight-color: rgba(0,0,0,0);
--webkit-tap-highlight-color: transparent;
+// -webkit-tap-highlight-color: rgba(0,0,0,0);
+// -webkit-tap-highlight-color: transparent;
 
 /* Mobile compatibility */
 
