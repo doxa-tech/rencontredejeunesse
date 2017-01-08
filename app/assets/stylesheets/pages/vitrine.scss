@@ -1,7 +1,32 @@
 #container.vitrine {
   text-align: center;
-  font-family: didot;
   overflow-x: hidden;
+  font-family: didot, 'Arial', serif;
+
+  div.login {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-size: 0.9em;
+    position: absolute;
+    right: 5px;
+    bottom: 10px;
+  }
+
+  div.login span {
+    margin-left: 5px;
+  }
+
+  div.login img {
+    margin-left: 5px;
+  }
+
+  div.login img:hover {
+    cursor: pointer;
+  }
 
   .background {
     z-index: -100;
@@ -11,19 +36,31 @@
     video, source {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      -o-object-fit: cover;
+         object-fit: cover;
     }
   }
 
   .wrap {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 100%;
     & > div {
-      flex: 1;
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
       & > .inner-wrap {
         display: inline-block;
       }
@@ -35,6 +72,7 @@
         width: 400px;
         height: 400px;
         border-radius: 50%;
+        -webkit-transition: .1s;
         transition: .1s;
         position: relative;
 
@@ -50,9 +88,12 @@
           bottom: 0;
           background: #000;
           border-radius: 50%;
-          animation: pulse 5s ease-out;
-          animation-iteration-count: infinite;
-          animation-delay: 5s;
+          -webkit-animation: pulse 5s ease-out;
+                  animation: pulse 5s ease-out;
+          -webkit-animation-iteration-count: infinite;
+                  animation-iteration-count: infinite;
+          -webkit-animation-delay: 5s;
+                  animation-delay: 5s;
           opacity: 0;
         }
 
@@ -68,12 +109,18 @@
           color: #fff;
           border-radius: 50%;
           padding: 170px 0 0 0;
+          -webkit-transition: opacity .4s .3s, -webkit-transform 800ms cubic-bezier(0.190, 1.000, 0.560, 1.000);
+          transition: opacity .4s .3s, -webkit-transform 800ms cubic-bezier(0.190, 1.000, 0.560, 1.000);
           transition: transform 800ms cubic-bezier(0.190, 1.000, 0.560, 1.000), opacity .4s .3s;
-          transform-origin: top;
+          transition: transform 800ms cubic-bezier(0.190, 1.000, 0.560, 1.000), opacity .4s .3s, -webkit-transform 800ms cubic-bezier(0.190, 1.000, 0.560, 1.000);
+          -webkit-transform-origin: top;
+                  transform-origin: top;
           &.open {
-            transform-origin: top;
-            transform: rotate(-100deg);
-            // opacity: .2;
+            -webkit-transform-origin: top;
+                    transform-origin: top;
+            -webkit-transform: rotate(-100deg);
+                    transform: rotate(-100deg);
+            /* opacity: .2;*/
           }
         }
         #behind {
@@ -99,7 +146,6 @@
       min-width: 250px;
       font-size: 30px;
       text-transform: uppercase;
-      font-weight: bold;
       line-height: 2em;
       .inner-wrap {
         text-align: right;
@@ -110,6 +156,29 @@
 }
 
 /* Animation */
+
+@-webkit-keyframes pulse {
+ 0% {
+    -webkit-transform: scale(1);
+    opacity: 0.0;
+ }
+ 4% {
+    -webkit-transform: scale(1);
+    opacity: 0.1;
+ }
+ 8% {
+    -webkit-transform: scale(1.05);
+    opacity: 0.2;
+ }
+ 13% {
+    -webkit-transform: scale(1.1);
+    opacity: 0.2;
+ }
+ 17% {
+    -webkit-transform: scale(1.15);
+    opacity: 0.0;
+ }
+}
 
 @keyframes pulse {
  0% {
@@ -143,7 +212,9 @@
     }
     .center, .right {
       width: 100% !important;
-      flex: 1 0 100% !important;
+      -webkit-box-flex: 1 !important;
+          -ms-flex: 1 0 100% !important;
+              flex: 1 0 100% !important;
     }
   }
 }

@@ -1,6 +1,5 @@
 <% content_for :id, "vitrine" %>
 
-
 <div class="background">
   <video loop muted autoplay>
       <source src="<%= video_path('smoke_bg.mp4') %>" type="video/mp4">
@@ -18,7 +17,7 @@
       <div id="pulse"></div>
       <span id="soon">
         <%= image_tag "vitrine/bientot.png" %><br>
-        Clique pour découvrir quand
+        Découvrir quand
       </span>
       <span id="behind">
         Lancement de la campagne<br>28 JANV 17
@@ -34,3 +33,5 @@
   </div>
 
 </div>
+
+<div class="login"><strong>RJ Login</strong><%= link_to image_tag("icons/plus.png"), login_path, id: "login-button" %></div>

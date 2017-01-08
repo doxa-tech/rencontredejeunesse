@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin/permissions"
 
-  root to: "pages#vitrine"
+  root to: "pages#index"
 
   get "login", to: "pages#login"
-  get "home", to: "pages#index"
+
+  # TEMP
+  get "home", to: "pages#home"
 
   # TEMP
   get "vitrine", to: "pages#vitrine"
