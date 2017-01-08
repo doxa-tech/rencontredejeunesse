@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   get "login", to: "pages#login"
   get "home", to: "pages#index"
 
+  # TEMP
+  get "vitrine", to: "pages#vitrine"
+
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
   get "signin", to: "sessions#new"

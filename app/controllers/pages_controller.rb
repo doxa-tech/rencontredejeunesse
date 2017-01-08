@@ -8,6 +8,10 @@ class PagesController < ApplicationController
     render "vitrine"
   end
 
+  def index
+    render "vitrine.old"
+  end
+
   def login
     render layout: "login"
   end
