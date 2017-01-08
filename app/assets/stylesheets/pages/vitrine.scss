@@ -1,7 +1,6 @@
 #container.vitrine {
   text-align: center;
   font-family: didot;
-  overflow: hidden;
 
   .background {
     z-index: -100;
@@ -137,7 +136,13 @@
 /* Mobile compatibility */
 
 @media (max-width: 800px) {
-  .left {
-    display: none;
+  #container.vitrine {
+    .left {
+      display: none;
+    }
+    .center, .right {
+      width: 100% !important;
+      flex: 1 0 100% !important;
+    }
   }
 }

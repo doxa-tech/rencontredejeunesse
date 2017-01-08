@@ -1,0 +1,10 @@
+#container.main {
+  font-family: didot, serif;
+
+  section {
+    min-height: 100vh;
+    /* To ensure 100% height */
+    display: flex;
+    flex-direction: column;
+  }
+}

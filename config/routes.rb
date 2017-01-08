@@ -2,9 +2,10 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin/permissions"
 
-  root to: "pages#index"
+  root to: "pages#vitrine"
 
   get "login", to: "pages#login"
+  get "home", to: "pages#index"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
@@ -27,7 +28,7 @@ Rails.application.routes.draw do
     resources :rj, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member
     end
-    
+
     resources :login, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member
     end

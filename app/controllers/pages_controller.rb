@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
 
-  def index
+  def home
+    render "index"
+  end
+
+  def vitrine
     render "vitrine"
   end
 
