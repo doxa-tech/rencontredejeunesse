@@ -7,6 +7,30 @@
 }
 
 @font-face {
+  font-family: "didot";
+  src: asset-url("Didot.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "didot";
+  src: asset-url("Didot-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: bold;
+  font-stretch: normal;
+}
+
+@font-face {
+  font-family: "didot";
+  src: asset-url("Didot-Italic.ttf") format("truetype");
+  font-style: italic;;
+  font-weight: normal;
+  font-stretch: normal;
+}
+
+@font-face {
   font-family: "delirium";
   src: asset-url("DELIRIUM.ttf") format("truetype");
   font-style: normal;
