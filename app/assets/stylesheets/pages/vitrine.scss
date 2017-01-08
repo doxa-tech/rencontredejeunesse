@@ -204,6 +204,12 @@
  }
 }
 
+/* Crappy stuff, hide play button on iOS */
+
+video::-webkit-media-controls {
+    display:none !important;
+}
+
 /* Mobile compatibility */
 
 @media (max-width: 800px) {
