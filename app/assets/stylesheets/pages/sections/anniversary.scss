@@ -1,0 +1,145 @@
+@import '../../base/variables';
+
+section#anniversary {
+  // First row
+  .row.first {
+    position: relative;
+
+    h2 {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      text-transform: uppercase;
+    }
+    & > div {
+      height: 400px;
+    }
+    & > div:nth-of-type(1) {
+      background: url('http://placehold.it/400x400/60b081');
+      background-size: cover;
+    }
+    & > div:nth-of-type(2) {
+      background: url('http://placehold.it/400x400/e06c56');
+      background-size: cover;
+    }
+    & > div:nth-of-type(3) {
+      background: url('http://placehold.it/400x400/76bbf4');
+      background-size: cover;
+    }
+  }
+
+  // Second row
+  .row.second {
+    height: 400px;
+    background: #555;
+    align-items: center;
+
+    // All col
+    & > div {
+      text-align: center;
+    }
+    // First col
+    & > div:nth-of-type(1) {
+      flex: 1 0 20%;
+      font-family: sans-serif;
+      font-size: 100px;
+      font-weight: 100;
+    }
+    // Second col
+    & > div:nth-of-type(2) {
+      flex: 1 0 60%;
+      font-style: italic;
+      position: relative;
+
+      &:before, &:after {
+        position: absolute;
+        font-size: 1.5em;
+        font-style: italic;
+        font-weight: bold;
+      }
+      &:before {
+        content: '“';
+        left: 0;
+      }
+      &:after {
+        content: '”';
+        right: 0;
+      }
+    }
+    // Third col
+    & > div:nth-of-type(3) {
+      flex: 1 0 20%;
+      font-family: sans-serif;
+      font-size: 100px;
+      font-weight: 100;
+    }
+  }
+
+  // Third row
+  .row.third {
+    // All col
+    & > div {
+      height: 400px;
+    }
+    // First col
+    & > div:nth-of-type(1) {
+      background: url('http://placehold.it/400x400/60b081');
+      background-size: cover;
+    }
+    // Second col
+    & > div:nth-of-type(2) {
+      background: url('http://placehold.it/400x400/e06c56');
+      background-size: cover;
+    }
+    // Third col
+    & > div:nth-of-type(3) {
+      background: url('http://placehold.it/400x400/76bbf4');
+      background-size: cover;
+    }
+  }
+
+  h3 {
+    padding: $ptop $pright $pbottom $pleft;
+    font-size: 40px;
+  }
+
+  // Forth row
+  .row.forth {
+    padding: 0 $pright $pbottom $pleft;
+
+    // All col
+    & > div {
+      height: 600px;
+      flex: 1;
+      min-width: 400px;
+
+      .wrap {
+        position: relative;
+        background: #888;
+        height: 100%;
+        padding: 60px 10px;
+
+        h4 {
+          position: absolute;
+          right: 0;
+          top: -10px;
+          font-family: delirium, sans-serif;
+          text-transform: uppercase;
+          font-size: 40px;
+          font-weight: 100;
+        }
+      }
+    }
+    // First col
+    & > div:nth-of-type(1) {
+      padding: 0 10px 0 0;
+    }
+    // Second col
+    & > div:nth-of-type(2) {
+      padding: 0 10px 0 0;
+    }
+  }
+
+}

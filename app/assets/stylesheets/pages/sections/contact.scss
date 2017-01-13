@@ -1,0 +1,66 @@
+@import '../../base/variables';
+
+section#contact {
+  padding: $ptop $pright $pbottom $pleft;
+
+  .row.main {
+    // First col
+    & > div:nth-of-type(1) {
+      flex: 1 0 75%;
+
+      .row.sub.first {
+        width: 50%;
+      }
+      .row.sub.second {
+        // First sub-col
+        & > div:nth-of-type(1) {
+          flex: 1;
+
+          input, textarea {
+            display: block;
+            width: 100%;
+            border: none;
+            background: #d6d6d6;
+            padding: 7px 10px;
+            margin: 10px 0;
+          }
+          .submit {
+            text-align: right;
+            padding: 40px 0 0 0;
+          }
+          input[type=submit] {
+            width: 200px;
+            display: inline;
+            color: #fff;
+            background: #333;
+          }
+        }
+        // Second sub-col
+        & > div:nth-of-type(2) {
+          flex: 1;
+
+          p {
+            padding: 0 30px;
+          }
+        }
+      }
+    }
+    // Second col
+    & > div:nth-of-type(2) {
+      flex: 1 0 25%;
+      position: relative;
+
+      h2 {
+        transform-origin: right bottom;
+        transform: translateY(-100%) rotate(-90deg);
+        font-size: $title-size;
+        text-transform: uppercase;
+        font-family: delirium, sans-serif;
+        position: absolute;
+        top: 0;
+        right: -20px;
+      }
+    }
+  }
+
+}

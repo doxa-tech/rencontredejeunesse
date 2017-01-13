@@ -1,13 +1,13 @@
 @import '../../base/variables';
 
 section#vision {
+  padding: $ptop $pright $pbottom $pleft;
 
   .row {
     flex: 1;
 
-    div:nth-child(1) {
-      padding: $ptop $pright $pbottom $pleft;
-
+    // First col
+    & > div:nth-child(1) {
         p:nth-child(1) {
           font-size: 22px;
         }
@@ -17,18 +17,19 @@ section#vision {
         }
     }
 
-    div:nth-child(2) {
-      background: #000;
-      color: #fff;
-      text-transform: uppercase;
-      font-family: delirium, sans-serif;
+    // Second col
+    & > div:nth-child(2) {
       position: relative;
+
       h2 {
-        transform: rotate(-90deg);
+        transform-origin: right bottom;
+        transform: translateY(-100%) rotate(-90deg);
         font-size: $title-size;
+        text-transform: uppercase;
+        font-family: delirium, sans-serif;
         position: absolute;
-        top: 20%;
-        right: 20%;
+        top: 0;
+        right: -20px;
       }
     }
   }
