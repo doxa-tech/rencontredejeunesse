@@ -12,6 +12,7 @@
  *
  *= require_tree ./base
  *= require_tree ./components
+*= require_tree ./layout
  *= require_tree ./pages
  *= require_self
  */

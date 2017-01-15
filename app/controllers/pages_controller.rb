@@ -4,12 +4,7 @@ class PagesController < ApplicationController
     render "index"
   end
 
-  def vitrine
-    render "vitrine"
-  end
-
   def index
-    # render "vitrine.old"
     render "vitrine"
   end
 

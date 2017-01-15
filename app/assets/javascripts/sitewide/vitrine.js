@@ -12,16 +12,4 @@ $(document).on("ready page:load", function() {
     pulse.show();
   });
 
-  // browser not supporting video looping
-  var video = document.getElementsByTagName('video')[0];
-
-  if (typeof video.loop == 'boolean') { // loop supported
-    video.loop = true;
-  } else { // loop property not supported
-    video.on('ended', function () {
-      this.currentTime = 0;
-      this.play();
-    }, false);
-  }
-
 });
