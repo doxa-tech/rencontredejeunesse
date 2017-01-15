@@ -5,7 +5,7 @@ class PagesController < ApplicationController
   end
 
   def index
-    render "vitrine"
+    render "vitrine", layout: "vitrine"
   end
 
   def login
