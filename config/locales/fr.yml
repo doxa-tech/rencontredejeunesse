@@ -1,4 +1,8 @@
 fr:
+  admin:
+    checkin:
+      login: "RJ Login"
+      rj: "Rencontre de jeunesse"
   helpers:
     submit:
       order:

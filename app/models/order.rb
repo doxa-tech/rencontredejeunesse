@@ -32,6 +32,14 @@ class Order < ApplicationRecord
     amount ? amount / 100 : 0
   end
 
+  def human_status
+    if status == 5 || status == 9
+      "Payé"
+    else
+      "Non payé"
+    end
+  end
+
   private
 
   def assign_amount

@@ -1,0 +1,21 @@
+<%= link_to "Retour au checkin", admin_checkin_index_path %>
+
+<h1>Commande <i><%= t("admin.checkin.#{@order.product_name}") %></i></h1>
+
+<div id="show">
+
+  <div class="important">
+    <div>Statut: <b><%= @order.human_status %></b></div>
+    <div>Nbre d'entrée: <b><%= @order.product.entries %></b></div>
+  </div>
+
+  <!-- Order information -->
+  <p><strong>Montant:</strong> <%= @order.print_amount %> CHF</p>
+  <p><strong>N° d'entrée:</strong> <%= @order.human_id %></p>
+
+  <!-- User information -->
+
+  <h3>Information de la personne</h3>
+  <%= render 'admin/users/show' %>
+
+</div>

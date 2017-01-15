@@ -48,7 +48,7 @@ Rails.application.routes.draw do
 
     end
 
-    resources :checkin, only: [:index, :show]
+    resources :checkin, only: [:index, :create, :show]
 
   end
 

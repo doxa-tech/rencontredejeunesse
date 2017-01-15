@@ -1,0 +1,14 @@
+<h1>Contrôle de commande</h1>
+
+<div id="checkin">
+
+  <%= form_tag admin_checkin_index_path do %>
+
+    <%= label_tag :human_id, "Entrez le numéro de commande" %>
+    <%= text_field_tag :human_id, nil, maxlength: "4" %>
+
+    <%= submit_tag "Afficher", class: "button" %>
+
+  <% end %>
+
+</div>
