@@ -19,41 +19,8 @@
 
     <div id="container" class="<%= yield :id %>">
 
-      <header>
-
-        <div id="burger-menu"><%= image_tag "icons/menu.png" %></div>
-
-        <div id="content-menu">
-
-          <nav>
-            <%= image_tag "icons/close2.png", id: "close-menu" %>
-            <a>Home</a>
-            <a>Vision 2017</a>
-            <a>25 ans</a>
-            <a>Programme</a>
-            <a>S'inscire</a>
-            <a>S'engager</a>
-            <a>Contact</a>
-          </nav>
-        </div>
-
-      </header>
-
       <%= yield %>
 
-      <footer>
-        <div class="partners">
-          <p>Partenaires</p>
-          <div>
-            <a>Vectorcom</a>
-            <a>Cash Solutions</a>
-            <a>JS Tech</a>
-          </div>
-        </div>
-        <div class="social">
-          FB
-        </div>
-      </footer>
     </div>
   </body>
 </html>

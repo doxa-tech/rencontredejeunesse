@@ -1,11 +1,11 @@
 class PagesController < ApplicationController
 
   def home
-    render "index"
+    render "index", layout: "application.new"
   end
 
   def index
-    render "vitrine", layout: "vitrine"
+    render "vitrine"
   end
 
   def login
