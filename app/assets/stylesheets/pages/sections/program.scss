@@ -118,12 +118,9 @@ section#program {
       position: relative;
 
       & > div {
-        p {
-          padding: 0 0 10px 0;
-
-          span {
-            padding: 0 20px 0 0;
-          }
+        table tr td {
+          padding: 0 20px 10px 0;
+          vertical-align: top;
         }
       }
     }
