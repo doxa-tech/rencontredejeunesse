@@ -17,6 +17,7 @@ footer {
     justify-content: center;
 
     a {
+      color: black;
       padding-right: 10px;
     }
 
@@ -28,6 +29,10 @@ footer {
   .social {
     display: flex;
     align-items: center;
+
+    a {
+      margin: 0 10px;
+    }
   }
 
 }

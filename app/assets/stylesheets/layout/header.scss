@@ -44,8 +44,13 @@ header {
       flex-direction: column;
 
       a {
+        color: black;
         margin: 6px 0 6px 0;
         font-size: 1.2em;
+
+        &.active {
+          
+        }
       }
 
       img {

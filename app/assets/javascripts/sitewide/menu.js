@@ -1,4 +1,4 @@
-$(document).on("ready page:load", function() {
+$(document).on("turbolinks:load", function() {
 
   $("#burger-menu").click(function() {
     $("#content-menu").addClass("active");

@@ -25,15 +25,15 @@
 
         <div id="content-menu">
 
-          <nav>
+          <nav data-gumshoe>
             <%= image_tag "icons/close2.png", id: "close-menu" %>
-            <a>Home</a>
-            <a>Vision 2017</a>
-            <a>25 ans</a>
-            <a>Programme</a>
-            <a>S'inscire</a>
+            <a href="#home">Home</a>
+            <a href="#vision">Vision 2017</a>
+            <a href="#anniversary">25 ans</a>
+            <a href="#program">Programme</a>
+            <a href="#inscription">S'inscrire</a>
             <a>S'engager</a>
-            <a>Contact</a>
+            <a href="#contact">Contact</a>
           </nav>
         </div>
 
@@ -45,13 +45,15 @@
         <div class="partners">
           <p>Partenaires</p>
           <div>
-            <a>Vectorcom</a>
-            <a>Cash Solutions</a>
-            <a>JS Tech</a>
+            <a href="http://www.vecteurcom.com" target="_blank">Vectorcom</a>
+            <a href="http://www.cash-solutions.ch" target="_blank">Cash Solutions</a>
+            <a href="http://jstech.ch" target="_blank">JS Tech</a>
           </div>
         </div>
         <div class="social">
-          FB
+          <a href="https://facebook.com/rencontredejeunesse" target="_blank"><%= image_tag "icons/social/fb2.png" %></a>
+          <a href="https://www.instagram.com/rencontredejeunesse" target="_blank"><%= image_tag "icons/social/ig2.png" %></a>
+          <a href="https://www.youtube.com/user/RencontredeJeunesse" target="_blank"><%= image_tag "icons/social/yt2.png" %></a>
         </div>
       </footer>
     </div>

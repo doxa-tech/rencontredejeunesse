@@ -1,4 +1,4 @@
-$(document).on("ready page:load", function() {
+$(document).on("turbolinks:load", function() {
   var soon = $("#soon");
   var behind = $("#behind");
   var pulse = $("#pulse");
