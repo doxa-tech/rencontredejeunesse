@@ -145,3 +145,23 @@ section#anniversary {
   }
 
 }
+
+@media only screen and (max-width: $responsive-size) {
+  section#anniversary {
+    h2 {
+      font-size: 40px !important;
+    }
+    .row.forth {
+      padding: $responsive-padding !important;
+      flex-direction: column !important;
+
+      // All col
+      & > div {
+        flex: 1 0 100%;
+        min-width: initial !important;
+        margin: 10px 0 !important;
+        padding: 0px !important;
+      }
+    }
+  }
+}

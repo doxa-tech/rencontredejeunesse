@@ -64,12 +64,23 @@ section#program {
 
       & > div {
         // Make all elements overlap
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
+        // position: absolute;
+        // top: 0;
+        // right: 0;
+        // bottom: 0;
+        // left: 0;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: $responsive-size) {
+  section#program {
+    padding: $responsive-padding !important;
+
+    // Second col
+    .row.second {
+      flex-direction: column !important;
     }
   }
 }

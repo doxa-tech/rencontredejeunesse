@@ -8,18 +8,21 @@ section#vision {
 
     // First col
     & > div:nth-child(1) {
-        p:nth-child(1) {
-          font-size: 22px;
-        }
-        p:nth-child(2) {
-          font-size: 22px;
-          padding: 20px 0;
-        }
+      flex: 1 0 50%;
+
+      p:nth-child(1) {
+        font-size: 22px;
+      }
+      p:nth-child(2) {
+        font-size: 22px;
+        padding: 20px 0;
+      }
     }
 
     // Second col
     & > div:nth-child(2) {
       position: relative;
+      flex: 1 0 50%;
 
       h2 {
         transform-origin: right bottom;
@@ -31,6 +34,25 @@ section#vision {
         top: 0;
         right: -20px;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: $responsive-size) {
+  section#vision {
+    padding: $responsive-padding;
+
+    .row {
+      flex-direction: column-reverse !important;
+    }
+    .row > div {
+      flex: 1 0 100% !important;
+    }
+    .row > div:nth-of-type(2) {
+      min-height: 250px !important;
+    }
+    h2 {
+
     }
   }
 }
