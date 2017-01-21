@@ -107,12 +107,13 @@ section#program {
       position: relative;
 
       & > div {
-        // Make all elements overlap
-        // position: absolute;
-        // top: 0;
-        // right: 0;
-        // bottom: 0;
-        // left: 0;
+        p {
+          padding: 0 0 10px 0;
+          
+          span {
+            padding: 0 20px 0 0;
+          }
+        }
       }
     }
   }
