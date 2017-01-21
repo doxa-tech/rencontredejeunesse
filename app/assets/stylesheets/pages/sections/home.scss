@@ -1,9 +1,10 @@
 @import '../../base/variables';
 
 section#home {
+  height: 100vh !important;
   background: #000;
   color: #fff;
-  padding: $ptop $pright $pbottom $pleft;
+  padding: 30px $pright $pbottom $pleft;
 
   h1 {
     position: absolute;
@@ -13,11 +14,12 @@ section#home {
   // First row
   .row.first {
     text-align: right;
-    flex: 2;
     justify-content: flex-end;
+    margin-bottom: 40px;
 
     img {
       align-self: center;
+      width: 50px;
     }
   }
 
@@ -58,6 +60,7 @@ section#home {
 @media only screen and (max-width: $responsive-size) {
   section#home {
     padding: $responsive-padding;
+    height: initial !important;
 
     .row > div {
       flex: 1 1 100% !important;
@@ -70,7 +73,7 @@ section#home {
       p {
         text-align: center !important;
         line-height: 50px !important;
-        
+
         a:nth-of-type(1) {
           margin: 0px !important;
         }

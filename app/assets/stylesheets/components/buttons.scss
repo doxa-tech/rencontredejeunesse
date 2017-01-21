@@ -1,3 +1,5 @@
+@import '../base/variables';
+
 .btn-wire {
   padding: 7px 20px;
   border: 2px solid #fff;
@@ -8,6 +10,14 @@
 .btn-grey {
   padding: 7px 20px;
   background: #999;
+  color: #fff;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.btn-red {
+  padding: 7px 20px;
+  background: $red;
   color: #fff;
   font-size: 16px;
   text-transform: uppercase;

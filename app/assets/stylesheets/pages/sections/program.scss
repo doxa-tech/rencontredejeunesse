@@ -1,8 +1,6 @@
 @import '../../base/variables';
 
 section#program {
-  padding: $ptop $pright $pbottom $pleft;
-  background: #000;
   color: #fff;
 
   // First row
@@ -13,6 +11,10 @@ section#program {
     & > div:nth-of-type(1) {
       flex: 1 0 25%;
       position: relative;
+      padding: $ptop $pright $pbottom $pleft;
+
+      background: image-url("sections/program/title.jpg");
+      background-size: cover;
 
       h2 {
         transform-origin: right top;
@@ -21,23 +23,26 @@ section#program {
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
-        top: 0;
       }
     }
     // Second col
     & > div:nth-of-type(2) {
       flex: 1 0 75%;
       text-align: right;
+      padding: $ptop $pright $pbottom $pleft;
+
+      background: $red;
 
       p.date {
         font-size: 50px;
+        text-transform: uppercase;
       }
       p.images {
         padding: 60px 0 0 0;
         font-size: 50px; // Give space to images
 
         img {
-          border-radius: 75px;
+          border-radius: 50%;
         }
       }
     }
@@ -45,6 +50,13 @@ section#program {
 
   // Second row
   .row.second {
+    padding: $ptop $pright $pbottom $pleft;
+    color: black;
+
+    background: image-url("sections/vision/smoke.jpg");
+    background-position: right;
+    background-size: cover;
+
     // All col
     & > div {
       flex: 1;
@@ -52,10 +64,9 @@ section#program {
     // First col
     & > div:nth-of-type(1) {
       font-size: 40px;
-      color: #999;
 
       .active {
-        color: #fff;
+        color: $red;
       }
     }
     // Second col
@@ -76,11 +87,24 @@ section#program {
 
 @media only screen and (max-width: $responsive-size) {
   section#program {
-    padding: $responsive-padding !important;
+
+    // First row
+    .row.first {
+      & > div:nth-of-type(1) {
+        min-height: 450px !important;
+      }
+      & > div:nth-of-type(2) {
+        img {
+          width: 150px !important;
+          height: 150px !important;
+        }
+      }
+    }
 
     // Second col
     .row.second {
       flex-direction: column !important;
+      padding: $responsive-padding !important;
     }
   }
 }

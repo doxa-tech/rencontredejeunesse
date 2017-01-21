@@ -1,10 +1,14 @@
 @import '../../base/variables';
 
 section#vision {
-  padding: $ptop $pright $pbottom $pleft;
 
   .row {
     flex: 1;
+
+    // All cols
+    & > div {
+      padding: $ptop $pright $pbottom $pleft;
+    }
 
     // First col
     & > div:nth-child(1) {
@@ -17,12 +21,29 @@ section#vision {
         font-size: 22px;
         padding: 20px 0;
       }
+      background-image: image-url("sections/vision/smoke.jpg");
+      background-size: cover;
+      background-position: right;
+
+      p {
+        margin: $pbefore 0 $pafter 0;
+      }
+
+      p:nth-child(1) {
+        font-size: 40px;
+      }
+      p:nth-child(2) {
+        font-size: 28px;
+        padding: 20px 0;
+      }
     }
 
     // Second col
     & > div:nth-child(2) {
       position: relative;
       flex: 1 0 50%;
+      background-image: image-url("sections/vision/vision2017.jpg");
+      background-size: cover;
 
       h2 {
         transform-origin: right bottom;
@@ -31,8 +52,8 @@ section#vision {
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
-        top: 0;
-        right: -20px;
+        right: 100px;
+        color: white;
       }
     }
   }
@@ -40,19 +61,16 @@ section#vision {
 
 @media only screen and (max-width: $responsive-size) {
   section#vision {
-    padding: $responsive-padding;
 
     .row {
       flex-direction: column-reverse !important;
     }
     .row > div {
       flex: 1 0 100% !important;
+      padding: $responsive-padding;
     }
     .row > div:nth-of-type(2) {
       min-height: 250px !important;
-    }
-    h2 {
-
     }
   }
 }
