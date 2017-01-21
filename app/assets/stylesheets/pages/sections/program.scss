@@ -30,6 +30,8 @@ section#program {
       flex: 1 0 75%;
       text-align: right;
       padding: $ptop $pright $pbottom $pleft;
+      max-width: 100%;
+      overflow-x: scroll;
 
       background: $red;
 
@@ -40,22 +42,18 @@ section#program {
       div.images {
         padding: 60px 0 0 0;
         font-size: 50px; // Give space to images
+        white-space: nowrap;
 
         img {
           border-radius: 50%;
         }
-        & > div {
+        & > div.person {
           padding: 0 0 20px 0;
           display: inline-block;
+          vertical-align: top;
+          text-align: center;
 
           & > div {
-            font-size: 16px;
-            background: #fff;
-            color: #000;
-            padding: 20px 30px;
-            text-align: left;
-            position: relative;
-            display: none;
 
             h4 {
                 font-family: delirium, sans-serif;
@@ -64,16 +62,29 @@ section#program {
                 text-transform: uppercase;
             }
 
-            &::before {
-              content: "";
-              width: 0;
-              height: 0;
-              border-left: 10px solid transparent;
-              border-right: 10px solid transparent;
-              border-bottom: 10px solid #fff;
-              position: absolute;
-              top: -10px;
-              right: 110px;
+            p {
+              font-size: 16px;
+              background: #fff;
+              color: #000;
+              padding: 20px 30px;
+              text-align: left;
+              position: relative;
+              // display: none;
+              max-width: 600px;
+              white-space: normal;
+
+              &::before {
+                content: "";
+                width: 0;
+                height: 0;
+                border-left: 10px solid transparent;
+                border-right: 10px solid transparent;
+                border-bottom: 10px solid #fff;
+                position: absolute;
+                top: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+              }
             }
           }
         }
@@ -109,7 +120,7 @@ section#program {
       & > div {
         p {
           padding: 0 0 10px 0;
-          
+
           span {
             padding: 0 20px 0 0;
           }
@@ -128,6 +139,8 @@ section#program {
         min-height: 450px !important;
       }
       & > div:nth-of-type(2) {
+        padding: $responsive-padding !important;
+
         img {
           width: 150px !important;
           height: 150px !important;

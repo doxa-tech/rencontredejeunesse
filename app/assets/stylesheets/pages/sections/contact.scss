@@ -3,6 +3,8 @@
 section#contact {
 
   .row.main {
+    flex: 1;
+      
     // First col
     & > div:nth-of-type(1) {
       flex: 1 0 75%;
