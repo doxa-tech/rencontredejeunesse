@@ -1,9 +1,10 @@
+@import '../base/variables';
+
 footer {
 
   text-transform: uppercase;
   height: 130px;
-  background-color: grey;
-  color: white;
+  background-color: $grey;
   padding: 0 60px 0 60px;
 
   display: flex;

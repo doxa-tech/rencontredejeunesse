@@ -3,7 +3,7 @@
 section#home {
   background: #000;
   color: #fff;
-  padding: $ptop $pright $pbottom $pleft;
+  padding: 30px $pright $pbottom $pleft;
 
   h1 {
     position: absolute;
@@ -15,9 +15,11 @@ section#home {
     text-align: right;
     flex: 2;
     justify-content: flex-end;
+    margin-bottom: 40px;
 
     img {
       align-self: center;
+      width: 50px;
     }
   }
 

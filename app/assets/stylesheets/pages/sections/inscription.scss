@@ -2,8 +2,10 @@
 
 section#inscription {
   padding: $ptop $pright $pbottom $pleft;
-  background: #333;
   color: #fff;
+
+  background: image-url("sections/inscription/smoke.jpg");
+  background-size: cover;
 
   // First row
   .row.first {

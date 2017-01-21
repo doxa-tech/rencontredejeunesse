@@ -1,12 +1,12 @@
 @import '../../base/variables';
 
 section#contact {
-  padding: $ptop $pright $pbottom $pleft;
 
   .row.main {
     // First col
     & > div:nth-of-type(1) {
       flex: 1 0 75%;
+      padding: $ptop $pright $pbottom $pleft;
 
       .row.sub.first {
         width: 50%;
@@ -20,7 +20,7 @@ section#contact {
             display: block;
             width: 100%;
             border: none;
-            background: #d6d6d6;
+            background: $grey;
             padding: 7px 10px;
             margin: 10px 0;
           }
@@ -32,7 +32,7 @@ section#contact {
             width: 200px;
             display: inline;
             color: #fff;
-            background: #333;
+            background: $red;
           }
         }
         // Second sub-col
@@ -47,8 +47,12 @@ section#contact {
     }
     // Second col
     & > div:nth-of-type(2) {
+      padding: $ptop $pright $pbottom $pleft;
       flex: 1 0 25%;
       position: relative;
+
+      background: image-url("sections/contact/smoke.jpg");
+      background-size: cover;
 
       h2 {
         transform-origin: right bottom;
@@ -57,8 +61,7 @@ section#contact {
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
-        top: 0;
-        right: -20px;
+        right: 100px;
       }
     }
   }

@@ -1,18 +1,29 @@
 @import '../../base/variables';
 
 section#vision {
-  padding: $ptop $pright $pbottom $pleft;
 
   .row {
     flex: 1;
 
+    .split-2 {
+      padding: $ptop $pright $pbottom $pleft;
+    }
+
     // First col
     & > div:nth-child(1) {
+        background-image: image-url("sections/vision/smoke.jpg");
+        background-size: cover;
+        background-position: right;
+
+        p {
+          margin: $pbefore 0 $pafter 0;
+        }
+
         p:nth-child(1) {
-          font-size: 22px;
+          font-size: 40px;
         }
         p:nth-child(2) {
-          font-size: 22px;
+          font-size: 28px;
           padding: 20px 0;
         }
     }
@@ -20,6 +31,8 @@ section#vision {
     // Second col
     & > div:nth-child(2) {
       position: relative;
+      background-image: image-url("sections/vision/vision2017.jpg");
+      background-size: cover;
 
       h2 {
         transform-origin: right bottom;
@@ -28,8 +41,8 @@ section#vision {
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
-        top: 0;
-        right: -20px;
+        right: 100px;
+        color: white;
       }
     }
   }
