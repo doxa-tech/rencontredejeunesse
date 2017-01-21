@@ -37,12 +37,45 @@ section#program {
         font-size: 50px;
         text-transform: uppercase;
       }
-      p.images {
+      div.images {
         padding: 60px 0 0 0;
         font-size: 50px; // Give space to images
 
         img {
           border-radius: 50%;
+        }
+        & > div {
+          padding: 0 0 20px 0;
+          display: inline-block;
+
+          & > div {
+            font-size: 16px;
+            background: #fff;
+            color: #000;
+            padding: 20px 30px;
+            text-align: left;
+            position: relative;
+            display: none;
+
+            h4 {
+                font-family: delirium, sans-serif;
+                font-size: 50px;
+                padding: 0 0 30px 0;
+                text-transform: uppercase;
+            }
+
+            &::before {
+              content: "";
+              width: 0;
+              height: 0;
+              border-left: 10px solid transparent;
+              border-right: 10px solid transparent;
+              border-bottom: 10px solid #fff;
+              position: absolute;
+              top: -10px;
+              right: 110px;
+            }
+          }
         }
       }
     }
