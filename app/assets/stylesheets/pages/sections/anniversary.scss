@@ -61,6 +61,10 @@ section#anniversary {
       font-style: italic;
       position: relative;
 
+      @media only screen and (max-width: 650px) {
+        font-size: 1em;
+      }
+
       &:before, &:after {
         position: absolute;
         font-size: 1.5em;
