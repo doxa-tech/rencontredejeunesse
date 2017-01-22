@@ -75,6 +75,29 @@ section#program {
               height: 0;
               overflow: hidden;
 
+              &.first {
+                  align-self: flex-start;
+
+                  p::before {
+                    left: 120px;
+                  }
+              }
+              &.second {
+                  align-self: center;
+
+                  p::before {
+                    left: 50%;
+                    transform: translateX(-50%);
+                  }
+              }
+              &.third {
+                  align-self: flex-end;
+
+                  p::before {
+                    right: 120px;
+                  }
+              }
+
               p {
                 margin-top: 10px;
                 height: 260px;
@@ -96,8 +119,6 @@ section#program {
                   border-bottom: 10px solid #fff;
                   position: absolute;
                   top: -10px;
-                  left: 50%;
-                  transform: translateX(-50%);
                 }
               }
             }
