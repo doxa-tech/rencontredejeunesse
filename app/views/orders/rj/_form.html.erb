@@ -17,17 +17,22 @@
 
   <!-- Voluntering -->
 
+  <div class="volunteer">
   <%= fields_for @volunteer do |volunteer_f| %>
 
     <h3>S'engager comme bénévole</h3>
     <p>Tu peux cocher ci-dessous les secteurs dans lesquelles tu voudrais servir comme bénévole durant le weekend de la RJ.</p>
     <div class="sectors">
+      <table>
       <% VolunteerForm.sectors.each do |sector| %>
 
-      <%= volunteer_f.label sector %>
-      <%= volunteer_f.check_box sector %>
+        <tr>
+          <td><%= volunteer_f.label sector %></td>
+          <td><%= volunteer_f.check_box sector %></td>
+        </tr>
 
       <% end %>
+      </table>
     </div>
 
     <%= volunteer_f.label :other %>
@@ -37,6 +42,7 @@
     <%= volunteer_f.text_area :comment %>
 
   <% end %>
+  </div>
 
   <!-- -->
 
