@@ -36,3 +36,13 @@ footer {
   }
 
 }
+
+@media only screen and (max-width: $responsive-size) {
+  footer {
+    flex-direction: column !important;
+
+    & > div {
+      flex: 1 0 100% !important;
+    }
+  }
+}

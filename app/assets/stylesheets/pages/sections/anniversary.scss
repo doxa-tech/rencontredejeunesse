@@ -168,6 +168,14 @@ section#anniversary {
     h2 {
       font-size: 40px !important;
     }
+    .row.second {
+      & > div:nth-of-type(1), & > div:nth-of-type(3) {
+        display: none !important;
+      }
+      & > div:nth-of-type(2) {
+        padding: $responsive-padding !important;
+      }
+    }
     .row.forth {
       padding: $responsive-padding !important;
       flex-direction: column !important;
