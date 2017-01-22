@@ -1,5 +1,4 @@
 class OrderMailer < ApplicationMailer
-  default from: "Rencontre de Jeunesse <noreply@rencontredejeunesse.ch>"
 
   def confirmation(order)
     @order = order

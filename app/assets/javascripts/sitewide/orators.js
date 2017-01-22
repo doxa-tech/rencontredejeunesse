@@ -8,7 +8,7 @@ $(document).on("turbolinks:load", function() {
       $(".text.active").css("height", 0).removeClass("active");
       $text.animate({
         height: "270px"
-      }, 800, function() {
+      }, 500, function() {
         $text.addClass("active");
       });
     }

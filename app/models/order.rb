@@ -29,7 +29,17 @@ class Order < ApplicationRecord
   end
 
   def print_amount
-    amount ? amount / 100 : 0
+    if amount.present?
+      amount / 100
+    elsif product.entries.present?
+      product.calculate_amount / 100
+    else
+      0
+    end
+  end
+
+  def fee
+    product.class::FEE
   end
 
   def human_status

@@ -31,12 +31,27 @@ fr:
     password_confirmation: "Confirmation"
     status: "Statut"
     created_at: "Créé le"
+  activemodel:
+    attributes:
+      volunteer_form:
+        install: "Installation"
+        uninstall: "Rangement"
+        door: "Contrôle aux portes"
+        welcome: "Accueil"
+        park: "Fun Park"
+        accommodation: "Hébérgement"
+        install_technique: "Installation technique"
+        uninstall_technique: "Rangement technique"
+        other: "Autres"
+        comment: "Commentaire"
   activerecord:
     attributes:
       records/login:
         entries: "Nombre d'entrées"
       records/rj:
         entries: "Nombre de forfaits"
+        boy_beds: "Lits pour gars"
+        girl_beds: "Lits pour filles"
       order:
         conditions: "J'ai lu les conditions générales et les acceptent."
         print_amount: "Montant"

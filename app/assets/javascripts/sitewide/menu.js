@@ -1,11 +1,13 @@
 $(document).on("turbolinks:load", function() {
 
+  $contentMenu = $("#content-menu");
+
   $("#burger-menu").click(function() {
-    $("#content-menu").addClass("active");
+    $contentMenu.addClass("active");
   });
 
-  $("#close-menu").click(function() {
-    $("#content-menu").removeClass("active");
+  $contentMenu.click(function() {
+    $contentMenu.removeClass("active");
   })
 
 });

@@ -111,6 +111,7 @@ section#program {
   .row.second {
     padding: $ptop $pright $pbottom $pleft;
     color: black;
+    height: 600px;
 
     background: image-url("sections/vision/smoke.jpg");
     background-position: right;
@@ -123,6 +124,10 @@ section#program {
     // First col
     & > div:nth-of-type(1) {
       font-size: 40px;
+
+      a {
+        cursor: pointer;
+      }
 
       .active {
         color: $red;
@@ -141,7 +146,7 @@ section#program {
         }
       }
 
-      .active {
+      & > div:nth-of-type(1) {
         display: block;
       }
     }
