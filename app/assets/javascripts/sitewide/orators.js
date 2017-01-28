@@ -1,33 +1,31 @@
 $(document).on("turbolinks:load", function() {
 
   $("#program .person").click(function() {
-    var $text = $(this).find(".text");
-    if($text.hasClass("active")) {
-      $text.css("height", 0).removeClass("active");
+    var $personText = $(this).find(".text");
+    if($personText.hasClass("active")) {
+      $personText.css("height", 0).removeClass("active");
     } else {
       $(".text.active").css("height", 0).removeClass("active");
-      $text.animate({
+      $personText.animate({
         height: "270px"
       }, 500, function() {
-        $text.addClass("active");
+        $personText.addClass("active");
       });
     }
   });
 
   // FAQ
-  var faqHeight = $("#inscription .text .wrap").outerHeight();
-  alert(faqHeight);
+  var $faqText = $("#inscription .text");
 
   $("#inscription a.faq").click(function() {
-    var $text = $("#inscription .text");
-    if($text.hasClass("active")) {
-      $text.css("height", 0).removeClass("active");
+    if($faqText.hasClass("active")) {
+      $faqText.css("height", 0).removeClass("active");
     } else {
       $(".text.active").css("height", 0).removeClass("active");
-      $text.animate({
-        height: faqHeight
+      $faqText.animate({
+        height: "600px"
       }, 500, function() {
-        $text.addClass("active");
+        $faqText.addClass("active");
       });
     }
   });
