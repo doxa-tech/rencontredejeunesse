@@ -182,6 +182,7 @@ section#program {
 
     // First row
     .row.first {
+
       & > div:nth-of-type(1) {
         min-height: 450px !important;
       }
@@ -197,6 +198,7 @@ section#program {
 
     // Second col
     .row.second {
+      flex-direction: column;
       padding: $responsive-padding !important;
     }
   }

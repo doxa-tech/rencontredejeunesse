@@ -81,6 +81,14 @@ section#home {
     padding: $responsive-padding;
     height: initial !important;
 
+    background: image-url('layout/background.jpg');
+    background-size: cover;
+    background-position: center;
+
+    video {
+      display: none !important;
+    }
+
     .row > div {
       flex: 1 1 100% !important;
       padding: 40px 0 !important;

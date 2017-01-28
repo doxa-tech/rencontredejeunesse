@@ -57,6 +57,9 @@ section#inscription {
 
   // FAQ row (second)
   .row.faq {
+    //TEMP
+    display: none;
+
     // First col
     & > div:nth-of-type(1) {
       flex: 1;
