@@ -3,40 +3,46 @@
 section#inscription {
   padding: $ptop $pright $pbottom $pleft;
   color: #fff;
+  justify-content: center;
 
-  background: image-url("sections/inscription/smoke.jpg");
-  background-size: cover;
-
-  // First row
+  /* First row*/
   .row.first {
     min-height: 400px;
 
-    // First col
+    /* First col*/
     & > div:nth-of-type(1) {
-      flex: 1 0 25%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 25%;
+              flex: 1 0 25%;
       position: relative;
 
       h2 {
-        transform-origin: right top;
-        transform: translateX(-100%) rotate(-90deg);
+        -webkit-transform-origin: right top;
+                transform-origin: right top;
+        -webkit-transform: translateX(-100%) rotate(-90deg);
+                transform: translateX(-100%) rotate(-90deg);
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
         top: 0;
       }
     }
-    // Second col
+    /* Second col*/
     & > div:nth-of-type(2) {
-      flex: 1 0 75%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 75%;
+              flex: 1 0 75%;
 
       p.intro {
         text-align: right;
         padding: 0 0 100px 0;
       }
-      // Price row
+      /* Price row*/
       .row.prices {
         & > div {
-          flex: 1;
+          -webkit-box-flex: 1;
+              -ms-flex: 1;
+                  flex: 1;
           text-align: center;
 
           span {
@@ -55,24 +61,56 @@ section#inscription {
     }
   }
 
-  // FAQ row (second)
+  /* FAQ row (second)*/
   .row.faq {
-    //TEMP
-    display: none;
+    justify-content: flex-end;
+    margin-top: 50px;
 
-    // First col
+    /* First col*/
     & > div:nth-of-type(1) {
-      flex: 1;
-      padding: 0 20px 0 0;
-    }
-    // Second col
-    & > div:nth-of-type(2) {
       display: flex;
       justify-content: flex-end;
+      align-items: center;
+      width: 100%;
 
-      a {
-        align-items: center;
-        align-self: center;
+      p.intro {
+        margin-right: 10px;
+      }
+
+      a.faq {
+        cursor: pointer;
+      }
+    }
+
+    .text {
+      margin-top: 20px;
+
+      width: 800px;
+      height: 0;
+      overflow: hidden;
+
+      .wrap {
+        position: relative;
+        padding: 35px 50px;
+        margin-top: 10px;
+        background: #fff;
+        color: black;
+
+        h4 {
+          margin: 10px 0 5px 0;
+        }
+
+        &::before {
+          content: "";
+          width: 0;
+          height: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid #fff;
+          position: absolute;
+          top: -10px;
+          right: 30px;
+        }
       }
     }
   }
@@ -82,13 +120,18 @@ section#inscription {
   section#inscription {
     padding: $responsive-padding !important;
 
-    // First row
+    /* First row*/
     .row.first {
-      flex-direction: column !important;
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: normal !important;
+          -ms-flex-direction: column !important;
+              flex-direction: column !important;
       padding: 0 0 40px 0 !important;
 
       & > div {
-        flex: 1 0 100% !important;
+        -webkit-box-flex: 1 !important;
+            -ms-flex: 1 0 100% !important;
+                flex: 1 0 100% !important;
       }
       & > div:nth-of-type(1) {
         min-height: 300px !important;
@@ -96,7 +139,10 @@ section#inscription {
     }
 
     .row.prices {
-      flex-direction: column !important;
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: normal !important;
+          -ms-flex-direction: column !important;
+              flex-direction: column !important;
 
       & > div {
         padding: 0 0 20px 0 !important;
@@ -104,12 +150,31 @@ section#inscription {
     }
 
     .row.faq {
-      flex-direction: column !important;
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: normal !important;
+          -ms-flex-direction: column !important;
+              flex-direction: column !important;
 
       & > div:nth-of-type(2) {
-        justify-content: center !important;
+        -webkit-box-pack: center !important;
+            -ms-flex-pack: center !important;
+                justify-content: center !important;
         padding: 30px 0 10px 0 !important;
       }
     }
+  }
+}
+
+@media only screen and (max-width: $responsive-size) {
+  section#inscription {
+
+    background: image-url('layout/background.jpg');
+    background-size: cover;
+    background-position: center;
+
+    video {
+      display: none !important;
+    }
+
   }
 }

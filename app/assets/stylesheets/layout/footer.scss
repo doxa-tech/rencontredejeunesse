@@ -7,14 +7,27 @@ footer {
   background-color: $grey;
   padding: 0 60px 0 60px;
 
+  display: -webkit-box;
+
+  display: -ms-flexbox;
+
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 
 
   .partners {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     a {
       color: black;
@@ -27,8 +40,12 @@ footer {
   }
 
   .social {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     a {
       margin: 0 10px;
@@ -40,10 +57,15 @@ footer {
 @media only screen and (max-width: $responsive-size) {
   footer {
     height: 260px;
-    flex-direction: column !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
 
     & > div {
-      flex: 1 0 50% !important;
+      -webkit-box-flex: 1 !important;
+          -ms-flex: 1 0 50% !important;
+              flex: 1 0 50% !important;
     }
   }
 }

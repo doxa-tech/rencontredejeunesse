@@ -12,9 +12,17 @@ header {
     cursor: pointer;
     z-index: 99;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
-    align-items: center;
-    justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 
     img {
       width: 26px;
@@ -24,24 +32,27 @@ header {
   }
 
   #content-menu {
-    display: none;
-
     position: fixed;
     background-color: white;
     min-height: 100vh;
-    width: 400px;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
     z-index: 100;
-
-    &.active {
-      display: block;
-    }
 
     nav {
 
       margin: 35px 0 0 35px;
 
+      display: -webkit-box;
+
+      display: -ms-flexbox;
+
       display: flex;
-      flex-direction: column;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
 
       a {
         color: black;

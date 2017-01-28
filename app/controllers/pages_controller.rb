@@ -1,9 +1,5 @@
 class PagesController < ApplicationController
 
-  def home
-    render "index", layout: "application.new"
-  end
-
   def index
     render "index", layout: "application.new"
   end

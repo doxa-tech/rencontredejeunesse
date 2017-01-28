@@ -1,7 +1,7 @@
 @import '../../base/variables';
 
 section#anniversary {
-  // First row
+  /* First row*/
   .row.first {
     position: relative;
 
@@ -12,7 +12,8 @@ section#anniversary {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       font-size: 60px;
       text-transform: uppercase;
     }
@@ -37,35 +38,41 @@ section#anniversary {
     }
   }
 
-  // Second row
+  /* Second row*/
   .row.second {
     color: #fff;
     background: $red;
     height: 400px;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 
     p {
       font-size: 1.4em;
     }
 
-    // All col
+    /* All col*/
     & > div {
       text-align: center;
     }
-    // First col
+    /* First col*/
     & > div:nth-of-type(1) {
-      // TEMP
+      /* TEMP*/
       visibility: hidden;
-      //
-      flex: 1 0 20%;
+      /**/
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 20%;
+              flex: 1 0 20%;
       font-family: sans-serif;
       font-size: 100px;
       font-weight: 100;
     }
-    // Second col
+    /* Second col*/
     & > div:nth-of-type(2) {
       font-size: 1.3em;
-      flex: 1 0 60%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 60%;
+              flex: 1 0 60%;
       font-style: italic;
       position: relative;
 
@@ -73,47 +80,39 @@ section#anniversary {
         font-size: 1em;
       }
 
-      &:before, &:after {
-        position: absolute;
-        font-size: 1.5em;
-        font-style: italic;
-        font-weight: bold;
-      }
-      &:before {
+      p::before {
         content: '“';
-        left: 5px;
-        top: -5px;
       }
-      &:after {
+      p::after {
         content: '”';
-        right: 5px;
-        bottom: -5px;
       }
     }
-    // Third col
+    /* Third col*/
     & > div:nth-of-type(3) {
-      // TEMP
+      /* TEMP*/
       visibility: hidden;
-      //
-      flex: 1 0 20%;
+      /**/
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 20%;
+              flex: 1 0 20%;
       font-family: sans-serif;
       font-size: 100px;
       font-weight: 100;
     }
   }
 
-  // Third row
+  /* Third row*/
   .row.third {
-    // All col
+    /* All col*/
     & > div {
       height: 400px;
     }
-    // First col
+    /* First col*/
     & > div:nth-of-type(1) {
       background: image-url("sections/anniversary/2-1.jpg");
       background-size: cover;
     }
-    // Second col
+    /* Second col*/
     & > div:nth-of-type(2) {
       background: image-url("sections/anniversary/2-2.jpg");
       background-size: cover;
@@ -122,7 +121,7 @@ section#anniversary {
         display: none;
       }
     }
-    // Third col
+    /* Third col*/
     & > div:nth-of-type(3) {
       background: image-url("sections/anniversary/2-3.jpg");
       background-size: cover;
@@ -140,14 +139,15 @@ section#anniversary {
       font-size: 50px;
     }
 
-    // Forth row
+    /* Forth row*/
     .row.forth {
       padding: 20px $pright $pbottom $pleft;
 
-      // All col
+      /* All col*/
       & > div {
-        flex: 1;
-        min-width: 400px;
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
 
         .wrap {
           position: relative;
@@ -165,11 +165,11 @@ section#anniversary {
           }
         }
       }
-      // First col
+      /* First col*/
       & > div:nth-of-type(1) {
         padding: 0 10px 0 0;
       }
-      // Second col
+      /* Second col*/
       & > div:nth-of-type(2) {
         padding: 0 10px 0 0;
       }
@@ -193,15 +193,27 @@ section#anniversary {
     }
     .row.forth {
       padding: $responsive-padding !important;
-      flex-direction: column !important;
 
-      // All col
+      /* All col*/
       & > div {
-        flex: 1 0 100%;
+        -webkit-box-flex: 1;
+            -ms-flex: 1 0 100%;
+                flex: 1 0 100%;
         min-width: initial !important;
         margin: 10px 0 !important;
         padding: 0px !important;
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  section#anniversary {
+    .row.forth {
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: normal !important;
+          -ms-flex-direction: column !important;
+              flex-direction: column !important;
     }
   }
 }

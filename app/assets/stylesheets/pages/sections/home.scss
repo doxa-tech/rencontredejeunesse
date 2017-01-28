@@ -19,38 +19,45 @@ section#home {
     width: auto;
     height: auto;
     z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     background-size: cover;
   }
 
-  // First row
+  /* First row*/
   .row.first {
     text-align: right;
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     margin-bottom: 40px;
 
     img {
-      align-self: center;
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
       width: 50px;
     }
   }
 
-  // Second row
+  /* Second row*/
   .row.second {
-    flex: 3;
+    -webkit-box-flex: 3;
+        -ms-flex: 3;
+            flex: 3;
 
-    // First col
+    /* First col*/
     & > div:nth-child(1) {
       text-align: center;
-      align-self: center;
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
     }
-    // Second col
+    /* Second col*/
     & > div:nth-child(2) {
       text-align: right;
-      align-self: flex-start;
+      -ms-flex-item-align: start;
+          align-self: flex-start;
       font-size: 60px;
       font-weight: bold;
       text-transform: uppercase;
@@ -61,13 +68,19 @@ section#home {
     }
   }
 
-  // Third row
+  /* Third row*/
   .row.third {
-    flex: 1;
-    justify-content: flex-end;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
 
     p {
-      align-self: center;
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
       text-transform: uppercase;
       a:nth-of-type(1) {
         margin: 0 20px 0 0;
@@ -90,12 +103,16 @@ section#home {
     }
 
     .row > div {
-      flex: 1 1 100% !important;
+      -webkit-box-flex: 1 !important;
+          -ms-flex: 1 1 100% !important;
+              flex: 1 1 100% !important;
       padding: 40px 0 !important;
     }
     .row.third {
       padding: 20px 0 20px 0 !important;
-      justify-content: center !important;
+      -webkit-box-pack: center !important;
+          -ms-flex-pack: center !important;
+              justify-content: center !important;
 
       p {
         text-align: center !important;

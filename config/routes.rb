@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get "login", to: "pages#login"
 
   # TEMP
-  get "2k17", to: "pages#home"
   get "/programme", to: "pages#programme"
 
   resources :sessions, only: :create

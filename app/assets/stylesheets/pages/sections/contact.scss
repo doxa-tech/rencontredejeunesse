@@ -4,11 +4,15 @@ section#contact {
   background: #fff;
 
   .row.main {
-    flex: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
 
-    // First col
+    /* First col*/
     & > div:nth-of-type(1) {
-      flex: 1 0 75%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 75%;
+              flex: 1 0 75%;
       padding: $ptop $pright $pbottom $pleft;
 
       .row.sub.first {
@@ -17,9 +21,11 @@ section#contact {
       }
 
       .row.sub.second {
-        // First sub-col
+        /* First sub-col*/
         & > div:nth-of-type(1) {
-          flex: 1;
+          -webkit-box-flex: 1;
+              -ms-flex: 1;
+                  flex: 1;
 
           input, textarea {
             display: block;
@@ -41,9 +47,11 @@ section#contact {
             text-transform: uppercase;
           }
         }
-        // Second sub-col
+        /* Second sub-col*/
         & > div:nth-of-type(2) {
-          flex: 1;
+          -webkit-box-flex: 1;
+              -ms-flex: 1;
+                  flex: 1;
 
           p {
             padding: 0 30px;
@@ -51,18 +59,22 @@ section#contact {
         }
       }
     }
-    // Second col
+    /* Second col*/
     & > div:nth-of-type(2) {
       padding: $ptop $pright $pbottom $pleft;
-      flex: 1 0 25%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 0 25%;
+              flex: 1 0 25%;
       position: relative;
 
       background: image-url("sections/contact/smoke.jpg");
       background-size: cover;
 
       h2 {
-        transform-origin: right bottom;
-        transform: translateY(-100%) rotate(-90deg);
+        -webkit-transform-origin: right bottom;
+                transform-origin: right bottom;
+        -webkit-transform: translateY(-100%) rotate(-90deg);
+                transform: translateY(-100%) rotate(-90deg);
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
@@ -77,18 +89,26 @@ section#contact {
   section#contact {
 
     .row.main {
-      flex-direction: column-reverse !important;
+      -webkit-box-orient: vertical !important;
+      -webkit-box-direction: reverse !important;
+          -ms-flex-direction: column-reverse !important;
+              flex-direction: column-reverse !important;
 
-      // First col
+      /* First col*/
       & > div:nth-of-type(1) {
-        flex: 1 0 100% !important;
+        -webkit-box-flex: 1 !important;
+            -ms-flex: 1 0 100% !important;
+                flex: 1 0 100% !important;
         padding: $responsive-padding;
 
         .row.sub.first {
           width: 100% !important;
         }
         .row.sub.second {
-          flex-direction: column !important;
+          -webkit-box-orient: vertical !important;
+          -webkit-box-direction: normal !important;
+              -ms-flex-direction: column !important;
+                  flex-direction: column !important;
 
           .submit {
             text-align: center !important;
@@ -96,9 +116,11 @@ section#contact {
           }
         }
       }
-      // Second col
+      /* Second col*/
       & > div:nth-of-type(2) {
-        flex: 1 0 100% !important;
+        -webkit-box-flex: 1 !important;
+            -ms-flex: 1 0 100% !important;
+                flex: 1 0 100% !important;
         min-height: 250px !important;
       }
     }
