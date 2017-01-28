@@ -15,6 +15,9 @@ $(document).on("turbolinks:load", function() {
   });
 
   // FAQ
+  var faqHeight = $("#inscription .text .wrap").outerHeight();
+  alert(faqHeight);
+
   $("#inscription a.faq").click(function() {
     var $text = $("#inscription .text");
     if($text.hasClass("active")) {
@@ -22,7 +25,7 @@ $(document).on("turbolinks:load", function() {
     } else {
       $(".text.active").css("height", 0).removeClass("active");
       $text.animate({
-        height: "600px"
+        height: faqHeight
       }, 500, function() {
         $text.addClass("active");
       });
