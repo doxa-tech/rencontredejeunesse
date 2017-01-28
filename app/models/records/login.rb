@@ -6,6 +6,8 @@ module Records
 
     self.table_name = 'records_login'
 
+    has_one :order, as: :product
+
     validates :entries, numericality: { only_integer: true, greater_than: 0 }
     validates :group, length: { maximum: 70 }
 

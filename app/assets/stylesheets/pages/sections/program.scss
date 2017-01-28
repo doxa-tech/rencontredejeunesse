@@ -72,6 +72,7 @@ section#program {
             }
 
             .text {
+              text-align: left;
               height: 0;
               overflow: hidden;
 
@@ -100,7 +101,6 @@ section#program {
 
               p {
                 margin-top: 10px;
-                height: 260px;
                 width: 600px;
                 position: relative;
 
@@ -132,11 +132,15 @@ section#program {
   .row.second {
     padding: $ptop $pright $pbottom $pleft;
     color: black;
-    height: 600px;
+    min-height: 650px;
 
     background: image-url("sections/vision/smoke.jpg");
     background-position: right;
     background-size: cover;
+
+    table {
+      font-size: 1.1em;
+    }
 
     // All col
     & > div {
@@ -144,7 +148,7 @@ section#program {
     }
     // First col
     & > div:nth-of-type(1) {
-      font-size: 40px;
+      font-size: 60px;
 
       a {
         cursor: pointer;
@@ -194,7 +198,6 @@ section#program {
 
     // Second col
     .row.second {
-      flex-direction: column !important;
       padding: $responsive-padding !important;
     }
   }
