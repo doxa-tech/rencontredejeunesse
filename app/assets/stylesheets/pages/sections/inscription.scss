@@ -3,7 +3,9 @@
 section#inscription {
   padding: $ptop $pright $pbottom $pleft;
   color: #fff;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 
   /* First row*/
   .row.first {
@@ -63,14 +65,22 @@ section#inscription {
 
   /* FAQ row (second)*/
   .row.faq {
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
     margin-top: 50px;
 
     /* First col*/
     & > div:nth-of-type(1) {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
+      -webkit-box-pack: end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
       width: 100%;
 
       p.intro {
