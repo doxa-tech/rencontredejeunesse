@@ -19,7 +19,6 @@ section#inscription {
       h2 {
         transform-origin: right top;
         transform: translateX(-100%) rotate(-90deg);
-        font-size: $title-size;
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
@@ -45,6 +44,7 @@ section#inscription {
           }
           p {
             padding: 7px 0 30px 0;
+            height: 80px;
           }
 
           a {

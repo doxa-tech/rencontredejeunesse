@@ -1,10 +1,11 @@
 @import '../../base/variables';
 
 section#contact {
+  background: #fff;
 
   .row.main {
     flex: 1;
-      
+
     // First col
     & > div:nth-of-type(1) {
       flex: 1 0 75%;
@@ -62,7 +63,6 @@ section#contact {
       h2 {
         transform-origin: right bottom;
         transform: translateY(-100%) rotate(-90deg);
-        font-size: $title-size;
         text-transform: uppercase;
         font-family: delirium, sans-serif;
         position: absolute;
