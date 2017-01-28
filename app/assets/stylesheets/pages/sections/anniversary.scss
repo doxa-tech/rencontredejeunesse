@@ -44,6 +44,10 @@ section#anniversary {
     height: 400px;
     align-items: center;
 
+    p {
+      font-size: 1.4em;
+    }
+
     // All col
     & > div {
       text-align: center;
