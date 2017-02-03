@@ -1,3 +1,7 @@
+<div class="subtitle">
+  <h2>Identité</h2>
+</div>
+
 <%= render layout: "orders/form" do |f| %>
 
   <%= f.fields_for :product do |product_f| %>
@@ -17,11 +21,14 @@
 
   <!-- Voluntering -->
 
+  <div class="subtitle">
+    <h2>S'engager comme bénévole</h2>
+    <p>Tu peux cocher ci-dessous les secteurs dans lesquelles tu voudrais servir comme bénévole durant le weekend de la RJ.</p>
+  </div>
+
   <div class="volunteer">
   <%= fields_for @volunteer do |volunteer_f| %>
 
-    <h3>S'engager comme bénévole</h3>
-    <p>Tu peux cocher ci-dessous les secteurs dans lesquelles tu voudrais servir comme bénévole durant le weekend de la RJ.</p>
     <div class="sectors">
       <table>
       <% VolunteerForm.sectors.each do |sector| %>
@@ -34,9 +41,9 @@
       <% end %>
       </table>
     </div>
-
+    <br>
     <%= volunteer_f.label :other %>
-    <%= volunteer_f.text_field :other %>
+    <%= volunteer_f.text_field :other, class: 'other' %><br><br>
 
     <%= volunteer_f.label :comment %>
     <%= volunteer_f.text_area :comment %>
@@ -45,6 +52,11 @@
   </div>
 
   <!-- -->
+
+  <div class="subtitle">
+    <h2>Terminer l'inscription</h2>
+    <p>N'oublie pas d'accepter les conditions générales. Le paiement se fera à l'étape suivante.</p>
+  </div>
 
 <% end %>
 

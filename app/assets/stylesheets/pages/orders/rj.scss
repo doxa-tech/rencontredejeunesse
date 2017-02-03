@@ -1,12 +1,52 @@
 #container.order-rj {
+  background: image-url('layout/background.jpg');
+  background-size: cover;
+  color: #fff;
   padding: 20px;
 
-  div.volunteer {
-    padding: 30px 0;
+  div.subtitle {
+    background: image-url('sections/inscription/smoke.jpg');
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    padding: 20px;
+    margin: 30px 0;
 
-    p {
-      padding: 7px 0 13px 0;
+    &:nth-of-type(1) {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin: 0;
     }
   }
 
+  div.volunteer {
+
+  }
+
+  textarea {
+    vertical-align: middle;
+    height: 60px;
+    width: 100%;
+  }
+
+  input.other {
+    width: 100%;
+  }
+
+  input, textarea, select {
+    color: #333;
+  }
+
+  a {
+    color: #0798a9;
+  }
+
+}
+
+@media (max-width: 600px) {
+  textarea, input.other {
+    margin: 0 !important;
+  }
 }
