@@ -1,7 +1,7 @@
 module Records
 
   class Rj < Record
-    BED_PRICE = 20
+    BED_PRICE = 30
     FEE = 5
 
     self.table_name = 'records_rj'

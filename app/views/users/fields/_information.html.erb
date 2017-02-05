@@ -19,7 +19,7 @@
 
   <div>
     <div><%= f.text_field :city, required: true, placeholder: true %></div>
-    <div><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true, placeholder: "pays" %></div>
+    <div class="country-wrap"><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true, placeholder: "pays" %></div>
   </div>
 
 </div>

@@ -21,7 +21,7 @@ class VolunteerForm
 
   def selected
     VolunteerForm.sectors.map do |sector|
-      sector if send(sector) == "1"
+      I18n.t("activemodel.attributes.volunteer_form.#{sector}") if send(sector) == "1"
     end.compact.join(", ")
   end
 

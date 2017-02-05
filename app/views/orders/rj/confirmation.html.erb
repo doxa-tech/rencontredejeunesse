@@ -1,6 +1,6 @@
 <% content_for :id, "order-rj" %>
 
-<div class="row first">
+<div class="row first confirmation">
   <div>
     <h2 class="font-light">Confirmation</h2>
   </div>
@@ -11,18 +11,16 @@
         <%= render layout: "orders/confirmation" do %>
 
           <!-- Product information -->
-          <p>
-            Nombre de forfaits: <%= @order.product.entries %><br>
-            Lits pour gars: <%= @order.product.boy_beds %><br>
-            Lits pour filles: <%= @order.product.girl_beds %><br>
-            Groupe/église: <%= @order.product.group %><br>
-          </p>
+          <p><b>Nombre de forfaits:</b> <%= @order.product.entries %></p>
+          <p><b>Lits pour gars:</b> <%= @order.product.boy_beds %></p>
+          <p><b>Lits pour filles:</b> <%= @order.product.girl_beds %></p>
+          <p><b>Groupe/église:</b> <%= @order.product.group %></p>
 
           <!-- Volunteer information -->
 
-          <%= @volunteer.selected %>
-          <%= @volunteer.other %>
-          <%= @volunteer.comment %>
+          <p>
+            <b>Bénévolat:</b> <%= @volunteer.selected %>
+          </p>
 
         <% end %>
       </div>
