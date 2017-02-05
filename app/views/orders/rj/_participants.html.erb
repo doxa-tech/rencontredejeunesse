@@ -2,19 +2,21 @@
   <div class="fields-for wrap">
     <div class="participants-fields wrap">
 
-      <div>
-        <%= f.label :firstname %>
-        <%= f.text_field :firstname %>
-      </div>
+      <div class="participants-wrap">
+        <div>
+          <%= f.label :firstname %>
+          <%= f.text_field :firstname %>
+        </div>
 
-      <div>
-        <%= f.label :lastname %>
-        <%= f.text_field :lastname %>
-      </div>
+        <div>
+          <%= f.label :lastname %>
+          <%= f.text_field :lastname %>
+        </div>
 
-      <div>
-        <%= f.label :age %>
-        <%= f.number_field :age %>
+        <div class="age">
+          <%= f.label :age %>
+          <%= f.number_field :age %>
+        </div>
       </div>
 
       <%= f.hidden_field :_destroy, identifier: "destroy" %>

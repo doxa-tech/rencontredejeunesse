@@ -5,7 +5,8 @@
     <%= product_f.text_field :group, placeholder: true %>
 
     <h2>Ajouter des forfaits</h2>
-    <p>Vous avez la possibilité de commander plusieurs forfaits en ajouter des personnes ci-dessous.</p>
+    <p class="participants-infos">Vous avez la possibilité de commander plusieurs forfaits en ajouter des personnes ci-dessous.</p>
+
     <%= render "participants", product_f: product_f, participants: @order.product.participants %>
 
     <h2>Dormir sur place</h2>
