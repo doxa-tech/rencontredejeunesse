@@ -1,27 +1,20 @@
-<div class="subtitle">
-  <h2>Identité</h2>
-</div>
-
 <%= render layout: "orders/form" do |f| %>
 
   <%= f.fields_for :product do |product_f| %>
 
-    <%= product_f.label :group %>
-    <%= product_f.text_field :group %>
+    <%= product_f.text_field :group, placeholder: true %>
 
-    <%= product_f.number_field_with_label :entries, required: true, class: "amount-entries" %>
+    <%= product_f.number_field :entries, required: true, class: "amount-entries", placeholder: true %>
 
-    <%= product_f.label :boy_beds %>
-    <%= product_f.number_field :boy_beds, class: "amount-boybeds"  %>
+    <%= product_f.number_field :boy_beds, class: "amount-boybeds", placeholder: true  %>
 
-    <%= product_f.label :girl_beds %>
-    <%= product_f.number_field :girl_beds, class: "amount-girlbeds"  %>
+    <%= product_f.number_field :girl_beds, class: "amount-girlbeds", placeholder: true  %>
 
   <% end %>
 
   <!-- Voluntering -->
 
-  <div class="subtitle">
+  <div class="be-volunteer">
     <h2>S'engager comme bénévole</h2>
     <p>Tu peux cocher ci-dessous les secteurs dans lesquelles tu voudrais servir comme bénévole durant le weekend de la RJ.</p>
   </div>
@@ -45,17 +38,9 @@
     <%= volunteer_f.label :other %>
     <%= volunteer_f.text_field :other, class: 'other' %><br><br>
 
-    <%= volunteer_f.label :comment %>
-    <%= volunteer_f.text_area :comment %>
+    <%= volunteer_f.text_area :comment, placeholder: true %>
 
   <% end %>
-  </div>
-
-  <!-- -->
-
-  <div class="subtitle">
-    <h2>Terminer l'inscription</h2>
-    <p>N'oublie pas d'accepter les conditions générales. Le paiement se fera à l'étape suivante.</p>
   </div>
 
 <% end %>

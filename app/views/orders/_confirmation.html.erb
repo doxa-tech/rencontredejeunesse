@@ -6,23 +6,24 @@
 
     <!-- User information -->
 
-    <div class="row">
-
-      <div class="column">
-        <p><%= @order.user.firstname %></p>
-        <p><%= @order.user.email %></p>
-        <p><%= @order.user.npa %></p>
-        <p><%= @order.user.address %></p>
-      </div>
-
-      <div class="column">
-        <p><%= @order.user.lastname %></p>
-        <p><%= @order.user.phone %></p>
-        <p><%= @order.user.city %></p>
-        <p><%= @order.user.country_name %></p>
-      </div>
-
-    </div>
+    <table>
+      <tr>
+        <td><%= @order.user.firstname %></td>
+        <td><%= @order.user.lastname %></td>
+      </tr>
+      <tr>
+        <td><%= @order.user.email %></td>
+        <td><%= @order.user.phone %></td>
+      </tr>
+      <tr>
+        <td><%= @order.user.npa %></td>
+        <td><%= @order.user.city %></td>
+      </tr>
+      <tr>
+        <td><%= @order.user.address %></td>
+        <td><%= @order.user.country_name %></td>
+      </tr>
+    </table>
 
     <!-- -->
 
@@ -30,7 +31,7 @@
 
     <!-- Order information -->
 
-    <p class="amount">Prix à payer: <%= @order.print_amount %> CHF</p>
+    <p class="amount">Prix à payer: <b><%= @order.print_amount %></b> CHF</p>
 
     <!-- -->
 
