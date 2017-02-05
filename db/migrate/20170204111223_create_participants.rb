@@ -4,7 +4,7 @@ class CreateParticipants < ActiveRecord::Migration[5.0]
       t.string :firstname
       t.string :lastname
       t.integer :age
-      t.belongs_to :records_rj, index: true, foreign_key: true
+      t.belongs_to :records_rj, index: true, foreign_key: { to_table: :records_rj }
 
       t.timestamps
     end
