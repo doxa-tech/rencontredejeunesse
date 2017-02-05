@@ -9,6 +9,11 @@
 
   <% end %>
 
+  <div class="price">
+    <div><strong>Frais d'inscription:</strong> <%= @order.fee %> CHF</div>
+    <div><strong>Total:</strong> <span id="amount"><%= @order.print_amount %></span> CHF</div>
+  </div>
+
 <% end %>
 
 <%= content_for :javascript do %>

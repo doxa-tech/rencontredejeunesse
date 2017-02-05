@@ -20,11 +20,6 @@
       <%= f.check_box :conditions %>
     </div>
 
-    <div class="price">
-      <div><strong>Frais d'inscription:</strong> <%= @order.fee %> CHF</div>
-      <div><strong>Total:</strong> <span id="amount"><%= @order.print_amount %></span> CHF</div>
-    </div>
-
     <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
     <%= image_tag "orders/pay-cards.png" %>
 

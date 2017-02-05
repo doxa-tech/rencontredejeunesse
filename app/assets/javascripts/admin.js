@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require gumshoe
 //= require_tree ./admin
 //= require_tree ./sitewide
 //= require snaptable

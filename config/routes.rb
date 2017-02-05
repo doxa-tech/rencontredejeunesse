@@ -32,9 +32,9 @@ Rails.application.routes.draw do
       get :confirmation, on: :member
     end
 
-    resources :login, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
-    end
+    # resources :login, only: [:new, :create, :edit, :update] do
+    #   get :confirmation, on: :member
+    # end
 
   end
 

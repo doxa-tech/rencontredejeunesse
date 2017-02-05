@@ -1,0 +1,30 @@
+<%= product_f.fields_for :participants, (participants.build unless participants.any?) do |f| %>
+  <div class="fields-for wrap">
+    <div class="participants-fields wrap">
+
+      <div>
+        <%= f.label :firstname %>
+        <%= f.text_field :firstname %>
+      </div>
+
+      <div>
+        <%= f.label :lastname %>
+        <%= f.text_field :lastname %>
+      </div>
+
+      <div>
+        <%= f.label :age %>
+        <%= f.number_field :age %>
+      </div>
+
+      <%= f.hidden_field :_destroy, identifier: "destroy" %>
+
+      <button type="button" class="remove-fields" data-type="participants">Supprimer</button>
+    </div>
+
+    <button type="button" class="add-fields" data-type="participants" data-count="<%= participants.size %>">
+      Ajouter un participant
+    </button>
+  </div>
+
+<% end %>

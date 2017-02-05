@@ -1,0 +1,15 @@
+<h1>Confirmation d'inscription</h1>
+<p>Merci pour votre commande.</p>
+<p>
+  Votre paiement a bien été reçu et votre inscription à la Rencontre de Jeunesse est validée.
+</p>
+<p>
+  <li><%= @order.user.full_name %></li>
+
+  <li><%= @order.product.entries %> x forfait(s) RJ - CHF <%= Records::Rj.ENTRY_PRICE %>.-/pce</li>
+  <li>Total: CHF <%= @order.print_amount %>.-</li>
+</p>
+
+<p>
+  Pour tout complément d'information ou problème, vous pouvez envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch .</p>
+</p>

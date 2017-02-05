@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161126180708) do
+ActiveRecord::Schema.define(version: 20170204111223) do
 
   create_table "adeia_action_permissions", force: :cascade do |t|
     t.integer  "adeia_action_id"
@@ -87,6 +87,16 @@ ActiveRecord::Schema.define(version: 20161126180708) do
     t.string   "human_id"
     t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "participants_rj", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.integer  "age"
+    t.integer  "records_rj_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["records_rj_id"], name: "index_participants_rj_on_records_rj_id"
   end
 
   create_table "records_login", force: :cascade do |t|
