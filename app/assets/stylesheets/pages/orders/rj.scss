@@ -1,52 +1,162 @@
+@import '../../base/variables';
+
 #container.order-rj {
-  background: image-url('layout/background.jpg');
-  background-size: cover;
-  color: #fff;
-  padding: 20px;
 
-  div.subtitle {
-    background: image-url('sections/inscription/smoke.jpg');
-    background-size: cover;
-    color: #fff;
+  input, textarea {
+    display: block;
     width: 100%;
-    padding: 20px;
-    margin: 30px 0;
+    padding: 5px 9px;
+    margin: 15px 0;
+    background: #ddd;
+    border: none;
+  }
 
-    &:nth-of-type(1) {
-      margin-top: 0;
+  .newsletter {
+    display: flex;
+    padding: 20px 0 0 0;
+    input { flex: 0 0 30px; }
+  }
+
+  .sectors {
+    input {
+      margin: 8px 0;
     }
+    label {
+      padding: 0 10px 0 0;
+    }
+  }
 
-    h1 {
+  .be-volunteer {
+    padding: 20px 0 15px 0;
+
+    h2 {
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+
+  .confirmation {
+    display: flex;
+
+    input {
+      padding: 0;
       margin: 0;
+      flex: 0 0 30px;
     }
   }
 
-  div.volunteer {
-
+  .price, .infos {
+    padding: 25px 0;
   }
 
-  textarea {
-    vertical-align: middle;
-    height: 60px;
-    width: 100%;
+  ::-webkit-input-placeholder {
+   color: #000;
+   font-size: .9em;
+   font-family: didot, serif;
+   text-transform: uppercase;
   }
 
-  input.other {
-    width: 100%;
+  :-moz-placeholder { /* Firefox 18- */
+     color: #000;
+     font-size: .9em;
+     font-family: didot, serif;
+     text-transform: uppercase;
   }
 
-  input, textarea, select {
-    color: #333;
+  ::-moz-placeholder {  /* Firefox 19+ */
+     color: #000;
+     font-size: .9em;
+     font-family: didot, serif;
+     text-transform: uppercase;
   }
 
-  a {
-    color: #0798a9;
+  :-ms-input-placeholder {
+     color: #000;
+     font-size: .9em;
+     font-family: didot, serif;
+     text-transform: uppercase;
+  }
+
+  div.row.first {
+    min-height: 400px;
+
+    & > div {
+
+    }
+
+    // First col
+    & > div:nth-of-type(1) {
+      color: #fff;
+      flex: 1 0 25%;
+      position: relative;
+      padding: $ptop $pright $pbottom $pleft;
+      background: image-url("layout/background.jpg");
+      background-size: cover;
+      min-height: 400px;
+
+      h2 {
+        -webkit-transform-origin: right top;
+                transform-origin: right top;
+        -webkit-transform: translateX(-100%) rotate(-90deg);
+                transform: translateX(-100%) rotate(-90deg);
+        text-transform: uppercase;
+        font-family: delirium, sans-serif;
+        position: absolute;
+      }
+    }
+
+    // Second col
+    & > div:nth-of-type(2) {
+      flex: 1 0 75%;
+      font-family: didot, serif;
+      font-size: .9em;
+
+      .form-wrap {
+        width: 400px;
+        margin: auto;
+      }
+    }
+  }
+
+  .review {
+    width: 400px;
+    text-align: center;
+    margin: auto;
+
+    table {
+      margin: 10px auto 20px auto;
+    }
+
+    p {
+      padding: 10px 0;
+    }
+    p.amount {
+      padding: 20px 0;
+    }
   }
 
 }
 
-@media (max-width: 600px) {
-  textarea, input.other {
-    margin: 0 !important;
+@media only screen and (max-width: $responsive-size) {
+  #container.order-rj {
+    h2 {
+      font-size: 40px !important;
+    }
+
+    .form-wrap {
+      width: auto !important;
+    }
+
+    div.row.first {
+      flex-direction: column !important;
+
+      & > div {
+        flex: 1 0 100% !important;
+      }
+
+      & > div:nth-of-type(2) {
+        padding: $responsive-padding !important;
+      }
+    }
   }
 }

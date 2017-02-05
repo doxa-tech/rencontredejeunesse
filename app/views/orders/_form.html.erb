@@ -13,11 +13,11 @@
     <%= yield f %>
     <!-- -->
 
-    <div class="row checkbox">
+    <div class="confirmation">
+      <%= f.check_box :conditions %>
       <%= f.label :conditions do %>
         J'ai lu <%= link_to "les conditions générales", "/conditions_generales.html", target: "_blank" %> et les acceptent.
       <% end %>
-      <%= f.check_box :conditions %>
     </div>
 
     <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
