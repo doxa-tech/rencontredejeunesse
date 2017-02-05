@@ -8,6 +8,12 @@
     margin-bottom: 5px;
   }
 
+  .back {
+    text-transform: uppercase;
+    margin: 30px 0;
+    a { color: black; }
+  }
+
   input, textarea {
     display: block;
     width: 100%;
@@ -127,7 +133,6 @@
       .form-wrap {
         width: 400px;
         margin: auto;
-        margin-top: 60px;
       }
     }
   }
@@ -152,7 +157,7 @@
   input[type=submit] {
     background-color: $red;
     height: 40px;
-    width: 130px;
+    width: 140px;
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;

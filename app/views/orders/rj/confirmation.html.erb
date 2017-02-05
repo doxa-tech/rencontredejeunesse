@@ -1,24 +1,31 @@
 <% content_for :id, "order-rj" %>
 
-<div class="review">
-  <h1>RJ 2017</h1>
-  <h2>Confirmation</h2>
+<div class="row first">
+  <div>
+    <h2 class="font-light">Confirmation</h2>
+  </div>
 
-  <%= render layout: "orders/confirmation" do %>
+  <div>
+    <div class="form-wrap">
+      <div class="review">
+        <%= render layout: "orders/confirmation" do %>
 
-    <!-- Product information -->
-    <p>
-      Nombre de forfaits: <%= @order.product.entries %><br>
-      Lits pour gars: <%= @order.product.boy_beds %><br>
-      Lits pour filles: <%= @order.product.girl_beds %><br>
-      Groupe/église: <%= @order.product.group %><br>
-    </p>
+          <!-- Product information -->
+          <p>
+            Nombre de forfaits: <%= @order.product.entries %><br>
+            Lits pour gars: <%= @order.product.boy_beds %><br>
+            Lits pour filles: <%= @order.product.girl_beds %><br>
+            Groupe/église: <%= @order.product.group %><br>
+          </p>
 
-    <!-- Volunteer information -->
+          <!-- Volunteer information -->
 
-    <%= @volunteer.selected %>
-    <%= @volunteer.other %>
-    <%= @volunteer.comment %>
+          <%= @volunteer.selected %>
+          <%= @volunteer.other %>
+          <%= @volunteer.comment %>
 
-  <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
