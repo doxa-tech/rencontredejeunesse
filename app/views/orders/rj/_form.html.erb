@@ -4,7 +4,8 @@
 
     <%= product_f.text_field :group, placeholder: true %>
 
-    <p>Vous avez la possibilité de commander plusieurs forfaits en ajouter des personnes ci-dessous.</p>
+    <p class="participants-infos">Vous avez la possibilité de commander plusieurs forfaits en ajoutant des personnes ci-dessous.</p>
+
     <%= render "participants", product_f: product_f, participants: @order.product.participants %>
 
     <%= product_f.number_field :boy_beds, class: "amount-boybeds", placeholder: true  %>
