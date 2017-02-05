@@ -20,8 +20,11 @@
   .newsletter {
     display: flex;
     padding: 20px 0 0 0;
-    margin-bottom: 40px;
     input { flex: 0 0 30px; }
+  }
+
+  .group-name {
+    margin-bottom: 60px;
   }
 
   .sectors {
@@ -155,25 +158,35 @@
     margin-bottom: 20px;
     color: #fff;
     text-transform: uppercase;
+  }
 
   // Participants
 
   .fields-for {
-    padding: 0 0 30px 0;
+    padding: 0 0 60px 0;
+
+    button {
+      padding: 2px;
+    }
+
+    .add-fields {
+      margin-top: 8px;
+    }
   }
 
   .participants-fields {
-    padding: 0 0 30px 0;
+    padding: 0 0 10px 0;
   }
 
   .participants-infos {
-    padding: 30px 0 20px 0;
+    padding: 0px 0 20px 0;
   }
 
   .participants-wrap {
     display: flex;
     input {
-      border-right: 1px solid #fff;
+      border-right: 2px solid #fff;
+      margin: 5px 0px;
     }
 
     & > div {

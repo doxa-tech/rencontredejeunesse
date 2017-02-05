@@ -2,7 +2,7 @@
 
   <%= f.fields_for :product do |product_f| %>
 
-    <%= product_f.text_field :group, placeholder: true %>
+    <%= product_f.text_field :group, placeholder: true, class: "group-name" %>
 
     <h2>Ajouter des forfaits</h2>
     <p class="participants-infos">Vous avez la possibilité de commander plusieurs forfaits en ajouter des personnes ci-dessous.</p>
