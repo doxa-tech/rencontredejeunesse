@@ -4,9 +4,12 @@
 
     <%= product_f.text_field :group, placeholder: true %>
 
+    <h2>Ajouter des forfaits</h2>
     <p>Vous avez la possibilité de commander plusieurs forfaits en ajouter des personnes ci-dessous.</p>
     <%= render "participants", product_f: product_f, participants: @order.product.participants %>
 
+    <h2>Dormir sur place</h2>
+    <p>Possibilité de dormir sur place. Le prix est de 30.- pour les 2 nuits (taxe de séjour incluse).</p>
     <%= product_f.number_field :boy_beds, class: "amount-boybeds", placeholder: true  %>
 
     <%= product_f.number_field :girl_beds, class: "amount-girlbeds", placeholder: true  %>
@@ -28,16 +31,14 @@
       <% VolunteerForm.sectors.each do |sector| %>
 
         <tr>
-          <td><%= volunteer_f.label sector %></td>
           <td><%= volunteer_f.check_box sector %></td>
+          <td><%= volunteer_f.label sector %></td>
         </tr>
 
       <% end %>
       </table>
     </div>
-    <br>
-    <%= volunteer_f.label :other %>
-    <%= volunteer_f.text_field :other, class: 'other' %><br><br>
+    <%= volunteer_f.text_field :other, class: 'other', placeholder: true %>
 
     <%= volunteer_f.text_area :comment, placeholder: true %>
 

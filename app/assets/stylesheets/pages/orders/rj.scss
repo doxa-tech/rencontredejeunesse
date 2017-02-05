@@ -2,6 +2,12 @@
 
 #container.order-rj {
 
+  #order h2 {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
   input, textarea {
     display: block;
     width: 100%;
@@ -14,10 +20,14 @@
   .newsletter {
     display: flex;
     padding: 20px 0 0 0;
+    margin-bottom: 40px;
     input { flex: 0 0 30px; }
   }
 
   .sectors {
+    td:first-child {
+      width: 30px;
+    }
     input {
       margin: 8px 0;
     }
@@ -27,12 +37,11 @@
   }
 
   .be-volunteer {
-    padding: 20px 0 15px 0;
+    padding: 40px 0 15px 0;
+  }
 
-    h2 {
-      font-size: 15px;
-      font-weight: bold;
-    }
+  .volunteer {
+    margin-bottom: 40px;
   }
 
   .confirmation {
@@ -91,6 +100,7 @@
       position: relative;
       padding: $ptop $pright $pbottom $pleft;
       background: image-url("layout/background.jpg");
+      background-position: center;
       background-size: cover;
       min-height: 400px;
 
@@ -114,6 +124,7 @@
       .form-wrap {
         width: 400px;
         margin: auto;
+        margin-top: 60px;
       }
     }
   }
@@ -133,6 +144,17 @@
     p.amount {
       padding: 20px 0;
     }
+  }
+
+  input[type=submit] {
+    background-color: $red;
+    height: 40px;
+    width: 130px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-transform: uppercase;
   }
 
 }
