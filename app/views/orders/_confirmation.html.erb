@@ -2,15 +2,16 @@
 
   <div id="summary">
 
+    <p><b>Récapitulatif</b></p>
     <!-- User information -->
 
     <table>
       <tr>
-        <td><%= t("user.genders.#{@order.user.gender}") %></td>
+        <td><%= @order.user.lastname %></td>
         <td><%= @order.user.firstname %></td>
       </tr>
       <tr>
-        <td><%= @order.user.lastname %></td>
+        <td><%= t("user.genders.#{@order.user.gender}") %></td>
         <td><%= l @order.user.birthday %></td>
       </tr>
       <tr>
@@ -18,11 +19,11 @@
         <td><%= @order.user.phone %></td>
       </tr>
       <tr>
+        <td><%= @order.user.address %></td>
         <td><%= @order.user.npa %></td>
-        <td><%= @order.user.city %></td>
       </tr>
       <tr>
-        <td><%= @order.user.address %></td>
+        <td><%= @order.user.city %></td>
         <td><%= @order.user.country_name %></td>
       </tr>
     </table>
