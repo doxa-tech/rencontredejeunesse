@@ -17,7 +17,7 @@
     <td>Forfaits RJ</td><td><%= @order.product.entries %></td><td><%= Records::Rj.ENTRY_PRICE %>.-</td><td><%= entries_price(@order.product) %>.-</td>
   </tr>
   <tr>
-    <td>Place pour dormir</td><td><%= @order.product.boy_beds %>x GARS / <%= @order.product.girl_beds %>x FILLES</td><td><%= Records::Rj::BED_PRICE %>.-</td><td><%= beds_price(@order.product) %>.-</td>
+    <td>Places pour dormir</td><td><%= @order.product.boy_beds %>x GARS / <%= @order.product.girl_beds %>x FILLES</td><td><%= Records::Rj::BED_PRICE %>.-</td><td><%= beds_price(@order.product) %>.-</td>
   </tr>
   <tr>
     <td>Frais d'inscription</td><td></td><td></td><td><%= Records::Rj::FEE %>.-</td>
