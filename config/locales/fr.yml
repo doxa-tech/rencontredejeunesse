@@ -21,10 +21,12 @@ fr:
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"
+    gender: "Sexe"
     address: "Adresse"
     npa: "NPA"
     city: "Ville"
     country: "Pays"
+    birthday: "Date de naissance"
     phone: "Téléphone"
     group: "Groupe de jeunes ou église"
     password: "Mot de passe"
@@ -42,8 +44,8 @@ fr:
         accommodation: "Hébérgement"
         install_technique: "Installation technique"
         uninstall_technique: "Rangement technique"
-        other: "Autres"
-        comment: "Commentaire"
+        other: "Autre secteur (préciser)"
+        comment: "Commentaire concernant le bénévolat à la RJ"
   activerecord:
     attributes:
       records/login:
@@ -53,7 +55,7 @@ fr:
         boy_beds: "Places pour gars"
         girl_beds: "Places pour filles"
       order:
-        conditions: "J'ai lu les conditions générales et les acceptent."
+        conditions: "J'ai lu les conditions générales et les accepte."
         print_amount: "Montant"
         user: "Personne"
         order_id: "N° de commande"
@@ -64,6 +66,10 @@ fr:
           attributes:
             conditions:
               accepted: "Veuillez accepter les conditions générales"
+  user:
+    genders:
+      male: "Homme"
+      female: "Femme"
   errors:
     format: "%{message}"
     messages:

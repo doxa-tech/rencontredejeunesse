@@ -23,6 +23,29 @@
     border: none;
   }
 
+  .number-wo-arrows {
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    input[type=number] {
+      -moz-appearance:textfield;
+    }
+  }
+
+  .select {
+    display: inline-block;
+  }
+
+  .user-information {
+    label {
+      text-transform: uppercase;
+      padding-right: 10px;
+      font-size: 0.9em;
+    }
+  }
+
   .newsletter {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -66,6 +89,25 @@
       -webkit-box-flex: 0;
           -ms-flex: 0 0 30px;
               flex: 0 0 30px;
+    }
+
+    table {
+      td:first-child {
+        text-align: left;
+      }
+      td:last-child {
+        text-align: right;
+      }
+
+      &.calculation {
+
+        tr:last-child {
+         font-weight: bold;
+        }
+        td {
+          height: 35px;
+        }
+      }
     }
   }
 
@@ -233,7 +275,7 @@
       }
 
       table {
-        margin: 30px auto 30px auto;
+        margin: 60px auto 60px auto;
 
         td {
           width: 150px;

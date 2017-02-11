@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  enum gender: [:male, :female]
+  
   has_many :orders
 
   has_secure_password validations: false
@@ -15,6 +17,8 @@ class User < ApplicationRecord
   validates :city, presence: true, length: { maximum: 30 }
   validates :address, presence: true, length: { maximum: 50 }
   validates :country, presence: true
+  validates :birthday, presence: true
+  validates :gender, presence: true
 
   def country_name
     country = ISO3166::Country[self.country]

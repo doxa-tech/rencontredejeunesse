@@ -2,25 +2,21 @@
 
 <div class="user-information">
 
-  <div>
-    <div><%= f.text_field :firstname, required: true, placeholder: true %></div>
-    <div><%= f.text_field :lastname, required: true, placeholder: true %></div>
-  </div>
+  <%= f.label :gender %><div class="select"><%= f.select :gender, options_for_enum(f.object, :gender) %></div>
 
-  <div>
-    <div><%= f.email_field :email, required: true, placeholder: true %></div>
-    <div><%= f.text_field :phone, required: true, placeholder: true %></div>
-  </div>
+  <%= f.text_field :firstname, required: true, placeholder: true %>
+  <%= f.text_field :lastname, required: true, placeholder: true %>
 
-  <div>
-    <div><%= f.text_field :address, required: true, placeholder: true %></div>
-    <div><%= f.number_field :npa, required: true, placeholder: true %></div>
-  </div>
+  <%= f.email_field :email, required: true, placeholder: true %>
+  <%= f.text_field :phone, required: true, placeholder: true %>
 
-  <div>
-    <div><%= f.text_field :city, required: true, placeholder: true %></div>
-    <div class="country-wrap"><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true, placeholder: "pays" %></div>
-  </div>
+  <%= f.label :birthday %><div class="select"><%= f.date_select :birthday, :start_year=>1900 %></div>
+
+  <%= f.text_field :address, required: true, placeholder: true %>
+  <%= f.text_field :npa, required: true, placeholder: true %>
+
+  <%= f.text_field :city, required: true, placeholder: true %>
+  <div class="country-wrap"><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true, placeholder: "pays" %></div>
 
 </div>
 

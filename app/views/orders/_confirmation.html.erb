@@ -2,14 +2,16 @@
 
   <div id="summary">
 
-    <%= yield %>
-
     <!-- User information -->
 
     <table>
       <tr>
+        <td><%= t("user.genders.#{@order.user.gender}") %></td>
         <td><%= @order.user.firstname %></td>
+      </tr>
+      <tr>
         <td><%= @order.user.lastname %></td>
+        <td><%= l @order.user.birthday %></td>
       </tr>
       <tr>
         <td><%= @order.user.email %></td>
@@ -25,16 +27,7 @@
       </tr>
     </table>
 
-    <!-- -->
-
-    <p class="edit"><%= link_to image_tag("icons/edit.png") + " Changer vos informations", { action: "edit" } %></p>
-
-    <!-- Order information -->
-
-    <p>Frais d'inscription: <b><%= @order.product.class::FEE %> CHF</b></p>
-    <p class="amount">Prix à payer: <b><%= @order.print_amount %> CHF</b></p>
-
-    <!-- -->
+    <%= yield %>
 
   </div>
 

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   include ExceptionsHandler
+  include ApplicationHelper
 
   protect_from_forgery with: :exception
 

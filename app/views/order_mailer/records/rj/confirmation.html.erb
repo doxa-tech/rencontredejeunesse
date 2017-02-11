@@ -1,15 +1,31 @@
 <h1>Confirmation d'inscription</h1>
-<p>Merci pour votre commande.</p>
+<h3>Merci pour ta commande.</h2>
 <p>
-  Votre paiement a bien été reçu et votre inscription à la Rencontre de Jeunesse est validée.
+  Ton paiement a bien été reçu et ton inscription à la Rencontre de Jeunesse est validée.
 </p>
-<p>
-  <li><%= @order.user.full_name %></li>
+<h3>Résumé de la commande</h2>
+<table>
+  <tr>
+    <th>Désignation</th><th>Quantité</th><th>CHF/pce</th><th></th>
+  </tr>
+  <tr>
+    <td>Forfaits RJ</td><td><%= @order.product.entries %></td><td><%= Records::Rj.ENTRY_PRICE %>.-</td><td><%= entries_price(@order.product) %>.-</td>
+  </tr>
+  <tr>
+    <td>Place pour dormir</td><td><%= @order.product.boy_beds %>x GARS / <%= @order.product.girl_beds %>x FILLES</td><td><%= Records::Rj::BED_PRICE %>.-</td><td><%= beds_price(@order.product) %>.-</td>
+  </tr>
+  <tr>
+    <td>Frais d'inscription</td><td></td><td></td><td><%= Records::Rj::FEE %>.-</td>
+  </tr>
+  <tr>
+    <td></td><td></td><td>Total</td><td><%= @order.print_amount %> CHF</td>
+  </tr>
+</table>
 
-  <li><%= @order.product.entries %> x forfait(s) RJ - CHF <%= Records::Rj.ENTRY_PRICE %>.-/pce</li>
-  <li>Total: CHF <%= @order.print_amount %>.-</li>
+<p>
+  Pour tout complément d'information ou problème, tu peux envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch</p>
 </p>
 
-<p>
-  Pour tout complément d'information ou problème, vous pouvez envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch .</p>
-</p>
+<p>Nous nous réjouissons de te voir le 5 mai 2017 ! </p>
+
+<!-- TODO: conditions d'annulation -->
