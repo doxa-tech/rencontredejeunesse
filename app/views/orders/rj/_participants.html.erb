@@ -5,17 +5,17 @@
       <div class="participants-wrap">
         <div>
           <%= f.label :firstname %>
-          <%= f.text_field :firstname %>
+          <%= f.text_field :firstname, autocomplete: "off" %>
         </div>
 
         <div>
           <%= f.label :lastname %>
-          <%= f.text_field :lastname %>
+          <%= f.text_field :lastname, autocomplete: "off" %>
         </div>
 
         <div class="age number-wo-arrows">
           <%= f.label :age %>
-          <%= f.number_field :age %>
+          <%= f.number_field :age, autocomplete: "off" %>
         </div>
       </div>
 
