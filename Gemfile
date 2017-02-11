@@ -57,7 +57,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
 
-  gem "capistrano", "~> 3.6"
+  gem "capistrano", "3.6.1"
   gem 'capistrano-maintenance', require: false
   gem 'capistrano-server', git: 'https://github.com/JS-Tech/capistrano-server'
   # rails specific capistrano funcitons

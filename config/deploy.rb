@@ -1,5 +1,5 @@
 # config valid only for current version of Capistrano
-lock '3.7.2'
+lock '3.6.1'
 
 set :application, 'rencontredejeunesse'
 set :repo_url, 'git@github.com:JS-Tech/rencontredejeunesse.git'
