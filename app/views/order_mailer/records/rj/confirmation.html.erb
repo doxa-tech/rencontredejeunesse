@@ -1,10 +1,15 @@
 <h1>Confirmation d'inscription</h1>
-<h3>Merci pour ta commande.</h2>
+<h5>Merci pour ta commande.</h5>
 <p>
   Ton paiement a bien été reçu et ton inscription à la Rencontre de Jeunesse est validée.
 </p>
-<h3>Résumé de la commande</h2>
-<table>
+<h5>Résumé de la commande</h5>
+<style>
+  table.order td, table.order th {
+    padding: 3px 6px;
+  }
+</style>
+<table class="order" style="background:#eee;">
   <tr>
     <th>Désignation</th><th>Quantité</th><th>CHF/pce</th><th></th>
   </tr>
@@ -18,11 +23,12 @@
     <td>Frais d'inscription</td><td></td><td></td><td><%= Records::Rj::FEE %>.-</td>
   </tr>
   <tr>
-    <td></td><td></td><td>Total</td><td><%= @order.print_amount %> CHF</td>
+    <td></td><td></td><td><b>Total</b></td><td><b><%= @order.print_amount %> CHF</b></td>
   </tr>
 </table>
 
 <p>
+  <br>
   Pour tout complément d'information ou problème, tu peux envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch</p>
 </p>
 
