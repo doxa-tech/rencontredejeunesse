@@ -62,6 +62,8 @@ Capybara.server_port = 3000
 
 Capybara::Webkit.configure do |config|
 
+  config.block_unknown_urls
+
   # Wildcards are allowed in URL expressions.
   config.allow_url("*.postfinance.ch")
 

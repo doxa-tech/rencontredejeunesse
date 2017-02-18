@@ -24,13 +24,13 @@ When(/^I make a uncertain payment$/) do
 end
 
 Then(/^I should see the uncertain page$/) do
-  expect(page).to have_content("Votre paiement est en attente de validation par PostFinance.")
+  expect(page).to have_content("Ton paiement est en attente de validation par PostFinance")
 end
 
 Then(/^I should see the cancel page$/) do
-  expect(page).to have_content("Vous avez annulé le paiement")
+  expect(page).to have_content("Tu as annulé le paiement")
 end
 
 Then(/^I should see the success page$/) do
-  expect(page).to have_content("Votre commande a été validée")
+  expect(page).to have_content("Ta commande a bien été reçue")
 end

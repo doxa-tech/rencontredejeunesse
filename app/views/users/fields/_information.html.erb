@@ -16,7 +16,7 @@
   <%= f.text_field :npa, required: true, placeholder: true %>
 
   <%= f.text_field :city, required: true, placeholder: true %>
-  <div class="country-wrap"><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true, placeholder: "pays" %></div>
+  <%= f.label :country %><div class="country select"><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true %></div>
 
 </div>
 

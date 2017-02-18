@@ -18,6 +18,7 @@ class OrdersController < ApplicationController
   # request from Postfinance
   def update
     if params[:SHASIGN] == shaout.upcase
+      puts "GREEN"
       @order = Order.find_by_order_id(params[:orderID])
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]
@@ -28,6 +29,7 @@ class OrdersController < ApplicationController
       end
       head :ok
     else
+      puts "RED"
       head :unprocessable_entity
     end
   end
@@ -35,7 +37,8 @@ class OrdersController < ApplicationController
   private
 
   def shaout
-    chain = "AMOUNT=#{params[:amount]}#{Order::KEY}NCERROR=#{params[:NCERROR]}#{Order::KEY}"\
+    ncerror = "NCERROR=#{params[:NCERROR]}#{Order::KEY}" if params[:NCERROR]
+    chain = "AMOUNT=#{params[:amount]}#{Order::KEY}#{ncerror}"\
             "ORDERID=#{params[:orderID]}#{Order::KEY}PAYID=#{params[:PAYID]}#{Order::KEY}"\
             "STATUS=#{params[:STATUS]}#{Order::KEY}"
     return Digest::SHA1.hexdigest(chain)

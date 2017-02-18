@@ -115,8 +115,8 @@
     padding: 25px 0;
   }
 
-  .country-wrap {
-    overflow-x: scroll;
+  .country.select select {
+    width: 300px;
   }
 
   ::-webkit-input-placeholder {

@@ -17,22 +17,26 @@ end
 
 When(/^I successfully update my information$/) do
   click_link "Changer vos informations"
-  fill_in "Prénom", with: "Albert"
-  fill_in "Nom de famille", with: "Dupont"
-  check "J'ai lu les conditions générales et les acceptent."
+  within ".user-information" do
+    fill_in "Prénom", with: "Albert"
+    fill_in "Nom de famille", with: "Dupont"
+  end
+  check "J'ai lu les conditions générales et les accepte."
   click_button "Mettre à jour"
 end
 
 When(/^I complete the order form$/) do
-  fill_in "Prénom", with: "John"
-  fill_in "Nom de famille", with: "Smith"
-  fill_in "Téléphone", with: "010010101"
-  fill_in "Email", with: "john@smith.com"
-  fill_in "Adresse", with: "Route de chemin 1"
-  fill_in "NPA", with: "1630"
-  fill_in "Ville", with: "Bulle"
-  find(:select, 'Pays').first(:option, 'Suisse').select_option
-  check "J'ai lu les conditions générales et les acceptent."
+  within ".user-information" do
+    fill_in "Prénom", with: "John"
+    fill_in "Nom de famille", with: "Smith"
+    fill_in "Téléphone", with: "010010101"
+    fill_in "Email", with: "john@smith.com"
+    fill_in "Adresse", with: "Route de chemin 1"
+    fill_in "NPA", with: "1630"
+    fill_in "Ville", with: "Bulle"
+    find(:select, 'Pays').first(:option, 'Suisse').select_option
+  end
+  check "J'ai lu les conditions générales et les accepte."
   click_button "S'inscrire"
 end
 

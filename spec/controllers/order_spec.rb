@@ -7,10 +7,19 @@ RSpec.describe OrdersController, :type => :controller do
 
   it "updates order information from Postfinance request" do
     post :update, params: {
-      orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout
+      orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
     }
     @order.reload
     expect(@order.status).to be(5)
+    expect(@order.payid).to be(3010824561)
+  end
+
+  it "updated order information form Postfinance request without NCERROR" do
+    post :update, params: {
+      orderID: @order.order_id, amount: @order.amount, STATUS: 1, PAYID: 3010824561, SHASIGN: shaout(status: 1, ncerror: false).upcase
+    }
+    @order.reload
+    expect(@order.status).to be(1)
     expect(@order.payid).to be(3010824561)
   end
 
@@ -26,7 +35,7 @@ RSpec.describe OrdersController, :type => :controller do
   it "saves the volunteer options" do
     session[:volunteer_params] = { "door"=>"1", "install"=>"0", "other"=>"Available", "comment"=>"Thank you" }
     post :update, params: {
-      orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout
+      orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
     }
     volunteers = Volunteer.all
     expect(volunteers.size).to eq(2)
@@ -37,9 +46,10 @@ RSpec.describe OrdersController, :type => :controller do
 
 end
 
-def shaout
-  chain = "AMOUNT=#{@order.amount}#{Order::KEY}NCERROR=0#{Order::KEY}"\
+def shaout(status: 5, ncerror: true)
+  ncerror_str = "NCERROR=0#{Order::KEY}" if ncerror
+  chain = "AMOUNT=#{@order.amount}#{Order::KEY}#{ncerror_str}"\
           "ORDERID=#{@order.order_id}#{Order::KEY}PAYID=3010824561#{Order::KEY}"\
-          "STATUS=5#{Order::KEY}"
+          "STATUS=#{status}#{Order::KEY}"
   return Digest::SHA1.hexdigest(chain)
 end

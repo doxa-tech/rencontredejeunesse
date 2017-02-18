@@ -9,10 +9,12 @@ FactoryGirl.define do
     city "Bulle"
     phone "1010010110"
     country "CH"
+    birthday { Date.new(1996, 2, 15) }
+    gender "male"
   end
 
   factory :rj, class: Records::Rj do
-    entries 1
+
   end
 
   factory :login, class: Records::Login do
