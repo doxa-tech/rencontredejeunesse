@@ -129,6 +129,8 @@ GEM
     factory_girl_rails (4.8.0)
       factory_girl (~> 4.8.0)
       railties (>= 3.0.0)
+    faraday (0.11.0)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.17)
     gherkin (4.0.0)
     globalid (0.3.7)
@@ -163,6 +165,7 @@ GEM
       sixarm_ruby_unaccent (>= 1.1.1, < 2)
     multi_json (1.12.1)
     multi_test (0.1.2)
+    multipart-post (2.0.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (4.0.1)
@@ -236,6 +239,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    sentry-raven (2.3.0)
+      faraday (>= 0.7.6, < 1.0)
     sixarm_ruby_unaccent (1.1.1)
     snaptable (2.0.2)
       jquery-rails
@@ -313,6 +318,7 @@ DEPENDENCIES
   rails-i18n (~> 5.0.0)
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
+  sentry-raven
   snaptable
   spring
   spring-watcher-listen
