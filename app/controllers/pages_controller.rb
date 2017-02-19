@@ -22,10 +22,6 @@ class PagesController < ApplicationController
     render layout: "admin"
   end
 
-  def programme
-    send_file "#{Rails.root}/public/programme.pdf", type: "application/pdf", disposition: :inline
-  end
-
   private
 
   def contact_params

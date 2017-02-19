@@ -6,9 +6,6 @@ Rails.application.routes.draw do
 
   get "login", to: "pages#login"
 
-  # TEMP
-  get "/programme", to: "pages#programme"
-
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
   get "signin", to: "sessions#new"
