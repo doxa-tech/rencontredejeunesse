@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
   private
 
   def shaout
-    ncerror = "NCERROR=#{params[:NCERROR]}#{Order::KEY}" if params[:NCERROR]
+    ncerror = "NCERROR=#{params[:NCERROR]}#{Order::KEY}" if params[:NCERROR].present?
     chain = "AMOUNT=#{params[:amount]}#{Order::KEY}#{ncerror}"\
             "ORDERID=#{params[:orderID]}#{Order::KEY}PAYID=#{params[:PAYID]}#{Order::KEY}"\
             "STATUS=#{params[:STATUS]}#{Order::KEY}"
