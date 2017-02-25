@@ -35,6 +35,11 @@ class Orders::RjController < Orders::BaseController
     @volunteer = VolunteerForm.new(session[:volunteer_params])
   end
 
+  def invoice
+    OrderMailer.invoice_for_rj(@order).deliver_now
+    redirect_to orders_confirmed_path
+  end
+
   private
 
   def order_params

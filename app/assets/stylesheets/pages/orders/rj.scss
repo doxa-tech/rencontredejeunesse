@@ -225,6 +225,33 @@
 
   .participants-infos {
     padding: 0px 0 20px 0;
+
+    .invoice-info {
+      position: relative;
+      margin: 10px 0;
+      display: none;
+      background: $grey;
+      padding: 10px;
+
+      &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid $grey;
+        position: absolute;
+        top: -10px;
+        right: 100px;
+      }
+    }
+
+    .invoice:hover {
+      cursor:pointer;
+    }
+    .invoice:hover + .invoice-info {
+      display: block;
+    }
   }
 
   .participants-wrap {
@@ -284,6 +311,23 @@
           height: 25px;
         }
       }
+    }
+
+    .invoice {
+      font-size: .9em;
+      margin: 40px 0 10px 0;
+    }
+
+    .invoice-button {
+      display: block;
+      font-size: .9em;
+      width: 220px;
+      padding: 8px 0;
+      background-color: $red;
+      margin: auto;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 10px;
     }
   }
 
