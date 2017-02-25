@@ -36,6 +36,7 @@ class Orders::RjController < Orders::BaseController
   end
 
   def invoice
+    @order.update_attribute(:status, 41)
     OrderMailer.invoice_for_rj(@order).deliver_now
     redirect_to orders_confirmed_path
   end
