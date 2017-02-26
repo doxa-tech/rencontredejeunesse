@@ -65,8 +65,11 @@
 
   </form>
 
-  <p class="invoice">Tu as la possibilité de payer par facture si tu inscris un groupe de <b>15 personnes ou plus</b>. Tu recevras un email avec un document à remplir et à nous renvoyer. Nous t'enverrons finalement une facture personnalisée.</p>
-  <%= link_to "Payer par facture", invoice_orders_rj_path, class: "invoice-button" %>
+  <%= form_tag invoice_orders_rj_path, multipart: true do %>
+    <p class="invoice">Tu as la possibilité de payer par facture si tu inscris un groupe de <b>15 personnes ou plus</b>. Upload <a href="/inscription.xlsx">le document</a> téléchargé à l'étape précédente, complété avec les informations. Tu recevras ensuite sous peu une facture.</p>
+    <%= file_field_tag :document %>
+    <%= submit_tag "Payer par facture", class: "invoice-button" %>
+  <% end %>
 
   <!-- -->
 </div>

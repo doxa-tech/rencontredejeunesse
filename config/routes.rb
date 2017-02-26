@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
     resources :rj, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member
-      get :invoice, on: :member
+      post :invoice, on: :member
     end
 
     # resources :login, only: [:new, :create, :edit, :update] do

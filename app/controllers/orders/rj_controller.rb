@@ -36,9 +36,14 @@ class Orders::RjController < Orders::BaseController
   end
 
   def invoice
-    @order.update_attribute(:status, 41)
-    OrderMailer.invoice_for_rj(@order).deliver_now
-    redirect_to orders_confirmed_path
+    if !params[:document].nil? && params[:document].content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+      Orders::RjMailer.group_registration(@order).deliver_now
+      Admin::Orders::RjMailer.group_registration(@order, params[:document].read).deliver_now
+      @order.update_attribute(:status, 41)
+      redirect_to orders_confirmed_path
+    else
+      redirect_to confirmation_orders_rj_path(@order.order_id), error: "Fichier d'inscription incorrect"
+    end
   end
 
   private

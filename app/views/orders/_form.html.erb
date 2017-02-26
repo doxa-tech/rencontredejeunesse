@@ -14,7 +14,7 @@
     <!-- -->
 
     <div class="confirmation">
-      <%= f.check_box :conditions %>
+      <%= f.check_box :conditions, required: true %>
       <%= f.label :conditions do %>
         J'ai lu <%= link_to "les conditions générales", "/conditions_generales.html", target: "_blank" %> et les accepte.
       <% end %>

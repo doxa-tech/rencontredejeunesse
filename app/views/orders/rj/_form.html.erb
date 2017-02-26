@@ -4,11 +4,14 @@
 
     <%= product_f.text_field :group, placeholder: true, class: "group-name" %>
 
+    <div class="invoice">
+      <p>> Inscrire un groupe de plus de 15 personnes ?</p>
+      <div class="invoice-info">Si tu as un groupe de 15 personnes ou plus et que tu souhaites payer par facture, remplis <a href="/inscription.xlsx">ce document</a>, puis passe directement à l'étape suivante.</div>
+    </div>
+
     <h2>Ajouter des forfaits</h2>
     <div class="participants-infos">
       Tu as la possibilité de commander plusieurs forfaits en ajoutant des personnes ci-dessous.
-      <span class="invoice">Plus de 15 personnes ?</span>
-      <div class="invoice-info">Si tu as un groupe de 15 personnes ou plus et que tu souhaites payer par facture, passe directement à l'étape suivante.</div>
     </div>
 
     <%= render "participants", product_f: product_f, participants: @order.product.participants %>

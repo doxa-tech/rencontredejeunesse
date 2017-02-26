@@ -1,0 +1,8 @@
+<h1>Demande d'inscription</h1>
+<p>Une nouvelle personne souhaite inscrire son groupe à la Rencontre de Jeunesse et payer par facture.</p>
+<p>
+  Commande n°<%= @order.order_id %><br>
+  Nom: <%= @order.user.lastname %><br>
+  Prénom: <%= @order.user.firstname %><br>
+  Email: <%= @order.user.email %><br>
+</p>

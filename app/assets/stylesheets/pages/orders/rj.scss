@@ -55,7 +55,7 @@
   }
 
   .group-name {
-    margin-bottom: 60px;
+    //margin-bottom: 0px;
   }
 
   .sectors {
@@ -78,8 +78,14 @@
     margin-bottom: 40px;
   }
 
-  .error {
+  #error {
     margin-bottom: 20px;
+    border: 1px solid red;
+    padding: 5px;
+
+    .title {
+      margin-bottom: 5px;
+    }
   }
 
   .confirmation {
@@ -211,6 +217,40 @@
 
   /* Participants*/
 
+  .invoice {
+    margin: 30px 0;
+
+    .invoice-info {
+      position: relative;
+      display: none;
+      background: $grey;
+      padding: 10px;
+
+      &::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-bottom: 10px solid $grey;
+        position: absolute;
+        top: -10px;
+        right: 200px;
+      }
+    }
+
+    p {
+      padding-bottom: 10px;
+    }
+
+    &:hover {
+      cursor:pointer;
+    }
+    &:hover > .invoice-info {
+      display: block;
+    }
+  }
+
   .fields-for {
     padding: 0 0 60px 0;
 
@@ -229,33 +269,6 @@
 
   .participants-infos {
     padding: 0px 0 20px 0;
-
-    .invoice-info {
-      position: relative;
-      margin: 10px 0;
-      display: none;
-      background: $grey;
-      padding: 10px;
-
-      &::before {
-        content: "";
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid $grey;
-        position: absolute;
-        top: -10px;
-        right: 100px;
-      }
-    }
-
-    .invoice:hover {
-      cursor:pointer;
-    }
-    .invoice:hover + .invoice-info {
-      display: block;
-    }
   }
 
   .participants-wrap {
