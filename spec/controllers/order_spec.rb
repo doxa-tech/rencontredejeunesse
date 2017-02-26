@@ -32,18 +32,6 @@ RSpec.describe OrdersController, :type => :controller do
     expect(response.status).to be(422)
   end
 
-  it "saves the volunteer options" do
-    session[:volunteer_params] = { "door"=>"1", "install"=>"0", "other"=>"Available", "comment"=>"Thank you" }
-    post :update, params: {
-      orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
-    }
-    volunteers = Volunteer.all
-    expect(volunteers.size).to eq(2)
-    expect(volunteers.first.other).to eq("Available")
-    expect(volunteers.first.comment).to eq("Thank you")
-    expect(volunteers.second.sector).to eq("door")
-  end
-
 end
 
 def shaout(status: 5, ncerror: true)

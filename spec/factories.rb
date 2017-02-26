@@ -14,7 +14,6 @@ FactoryGirl.define do
   end
 
   factory :rj, class: Records::Rj do
-
   end
 
   factory :login, class: Records::Login do
@@ -28,6 +27,10 @@ FactoryGirl.define do
 
     user
     product { create(product_name) }
+  end
+
+  factory :volunteer do
+    sector "install"
   end
 
 end

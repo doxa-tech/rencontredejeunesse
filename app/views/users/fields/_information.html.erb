@@ -10,7 +10,7 @@
   <%= f.email_field :email, required: true, placeholder: true %>
   <%= f.text_field :phone, required: true, placeholder: true %>
 
-  <%= f.label :birthday %><div class="select"><%= f.date_select :birthday, :start_year=>1900 %></div>
+  <%= f.label :birthday %><div class="select"><%= f.date_select :birthday, :start_year=>1900, required: true %></div>
 
   <%= f.text_field :address, required: true, placeholder: true %>
   <%= f.text_field :npa, required: true, placeholder: true %>

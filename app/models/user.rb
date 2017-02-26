@@ -1,7 +1,8 @@
 class User < ApplicationRecord
   enum gender: [:male, :female]
-  
+
   has_many :orders
+  has_many :volunteers
 
   has_secure_password validations: false
 

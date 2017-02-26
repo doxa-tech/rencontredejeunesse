@@ -18,18 +18,16 @@ class OrdersController < ApplicationController
   # request from Postfinance
   def update
     if params[:SHASIGN] == shaout.upcase
-      puts "GREEN"
       @order = Order.find_by_order_id(params[:orderID])
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]
       @order.save
       if @order.status == 5
         OrderMailer.confirmation(@order).deliver_now
-        Orders::Callbacks::Confirmation.send(@order.product_name, session[:volunteer_params], @order.user)
+        Orders::Callbacks::Confirmation.send(@order.product_name, @order)
       end
       head :ok
     else
-      puts "RED"
       head :unprocessable_entity
     end
   end

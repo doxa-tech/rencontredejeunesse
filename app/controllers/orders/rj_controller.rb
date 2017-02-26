@@ -9,7 +9,7 @@ class Orders::RjController < Orders::BaseController
     @order = order(order_params)
     @volunteer = VolunteerForm.new(volunteer_params)
     if @order.save
-      session[:volunteer_params] = volunteer_params
+      @volunteer.save(@order.user)
       redirect_to confirmation_orders_rj_path(@order.order_id)
     else
       render 'new'
@@ -17,14 +17,14 @@ class Orders::RjController < Orders::BaseController
   end
 
   def edit
-    @volunteer = VolunteerForm.new(session[:volunteer_params])
+    @volunteer = VolunteerForm.find_by_user(@order.user)
   end
 
   def update
     @order.product = Records::Rj.new
     @volunteer = VolunteerForm.new(volunteer_params)
     if @order.update_attributes(order_params)
-      session[:volunteer_params] = volunteer_params
+      @volunteer.save(@order.user)
       redirect_to confirmation_orders_rj_path(@order.order_id)
     else
       render 'edit'
@@ -32,7 +32,7 @@ class Orders::RjController < Orders::BaseController
   end
 
   def confirmation
-    @volunteer = VolunteerForm.new(session[:volunteer_params])
+    @volunteer = VolunteerForm.find_by_user(@order.user)
   end
 
   def invoice
@@ -46,7 +46,7 @@ class Orders::RjController < Orders::BaseController
   def order_params
     params.require(:order).permit(:conditions, user_attributes: [
       :firstname, :lastname, :email, :phone, :address, :npa, :city, :country, :newsletter, :birthday, :gender],
-      product_attributes: [:entries, :group, :girl_beds, :boy_beds,
+      product_attributes: [:group, :girl_beds, :boy_beds,
       participants_attributes: [:firstname, :lastname, :age, :_destroy]
     ])
   end

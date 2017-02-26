@@ -3,11 +3,10 @@ module Orders
 
     module Confirmation
 
-      def self.rj(params, user)
-        VolunteerForm.new(params).save(user) if params
+      def self.rj(order)
       end
 
-      def self.login(params, user)
+      def self.login(order)
       end
 
     end
