@@ -1,0 +1,23 @@
+<!-- Volunteer information -->
+
+<% if @volunteer.selected.present? %>
+<p>
+  <b>Bénévolat:</b> <%= @volunteer.selected %>
+</p>
+<% end %>
+
+<!-- Order information -->
+
+<table class="calculation">
+  <tr><th>Désignation</th><th>Quantité</th><th>CHF/pce</th><th></th>
+  <tr><td>Forfaits</td><td><%= @order.product.entries %></td><td><%= Records::Rj.ENTRY_PRICE %>.-</td><td><%= Records::Rj.ENTRY_PRICE * @order.product.entries %>.-</td></tr>
+  <tr><td>Dortoire</td><td><%= @order.product.boy_beds %> &male; / <%= @order.product.girl_beds %> &female;</td><td><%= Records::Rj::BED_PRICE %>.-</td><td><%= (@order.product.boy_beds + @order.product.girl_beds) * Records::Rj::BED_PRICE %>.-</td></tr>
+  <tr><td>Frais</td><td></td><td></td><td><%= Records::Rj::FEE %>.-</td></tr>
+  <tr><td></td><td></td><td>Total</td><td><%= @order.print_amount %> CHF</td></tr>
+</table>
+
+<!-- -->
+
+<p class="edit"><%= link_to image_tag("icons/edit.png") + " Changer vos informations", { action: "edit" } %></p>
+
+<%= render "orders/postfinance" %>

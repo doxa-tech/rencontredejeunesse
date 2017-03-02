@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210194052) do
+ActiveRecord::Schema.define(version: 20170302103058) do
 
   create_table "adeia_action_permissions", force: :cascade do |t|
     t.integer  "adeia_action_id"
@@ -78,13 +78,14 @@ ActiveRecord::Schema.define(version: 20170210194052) do
     t.integer  "amount"
     t.string   "order_id"
     t.integer  "status"
-    t.integer  "payid",        limit: 8
+    t.integer  "payid",          limit: 8
     t.integer  "user_id"
     t.string   "product_type"
     t.integer  "product_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
     t.string   "human_id"
+    t.integer  "payment_method",           default: 0
     t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

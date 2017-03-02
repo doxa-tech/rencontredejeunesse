@@ -36,7 +36,7 @@ class Orders::RjController < Orders::BaseController
   end
 
   def invoice
-    if !params[:document].nil? && params[:document].content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    unless params[:document].nil?
       Orders::RjMailer.group_registration(@order).deliver_now
       Admin::Orders::RjMailer.group_registration(@order, params[:document].read).deliver_now
       @order.update_attribute(:status, 41)
@@ -49,7 +49,7 @@ class Orders::RjController < Orders::BaseController
   private
 
   def order_params
-    params.require(:order).permit(:conditions, user_attributes: [
+    params.require(:order).permit(:conditions, :payment_method, user_attributes: [
       :firstname, :lastname, :email, :phone, :address, :npa, :city, :country, :newsletter, :birthday, :gender],
       product_attributes: [:group, :girl_beds, :boy_beds,
       participants_attributes: [:firstname, :lastname, :age, :_destroy]

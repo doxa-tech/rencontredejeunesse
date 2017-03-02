@@ -22,4 +22,6 @@
   <p>Frais d'inscription: <b><%= Records::Login::FEE %> CHF</b></p>
   <p class="amount">Prix à payer: <b><%= @order.print_amount %> CHF</b></p>
 
+  <%= render "orders/postfinance" %>
+
 <% end %>

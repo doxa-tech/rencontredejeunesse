@@ -4,6 +4,8 @@ class Order < ApplicationRecord
 
   attr_accessor :conditions
 
+  enum payment_method: [:postfinance, :invoice]
+
   belongs_to :user
   belongs_to :product, polymorphic: true
 

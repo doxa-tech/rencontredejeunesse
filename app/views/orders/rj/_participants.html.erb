@@ -1,5 +1,5 @@
-<%= product_f.fields_for :participants, (participants.build unless participants.any?) do |f| %>
-  <div class="fields-for wrap">
+<div class="fields-for wrap">
+  <%= product_f.fields_for :participants, (participants.build unless participants.any?) do |f| %>
     <div class="participants-fields wrap">
 
       <div class="participants-wrap">
@@ -27,6 +27,6 @@
     <button type="button" class="add-fields" data-type="participants" data-count="<%= participants.size %>">
       Ajouter un forfait
     </button>
-  </div>
 
-<% end %>
+  <% end %>
+</div>

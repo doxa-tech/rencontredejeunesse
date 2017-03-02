@@ -5,8 +5,11 @@
     <%= product_f.text_field :group, placeholder: true, class: "group-name" %>
 
     <div class="invoice">
-      <p>> Inscrire un groupe de plus de 15 personnes ?</p>
-      <div class="invoice-info">Si tu as un groupe de 15 personnes ou plus et que tu souhaites payer par facture, remplis <a href="/inscription.xlsx">ce document</a>, puis passe directement à l'étape suivante.</div>
+      <div class="checkbox">
+        <%= f.check_box :payment_method, { checked: @order.invoice?, id: "payment-method" }, :invoice, :postfinance %>
+        <%= f.label :payment_method, "Inscrire un groupe de plus de 15 personnes ?" %>
+      </div>
+      <div class="invoice-info">Si tu as un groupe de 15 personnes ou plus, remplis <a href="/inscription_rj_2017.xls">ce document</a>, coche l'option puis passe directement à l'étape suivante.</div>
     </div>
 
     <h2>Ajouter des forfaits</h2>

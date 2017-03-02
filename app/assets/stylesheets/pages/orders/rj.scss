@@ -47,15 +47,21 @@
   }
 
   .newsletter {
+    padding: 20px 0 0 0;
+  }
+
+  .checkbox {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    padding: 20px 0 0 0;
-    input { -webkit-box-flex: 0; -ms-flex: 0 0 30px; flex: 0 0 30px; }
-  }
-
-  .group-name {
-    //margin-bottom: 0px;
+    align-items: center;
+    input {
+      padding: 0;
+      margin: 0;
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 30px;
+              flex: 0 0 30px;
+    }
   }
 
   .sectors {
@@ -85,39 +91,6 @@
 
     .title {
       margin-bottom: 5px;
-    }
-  }
-
-  .confirmation {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-
-    input {
-      padding: 0;
-      margin: 0;
-      -webkit-box-flex: 0;
-          -ms-flex: 0 0 30px;
-              flex: 0 0 30px;
-    }
-
-    table {
-      td:first-child {
-        text-align: left;
-      }
-      td:last-child {
-        text-align: right;
-      }
-
-      &.calculation {
-
-        tr:last-child {
-         font-weight: bold;
-        }
-        td {
-          height: 35px;
-        }
-      }
     }
   }
 
@@ -218,7 +191,7 @@
   /* Participants*/
 
   .invoice {
-    margin: 30px 0;
+    margin: 30px 0 10px 0;
 
     .invoice-info {
       position: relative;
@@ -239,13 +212,10 @@
       }
     }
 
-    p {
+    .checkbox {
       padding-bottom: 10px;
     }
 
-    &:hover {
-      cursor:pointer;
-    }
     &:hover > .invoice-info {
       display: block;
     }
@@ -293,7 +263,31 @@
     }
   }
 
+  /* Confirmation page */
+
   .confirmation {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    table {
+      td:first-child {
+        text-align: left;
+      }
+      td:last-child {
+        text-align: right;
+      }
+
+      &.calculation {
+
+        tr:last-child {
+         font-weight: bold;
+        }
+        td {
+          height: 35px;
+        }
+      }
+    }
 
     .review {
       font-size: 1.2em;

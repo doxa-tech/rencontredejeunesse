@@ -15,6 +15,7 @@ module Records
     validates :entries, numericality: { only_integer: true, greater_than: 0 }
     validates :girl_beds, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
     validates :boy_beds, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validate :participants_cannot_be_greater_than_fourteen
 
     before_validation :defaults_for_beds, :calculate_entries
 
@@ -41,6 +42,12 @@ module Records
 
     def calculate_entries
       self.entries = 1 + participants.size
+    end
+
+    def participants_cannot_be_greater_than_fourteen
+      if self.participants.size > 14
+        errors.add(:participants, "Le nombre de participants ne doit pas dépasser 14 personnes.")
+      end
     end
   end
 
