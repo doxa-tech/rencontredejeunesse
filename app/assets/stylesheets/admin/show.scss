@@ -1,3 +1,5 @@
+@import '../base/variables';
+
 #show {
 
   h3 {
@@ -6,6 +8,16 @@
 
   p {
     margin: 3px 0;
+  }
+
+  .edit {
+    display: block;
+    text-align: center;
+    width: 80px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: white;
+    background-color: $red;
   }
 
   .column {

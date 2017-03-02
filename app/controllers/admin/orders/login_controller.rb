@@ -9,6 +9,14 @@ class Admin::Orders::LoginController < Admin::BaseController
     @order = Order.find(params[:id])
   end
 
+  def edit
+    # TODO
+  end
+
+  def update
+    # TODO
+  end
+
   def destroy
     Order.find(params[:id]).destroy
 		redirect_to admin_orders_login_index_path, success: "Commande supprimée"

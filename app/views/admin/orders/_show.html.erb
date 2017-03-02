@@ -2,6 +2,8 @@
 
   <h1>Commande <%= @order.order_id %></h1>
 
+  <%= link_to "Editer", { action: "edit" }, class: "edit" %>
+
   <%= yield %>
 
   <!-- Order information -->

@@ -4,6 +4,8 @@
 
     <%= product_f.text_field :group, placeholder: true, class: "group-name" %>
 
+    <!-- Invoice -->
+
     <div class="invoice">
       <div class="checkbox">
         <%= f.check_box :payment_method, { checked: @order.invoice?, id: "payment-method" }, :invoice, :postfinance %>
@@ -12,6 +14,10 @@
       <div class="invoice-info">Si tu as un groupe de 15 personnes ou plus, remplis <a href="/inscription_rj_2017.xls">ce document</a>, coche l'option puis passe directement à l'étape suivante.</div>
     </div>
 
+    <!-- -->
+
+    <!-- Participants -->
+
     <h2>Ajouter des forfaits</h2>
     <div class="participants-infos">
       Tu as la possibilité de commander plusieurs forfaits en ajoutant des personnes ci-dessous.
@@ -19,11 +25,17 @@
 
     <%= render "participants", product_f: product_f, participants: @order.product.participants %>
 
+    <!-- -->
+
+    <!-- Beds -->
+
     <h2>Dormir sur place</h2>
     <p>Possibilité de dormir sur place. Le prix est de 30.- pour les 2 nuits (taxe de séjour incluse).</p>
     <%= product_f.number_field :boy_beds, class: "amount-boybeds", placeholder: true  %>
 
     <%= product_f.number_field :girl_beds, class: "amount-girlbeds", placeholder: true  %>
+
+    <!-- -->
 
   <% end %>
 
@@ -54,6 +66,9 @@
     <%= volunteer_f.text_area :comment, placeholder: true %>
 
   <% end %>
+
+  <!-- -->
+
   </div>
 
 <% end %>

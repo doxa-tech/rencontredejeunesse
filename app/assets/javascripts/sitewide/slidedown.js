@@ -23,7 +23,7 @@ $(document).on("turbolinks:load", function() {
     } else {
       $(".text.active").css("height", 0).removeClass("active");
       $faqText.animate({
-        height: "600px"
+        height: "650px"
       }, 500, function() {
         $faqText.addClass("active");
       });

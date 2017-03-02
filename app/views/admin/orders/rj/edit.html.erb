@@ -1,0 +1,19 @@
+<%= render layout: 'admin/orders/edit' do |f| %>
+
+  <%= f.fields_for :product, @order.product do |product_f| %>
+
+    <%= product_f.text_field :group, placeholder: true %>
+
+    <h3>Participants</h3>
+
+    <%= render "orders/rj/participants", product_f: product_f, participants: @order.product.participants %>
+
+    <h3>Lits</h3>
+
+    <%= product_f.label :boy_beds %>
+    <%= product_f.number_field :boy_beds, placeholder: true  %>
+    <%= product_f.label :girl_beds %>
+    <%= product_f.number_field :girl_beds, placeholder: true  %>
+  <% end %>
+
+<% end %>

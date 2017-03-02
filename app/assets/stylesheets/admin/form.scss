@@ -12,6 +12,20 @@
         -ms-flex-align: center;
             align-items: center;
 
+    h3 {
+      margin: 30px 0 15px 0;
+    }
+
+    #error {
+      margin-bottom: 20px;
+      border: 1px solid red;
+      padding: 5px;
+
+      .title {
+        margin-bottom: 5px;
+      }
+    }
+
     .user-information {
 
       display: flex;

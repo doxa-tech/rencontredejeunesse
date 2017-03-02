@@ -1,0 +1,22 @@
+#form {
+  .fields-for {
+    .participants-fields {
+      margin: 15px 0;
+    }
+
+    .participants-wrap  {
+
+      div {
+        display: inline-block;
+      }
+
+      label, input {
+        margin: 0 5px 0 0;
+      }
+    }
+    button {
+      margin-top: 10px;
+      padding: 3px;
+    }
+  }
+}

@@ -42,8 +42,8 @@ Rails.application.routes.draw do
 
     namespace :orders do
 
-      resources :rj, only: [:index, :show, :destroy]
-      resources :login, only: [:index, :show, :destroy]
+      resources :rj, only: [:index, :edit, :update, :show, :destroy]
+      resources :login, only: [:index, :edit, :update, :show, :destroy]
 
     end
 
