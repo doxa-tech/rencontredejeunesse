@@ -1,7 +1,15 @@
 <p class="edit"><%= link_to image_tag("icons/edit.png") + " Changer vos informations", { action: "edit" } %></p>
 
 <%= form_tag invoice_orders_rj_path, multipart: true, class: "invoice" do %>
-  <p>Tu as choisi d'inscrire un groupe de 15 personne ou plus. Upload <a href="/inscription_rj_2017.xls">le document</a> téléchargé à l'étape précédente, complété avec les informations, et tu recevras ensuite sous peu une facture.</p>
+  <p>
+    Pour inscrire ton groupe, upload ci-dessous <a href="/inscription_rj_2017.xls">le document</a> téléchargé à l'étape précédente, soigneusement complété. Tu recevras par email dans les prochains jours une facture, avec les coordonnées bancaires de la RJ.
+  </p>
+  <p>
+    Merci de procéder rapidement au paiement, <span s>de préférence par e-banking pour nous éviter des frais supplémentaires</b>.
+  </p>
+  <p>
+    Ton inscription ne sera finalisée qu'à réception du montant total sur le compte de la RJ. Merci pour ta collaboration.
+  </p>
   <%= file_field_tag :document %>
   <%= submit_tag "Payer par facture" %>
 <% end %>

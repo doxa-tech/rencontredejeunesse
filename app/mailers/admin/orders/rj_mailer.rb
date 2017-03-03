@@ -4,6 +4,6 @@ class Admin::Orders::RjMailer < ApplicationMailer
   def group_registration(order, file)
     @order = order
     attachments["inscription_#{@order.user.firstname}_#{@order.user.lastname}.xls"] = file
-    mail(to: ["inscription@rencontredejeunesse.ch", "kocher.ke@gmail.com"], subject: "Demande d'inscription de groupe à la RJ")
+    mail(to: ["emilieraby@donagencement.ch", "kocher.ke@gmail.com"], subject: "Demande d'inscription de groupe à la RJ")
   end
 end
