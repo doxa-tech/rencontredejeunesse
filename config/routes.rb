@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   delete "signout", to: "sessions#destroy"
   get "signin", to: "sessions#new"
 
-  get "dashboard", to: "pages#dashboard"
   post "contact", to: "pages#contact"
 
   #
@@ -22,6 +21,15 @@ Rails.application.routes.draw do
   end
 
   post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }
+
+  get "dashboard", to: "users#index"
+
+  scope :user do
+
+    get "edit", to: "users#edit"
+    patch "update", to: "users#update"
+
+  end
 
   namespace :orders do
 

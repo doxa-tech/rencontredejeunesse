@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  attr_accessor :current_password
   enum gender: [:male, :female]
 
   has_many :orders
@@ -30,6 +31,18 @@ class User < ApplicationRecord
     "#{firstname} #{lastname}"
   end
   alias name full_name
+
+  def update_with_password(params)
+    authenticated = authenticate(params[:current_password])
+    assign_attributes(params)
+    if valid? && authenticated
+      save
+      true
+    else
+      errors.add(:current_password, "Le mot de passe actuel ne correspond pas") unless authenticated
+      false
+    end
+  end
 
   private
 

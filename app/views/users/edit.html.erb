@@ -1,0 +1,26 @@
+<% content_for :id, "account" %>
+
+<h1>Mon compte</h1>
+
+<div id="form">
+
+  <%= form_for current_user, url: { action: "update" } do |f| %>
+
+    <%= render "error_messages", object: f.object %>
+
+    <%= f.label :current_password %>
+    <%= f.password_field :current_password %>
+
+    <%= render "users/fields/information", f: f %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, placeholder: "Laissez blanc pour garder le mot de passe actuel" %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit nil, class: "button" %>
+
+  <% end %>
+
+</div>

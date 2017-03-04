@@ -31,6 +31,7 @@ fr:
     group: "Groupe de jeunes ou église"
     password: "Mot de passe"
     password_confirmation: "Confirmation"
+    current_password: "Mot de passe actuel"
     status: "Statut"
     created_at: "Créé le"
   activemodel:

@@ -31,7 +31,7 @@ body {
       color: #bdbcbc;
     }
 
-    img {
+    img.logo {
       margin: 10px 0 30px 10px;
     }
 
@@ -47,6 +47,13 @@ body {
 
     }
 
-  }
+    .user {
+      margin: 0 0 20px 10px;
 
+      div {
+        margin-bottom: 5px;
+      }
+
+    }
+  }
 }

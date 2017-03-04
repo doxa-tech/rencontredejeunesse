@@ -18,10 +18,6 @@ class PagesController < ApplicationController
     end
   end
 
-  def dashboard
-    render layout: "admin"
-  end
-
   private
 
   def contact_params

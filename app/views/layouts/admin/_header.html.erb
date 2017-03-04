@@ -1,6 +1,10 @@
 <header>
-  <%= image_tag "layout/logo.png" %>
+  <%= image_tag "layout/logo.png", class: "logo" %>
 
+  <div class="user">
+    <div><%= current_user.full_name %></div>
+    <div><%= link_to image_tag("icons/gear.png") + " Mon compte", edit_path %></div>
+  </div>
   <div class="signout"><%= link_to "Déconnexion", signout_path, method: :delete %></div>
 
   <ul>
