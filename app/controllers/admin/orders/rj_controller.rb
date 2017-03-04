@@ -1,7 +1,7 @@
 class Admin::Orders::RjController < Admin::BaseController
 
   def index
-    @table = OrderTable.new(self, Order.where(product_type: Records::Rj))
+    @table = OrderTable.new(self, Order.where(product_type: Records::Rj), search: true)
     @table.respond
   end
 

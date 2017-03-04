@@ -1,15 +1,19 @@
 default: &default
-  adapter: sqlite3
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
   pool: 5
-  timeout: 5000
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  database: rencontredejeunesse_development
 
-test: &test
+test:
   <<: *default
-  database: db/test.sqlite3
+  database: rencontredejeunesse_test
 
-cucumber:
-  <<: *test
+production:
+  <<: *default
+  database: rencontredejeunesse_production
+  username: rencontredejeunesse
+  password:

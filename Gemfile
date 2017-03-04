@@ -81,4 +81,4 @@ gem 'nokogiri'
 gem 'premailer-rails'
 
 # error tracking with sentry
-gem "sentry-raven"
+gem 'sentry-raven'
