@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require gumshoe
+//= require snaptable
+//= require raven.min
 //= require_tree ./admin
 //= require_tree ./sitewide
-//= require snaptable

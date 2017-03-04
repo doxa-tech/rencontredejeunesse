@@ -1,5 +1,7 @@
+@import '../base/variables';
+
 .button {
-  background-color: #00AEE9;
+  background-color: $red;
   padding: 10px 60px;
   margin: 30px 0;
   color: white;
@@ -7,6 +9,6 @@
   border: none;
 
   &:hover {
-    background-color: #36ccff;
+    background-color: #940833;
   }
 }
