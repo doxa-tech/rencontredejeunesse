@@ -1,7 +1,16 @@
 <%= render layout: 'admin/orders/show' do %>
 
   <!-- Product information -->
+  <h3>Général</h3>
   <p><strong>Nbre d'entrée:</strong> <%= @order.product.entries %></p>
+  <p><strong>Lits gars:</strong> <%= @order.product.boy_beds %><strong> / Lits fille:</strong> <%= @order.product.girl_beds %></p>
   <p><strong>Groupe:</strong> <%= @order.product.group %></p>
+
+  <h3>Participants supp.</h3>
+  <ul>
+  <% @order.product.participants.each do |participant| %>
+    <li><%= participant.firstname %> <%= participant.lastname %> <%= participant.age %> ans</li>
+  <% end %>
+  </ul>
 
 <% end %>

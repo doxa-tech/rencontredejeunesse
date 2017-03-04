@@ -7,6 +7,8 @@
   <%= yield %>
 
   <!-- Order information -->
+
+  <h3>Information sur la commande</h3>
   <p><strong>Montant:</strong> <%= @order.print_amount %> CHF</p>
   <p><strong>Statut:</strong> <%= @order.status %></p>
   <p><strong>N° de commande:</strong> <%= @order.order_id %></p>

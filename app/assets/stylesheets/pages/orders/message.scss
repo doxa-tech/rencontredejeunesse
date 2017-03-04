@@ -1,3 +1,5 @@
+@import '../../base/variables';
+
 #container.order-message {
   height: 100vh;
   background-image: image-url("orders/message.jpg");
@@ -44,13 +46,13 @@
   }
 
   a {
-    background-color: #00AEE9;
+    background-color: $red;
     color: white;
     padding: 10px 60px;
     margin-top: 40px;
 
     &:hover {
-      background-color: #36ccff;
+      background-color: #940833;
     }
   }
 
