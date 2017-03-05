@@ -12,7 +12,10 @@
 
     <%= yield f %>
 
-    <%= f.submit %>
+    <%= f.label :note %>
+    <%= f.text_area :note, cols: "50", rows: "6" %>
+
+    <%= f.submit nil, class: "button" %>
 
   <% end %>
 </div>

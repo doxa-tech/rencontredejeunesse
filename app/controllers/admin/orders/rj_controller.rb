@@ -1,7 +1,7 @@
 class Admin::Orders::RjController < Admin::BaseController
 
   def index
-    @table = OrderTable.new(self, Order.where(product_type: Records::Rj), search: true)
+    @table = OrderTable.new(self, Order.where("product_type = ? AND status NOTNULL", "Records::Rj"), search: true)
     @table.respond
   end
 
@@ -31,7 +31,7 @@ class Admin::Orders::RjController < Admin::BaseController
   private
 
   def order_params
-    params.require(:order).permit(user_attributes: [
+    params.require(:order).permit(:note, user_attributes: [
       :firstname, :lastname, :email, :phone, :address, :npa, :city, :country, :newsletter, :birthday, :gender],
       product_attributes: [:group, :girl_beds, :boy_beds,
       participants_attributes: [:firstname, :lastname, :age, :_destroy]

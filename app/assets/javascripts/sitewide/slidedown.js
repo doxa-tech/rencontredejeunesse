@@ -1,5 +1,6 @@
 $(document).on("turbolinks:load", function() {
 
+  // Orators
   $("#program .person").click(function() {
     var $personText = $(this).find(".text");
     if($personText.hasClass("active")) {
@@ -23,7 +24,7 @@ $(document).on("turbolinks:load", function() {
     } else {
       $(".text.active").css("height", 0).removeClass("active");
       $faqText.animate({
-        height: "650px"
+        height: "700px"
       }, 500, function() {
         $faqText.addClass("active");
       });

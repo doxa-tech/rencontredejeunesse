@@ -1,7 +1,7 @@
 class Admin::Orders::LoginController < Admin::BaseController
 
   def index
-    @table = OrderTable.new(self, Order.where(product_type: Records::Login))
+    @table = OrderTable.new(self, Order.where("product_type = ? AND status NOTNULL", "Records::Login"))
     @table.respond
   end
 
