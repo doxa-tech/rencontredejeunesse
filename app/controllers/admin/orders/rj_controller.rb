@@ -28,6 +28,10 @@ class Admin::Orders::RjController < Admin::BaseController
 		redirect_to admin_orders_rj_index_path, success: "Commande supprimée"
   end
 
+  def export
+    @orders = Order.where(product_type: "Records::Rj", status: [5,9]).includes(:product, :user)
+  end
+
   private
 
   def order_params

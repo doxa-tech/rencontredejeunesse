@@ -50,7 +50,9 @@ Rails.application.routes.draw do
 
     namespace :orders do
 
-      resources :rj, only: [:index, :edit, :update, :show, :destroy]
+      resources :rj, only: [:index, :edit, :update, :show, :destroy] do
+        get "export", on: :collection
+      end
       resources :login, only: [:index, :edit, :update, :show, :destroy]
 
     end
