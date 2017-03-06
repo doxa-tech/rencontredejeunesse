@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170305152911) do
+ActiveRecord::Schema.define(version: 20170306135539) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -104,6 +104,15 @@ ActiveRecord::Schema.define(version: 20170305152911) do
     t.index ["records_rj_id"], name: "index_participants_rj_on_records_rj_id", using: :btree
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "user_id"
+    t.string   "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
+  end
+
   create_table "records_login", force: :cascade do |t|
     t.integer  "entries"
     t.string   "group"
@@ -157,5 +166,6 @@ ActiveRecord::Schema.define(version: 20170305152911) do
   add_foreign_key "adeia_tokens", "adeia_permissions"
   add_foreign_key "orders", "users"
   add_foreign_key "participants_rj", "records_rj"
+  add_foreign_key "posts", "users"
   add_foreign_key "volunteers", "users"
 end

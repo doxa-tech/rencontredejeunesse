@@ -12,6 +12,14 @@ Rails.application.routes.draw do
 
   post "contact", to: "pages#contact"
 
+  # PROFILE
+  scope :user do
+
+    get "edit", to: "users#edit"
+    patch "update", to: "users#update"
+
+  end
+
   #
   # ORDERS
   #
@@ -23,13 +31,6 @@ Rails.application.routes.draw do
   post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }
 
   get "dashboard", to: "users#index"
-
-  scope :user do
-
-    get "edit", to: "users#edit"
-    patch "update", to: "users#update"
-
-  end
 
   namespace :orders do
 
@@ -43,6 +44,10 @@ Rails.application.routes.draw do
     # end
 
   end
+
+  #
+  # ADMIN
+  #
 
   namespace :admin do
 
@@ -58,6 +63,16 @@ Rails.application.routes.draw do
     end
 
     resources :checkin, only: [:index, :create, :show]
+
+  end
+
+  #
+  # API
+  #
+
+  namespace :api do
+
+    resources :posts
 
   end
 
