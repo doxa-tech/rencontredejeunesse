@@ -5,12 +5,10 @@ class Api::PostsController < Api::BaseController
   end
 
   def create
-    post = Post.new(post_params)
-    post.user = User.first # TODO
-    if post.save
-      head :created
-    else
-      head :unprocessable_entity
+    @post = Post.new(post_params)
+    @post.user = User.find_by_remember_token(params[:remember_token])
+    unless @post.save
+      render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

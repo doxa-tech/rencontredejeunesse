@@ -77,7 +77,7 @@ fr:
       accepted: "Le champ « %{attribute} » doit être accepté(e)"
       blank: "Le champ « %{attribute} » doit être rempli(e)"
       present: "Le champ « %{attribute} » doit être vide"
-      confirmation: "Le champ « %{attribute} » ne concorde pas avec %{attribute}"
+      confirmation: "Le champ « %{attribute} » ne concorde pas avec la confirmation"
       empty: "Le champ « %{attribute} » doit être rempli(e)"
       equal_to: "Le champ « %{attribute} » doit être égal à %{count}"
       even: "Le champ « %{attribute} » doit être pair"

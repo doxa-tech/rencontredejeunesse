@@ -73,6 +73,9 @@ Rails.application.routes.draw do
   namespace :api do
 
     resources :posts
+    resources :users do
+      post "signin", on: :collection
+    end
 
   end
 
