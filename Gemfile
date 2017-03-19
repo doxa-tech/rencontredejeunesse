@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'country_select'
 
 # Common translations
-gem 'rails-i18n', '~> 5.0.0'
+gem 'rails-i18n'
 
 group :development, :test do
   # Use sqlite3 as the database for Active Record
@@ -58,7 +58,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen'
 
-  gem "capistrano", "3.6.1"
+  gem 'capistrano', '3.6.1'
   gem 'capistrano-maintenance', require: false
   gem 'capistrano-server', git: 'https://github.com/JS-Tech/capistrano-server'
   # rails specific capistrano funcitons
@@ -82,3 +82,10 @@ gem 'premailer-rails'
 
 # error tracking with sentry
 gem 'sentry-raven'
+
+# File upload
+gem 'carrierwave', '~> 1.0'
+gem 'mini_magick'
+gem 'fog-google'
+gem 'google-api-client', '~> 0.8.6'
+gem 'mime-types'

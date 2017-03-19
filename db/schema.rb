@@ -77,6 +77,12 @@ ActiveRecord::Schema.define(version: 20170306135539) do
     t.index ["adeia_permission_id"], name: "index_adeia_tokens_on_adeia_permission_id", using: :btree
   end
 
+  create_table "images", force: :cascade do |t|
+    t.string   "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "amount"
     t.string   "order_id"
@@ -107,9 +113,10 @@ ActiveRecord::Schema.define(version: 20170306135539) do
   create_table "posts", force: :cascade do |t|
     t.text     "message"
     t.integer  "user_id"
-    t.string   "image"
+    t.integer  "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["image_id"], name: "index_posts_on_image_id", using: :btree
     t.index ["user_id"], name: "index_posts_on_user_id", using: :btree
   end
 
@@ -166,6 +173,7 @@ ActiveRecord::Schema.define(version: 20170306135539) do
   add_foreign_key "adeia_tokens", "adeia_permissions"
   add_foreign_key "orders", "users"
   add_foreign_key "participants_rj", "records_rj"
+  add_foreign_key "posts", "images"
   add_foreign_key "posts", "users"
   add_foreign_key "volunteers", "users"
 end

@@ -15,7 +15,7 @@ class Api::PostsController < Api::BaseController
   private
 
   def post_params
-    params.require(:post).permit(:message, :image)
+    params.require(:post).permit(:message, :image_id)
   end
 
 end
