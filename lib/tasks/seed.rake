@@ -7,6 +7,7 @@ namespace :seed do
       lastname: "Kocher",
       email: "kocher.ke@gmail.com",
       address: "Rue du château 26",
+      gender: "male",
       npa: 1627,
       city: "Vaulruz",
       country: "CH",
