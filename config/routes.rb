@@ -74,6 +74,8 @@ Rails.application.routes.draw do
 
     resources :posts
     resources :images
+    resources :testimonies
+    resources :comments
     resources :users do
       post "signin", on: :collection
     end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170306135539) do
+ActiveRecord::Schema.define(version: 20170325172016) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,16 @@ ActiveRecord::Schema.define(version: 20170306135539) do
     t.index ["adeia_permission_id"], name: "index_adeia_tokens_on_adeia_permission_id", using: :btree
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_comments_on_post_id", using: :btree
+    t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
+  end
+
   create_table "images", force: :cascade do |t|
     t.string   "file"
     t.datetime "created_at", null: false
@@ -136,6 +146,14 @@ ActiveRecord::Schema.define(version: 20170306135539) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "testimonies", force: :cascade do |t|
+    t.text     "message"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_testimonies_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -171,9 +189,12 @@ ActiveRecord::Schema.define(version: 20170306135539) do
   add_foreign_key "adeia_group_users", "users"
   add_foreign_key "adeia_permissions", "adeia_elements"
   add_foreign_key "adeia_tokens", "adeia_permissions"
+  add_foreign_key "comments", "posts"
+  add_foreign_key "comments", "users"
   add_foreign_key "orders", "users"
   add_foreign_key "participants_rj", "records_rj"
   add_foreign_key "posts", "images"
   add_foreign_key "posts", "users"
+  add_foreign_key "testimonies", "users"
   add_foreign_key "volunteers", "users"
 end

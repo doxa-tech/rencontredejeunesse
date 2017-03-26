@@ -4,6 +4,10 @@ class User < ApplicationRecord
 
   has_many :orders
   has_many :volunteers
+  has_many :comments
+
+  has_many :posts
+  has_many :testimonies
 
   has_secure_password validations: false
 

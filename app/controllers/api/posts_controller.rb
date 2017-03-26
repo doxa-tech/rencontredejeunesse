@@ -1,7 +1,12 @@
 class Api::PostsController < Api::BaseController
 
   def index
-    @posts = Post.all
+    @posts = Post.includes(:comments, :user)
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    render json: { errors: ["Post not found."] }, status: :not_found if @post.nil?
   end
 
   def create

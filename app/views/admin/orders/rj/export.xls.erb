@@ -17,6 +17,7 @@
         <Cell><Data ss:Type="String">Nom</Data></Cell>
         <Cell><Data ss:Type="String">Email</Data></Cell>
         <Cell><Data ss:Type="String">Téléphone</Data></Cell>
+        <Cell><Data ss:Type="String">Note</Data></Cell>
       </Row>
     <% @orders.each do |order| %>
       <Row>
@@ -30,6 +31,7 @@
         <Cell><Data ss:Type="String"><%= order.user.lastname %></Data></Cell>
         <Cell><Data ss:Type="String"><%= order.user.email %></Data></Cell>
         <Cell><Data ss:Type="String"><%= order.user.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.note %></Data></Cell>
       </Row>
     <% end %>
     </Table>
