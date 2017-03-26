@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  mount Adeia::Engine => "/admin/permissions"
+  mount Adeia::Engine => "/admin"
 
   root to: "pages#index"
 

@@ -10,6 +10,7 @@ class Api::PostsController < Api::BaseController
   end
 
   def create
+    authorize!
     @post = Post.new(post_params)
     @post.user = User.find_by_remember_token(params[:remember_token])
     unless @post.save

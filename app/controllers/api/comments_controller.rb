@@ -1,8 +1,10 @@
 class Api::CommentsController < Api::BaseController
 
+  require_login
+
   def create
     @comment = Comment.new(comment_params)
-    @comment.user = User.find_by_remember_token(params[:remember_token])
+    @comment.user = current_user
     unless @comment.save
       render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
     end

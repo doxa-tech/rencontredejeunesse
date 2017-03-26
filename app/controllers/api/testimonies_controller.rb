@@ -1,5 +1,7 @@
 class Api::TestimoniesController < Api::BaseController
 
+  require_login only: :create
+
   def index
     @testimonies = Testimony.includes(:user)
   end
