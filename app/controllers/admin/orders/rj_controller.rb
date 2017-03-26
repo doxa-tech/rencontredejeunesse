@@ -1,6 +1,7 @@
 class Admin::Orders::RjController < Admin::BaseController
 
   def index
+    @count =  Order.where(product_type: "Records::Rj", status: [5,9]).inject(0) { |sum, o| sum += o.product.entries }
     @table = OrderTable.new(self, Order.where("product_type = ? AND status NOTNULL", "Records::Rj"), search: true)
     @table.respond
   end
