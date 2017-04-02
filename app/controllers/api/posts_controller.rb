@@ -1,11 +1,12 @@
 class Api::PostsController < Api::BaseController
 
   def index
-    @posts = Post.includes(:comments, :user)
+    @posts = Post.includes(:comments, :user).paginate(page: params[:page], per_page: 15)
   end
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.includes(:user)
     render json: { errors: ["Post not found."] }, status: :not_found if @post.nil?
   end
 

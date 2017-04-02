@@ -89,3 +89,6 @@ gem 'mini_magick'
 gem 'fog-google'
 gem 'google-api-client', '~> 0.8.6'
 gem 'mime-types'
+
+# Pagination
+gem 'will_paginate', '~> 3.1.0'

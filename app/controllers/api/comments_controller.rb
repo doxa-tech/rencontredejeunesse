@@ -10,6 +10,13 @@ class Api::CommentsController < Api::BaseController
     end
   end
 
+  def update
+    @comment = Comment.find(params[:id])
+    unless @comment.update_attributes(comment_params)
+      render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def comment_params

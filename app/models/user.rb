@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :orders
   has_many :volunteers
   has_many :comments
+  belongs_to :image
 
   has_many :posts
   has_many :testimonies

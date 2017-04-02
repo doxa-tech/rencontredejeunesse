@@ -1,7 +1,6 @@
 class Api::ImagesController < Api::BaseController
 
   def create
-    authorize!
     image = Image.new
     image.file = request.body
     if image.save

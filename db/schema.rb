@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325172016) do
+ActiveRecord::Schema.define(version: 20170328135359) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,8 @@ ActiveRecord::Schema.define(version: 20170325172016) do
     t.string   "password_digest"
     t.date     "birthday"
     t.integer  "gender"
+    t.integer  "image_id"
+    t.index ["image_id"], name: "index_users_on_image_id", using: :btree
     t.index ["remember_token"], name: "index_users_on_remember_token", using: :btree
   end
 
@@ -196,5 +198,6 @@ ActiveRecord::Schema.define(version: 20170325172016) do
   add_foreign_key "posts", "images"
   add_foreign_key "posts", "users"
   add_foreign_key "testimonies", "users"
+  add_foreign_key "users", "images"
   add_foreign_key "volunteers", "users"
 end
