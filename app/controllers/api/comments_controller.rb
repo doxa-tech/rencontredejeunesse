@@ -12,6 +12,7 @@ class Api::CommentsController < Api::BaseController
 
   def update
     @comment = Comment.find(params[:id])
+    render_unauthorized unless can_edit?(@comment)
     unless @comment.update_attributes(comment_params)
       render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
     end
