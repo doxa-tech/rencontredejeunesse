@@ -19,6 +19,18 @@ class Api::PostsController < Api::BaseController
     end
   end
 
+  def update
+    @post = load_and_authorize!
+    unless @post.update_attributes(post_params)
+      render json: { errors: @post.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @post = load_and_authorize!
+    @post.destroy
+  end
+
   private
 
   def post_params

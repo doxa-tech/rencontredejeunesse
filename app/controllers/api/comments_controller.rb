@@ -1,6 +1,7 @@
 class Api::CommentsController < Api::BaseController
 
   require_login
+  before_action :authorized?, only: [:update, :destroy]
 
   def create
     @comment = Comment.new(comment_params)
@@ -11,8 +12,6 @@ class Api::CommentsController < Api::BaseController
   end
 
   def update
-    @comment = Comment.find(params[:id])
-    render_unauthorized unless can_edit?(@comment)
     unless @comment.update_attributes(comment_params)
       render json: { errors: @comment.errors.full_messages }, status: :unprocessable_entity
     end
@@ -22,6 +21,11 @@ class Api::CommentsController < Api::BaseController
 
   def comment_params
     params.require(:comment).permit(:message, :post_id)
+  end
+
+  def authorized?
+    @comment = Comment.find(params[:id])
+    render_unauthorized unless can_edit?(@comment)
   end
 
 end

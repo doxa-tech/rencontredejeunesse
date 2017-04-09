@@ -3,7 +3,7 @@ class Post < ApplicationRecord
 
   belongs_to :user
   belongs_to :image
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   validates :message, presence: true, length: { maximum: 500 }
   validates :user, presence: true

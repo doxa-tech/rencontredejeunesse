@@ -1,6 +1,7 @@
 class Api::TestimoniesController < Api::BaseController
 
   require_login only: :create
+  before_action :authorized?, only: [:update, :destroy]
 
   def index
     @testimonies = Testimony.includes(:user)
@@ -15,8 +16,6 @@ class Api::TestimoniesController < Api::BaseController
   end
 
   def update
-    @testimony = Testimony.find(params[:id])
-    render_unauthorized unless can_edit?(@testimony)
     unless @testimony.update_attributes(testimony_params)
       render json: { errors: @testimony.errors.full_messages }, status: :unprocessable_entity
     end
@@ -27,4 +26,10 @@ class Api::TestimoniesController < Api::BaseController
   def testimony_params
     params.require(:testimony).permit(:message)
   end
+
+  def authorized?
+    @testimony = Testimony.find(params[:id])
+    render_unauthorized unless can_edit?(@testimony)
+  end
+
 end
