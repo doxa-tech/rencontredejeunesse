@@ -3,6 +3,11 @@ json.array! @posts do |post|
   json.message post.message
   json.author post.user.full_name
   json.canEdit can_edit?(post)
+  json.createdAtDate post.created_at.strftime("%d.%m.%y")
+  json.createdAtTime post.created_at.strftime("%H:%M")
+  if post.image
+    json.imageUrl post.image.file.m.url
+  end
   json.lastComment do
     if post.last_comment
       json.message post.last_comment.message

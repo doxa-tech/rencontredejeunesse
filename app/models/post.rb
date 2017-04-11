@@ -5,10 +5,16 @@ class Post < ApplicationRecord
   belongs_to :image
   has_many :comments, dependent: :destroy
 
+  before_validation :strip_content
+
   validates :message, presence: true, length: { maximum: 500 }
   validates :user, presence: true
 
   def last_comment
     comments.first
+  end
+
+  def strip_content
+    self.message = self.message.strip unless self.message.nil?
   end
 end
