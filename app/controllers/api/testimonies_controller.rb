@@ -21,6 +21,10 @@ class Api::TestimoniesController < Api::BaseController
     end
   end
 
+  def destroy
+    @testimony.destroy
+  end
+
   private
 
   def testimony_params

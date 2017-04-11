@@ -17,6 +17,10 @@ class Api::CommentsController < Api::BaseController
     end
   end
 
+  def destroy
+    @comment.destroy
+  end
+
   private
 
   def comment_params
