@@ -30,7 +30,7 @@ class Admin::Orders::RjController < Admin::BaseController
   end
 
   def export
-    @orders = Order.where(product_type: "Records::Rj", status: [5,9]).includes(:product, :user)
+    @orders = Order.where(product_type: "Records::Rj").includes(:product, :user)
   end
 
   private
