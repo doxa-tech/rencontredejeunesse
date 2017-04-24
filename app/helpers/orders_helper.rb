@@ -10,7 +10,7 @@ module OrdersHelper
   end
 
   def entries_price(record)
-    record.entries * Records::Rj.ENTRY_PRICE
+    record.entries * Records::Rj.ENTRY_PRICE(record.created_at)
   end
 
 end
