@@ -12,7 +12,7 @@ class Orders::BaseController < ApplicationController
   end
 
   def end_from_order
-    redirect_to root_path, error: "Les commandes ne sont plus possibles."
+    redirect_to root_path, error: "Les commandes ne sont plus possibles." unless Rails.env.test?
   end
 
 end
