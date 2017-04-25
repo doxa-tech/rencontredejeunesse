@@ -51,9 +51,9 @@ class Orders::RjController < Orders::BaseController
 
   def order_params
     params.require(:order).permit(:conditions, :payment_method, user_attributes: [
-      :firstname, :lastname, :email, :phone, :address, :npa, :city, :country, :newsletter, :birthday, :gender],
-      product_attributes: [:group, :girl_beds, :boy_beds,
-      participants_attributes: [:firstname, :lastname, :age, :_destroy]
+      :id, :firstname, :lastname, :email, :phone, :address, :npa, :city, :country, :newsletter, :birthday, :gender],
+      product_attributes: [:id, :group, :girl_beds, :boy_beds,
+      participants_attributes: [:id, :firstname, :lastname, :age, :_destroy]
     ])
   end
 

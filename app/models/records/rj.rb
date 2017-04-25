@@ -20,7 +20,7 @@ module Records
     before_validation :defaults_for_beds, :calculate_entries
 
     def calculate_amount
-      return ((entries * Rj.ENTRY_PRICE(self.created_at)) + (boy_beds + girl_beds) * BED_PRICE + FEE) * 100
+      return ((entries * Rj.ENTRY_PRICE) + (boy_beds + girl_beds) * BED_PRICE + FEE) * 100
     end
 
     def self.ENTRY_PRICE(date = Time.now)
