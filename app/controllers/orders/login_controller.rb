@@ -17,7 +17,6 @@ class Orders::LoginController < Orders::BaseController
   end
 
   def update
-    @order.product = Records::Login.new
     @order.assign_attributes(order_params)
     if @order.save(context: :order)
       redirect_to confirmation_orders_login_path(@order.order_id)

@@ -21,7 +21,6 @@ class Orders::RjController < Orders::BaseController
   end
 
   def update
-    @order.product = Records::Rj.new
     @volunteer = VolunteerForm.new(volunteer_params)
     @order.assign_attributes(order_params)
     if @order.save(context: :order)
