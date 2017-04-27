@@ -7,6 +7,8 @@ json.array! @posts do |post|
   json.createdAtTime post.created_at.strftime("%H:%M")
   if post.image
     json.imageUrl post.image.file.m.url
+  else
+    json.imageUrl nil
   end
   json.lastComment do
     if post.last_comment
