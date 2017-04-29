@@ -16,7 +16,6 @@ class Admin::Orders::RjController < Admin::BaseController
 
   def update
     @order = Order.find(params[:id])
-    @order.product = Records::Rj.new
     if @order.update_attributes(order_params)
       redirect_to admin_orders_rj_path(@order), success: "Commande mise à jour"
     else
