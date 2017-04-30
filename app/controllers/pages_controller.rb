@@ -4,9 +4,7 @@ class PagesController < ApplicationController
     render "index", layout: "application.new"
   end
 
-  def application
-    render "application", layout: "application.new"
-  end
+  
 
   def login
     render layout: "login"

@@ -1,0 +1,13 @@
+#application-page {
+  padding: 40px 20px;
+  height: 100vh;
+
+  background-image: image-url("sections/vision/smoke.jpg");
+  background-size: cover;
+  background-position: right;
+
+  p.center {
+    text-align: center;
+    margin: 40px;
+  }
+}
