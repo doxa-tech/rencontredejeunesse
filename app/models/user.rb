@@ -56,7 +56,11 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    this.image.file.avatar.url || "https://storage.googleapis.com/rj-assets/default_avatar.png"
+    if image.file.nil?
+      "https://storage.googleapis.com/rj-assets/default_avatar.png"
+    else
+      image.file.avatar.url
+    end
   end
 
   private
