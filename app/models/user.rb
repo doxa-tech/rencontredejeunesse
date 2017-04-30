@@ -55,6 +55,10 @@ class User < ApplicationRecord
     end
   end
 
+  def avatar_url
+    this.image.file.avatar.url || "https://storage.googleapis.com/rj-assets/default_avatar.png"
+  end
+
   private
 
   def create_remember_token
