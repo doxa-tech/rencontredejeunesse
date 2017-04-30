@@ -63,8 +63,8 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def check_size
     w, h = ::MiniMagick::Image.open(file.file)[:dimensions]
-    if(w < 500 || h < 400)
-      raise MiniMagick::Error, "Votre image est trop petite. Une largeur d'au moins 850px et une hauteur d'au moins 400px est nécessaire."
+    if(w < 400 || h < 400)
+      raise MiniMagick::Error, "Votre image est trop petite. Une largeur d'au moins 400px et une hauteur d'au moins 400px est nécessaire."
     end
   end
 
