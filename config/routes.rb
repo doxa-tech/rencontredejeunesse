@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root to: "pages#index"
 
   get "login", to: "pages#login"
+  get "privacy", to: "pages#privacy"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
