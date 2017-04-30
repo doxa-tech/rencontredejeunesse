@@ -56,7 +56,7 @@ class User < ApplicationRecord
   end
 
   def avatar_url
-    if image.file.nil?
+    if image.nil?
       "https://storage.googleapis.com/rj-assets/default_avatar.png"
     else
       image.file.avatar.url
