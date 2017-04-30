@@ -15,4 +15,5 @@ json.comments @comments do |comment|
   json.canEdit can_edit?(comment)
   json.createdAtDate comment.created_at.strftime("%d.%m.%y")
   json.createdAtTime comment.created_at.strftime("%H:%M")
+  json.isResponse comment.user == @post.user ? true : false
 end
