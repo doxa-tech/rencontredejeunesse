@@ -82,6 +82,8 @@ Rails.application.routes.draw do
       post "signin", on: :collection
     end
 
+    resources :markers, only: :index
+
   end
 
   #
