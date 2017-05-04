@@ -4,6 +4,7 @@ section#home {
   height: 100vh !important;
   color: #fff;
   padding: 30px $pright $pbottom $pleft;
+  background-color: #333;
 
   h1 {
     position: absolute;
@@ -77,13 +78,21 @@ section#home {
         -ms-flex-pack: end;
             justify-content: flex-end;
 
-    p {
+    div {
       -ms-flex-item-align: center;
           -ms-grid-row-align: center;
           align-self: center;
       text-transform: uppercase;
-      a:nth-of-type(1) {
-        margin: 0 20px 0 0;
+      text-align: right;
+      // a:nth-of-type(1) {
+      //   margin: 0 20px 0 0;
+      // }
+      img {
+        width: 180px;
+        vertical-align: middle;
+      }
+      img.ios {
+        width: 161px;
       }
     }
   }
