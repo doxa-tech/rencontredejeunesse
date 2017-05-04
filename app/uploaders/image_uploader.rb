@@ -42,7 +42,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :avatar do
-    process :resize_with_crop => [256, 256]
+    process :resize_with_crop => [256, 256, {gravity: :north}]
   end
 
   process :check_size
