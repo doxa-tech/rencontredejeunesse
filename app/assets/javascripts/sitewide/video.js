@@ -9,7 +9,7 @@ function onYouTubeIframeAPIReady() {
   player = new YT.Player('yt-player', {
     width: '100%',
     height: '100%',
-    playerVars: { 'showinfo': 0 },
+    playerVars: { 'showinfo': 1 },
     videoId: '31lNK-Ica7M',
   });
 }
