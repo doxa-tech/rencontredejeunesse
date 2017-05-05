@@ -19,11 +19,14 @@ class User < ApplicationRecord
   validates :firstname, presence: true, length: { maximum: 30 }
   validates :lastname, presence: true, length: { maximum: 30 }
   validates :email, :format => { :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
-  validate :uniqueness_of_email, on: :account_setup
   validates :gender, presence: true
+  validate :uniqueness_of_email
 
   validates :password, presence: true, length: { maximum: 72 }, on: :account_setup
-  validates_confirmation_of :password, allow_blank: true, on: :account_setup
+  validates_confirmation_of :password, on: :account_setup
+
+  validates :password, length: { maximum: 72 }, on: :account_update
+  validates_confirmation_of :password, allow_blank: true, on: :account_update
 
   validates :phone, presence: true, on: :order
   validates :npa, numericality: { only_integer: true, greater_than: 0 }, on: :order
@@ -46,7 +49,7 @@ class User < ApplicationRecord
   def update_with_password(params)
     authenticated = authenticate(params[:current_password])
     assign_attributes(params)
-    if valid?(:account_setup) && authenticated
+    if valid?(:account_update) && authenticated
       save
       true
     else
@@ -70,7 +73,8 @@ class User < ApplicationRecord
   end
 
   def uniqueness_of_email
-    if User.where(email: email).where.not(password_digest: nil).any?
+    puts "HERRRE"
+    if User.where(email: email).where.not(id: id, password_digest: nil).any?
       errors.add(:email, "L'email est déjà utilisé")
     end
   end
