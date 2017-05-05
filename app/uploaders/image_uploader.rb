@@ -7,7 +7,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Choose what kind of storage to use for this uploader:
   # storage :file # Configured in config file initializer
-  if Rails.env.production? 
+  if Rails.env.production?
     storage :fog
   else
     storage :file
@@ -29,16 +29,24 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
+  def move_to_cache
+    true
+  end
+
+  def move_to_store
+    true
+  end
+
   version :l do
-    process :resize_to_limit => [1200, nil] 
+    process :resize_to_limit => [1200, nil]
   end
 
   version :m do
-    process :resize_to_limit => [800, nil] 
+    process :resize_to_limit => [800, nil]
   end
 
   version :thumb do
-    process :resize_to_limit => [128, nil] 
+    process :resize_to_limit => [128, nil]
   end
 
   version :avatar do
