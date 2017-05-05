@@ -6,7 +6,6 @@ class Api::UsersController < Api::BaseController
   end
 
   def create
-    puts "DAaaaa"
     @user = User.new(user_params)
     unless @user.save(context: :account_setup)
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity

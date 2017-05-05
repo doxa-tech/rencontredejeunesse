@@ -73,7 +73,6 @@ class User < ApplicationRecord
   end
 
   def uniqueness_of_email
-    puts "HERRRE"
     if User.where(email: email).where.not(id: id, password_digest: nil).any?
       errors.add(:email, "L'email est déjà utilisé")
     end
