@@ -1,13 +1,20 @@
-"markers": [{
-    "lat": "46",
-    "lng": "7",
-    "title": "Resto",
-    "content": "A voir"
+[
+  {
+    "lat": 46.6151784,
+    "lng": 7.0508409,
+    "title": "Lidl",
+    "content": "Supermarché"
   },
   {
-    "lat:" "46",
-    "lng": "7",
-    "title": "Resto",
-    "content": "A voir"
+    "lat": 46.6180783,
+    "lng":7.0551968,
+    "title": "Migros Express",
+    "content": "Ouvert le samedi jusqu'à 20h."
   },
+  {
+    "lat": 46.6171553,
+    "lng": 7.0567095,
+    "title": "Kebab",
+    "content": ""
+  }
 ]

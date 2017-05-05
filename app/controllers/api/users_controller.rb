@@ -14,7 +14,8 @@ class Api::UsersController < Api::BaseController
 
   def update
     @user = User.find_by_remember_token(params[:id])
-    unless @user.update_attributes(user_params)
+    @user.assign_attributes(user_params)
+    unless @user.save(context: :account_setup)
       render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
     end
   end
