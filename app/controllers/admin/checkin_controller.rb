@@ -1,13 +1,16 @@
 class Admin::CheckinController < Admin::BaseController
 
   def index
+    authorize!
   end
 
   def show
+    authorize!
     @order = Order.find_by(human_id: params[:id])
   end
 
   def create
+    authorize!
     params[:human_id].upcase!
     @order = Order.find_by(human_id: params[:human_id])
     unless @order.nil?

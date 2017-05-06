@@ -9,10 +9,10 @@
 
   <ul>
     <li class="text">Admininistration</li>
-    <li><%= link_to "Utilisateurs", admin_users_path %></li>
+    <% if can?(:read, "admin/users") %><li><%= link_to "Utilisateurs", admin_users_path %></li><% end %>
     <li class="text">Commandes</li>
-    <li><%= link_to "Checkin", admin_checkin_index_path %></li>
-    <li><%= link_to "RJ", admin_orders_rj_index_path %></li>
-    <li><%= link_to "RJ Login", admin_orders_login_index_path %></li>
+    <% if can?(:read, "admin/orders/rj") && can?(:read, "admin/orders/login") %><li><%= link_to "Checkin", admin_checkin_index_path %></li><% end %>
+    <% if can?(:read, "admin/orders/rj") %><li><%= link_to "RJ", admin_orders_rj_index_path %></li><% end %>
+    <% if can?(:read, "admin/orders/login") %><li><%= link_to "RJ Login", admin_orders_login_index_path %></li><% end %>
   </ul>
 </header>

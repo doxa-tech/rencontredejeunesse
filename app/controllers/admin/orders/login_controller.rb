@@ -1,4 +1,5 @@
 class Admin::Orders::LoginController < Admin::BaseController
+  load_and_authorize(model: Records::Login)
 
   def index
     @table = OrderTable.new(self, Order.where("product_type = ? AND status NOTNULL", "Records::Login"))
