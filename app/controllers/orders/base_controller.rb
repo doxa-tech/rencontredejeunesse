@@ -2,7 +2,7 @@ class Orders::BaseController < ApplicationController
   include OrdersHelper
 
   before_action :closed, only: [:edit, :update, :confirmation, :invoice]
-  #before_action :end_from_order
+  before_action :end_from_order
 
   private
 
