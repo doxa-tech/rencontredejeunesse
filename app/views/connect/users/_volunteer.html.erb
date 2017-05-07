@@ -6,22 +6,30 @@
   </div>
 
   <p class="intro">La RJ ne fonctionnerait pas sans ses bénévoles, et tu as l'occasion de t'investir et participer
-    dans divers domaines suivant tes dons et passions.
+    dans divers domaines en fonction de tes dons et passions.
+  </p>
+  <p class="intro">
+    Sur cette page, tu peux découvrir les différents domaines de bénévolat et signaler ton intérêt.
   </p>
 
   <div class="sectors">
-    <div class="sector">
-      <div class="name">
-        <%= image_tag "connect/volunteer/technic.png" %>
-        <p>Technique</p>
-      </div>
-    </div>
-    <div class="sector">
-      <div class="name">
-        <%= image_tag "connect/volunteer/technic.png" %>
-        <p>Technique</p>
-      </div>
-    </div>
+
+    <%= render 'connect/users/partials/sector', name: "Montage" %>
+    <%= render 'connect/users/partials/sector', name: "Démontage" %>
+    <%= render 'connect/users/partials/sector', name: "Montage technique" %>
+    <%= render 'connect/users/partials/sector', name: "Démontage technique" %>
+    <%= render 'connect/users/partials/sector', name: "Contrôle aux portes" %>
+    <%= render 'connect/users/partials/sector', name: "Accueil" %>
+    <%= render 'connect/users/partials/sector', name: "Fun park" %>
+    <%= render 'connect/users/partials/sector', name: "Hospitalité" %>
+    
   </div>
 
 </section>
+
+<script>
+  $("p.more").hide();
+  $("button.more").click(function() {
+    $(this).closest("div.sector").children("p.more").toggle();
+  });
+</script>
