@@ -69,6 +69,16 @@ Rails.application.routes.draw do
   end
 
   #
+  #
+  #
+
+  namespace :connect do
+    root to: "users#show"
+    get 'settings', to: "users#settings"
+    get 'volunteer', to: "users#volunteer"
+  end
+
+  #
   # API
   #
 

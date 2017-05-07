@@ -19,42 +19,8 @@
 
     <div id="container" class="<%= yield :id %>">
 
-      <header>
-
-        <div id="burger-menu"><%= image_tag "icons/menu.png" %></div>
-
-        <div id="content-menu">
-
-          <nav data-gumshoe data-turbolinks="false">
-            <%= image_tag "icons/close2.png", id: "close-menu" %>
-            <a href="#home">Home</a>
-            <a href="#vision">Vision 2017</a>
-            <a href="#anniversary">25 ans</a>
-            <a href="#program">Programme</a>
-            <a href="#inscription">S'inscrire</a>
-            <a href="#contact">Contact</a>
-          </nav>
-        </div>
-
-      </header>
-
       <%= yield %>
 
-      <footer>
-        <div class="partners">
-          <p>Partenaires</p>
-          <div>
-            <a href="http://www.vecteurcom.com" target="_blank">Vectorcom</a>
-            <a href="http://www.cash-solutions.ch" target="_blank">Cash Solutions</a>
-            <a href="http://jstech.ch" target="_blank">JSTech</a>
-          </div>
-        </div>
-        <div class="social">
-          <a href="https://facebook.com/rencontredejeunesse" target="_blank"><%= image_tag "icons/social/fb2.png" %></a>
-          <a href="https://www.instagram.com/rencontredejeunesse" target="_blank"><%= image_tag "icons/social/ig2.png" %></a>
-          <a href="https://www.youtube.com/user/RencontredeJeunesse" target="_blank"><%= image_tag "icons/social/yt2.png" %></a>
-        </div>
-      </footer>
     </div>
   </body>
 </html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rencontre de jeunesse RJ</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'connect', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'connect', 'data-turbolinks-track': 'reload' %>
+    <%= yield :javascript %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%= render 'layouts/favicon' %>
+  </head>
+
+  <body id="connect">
+
+    <header>
+      <div>
+        <%= image_tag "connect/layout/logo.png", class: "logo" %>
+      </div>
+      <div>
+        <%= image_tag "connect/layout/logout.svg", class: "logout" %>
+      </div>
+    </header>
+
+    <%= render 'layouts/flash' %>
+
+    <div id="connect-container" class="<%= yield :id %>">
+
+      <%= yield %>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+</html>

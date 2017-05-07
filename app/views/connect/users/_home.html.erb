@@ -1,0 +1,28 @@
+<% content_for :id, "connect" %>
+
+<section class="fade-in home">
+  <div class="avatar">
+    <%= image_tag "connect/user.svg" %>
+  </div>
+
+  <div class="name">
+    Noémien Kocher
+  </div>
+
+  <div class="apps">
+    <%= link_to connect_settings_path, {class: "app", remote: true} do %>
+      <div class="icon"></div>
+      <span class="app-name">Paramètres</span>
+    <% end %>
+
+    <a class="app" href="#">
+      <div class="icon"></div>
+      <span class="app-name">Achats</span>
+    </a>
+
+    <%= link_to connect_volunteer_path, {class: "app", remote: true} do %>
+      <div class="icon"></div>
+      <span class="app-name">Bénévolat</span>
+    <% end %>
+  </div>
+</section>

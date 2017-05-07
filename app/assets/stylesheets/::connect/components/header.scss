@@ -1,0 +1,19 @@
+.app-container div.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0 0 50px 0;
+
+  img.back {
+    width: 32px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 100;
+    color: #888;
+    text-align: center;
+    font-family: "Latina essential";
+    flex: 1;
+  }
+}

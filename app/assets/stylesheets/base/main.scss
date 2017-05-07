@@ -1,11 +1,35 @@
 #container.main {
-  font-family: didot, serif;
 
-  section {
-    min-height: 100vh;
-    /* To ensure 100% height */
-    display: flex;
-    flex-direction: column;
+  background: image-url("paintstroke.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  font-family: butler;
+  font-size: 30px;
+  min-height: 500px;
+
+  img.logo {
+    width: 30px;
+    margin: 30px;
+  }
+
+  img.year {
+    max-width: 80%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  p {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    bottom: 10%;
+    transform: translateX(-50%);
   }
 
 }
