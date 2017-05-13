@@ -5,24 +5,28 @@
     <h1>Bénévolat</h1>
   </div>
 
-  <p class="intro">La RJ ne fonctionnerait pas sans ses bénévoles, et tu as l'occasion de t'investir et participer
-    dans divers domaines en fonction de tes dons et passions.
-  </p>
-  <p class="intro">
-    Sur cette page, tu peux découvrir les différents domaines de bénévolat et signaler ton intérêt.
-  </p>
+  <div class="content-wrap">
 
-  <div class="sectors">
+    <p class="intro">La RJ ne fonctionnerait pas sans ses bénévoles, et tu as l'occasion de t'investir et participer
+      dans divers domaines en fonction de tes dons et passions.
+    </p>
+    <p class="intro">
+      Sur cette page, tu peux découvrir les différents domaines de bénévolat et signaler ton intérêt.
+    </p>
 
-    <%= render 'connect/users/partials/sector', name: "Montage" %>
-    <%= render 'connect/users/partials/sector', name: "Démontage" %>
-    <%= render 'connect/users/partials/sector', name: "Montage technique" %>
-    <%= render 'connect/users/partials/sector', name: "Démontage technique" %>
-    <%= render 'connect/users/partials/sector', name: "Contrôle aux portes" %>
-    <%= render 'connect/users/partials/sector', name: "Accueil" %>
-    <%= render 'connect/users/partials/sector', name: "Fun park" %>
-    <%= render 'connect/users/partials/sector', name: "Hospitalité" %>
-    
+    <div class="sectors">
+
+      <%= render 'connect/users/partials/sector', name: "Montage" %>
+      <%= render 'connect/users/partials/sector', name: "Démontage" %>
+      <%= render 'connect/users/partials/sector', name: "Montage technique" %>
+      <%= render 'connect/users/partials/sector', name: "Démontage technique" %>
+      <%= render 'connect/users/partials/sector', name: "Contrôle aux portes" %>
+      <%= render 'connect/users/partials/sector', name: "Accueil" %>
+      <%= render 'connect/users/partials/sector', name: "Fun park" %>
+      <%= render 'connect/users/partials/sector', name: "Hospitalité" %>
+      
+    </div>
+
   </div>
 
 </section>
