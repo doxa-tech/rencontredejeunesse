@@ -8,19 +8,27 @@
   </div>
 
   <div class="apps">
+
     <%= link_to connect_settings_path, {class: "app", remote: true} do %>
-      <div class="icon"></div>
+      <div class="icon"><%= image_tag 'connect/home/adjust.svg' %></div>
       <span class="app-name">Paramètres</span>
     <% end %>
 
-    <a class="app" href="#">
-      <div class="icon"></div>
+    <%= link_to connect_shop_path, {class: "app", remote: true} do %>
+      <div class="icon"><%= image_tag 'connect/home/ticket.svg' %></div>
       <span class="app-name">Achats</span>
-    </a>
+    <% end %>
 
     <%= link_to connect_volunteer_path, {class: "app", remote: true} do %>
-      <div class="icon"></div>
+      <div class="icon"><%= image_tag 'connect/home/power.svg' %></div>
       <span class="app-name">Bénévolat</span>
     <% end %>
+
+    <%= link_to connect_goodies_path, {class: "app", remote: true} do %>
+      <div class="icon"><%= image_tag 'connect/home/candy.svg' %></div>
+      <span class="app-name">Goodies</span>
+    <% end %>
+
   </div>
+  
 </section>

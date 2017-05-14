@@ -8,8 +8,18 @@ class Connect::UsersController < Connect::BaseController
     render 'show'
   end
 
+  def shop
+    @current_partial = "shop"
+    render 'show'
+  end
+
   def volunteer
     @current_partial = "volunteer"
+    render 'show'
+  end
+
+  def goodies
+    @current_partial = "goodies"
     render 'show'
   end
   

@@ -75,7 +75,9 @@ Rails.application.routes.draw do
   namespace :connect do
     root to: "users#show"
     get 'settings', to: "users#settings"
+    get 'shop', to: "users#shop"
     get 'volunteer', to: "users#volunteer"
+    get 'goodies', to: "users#goodies"
   end
 
   #

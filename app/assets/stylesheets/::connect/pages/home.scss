@@ -38,6 +38,16 @@
         background: linear-gradient(red, #FF7600);
         border-radius: 16px;
         align-self: center;
+        position: relative;
+
+        img {
+          width: 40px;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%);
+          opacity: .5;
+        }
       }
 
       .app-name {
