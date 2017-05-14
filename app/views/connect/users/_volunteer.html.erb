@@ -5,35 +5,33 @@
     <h1>Bénévolat</h1>
   </div>
 
-  <div class="content-wrap">
 
-    <p class="intro">La RJ ne fonctionnerait pas sans ses bénévoles, et tu as l'occasion de t'investir et participer
-      dans divers domaines en fonction de tes dons et passions.
-    </p>
-    <p class="intro">
-      Sur cette page, tu peux découvrir les différents domaines de bénévolat et signaler ton intérêt.
-    </p>
+  <p class="main-intro">La RJ ne fonctionnerait pas sans ses bénévoles, et tu as l'occasion de t'investir et participer
+    dans divers domaines en fonction de tes dons et passions.
+  </p>
+  <p class="main-intro">
+    Sur cette page, tu peux découvrir les différents domaines de bénévolat et signaler ton intérêt.
+  </p>
 
-    <div class="sectors">
+  <div class="sectors grid-section">
 
-      <%= render 'connect/users/partials/sector', name: "Montage" %>
-      <%= render 'connect/users/partials/sector', name: "Démontage" %>
-      <%= render 'connect/users/partials/sector', name: "Montage technique" %>
-      <%= render 'connect/users/partials/sector', name: "Démontage technique" %>
-      <%= render 'connect/users/partials/sector', name: "Contrôle aux portes" %>
-      <%= render 'connect/users/partials/sector', name: "Accueil" %>
-      <%= render 'connect/users/partials/sector', name: "Fun park" %>
-      <%= render 'connect/users/partials/sector', name: "Hospitalité" %>
-      
-    </div>
-
+    <%= render 'connect/users/partials/sector', name: "Montage" %>
+    <%= render 'connect/users/partials/sector', name: "Démontage" %>
+    <%= render 'connect/users/partials/sector', name: "Montage technique" %>
+    <%= render 'connect/users/partials/sector', name: "Démontage technique" %>
+    <%= render 'connect/users/partials/sector', name: "Contrôle aux portes" %>
+    <%= render 'connect/users/partials/sector', name: "Accueil" %>
+    <%= render 'connect/users/partials/sector', name: "Fun park" %>
+    <%= render 'connect/users/partials/sector', name: "Hospitalité" %>
+    
   </div>
+
 
 </section>
 
 <script>
   $("p.more").hide();
   $("button.more").click(function() {
-    $(this).closest("div.sector").children("p.more").toggle();
+    $(this).closest("div.section").children("p.more").toggle();
   });
 </script>

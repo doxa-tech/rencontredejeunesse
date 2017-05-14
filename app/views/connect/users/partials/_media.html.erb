@@ -5,8 +5,7 @@
       <p><%= name %></p>
     </div>
     <div class="actions">
-      <button class="more">+/- d'infos</button>
-      <button class="engage">Ça m'intéresse!</button>
+      <button class="more">Voir +/-</button>
     </div>
   </div>
   <p class="more">
@@ -15,3 +14,10 @@
     ad minim veniam, quis nostrud.
   </p>
 </div>
+
+<script>
+  $("p.more").hide();
+  $("button.more").click(function() {
+    $(this).closest("div.section").children("p.more").toggle();
+  });
+</script>
