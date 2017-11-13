@@ -1,0 +1,31 @@
+<h2>Se connecter</h2>
+
+<%= form_for :session, url: signin_orders_users_path(product: params[:product]) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.label :password %>
+
+  <%= f.text_field :email, placeholder: "Email" %>
+  <%= f.password_field :password, placeholder: "Mot de passe" %>
+
+  <%= f.button %>
+
+<% end %>
+
+<h2>S'inscrire</h2>
+
+<%= form_for @user, url: orders_users_path(product: params[:product]) do |f| %>
+
+  <%= render "error_messages", object: f.object %>
+
+  <%= render "users/fields/information", f: f %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit nil, class: "button" %>
+
+<% end %>

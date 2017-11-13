@@ -17,7 +17,7 @@ module Rencontredejeunesse
       g.stylesheets     false
       g.javascripts     false
       g.helper          false
-      g.factory_girl    false
+      g.factory_bot     false
     end
 
     config.i18n.default_locale = :fr

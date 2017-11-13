@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   post "contact", to: "pages#contact"
 
   # PROFILE
+
+  get "dashboard", to: "users#index"
+
   scope :user do
 
     get "edit", to: "users#edit"
@@ -32,18 +35,20 @@ Rails.application.routes.draw do
 
   post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }
 
-  get "dashboard", to: "users#index"
-
   namespace :orders do
+
+    resources :users, only: [:new, :create] do
+      post "signin", on: :collection
+    end
 
     resources :rj, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member
       post :invoice, on: :member
     end
 
-    # resources :login, only: [:new, :create, :edit, :update] do
-    #   get :confirmation, on: :member
-    # end
+    resources :login, only: [:new, :create, :edit, :update] do
+      get :confirmation, on: :member
+    end
 
   end
 

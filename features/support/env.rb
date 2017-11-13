@@ -69,5 +69,5 @@ Capybara::Webkit.configure do |config|
 
 end
 
-# Factory Girl
-World(FactoryGirl::Syntax::Methods)
+# Factory Bot
+World(FactoryBot::Syntax::Methods)
