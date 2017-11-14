@@ -77,6 +77,7 @@ Rails.application.routes.draw do
   #
   #
 
+  # TODO
   namespace :connect do
     root to: "users#show"
     get 'settings', to: "users#settings"

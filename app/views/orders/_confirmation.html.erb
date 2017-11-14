@@ -1,35 +1,27 @@
-<div id="order">
+<h2>Récapitulatif</h2>
+<!-- User information -->
 
-  <div id="summary">
+<table>
+  <tr>
+    <td><%= @order.user.lastname %></td>
+    <td><%= @order.user.firstname %></td>
+  </tr>
+  <tr>
+    <td><%= t("user.genders.#{@order.user.gender}") %></td>
+    <td><%= l @order.user.birthday %></td>
+  </tr>
+  <tr>
+    <td><%= @order.user.email %></td>
+    <td><%= @order.user.phone %></td>
+  </tr>
+  <tr>
+    <td><%= @order.user.address %></td>
+    <td><%= @order.user.npa %></td>
+  </tr>
+  <tr>
+    <td><%= @order.user.city %></td>
+    <td><%= @order.user.country_name %></td>
+  </tr>
+</table>
 
-    <p><b>Récapitulatif</b></p>
-    <!-- User information -->
-
-    <table>
-      <tr>
-        <td><%= @order.user.lastname %></td>
-        <td><%= @order.user.firstname %></td>
-      </tr>
-      <tr>
-        <td><%= t("user.genders.#{@order.user.gender}") %></td>
-        <td><%= l @order.user.birthday %></td>
-      </tr>
-      <tr>
-        <td><%= @order.user.email %></td>
-        <td><%= @order.user.phone %></td>
-      </tr>
-      <tr>
-        <td><%= @order.user.address %></td>
-        <td><%= @order.user.npa %></td>
-      </tr>
-      <tr>
-        <td><%= @order.user.city %></td>
-        <td><%= @order.user.country_name %></td>
-      </tr>
-    </table>
-
-    <%= yield %>
-
-  </div>
-  <!-- -->
-</div>
+<%= yield %>

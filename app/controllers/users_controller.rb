@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 		if @user.save
+      # TODO: EMAIL
       sign_in @user
 			redirect_to dashboard_path, success: t("Bienvenue sur RJ Connect")
 		else

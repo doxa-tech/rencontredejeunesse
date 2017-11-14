@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :product, polymorphic: true
 
-  accepts_nested_attributes_for :product, :user
+  accepts_nested_attributes_for :product
 
   validates :conditions, acceptance: true
   validates :order_id, uniqueness: true

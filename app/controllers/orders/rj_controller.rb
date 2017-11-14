@@ -8,7 +8,7 @@ class Orders::RjController < Orders::BaseController
   def create
     @order = order(order_params)
     @volunteer = VolunteerForm.new(volunteer_params)
-    if @order.save(context: :order)
+    if @order.save
       @volunteer.save(@order.user)
       redirect_to confirmation_orders_rj_path(@order.order_id)
     else
@@ -23,7 +23,7 @@ class Orders::RjController < Orders::BaseController
   def update
     @volunteer = VolunteerForm.new(volunteer_params)
     @order.assign_attributes(order_params)
-    if @order.save(context: :order)
+    if @order.save
       @volunteer.save(@order.user)
       redirect_to confirmation_orders_rj_path(@order.order_id)
     else
@@ -62,7 +62,7 @@ class Orders::RjController < Orders::BaseController
 
   def order(params = {})
     order = Order.new
-    order.user = User.new
+    order.user = current_user
     order.product = Records::Rj.new
     order.assign_attributes(params)
     return order

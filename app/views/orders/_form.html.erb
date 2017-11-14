@@ -1,29 +1,21 @@
-<div id="order">
-  <%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
+<%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
 
-    <%= render "error_messages", object: f.object %>
+  <%= render "error_messages", object: f.object %>
 
-    <!-- User information -->
-    <%= f.fields_for :user do |person_f| %>
-      <%= render "users/fields/information", f: person_f %>
+  <!-- Event specific information -->
+  <%= yield f %>
+  <!-- -->
+
+  <div class="conditions checkbox">
+    <%= f.check_box :conditions, required: true %>
+    <%= f.label :conditions do %>
+      J'ai lu <%= link_to "les conditions générales", "/conditions_generales.html", target: "_blank" %> et les accepte.
     <% end %>
-    <!-- -->
+  </div>
 
-    <!-- Event specific information -->
-    <%= yield f %>
-    <!-- -->
+  <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
+  <%= image_tag "orders/pay-cards.png" %>
 
-    <div class="conditions checkbox">
-      <%= f.check_box :conditions, required: true %>
-      <%= f.label :conditions do %>
-        J'ai lu <%= link_to "les conditions générales", "/conditions_generales.html", target: "_blank" %> et les accepte.
-      <% end %>
-    </div>
+  <%= f.submit %>
 
-    <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
-    <%= image_tag "orders/pay-cards.png" %>
-
-    <%= f.submit %>
-
-  <% end %>
-</div>
+<% end %>

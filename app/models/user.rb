@@ -10,10 +10,11 @@ class User < ApplicationRecord
   has_many :posts
   has_many :testimonies
 
-  has_secure_password validations: false
+  has_secure_password
 
   before_save :create_remember_token
 
+  # TODO
   scope :with_account, -> { where.not(password_digest: nil) }
 
   validates :firstname, presence: true, length: { maximum: 30 }
@@ -22,18 +23,12 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validate :uniqueness_of_email
 
-  validates :password, presence: true, length: { maximum: 72 }, on: :account_setup
-  validates_confirmation_of :password, on: :account_setup
-
-  validates :password, length: { maximum: 72 }, on: :account_update
-  validates_confirmation_of :password, allow_blank: true, on: :account_update
-
-  validates :phone, presence: true, on: :order
-  validates :npa, numericality: { only_integer: true, greater_than: 0 }, on: :order
-  validates :city, presence: true, length: { maximum: 30 }, on: :order
-  validates :address, presence: true, length: { maximum: 50 }, on: :order
-  validates :country, presence: true, on: :order
-  validates :birthday, presence: true, on: :order
+  validates :phone, presence: true
+  validates :npa, numericality: { only_integer: true, greater_than: 0 }
+  validates :city, presence: true, length: { maximum: 30 }
+  validates :address, presence: true, length: { maximum: 50 }
+  validates :country, presence: true
+  validates :birthday, presence: true
 
 
   def country_name

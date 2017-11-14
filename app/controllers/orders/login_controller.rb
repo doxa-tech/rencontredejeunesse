@@ -6,7 +6,7 @@ class Orders::LoginController < Orders::BaseController
 
   def create
     @order = order(order_params)
-    if @order.save(context: :order)
+    if @order.save
       redirect_to confirmation_orders_login_path(@order.order_id)
     else
       render 'new'
@@ -18,7 +18,7 @@ class Orders::LoginController < Orders::BaseController
 
   def update
     @order.assign_attributes(order_params)
-    if @order.save(context: :order)
+    if @order.save
       redirect_to confirmation_orders_login_path(@order.order_id)
     else
       render 'edit'
@@ -39,7 +39,7 @@ class Orders::LoginController < Orders::BaseController
 
   def order(params = {})
     order = Order.new
-    order.user = User.new
+    order.user = current_user
     order.product = Records::Login.new
     order.assign_attributes(params)
     return order

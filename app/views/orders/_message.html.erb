@@ -1,10 +1,5 @@
-<% content_for :id, "order-message" %>
+<%= image_tag "layout/logo.png" %>
 
-  <%= image_tag "layout/logo.png" %>
+<%= yield %>
 
-<div class="content">
-
-  <%= yield %>
-
-  <%= link_to "Retour sur le site", root_path %>
-</div>
+<%= link_to "Retour sur le site", root_path %>
