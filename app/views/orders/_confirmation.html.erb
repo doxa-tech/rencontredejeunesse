@@ -22,6 +22,9 @@
     <td><%= @order.user.city %></td>
     <td><%= @order.user.country_name %></td>
   </tr>
+  <tr>
+    <td><%= link_to "Editer", orders_users_edit_path(id: @order.order_id) %></td>
+  </tr>
 </table>
 
 <%= yield %>

@@ -1,0 +1,9 @@
+<%= form_for @user, url:  orders_users_update_path(id: params[:id]) do |f| %>
+
+  <%= render "error_messages", object: f.object %>
+
+  <%= render "users/fields/information", f: f %>
+
+  <%= f.submit nil, class: "button" %>
+
+<% end %>

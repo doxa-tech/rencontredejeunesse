@@ -37,8 +37,15 @@ Rails.application.routes.draw do
 
   namespace :orders do
 
-    resources :users, only: [:new, :create] do
-      post "signin", on: :collection
+    scope ":id/users", constraints: { id: /\d*/ } do
+      get "edit", to: "users#edit", as: "users_edit"
+      patch "update", to: "users#update", as: "users_update"
+    end
+
+    scope ":product", constraints: { product: /login|rj/ } do
+      resources :users, only: [:new, :create] do
+        post "signin", on: :collection
+      end
     end
 
     resources :rj, only: [:new, :create, :edit, :update] do
