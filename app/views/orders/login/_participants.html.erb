@@ -1,0 +1,32 @@
+<div class="fields-for wrap">
+  <%= product_f.fields_for :participants, (participants.build unless participants.any?) do |f| %>
+    <div class="participants-fields wrap">
+
+      <div class="participants-wrap">
+        <div>
+          <%= f.label :firstname %>
+          <%= f.text_field :firstname, autocomplete: "off" %>
+        </div>
+
+        <div>
+          <%= f.label :lastname %>
+          <%= f.text_field :lastname, autocomplete: "off" %>
+        </div>
+
+        <div class="age number-wo-arrows">
+          <%= f.label :age %>
+          <%= f.number_field :age, autocomplete: "off" %>
+        </div>
+      </div>
+
+      <%= f.hidden_field :_destroy, identifier: "destroy" %>
+
+      <button type="button" class="remove-fields" data-type="participants">Supprimer</button>
+    </div>
+
+    <button type="button" class="add-fields" data-type="participants" data-count="<%= participants.size %>">
+      Ajouter un forfait
+    </button>
+
+  <% end %>
+</div>

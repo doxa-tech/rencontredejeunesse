@@ -1,4 +1,5 @@
 class Orders::LoginController < Orders::BaseController
+  before_action :check_if_not_signed_in
 
   def new
     @order = order
@@ -31,9 +32,9 @@ class Orders::LoginController < Orders::BaseController
   private
 
   def order_params
-    params.require(:order).permit(:conditions, user_attributes: [
-      :id, :firstname, :lastname, :email, :phone, :address, :npa, :city, :country, :newsletter], product_attributes: [
-      :id, :entries, :group
+    params.require(:order).permit(:conditions,
+      product_attributes: [:id, :entries, :group,
+      participants_attributes: [:id, :firstname, :lastname, :age, :_destroy],
     ])
   end
 

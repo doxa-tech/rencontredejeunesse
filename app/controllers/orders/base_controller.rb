@@ -4,6 +4,10 @@ class Orders::BaseController < ApplicationController
   before_action :closed, only: [:edit, :update, :confirmation, :invoice]
   #before_action :end_from_order
 
+  def check_if_not_signed_in
+    redirect_to controller: "orders/users", action: :new, product: controller_name unless signed_in?
+  end
+
   private
 
   # TODO
