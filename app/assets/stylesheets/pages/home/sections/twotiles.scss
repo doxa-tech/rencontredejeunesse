@@ -1,0 +1,39 @@
+section#twotiles {
+  .section-container {
+    display: flex;
+    flex-direction: row;
+
+    ._common-tiles {
+      color: #fff;
+      font-size: 25px;
+      height: 230px;
+      padding: 0 0 30px 20px;
+
+      background-size: cover;
+      background-position: center 30%;
+      
+      display: flex;
+      flex: 1;
+      align-items: left;
+      justify-content: flex-end;
+      flex-direction: column;
+    }
+
+    div.highlights {
+      @extend ._common-tiles;
+      background-image: image-url("home/twotiles/highlights.jpg");
+    }
+
+    div.next {
+      @extend ._common-tiles;
+      background-image: image-url("home/twotiles/next.jpg");
+
+      span.hashtag {
+        font-size: 35px;
+      }
+      span.soon {
+        font-style: italic;
+      }
+    }
+  }
+}

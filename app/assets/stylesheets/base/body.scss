@@ -3,20 +3,5 @@
 html, body {
   min-height: 100%;
   -webkit-font-smoothing: antialiased;
-}
-
-#container {
-  height: 100%;
-}
-
-.font-light {
-  font-weight: 100;
-}
-
-h2.font-light {
-  font-size: 120px;
-
-  @media only screen and (max-width: $responsive-size) {
-    font-size: $title-size;
-  }
+  font-family: "Helvetica neue";
 }
