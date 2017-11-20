@@ -1,0 +1,58 @@
+section#volunteer {
+  padding: 0 0 0 5%;
+
+  .section-container {
+    height: 460px;
+    display: flex;
+    flex-direction: row;
+    background-image: image-url("home/volunteer/background.jpg");
+    background-size: cover;
+    background-position: center;
+
+    div.first-half {
+      flex: 1;
+    }
+
+    div.second-half {
+      flex: 1;
+      color: #fff;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      h2 {
+        position: relative;
+        z-index: 0;
+        cursor: pointer;
+        font-size: 60px;
+        line-height: 55px;
+        padding: 0 0 0 35px;
+
+        &::after {
+          content: "→";
+          line-height: 0;
+          text-align: right;
+          font-size: 20px;
+          width: 350px;
+          position: absolute;
+          left: 0px;
+          bottom: -25px;
+          z-index: -1;
+          padding: 25px 10px;
+          box-sizing: border-box;
+          transition: .5s ease-in;
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+35,d10cc0+65 */
+          background: #141dc6; /* Old browsers */
+          background: -moz-linear-gradient(45deg, #141dc6 35%, #d10cc0 65%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(45deg, #141dc6 35%,#d10cc0 65%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(45deg, #141dc6 35%,#d10cc0 65%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141dc6', endColorstr='#d10cc0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        }
+
+        &:hover::after {
+          padding-left: 100%;
+        }
+      }
+    }
+  }
+}

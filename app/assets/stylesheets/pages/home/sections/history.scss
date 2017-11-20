@@ -1,0 +1,86 @@
+section#history {
+  .section-container {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+
+    div.timeline {
+      flex: 7;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      background-image: image-url("home/history/background.jpg");
+      background-size: cover;
+      background-position: center top;
+      padding: 90px 0 200px;
+      color: #fff;
+
+      div.wrapper {
+        width: 60%;
+
+        h2 {
+          font-size: 60px;
+          line-height: 55px;
+        }
+
+        ul {
+          li {
+            padding: 65px 0 0 0;
+            font-size: 12px;
+            //border-left: 1px solid #fff;
+            position: relative;
+            z-index: 1;
+
+            &:not(:first-child) {
+              border-left: 1px solid #fff;
+            }
+
+            p {
+              position: absolute;
+              bottom: -9px;
+              z-index: 1;  
+            }
+
+            &.selected p::after {
+              content: "";
+              position: absolute;
+              left: -100vw;
+              right: -10px;
+              top: -5px;
+              bottom: -5px;
+              background-color: #131DC7;
+              z-index: -1;
+            }
+          }
+        }
+      }
+    }
+
+    div.show {
+      flex: 5;
+      background-image: image-url("home/history/event4.jpg");
+      background-size: cover;
+      background-position: left top;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      div.content {
+        color: #fff;
+        width: 300px;
+        background-color: #131DC7;
+        padding: 40px 30px 55px 30px;
+        transform: translateX(-60%);
+
+        h3 {
+          font-size: 35px;
+          padding: 0 0 18px 0;
+        }
+
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
