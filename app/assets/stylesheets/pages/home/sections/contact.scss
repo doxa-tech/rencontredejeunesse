@@ -1,4 +1,6 @@
 section#contact {
+  position: relative;
+
   .section-container {
     display: flex;
     flex-direction: row;
@@ -7,6 +9,8 @@ section#contact {
 
     div.form {
       flex: 1;
+      background-color: #fff;
+      z-index: 1;
 
       h2 {
         font-size: 60px;
@@ -66,10 +70,21 @@ section#contact {
       flex: 1;
       font-weight: bold;
       font-size: 35px;
+      position: relative;
+      z-index: -1;
 
       p {
         padding-top: 165px;
       }
     }
+  }
+
+  #map {
+    height: 270px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
   }
 }
