@@ -4,6 +4,7 @@
 
     <div class="row1">
       <%= image_tag "home/welcome/logo.png", class: "logo" %>
+      <%= image_tag "home/welcome/burger.svg", id: "header-btn" %>
     </div>
 
     <div class="row2">
@@ -22,3 +23,11 @@
   </div>
 
 </section>
+
+<script>
+  var headerBtn = document.getElementById("header-btn");
+  var headerFrame = document.getElementById("header-frame");
+  headerBtn.onclick = function() {
+    headerFrame.style.display = "block";
+  }
+</script>

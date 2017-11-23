@@ -1,0 +1,24 @@
+<header id="header-frame">
+  <div class="content-wrap">
+    <%= image_tag "home/welcome/close.svg", id: "close-header" %>
+
+    <ul>
+      <li><%= link_to "home", "#", class: "current" %></li>
+      <li><%= link_to "vision", "#" %></li>
+      <li><%= link_to "RJ2018", "#", class: "off" %></li>
+      <li><%= link_to "RJLogin", "#", class: "off" %></li>
+      <li><%= link_to "devenir bénévole", "#" %></li>
+      <li><%= link_to "devenir partenaire", "#" %></li>
+      <li><%= link_to "histoire", "#" %></li>
+      <li><%= link_to "contact", "#" %></li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  var closeBtn = document.getElementById("close-header");
+  var headerFrame = document.getElementById("header-frame");
+  closeBtn.onclick = function() {
+    headerFrame.style.display = "none";
+  }
+</script>

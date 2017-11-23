@@ -20,34 +20,39 @@ section#welcome {
     display: flex;
     flex-direction: column;
 
-    img.logo {
-      width: 40px;
-    }
+    div.row1 {
+      height: 50px;
+      margin: 20px 0 0 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
 
-    h1 {
-      font-size: 60px;
-      line-height: 65px;
-      font-family: "Helvetica neue";
-      color: #fff;
-      padding: 0 0 0 30px;
-    }
+      img.logo {
+        width: 50px;
+      }
 
-    div.app {
-      padding: 0 0 0 30px;
-
-      img {
-        width: 100px;
+      img#header-btn {
+        width: 30px;
+        cursor: pointer;
       }
     }
 
-    .row1 {
-      height: 50px;
+    div.row2 {
+        flex: 1;
+        display: flex;
+        align-items: center;
+
+      h1 {
+        font-size: 60px;
+        line-height: 65px;
+        font-family: "Helvetica neue";
+        color: #fff;
+        padding: 0 0 0 30px;
+      }
     }
 
     .row2 {
-      flex: 1;
-      display: flex;
-      align-items: center;
+
     }
 
     .row3 {
@@ -56,14 +61,18 @@ section#welcome {
       display: flex;
       align-items: center;
 
-      h3 {
-        padding: 0 0 20px 0;
+      div.app {
+        padding: 0 0 0 30px;
+
+        h3 {
+          padding: 0 0 20px 0;
+        }
+
+        img {
+          width: 100px;
+        }
       }
     }
-
-  }
-
-  .row {
 
   }
 
