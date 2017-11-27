@@ -1,3 +1,5 @@
+@import "../../../components/variables";
+
 section#welcome {
 
   background-image: image-url('home/welcome/background.jpg');
@@ -13,8 +15,8 @@ section#welcome {
   .section-container {
     height: 100%;
     width: 100%;
-    max-width: 1024px;
-    padding: 0 30px;
+    max-width: $main-width;
+    padding: 0 $main-padding;
     margin: auto;
 
     display: flex;
@@ -43,11 +45,11 @@ section#welcome {
         align-items: center;
 
       h1 {
-        font-size: 60px;
-        line-height: 65px;
+        font-size: $title-size;
+        line-height: 1.1em;
         font-family: "Helvetica neue";
         color: #fff;
-        padding: 0 0 0 30px;
+        padding: 0 0 0 $sub-padding;
       }
     }
 
@@ -57,6 +59,7 @@ section#welcome {
 
     .row3 {
       color: #fff;
+      font-size: $big-text;
       height: 200px;
       display: flex;
       align-items: center;

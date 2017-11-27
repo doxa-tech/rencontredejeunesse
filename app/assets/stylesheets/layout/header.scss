@@ -1,3 +1,5 @@
+@import "../components/variables";
+
 header#header-frame {
   position: fixed;
   z-index: 10;
@@ -11,8 +13,8 @@ header#header-frame {
   div.content-wrap {
     text-align: right;
     margin: 20px 0 0 0;
-    max-width: 1024px;
-    padding: 30px 30px 0 30px;
+    max-width: $main-width;
+    padding: $main-padding $main-padding 0 $main-padding;
     margin: auto;
 
     img#close-header {
@@ -22,7 +24,7 @@ header#header-frame {
 
     ul {
       color: #fff;
-      font-size: 35px;
+      font-size: $sub-title;
       font-weight: bold;
       text-align: right;
       padding: 30px 100px 0 0;

@@ -1,3 +1,5 @@
+@import '../../../components/variables';
+
 section#twotiles {
   .section-container {
     display: flex;
@@ -5,7 +7,7 @@ section#twotiles {
 
     ._common-tiles {
       color: #fff;
-      font-size: 25px;
+      font-size: $medium-title;
       height: 230px;
       padding: 0 0 30px 20px;
 
@@ -29,7 +31,7 @@ section#twotiles {
       background-image: image-url("home/twotiles/next.jpg");
 
       span.hashtag {
-        font-size: 35px;
+        font-size: $sub-title;
       }
       span.soon {
         font-style: italic;

@@ -1,7 +1,8 @@
+@import '../../../components/variables';
 @import '../../../components/button-bar';
 
 section#volunteer {
-  padding: 0 0 0 5%;
+  padding: 0 0 0 $blank-space;
 
   .section-container {
     height: 460px;
@@ -26,8 +27,8 @@ section#volunteer {
         position: relative;
         z-index: 0;
         cursor: pointer;
-        font-size: 60px;
-        line-height: 55px;
+        font-size: $title-size;
+        line-height: 0.9em;
         padding: 0 0 0 35px;
 
         &::after {

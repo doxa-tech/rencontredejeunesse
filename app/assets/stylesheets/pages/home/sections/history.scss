@@ -1,3 +1,5 @@
+@import '../../../components/variables';
+
 section#history {
   .section-container {
     display: flex;
@@ -16,9 +18,9 @@ section#history {
       color: #fff;
 
       div.wrapper {
-        max-width: 1024px * 7/12;
+        max-width: $main-width * 7/12;
         flex: 1;
-        padding: 0 30px;
+        padding: 0 $main-padding;
         margin-right: 8%; // heuristic
 
         h2 {
@@ -29,7 +31,7 @@ section#history {
         ul {
           li {
             padding: 65px 0 0 0;
-            font-size: 12px;
+            font-size: $small-text;
             //border-left: 1px solid #fff;
             position: relative;
             z-index: 1;
@@ -76,12 +78,12 @@ section#history {
         transform: translateX(-60%);
 
         h3 {
-          font-size: 35px;
+          font-size: $sub-title;
           padding: 0 0 18px 0;
         }
 
         p {
-          font-size: 16px;
+          font-size: $big-text;
         }
       }
     }

@@ -1,8 +1,9 @@
+@import '../../../components/variables';
 @import '../../../components/button-bar';
 
 section#partner {
-  margin: 0 5% 0 0;
-  padding: 0 0 0 5%;
+  margin: 0 $blank-space 0 0;
+  padding: 0 0 0 $blank-space;
 
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+0,d10cc0+100 */
   background: #141dc6; /* Old browsers */
@@ -15,8 +16,8 @@ section#partner {
     height: 460px;
     display: flex;
     flex-direction: row;
-    max-width: 1024px;
-    padding: 0 30px;
+    max-width: $main-width;
+    padding: 0 $main-padding;
     margin: auto;
     display: flex;
     flex-direction: row;
@@ -24,20 +25,16 @@ section#partner {
     
     h2 {
       color: #fff;
-      font-size: 60px;
-      line-height: 55px;
+      font-size: $title-size;
+      line-height: 0.9em;
       position: relative;
       z-index: 0;
       cursor: pointer;
-      padding: 0 0 0 30px;
+      padding: 0 0 0 $sub-padding;
 
       &::after {
         @include button-bar(-2em, 0, right, 20px);
         background-color: #000;
-      }
-
-      &:hover::after {
-        padding-left: 100%;
       }
     }
   }

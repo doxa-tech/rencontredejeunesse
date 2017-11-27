@@ -1,12 +1,14 @@
+@import '../../../components/variables';
+
 section#contact {
   position: relative;
 
   .section-container {
     display: flex;
     flex-direction: row;
-    max-width: 1024px;
+    max-width: $main-width;
     margin: auto;
-    padding: 0 30px;
+    padding: 0 $main-padding;
 
     div.form {
       flex: 1;
@@ -14,8 +16,8 @@ section#contact {
       z-index: 1;
 
       h2 {
-        font-size: 60px;
-        line-height: 55px;
+        font-size: $title-size;
+        line-height: 0.9en;
         padding: 50px 0 70px 0;
       }
 
@@ -37,6 +39,8 @@ section#contact {
           width: 100%;
           background-color: #EBEBEB;
           border: none;
+          padding: 5px 10px;
+          color: #aaa;
         }
 
         div.input {
@@ -49,7 +53,7 @@ section#contact {
             border: none;
             color: #000;
             margin: 40px 0 50px 0;
-            font-size: 35px;
+            font-size: $sub-title;
             font-weight: bold;
           }
 
@@ -70,7 +74,7 @@ section#contact {
    div.address {
       flex: 1;
       font-weight: bold;
-      font-size: 35px;
+      font-size: $sub-title;
       position: relative;
       z-index: -1;
 
