@@ -16,7 +16,10 @@ section#history {
       color: #fff;
 
       div.wrapper {
-        width: 60%;
+        max-width: 1024px * 7/12;
+        flex: 1;
+        padding: 0 30px;
+        margin-right: 8%; // heuristic
 
         h2 {
           font-size: 60px;
