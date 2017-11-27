@@ -1,0 +1,13 @@
+@mixin button-bar($right, $left, $text-align, $padding-top-bottom) {
+          content: "→";
+          text-align: $text-align;
+          font-size: 20px;
+          position: absolute;
+          line-height: 0;
+          right: $right;
+          bottom: -1em;
+          left: $left;
+          z-index: -1;
+          transition: .5s ease-in;
+          padding: $padding-top-bottom 10px;
+}

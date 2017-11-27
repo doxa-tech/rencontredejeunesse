@@ -1,3 +1,5 @@
+@import '../../../components/button-bar';
+
 section#vision {
   .section-container {
     height: 460px;
@@ -46,23 +48,8 @@ section#vision {
         cursor: pointer;
 
         &::after {
-          content: "→";
-          line-height: 0;
-          text-align: left;
-          font-size: 20px;
-          width: 220px;
+          @include button-bar(-1em, -2.5em, left, 20px);
           background-color: #000;
-          position: absolute;
-          left: -35px;
-          bottom: -25px;
-          z-index: -1;
-          padding: 25px 10px;
-          box-sizing: border-box;
-          transition: .5s ease-in;
-        }
-
-        &:hover::after {
-          padding-left: 100%;
         }
       }
     }

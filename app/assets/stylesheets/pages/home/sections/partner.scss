@@ -1,3 +1,5 @@
+@import '../../../components/button-bar';
+
 section#partner {
   margin: 0 5% 0 0;
   padding: 0 0 0 5%;
@@ -30,19 +32,8 @@ section#partner {
       padding: 0 0 0 30px;
 
       &::after {
-        content: "→";
-        line-height: 0;
-        text-align: right;
-        font-size: 20px;
+        @include button-bar(-2em, 0, right, 20px);
         background-color: #000;
-        position: absolute;
-        left: 10px;
-        right: -50px;
-        bottom: -25px;
-        z-index: -1;
-        padding: 25px 10px;
-        box-sizing: border-box;
-        transition: .5s ease-in;
       }
 
       &:hover::after {

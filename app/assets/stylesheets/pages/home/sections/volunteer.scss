@@ -1,3 +1,5 @@
+@import '../../../components/button-bar';
+
 section#volunteer {
   padding: 0 0 0 5%;
 
@@ -29,18 +31,7 @@ section#volunteer {
         padding: 0 0 0 35px;
 
         &::after {
-          content: "→";
-          line-height: 0;
-          text-align: right;
-          font-size: 20px;
-          width: 350px;
-          position: absolute;
-          left: 0px;
-          bottom: -25px;
-          z-index: -1;
-          padding: 25px 10px;
-          box-sizing: border-box;
-          transition: .5s ease-in;
+          @include button-bar(-2em, 0, right, 20px);
           /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+35,d10cc0+65 */
           background: #141dc6; /* Old browsers */
           background: -moz-linear-gradient(45deg, #141dc6 35%, #d10cc0 65%); /* FF3.6-15 */
