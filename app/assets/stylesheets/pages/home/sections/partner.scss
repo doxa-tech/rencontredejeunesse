@@ -3,7 +3,7 @@
 
 section#partner {
   margin: 0 $blank-space 0 0;
-  padding: 0 0 0 $blank-space;
+  padding: 0 0 0 $blank-space; // pour compenser
 
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+0,d10cc0+100 */
   background: #141dc6; /* Old browsers */
@@ -36,6 +36,15 @@ section#partner {
         @include button-bar(-2em, 0, right, 20px);
         background-color: #000;
       }
+    }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+  margin: 0 !important;
+  padding: 0 !important;
+    
+    .section-container {
+
     }
   }
 }

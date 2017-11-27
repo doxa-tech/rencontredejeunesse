@@ -55,4 +55,13 @@ section#vision {
       }
     }
   }
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      padding: 0 !important;
+      
+      div.poster, div.title {
+        flex: 1 !important;
+      }
+    }
+  }
 }

@@ -38,4 +38,10 @@ section#twotiles {
       }
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      flex-direction: column;
+    }
+  }
 }

@@ -88,4 +88,45 @@ section#history {
       }
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      flex-direction: column !important;
+
+      div.timeline {
+        padding: 40px;
+
+        div.wrapper {
+          margin: 0 !important;
+
+          ul {
+            li {
+              border: none !important;
+              font-size: $medium-title !important;
+              padding: 10px 0 !important;
+
+              p {
+                position: relative !important;
+
+                span {
+                  display: none !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      div.show {
+        div.content {
+          transform: none !important;
+          width: 50%;
+
+          p {
+            font-size: $medium-title;
+          }
+        }
+      }
+    }
+  }
 }

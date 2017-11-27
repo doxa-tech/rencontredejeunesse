@@ -43,4 +43,16 @@ section#footer {
       }
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      height: 120px;
+
+      div.social-medias {
+        img {
+          height: 20px;
+        }
+      }
+    }
+  }
 }
