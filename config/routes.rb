@@ -81,11 +81,15 @@ Rails.application.routes.draw do
   end
 
   #
-  #
+  # Connect
   #
 
-  # TODO
+
   namespace :connect do
+
+    resources :orders, only: [:index, :show]
+
+    # TODO
     root to: "users#show"
     get 'settings', to: "users#settings"
     get 'shop', to: "users#shop"

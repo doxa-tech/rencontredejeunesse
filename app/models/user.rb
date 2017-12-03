@@ -30,6 +30,9 @@ class User < ApplicationRecord
   validates :country, presence: true
   validates :birthday, presence: true
 
+  def completed_orders
+    Order.where(user_id: self.id).where.not(status: nil)
+  end
 
   def country_name
     country = ISO3166::Country[self.country]
