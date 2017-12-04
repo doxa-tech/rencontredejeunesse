@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 32 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;">
+    <g id="Arrière-plan" transform="matrix(1,0,0,1,0,-2)">
+        <clipPath id="_clip1">
+            <rect x="0" y="2" width="32" height="26"/>
+        </clipPath>
+        <g clip-path="url(#_clip1)">
+            <g transform="matrix(1,-0,-0,1,-0,2)">
+                <use xlink:href="#_Image2" x="0" y="0" width="32px" height="26px"/>
+            </g>
+        </g>
+    </g>
+    <defs>
+        <image id="_Image2" width="32px" height="26px" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAaCAYAAADWm14/AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAALklEQVRIie3UQQEAMAwCMTr/nqmMPpYzQF5M2+awdzkOACAlyXhCgO8BkicEAFgw3QwWN/7hUQAAAABJRU5ErkJggg=="/>
+    </defs>
+</svg>

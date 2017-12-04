@@ -1,13 +1,6 @@
-<div id="login">
+<% content_for :id, "login" %>
 
-  <section id="home" class="fullheight">
-    <div class="banner">
-      <%= image_tag "layout/logo.png", class: "logo" %>
-      <h1>RJ LOGIN 18</h1>
-    </div>
-    <div class="drawbar">
-      <p>La RJ Login revient l'année prochaine !</p>
-    </div>
-  </section>
+<%= render "pages/sections-login/banner" %>
+<%= render "pages/sections-login/date" %>
 
-</div>
+<%#= render "layouts/header" %>

@@ -7,7 +7,7 @@ class PagesController < ApplicationController
   
 
   def login
-    render layout: "login"
+    render "login", layout: "application.new"
   end
 
   def contact

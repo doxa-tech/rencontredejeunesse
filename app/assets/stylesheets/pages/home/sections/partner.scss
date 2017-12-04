@@ -1,7 +1,7 @@
 @import '../../../components/variables';
 @import '../../../components/button-bar';
 
-section#partner {
+#container.home section#partner {
   margin: 0 $blank-space 0 0;
   padding: 0 0 0 $blank-space; // pour compenser
 
