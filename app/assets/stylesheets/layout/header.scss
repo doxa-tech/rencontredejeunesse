@@ -41,7 +41,7 @@ header#header-frame {
           color: #666666;
         }
 
-        a.current::after {
+        a.active::after {
           content: "";
           position: absolute;
           left: -30px;

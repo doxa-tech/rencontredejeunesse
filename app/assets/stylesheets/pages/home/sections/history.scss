@@ -41,12 +41,13 @@
             }
 
             p {
+              cursor: pointer;
               position: absolute;
               bottom: -9px;
-              z-index: 1;  
+              z-index: 1;
             }
 
-            &.selected p::after {
+            p.selected::after {
               content: "";
               position: absolute;
               left: -100vw;
@@ -76,6 +77,11 @@
         background-color: #131DC7;
         padding: 40px 30px 55px 30px;
         transform: translateX(-60%);
+
+        display: none;
+        &.selected {
+          display: block;
+        }
 
         h3 {
           font-size: $sub-title;
