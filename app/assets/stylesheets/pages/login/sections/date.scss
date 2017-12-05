@@ -1,4 +1,4 @@
- @import "../../../components/variables";
+@import "../../../components/variables";
 
 #container.login section#date {
   margin: 0 0 0 $blank-space;
@@ -22,7 +22,7 @@
     }
 
     p {
-      font-size: $small-text;
+      font-size: $large-text;
       color: #fff;
       padding: 20PX 0 0 0;
     }

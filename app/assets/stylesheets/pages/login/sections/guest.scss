@@ -1,0 +1,28 @@
+@import "../../../components/variables";
+
+#container.login section#guest {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 150px 0;
+
+  .section-container {
+    text-align: center;
+    font-weight: bold;
+
+    img {
+      border-radius: 50%;
+      width: 200px;
+    }
+
+    p:first-of-type {
+      font-size: $medium-title;
+      padding: 10px 0 0 0;
+    }
+
+    p:nth-of-type(2) {
+      font-size: $large-text;
+    }
+  }
+}

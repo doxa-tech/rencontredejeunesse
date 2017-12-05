@@ -1,0 +1,35 @@
+@import "../../../components/variables";
+
+#container.login section#program {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 150px 0;
+
+  .section-container {
+    width: 100%;
+    max-width: $main-width;
+    padding: 0 $main-padding + $sub-padding;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: $title-size;
+      line-height: 1.1em;
+      margin: 0;
+      padding: 0 0 30px 0;
+    }
+
+    h2:nth-of-type(2) {
+      padding: 60px 0 30px 0;
+    }
+
+    p {
+      font-weight: bold;
+      padding: 10px 0 0 0;
+      font-size: $large-text;
+    }
+  }
+}
