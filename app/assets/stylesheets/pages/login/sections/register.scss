@@ -1,0 +1,79 @@
+@import "../../../components/variables";
+
+#container.login section#register {
+  background-color: #000;
+  color: #fff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0 50px 0;
+
+  .section-container {
+    width: 100%;
+    max-width: $main-width;
+    padding: 0 $main-padding + $sub-padding;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    h2 {
+      font-size: $title-size;
+      line-height: 1.1em;
+      margin: 0;
+      padding: 0 0 30px 0;
+    }
+
+    p {
+      padding: 20px 0 0 0;
+      font-size: $normal-text;
+    }
+
+    form {
+      width: 500px;
+      max-width: 100%;
+      padding: 80px 0 0 0;
+
+      input:not([type="submit"]) {
+        background-color: #2f2f2f;
+        border: none;
+        width: 100%;
+        padding: 7px 10px;
+        margin: 0 0 13px 0;
+        font-size: $small-text;
+      }
+
+      div.input {
+        position: relative;
+        z-index: 0;
+        input[type="submit"] {
+          display: block;
+          background-color: transparent;
+          border: none;
+          color: #fff;
+          margin: 40px 0 50px 0;
+          font-size: $sub-title;
+          font-weight: bold;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          height: 20px;
+          width: 190px;
+          z-index: -1;
+
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+66,131ec7+100 */
+          background: #1e5799; /* Old browsers */
+          background: -moz-linear-gradient(45deg, #1e5799 66%, #131ec7 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(45deg, #1e5799 66%,#131ec7 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(45deg, #1e5799 66%,#131ec7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#131ec7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        }
+      }
+    }
+  }
+}
