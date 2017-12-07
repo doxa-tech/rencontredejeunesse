@@ -91,6 +91,13 @@
         p {
           font-size: $large-text;
         }
+
+        ul {
+          li {
+            list-style-type: disc;
+            padding: 10px 0 0 0;
+          }
+        }
       }
     }
   }
