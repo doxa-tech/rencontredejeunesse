@@ -1,0 +1,13 @@
+@import "../../../components/variables";
+
+#container.login section#justimage {
+  margin: 0 $blank-space 0 0;
+  padding: 0 0 0 $blank-space;
+  background-image: image-url('login/justiimage/background.jpg');
+  background-size: cover;
+  background-position: center left;
+  height: 450px;
+
+  .section-container {
+  }
+}
