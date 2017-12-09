@@ -1,3 +1,8 @@
+$_max-pt: 100pt;
+$_min-pt: 14pt;
+$_max-em: 4.5em;
+$_min-em: 0.9em;
+
 $main-width: 1024px;
 $main-padding: 30px;
 $sub-padding: 30px;
@@ -13,4 +18,9 @@ $small-text: 0.9em;   // 14pt
 
 $mobile-width: 768px;
 
+// Linear proportionality between {a,b} <=> {a',b'}
+// a is min and b is max
 // i' = (i-a) / (b-a) * (b'-a') + a'
+@function absolute-to-relative($size-pt) {
+ @return ($size-pt - $_min-pt) / ($_max-pt - $_min-pt) * ($_max-em - $_min-em) + $_min-em;
+}
