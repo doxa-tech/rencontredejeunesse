@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "login", to: "pages#login"
   get "privacy", to: "pages#privacy"
   get "application", to: "pages#application"
+  get "vision", to: "pages#vision"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"

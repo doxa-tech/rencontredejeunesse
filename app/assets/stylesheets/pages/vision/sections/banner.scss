@@ -1,7 +1,7 @@
 @import "../../../components/variables";
 
-#container.login section#banner {
-  background-image: image-url('login/bannner/background.jpg');
+#container.vision section#banner {
+  background-image: image-url('vision/banner/background.jpg');
   background-size: cover;
 
   width: 100%;
@@ -10,6 +10,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
 
   .section-container {
     height: 100%;
@@ -62,5 +63,10 @@
         padding: 0 0 0 $sub-padding;
       }
     }
+
+    .row2 {
+
+    }
+
   }
 }

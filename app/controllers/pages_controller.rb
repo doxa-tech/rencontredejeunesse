@@ -10,6 +10,10 @@ class PagesController < ApplicationController
     render "login", layout: "application.new"
   end
 
+  def login
+    render "vision", layout: "application.new"
+  end
+
   def contact
     @contact = Contact.new(contact_params)
     if @contact.valid?

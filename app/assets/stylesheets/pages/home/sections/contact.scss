@@ -1,6 +1,8 @@
 @import '../../../components/variables';
 
-#container.home section#contact, #container.login section#contact {
+#container.home section#contact, 
+#container.login section#contact,
+#container.vision section#contact {
   position: relative;
 
   .section-container {

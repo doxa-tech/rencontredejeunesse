@@ -1,0 +1,42 @@
+@import "../../../components/variables";
+
+#container.vision section#comitee {
+  background-color: #000;
+  width: 100%;
+
+  .section-container {
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: 0 $main-padding;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    div.title {
+      background-color: #000;
+      display: flex;
+      flex-direction: row;
+
+      div.first-half {
+        flex: 1;
+        background: #f56953; /* Old browsers */
+        background: -moz-linear-gradient(45deg, #f56953 0%, #5c35a1 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(45deg, #f56953 0%,#5c35a1 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(45deg, #f56953 0%,#5c35a1 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56953', endColorstr='#5c35a1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    
+        h2 {
+          font-size: $title-size;
+          color: #fff;
+          padding: 30px 0 30px $sub-padding;
+        }
+      }
+
+      div.second-half {
+        flex: 1;
+      }
+    }
+  }
+}
