@@ -53,18 +53,14 @@
       }
     }
 
-    .row2 {
-
-    }
-
-    .row3 {
+    div.row3 {
       color: #fff;
       height: 200px;
       display: flex;
       align-items: center;
 
       div.app {
-        padding: 0 0 0 30px;
+        padding: 0 0 0 $sub-padding;
 
         h3 {
           padding: 0 0 20px 0;
@@ -75,7 +71,27 @@
         }
       }
     }
-
   }
 
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      padding: 0 $mobile-padding !important;
+
+      div.row2 {
+        h1 {
+          padding: 100px 0 40px 0 !important;
+        }
+
+        p {
+          padding: 0 !important;
+        }
+      }
+
+      div.row3 {
+        div.app {
+          padding: 0 !important;
+        }
+      }
+    }
+  }
 }

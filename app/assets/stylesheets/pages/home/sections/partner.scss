@@ -40,11 +40,13 @@
   }
 
   @media only screen and (max-width: $mobile-width) {
-  margin: 0 !important;
-  padding: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
     
     .section-container {
-
+      h2 {
+        padding: 0 0 0 10px !important;
+      }
     }
   }
 }
