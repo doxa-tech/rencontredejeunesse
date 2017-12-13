@@ -10,7 +10,7 @@ class PagesController < ApplicationController
     render "login", layout: "application.new"
   end
 
-  def login
+  def vision
     render "vision", layout: "application.new"
   end
 

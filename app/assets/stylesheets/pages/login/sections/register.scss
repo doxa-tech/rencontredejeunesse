@@ -76,4 +76,10 @@
       }
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      padding: 0 $mobile-padding !important;
+    }
+  }
 }

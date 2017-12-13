@@ -27,4 +27,9 @@
       padding: 20PX 0 0 0;
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    margin: 0 !important;
+    padding: 0 $blank-space !important;
+  }
 }

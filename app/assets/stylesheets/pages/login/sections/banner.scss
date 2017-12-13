@@ -63,4 +63,16 @@
       }
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      padding: 0 $mobile-padding !important;
+
+      div.row2 {
+        h1, p {
+          padding: 0 !important;
+        }
+      }
+    }
+  }
 }

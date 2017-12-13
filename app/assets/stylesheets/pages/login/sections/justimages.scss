@@ -10,4 +10,9 @@
 
   .section-container {
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    padding: 0 $mobile-padding !important;
+    margin: 0 !important;
+  }
 }
