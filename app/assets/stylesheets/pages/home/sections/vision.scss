@@ -52,6 +52,10 @@
           @include button-bar(-1em, -2.5em, left, 20px);
           background-color: #000;
         }
+
+        &:hover::after {
+          @include button-bar-hover-left();
+        }
       }
     }
   }

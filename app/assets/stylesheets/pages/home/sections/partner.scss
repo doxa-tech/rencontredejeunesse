@@ -36,6 +36,10 @@
         @include button-bar(-2em, 0, right, 20px);
         background-color: #000;
       }
+
+      &:hover::after {
+        @include button-bar-hover-right();
+      }
     }
   }
 

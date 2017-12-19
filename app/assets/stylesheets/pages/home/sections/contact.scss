@@ -68,6 +68,23 @@
             height: 20px;
             width: 150px;
             z-index: -1;
+            transition: background-color .5s ease-out;
+          }
+
+          @keyframes contact-button {
+            0%  {background-color: #17a4ac;}
+            50%  {background-color: #17a4ac;}
+            80%   {background-color: #1AE4AD;}
+            100% {background-color: #17a4ac;}
+          }
+
+          &:hover::after {
+            background-color: #17a4ac;
+            animation-name: contact-button;
+            animation-duration: 5s;
+            animation-delay: 1s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
           }
         }
       }

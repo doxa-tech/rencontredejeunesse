@@ -33,6 +33,7 @@
 
         &::after {
           @include button-bar(-2em, 0, right, 20px);
+
           /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+35,d10cc0+65 */
           background: #141dc6; /* Old browsers */
           background: -moz-linear-gradient(45deg, #141dc6 35%, #d10cc0 65%); /* FF3.6-15 */
@@ -42,7 +43,7 @@
         }
 
         &:hover::after {
-          padding-left: 100%;
+          @include button-bar-hover-right();
         }
       }
     }
