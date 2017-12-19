@@ -25,3 +25,5 @@
 config/secrets.yml
 
 public/uploads
+
+data/
