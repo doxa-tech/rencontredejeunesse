@@ -8,7 +8,7 @@ module Records
 
     has_one :order, as: :product
 
-    has_many :participants, class_name: Participants::Rj, foreign_key: "records_rj_id", inverse_of: :record
+    has_many :participants, class_name: "Participants::Rj", foreign_key: "records_rj_id", inverse_of: :record
     accepts_nested_attributes_for :participants, allow_destroy: true, reject_if: :all_blank
 
     validates :group, length: { maximum: 70 }

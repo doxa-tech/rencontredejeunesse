@@ -1,4 +1,4 @@
-@javascript
+@javascript @ignore
 Feature: Payment
 
   So that I directly pay my entry

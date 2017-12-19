@@ -4,7 +4,7 @@ module Participants
 
     self.table_name = 'participants_rj'
 
-    belongs_to :record, class_name: Records::Rj, foreign_key: "records_rj_id", inverse_of: :participants
+    belongs_to :record, class_name: "Records::Rj", foreign_key: "records_rj_id", inverse_of: :participants
 
     validates :firstname, presence: true
     validates :lastname, presence: true
