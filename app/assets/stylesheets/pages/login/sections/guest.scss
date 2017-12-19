@@ -11,18 +11,30 @@
     text-align: center;
     font-weight: bold;
 
-    img {
-      border-radius: 50%;
-      width: 200px;
-    }
+    max-width: $main-width;
+    margin: auto;
 
-    p:first-of-type {
-      font-size: $medium-title;
-      padding: 10px 0 0 0;
-    }
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 
-    p:nth-of-type(2) {
-      font-size: $normal-text;
+    div.guest {
+      padding: 20px;
+
+      img {
+        border-radius: 50%;
+        width: 200px;
+      }
+
+      p:first-of-type {
+        font-size: $medium-title;
+        padding: 10px 0 0 0;
+      }
+
+      p:nth-of-type(2) {
+        font-size: $normal-text;
+      }
     }
   }
 }
