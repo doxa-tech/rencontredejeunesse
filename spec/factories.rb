@@ -11,13 +11,21 @@ FactoryBot.define do
     country "CH"
     birthday { Date.new(1996, 2, 15) }
     gender "male"
+    password "carottes"
+    password_confirmation "carottes"
   end
 
   factory :rj, class: Records::Rj do
   end
 
   factory :login, class: Records::Login do
-    entries 1
+    participants {[ build(:login_participant) ]}
+  end
+
+  factory :login_participant, class: Participants::Login do
+    firstname "Patrick"
+    lastname "Johnson"
+    age 43
   end
 
   factory :order do
@@ -27,10 +35,6 @@ FactoryBot.define do
 
     user
     product { create(product_name) }
-  end
-
-  factory :volunteer do
-    sector "install"
   end
 
 end

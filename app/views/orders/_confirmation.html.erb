@@ -1,30 +1,32 @@
 <h2>Récapitulatif</h2>
 <!-- User information -->
 
-<table>
-  <tr>
-    <td><%= @order.user.lastname %></td>
-    <td><%= @order.user.firstname %></td>
-  </tr>
-  <tr>
-    <td><%= t("user.genders.#{@order.user.gender}") %></td>
-    <td><%= l @order.user.birthday %></td>
-  </tr>
-  <tr>
-    <td><%= @order.user.email %></td>
-    <td><%= @order.user.phone %></td>
-  </tr>
-  <tr>
-    <td><%= @order.user.address %></td>
-    <td><%= @order.user.npa %></td>
-  </tr>
-  <tr>
-    <td><%= @order.user.city %></td>
-    <td><%= @order.user.country_name %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "Editer", orders_users_edit_path(id: @order.order_id) %></td>
-  </tr>
-</table>
+<div class="user-information">
+  <table>
+    <tr>
+      <td><%= @order.user.lastname %></td>
+      <td><%= @order.user.firstname %></td>
+    </tr>
+    <tr>
+      <td><%= t("user.genders.#{@order.user.gender}") %></td>
+      <td><%= l @order.user.birthday %></td>
+    </tr>
+    <tr>
+      <td><%= @order.user.email %></td>
+      <td><%= @order.user.phone %></td>
+    </tr>
+    <tr>
+      <td><%= @order.user.address %></td>
+      <td><%= @order.user.npa %></td>
+    </tr>
+    <tr>
+      <td><%= @order.user.city %></td>
+      <td><%= @order.user.country_name %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Editer", orders_users_edit_path(id: @order.order_id) %></td>
+    </tr>
+  </table>
+</div>
 
 <%= yield %>

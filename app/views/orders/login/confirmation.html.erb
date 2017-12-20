@@ -1,15 +1,25 @@
 <%= render layout: "orders/confirmation" do %>
 
   <!-- Product information -->
+  <div class="product-information">
+    <p><strong>Nombre d'entrées:</strong> <%= @order.product.entries %></p>
+    <ul>
+      <% @order.product.participants.each do |participant| %>
+        <li><%= participant.firstname %> <%= participant.lastname %> <%= participant.age %></li>
+      <% end %>
+    </ul>
 
-  <p><strong>Nombre d'entrées:</strong> <%= @order.product.entries %></p>
-  <p><strong>Nom du groupe:</strong> <%= @order.product.group %></p>
 
-  <p class="edit"><%= link_to image_tag("icons/edit.png") + " Changer vos informations", { action: "edit" } %></p>
+    <p><strong>Nom du groupe:</strong> <%= @order.product.group %></p>
 
-  <!-- Order information -->
-  <p>Frais d'inscription: <b><%= Records::Login::FEE %> CHF</b></p>
-  <p class="amount">Prix à payer: <b><%= @order.print_amount %> CHF</b></p>
+    <p class="edit"><%= link_to image_tag("icons/edit.png") + " Modifier la commande", { action: "edit" } %></p>
+  </div>
+
+  <div class="price">
+    <!-- Order information -->
+    <p>Frais d'inscription: <b><%= Records::Login::FEE %> CHF</b></p>
+    <p class="amount">Prix à payer: <b><%= @order.print_amount %> CHF</b></p>
+  </div>
 
   <%= render "orders/postfinance" %>
 

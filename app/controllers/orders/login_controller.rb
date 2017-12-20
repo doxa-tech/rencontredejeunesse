@@ -3,6 +3,7 @@ class Orders::LoginController < Orders::BaseController
 
   def new
     @order = order
+    @order.product.participants.build(@order.user.as_json(only: [:firstname, :lastname], methods: :age))
   end
 
   def create
