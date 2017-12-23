@@ -1,17 +1,12 @@
 class PagesController < ApplicationController
 
-  def index
-    render "index", layout: "application.new"
+  def home
   end
 
-  
-
   def login
-    render "login", layout: "application.new"
   end
 
   def vision
-    render "vision", layout: "application.new"
   end
 
   def contact

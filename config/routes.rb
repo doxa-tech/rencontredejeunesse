@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin"
 
-  root to: "pages#index"
+  root to: "pages#home"
 
   get "login", to: "pages#login"
   get "privacy", to: "pages#privacy"
