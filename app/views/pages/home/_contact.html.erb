@@ -3,17 +3,22 @@
   <div class="section-container">
     <div class="form">
       <h2>contact</h2>
-      <form>
-        <input type="text" placeholder="NOM"/>
-        <input type="text" placeholder="PRENOM"/>
-        <input type="text" placeholder="SUJET"/>
-        <textarea name="message" rows="10" cols="30">
-TEXTE
-        </textarea>
-        <div class="input">
-          <input type="submit" value="envoyer">
-        </div>
-      </form>
+      
+      <%= form_for Contact.new, url: contact_path do |f| %>
+
+        <%= f.text_field :firstname, placeholder: "Prénom", required: true %>
+
+        <%= f.text_field :lastname, placeholder: "Nom", required: true %>
+
+        <%= f.text_field :subject, placeholder: "Sujet", required: true %>
+
+        <%= f.email_field :email, placeholder: "Email", required: true %>
+
+        <%= f.text_area :message, placeholder: "Message", cols: 30, rows: 10, required: true %>
+
+        <div class="input"><%= f.submit "Envoyer" %></div>
+
+      <% end %>
     </div>
 
     <div class="address">
@@ -31,7 +36,7 @@ TEXTE
 
 <script>
 
-  function initMap() { 
+  function initMap() {
     var lat = 46.615083;
     var lng = 7.048672;
     var rj = {lat: lat, lng: lng};
