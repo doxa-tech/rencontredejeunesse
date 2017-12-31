@@ -4,13 +4,21 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 0 120px 0;
+  padding: 40px 0 120px 0;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#131dc6+0,b115c4+100 */
+  background: rgb(19,29,198); /* Old browsers */
+  background: -moz-linear-gradient(-45deg, rgba(19,29,198,1) 0%, rgba(177,21,196,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(19,29,198,1) 0%,rgba(177,21,196,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(19,29,198,1) 0%,rgba(177,21,196,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131dc6', endColorstr='#b115c4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
   .section-container {
     width: 100%;
     max-width: $main-width;
     padding: 0 $main-padding + $sub-padding;
     margin: auto;
+    color: #fff;
 
     display: flex;
     flex-direction: column;
@@ -34,7 +42,23 @@
     p {
       font-weight: bold;
       padding: 20px 0 0 0;
-      font-size: $normal-text;
+      font-size: $large-text;
+    }
+
+    div.activities {
+      display: flex;
+      flex-direction: column;
+
+      & > div:nth-child(odd) {
+        text-align: left;
+        max-width: 500px;
+      }
+
+      & > div:nth-child(even) {
+        text-align: right;
+        max-width: 500px;
+        align-self: flex-end;
+      }
     }
   }
 

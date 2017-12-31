@@ -1,4 +1,5 @@
 @import "../../../components/variables";
+@import '../../../components/button-bar';
 
 #container.vision section#intro {
 
@@ -47,10 +48,31 @@
       flex-direction: row;
 
       div.first-half {
-        flex: 1;
+        flex: 3;
         padding: 90px 0;
         font-size: $medium-title;
         font-weight: bold;
+
+        p {
+          padding: 0 0 10px 0;
+
+          span {
+            position: relative;
+
+            &::after {
+              content: '';
+              background-color: #1AE4AD;
+              position: absolute;
+              line-height: 0;
+              right: -.2em;
+              bottom: -.2em;
+              left: -.3em;
+              z-index: -1;
+              padding: 10px 5px;
+              transition: .3s;
+            }         
+          }
+        }
       }
 
       div.second-half {
