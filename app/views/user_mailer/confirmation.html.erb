@@ -1,0 +1,5 @@
+<h1>Bienvenue sur l'espace RJ</h1>
+<h2>Tu as créé un compte Rencontre de Jeunesse</h2>
+<p>Félicitation pour la création de compte sur rencontredejeunesse.ch. Celui-ci te permet de faire de commandes, de les suivre sur l'espace client, de t'engager comme bénévole et t'octroie plein d'autres avantages !</p>
+<p>Mais avant d'accéder aux pleines fonctionnalités du compte RJ, tu dois d'abord confirmer ton email en suivant le lien ci-dessous:</p>
+<%= link_to "Confirmer mon compte", users_verification_path(token: @user.verify_token) %>

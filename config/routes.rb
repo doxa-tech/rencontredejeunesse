@@ -26,6 +26,12 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :users do
+
+    resources :verification, only: [:create, :update]
+
+  end
+
   #
   # ORDERS
   #
