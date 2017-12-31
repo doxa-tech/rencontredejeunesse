@@ -82,4 +82,18 @@
       }
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      div.title {
+        flex-direction: column !important;
+
+        div.first-half {
+          h2 {
+            padding: $mobile-padding !important;
+          }
+        }
+      }
+    }
+  }
 }

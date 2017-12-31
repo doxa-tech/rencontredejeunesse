@@ -52,4 +52,15 @@
     }
   }
 
+  @media only screen and (max-width: $mobile-width) {
+    div.title {
+      h2 {
+        min-width: 120px !important;
+        
+        &::after {
+          @include button-bar(0, 0, right, 20px);
+        }
+      }
+    }
+  }
 }

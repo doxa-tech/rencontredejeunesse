@@ -43,7 +43,7 @@ header#header-frame {
           cursor: default;
         }
 
-        a.active::after {
+        a.active::after, a:hover::after {
           content: "";
           position: absolute;
           left: -30px;
