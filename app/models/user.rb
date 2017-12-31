@@ -13,6 +13,7 @@ class User < ApplicationRecord
   has_secure_password
 
   before_save :create_remember_token
+  before_create :create_verify_token
 
   # TODO
   scope :with_account, -> { where.not(password_digest: nil) }
@@ -75,6 +76,10 @@ class User < ApplicationRecord
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64
+  end
+
+  def create_verify_token
+    self.verify_token = SecureRandom.urlsafe_base64
   end
 
   def uniqueness_of_email
