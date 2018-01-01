@@ -8,8 +8,7 @@ class Orders::UsersController < Orders::BaseController
   def create
     @user = User.new(user_params)
 		if @user.save
-      # TODO: EMAIL
-      sign_in @user
+      UserMailer.confirmation(@user).deliver_now
 			redirect_to controller: "orders/#{params[:product]}", action: "new"
 		else
 			render 'new'

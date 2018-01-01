@@ -1,26 +1,27 @@
 class Connect::UsersController < Connect::BaseController
+
   def show
-    @current_partial = params[:partial] || "home"
   end
 
-  def settings
-    @current_partial = "settings"
-    render 'show'
+  def edit
   end
 
-  def shop
-    @current_partial = "shop"
-    render 'show'
+  def update
+    if current_user.update_with_password(user_params)
+      sign_in current_user
+      redirect_to connect_edit_path, success: "Compte mis à jour"
+    else
+      render 'edit'
+    end
   end
 
-  def volunteer
-    @current_partial = "volunteer"
-    render 'show'
+  private
+
+  def user_params
+    params.require(:user).permit(
+      :gender, :birthday, :firstname, :lastname, :email, :phone, :address,
+      :npa, :city, :country, :newsletter, :password, :password_confirmation, :current_password
+    )
   end
 
-  def goodies
-    @current_partial = "goodies"
-    render 'show'
-  end
-  
 end

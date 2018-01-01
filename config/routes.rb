@@ -19,20 +19,26 @@ Rails.application.routes.draw do
   # USERS
   #
 
-  get "dashboard", to: "users#index"
-
-  scope :user do
-
-    get "edit", to: "users#edit"
-    patch "update", to: "users#update"
-
-  end
-
   resources :users, only: [:new, :create], path: "signup"
 
   namespace :users do
 
-    resources :verification, only: [:create, :update]
+    resources :verification, only: [:new, :edit]
+
+  end
+
+  #
+  # Connect
+  #
+
+
+  namespace :connect do
+
+    root to: "users#show"
+    get "edit", to: "users#edit"
+    patch "update", to: "users#update"
+
+    resources :orders, only: [:index, :show]
 
   end
 
@@ -89,23 +95,6 @@ Rails.application.routes.draw do
 
     resources :checkin, only: [:index, :create, :show]
 
-  end
-
-  #
-  # Connect
-  #
-
-
-  namespace :connect do
-
-    resources :orders, only: [:index, :show]
-
-    # TODO
-    root to: "users#show"
-    get 'settings', to: "users#settings"
-    get 'shop', to: "users#shop"
-    get 'volunteer', to: "users#volunteer"
-    get 'goodies', to: "users#goodies"
   end
 
   #

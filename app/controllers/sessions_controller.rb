@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @user = User.with_account.where("lower(email) = ?", params[:session][:email].strip.downcase).first
     if @user && @user.authenticate(params[:session][:password])
       sign_in @user, permanent: params[:session][:remember_me] == "1"
-      redirect_back_or dashboard_path, success: "Connexion réussie"
+      redirect_back_or connect_root_path, success: "Connexion réussie"
     else
       flash.now[:error] = "Nom d'utilisateur et/ou mot de passe incorrect(s)"
       render 'new'
@@ -24,6 +24,6 @@ class SessionsController < ApplicationController
   private
 
   def redirect_if_connected
-    redirect_to dashboard_path if signed_in?
+    redirect_to connect_root_path if signed_in?
   end
 end
