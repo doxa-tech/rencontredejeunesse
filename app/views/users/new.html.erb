@@ -1,0 +1,17 @@
+<h1>Créer un compte RJ Connect</h1>
+
+<%= form_for @user, url: users_path do |f| %>
+
+  <%= render "error_messages", object: f.object %>
+
+  <%= render "users/fields/information", f: f %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+
+  <%= f.submit "Créer mon compte", class: "button" %>
+
+<% end %>

@@ -24,7 +24,7 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validate :uniqueness_of_email
 
-  validates :phone, presence: true
+  validates :phone, presence: true # TODO: validate format
   validates :npa, numericality: { only_integer: true, greater_than: 0 }
   validates :city, presence: true, length: { maximum: 30 }
   validates :address, presence: true, length: { maximum: 50 }

@@ -15,7 +15,9 @@ Rails.application.routes.draw do
 
   post "contact", to: "pages#contact"
 
-  # PROFILE
+  #
+  # USERS
+  #
 
   get "dashboard", to: "users#index"
 
@@ -25,6 +27,8 @@ Rails.application.routes.draw do
     patch "update", to: "users#update"
 
   end
+
+  resources :users, only: [:new, :create], path: "signup"
 
   namespace :users do
 

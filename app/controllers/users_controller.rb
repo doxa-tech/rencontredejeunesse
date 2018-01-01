@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  layout "admin"
-  require_login
+  layout "admin", except: [:new, :create]
+  require_login except: [:new, :create]
 
   def index
   end
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 		if @user.save
       # TODO: EMAIL
       sign_in @user
-			redirect_to dashboard_path, success: t("Bienvenue sur RJ Connect")
+			redirect_to dashboard_path, success: "Bienvenue sur le RJ Connect"
 		else
 			render 'new'
 		end
