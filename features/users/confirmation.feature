@@ -17,7 +17,6 @@ Feature: Confirm account
     Then I should be able to sign in
     And I should not be able to fully use my account
 
-  @wip
   Scenario: I resend the confirmation email
     Given no emails have been sent
     And I am signed in

@@ -20,7 +20,9 @@
         <%= image_tag "connect/layout/logo.png", class: "logo" %>
       </div>
       <div>
-        <%= image_tag "connect/layout/logout.svg", class: "logout" %>
+        <%= link_to signout_path, method: :delete do %>
+          <%= image_tag "connect/layout/logout.svg", class: "logout" %>
+        <% end %>
       </div>
     </header>
 

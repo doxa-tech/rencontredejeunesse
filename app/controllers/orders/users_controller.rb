@@ -9,6 +9,7 @@ class Orders::UsersController < Orders::BaseController
     @user = User.new(user_params)
 		if @user.save
       UserMailer.confirmation(@user).deliver_now
+      sign_in @user
 			redirect_to controller: "orders/#{params[:product]}", action: "new"
 		else
 			render 'new'
@@ -30,11 +31,12 @@ class Orders::UsersController < Orders::BaseController
   end
 
   def signin
-    @user = User.with_account.where("lower(email) = ?", params[:session][:email].strip.downcase).first
-    if @user && @user.authenticate(params[:session][:password])
-      sign_in @user
+    user = User.with_account.where("lower(email) = ?", params[:session][:email].strip.downcase).first
+    if user && user.authenticate(params[:session][:password])
+      sign_in user
       redirect_to controller: "orders/#{params[:product]}", action: "new"
     else
+      @user = User.new # sign up form
       flash.now[:error] = "Nom d'utilisateur et/ou mot de passe incorrect(s)"
       render 'new'
     end
