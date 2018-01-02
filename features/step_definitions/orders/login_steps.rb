@@ -14,6 +14,6 @@ When(/^I miscomplete the Login update form$/) do
 end
 
 Then(/^I should see errors for the Login form$/) do
-  expect(find "#error").to have_content("Prénom")
+  expect(page).to have_css(".error-message", text: "Prénom")
   step "I should see errors for the order form"
 end

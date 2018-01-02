@@ -31,7 +31,7 @@ Then(/^I should see the updated information on the confirmation page$/) do
 end
 
 Then(/^I should see errors for the order form$/) do
-  expect(find "#error").to have_content("conditions")
+  expect(page).to have_css(".error-message", text: "conditions")
 end
 
 Then(/^I should see the confirmation page$/) do

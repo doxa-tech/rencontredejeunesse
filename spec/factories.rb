@@ -23,8 +23,10 @@ FactoryBot.define do
   end
 
   factory :login_participant, class: Participants::Login do
+    gender "male"
     firstname "Patrick"
     lastname "Johnson"
+    email "patrick@johnson.com"
     age 43
   end
 
