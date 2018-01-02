@@ -1,25 +1,15 @@
 class StandardFormBuilder < ActionView::Helpers::FormBuilder
 
-    def text_field_with_label(attribute, options={})
-      field_with_label(:text, attribute, options)
+    def field_with_errors(type, attribute, options = {})
+      tag = self.send("#{type}_field", attribute, options)
+      message = error_message_for(attribute)
+      %(<div class="field">#{tag}</div><div class="error-message">#{message}</div>).html_safe
     end
 
-    def email_field_with_label(attribute, options={})
-      field_with_label(:email, attribute, options)
-    end
+    private
 
-    def number_field_with_label(attribute, options={})
-      field_with_label(:number, attribute, options)
-    end
-
-    def country_select_with_label(attribute, options={})
-      klass = options[:required] ? "required" : nil
-      self.label(attribute, class: klass) + self.country_select(attribute, options)
-    end
-
-    def field_with_label(type, attribute, options)
-      klass = options[:required] ? "required" : nil
-      self.label(attribute, class: klass) + self.send("#{type}_field", attribute, options)
+    def error_message_for(attribute)
+      @object.errors.full_messages_for(attribute).join(" / ")
     end
 
 end

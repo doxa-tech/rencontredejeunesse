@@ -1,7 +1,5 @@
 <%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
 
-  <%= render "error_messages", object: f.object %>
-
   <!-- Event specific information -->
   <%= yield f %>
   <!-- -->

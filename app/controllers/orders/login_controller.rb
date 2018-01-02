@@ -3,7 +3,7 @@ class Orders::LoginController < Orders::BaseController
 
   def new
     @order = order
-    @order.product.participants.build(@order.user.as_json(only: [:firstname, :lastname], methods: :age))
+    @order.product.participants.build(@order.user.as_json(only: [:gender, :firstname, :lastname, :email], methods: :age))
   end
 
   def create
@@ -35,7 +35,7 @@ class Orders::LoginController < Orders::BaseController
   def order_params
     params.require(:order).permit(:conditions,
       product_attributes: [:id, :entries, :group,
-      participants_attributes: [:id, :firstname, :lastname, :age, :_destroy],
+      participants_attributes: [:id, :gender, :firstname, :lastname, :email, :age, :_destroy],
     ])
   end
 

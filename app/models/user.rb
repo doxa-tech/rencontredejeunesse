@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :firstname, presence: true, length: { maximum: 30 }
   validates :lastname, presence: true, length: { maximum: 30 }
   validates :email, :format => { :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
-  validates :gender, presence: true
+  validates :gender, presence: true, inclusion: { in: genders.keys }
   validate :uniqueness_of_email
 
   validates :phone, presence: true # TODO: validate format

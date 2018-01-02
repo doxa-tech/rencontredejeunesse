@@ -3,7 +3,7 @@
   <%= f.fields_for :product do |product_f| %>
 
     <%= product_f.label :group %>
-    <%= product_f.text_field :group %>
+    <%= product_f.field_with_errors :text, :group %>
 
     <%= render "participants", product_f: product_f, participants: @order.product.participants %>
 

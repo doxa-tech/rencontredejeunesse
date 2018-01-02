@@ -5,7 +5,7 @@
     <p><strong>Nombre d'entrées:</strong> <%= @order.product.entries %></p>
     <ul>
       <% @order.product.participants.each do |participant| %>
-        <li><%= participant.firstname %> <%= participant.lastname %> <%= participant.age %></li>
+        <li><%= t("participants/login.genders.#{participant.gender}") %> <%= participant.firstname %> <%= participant.lastname %> <%= participant.email %> <%= participant.age %></li>
       <% end %>
     </ul>
 

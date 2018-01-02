@@ -71,6 +71,10 @@ fr:
     genders:
       male: "Homme"
       female: "Femme"
+  participants/login:
+    genders:
+      male: "Mr"
+      female: "Mme"
   errors:
     format: "%{message}"
     messages:

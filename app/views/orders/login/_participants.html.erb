@@ -3,19 +3,26 @@
     <div class="participants-fields wrap">
 
       <div class="participants-wrap">
+        <%= f.label :gender %><div class="select"><%= f.select :gender, options_for_enum(f.object, :gender) %></div>
+
         <div>
           <%= f.label :firstname %>
-          <%= f.text_field :firstname, autocomplete: "off" %>
+          <%= f.field_with_errors :text, :firstname, autocomplete: "off" %>
         </div>
 
         <div>
           <%= f.label :lastname %>
-          <%= f.text_field :lastname, autocomplete: "off" %>
+          <%= f.field_with_errors :text, :lastname, autocomplete: "off" %>
+        </div>
+
+        <div>
+          <%= f.label :email %>
+          <%= f.field_with_errors :text, :email, autocomplete: "off" %>
         </div>
 
         <div class="age number-wo-arrows">
           <%= f.label :age %>
-          <%= f.number_field :age, autocomplete: "off" %>
+          <%= f.field_with_errors :number, :age, autocomplete: "off" %>
         </div>
       </div>
 
