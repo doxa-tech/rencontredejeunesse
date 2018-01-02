@@ -2,25 +2,56 @@
 
 <div class="user-information">
 
-  <%= f.label :gender %><div class="select"><%= f.select :gender, options_for_enum(f.object, :gender) %></div>
+  <div class="row">
+    <%= f.label :gender %>
+    <div class="select"><%= f.select :gender, options_for_enum(f.object, :gender) %></div>
+  </div>
 
-  <%= f.text_field :firstname, required: true, placeholder: true %>
-  <%= f.text_field :lastname, required: true, placeholder: true %>
+  <div class="row">
+    <%= f.label :firstname %>
+    <%= f.text_field :firstname, required: true, placeholder: true %>
+  </div>
+  <div class="row">
+    <%= f.label :lastname %>
+    <%= f.text_field :lastname, required: true, placeholder: true %>
+  </div>
 
-  <%= f.email_field :email, required: true, placeholder: true %>
-  <%= f.text_field :phone, required: true, placeholder: true %>
+  <div class="row">
+    <%= f.label :email %>
+    <%= f.email_field :email, required: true, placeholder: true %>
+  </div>
+  <div class="row">
+    <%= f.label :phone %>
+    <%= f.text_field :phone, required: true, placeholder: true %>
+  </div>
 
-  <%= f.label :birthday %><div class="select"><%= f.date_select :birthday, :start_year=>1900, required: true %></div>
+  <div class="row">
+    <%= f.label :birthday %>
+    <div class="select"><%= f.date_select :birthday, :start_year=>1900, required: true %></div>
+  </div>
 
-  <%= f.text_field :address, required: true, placeholder: true %>
-  <%= f.text_field :npa, required: true, placeholder: true %>
+  <div class="row">
+    <%= f.label :address %>
+    <%= f.text_field :address, required: true, placeholder: true %>
+  </div>
+  <div class="row">
+    <%= f.label :npa %>
+    <%= f.text_field :npa, required: true, placeholder: true %>
+  </div>
 
-  <%= f.text_field :city, required: true, placeholder: true %>
-  <%= f.label :country %><div class="country select"><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true %></div>
-
+  <div class="row">
+    <%= f.label :city %>
+    <%= f.text_field :city, required: true, placeholder: true %>
+  </div>
+  <div class="row">
+    <%= f.label :country %>
+    <div class="country select"><%= f.country_select :country, priority_countries: ["CH", "FR", "BE"], required: true %></div>
+  </div>
 </div>
 
 <div class="newsletter checkbox">
-  <%= f.check_box :newsletter %>
-  <p>Je souhaite m'inscrire à la newsletter et recevoir des infos exclusives de la RJ</p>
+  <div class="row">
+    <div><%= f.check_box :newsletter %></div>
+    <p>Je souhaite m'inscrire à la newsletter et recevoir des infos exclusives de la RJ</p>
+  </div>
 </div>

@@ -1,35 +1,52 @@
-<div class="signin">
-  <h2>Se connecter</h2>
+<% content_for :id, "orders-users-new" %>
 
-  <%= form_for :session, url: signin_orders_users_path(product: params[:product]) do |f| %>
+<div class="content-wrap">
+  <div class="signin">
 
-    <%= f.label :email %>
-    <%= f.label :password %>
+    <h2>Se connecter</h2>
 
-    <%= f.text_field :email, placeholder: "Email" %>
-    <%= f.password_field :password, placeholder: "Mot de passe" %>
+    <%= form_for :session, url: signin_orders_users_path(product: params[:product]) do |f| %>
 
-    <%= f.button %>
+      <div class="row">
+        <%= f.label :email %>
+        <%= f.text_field :email, placeholder: "Email" %>
+      </div>
+      <div class="row">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Mot de passe" %>
+      </div>
+      <div class="row">
+        <span></span>
+        <%= f.button %>
+      </div>
 
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
-<div class="signup">
-  <h2>S'inscrire</h2>
+  <div class="signup">
+    <h2>S'inscrire</h2>
 
-  <%= form_for @user, url: orders_users_path(product: params[:product]) do |f| %>
+    <%= form_for @user, url: orders_users_path(product: params[:product]) do |f| %>
 
-    <%= render "error_messages", object: f.object %>
+      <%= render "error_messages", object: f.object %>
 
-    <%= render "users/fields/information", f: f %>
+      <%= render "users/fields/information", f: f %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <div class="row">
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+      </div>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+      <div class="row">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
 
-    <%= f.submit "Créer mon compte", class: "button" %>
+      <div class="row">
+        <span></span>
+        <%= f.submit "Créer mon compte", class: "button" %>
+      </div>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>
