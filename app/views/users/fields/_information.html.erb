@@ -16,10 +16,13 @@
     <%= f.text_field :lastname, required: true, placeholder: true %>
   </div>
 
+  <% if f.object.new_record? %>
   <div class="row">
     <%= f.label :email %>
     <%= f.email_field :email, required: true, placeholder: true %>
   </div>
+  <% end %>
+
   <div class="row">
     <%= f.label :phone %>
     <%= f.text_field :phone, required: true, placeholder: true %>

@@ -7,6 +7,7 @@ class Connect::BaseController < ApplicationController
   private
 
   def check_if_confirmed
+    # TODO: different formats supported
     render "connect/unconfirmed" unless current_user.confirmed
   end
 end

@@ -50,8 +50,8 @@ class Orders::UsersController < Orders::BaseController
 
   def user_params
     params.require(:user).permit(
-      :gender, :birthday, :firstname, :lastname, :email, :phone, :address,
-      :npa, :city, :country, :newsletter, :password, :password_confirmation
+      :gender, :birthday, :firstname, :lastname, :phone, :address,
+      :npa, :city, :country, :newsletter
     )
   end
 

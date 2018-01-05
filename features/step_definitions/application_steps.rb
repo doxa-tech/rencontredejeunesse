@@ -20,6 +20,10 @@ When("I click the button {string}") do |button|
   click_button button
 end
 
+When("I click the link {string}") do |link|
+  click_link link
+end
+
 When("I miscomplete the form") do
   find("form").find("button[type=submit]").click
 end
