@@ -2,7 +2,7 @@
 @import '../../../components/logo-burger-color';
 @import '../../../components/standard-form';
 
-@include logo-burger-color(#178daf);
+@include logo-burger-color(#178daf, ".orders-login-confirmation");
 
 #container.orders-login-confirmation {
   @include standard-form();

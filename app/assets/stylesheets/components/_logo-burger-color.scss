@@ -1,7 +1,7 @@
-@mixin logo-burger-color($color) {
-  section#logo-burger {
+@mixin logo-burger-color($color, $id) {
+  section#logo-burger#{$id} {
     & > div.footer-container {
-      & > svg {
+      svg {
         path, rect {
           fill: $color !important;
         }

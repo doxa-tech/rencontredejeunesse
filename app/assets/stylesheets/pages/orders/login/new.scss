@@ -2,12 +2,15 @@
 @import '../../../components/logo-burger-color';
 @import '../../../components/standard-form';
 
-@include logo-burger-color(#178daf);
+@include logo-burger-color(#178daf, ".orders-login-new");
 
 #container.orders-login-new {
   @include standard-form();
   padding: $logo-burger-height 0 0 0;
 
   div.content-wrap {
+    .participants-fields {
+      padding: 20px 0;
+    }
   }
 }
