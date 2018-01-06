@@ -5,27 +5,32 @@
 
     <!-- Product information -->
     <div class="product-information standard-form-row">
-      
+      <div class="row">
+        <span></span>
+        <h3>Mes entrées</h3>
+      </div>
+
       <div class="row">
         <p><strong>Nombre d'entrées:</strong></p>
         <p><%= @order.product.entries %></p>
       </div>
-
       <% @order.product.participants.each do |participant| %>
-        <div class="row">
-          <span>Titre, nom, prénom</span>
-          <p>
-            <%= t("participants/login.genders.#{participant.gender}") %>
-            <%= participant.firstname %> <%= participant.lastname %>
-          </p>
-        </div>
-        <div class="row">
-          <p>Email</p>
-          <p><%= participant.email %></p>
-        </div>
-        <div class="row">
-          <p>Age</p>
-          <p><%= participant.age %></p>
+        <div class="participant">
+          <div class="row tight">
+            <span>Titre, nom, prénom</span>
+            <p>
+              <%= t("participants/login.genders.#{participant.gender}") %>
+              <%= participant.firstname %> <%= participant.lastname %>
+            </p>
+          </div>
+          <div class="row tight">
+            <p>Email</p>
+            <p><%= participant.email %></p>
+          </div>
+          <div class="row tight">
+            <p>Age</p>
+            <p><%= participant.age %></p>
+          </div>
         </div>
       <% end %>
 
@@ -44,7 +49,7 @@
     <div class="price standard-form-row">
       <!-- Order information -->
       <div class="row">
-        <p>Frais d'inscription</p> 
+        <p>Frais d'inscription</p>
         <p><b><%= Records::Login::FEE %> CHF</b></p>
       </div>
       <div class="row">

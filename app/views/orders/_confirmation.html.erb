@@ -2,31 +2,35 @@
 <!-- User information -->
 
 <div class="user-information standard-form-row">
-  <div class="row">
+  <div class="row tight">
+    <span></span>
+    <h3>Mes informations</h3>
+  </div>
+  <div class="row tight">
     <span></span>
     <p><%= @order.user.lastname %> <%= @order.user.firstname %></p>
   </div>
-  <div class="row">
+  <div class="row tight">
     <span></span>
     <p><%= t("user.genders.#{@order.user.gender}") %></p>
   </div>
-  <div class="row">
+  <div class="row tight">
     <span></span>
     <p><%= l @order.user.birthday %></p>
   </div>
-  <div class="row">
+  <div class="row tight">
     <span></span>
     <p><%= @order.user.email %></p>
   </div>
-  <div class="row">
+  <div class="row tight">
     <span></span>
     <p><%= @order.user.phone %></p>
   </div>
-  <div class="row">
+  <div class="row tight">
     <span></span>
     <p><%= @order.user.address %> <%= @order.user.npa %></p>
   </div>
-  <div class="row">
+  <div class="row tight">
     <span></span>
     <p><%= @order.user.city %> <%= @order.user.country_name %></p>
   </div>
