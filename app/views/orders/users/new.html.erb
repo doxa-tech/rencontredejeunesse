@@ -1,7 +1,7 @@
 <% content_for :id, "orders-users-new" %>
 
 <div class="content-wrap">
-  <div class="signin">
+  <div class="signin standard-form-row">
 
     <h2>Se connecter</h2>
 
@@ -17,13 +17,13 @@
       </div>
       <div class="row">
         <span></span>
-        <%= f.button %>
+        <div><%= f.button %></div>
       </div>
 
     <% end %>
   </div>
 
-  <div class="signup">
+  <div class="signup standard-form-row">
     <h2>S'inscrire</h2>
 
     <%= form_for @user, url: orders_users_path(product: params[:product]) do |f| %>
@@ -44,9 +44,11 @@
 
       <div class="row">
         <span></span>
-        <%= f.submit "Créer mon compte", class: "button" %>
+        <div><%= f.submit "Créer mon compte", class: "button" %></div>
       </div>
 
     <% end %>
   </div>
 </div>
+
+<%= render "layouts/headers/application" %>

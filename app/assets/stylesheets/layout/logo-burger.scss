@@ -1,0 +1,40 @@
+@import '../components/variables';
+
+section#logo-burger {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .footer-container {
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: 0 $main-padding;
+    height: 50px;
+    margin: 20px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    svg {
+      width: 50px;
+    
+      path, rect {
+        // fill: #1e1c1a;
+        fill: #fff;
+      }
+    }
+
+    svg#header-btn {
+      width: 30px;
+      cursor: pointer;
+    }
+  }
+}

@@ -4,16 +4,25 @@
   <%= yield f %>
   <!-- -->
 
-  <div class="conditions checkbox">
-    <%= f.checkbox_with_errors :conditions, required: true %>
-    <%= f.label :conditions do %>
-      J'ai lu <%= link_to "les conditions générales", "/conditions_generales.html", target: "_blank" %> et les accepte.
-    <% end %>
+  <div class="standard-form-row">
+    <div class="conditions checkbox row">
+      <div>
+        <%= f.label :conditions do %>
+          J'ai lu <%= link_to "les conditions générales", "/conditions_generales.html", target: "_blank" %> et les accepte.
+        <% end %>
+      </div>
+      <div>
+        <%= f.checkbox_with_errors :conditions, required: true %>
+      </div>
+    </div>
+
+    <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
+    <%= image_tag "orders/pay-cards.png" %>
+
+    <div class="row">
+      <span></span>
+      <%= f.submit %>
+    </div>
   </div>
-
-  <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
-  <%= image_tag "orders/pay-cards.png" %>
-
-  <%= f.submit %>
 
 <% end %>

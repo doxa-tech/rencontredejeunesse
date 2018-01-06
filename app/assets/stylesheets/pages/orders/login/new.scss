@@ -4,7 +4,7 @@
 
 @include logo-burger-color(#178daf);
 
-#container.orders-users-new {
+#container.orders-login-new {
   @include standard-form();
   padding: $logo-burger-height 0 0 0;
 

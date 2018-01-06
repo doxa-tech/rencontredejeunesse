@@ -1,20 +1,35 @@
-<%= render layout: "orders/form" do |f| %>
+<div class="content-wrap">
 
-  <%= f.fields_for :product do |product_f| %>
+  <h2>Inscription à la RJ</h2>
 
-    <%= product_f.label :group %>
-    <%= product_f.field_with_errors :text, :group %>
+  <%= render layout: "orders/form" do |f| %>
 
-    <%= render "participants", product_f: product_f, participants: @order.product.participants %>
+    <%= f.fields_for :product do |product_f| %>
+      <div class="standard-form-row">
+        <div class="row">
+          <%= product_f.label :group %>
+          <%= product_f.field_with_errors :text, :group %>
+        </div>
+      </div>
+
+      <%= render "participants", product_f: product_f, participants: @order.product.participants %>
+
+    <% end %>
+
+    <div class="standard-form-row">
+      <div class="price row">
+        <div>Frais d'inscription</div>
+        <div><strong><%= @order.fee %> CHF</strong></div>
+      </div>
+      <div class="row">
+        <div>Total</div>
+        <div><strong><span id="amount"><%= @order.print_amount %></span> CHF</strong></div>
+      </div>
+    </div>
 
   <% end %>
 
-  <div class="price">
-    <div><strong>Frais d'inscription:</strong> <%= @order.fee %> CHF</div>
-    <div><strong>Total:</strong><span id="amount"><%= @order.print_amount %></span> CHF</div>
-  </div>
-
-<% end %>
+</div>
 
 <%= content_for :javascript do %>
   <%= javascript_include_tag "orders/login", 'data-turbolinks-track': 'reload' %>

@@ -1,0 +1,11 @@
+@mixin logo-burger-color($color) {
+  section#logo-burger {
+    & > div.footer-container {
+      & > svg {
+        path, rect {
+          fill: $color !important;
+        }
+      }
+    }
+  }
+}

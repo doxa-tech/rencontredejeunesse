@@ -17,10 +17,15 @@
 
     <%= render 'layouts/flash' %>
 
+    <%= render 'layouts/headers/logo_burger' %>
+
     <div id="container" class="<%= yield :id %>">
 
       <%= yield %>
 
     </div>
+
+    <%= render "layouts/footers/application" %>
+
   </body>
 </html>
