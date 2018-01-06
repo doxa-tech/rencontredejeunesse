@@ -1,6 +1,6 @@
 When("I successfully complete the signup form") do
   within ".signup" do
-    select "Homme", from: "Sexe"
+    select "Homme", from: "Civilité"
     fill_in "Prénom", with: "John"
     fill_in "Nom de famille", with: "Smith"
     fill_in "Email", with: "john@smith.com"
