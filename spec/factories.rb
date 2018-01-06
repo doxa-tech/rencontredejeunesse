@@ -7,7 +7,7 @@ FactoryBot.define do
     address "Route du chemin 1"
     npa 1630
     city "Bulle"
-    phone "1010010110"
+    phone "+41790000000"
     country "CH"
     birthday { Date.new(1996, 2, 15) }
     gender "male"
