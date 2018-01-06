@@ -11,10 +11,10 @@ module Records
     has_many :participants, class_name: "Participants::Login", foreign_key: "records_login_id", inverse_of: :record
     accepts_nested_attributes_for :participants, allow_destroy: true, reject_if: :all_blank
 
-    validates :entries, numericality: { only_integer: true, greater_than: 0 }
+    validates :participants, presence: true
     validates :group, length: { maximum: 70 }
 
-    before_validation :calculate_entries
+    before_save :calculate_entries
 
     def calculate_amount
       return (entries * ENTRY_PRICE + FEE) * 100

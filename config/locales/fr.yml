@@ -21,7 +21,7 @@ fr:
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"
-    gender: "Sexe"
+    gender: "Civilité"
     address: "Adresse"
     npa: "NPA"
     city: "Ville"
@@ -69,8 +69,8 @@ fr:
               accepted: "Veuillez accepter les conditions générales"
   user:
     genders:
-      male: "Homme"
-      female: "Femme"
+      male: "Mr"
+      female: "Mme"
   participants/login:
     genders:
       male: "Mr"
@@ -107,3 +107,10 @@ fr:
         one: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter un seul caractère)"
         other: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter %{count} caractères)"
       other_than: "Le champ « %{attribute} » doit être différent de %{count}"
+  activerecord:
+    errors:
+      models:
+        records/login:
+          attributes:
+            participants:
+              blank: "Ajouter au moins une entrée"

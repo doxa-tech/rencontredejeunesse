@@ -1,5 +1,12 @@
 <%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
 
+  <% if f.object.errors.any? %>
+  <div id="error">
+    <p>Le formulaire contient <%= pluralize(f.object.errors.count, "erreur") %>.</p>
+    <p><%= f.object.product.errors.full_messages_for(:participants).join(" / ") %></p>
+  </div>
+  <% end %>
+
   <!-- Event specific information -->
   <%= yield f %>
   <!-- -->
