@@ -17,7 +17,7 @@
 
     <header>
       <div>
-        <%= image_tag "connect/layout/logo.png", class: "logo" %>
+        <%= link_to (image_tag "connect/layout/logo.png", class: "logo"), connect_root_path %>
       </div>
       <div>
         <%= link_to signout_path, method: :delete do %>

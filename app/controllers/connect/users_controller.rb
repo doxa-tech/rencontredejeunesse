@@ -19,7 +19,7 @@ class Connect::UsersController < Connect::BaseController
 
   def user_params
     params.require(:user).permit(
-      :gender, :birthday, :firstname, :lastname, :email, :phone, :address,
+      :gender, :birthday, :firstname, :lastname, :phone, :address,
       :npa, :city, :country, :newsletter, :password, :password_confirmation, :current_password
     )
   end

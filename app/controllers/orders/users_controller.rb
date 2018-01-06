@@ -6,7 +6,7 @@ class Orders::UsersController < Orders::BaseController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params new_record: true)
 		if @user.save
       UserMailer.confirmation(@user).deliver_now
       sign_in @user
@@ -48,11 +48,13 @@ class Orders::UsersController < Orders::BaseController
     redirect_to controller: "orders/#{params[:product]}", action: "new" if signed_in?
   end
 
-  def user_params
-    params.require(:user).permit(
-      :gender, :birthday, :firstname, :lastname, :email, :phone, :address,
-      :npa, :city, :country, :newsletter, :password, :password_confirmation
-    )
+  def user_params(new_record: false)
+    attributes = [
+      :gender, :birthday, :firstname, :lastname, :phone, :address,
+      :npa, :city, :country, :newsletter
+    ]
+    attributes.push(:email, :password, :password_confirmation) if new_record
+    params.require(:user).permit(attributes)
   end
 
 end
