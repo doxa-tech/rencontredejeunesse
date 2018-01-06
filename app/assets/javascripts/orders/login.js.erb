@@ -1,0 +1,22 @@
+$(document).on("turbolinks:load", function() {
+
+  var ENTRY_PRICE = <%= Records::Login::ENTRY_PRICE %>;
+  var FEE = <%= Records::Login::FEE %>;
+
+  var $amount = $("#amount");
+  var $participants = $(".fields-for.participants");
+  var $add = $participants.find(".add-fields");
+
+  var price = parseInt($amount.text());
+
+  $participants.on("click", ".remove-fields", function() {
+    price -= ENTRY_PRICE;
+    $amount.html(price);
+  });
+
+  $add.click(function() {
+    price += ENTRY_PRICE;
+    $amount.html(price);
+  });
+
+});
