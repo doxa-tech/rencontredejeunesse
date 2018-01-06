@@ -45,7 +45,7 @@
           padding: 7px 5px;
           width: 100%;
         }
-        button, input[type="submit"] {
+        button, input[type="submit"], .button-link {
           $pink: #fc2161;
           border-radius: 2px;
           padding: 10px 17px;
@@ -56,6 +56,13 @@
           background-color: $pink;
           color: #fff;
           text-shadow: 0 1px 1px darken($pink, 20%);
+        }
+        .button-link {
+          display: block;
+        }
+        .error-message {
+          color: red;
+          font-size: .9em;
         }
       }
     }

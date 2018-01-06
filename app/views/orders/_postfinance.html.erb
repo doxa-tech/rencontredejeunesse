@@ -1,32 +1,39 @@
 <!-- Postfinance form -->
 
-<form method="post" action="<%= postfinance_url %>">
+<div class="standard-form-row">
+  <form method="post" action="<%= postfinance_url %>">
 
-  <input type="hidden" name="PSPID" value="<%= Order::PSPID %>">
+    <input type="hidden" name="PSPID" value="<%= Order::PSPID %>">
 
-  <input type="hidden" name="ORDERID" value="<%= @order.order_id %>">
+    <input type="hidden" name="ORDERID" value="<%= @order.order_id %>">
 
-  <input type="hidden" name="AMOUNT" value="<%= @order.amount %>">
+    <input type="hidden" name="AMOUNT" value="<%= @order.amount %>">
 
-  <input type="hidden" name="CURRENCY" value="CHF">
+    <input type="hidden" name="CURRENCY" value="CHF">
 
-  <input type="hidden" name="LANGUAGE" value="fr_FR">
+    <input type="hidden" name="LANGUAGE" value="fr_FR">
 
-  <input type="hidden" name="CN" value="<%= @order.user.full_name %>">
+    <input type="hidden" name="CN" value="<%= @order.user.full_name %>">
 
-  <input type="hidden" name="EMAIL" value="<%= @order.user.email %>">
+    <input type="hidden" name="EMAIL" value="<%= @order.user.email %>">
 
-  <input type="hidden" name="OWNERZIP" value="<%= @order.user.npa %>">
+    <input type="hidden" name="OWNERZIP" value="<%= @order.user.npa %>">
 
-  <input type="hidden" name="OWNERADDRESS" value="<%= @order.user.address %>">
+    <input type="hidden" name="OWNERADDRESS" value="<%= @order.user.address %>">
 
-  <input type="hidden" name="OWNERCTY" value="<%= @order.user.country_name %>">
+    <input type="hidden" name="OWNERCTY" value="<%= @order.user.country_name %>">
 
-  <input type="hidden" name="OWNERTOWN" value="<%= @order.user.city %>">
+    <input type="hidden" name="OWNERTOWN" value="<%= @order.user.city %>">
 
-  <input type="hidden" name="SHASIGN" value="<%= @order.shain %>">
+    <input type="hidden" name="SHASIGN" value="<%= @order.shain %>">
 
-  <%= image_tag "orders/pay-cards.png" %>
-  <input type="submit" value="Payer">
-
-</form>
+    <div class="row">
+      <span></span>
+      <p><%= image_tag "orders/pay-cards.png" %></p>
+    </div>
+    <div class="row">
+      <span></span>
+      <input type="submit" value="Payer">
+    </div>
+  </form>
+</div>

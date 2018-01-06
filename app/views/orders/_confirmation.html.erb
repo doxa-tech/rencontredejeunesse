@@ -1,32 +1,40 @@
 <h2>Récapitulatif</h2>
 <!-- User information -->
 
-<div class="user-information">
-  <table>
-    <tr>
-      <td><%= @order.user.lastname %></td>
-      <td><%= @order.user.firstname %></td>
-    </tr>
-    <tr>
-      <td><%= t("user.genders.#{@order.user.gender}") %></td>
-      <td><%= l @order.user.birthday %></td>
-    </tr>
-    <tr>
-      <td><%= @order.user.email %></td>
-      <td><%= @order.user.phone %></td>
-    </tr>
-    <tr>
-      <td><%= @order.user.address %></td>
-      <td><%= @order.user.npa %></td>
-    </tr>
-    <tr>
-      <td><%= @order.user.city %></td>
-      <td><%= @order.user.country_name %></td>
-    </tr>
-    <tr>
-      <td><%= link_to "Editer mon compte", orders_users_edit_path(id: @order.order_id) %></td>
-    </tr>
-  </table>
+<div class="user-information standard-form-row">
+  <div class="row">
+    <span></span>
+    <p><%= @order.user.lastname %> <%= @order.user.firstname %></p>
+  </div>
+  <div class="row">
+    <span></span>
+    <p><%= t("user.genders.#{@order.user.gender}") %></p>
+  </div>
+  <div class="row">
+    <span></span>
+    <p><%= l @order.user.birthday %></p>
+  </div>
+  <div class="row">
+    <span></span>
+    <p><%= @order.user.email %></p>
+  </div>
+  <div class="row">
+    <span></span>
+    <p><%= @order.user.phone %></p>
+  </div>
+  <div class="row">
+    <span></span>
+    <p><%= @order.user.address %> <%= @order.user.npa %></p>
+  </div>
+  <div class="row">
+    <span></span>
+    <p><%= @order.user.city %> <%= @order.user.country_name %></p>
+  </div>
+
+  <div class="row">
+    <span></span>
+    <p><%= link_to "Editer mon compte", orders_users_edit_path(id: @order.order_id), class: "button-link" %></p>
+  </div>
 </div>
 
 <%= yield %>

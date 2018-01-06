@@ -1,26 +1,61 @@
-<%= render layout: "orders/confirmation" do %>
+<% content_for :id, "orders-login-confirmation" %>
 
-  <!-- Product information -->
-  <div class="product-information">
-    <p><strong>Nombre d'entrées:</strong> <%= @order.product.entries %></p>
-    <ul>
+<div class="content-wrap">
+  <%= render layout: "orders/confirmation" do %>
+
+    <!-- Product information -->
+    <div class="product-information standard-form-row">
+      
+      <div class="row">
+        <p><strong>Nombre d'entrées:</strong></p>
+        <p><%= @order.product.entries %></p>
+      </div>
+
       <% @order.product.participants.each do |participant| %>
-        <li><%= t("participants/login.genders.#{participant.gender}") %> <%= participant.firstname %> <%= participant.lastname %> <%= participant.email %> <%= participant.age %></li>
+        <div class="row">
+          <span>Titre, nom, prénom</span>
+          <p>
+            <%= t("participants/login.genders.#{participant.gender}") %>
+            <%= participant.firstname %> <%= participant.lastname %>
+          </p>
+        </div>
+        <div class="row">
+          <p>Email</p>
+          <p><%= participant.email %></p>
+        </div>
+        <div class="row">
+          <p>Age</p>
+          <p><%= participant.age %></p>
+        </div>
       <% end %>
-    </ul>
 
 
-    <p><strong>Nom du groupe:</strong> <%= @order.product.group %></p>
+      <div class="row">
+        <p><strong>Nom du groupe:</strong></p>
+        <p><%= @order.product.group %></p>
+      </div>
 
-    <p class="edit"><%= link_to image_tag("icons/edit.png") + " Modifier la commande", { action: "edit" } %></p>
-  </div>
+      <div class="row">
+        <span></span>
+        <button class="edit"><%= link_to " Modifier la commande", { action: "edit" } %></button>
+      </div>
+    </div>
 
-  <div class="price">
-    <!-- Order information -->
-    <p>Frais d'inscription: <b><%= Records::Login::FEE %> CHF</b></p>
-    <p class="amount">Prix à payer: <b><%= @order.print_amount %> CHF</b></p>
-  </div>
+    <div class="price standard-form-row">
+      <!-- Order information -->
+      <div class="row">
+        <p>Frais d'inscription</p> 
+        <p><b><%= Records::Login::FEE %> CHF</b></p>
+      </div>
+      <div class="row">
+        <p class="amount">Prix à payer</p>
+        <p><b><%= @order.print_amount %> CHF</b></p>
+      </div>
+    </div>
 
-  <%= render "orders/postfinance" %>
+    <%= render "orders/postfinance" %>
 
-<% end %>
+  <% end %>
+</div>
+
+<%= render "layouts/headers/application" %>

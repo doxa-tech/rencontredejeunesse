@@ -1,9 +1,17 @@
-<%= form_for @user, url: orders_users_update_path(id: params[:id]) do |f| %>
+<% content_for :id, "orders-users-edit" %>
 
-  <%= render "error_messages", object: f.object %>
+<div class="content-wrap">
+  <%= form_for @user, url: orders_users_update_path(id: params[:id]) do |f| %>
 
-  <%= render "users/fields/information", f: f %>
+    <%= render "error_messages", object: f.object %>
 
-  <%= f.submit nil, class: "button" %>
+    <div class="standard-form-row">
+      <%= render "users/fields/information", f: f %>
 
-<% end %>
+      <div class="row">
+        <span></span>
+        <%= f.submit nil, class: "button" %>
+      </div>
+    </div>
+  <% end %>
+</div>
