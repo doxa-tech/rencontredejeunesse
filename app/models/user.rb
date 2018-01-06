@@ -20,11 +20,11 @@ class User < ApplicationRecord
 
   validates :firstname, presence: true, length: { maximum: 30 }
   validates :lastname, presence: true, length: { maximum: 30 }
-  validates :email, :format => { :with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
+  validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
   validates :gender, presence: true, inclusion: { in: genders.keys }
   validate :uniqueness_of_email
 
-  validates :phone, presence: true # TODO: validate format
+  validates :phone, format: { with: /\A\+\d{11}\z/ }
   validates :npa, numericality: { only_integer: true, greater_than: 0 }
   validates :city, presence: true, length: { maximum: 30 }
   validates :address, presence: true, length: { maximum: 50 }
