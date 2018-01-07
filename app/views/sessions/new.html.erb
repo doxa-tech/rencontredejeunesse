@@ -1,28 +1,37 @@
-<% content_for :id, "signin" %>
+<% content_for :id, "session-new" %>
 
-<div class="form">
+<div class="content-wrap">
 
-  <%= form_for :session, url: sessions_path do |f| %>
+  <h2>Se connecter</h2>
 
-    <div class="columns labels">
-      <div class="column">
-
-          <%= f.label :email %>
-          <%= f.label :password %>
-          <%= f.label :remember_me %>
-
-      </div>
-      <div class="column">
-
+  <div class="standard-form-row">
+    <%= form_for :session, url: sessions_path do |f| %>
+      <div class="row">
+        <%= f.label :email %>
         <%= f.text_field :email, placeholder: "Email" %>
-        <%= f.password_field :password, placeholder: "Mot de passe" %>
-        <%= f.check_box :remember_me %>
-
       </div>
+      <div class="row">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Mot de passe" %>
+      </div>
+      <div class="row">
+        <%= f.label :remember_me %>
+        <div><%= f.check_box :remember_me %></div>
+      </div>
+      <div class="row">
+        <span></span>
+        <%= f.button %>
+      </div>
+    <% end %>
+
+    <div class="row">
+      <span></span>
+      <p>
+        Pas encore inscrit ?
+        <%= link_to "S'inscrire", new_user_path %>
+      </p>
     </div>
-
-    <%= f.button %>
-
-  <% end %>
-
+  </div>
 </div>
+
+<%= render "layouts/headers/application" %>
