@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  layout 'mailer'
 
   def confirmation(user)
     @user = user
