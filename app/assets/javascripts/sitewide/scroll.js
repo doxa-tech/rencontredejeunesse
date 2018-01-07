@@ -18,4 +18,19 @@ $(document).on("turbolinks:load", function() {
     callback: hideHeader
   });
 
+  // Fixed burger menu
+  var $burgerMenu = $("#logo-burger").find("#header-btn");
+  var burgerVisible = false;
+  $(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if(!burgerVisible && scroll > 500) {
+      $burgerMenu.addClass("keep");
+      burgerVisible = true;
+    }
+    if(burgerVisible && scroll < 500) {
+      $burgerMenu.removeClass("keep");
+      burgerVisible = false;
+    }
+  });
+
 });
