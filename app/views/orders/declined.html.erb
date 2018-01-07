@@ -1,6 +1,12 @@
-<%= render layout: 'message' do %>
+<% content_for :id, "orders-declined" %>
 
-<h1>Erreur</h1>
-<p>Une erreur est survenue lors du paiement. Le paiement n'a pas été fait.</p>
+  <div class="content-wrap">
 
-<% end %>
+  <%= render layout: 'message' do %>
+
+  <h1>Erreur</h1>
+  <p>Une erreur est survenue lors du paiement. Le paiement n'a pas été fait.</p>
+
+  <% end %>
+
+</div>

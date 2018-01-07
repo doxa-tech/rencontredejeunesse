@@ -1,7 +1,13 @@
-<%= render layout: 'message' do %>
+<% content_for :id, "orders-uncertain" %>
 
-<h1>Ta commande a été validée</h1>
-<p>Nous avons reçu ta prélocation. Ton paiement est en attente de validation par PostFinance.</p>
-<p>Nous te contacterons dès réception du paiement.</p>
+  <div class="content-wrap">
 
-<% end %>
+  <%= render layout: 'message' do %>
+
+  <h1>Ta commande a été validée</h1>
+  <p>Nous avons reçu ta prélocation. Ton paiement est en attente de validation par PostFinance.</p>
+  <p>Nous te contacterons dès réception du paiement.</p>
+
+  <% end %>
+
+</div>

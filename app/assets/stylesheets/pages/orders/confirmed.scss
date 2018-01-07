@@ -1,0 +1,14 @@
+@import '../../components/variables';
+@import '../../components/logo-burger-color';
+@import '../../components/standard-form';
+
+@include logo-burger-color(#178daf, ".orders-confirmed");
+
+
+#container.orders-confirmed {
+  @include standard-form();
+  padding: $logo-burger-height 0 0 0;
+  
+  .content-wrap {
+  }
+}
