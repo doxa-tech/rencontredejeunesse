@@ -56,8 +56,16 @@
 </div>
 
 <div class="newsletter checkbox">
-  <div class="row">
-    <p>Je souhaite m'inscrire à la newsletter et recevoir des infos exclusives de la RJ</p>
-    <div><%= f.check_box :newsletter %></div>
+  <div class="row-wrap">
+    <div class="row tight">
+      <p>Recevoir la newsletter</p>  
+      <div>
+        <%= f.check_box :newsletter %>
+      </div>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p class="description">Cette option te permet de recevoir des infos exclusives de la RJ via sa newsletter</p>
+    </div>
   </div>
 </div>

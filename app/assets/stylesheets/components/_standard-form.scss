@@ -67,6 +67,16 @@
         &.tight {
           padding: 3px 0;
         }
+        .description {
+          font-size: .8em;
+        }
+        .country select {
+          width: 100%;
+        }
+      }
+
+      .row-wrap {
+        padding: 10px 0;
       }
     }
   }
