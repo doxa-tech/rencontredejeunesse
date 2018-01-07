@@ -1,5 +1,5 @@
 <div class="fields-for participants wrap standard-form-row">
-  <%= product_f.fields_for :participants do |f| %>
+  <%= product_f.fields_for :participants, (participants.build_from_user(current_user) unless participants.any?) do |f| %>
     <div class="participants-fields wrap">
 
       <div class="participants-wrap">
