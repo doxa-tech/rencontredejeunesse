@@ -37,6 +37,8 @@ gem 'country_select'
 # Common translations
 gem 'rails-i18n'
 
+gem 'database_cleaner'
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -45,7 +47,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'cucumber-rails', :require => false
-  gem 'database_cleaner'
   gem 'factory_bot_rails'
   gem 'capybara-webkit'
   gem 'email_spec'
