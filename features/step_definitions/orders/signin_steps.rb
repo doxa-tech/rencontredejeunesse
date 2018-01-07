@@ -1,5 +1,5 @@
 When("I sign in") do
-  within ".signin" do
+  within ".signin form" do
     fill_in "Email", with: "john@smith.com"
     fill_in "Mot de passe", with: "carottes"
     click_button "Se connecter"
