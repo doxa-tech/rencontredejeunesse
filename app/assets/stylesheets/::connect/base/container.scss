@@ -1,7 +1,27 @@
+#connect {
+  #flash {
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    font-family: "Helvetica", sans-serif;
+    text-transform: uppercase;
+  }
+
+  .link-button {
+    background-color: rgb(106, 157, 255);
+    padding: 7px 10px;
+    color: #fff;
+  }
+}
+
 #connect-container {
   max-width: 400px;
   margin: auto;
-  font-family: "Latina essential";
+  font-family: "Helvetica", sans-serif;
   font-weight: 100;
   color: #888;
+
+  p {
+    padding: 20px 0;
+  }
 }

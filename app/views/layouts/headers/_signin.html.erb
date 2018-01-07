@@ -1,5 +1,7 @@
-<% if signed_in? %>
-  <%= link_to current_user.full_name, connect_root_path %>
-<% else %>
-  <%= link_to "Se connecter", signin_path %>
-<% end %>
+<div class="signin">
+  <% if signed_in? %>
+    <%= link_to "#{current_user.full_name}", connect_root_path %>
+  <% else %>
+    <%= link_to "Se connecter", signin_path %>
+  <% end %>
+</div>
