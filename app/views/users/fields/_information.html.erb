@@ -26,14 +26,14 @@
   <div class="row">
     <div>
       <%= f.label :phone %>
-      <p>(+4177xxxxxxx)</p>
+      <p>(+417xxxxxxx)</p>
     </div>
     <%= f.text_field :phone, required: true, placeholder: true %>
   </div>
 
   <div class="row">
     <%= f.label :birthday %>
-    <div class="select"><%= f.date_select :birthday, :start_year=>1900, required: true %></div>
+    <div class="select"><%= f.date_select :birthday, start_year: 1920, end_year: 2006, required: true %></div>
   </div>
 
   <div class="row">
@@ -58,7 +58,7 @@
 <div class="newsletter checkbox">
   <div class="row-wrap">
     <div class="row tight">
-      <p>Recevoir la newsletter</p>  
+      <p>Recevoir la newsletter</p>
       <div>
         <%= f.check_box :newsletter %>
       </div>

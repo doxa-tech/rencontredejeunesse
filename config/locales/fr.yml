@@ -27,7 +27,7 @@ fr:
     city: "Ville"
     country: "Pays"
     birthday: "Date de naissance"
-    phone: "Téléphone"
+    phone: "Portable"
     group: "Groupe de jeunes ou église"
     password: "Mot de passe"
     password_confirmation: "Confirmation"
@@ -73,11 +73,11 @@ fr:
               blank: "Ajouter au moins une entrée"
   user:
     genders:
-      male: "Mr"
+      male: "M."
       female: "Mme"
   participants/login:
     genders:
-      male: "Mr"
+      male: "M."
       female: "Mme"
   errors:
     format: "%{message}"
@@ -101,6 +101,7 @@ fr:
       odd: "Le champ « %{attribute} » doit être impair"
       required: "Le champ « %{attribute} » doit exister"
       taken: "Le champ « %{attribute} » n'est pas disponible"
+      too_young: "Tu dois avoir min 13 ans pour pouvoir t'inscrire."
       too_long:
         one: "Le champ « %{attribute} » est trop long (pas plus d'un caractère)"
         other: "Le champ « %{attribute} » est trop long (pas plus de %{count} caractères)"
