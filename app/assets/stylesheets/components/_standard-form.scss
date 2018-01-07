@@ -25,6 +25,20 @@
       padding: 60px 0 30px 0;
     }
 
+    #error {
+      color: red;
+      font-weight: bold;
+      padding: 20px 0;
+
+      ul {
+        padding: 10px 0 0 0;
+
+        li {
+          list-style-type: circle;
+        }
+      }
+    }
+
     .standard-form-row {
         .row {
         display: flex;
@@ -79,5 +93,11 @@
         padding: 10px 0;
       }
     }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    flex-direction: column !important;
+    padding-left: $mobile-padding !important;
+    padding-right: $mobile-padding !important;
   }
 }
