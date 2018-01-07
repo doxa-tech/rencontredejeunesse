@@ -65,10 +65,10 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :rj, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
-      post :invoice, on: :member
-    end
+    # resources :rj, only: [:new, :create, :edit, :update] do
+    #   get :confirmation, on: :member
+    #   post :invoice, on: :member
+    # end
 
     resources :login, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member
