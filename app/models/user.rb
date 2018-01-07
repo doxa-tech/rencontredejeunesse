@@ -30,6 +30,7 @@ class User < ApplicationRecord
   validates :address, presence: true, length: { maximum: 50 }
   validates :country, presence: true
   validates :birthday, presence: true
+  validate :must_be_thirteen_years_old
 
   def completed_orders
     Order.where(user_id: self.id).where.not(status: nil)
@@ -80,6 +81,12 @@ class User < ApplicationRecord
 
   def create_verify_token
     self.verify_token = SecureRandom.urlsafe_base64
+  end
+
+  def must_be_thirteen_years_old
+    if (self.birthday.to_date + 13.years) > Date.today
+      self.errors.add(:birthday, :too_young)
+    end
   end
 
   def uniqueness_of_email
