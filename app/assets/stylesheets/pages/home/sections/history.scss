@@ -19,7 +19,7 @@
 
       div.wrapper {
         max-width: $main-width * 7/12;
-        flex: 1;
+        flex: 1 0 auto;
         padding: 0 $main-padding;
         margin-right: 8%; // heuristic
 
