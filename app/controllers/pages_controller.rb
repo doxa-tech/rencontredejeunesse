@@ -9,6 +9,9 @@ class PagesController < ApplicationController
   def vision
   end
 
+  def volunteer
+  end
+
   def contact
     @contact = Contact.new(contact_params)
     if @contact.valid?
