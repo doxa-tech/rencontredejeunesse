@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
 
   add_flash_types :success, :error
 
+  def protect_with_password
+    authenticate_or_request_with_http_basic('Tester') do |username, password|
+      username == 'dawn' && password == Rails.application.secrets.basic_pwd
+    end
+  end
+
 
   private
 

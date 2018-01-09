@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  before_action :protect_with_password, only: :volunteer
 
   def home
   end
