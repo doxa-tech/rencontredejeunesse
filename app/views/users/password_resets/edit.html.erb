@@ -1,0 +1,11 @@
+<%= form_for @user, url: users_password_reset_path(params[:id]) do |f| %>
+
+  <%= render 'error_messages', object: f.object %>
+
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+  <%= f.submit "Mettre à jour" %>
+
+<% end %>

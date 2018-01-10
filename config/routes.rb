@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   namespace :users do
 
     resources :verification, only: [:new, :edit]
+    resources :password_resets, only: [:new, :create, :edit, :update]
 
   end
 

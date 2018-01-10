@@ -25,8 +25,13 @@ When("I click the link {string}") do |link|
 end
 
 When("I miscomplete the form") do
-  find("form").find("button[type=submit]").click
+  find("form").find("input[type=submit]").click
 end
+
+When("I wait {int} hours") do |int|
+  travel int.hours
+end
+
 
 Then("I should see a flash with {string}") do |message|
 	expect(find '#flash').to have_content(message)

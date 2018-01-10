@@ -32,6 +32,9 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validate :must_be_thirteen_years_old
 
+  # password reset
+  validates :password, presence: true, on: :reset
+
   def completed_orders
     Order.where(user_id: self.id).where.not(status: nil)
   end
