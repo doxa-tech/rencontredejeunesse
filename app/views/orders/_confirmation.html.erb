@@ -12,7 +12,7 @@
   </div>
   <div class="row tight">
     <span></span>
-    <p><%= l @order.user.birthday %></p>
+    <p><%= l @order.user.birthday if @order.user.birthday %></p>
   </div>
   <div class="row tight">
     <span></span>
