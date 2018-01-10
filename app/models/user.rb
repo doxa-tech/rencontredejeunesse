@@ -47,10 +47,12 @@ class User < ApplicationRecord
   alias name full_name
 
   def age
-    now = Date.today
-    age = now.year - birthday.year
-    age -= 1 if now.month < birthday.month || (now.month == birthday.month && now.day < birthday.day)
-    return age
+    unless birthday.nil?
+      now = Date.today
+      age = now.year - birthday.year
+      age -= 1 if now.month < birthday.month || (now.month == birthday.month && now.day < birthday.day)
+      return age
+    end
   end
 
   def update_with_password(params)
