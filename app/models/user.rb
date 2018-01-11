@@ -40,10 +40,8 @@ class User < ApplicationRecord
   end
 
   def country_name
-    unless country.nil?
-      country = ISO3166::Country[self.country]
-      country.translations[I18n.locale.to_s] || country.name
-    end
+    country = ISO3166::Country[self.country]
+    country.translations[I18n.locale.to_s] || country.name
   end
 
   def full_name
@@ -91,8 +89,8 @@ class User < ApplicationRecord
   end
 
   def must_be_thirteen_years_old
-    if birthday && (birthday.to_date + 13.years) > Date.today
-      errors.add(:birthday, :too_young)
+    if (self.birthday.to_date + 13.years) > Date.today
+      self.errors.add(:birthday, :too_young)
     end
   end
 
