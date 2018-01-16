@@ -13,6 +13,7 @@ FactoryBot.define do
     gender "male"
     password "carottes"
     password_confirmation "carottes"
+    confirmed true
   end
 
   factory :rj, class: Records::Rj do

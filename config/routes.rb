@@ -37,7 +37,9 @@ Rails.application.routes.draw do
     get "edit", to: "users#edit"
     patch "update", to: "users#update"
 
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show] do
+      get "pending", on: :collection
+    end
 
   end
 
