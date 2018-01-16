@@ -1,74 +1,32 @@
-<%= render layout: "orders/form" do |f| %>
+<div class="content-wrap">
 
-  <%= f.fields_for :product do |product_f| %>
+  <h2>Inscription à la RJ</h2>
 
-    <%= product_f.text_field :group, placeholder: true, class: "group-name" %>
+  <%= render layout: "orders/form" do |f| %>
 
-    <!-- Invoice -->
+    <%= f.fields_for :product do |product_f| %>
+      <div class="standard-form-row">
+        <div class="row">
+          <%= product_f.label :group %>
+          <%= product_f.field_with_errors :text, :group %>
+        </div>
+        <!-- Participants -->
 
-    <div class="invoice">
-      <div class="checkbox">
-        <%= f.check_box :payment_method, { checked: @order.invoice?, id: "payment-method" }, :invoice, :postfinance %>
-        <%= f.label :payment_method, "Inscrire un groupe de plus de 15 personnes ?" %>
+        <div class="row">
+          <span></span>
+          <div>
+            <h3>Entrée</h3>
+            <p>Commande ci-dessous 1 ou plusieurs entrées pour l'événements. Remplis pour chaque entrée les informations requises.</p>
+            <p>Il est possible de dormir sur place. Le prix est de 30.- pour les 2 nuits (taxe de séjour incluse).</p>
+          </div>
+        </div>
       </div>
-      <div class="invoice-info">Si tu as un groupe de 15 personnes ou plus, remplis <a href="/inscription_rj_2017.xls">ce document</a>, coche l'option puis passe directement à l'étape suivante.</div>
-    </div>
+      <%= render "participants", product_f: product_f, participants: @order.product.participants %>
 
-    <!-- -->
+      <!-- -->
 
-    <!-- Participants -->
-
-    <h2>Ajouter des forfaits</h2>
-    <div class="participants-infos">
-      Tu as la possibilité de commander plusieurs forfaits en ajoutant des personnes ci-dessous.
-    </div>
-
-    <%= render "participants", product_f: product_f, participants: @order.product.participants %>
-
-    <!-- -->
-
-    <!-- Beds -->
-
-    <h2>Dormir sur place</h2>
-    <p>Possibilité de dormir sur place. Le prix est de 30.- pour les 2 nuits (taxe de séjour incluse).</p>
-    <%= product_f.number_field :boy_beds, class: "amount-boybeds", placeholder: true  %>
-
-    <%= product_f.number_field :girl_beds, class: "amount-girlbeds", placeholder: true  %>
-
-    <!-- -->
+    <% end %>
 
   <% end %>
 
-  <!-- Voluntering -->
-
-  <div class="be-volunteer">
-    <h2>S'engager comme bénévole</h2>
-    <p>Tu peux cocher ci-dessous les secteurs dans lesquelles tu voudrais servir comme bénévole durant le weekend de la RJ.</p>
-  </div>
-
-  <div class="volunteer">
-  <%= fields_for @volunteer do |volunteer_f| %>
-
-    <div class="sectors">
-      <table>
-      <% VolunteerForm.sectors.each do |sector| %>
-
-        <tr>
-          <td><%= volunteer_f.check_box sector %></td>
-          <td><%= volunteer_f.label sector %></td>
-        </tr>
-
-      <% end %>
-      </table>
-    </div>
-    <%= volunteer_f.text_field :other, class: 'other', placeholder: true %>
-
-    <%= volunteer_f.text_area :comment, placeholder: true %>
-
-  <% end %>
-
-  <!-- -->
-
-  </div>
-
-<% end %>
+</div>

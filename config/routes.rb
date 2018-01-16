@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   post "contact", to: "pages#contact"
 
   #
-  # USERS
+  # Users
   #
 
   resources :users, only: [:new, :create], path: "signup"
@@ -49,25 +49,32 @@ Rails.application.routes.draw do
     get "orders/#{status}", to: "orders##{status}"
   end
 
+  # invoice
+  patch "orders/:id/complete", to: "orders#complete", as: :orders_complete 
+
+  # postfinance
   post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }
+
+
 
   namespace :orders do
 
+    # user update from order
     scope ":id/users", constraints: { id: /\d*/ } do
       get "edit", to: "users#edit", as: "users_edit"
       patch "update", to: "users#update", as: "users_update"
     end
 
+    # sign in/up before order
     scope ":product", constraints: { product: /login|rj/ } do
       resources :users, only: [:new, :create] do
         post "signin", on: :collection
       end
     end
 
-    # resources :rj, only: [:new, :create, :edit, :update] do
-    #   get :confirmation, on: :member
-    #   post :invoice, on: :member
-    # end
+    resources :rj, only: [:new, :create, :edit, :update] do
+      get :confirmation, on: :member
+    end
 
     resources :login, only: [:new, :create, :edit, :update] do
       get :confirmation, on: :member

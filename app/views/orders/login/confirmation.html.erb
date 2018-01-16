@@ -45,21 +45,6 @@
         <button class="edit"><%= link_to " Modifier la commande", { action: "edit" } %></button>
       </div>
     </div>
-
-    <div class="price standard-form-row">
-      <!-- Order information -->
-      <div class="row">
-        <p>Frais d'inscription</p>
-        <p><b><%= Records::Login::FEE %> CHF</b></p>
-      </div>
-      <div class="row">
-        <p class="amount">Prix à payer</p>
-        <p><b><%= @order.print_amount %> CHF</b></p>
-      </div>
-    </div>
-
-    <%= render "orders/postfinance" %>
-
   <% end %>
 </div>
 

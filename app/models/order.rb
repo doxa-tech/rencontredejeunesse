@@ -16,7 +16,7 @@ class Order < ApplicationRecord
   validates :human_id, uniqueness: true
 
   after_create :generate_id
-  before_save :assign_amount
+  before_save :assign_amount_and_payment_method
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
@@ -54,8 +54,13 @@ class Order < ApplicationRecord
 
   private
 
-  def assign_amount
+  def assign_amount_and_payment_method
     self.amount = product.calculate_amount
+    self.payment_method = "invoice" if self.amount > 800
+  end
+
+  def assign_payment_method
+
   end
 
   def generate_id

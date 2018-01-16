@@ -42,3 +42,21 @@
 </div>
 
 <%= yield %>
+
+<div class="price standard-form-row">
+  <!-- Order information -->
+  <div class="row">
+    <p>Frais d'inscription</p>
+    <p><b><%= @order.fee %> CHF</b></p>
+  </div>
+  <div class="row">
+    <p class="amount">Prix à payer</p>
+    <p><b><%= @order.print_amount %> CHF</b></p>
+  </div>
+</div>
+
+<% if @order.payment_method == "invoice" %>
+  <%= render "orders/payments/invoice" %>
+<% else %>
+  <%= render "orders/payments/postfinance" %>
+<% end %>

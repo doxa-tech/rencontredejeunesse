@@ -1,7 +1,7 @@
 class Orders::BaseController < ApplicationController
   include OrdersHelper
 
-  before_action :closed, only: [:edit, :update, :confirmation, :invoice]
+  before_action :closed, only: [:edit, :update, :confirmation, :complete]
   #before_action :end_from_order
 
   def check_if_not_signed_in

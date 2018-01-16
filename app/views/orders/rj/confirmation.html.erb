@@ -1,24 +1,50 @@
-<% content_for :id, "order-rj" %>
 
-<div class="row first confirmation">
-  <div>
-    <h2 class="font-light">Confirmation</h2>
-  </div>
+<div class="content-wrap">
+  <%= render layout: "orders/confirmation" do %>
 
-  <div>
-    <div class="form-wrap">
-      <div class="review">
-        <%= render layout: "orders/confirmation" do %>
-
-          <% if @order.payment_method == "postfinance" %>
-            <%= render "orders/rj/confirmation/postfinance" %>
-          <% elsif @order.payment_method == "invoice" %>
-            <%= render "orders/rj/confirmation/invoice" %>
-          <% end %>
-
-        <% end %>
+    <!-- Product information -->
+    <div class="product-information standard-form-row">
+      <div class="row">
+        <span></span>
+        <h3>Mes entrées</h3>
       </div>
 
+      <div class="row">
+        <p><strong>Nombre d'entrées:</strong></p>
+        <p><%= @order.product.entries %></p>
+      </div>
+      <% @order.product.participants.each do |participant| %>
+        <div class="participant">
+          <div class="row tight">
+            <span>Titre, nom, prénom</span>
+            <p>
+              <%= t("participants/rj.genders.#{participant.gender}") %>
+              <%= participant.firstname %> <%= participant.lastname %>
+            </p>
+          </div>
+          <div class="row tight">
+            <p>Email</p>
+            <p><%= participant.email %></p>
+          </div>
+          <div class="row tight">
+            <p>Age</p>
+            <p><%= participant.age %></p>
+          </div>
+        </div>
+      <% end %>
+
+
+      <div class="row">
+        <p><strong>Nom du groupe:</strong></p>
+        <p><%= @order.product.group %></p>
+      </div>
+
+      <div class="row">
+        <span></span>
+        <button class="edit"><%= link_to " Modifier la commande", { action: "edit" } %></button>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
+
+<%= render "layouts/headers/application" %>

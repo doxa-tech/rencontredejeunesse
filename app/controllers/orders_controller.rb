@@ -1,7 +1,8 @@
 require_relative "./orders/callbacks.rb"
 
-class OrdersController < ApplicationController
+class OrdersController < Orders::BaseController
   skip_before_action :verify_authenticity_token, only: :update
+  skip_before_action :closed, only: :update
 
   def confirmed
   end
@@ -29,6 +30,18 @@ class OrdersController < ApplicationController
       head :ok
     else
       head :unprocessable_entity
+    end
+  end
+
+  def complete
+    if @order.payment_method == "invoice"
+      OrderMailer.confirmation(@order).deliver_now
+      Orders::Callbacks::Confirmation.send(@order.product_name, @order)
+      Admin::OrderMailer.invoice_registration(@order).deliver_now
+      @order.update_attribute(:status, 41)
+      redirect_to orders_confirmed_path
+    else
+      redirect_to controller: "orders/#{@order.product_name}", action: "confirmation", id: @order.order_id, error: "Une erreur s'est produite"
     end
   end
 
