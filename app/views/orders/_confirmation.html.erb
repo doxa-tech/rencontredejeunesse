@@ -6,6 +6,12 @@
     <span></span>
     <h3>Mes informations</h3>
   </div>
+  <% unless @order.user.valid? %>
+  <div class="row">
+    <span></span>
+    <p><b style="color: red;">Attention, mets à jour ton compte avec une adresse postale sinon le paiement risque d'être refusé !</b></p>
+  </div>
+  <% end %>
   <div class="row tight">
     <span></span>
     <p><%= t("user.genders.#{@order.user.gender}") %> <%= @order.user.lastname %> <%= @order.user.firstname %></p>
