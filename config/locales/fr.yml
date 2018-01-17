@@ -41,9 +41,7 @@ fr:
       records/login:
         entries: "Nombre d'entrées"
       records/rj:
-        entries: "Nombre de forfaits"
-        boy_beds: "Places pour gars"
-        girl_beds: "Places pour filles"
+        entries: "Nombre d'entrées"
       order:
         conditions: "J'ai lu les conditions générales et les accepte."
         print_amount: "Montant"

@@ -9,12 +9,12 @@
         </div>
         <div class="row">
           <%= f.label :firstname %>
-          <%= f.text_field :firstname, autocomplete: "off", required: true %>
+          <%= f.field_with_errors :text, :firstname, autocomplete: "off", required: true %>
         </div>
 
         <div class="row">
           <%= f.label :lastname %>
-          <%= f.text_field :lastname, autocomplete: "off", required: true %>
+          <%= f.field_with_errors :text, :lastname, autocomplete: "off", required: true %>
         </div>
 
         <div class="row">

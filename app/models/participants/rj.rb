@@ -18,6 +18,15 @@ module Participants
       relation.build(user.as_json(only: [:gender, :firstname, :lastname, :birthday]))
     end
 
+    def age
+      unless birthday.nil?
+        now = Date.today
+        age = now.year - birthday.year
+        age -= 1 if now.month < birthday.month || (now.month == birthday.month && now.day < birthday.day)
+        return age
+      end
+    end
+
     private
 
     def must_be_six_years_old

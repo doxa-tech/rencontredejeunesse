@@ -14,10 +14,12 @@ module Records
     validates :participants, presence: true
     validates :group, length: { maximum: 70 }
 
-    before_save :calculate_entries
+    after_initialize :defaults
+    before_validation :calculate_entries, :calculate_lodging
 
+    # TODO: beds
     def calculate_amount
-      return ((entries * Rj.ENTRY_PRICE) + (boy_beds + girl_beds) * BED_PRICE + FEE) * 100
+      return ((entries * Rj.ENTRY_PRICE) + (man_lodging + woman_lodging) * BED_PRICE + FEE) * 100
     end
 
     def self.ENTRY_PRICE(date = Time.now)
@@ -32,8 +34,19 @@ module Records
 
     private
 
+    def defaults
+      self.entries ||= 0
+      self.man_lodging ||= 0
+      self.woman_lodging ||= 0
+    end
+
     def calculate_entries
       self.entries = participants.size
+    end
+
+    def calculate_lodging
+      self.man_lodging = participants.count { |p| p.gender == "male" && p.lodging }
+      self.woman_lodging = participants.count { |p| p.gender == "female" && p.lodging }
     end
   end
 

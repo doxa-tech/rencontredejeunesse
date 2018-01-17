@@ -14,13 +14,18 @@ module Records
     validates :participants, presence: true
     validates :group, length: { maximum: 70 }
 
-    before_save :calculate_entries
+    after_initialize :defaults
+    before_validation :calculate_entries
 
     def calculate_amount
       return (entries * ENTRY_PRICE + FEE) * 100
     end
 
     private
+
+    def defaults
+      self.entries ||= 0
+    end
 
     def calculate_entries
       self.entries = participants.size

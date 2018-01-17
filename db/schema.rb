@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180117185039) do
+ActiveRecord::Schema.define(version: 20180117193757) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -136,8 +136,8 @@ ActiveRecord::Schema.define(version: 20180117185039) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "gender"
-    t.datetime "birthday"
-    t.boolean "accommodation"
+    t.date "birthday"
+    t.boolean "lodging", default: false
     t.index ["records_rj_id"], name: "index_participants_rj_on_records_rj_id"
   end
 
@@ -163,6 +163,8 @@ ActiveRecord::Schema.define(version: 20180117185039) do
     t.string "group"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "man_lodging"
+    t.integer "woman_lodging"
   end
 
   create_table "testimonies", id: :serial, force: :cascade do |t|

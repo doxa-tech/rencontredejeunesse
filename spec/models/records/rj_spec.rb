@@ -4,10 +4,24 @@ module Records
   RSpec.describe "Rj", :type => :model do
 
     it "calculates the right amount" do
-      # TODO: use participants instead of entries
-      @product = create(:rj, entries: 1, boy_beds: 1, girl_beds: 2)
+      participants = [
+        Participants::Rj.create(lodging: true, gender: "male", firstname: "Alfred", lastname: "Dupont", birthday: Date.new(2001, 01, 13)),
+        Participants::Rj.create(lodging: false, gender: "male", firstname: "John", lastname: "Smith", birthday: Date.new(1999, 06, 23))
+      ]
+      @product = create(:rj, participants: participants)
       @order = create(:order, product: @product)
-      expect(@order.amount).to be(((1 * Rj.ENTRY_PRICE) + (1 + 2) * Rj::BED_PRICE + Rj::FEE) * 100)
+      expect(@order.amount).to be(((2 * Rj.ENTRY_PRICE) + 1 * Rj::BED_PRICE + Rj::FEE) * 100)
+    end
+
+    it "calculates the right lodging" do
+      participants = [
+        Participants::Rj.create(lodging: true, gender: "male", firstname: "Alfred", lastname: "Dupont", birthday: Date.new(2001, 01, 13)),
+        Participants::Rj.create(lodging: true, gender: "female", firstname: "Angel", lastname: "Smith", birthday: Date.new(1999, 06, 23))
+      ]
+      @product = create(:rj, participants: participants)
+      @order = create(:order, product: @product)
+      expect(@order.product.man_lodging).to be(1)
+      expect(@order.product.woman_lodging).to be(1)
     end
 
   end

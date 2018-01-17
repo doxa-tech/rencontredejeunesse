@@ -16,10 +16,18 @@ FactoryBot.define do
   end
 
   factory :rj, class: Records::Rj do
+    participants {[ build(:rj_participant) ]}
   end
 
   factory :login, class: Records::Login do
     participants {[ build(:login_participant) ]}
+  end
+
+  factory :rj_participant, class: Participants::Rj do
+    gender "male"
+    firstname "Patrick"
+    lastname "Johnson"
+    birthday Date.new(1996, 02, 15)
   end
 
   factory :login_participant, class: Participants::Login do

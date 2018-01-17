@@ -33,10 +33,8 @@ class Order < ApplicationRecord
   def print_amount
     if amount.present?
       amount / 100
-    elsif product.entries.present?
-      product.calculate_amount / 100
     else
-      0
+      product.calculate_amount / 100
     end
   end
 
@@ -56,7 +54,7 @@ class Order < ApplicationRecord
 
   def assign_amount_and_payment_method
     self.amount = product.calculate_amount
-    self.payment_method = "invoice" if self.amount > 800
+    self.payment_method = "invoice" if (self.amount / 100) > 800
   end
 
   def assign_payment_method
