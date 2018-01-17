@@ -1,7 +1,9 @@
 class Orders::RjController < Orders::BaseController
+  before_action :check_if_not_signed_in
 
   def new
     @order = order
+    @order.product.entries = 1
   end
 
   def create
@@ -31,10 +33,9 @@ class Orders::RjController < Orders::BaseController
   private
 
   def order_params
-    params.require(:order).permit(:conditions, :payment_method, user_attributes: [
-      :id, :firstname, :lastname, :email, :phone, :address, :npa, :city, :country, :newsletter, :birthday, :gender],
-      product_attributes: [:id, :group, :girl_beds, :boy_beds,
-      participants_attributes: [:id, :firstname, :lastname, :age, :_destroy]
+    params.require(:order).permit(:conditions,
+      product_attributes: [:id, :group,
+      participants_attributes: [:id, :gender, :firstname, :lastname, :birthday, :_destroy]
     ])
   end
 

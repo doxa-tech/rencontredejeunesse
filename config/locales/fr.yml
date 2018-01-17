@@ -36,17 +36,6 @@ fr:
     created_at: "Créé le"
   activemodel:
     attributes:
-      volunteer_form:
-        install: "Installation"
-        uninstall: "Rangement"
-        door: "Contrôle aux portes"
-        welcome: "Accueil"
-        park: "Fun Park"
-        accommodation: "Hébérgement"
-        install_technique: "Installation technique"
-        uninstall_technique: "Rangement technique"
-        other: "Autre secteur (préciser)"
-        comment: "Commentaire concernant le bénévolat à la RJ"
   activerecord:
     attributes:
       records/login:
@@ -79,6 +68,10 @@ fr:
     genders:
       male: "M."
       female: "Mme"
+  participants/rj:
+    genders:
+      male: "M."
+      female: "Mme"
   errors:
     format: "%{message}"
     messages:
@@ -101,7 +94,7 @@ fr:
       odd: "Le champ « %{attribute} » doit être impair"
       required: "Le champ « %{attribute} » doit exister"
       taken: "Le champ « %{attribute} » n'est pas disponible"
-      too_young: "Tu dois avoir min 13 ans pour pouvoir t'inscrire."
+      too_young: "Tu dois avoir min %{age} ans pour pouvoir t'inscrire."
       too_long:
         one: "Le champ « %{attribute} » est trop long (pas plus d'un caractère)"
         other: "Le champ « %{attribute} » est trop long (pas plus de %{count} caractères)"

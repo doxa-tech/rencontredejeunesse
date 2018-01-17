@@ -34,7 +34,7 @@ class Orders::LoginController < Orders::BaseController
 
   def order_params
     params.require(:order).permit(:conditions,
-      product_attributes: [:id, :entries, :group,
+      product_attributes: [:id, :group,
       participants_attributes: [:id, :gender, :firstname, :lastname, :email, :age, :_destroy],
     ])
   end

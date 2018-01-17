@@ -89,7 +89,7 @@ class User < ApplicationRecord
 
   def must_be_thirteen_years_old
     if birthday && (birthday.to_date + 13.years) > Date.today
-      errors.add(:birthday, :too_young)
+      errors.add(:birthday, :too_young, age: "13")
     end
   end
 

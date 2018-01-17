@@ -1,21 +1,25 @@
 <div class="fields-for wrap">
-  <%= product_f.fields_for :participants, (participants.build unless participants.any?) do |f| %>
+  <%= product_f.fields_for :participants, (participants.build_from_user(current_user) unless participants.any?) do |f| %>
     <div class="participants-fields wrap">
 
       <div class="participants-wrap">
-        <div>
+        <div class="row">
+          <%= f.label :gender %>
+          <div class="select"><%= f.select :gender, options_for_enum(f.object, :gender) %></div>
+        </div>
+        <div class="row">
           <%= f.label :firstname %>
-          <%= f.text_field :firstname, autocomplete: "off" %>
+          <%= f.text_field :firstname, autocomplete: "off", required: true %>
         </div>
 
-        <div>
+        <div class="row">
           <%= f.label :lastname %>
-          <%= f.text_field :lastname, autocomplete: "off" %>
+          <%= f.text_field :lastname, autocomplete: "off", required: true %>
         </div>
 
-        <div class="age number-wo-arrows">
-          <%= f.label :age %>
-          <%= f.number_field :age, autocomplete: "off" %>
+        <div class="row">
+          <%= f.label :birthday %>
+          <div class="select"><%= f.date_select :birthday, start_year: 1920, end_year: 2006, required: true %></div>
         </div>
       </div>
 
@@ -25,7 +29,7 @@
     </div>
 
     <button type="button" class="add-fields" data-type="participants" data-count="<%= participants.size %>">
-      Ajouter un forfait
+      Ajouter une entrée
     </button>
 
   <% end %>

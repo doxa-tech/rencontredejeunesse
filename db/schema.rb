@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102111740) do
+ActiveRecord::Schema.define(version: 20180117185039) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -132,10 +132,12 @@ ActiveRecord::Schema.define(version: 20180102111740) do
   create_table "participants_rj", id: :serial, force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
-    t.integer "age"
     t.integer "records_rj_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "gender"
+    t.datetime "birthday"
+    t.boolean "accommodation"
     t.index ["records_rj_id"], name: "index_participants_rj_on_records_rj_id"
   end
 
@@ -159,8 +161,6 @@ ActiveRecord::Schema.define(version: 20180102111740) do
   create_table "records_rj", id: :serial, force: :cascade do |t|
     t.integer "entries"
     t.string "group"
-    t.integer "girl_beds"
-    t.integer "boy_beds"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -192,18 +192,10 @@ ActiveRecord::Schema.define(version: 20180102111740) do
     t.integer "image_id"
     t.boolean "confirmed", default: false
     t.string "verify_token"
+    t.string "reset_token"
+    t.datetime "reset_sent_at"
     t.index ["image_id"], name: "index_users_on_image_id"
     t.index ["remember_token"], name: "index_users_on_remember_token"
-  end
-
-  create_table "volunteers", id: :serial, force: :cascade do |t|
-    t.integer "sector"
-    t.integer "user_id"
-    t.string "comment"
-    t.string "other"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_volunteers_on_user_id"
   end
 
   add_foreign_key "adeia_action_permissions", "adeia_actions"
@@ -221,5 +213,4 @@ ActiveRecord::Schema.define(version: 20180102111740) do
   add_foreign_key "posts", "users"
   add_foreign_key "testimonies", "users"
   add_foreign_key "users", "images"
-  add_foreign_key "volunteers", "users"
 end
