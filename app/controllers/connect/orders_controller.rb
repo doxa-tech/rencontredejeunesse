@@ -4,6 +4,9 @@ class Connect::OrdersController < Connect::BaseController
     @orders = current_user.completed_orders
   end
 
+  def pending
+  end
+
   def show
     @order = Order.find(params[:id])
   end
