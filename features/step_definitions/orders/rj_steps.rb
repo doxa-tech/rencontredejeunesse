@@ -17,3 +17,7 @@ Then(/^I should see errors for the RJ form$/) do
   expect(page).to have_css(".error-message", text: "Prénom")
   step "I should see errors for the order form"
 end
+
+Then("I should see the right amount for the RJ order") do
+  expect(page).to have_content "95 CHF"
+end

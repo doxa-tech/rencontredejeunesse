@@ -15,7 +15,7 @@ module Records
     validates :group, length: { maximum: 70 }
 
     after_initialize :defaults
-    before_validation :calculate_entries, :calculate_lodging
+    before_save :calculate_entries, :calculate_lodging
 
     # TODO: beds
     def calculate_amount
@@ -23,19 +23,19 @@ module Records
     end
 
     def self.ENTRY_PRICE(date = Time.now)
-      if date < Time.new(2017, 3, 27)
-        50
-      elsif date < Time.new(2017, 4, 24)
-        65
+      if date < Time.new(2018, 2, 25)
+        60
+      elsif date < Time.new(2018, 4, 22)
+        75
       else
-        80
+        90
       end
     end
 
     private
 
     def defaults
-      self.entries ||= 0
+      self.entries ||= 1
       self.man_lodging ||= 0
       self.woman_lodging ||= 0
     end

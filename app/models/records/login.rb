@@ -15,7 +15,7 @@ module Records
     validates :group, length: { maximum: 70 }
 
     after_initialize :defaults
-    before_validation :calculate_entries
+    before_save :calculate_entries
 
     def calculate_amount
       return (entries * ENTRY_PRICE + FEE) * 100
@@ -24,7 +24,7 @@ module Records
     private
 
     def defaults
-      self.entries ||= 0
+      self.entries ||= 1
     end
 
     def calculate_entries

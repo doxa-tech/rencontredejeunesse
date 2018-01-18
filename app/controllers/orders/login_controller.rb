@@ -3,7 +3,6 @@ class Orders::LoginController < Orders::BaseController
 
   def new
     @order = order
-    @order.product.entries = 1
   end
 
   def create
