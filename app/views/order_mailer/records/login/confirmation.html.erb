@@ -1,8 +1,16 @@
 <h1>Confirmation d'inscription</h1>
-<p>Merci pour votre commande.</p>
+<p>Merci pour ta commande.</p>
+
+<% if @order.payment_method == "postfinance" %>
 <p>
   Votre paiement a bien été reçu et votre inscription à la RJ Login est validée.
 </p>
+<% else %>
+<p>
+  Votre inscription pour la RJ Login a été reçue. Une facture vous parviendra dans les prochains jours. Une fois payée, votre inscription sera validée.
+</p>
+<% end %>
+
 <p>
   <li><%= @order.user.full_name %></li>
 

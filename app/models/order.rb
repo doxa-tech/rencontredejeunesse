@@ -1,6 +1,7 @@
 class Order < ApplicationRecord
   KEY = Rails.application.secrets.postfinance_key
   PSPID = Rails.application.secrets.postfinance_pspid
+  INVOICE_LIMIT = 800
 
   attr_accessor :conditions
 
@@ -54,7 +55,7 @@ class Order < ApplicationRecord
 
   def assign_amount_and_payment_method
     self.amount = product.calculate_amount
-    self.payment_method = "invoice" if (self.amount / 100) > 800
+    self.payment_method = "invoice" if (self.amount / 100) > INVOICE_LIMIT
   end
 
   def assign_payment_method

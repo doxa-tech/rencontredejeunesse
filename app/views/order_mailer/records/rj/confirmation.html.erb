@@ -1,9 +1,17 @@
 <!-- TODO -->
 <h1>Confirmation d'inscription</h1>
-<h5>Merci pour ta commande.</h5>
+<p>Merci pour ta commande.</p>
+
+<% if @order.payment_method == "postfinance" %>
 <p>
-  Ton paiement a bien été reçu et ton inscription à la Rencontre de Jeunesse est validée.
+  Votre paiement a bien été reçu et votre inscription à la RJ est validée.
 </p>
+<% else %>
+<p>
+  Votre inscription pour la RJ a été reçue. Une facture vous parviendra dans les prochains jours. Une fois payée, votre inscription sera validée.
+</p>
+<% end %>
+
 <h5>Résumé de la commande</h5>
 <style>
   table.order td, table.order th {
