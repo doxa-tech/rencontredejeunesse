@@ -1,3 +1,4 @@
+<!-- TODO -->
 <h1>Confirmation d'inscription</h1>
 <h5>Merci pour ta commande.</h5>
 <p>
@@ -17,7 +18,7 @@
     <td>Forfaits RJ</td><td><%= @order.product.entries %></td><td><%= Records::Rj.ENTRY_PRICE(@order.created_at) %>.-</td><td><%= entries_price(@order.product) %>.-</td>
   </tr>
   <tr>
-    <td>Places pour dormir</td><td><%= @order.product.boy_beds %>x GARS / <%= @order.product.girl_beds %>x FILLES</td><td><%= Records::Rj::BED_PRICE %>.-</td><td><%= beds_price(@order.product) %>.-</td>
+    <td>Places pour dormir</td><td><%= @order.product.man_lodging %>x GARS / <%= @order.product.woman_lodging %>x FILLES</td><td><%= Records::Rj::LODGING_PRICE %>.-</td><td><%= lodging_price(@order.product) %>.-</td>
   </tr>
   <tr>
     <td>Frais d'inscription</td><td></td><td></td><td><%= Records::Rj::FEE %>.-</td>
@@ -32,4 +33,4 @@
   Pour tout complément d'information ou problème, tu peux envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch</p>
 </p>
 
-<p>Nous nous réjouissons de te voir le 5 mai 2017 ! </p>
+<p>Nous nous réjouissons de te voir le 4 mai 2018 ! </p>

@@ -10,7 +10,7 @@ module Records
       ]
       @product = create(:rj, participants: participants)
       @order = create(:order, product: @product)
-      expect(@order.amount).to be(((2 * Rj.ENTRY_PRICE) + 1 * Rj::BED_PRICE + Rj::FEE) * 100)
+      expect(@order.amount).to be(((2 * Rj.ENTRY_PRICE) + 1 * Rj::LODGING_PRICE + Rj::FEE) * 100)
     end
 
     it "calculates the right lodging" do

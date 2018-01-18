@@ -1,5 +1,6 @@
 When(/^I complete the RJ form$/) do
   fill_in "Groupe de jeunes ou église", with: "Waykup"
+  find(".participants-wrap input[type=checkbox]").set(true)
   step "I complete the order form"
 end
 
@@ -19,5 +20,6 @@ Then(/^I should see errors for the RJ form$/) do
 end
 
 Then("I should see the right amount for the RJ order") do
-  expect(page).to have_content "95 CHF"
+  amount = Records::Rj.ENTRY_PRICE + Records::Rj::LODGING_PRICE + Records::Rj::FEE
+  expect(page).to have_content "#{amount} CHF"
 end

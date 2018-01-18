@@ -1,7 +1,7 @@
 module Records
 
   class Rj < Record
-    BED_PRICE = 30
+    LODGING_PRICE = 30
     FEE = 5
 
     self.table_name = 'records_rj'
@@ -19,7 +19,7 @@ module Records
 
     # TODO: beds
     def calculate_amount
-      return ((entries * Rj.ENTRY_PRICE) + (man_lodging + woman_lodging) * BED_PRICE + FEE) * 100
+      return ((entries * Rj.ENTRY_PRICE) + (man_lodging + woman_lodging) * LODGING_PRICE + FEE) * 100
     end
 
     def self.ENTRY_PRICE(date = Time.now)

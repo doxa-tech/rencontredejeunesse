@@ -8,7 +8,6 @@ Feature: RJ order
     Given I am a confirmed user
     Given I am signed in
 
-  @wip
   Scenario: I successfully complete the inscription form
     Given I visit the page to order a RJ entry
     When I complete the RJ form
