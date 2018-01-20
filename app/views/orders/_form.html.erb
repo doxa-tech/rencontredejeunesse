@@ -46,10 +46,14 @@
       <span></span>
       <%= f.submit %>
     </div>
+
+    <% unless @order.new_record? %>
     <div class="row">
       <span></span>
       <%= link_to "Annuler", order_path(@order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
     </div>
+    <% end %>
+    
     <div class="row">
       <span></span>
       <%= f.submit "Continuer plus tard", name: "pending" %>
