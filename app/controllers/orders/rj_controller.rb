@@ -1,5 +1,6 @@
 class Orders::RjController < Orders::BaseController
   before_action :check_if_not_signed_in
+  # @order fetched in before action #closed
 
   def new
     @order = order

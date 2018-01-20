@@ -1,5 +1,6 @@
 class Orders::LoginController < Orders::BaseController
   before_action :check_if_not_signed_in
+  # @order fetched in before action #closed
 
   def new
     @order = order
@@ -7,8 +8,9 @@ class Orders::LoginController < Orders::BaseController
 
   def create
     @order = order(order_params)
+    @order.pending = pending?
     if @order.save
-      redirect_to confirmation_orders_login_path(@order.order_id)
+      to_confirmation_step_or_pending
     else
       render 'new'
     end
@@ -19,8 +21,9 @@ class Orders::LoginController < Orders::BaseController
 
   def update
     @order.assign_attributes(order_params)
+    @order.pending = pending?
     if @order.save
-      redirect_to confirmation_orders_login_path(@order.order_id)
+      to_confirmation_step_or_pending
     else
       render 'edit'
     end

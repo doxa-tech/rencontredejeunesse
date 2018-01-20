@@ -33,6 +33,12 @@ class OrdersController < Orders::BaseController
     end
   end
 
+  def destroy
+    @order = Order.find_by_order_id(params[:id])
+    @order.destroy if @order
+    redirect_to pending_connect_orders_path
+  end
+
   def complete
     if @order.payment_method == "invoice"
       OrderMailer.confirmation(@order).deliver_now

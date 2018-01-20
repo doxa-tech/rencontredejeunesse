@@ -51,8 +51,9 @@ Rails.application.routes.draw do
     get "orders/#{status}", to: "orders##{status}"
   end
 
-  # invoice
-  patch "orders/:id/complete", to: "orders#complete", as: :orders_complete 
+  resources :orders, only: :destroy do
+    patch "complete", on: :member
+  end
 
   # postfinance
   post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }

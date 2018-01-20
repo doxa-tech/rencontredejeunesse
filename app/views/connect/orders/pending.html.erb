@@ -1,1 +1,9 @@
 <h1>Commandes en cours</h1>
+
+<% @orders.each do |order| %>
+
+  <%= order.order_id %>
+  <%= link_to "Continuer", controller: "orders/#{order.product_name}", action: "edit", id: order.order_id %>
+  <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
+
+<% end %>

@@ -46,6 +46,7 @@ FactoryBot.define do
 
     user
     product { create(product_name) }
+    pending false
   end
 
 end
