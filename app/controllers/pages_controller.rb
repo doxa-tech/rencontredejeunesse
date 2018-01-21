@@ -13,6 +13,10 @@ class PagesController < ApplicationController
   def volunteer
   end
 
+  def rj2018
+    render "pages/rj/2018"
+  end
+
   def contact
     @contact = Contact.new(contact_params)
     if @contact.valid?

@@ -1,0 +1,15 @@
+@import '../../components/logo-burger-color';
+
+@include logo-burger-color(#000, ".rj-2018");
+
+/* Override default style */
+section#contact .section-container .form form div.input.rj-2018::after {
+  background-color: yellow !important;
+}
+section#application-footer.rj-2018 {
+  background: yellow;
+}
+
+#container.rj-2018 {
+  font-family: "radikal";
+}

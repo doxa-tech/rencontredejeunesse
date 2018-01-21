@@ -1,0 +1,49 @@
+@import "../../../components/variables";
+
+#container.rj-2018 section#timetable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .section-container {
+    display: flex;
+    flex-direction: row;
+
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: 100px $main-padding;
+
+    div.days {
+      flex: 1;
+
+      h2 {
+        font-size: $sub-title;
+        cursor: pointer;
+      }
+    }
+
+    div.times {
+      flex: 1;
+      
+      p {
+        font-size: $normal-text;
+
+        span {
+          padding: 0 30px 0 0;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      flex-direction: column !important;
+
+      div.days {
+        padding: 0 0 20px 0;
+      }
+    }
+  }
+
+}
