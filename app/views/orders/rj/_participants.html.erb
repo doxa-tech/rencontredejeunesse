@@ -1,4 +1,4 @@
-<div class="fields-for wrap">
+<div class="fields-for participants wrap">
   <%= product_f.fields_for :participants, (participants.build_from_user(current_user) unless participants.any?) do |f| %>
     <div class="participants-fields wrap">
 
@@ -7,6 +7,7 @@
           <%= f.label :gender %>
           <div class="select"><%= f.select :gender, options_for_enum(f.object, :gender) %></div>
         </div>
+
         <div class="row">
           <%= f.label :firstname %>
           <%= f.field_with_errors :text, :firstname, autocomplete: "off" %>
@@ -24,7 +25,7 @@
 
         <div class="row">
           <%= f.label :lodging %>
-          <%= f.check_box :lodging %>
+          <%= f.check_box :lodging, class: "lodging-checkbox" %>
         </div>
       </div>
 

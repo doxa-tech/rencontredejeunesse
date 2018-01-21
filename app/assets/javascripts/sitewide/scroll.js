@@ -12,7 +12,9 @@ $(document).on("turbolinks:load", function() {
     headerFrame.style.display = "block";
   }
 
-  closeBtn.onclick = hideHeader;
+  if(closeBtn) {
+    closeBtn.onclick = hideHeader;
+  }
 
   gumshoe.init({
     callback: hideHeader
