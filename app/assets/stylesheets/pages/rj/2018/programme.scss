@@ -54,7 +54,12 @@
             text-transform: uppercase;
             font-size: $medium-title;
           }
-          
+
+          // TODO
+          div.text {
+            display: none;
+          }
+
           p {
             font-size: $large-text;
           }
