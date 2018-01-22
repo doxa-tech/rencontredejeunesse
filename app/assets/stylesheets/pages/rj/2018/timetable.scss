@@ -25,7 +25,11 @@
 
     div.times {
       flex: 1;
-      
+
+      div:not(.active) {
+        display: none;
+      }
+
       p {
         font-size: $normal-text;
 
