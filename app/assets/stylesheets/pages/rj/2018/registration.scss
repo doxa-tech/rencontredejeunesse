@@ -4,26 +4,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
 
   .section-container {
     height: 100%;
     width: 100%;
-    // max-width: $main-width;
     
     display: flex;
     flex-direction: row;
+    justify-content: center;
 
     div.content {
-      flex: 3;
       display: flex;
       flex-direction: row;
-      justify-content: center;
-      padding: 40px;
+      flex-grow: 1;
+
       background-color: yellow;
+
+      &:before {
+        flex: 1;
+        content: "";
+      }
 
       div.content-wrap {
         max-width: $main-width * 3/4;
+        padding: $sub-padding;
 
         p.text-info {
           font-size: $normal-text;
@@ -103,17 +107,29 @@
     }
 
     div.title {
-      flex: 1;
       display: flex;
       flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      background: image-url("rj/2018/registration/terre_Rj-03.jpg");
+      flex-grow: 1;
+
+      background: image-url("rj/2018/registration/terre.jpg");
       background-size: cover;
 
-      h2 {
-        transform: rotate(-90deg);
-        font-size: $sub-title;
+      div.title-wrap {
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        max-width: $main-width * 1/4;
+
+        h2 {
+          transform: rotate(-90deg);
+          font-size: $sub-title;
+        }
+      }
+
+      &:after {
+        flex: 1;
+        content: "";
       }
     }
   }

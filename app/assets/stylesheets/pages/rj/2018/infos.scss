@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   background: image-url("rj/2018/infos/background.jpg");
+  background-size: cover;
   color: #fff;
 
   .section-container {
@@ -26,7 +27,7 @@
 
       & > div {
         flex: 1;
-        padding: 20px;
+        padding: $sub-padding;
 
         h3 {
           font-size: $medium-title;
