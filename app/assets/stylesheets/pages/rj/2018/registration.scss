@@ -75,33 +75,8 @@
           }
         }
 
-        div.faq {
-          padding: 120px 0 50px 0;
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-
-          p {
-            font-size: $normal-text;
-            font-family: "Helvetica neue", "Helvetica", sans-serif;
-
-            &:first-of-type {
-              padding: 0 50px 0 0;
-            }
-          }
-
-          a {
-            padding: 10px 37px;
-            border: 2px solid #000;
-            text-transform: uppercase;
-            transition-duration: .5s;
-
-            &:hover {
-              background: black;
-              color: yellow;
-            }
-          }
+        div.address {
+          padding: 50px 0 0 0;
         }
       }
     }
