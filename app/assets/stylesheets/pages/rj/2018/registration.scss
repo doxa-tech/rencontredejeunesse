@@ -27,12 +27,12 @@
 
       div.content-wrap {
         max-width: $main-width * 3/4;
-        padding: $sub-padding;
+        padding: 110px $sub-padding 0 $sub-padding;
 
         p.text-info {
           font-size: $normal-text;
           font-family: "Helvetica neue", "Helvetica", sans-serif;
-          padding: 0 0 60px 0;
+          padding: 0 0 120px 0;
         }
 
         div.prices {
@@ -76,7 +76,7 @@
         }
 
         div.address {
-          padding: 50px 0 0 0;
+          padding: 140px 0 70px 0;
         }
       }
     }

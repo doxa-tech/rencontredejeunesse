@@ -51,7 +51,7 @@
 
       div.content-wrap {
         max-width: $main-width * 3/4;
-        padding: $sub-padding;
+        padding: 120px $sub-padding 80px $sub-padding;
         flex-grow: 1;
 
         display: flex;
@@ -60,6 +60,7 @@
         h3.date {
           text-align: right;
           font-size: $medium-title;
+          padding: 0 0 30px 0;
         }
 
         div.guests {
