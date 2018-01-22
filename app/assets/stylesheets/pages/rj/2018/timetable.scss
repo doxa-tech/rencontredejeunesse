@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 0 50px 0;
 
   .section-container {
     display: flex;
@@ -20,6 +21,23 @@
       h2 {
         font-size: $sub-title;
         cursor: pointer;
+
+        &.active {
+          span {
+            position: relative;
+
+            &:after {
+              content: "";
+              background-color: yellow;
+              left: 0em;
+              right: -.3em;
+              bottom: -.1em;
+              height: .5em;
+              position: absolute;
+              z-index: -1;
+            }
+          }
+        }
       }
     }
 
@@ -32,9 +50,14 @@
 
       p {
         font-size: $normal-text;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 20px 0 0 0;
 
-        span {
-          padding: 0 30px 0 0;
+        span:first-of-type {
+          width: 70px;
+          flex-shrink: 0;
         }
       }
     }
