@@ -8,6 +8,8 @@ fr:
       order:
         create: "S'inscrire"
         update: "Mettre à jour"
+      volunteer:
+        create: "S'inscrire"
       create: "Créer"
       submit: "Envoyer"
       update: "Enregistrer"
@@ -34,27 +36,14 @@ fr:
     current_password: "Mot de passe actuel"
     status: "Statut"
     created_at: "Créé le"
-  activemodel:
-    attributes:
-      volunteer_form:
-        install: "Installation"
-        uninstall: "Rangement"
-        door: "Contrôle aux portes"
-        welcome: "Accueil"
-        park: "Fun Park"
-        accommodation: "Hébérgement"
-        install_technique: "Installation technique"
-        uninstall_technique: "Rangement technique"
-        other: "Autre secteur (préciser)"
-        comment: "Commentaire concernant le bénévolat à la RJ"
+    lodging: "Dormir sur place"
+    sector: "Secteur"
   activerecord:
     attributes:
       records/login:
         entries: "Nombre d'entrées"
       records/rj:
         entries: "Nombre de forfaits"
-        boy_beds: "Places pour gars"
-        girl_beds: "Places pour filles"
       order:
         conditions: "J'ai lu les conditions générales et les accepte."
         print_amount: "Montant"
@@ -79,6 +68,34 @@ fr:
     genders:
       male: "M."
       female: "Mme"
+  sector:
+    attributes:
+      hosts: "Gestion des hôtes"
+      lounge: "Staff resto & lounge"
+      volunteers: "Gestion des bénévoles"
+      setup: "Montage général (vendredi)"
+      disassembly: "Démontage (dimanche)"
+      cleaning: "Clean service"
+      decoration: Décoration entrée
+      fun_park: "Fun park"
+      photography: "Stand photo"
+      lights: "Lumières et ambiance"
+      goodies: "Vente de goodies"
+      security: Service ordre (18+)
+      doors: "Contrôle aux portes"
+      lodging: "Dortoirs"
+      welcoming: "Accueil aux portes"
+      care: "Service médical (compétences requises)"
+      prayer: "Espace prière"
+      opening: "Opening"
+      video: "Vidéo"
+      technical_setup: "Montage technique"
+    categories:
+      log: "Logistique"
+      animation: "Animation"
+      security: "Sécurité"
+      session: "Plénières"
+      technical: "Technique"
   errors:
     format: "%{message}"
     messages:

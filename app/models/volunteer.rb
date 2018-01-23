@@ -1,6 +1,8 @@
 class Volunteer < ApplicationRecord
-  belongs_to :user, optional: true
+  include Sectors
 
-  enum sector: [:install, :uninstall, :door, :welcome, :park, :accommodation, :install_technique, :uninstall_technique]
+  belongs_to :user
+
+  enum sector: self.SECTORS_TO_ENUM
 
 end

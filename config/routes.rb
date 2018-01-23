@@ -4,17 +4,19 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  %w(login privacy application vision volunteer).each do |page|
+  %w(login privacy application vision).each do |page|
     get page, to: "pages##{page}"
   end
 
-  get "rj/2018", to: "pages#rj2018"
+  get "2018", to: "pages#rj2018"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
   get "signin", to: "sessions#new"
 
   post "contact", to: "pages#contact"
+
+  resources :volunteers, only: [:index, :create]
 
   #
   # USERS

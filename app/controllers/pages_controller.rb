@@ -11,6 +11,7 @@ class PagesController < ApplicationController
   end
 
   def volunteer
+    @volunteer = Volunteer.new
   end
 
   def rj2018
