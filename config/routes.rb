@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get page, to: "pages##{page}"
   end
 
-  get "rj-2018", to: "pages#rj2018"
+  get "rj/2018", to: "pages#rj2018"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
