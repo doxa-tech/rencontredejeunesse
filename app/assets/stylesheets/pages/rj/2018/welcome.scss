@@ -32,6 +32,11 @@
           margin-top: -.2em;
           font-family: "radikal";
           font-size: $sub-title;
+          animation-name: earth-fadein;
+          animation-delay: .5s;
+          animation-duration: .8s;
+          animation-fill-mode: both;
+          animation-timing-function: ease-in-out;
         }
       }
 
@@ -40,6 +45,11 @@
           margin-bottom: -.3em;
           font-family: "radikal";
           font-size: $sub-title;
+          animation-name: earth-fadein;
+          animation-delay: 2.5s;
+          animation-duration: 1.3s;
+          animation-fill-mode: both;
+          animation-timing-function: ease-in-out;
         }
       }
     }
@@ -53,6 +63,11 @@
       background-position: center center;
       background-repeat: no-repeat;
 
+      @keyframes earth-fadein {
+        0% { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
       & > div:nth-child(1), & > div:nth-child(3) {
         height: 70px;
       }
@@ -61,6 +76,11 @@
         flex: 1;
         background-color: yellow;
         z-index: -1;
+        animation-name: earth-fadein;
+        animation-delay: .5s;
+        animation-duration: .8s;
+        animation-fill-mode: both;
+        animation-timing-function: ease-in-out;
       }
     }
 
@@ -75,6 +95,11 @@
           margin-bottom: -.3em;
           font-family: "radikal";
           font-size: $sub-title;
+          animation-name: earth-fadein;
+          animation-delay: 2.5s;
+          animation-duration: 1.3s;
+          animation-fill-mode: both;
+          animation-timing-function: ease-in-out;
         }
       }
     }
