@@ -50,6 +50,8 @@ fr:
         user: "Personne"
         order_id: "N° de commande"
         human_id: "N° d'entrée"
+      volunteer:
+        comment: "Remarque"
     errors:
       models:
         order:

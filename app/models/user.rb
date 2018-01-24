@@ -3,8 +3,8 @@ class User < ApplicationRecord
   enum gender: [:male, :female]
 
   has_many :orders
-  has_many :volunteers
   has_many :comments
+  has_one :volunteer
   belongs_to :image, optional: true
 
   has_many :posts

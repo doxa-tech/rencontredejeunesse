@@ -27,18 +27,18 @@
 
     <h3>Alors prêt à t’inscrire maintenant ?</h3>
 
-    <%= form_for @volunteer do |f| %>
+    <% if !signed_in? %>
 
-      <%= label_tag :volunteer_area, "Domaine" %>
-      <%= select_tag :volunteer_area, options_for_categories, prompt: "Pas de préférences" %>
+    <%= render "sessions/form", redirect_url: volunteers_path(anchor: "register") %>
 
-      <%= f.label :sector %>
-      <%= f.select :sector, [] %>
+    <% elsif current_user.volunteer %>
 
-      <%= f.label :comment %>
-      <%= f.text_area :comment %>
+    <p>Bravo ! Tu es déjà inscrit comme bénévole. Toutes les informations sur ton compte.</p>
+    <%= link_to "Espace bénévole", connect_volunteers_path %>
 
-      <%= f.submit %>
+    <% else %>
+
+    <%= render "volunteers/sections/form" %>
 
     <% end %>
 

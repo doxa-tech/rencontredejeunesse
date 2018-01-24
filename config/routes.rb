@@ -42,6 +42,7 @@ Rails.application.routes.draw do
     patch "update", to: "users#update"
 
     resources :orders, only: [:index, :show]
+    resources :volunteers, only: [:index]
 
   end
 

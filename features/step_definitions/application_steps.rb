@@ -37,3 +37,11 @@ Then("I should see errors for the fields {string}") do |fields|
 		expect(find '#error').to have_content field
 	end
 end
+
+Then ("I should see {string}") do |content|
+  expect(page).to have_content content
+end
+
+Then ("I should not see {string}") do |content|
+  expect(page).not_to have_content content
+end
