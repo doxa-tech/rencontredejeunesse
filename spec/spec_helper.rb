@@ -1,11 +1,12 @@
 require 'factory_bot_rails'
-require "codeclimate-test-reporter" CodeClimate::TestReporter.start
+require "codeclimate-test-reporter"
 
 RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+    CodeClimate::TestReporter.start
   end
 
   config.around(:each) do |example|
