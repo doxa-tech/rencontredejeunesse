@@ -1,4 +1,5 @@
 require 'factory_bot_rails'
+require "codeclimate-test-reporter" CodeClimate::TestReporter.start
 
 RSpec.configure do |config|
 
