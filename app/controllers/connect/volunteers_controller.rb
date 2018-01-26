@@ -1,5 +1,4 @@
-class Connect::VolunteersController < ApplicationController
-  layout 'connect'
+class Connect::VolunteersController < Connect::BaseController
 
   def index
     @volunteer = current_user.volunteer
