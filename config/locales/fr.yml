@@ -1,4 +1,7 @@
 fr:
+  time:
+    formats:
+      date: "%d. %b %y"
   admin:
     checkin:
       login: "RJ Login"

@@ -7,6 +7,8 @@
     <h1>Mes commandes</h1>
   </div>
 
+  <%= link_to "Aller à mes commandes en cours", pending_connect_orders_path %>
+
   <% @orders.each do |order| %>
 
     <%= order.order_id %>

@@ -39,6 +39,10 @@ class User < ApplicationRecord
     Order.where(user_id: self.id).where.not(status: nil)
   end
 
+  def pending_orders
+    Order.where(user_id: self.id, pending: true)
+  end
+
   def country_name
     unless self.country.nil?
       country = ISO3166::Country[self.country]

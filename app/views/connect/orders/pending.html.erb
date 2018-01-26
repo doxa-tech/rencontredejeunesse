@@ -9,7 +9,9 @@
 
   <% @orders.each do |order| %>
 
-    <%= order.order_id %>
+    <%= order.order_id %> /
+    <%= order.product.model_name.human %> /
+    <%= l order.created_at, format: :date %> /
     <%= link_to "Continuer", controller: "orders/#{order.product_name}", action: "edit", id: order.order_id %>
     <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
 

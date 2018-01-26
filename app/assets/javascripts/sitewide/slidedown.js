@@ -9,7 +9,7 @@ $(document).on("turbolinks:load", function() {
     } else {
       $(".text.active").css("height", 0).removeClass("active");
       $personText.animate({
-        height: "270px"
+        height: "180px"
       }, 500, function() {
         $personText.addClass("active");
       });
