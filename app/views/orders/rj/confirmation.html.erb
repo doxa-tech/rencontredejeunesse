@@ -12,12 +12,12 @@
 
       <div class="row">
         <p><strong>Nombre d'entrées:</strong></p>
-        <p><%= @order.product.entries %></p>
+        <p><%= @order.product.entries %> (dont <%= @order.product.man_lodging %> lits gars et <%= @order.product.woman_lodging %> lits filles)</p>
       </div>
       <% @order.product.participants.each do |participant| %>
         <div class="participant">
           <div class="row tight">
-            <span>Titre, nom, prénom</span>
+            <span>Nom</span>
             <p>
               <%= t("participants/rj.genders.#{participant.gender}") %>
               <%= participant.firstname %> <%= participant.lastname %>
@@ -25,11 +25,14 @@
           </div>
           <div class="row tight">
             <p>Age</p>
-            <p><%= participant.age %></p>
+            <p><%= l participant.birthday if participant.birthday %></p>
+          </div>
+          <div class="row tight">
+            <span></span>
+            <p><%= participant.lodging ? "Dors sur place" : "Ne dors PAS sur place" %></p>
           </div>
         </div>
       <% end %>
-
 
       <div class="row">
         <p><strong>Nom du groupe:</strong></p>

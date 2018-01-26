@@ -17,7 +17,7 @@
       <% @order.product.participants.each do |participant| %>
         <div class="participant">
           <div class="row tight">
-            <span>Titre, nom, prénom</span>
+            <span>Nom</span>
             <p>
               <%= t("participants/login.genders.#{participant.gender}") %>
               <%= participant.firstname %> <%= participant.lastname %>
