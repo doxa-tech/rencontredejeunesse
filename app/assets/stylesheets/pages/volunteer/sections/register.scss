@@ -1,4 +1,5 @@
 @import "../../../components/variables";
+@import '../../../components/standard-form';
 
 #container.volunteer section#register {
 
@@ -38,6 +39,11 @@
       li {
         font-size: $normal-text;
       }
+    }
+
+    & > div.form {
+      @include standard-form();
+      min-height: initial !important;
     }
   }
 }

@@ -29,7 +29,11 @@
 
     <% if !signed_in? %>
 
-    <%= render "sessions/form", redirect_url: volunteers_path(anchor: "register") %>
+    <div class="form">
+      <div class="content-wrap">
+        <%= render "sessions/form", redirect_url: volunteers_path(anchor: "register") %>
+      </div>
+    </div>
 
     <% elsif current_user.volunteer %>
 
