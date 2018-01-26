@@ -36,8 +36,6 @@ fr:
     current_password: "Mot de passe actuel"
     status: "Statut"
     created_at: "Créé le"
-  activemodel:
-    attributes:
     lodging: "Dormir sur place"
     sector: "Secteur"
   activerecord:
