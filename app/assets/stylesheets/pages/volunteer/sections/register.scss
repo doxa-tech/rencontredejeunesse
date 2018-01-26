@@ -27,6 +27,10 @@
     h3 {
       font-size: $medium-title;
       padding: 40px 0 20px 0;
+
+      &.ready {
+        padding: 120px 0 60px 0;
+      }
     }
 
     p {
@@ -44,7 +48,7 @@
     & > div.form {
       @include standard-form();
       min-height: initial !important;
-      padding: 10px 0;
+      padding: 70px 0 120px 0;
 
       select, textarea {
         min-width: 280px;
