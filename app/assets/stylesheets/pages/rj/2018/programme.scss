@@ -51,7 +51,7 @@
 
       div.content-wrap {
         max-width: $main-width * 3/4;
-        padding: 120px $sub-padding 80px $sub-padding;
+        padding: 60px $sub-padding 20px $sub-padding;
         flex-grow: 1;
 
         display: flex;
@@ -69,7 +69,7 @@
           align-self: center;
           justify-content: center;
           flex-wrap: wrap;
-          padding: 40px 0 100px 0;
+          padding: 20px 0 80px 0;
 
           div.guest {
             text-align: center;

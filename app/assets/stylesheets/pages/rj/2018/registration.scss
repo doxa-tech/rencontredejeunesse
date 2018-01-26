@@ -67,6 +67,15 @@
                 color: #fff;
                 text-transform: uppercase;
 
+                &.disabled {
+                  background-color: rgb(180, 180, 180);
+                  cursor: not-allowed;
+
+                  &:hover {
+                    color: #fff;
+                  }
+                }
+
                 &:hover {
                   color: yellow;
                 }
