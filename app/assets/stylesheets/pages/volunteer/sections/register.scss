@@ -29,7 +29,7 @@
       padding: 40px 0 20px 0;
 
       &.ready {
-        padding: 120px 0 60px 0;
+        padding: 130px 0 60px 0;
       }
     }
 
@@ -48,7 +48,7 @@
     & > div.form {
       @include standard-form();
       min-height: initial !important;
-      padding: 70px 0 120px 0;
+      padding: 70px 0 100px 0;
 
       select, textarea {
         min-width: 280px;
