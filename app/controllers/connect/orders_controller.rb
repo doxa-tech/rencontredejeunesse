@@ -5,7 +5,7 @@ class Connect::OrdersController < Connect::BaseController
   end
 
   def pending
-    @orders = Order.where(pending: true)
+    @orders = current_user.pending_orders
   end
 
   def show

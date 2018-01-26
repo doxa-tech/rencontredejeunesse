@@ -13,10 +13,11 @@
   <% if @volunteer.sector %>
   <p>Tu as choisi comme secteur: <%= t("sector.attributes.#{@volunteer.sector}") %></p>
   <% end %>
+  <p>Inscription à prix préférentiel bientôt disponible.</p>
 
   <% else %>
 
-  <%= link_to "M'inscrire comme bénévole", volunteers_path(anchor: "letsgo") %>
+  <%= link_to "M'inscrire comme bénévole", volunteers_path(anchor: "letsgo"), "data-turbolinks" => "false" %>
 
   <% end %>
 
