@@ -5,7 +5,7 @@ end
 
 When("I fill in and submit the form with my email") do
   fill_in "Email", with: "john@smith.com"
-  click_button "Réinitialiser le mot de passe"
+  click_button "Réinitialiser son mot de passe"
 end
 
 When("I successfully fill in and submit the form with my new password") do

@@ -1,4 +1,4 @@
-@javascript @ignore
+@javascript
 Feature: Payment
 
   So that I directly pay my entry
@@ -6,6 +6,8 @@ Feature: Payment
   I want to pay online with my card
 
   Background:
+    Given I am a confirmed user
+    And I am signed in
     Given I am on the confirmation page for a RJ entry
     And I confirm my order
 
