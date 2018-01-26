@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110183428) do
+ActiveRecord::Schema.define(version: 20180123175806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20180110183428) do
     t.string "human_id"
     t.integer "payment_method", default: 0
     t.text "note"
+    t.boolean "pending", default: false
     t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -132,10 +133,12 @@ ActiveRecord::Schema.define(version: 20180110183428) do
   create_table "participants_rj", id: :serial, force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
-    t.integer "age"
     t.integer "records_rj_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "gender"
+    t.date "birthday"
+    t.boolean "lodging", default: false
     t.index ["records_rj_id"], name: "index_participants_rj_on_records_rj_id"
   end
 
@@ -159,8 +162,8 @@ ActiveRecord::Schema.define(version: 20180110183428) do
   create_table "records_rj", id: :serial, force: :cascade do |t|
     t.integer "entries"
     t.string "group"
-    t.integer "girl_beds"
-    t.integer "boy_beds"
+    t.integer "woman_lodging"
+    t.integer "man_lodging"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
