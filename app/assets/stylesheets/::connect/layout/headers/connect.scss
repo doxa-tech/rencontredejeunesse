@@ -4,13 +4,25 @@ header#connect-header {
   flex-direction: row;
   justify-content: space-between;
 
-  div {
+  div.left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
     img.logo {
       width: 120px;
     }
+
+    a.back {
+      padding: 10px 0 0 5px;
+      font-family: "Helvetica neue", "Helvetica", sans-serif;
+      font-size: 10px;
+      color: #000;
+    }
   }
 
-  div {
+  div.right {
     img.logout {
       width: 30px;
     }
