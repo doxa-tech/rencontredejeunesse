@@ -1,0 +1,26 @@
+@import '../../../components/variables';
+@import '../../../components/logo-burger-color';
+@import '../../../components/standard-form';
+
+@include logo-burger-color(#178daf, ".orders-rj-confirmation");
+
+#container.orders-rj-confirmation {
+  @include standard-form();
+  padding: $logo-burger-height 0 0 0;
+
+  div.content-wrap {
+    
+    .user-information h3 {
+      padding: 0 0 18px 0;
+    }
+
+    .product-information h3 {
+      padding: 15px 0 0 0;
+    }
+
+    div.participant {
+      padding: 10px 0;
+    }
+
+  }
+}

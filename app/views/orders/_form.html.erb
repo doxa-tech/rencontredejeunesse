@@ -44,13 +44,13 @@
 
     <div class="row">
       <span></span>
-      <%= f.submit %>
+      <%= f.submit class: "main-button" %>
     </div>
 
     <% unless @order.new_record? %>
     <div class="row">
       <span></span>
-      <%= link_to "Annuler", order_path(@order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
+      <%= link_to "Annuler", order_path(@order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" }, class: "button-link" %>
     </div>
     <% end %>
     

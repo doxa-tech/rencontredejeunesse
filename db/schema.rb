@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119145338) do
+ActiveRecord::Schema.define(version: 20180123175806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -162,10 +162,10 @@ ActiveRecord::Schema.define(version: 20180119145338) do
   create_table "records_rj", id: :serial, force: :cascade do |t|
     t.integer "entries"
     t.string "group"
+    t.integer "woman_lodging"
+    t.integer "man_lodging"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "man_lodging"
-    t.integer "woman_lodging"
   end
 
   create_table "testimonies", id: :serial, force: :cascade do |t|
@@ -195,8 +195,6 @@ ActiveRecord::Schema.define(version: 20180119145338) do
     t.integer "image_id"
     t.boolean "confirmed", default: false
     t.string "verify_token"
-    t.string "reset_token"
-    t.datetime "reset_sent_at"
     t.index ["image_id"], name: "index_users_on_image_id"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
