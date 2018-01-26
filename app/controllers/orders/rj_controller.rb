@@ -8,8 +8,9 @@ class Orders::RjController < Orders::BaseController
 
   def create
     @order = order(order_params)
+    @order.pending = pending?
     if @order.save
-      redirect_to confirmation_orders_rj_path(@order.order_id)
+      to_confirmation_step_or_pending
     else
       render 'new'
     end
@@ -20,8 +21,9 @@ class Orders::RjController < Orders::BaseController
 
   def update
     @order.assign_attributes(order_params)
+    @order.pending = pending?
     if @order.save
-      redirect_to confirmation_orders_rj_path(@order.order_id)
+      to_confirmation_step_or_pending
     else
       render 'edit'
     end
