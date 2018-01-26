@@ -99,7 +99,8 @@
             }
 
             div.text {
-              display: none;
+              height: 0;
+              overflow: hidden;
               font-size: $small-text;
               font-family: "Helvetica neue", "Helvetica", sans-serif;
             }

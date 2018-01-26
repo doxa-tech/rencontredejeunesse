@@ -1,7 +1,8 @@
 $(document).on("turbolinks:load", function() {
 
-  // TODO
+
   $("#programme .guest").click(function() {
+
     var $personText = $(this).find(".text");
     if($personText.hasClass("active")) {
       $personText.css("height", 0).removeClass("active");
