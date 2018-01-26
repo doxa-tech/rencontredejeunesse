@@ -44,6 +44,7 @@
     & > div.form {
       @include standard-form();
       min-height: initial !important;
+      padding: 10px 0;
     }
   }
 }
