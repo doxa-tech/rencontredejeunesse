@@ -25,7 +25,7 @@
       Bénévole : qui rend un service sans demander de rémunération en retour, sans en tirer de profit.
     </p>
 
-    <h3>Alors prêt à t’inscrire maintenant ?</h3>
+    <h3 id="letsgo">Alors prêt à t’inscrire maintenant ?</h3>
 
     <% if !signed_in? %>
 
@@ -42,7 +42,11 @@
 
     <% else %>
 
-    <%= render "volunteers/sections/form" %>
+    <div class="form">
+      <div class="content-wrap">
+        <%= render "volunteers/sections/form" %>
+      </div>
+    </div>
 
     <% end %>
 

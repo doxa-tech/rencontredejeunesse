@@ -1,26 +1,41 @@
-<% content_for :id, "account" %>
+<% content_for :id, "users-edit" %>
 
-<h2>Mon compte</h2>
+<section class="content-wrap">
 
-<div id="form">
+  <div id="connect-header">
+    <%= link_to image_tag("connect/layout/back.svg", class: "back"), connect_root_path, remote: false %>
+    <h1>Mon compte</h1>
+  </div>
 
-  <%= form_for current_user, url: { action: "update" } do |f| %>
+  <div id="light-form">
 
-    <%= render "error_messages", object: f.object %>
+    <%= form_for current_user, url: { action: "update" } do |f| %>
 
-    <%= f.label :current_password %>
-    <%= f.password_field :current_password %>
+      <%= render "error_messages", object: f.object %>
 
-    <%= render "users/fields/information", f: f %>
+      <div class="row">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password %>
+      </div>
 
-    <%= f.label :password %>
-    <%= f.password_field :password, placeholder: "Laissez blanc pour garder le mot de passe actuel" %>
+      <%= render "users/fields/information", f: f %>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+      <div class="row">
+        <%= f.label :password %>
+        <%= f.password_field :password, placeholder: "Laissez blanc pour garder le mot de passe actuel" %>
+      </div>
 
-    <%= f.submit nil, class: "button" %>
+      <div class="row">
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+      </div>
 
-  <% end %>
+      <div class="submit">
+        <%= f.submit nil, class: "button" %>
+      </div>
+
+    <% end %>
+
+  </div>
 
 </div>

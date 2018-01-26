@@ -1,0 +1,10 @@
+<header id="connect-header">
+  <div>
+    <%= link_to (image_tag "connect/layout/logo.png", class: "logo"), connect_root_path %>
+  </div>
+  <div>
+    <%= link_to signout_path, method: :delete do %>
+      <%= image_tag "connect/layout/logout.svg", class: "logout" %>
+    <% end %>
+  </div>
+</header>

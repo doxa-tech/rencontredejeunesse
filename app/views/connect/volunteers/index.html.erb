@@ -1,14 +1,23 @@
-<h2>Bénévolat</h2>
+<% content_for :id, "volunteers-index" %>
 
-<% if @volunteer %>
+<section class="content-wrap">
 
-<p>Tu es inscrit comme bénévole.</p>
-<% if @volunteer.sector %>
-<p>Tu as choisi comme secteur: <%= t("sector.attributes.#{@volunteer.sector}") %></p>
-<% end %>
+  <div id="connect-header">
+    <%= link_to image_tag("connect/layout/back.svg", class: "back"), connect_root_path, remote: false %>
+    <h1>Bénévolat</h1>
+  </div>
 
-<% else %>
+  <% if @volunteer %>
 
-<%= link_to "M'inscrire comme bénévole", volunteers_path %>
+  <p>Tu es inscrit comme bénévole.</p>
+  <% if @volunteer.sector %>
+  <p>Tu as choisi comme secteur: <%= t("sector.attributes.#{@volunteer.sector}") %></p>
+  <% end %>
 
-<% end %>
+  <% else %>
+
+  <%= link_to "M'inscrire comme bénévole", volunteers_path(anchor: "letsgo") %>
+
+  <% end %>
+
+</section>

@@ -1,0 +1,63 @@
+#connect-container.users-show {
+
+  section.content-wrap {
+
+    .avatar {
+      text-align: center;
+      padding: 10px 0 0 0;
+
+      img {
+        width: 85px;
+      }
+    }
+
+    .name {
+      font-size: 30px;
+      font-weight: 100;
+      color: #888;
+      text-align: center;
+      padding: 20px 0 0 0;
+    }
+
+    .apps {
+      display: flex;
+      justify-content: center;
+      padding: 100px 0 50px 0;
+      
+      .app {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        width: 90px;
+        color: #888;
+
+        .icon {
+          width: 64px;
+          height: 64px;
+          background: red;
+          background: linear-gradient(red, #FF7600);
+          border-radius: 16px;
+          align-self: center;
+          position: relative;
+
+          img {
+            width: 40px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: .5;
+          }
+        }
+
+        .app-name {
+          // font-family: "Latina essential";
+          font-weight: 100;
+          padding: 10px 0 0 0;
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}
