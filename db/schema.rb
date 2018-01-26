@@ -227,4 +227,5 @@ ActiveRecord::Schema.define(version: 20180123175806) do
   add_foreign_key "posts", "users"
   add_foreign_key "testimonies", "users"
   add_foreign_key "users", "images"
+  add_foreign_key "volunteers", "users"
 end
