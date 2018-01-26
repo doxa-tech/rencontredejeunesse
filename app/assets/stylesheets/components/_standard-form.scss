@@ -72,6 +72,7 @@
           text-shadow: 0 1px 1px darken($pink, 20%);
           transition: all 0.3s ease 0s;
           border-radius: 20px;
+          text-align: center !important;
 
           &:hover {
             transform: translateY(-5px);
