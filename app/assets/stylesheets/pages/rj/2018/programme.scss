@@ -65,7 +65,7 @@
 
         div.guests {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           align-self: center;
           justify-content: center;
           flex-wrap: wrap;
@@ -86,9 +86,22 @@
               font-size: $medium-title;
             }
 
-            // TODO
+            p.see-more {
+              font-size: $small-text;
+              padding: 10px 0;
+              color: #baaf04;
+              cursor: pointer;
+              transition: .3s all;
+
+              &:hover {
+                color: darken(#baaf04, 20%);
+              }
+            }
+
             div.text {
               display: none;
+              font-size: $small-text;
+              font-family: "Helvetica neue", "Helvetica", sans-serif;
             }
 
             p {
