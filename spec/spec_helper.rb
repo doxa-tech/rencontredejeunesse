@@ -1,10 +1,12 @@
 require 'factory_bot_rails'
+require "simplecov"
 
 RSpec.configure do |config|
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)
+    SimpleCov.start
   end
 
   config.around(:each) do |example|

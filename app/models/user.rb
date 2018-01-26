@@ -3,8 +3,8 @@ class User < ApplicationRecord
   enum gender: [:male, :female]
 
   has_many :orders
-  has_many :volunteers
   has_many :comments
+  has_one :volunteer
   belongs_to :image, optional: true
 
   has_many :posts
@@ -31,6 +31,9 @@ class User < ApplicationRecord
   validates :country, presence: true
   validates :birthday, presence: true
   validate :must_be_thirteen_years_old
+
+  # password reset
+  validates :password, presence: true, on: :reset
 
   def completed_orders
     Order.where(user_id: self.id).where.not(status: nil)

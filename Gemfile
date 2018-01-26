@@ -95,3 +95,6 @@ gem 'mime-types'
 
 # Pagination
 gem 'will_paginate', '~> 3.1.0'
+
+# Code coverage
+gem "codeclimate-test-reporter", group: :test, require: nil

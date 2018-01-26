@@ -8,6 +8,8 @@ fr:
       order:
         create: "S'inscrire"
         update: "Mettre à jour"
+      volunteer:
+        create: "S'inscrire"
       create: "Créer"
       submit: "Envoyer"
       update: "Enregistrer"
@@ -36,18 +38,22 @@ fr:
     created_at: "Créé le"
   activemodel:
     attributes:
+    lodging: "Dormir sur place"
+    sector: "Secteur"
   activerecord:
     attributes:
       records/login:
         entries: "Nombre d'entrées"
       records/rj:
-        entries: "Nombre d'entrées"
+        entries: "Nombre de forfaits"
       order:
         conditions: "J'ai lu les conditions générales et les accepte."
         print_amount: "Montant"
         user: "Personne"
         order_id: "N° de commande"
         human_id: "N° d'entrée"
+      volunteer:
+        comment: "Remarque"
     errors:
       models:
         order:
@@ -70,6 +76,34 @@ fr:
     genders:
       male: "M."
       female: "Mme"
+  sector:
+    attributes:
+      hosts: "Gestion des hôtes"
+      lounge: "Staff resto & lounge"
+      volunteers: "Gestion des bénévoles"
+      setup: "Montage général (vendredi)"
+      disassembly: "Démontage (dimanche)"
+      cleaning: "Clean service"
+      decoration: Décoration entrée
+      fun_park: "Fun park"
+      photography: "Stand photo"
+      lights: "Lumières et ambiance"
+      goodies: "Vente de goodies"
+      security: Service ordre (18+)
+      doors: "Contrôle aux portes"
+      lodging: "Dortoirs"
+      welcoming: "Accueil aux portes"
+      care: "Service médical (compétences requises)"
+      prayer: "Espace prière"
+      opening: "Opening"
+      video: "Vidéo"
+      technical_setup: "Montage technique"
+    categories:
+      log: "Logistique"
+      animation: "Animation"
+      security: "Sécurité"
+      session: "Plénières"
+      technical: "Technique"
   errors:
     format: "%{message}"
     messages:

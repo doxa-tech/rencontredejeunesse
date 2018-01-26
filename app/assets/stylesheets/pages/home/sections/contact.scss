@@ -2,7 +2,8 @@
 
 #container.home section#contact,
 #container.login section#contact,
-#container.vision section#contact {
+#container.vision section#contact,
+#container.rj-2018 section#contact {
   position: relative;
 
   .section-container {
@@ -11,6 +12,7 @@
     max-width: $main-width;
     margin: auto;
     padding: 0 $main-padding;
+    font-family: "Helvetica neue", "Helvetica", sans-serif;
 
     div.form {
       flex: 1;
@@ -57,6 +59,7 @@
             margin: 40px 0 50px 0;
             font-size: $sub-title;
             font-weight: bold;
+            text-transform: lowercase;
           }
 
           &::after {
@@ -93,7 +96,7 @@
    div.address {
       flex: 1;
       font-weight: bold;
-      font-size: $medium-title;
+      font-size: $sub-title;
       position: relative;
       z-index: -1;
 

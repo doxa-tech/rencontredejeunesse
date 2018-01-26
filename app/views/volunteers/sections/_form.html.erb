@@ -1,0 +1,14 @@
+<%= form_for @volunteer do |f| %>
+
+  <%= label_tag :volunteer_area, "Domaine" %>
+  <%= select_tag :volunteer_area, options_for_categories, prompt: "Pas de préférences" %>
+
+  <%= f.label :sector %>
+  <%= f.select :sector, [] %>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+
+  <%= f.submit %>
+
+<% end %>

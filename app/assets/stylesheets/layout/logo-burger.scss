@@ -2,6 +2,7 @@
 
 section#logo-burger {
   position: absolute;
+  z-index: 1;
 
   left: 0;
   right: 0;
@@ -12,7 +13,7 @@ section#logo-burger {
   justify-content: center;
   align-items: center;
 
-  .footer-container {
+  & > div {
     height: 100%;
     width: 100%;
     max-width: $main-width;

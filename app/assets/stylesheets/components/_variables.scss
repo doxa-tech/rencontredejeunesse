@@ -26,5 +26,5 @@ $logo-burger-height: 75px;
 // a is min and b is max
 // i' = (i-a) / (b-a) * (b'-a') + a'
 @function absolute-to-relative($size-pt) {
- @return ($size-pt - $_min-pt) / ($_max-pt - $_min-pt) * ($_max-em - $_min-em) + $_min-em;
+  @return ($size-pt - $_min-pt) / ($_max-pt - $_min-pt) * ($_max-em - $_min-em) + $_min-em;
 }

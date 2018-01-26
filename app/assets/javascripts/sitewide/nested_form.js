@@ -6,8 +6,8 @@ $(document).on("turbolinks:load", function() {
         lastFields = $("." + type + "-fields:last"), newFields = lastFields.clone();
     count++;
     newFields.find("input, select")
-      .attr("name", function( i, val ) { if(val) { return val.replace(/\d/, count) } })
-      .attr("id", function( i, val ) { if(val) { return val.replace(/\d/, count) } })
+      .attr("name", function(i, val) { if(val) { return val.replace(/\d/, count) } })
+      .attr("id", function(i, val) { if(val) { return val.replace(/\d/, count) } })
       .val([]);
     newFields.find("label").attr("for", function( i, val ) { return val.replace(/\d/, count) });
     newFields.insertAfter(lastFields);

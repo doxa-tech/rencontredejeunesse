@@ -1,0 +1,33 @@
+@import "../../../components/variables";
+
+#container.volunteer section#intro {
+  background-color: #eaeaea;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  .section-container {
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: 150px $main-padding;
+    color: #464646;
+    text-align: center;
+
+    h2 {
+      font-size: $sub-title;
+      padding: 0 0 40px 0;
+      color: #898989;
+    }
+
+    p {
+      font-size: $large-text;
+      padding: 10px $sub-padding 0 $sub-padding;
+      line-height: 1.6em;
+    }
+  }
+}

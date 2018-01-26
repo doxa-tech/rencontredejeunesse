@@ -1,0 +1,50 @@
+@import "../../../components/variables";
+@import '../../../components/standard-form';
+
+#container.volunteer section#register {
+
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  .section-container {
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: 150px $main-padding;
+    color: #464646;
+    text-align: center;
+
+    h2 {
+      font-size: $sub-title;
+      padding: 0 0 40px 0;
+      color: #898989;
+    }
+
+    h3 {
+      font-size: $medium-title;
+      padding: 40px 0 20px 0; 
+    }
+
+    p {
+      font-size: $large-text;
+      padding: 10px $sub-padding 0 $sub-padding;
+      line-height: 1.6em;
+    }
+
+    ul {
+      li {
+        font-size: $normal-text;
+      }
+    }
+
+    & > div.form {
+      @include standard-form();
+      min-height: initial !important;
+      padding: 10px 0;
+    }
+  }
+}

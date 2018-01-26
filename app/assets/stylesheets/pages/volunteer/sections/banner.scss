@@ -1,0 +1,31 @@
+@import "../../../components/variables";
+
+#container.volunteer section#banner {
+  background-image: image-url('volunteer/banner/background.jpg');
+  background-size: cover;
+
+  width: 100%;
+  min-height: 650px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+
+  .section-container {
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: $logo-burger-height $main-padding 0 $main-padding;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h1 {
+      font-size: $title-size;
+      color: #fff;
+      padding: 0 0 0 $sub-padding;
+    }
+  }
+}

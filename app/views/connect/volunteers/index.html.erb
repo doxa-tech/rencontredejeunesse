@@ -1,0 +1,14 @@
+<h2>Bénévolat</h2>
+
+<% if @volunteer %>
+
+<p>Tu es inscrit comme bénévole.</p>
+<% if @volunteer.sector %>
+<p>Tu as choisi comme secteur: <%= t("sector.attributes.#{@volunteer.sector}") %></p>
+<% end %>
+
+<% else %>
+
+<%= link_to "M'inscrire comme bénévole", volunteers_path %>
+
+<% end %>

@@ -25,8 +25,13 @@ When("I click the link {string}") do |link|
 end
 
 When("I miscomplete the form") do
-  find("form").find("button[type=submit]").click
+  find("form").find("input[type=submit]").click
 end
+
+When("I wait {int} hours") do |int|
+  travel int.hours
+end
+
 
 Then("I should see a flash with {string}") do |message|
 	expect(find '#flash').to have_content(message)
@@ -36,4 +41,12 @@ Then("I should see errors for the fields {string}") do |fields|
 	fields.split(",").each do |field|
 		expect(find '#error').to have_content field
 	end
+end
+
+Then ("I should see {string}") do |content|
+  expect(page).to have_content content
+end
+
+Then ("I should not see {string}") do |content|
+  expect(page).not_to have_content content
 end

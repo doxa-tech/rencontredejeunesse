@@ -1,0 +1,27 @@
+$(document).on("turbolinks:load", function() {
+
+  var sectors = JSON.parse('<%= SectorsHelper.sectors_with_label.to_json %>');
+
+  // On first select change
+  $("select#volunteer_area").on('change', function(){
+
+      var selectedId = $(this).val();
+
+      var subItems = sectors[selectedId];
+
+      $("select#volunteer_sector").html('');
+
+      for (var subId in subItems){
+
+          var option = $('<option></option>');
+
+          option.attr('value', subId);
+          option.html(subItems[subId]);
+
+          $("select#volunteer_sector").append(option);
+
+      }
+
+  });
+
+});

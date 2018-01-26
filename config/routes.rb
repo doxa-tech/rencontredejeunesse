@@ -4,15 +4,19 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  %w(login privacy application vision volunteer).each do |page|
+  %w(login privacy application vision).each do |page|
     get page, to: "pages##{page}"
   end
+
+  get "2018", to: "pages#rj2018"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
   get "signin", to: "sessions#new"
 
   post "contact", to: "pages#contact"
+
+  resources :volunteers, only: [:index, :create]
 
   #
   # Users
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
   namespace :users do
 
     resources :verification, only: [:new, :edit]
+    resources :password_resets, only: [:new, :create, :edit, :update]
 
   end
 
@@ -40,6 +45,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show] do
       get "pending", on: :collection
     end
+    resources :volunteers, only: [:index]
 
   end
 

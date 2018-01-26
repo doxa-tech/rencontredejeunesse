@@ -16,7 +16,7 @@
 
         <%= f.text_area :message, placeholder: "Message", cols: 30, rows: 10, required: true %>
 
-        <div class="input"><%= f.submit "Envoyer" %></div>
+        <div class="input <%= yield :id %>"><%= f.submit "Envoyer" %></div>
 
       <% end %>
     </div>

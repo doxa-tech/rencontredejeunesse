@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :protect_with_password, only: :volunteer
+  # before_action :protect_with_password, only: :volunteer
 
   def home
   end
@@ -11,6 +11,11 @@ class PagesController < ApplicationController
   end
 
   def volunteer
+    @volunteer = Volunteer.new
+  end
+
+  def rj2018
+    render "pages/rj/2018"
   end
 
   def contact

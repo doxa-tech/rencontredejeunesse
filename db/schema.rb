@@ -195,8 +195,21 @@ ActiveRecord::Schema.define(version: 20180123175806) do
     t.integer "image_id"
     t.boolean "confirmed", default: false
     t.string "verify_token"
+    t.string "reset_token"
+    t.datetime "reset_sent_at"
     t.index ["image_id"], name: "index_users_on_image_id"
     t.index ["remember_token"], name: "index_users_on_remember_token"
+  end
+
+  create_table "volunteers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "sector"
+    t.text "comment"
+    t.integer "year"
+    t.boolean "confirmed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_volunteers_on_user_id"
   end
 
   add_foreign_key "adeia_action_permissions", "adeia_actions"
