@@ -3,7 +3,7 @@
 
   <div class="user">
     <div><%= current_user.full_name %></div>
-    <div><%= link_to image_tag("icons/gear.png") + " Mon compte", edit_path %></div>
+    <div><%= link_to image_tag("icons/gear.png") + " Mon compte", connect_edit_path %></div>
   </div>
   <div class="signout"><%= link_to "Déconnexion", signout_path, method: :delete %></div>
 

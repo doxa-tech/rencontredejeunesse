@@ -12,7 +12,7 @@
 
       <div class="row">
         <p><strong>Nombre d'entrées:</strong></p>
-        <p><%= @order.product.entries %> (dont <%= @order.product.man_lodging %> lits gars et <%= @order.product.woman_lodging %> lits filles)</p>
+        <p><%= @order.product.entries %> (dont <%= @order.product.man_lodging %> places gars et <%= @order.product.woman_lodging %> places filles)</p>
       </div>
       <% @order.product.participants.each do |participant| %>
         <div class="participant">
@@ -41,7 +41,7 @@
 
       <div class="row">
         <span></span>
-        <button class="edit"><%= link_to " Modifier la commande", { action: "edit" } %></button>
+        <%= link_to " Modifier la commande", { action: "edit" }, class: "button-link" %>
       </div>
     </div>
   <% end %>

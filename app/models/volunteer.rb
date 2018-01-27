@@ -5,4 +5,6 @@ class Volunteer < ApplicationRecord
 
   enum sector: self.SECTORS_TO_ENUM
 
+  validates :comment, length: { maximum: 50 }
+
 end

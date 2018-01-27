@@ -12,7 +12,7 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :product
 
-  validates :conditions, acceptance: true
+  validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true
   validates :human_id, uniqueness: true
 
