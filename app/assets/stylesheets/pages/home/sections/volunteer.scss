@@ -26,7 +26,6 @@
       h2 {
         position: relative;
         z-index: 0;
-        cursor: not-allowed;
         font-size: $title-size;
         line-height: 0.9em;
         padding: 0 0 0 35px;
@@ -43,7 +42,7 @@
         }
 
         &:hover::after {
-          // @include button-bar-hover-right();
+          @include button-bar-hover-right();
         }
       }
     }
