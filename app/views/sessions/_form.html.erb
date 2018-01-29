@@ -17,7 +17,7 @@
     </div>
     <div class="row">
       <span></span>
-      <%= f.button %>
+      <%= f.button class: "main-button" %>
     </div>
   <% end %>
 
@@ -26,6 +26,14 @@
     <p>
       Pas encore inscrit ?
       <%= link_to "S'inscrire", new_user_path %>
+    </p>
+  </div>
+
+  <div class="row">
+    <span></span>
+    <p>
+      Mot de passe oublié?
+      <%= link_to "Réinitialiser le mot de passe", new_users_password_reset_path %>
     </p>
   </div>
 </div>

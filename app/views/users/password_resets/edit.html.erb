@@ -3,7 +3,7 @@
 <div class="content-wrap">
 
   <h2>Réinitialiser son mot de passe</h2>
-  
+
   <div class="standard-form-row">
     <%= form_for @user, url: users_password_reset_path(params[:id]) do |f| %>
 
@@ -25,3 +25,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render "layouts/headers/application" %>

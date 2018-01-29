@@ -5,7 +5,7 @@ class Orders::BaseController < ApplicationController
 
   before_action :closed, only: [:edit, :update, :confirmation, :complete]
   before_action :not_pending, only: [:confirmation, :complete]
-  #before_action :end_from_order
+  #before_action :end_of_order
 
   def check_if_not_signed_in
     redirect_to controller: "orders/users", action: :new, product: controller_name unless signed_in?
@@ -35,7 +35,7 @@ class Orders::BaseController < ApplicationController
     redirect_to root_path, error: "Cette commande est en cours." if @order.pending
   end
 
-  def end_from_order
+  def end_of_order
     redirect_to root_path, error: "Les commandes ne sont plus possibles." unless Rails.env.test?
   end
 
