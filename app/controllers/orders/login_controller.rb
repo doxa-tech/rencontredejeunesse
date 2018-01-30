@@ -1,4 +1,5 @@
 class Orders::LoginController < Orders::BaseController
+  before_action :end_of_order
   before_action :check_if_not_signed_in
   # @order fetched in before action #closed
 
