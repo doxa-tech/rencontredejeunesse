@@ -8,7 +8,7 @@
   </div>
 
   <p>
-    <%= link_to "Aller à mes commandes en cours", pending_connect_orders_path %>
+    <%= link_to "Aller à mes commandes en cours", pending_connect_orders_path, class: "connect-btn-light" %>
   </p>
 
   <% @orders.each do |order| %>

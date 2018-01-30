@@ -1,0 +1,16 @@
+a.connect-btn-light {
+  text-align: center;
+  padding: 15px 30px; 
+  margin: auto;
+  border-radius: 25px; 
+  border: none;
+  margin: 30px 0;
+  background: transparent;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  color: #000;
+
+  &:hover {
+    background: #f4f4f4;
+  }
+}

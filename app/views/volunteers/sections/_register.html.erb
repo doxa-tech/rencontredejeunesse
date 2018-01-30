@@ -34,8 +34,8 @@
 
     <% elsif current_user.volunteer && !current_user.volunteer.new_record? %>
 
-    <p>Bravo ! Tu es déjà inscrit comme bénévole. Toutes les informations sur ton compte.</p>
-    <%= link_to "Espace bénévole", connect_volunteers_path %>
+    <p>Bravo ! Tu es déjà inscrit comme bénévole. Toutes les informations sont sur ton compte <%= link_to "RJ Connect", connect_root_path %>.</p>
+    <p><%= link_to "Espace bénévole", connect_volunteers_path %></p>
 
     <% else %>
 
