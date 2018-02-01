@@ -14,6 +14,11 @@
       <%= "#{current_user.firstname} #{current_user.lastname}" %>
     </div>
 
+    <% unless current_user.valid? %>
+    <!-- TODO: temporary -->
+      <p style="color: red; text-align: center;"><b>Il manque des informations à ton compte. Mets-le à jour dans "Paramètres" !</b></p>
+    <% end %>
+
     <div class="apps">
 
       <%= link_to connect_edit_path, {class: "app", remote: false} do %>
