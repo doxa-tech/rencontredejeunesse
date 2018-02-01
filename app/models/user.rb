@@ -15,9 +15,6 @@ class User < ApplicationRecord
   before_save :create_remember_token
   before_create :create_verify_token
 
-  # TODO
-  scope :with_account, -> { where.not(password_digest: nil) }
-
   validates :firstname, presence: true, length: { maximum: 30 }
   validates :lastname, presence: true, length: { maximum: 30 }
   validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }

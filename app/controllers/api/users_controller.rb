@@ -21,7 +21,7 @@ class Api::UsersController < Api::BaseController
   end
 
   def signin
-    @user = User.with_account.where("lower(email) = ?", params[:user][:email].strip.downcase).first
+    @user = User.where("lower(email) = ?", params[:user][:email].strip.downcase).first
     unless @user && @user.authenticate(params[:user][:password])
       render json: { errors: ["Failed to authenticate user."] }, status: :unauthorized
     end

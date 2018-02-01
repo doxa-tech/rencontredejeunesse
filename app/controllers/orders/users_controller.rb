@@ -31,7 +31,7 @@ class Orders::UsersController < Orders::BaseController
   end
 
   def signin
-    user = User.with_account.where("lower(email) = ?", params[:session][:email].strip.downcase).first
+    user = User.where("lower(email) = ?", params[:session][:email].strip.downcase).first
     if user && user.authenticate(params[:session][:password])
       sign_in user
       redirect_to controller: "orders/#{params[:product]}", action: "new"

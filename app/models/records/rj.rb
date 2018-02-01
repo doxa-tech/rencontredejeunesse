@@ -17,7 +17,6 @@ module Records
     after_initialize :defaults
     before_save :calculate_entries, :calculate_lodging
 
-    # TODO: beds
     def calculate_amount
       return ((entries * Rj.ENTRY_PRICE) + (man_lodging + woman_lodging) * LODGING_PRICE + FEE) * 100
     end
