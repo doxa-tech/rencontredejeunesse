@@ -9,9 +9,20 @@
 
       <%= render 'error_messages', object: f.object %>
 
+      <!-- TODO: temporary -->
+      <% unless @user.valid? %>
+
+        <div class="row">
+          <p class="description">Il manque certaines informations sur ton compte.<br>Merci de remplir les champs ci-dessous.</p>
+        </div>
+
+        <%= render "users/fields/information", f: f %>
+
+      <% end %>
+
       <div class="row">
         <%= f.label :password %>
-        <%= f.password_field :password %>
+        <%= f.password_field :password, placeholder: "Nouveau mot de passe" %>
       </div>
       <div class="row">
         <%= f.label :password_confirmation %>
