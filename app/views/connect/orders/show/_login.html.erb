@@ -1,0 +1,32 @@
+<div id="light-form">
+
+  <div class="row">
+    <p>Nom du groupe</p>
+    <p><%= @order.product.group %></p>
+  </div>
+
+  <div class="row">
+    <p>Nombre d'entrées</p>
+    <p><%= @order.product.entries %></p>
+  </div>
+
+  <div class="row">
+    <h4>Participants</h4>
+  </div>
+
+  <% @order.product.participants.each do |participant| %>
+    <div class="participant">
+      <div class="row tight">
+        <span>Nom</span>
+        <p>
+          <%= t("participants/rj.genders.#{participant.gender}") %>
+          <%= participant.firstname %> <%= participant.lastname %>
+        </p>
+      </div>
+      <div class="row tight">
+        <p>Age</p>
+        <p><%= participant.age %></p>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -13,7 +13,7 @@
 
   <% @orders.each do |order| %>
 
-    <p>Commande n°<%= link_to order.order_id, connect_order_path(order) %></p>
+    <p>Commande n°<%= link_to order.order_id, connect_order_path(order) %> pour la <%= order.product_name.capitalize %></p>
 
   <% end %>
 

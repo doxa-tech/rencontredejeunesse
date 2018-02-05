@@ -7,38 +7,10 @@
     <h1>Commande <sup><%= @order.order_id %></sup></h1>
   </div>
 
-  <p>Ta commande nous est bien parvenue et il n'est plus possible de la modifier</p>
+  <p>Résumé de ta commande pour la <b><%= @order.product_name.capitalize %></b>.</p>
 
-  <div id="light-form">
-    <div class="row">
-      <p><strong>Nombre d'entrées:</strong></p>
-      <p><%= @order.product.entries %> (dont <%= @order.product.man_lodging %> places gars et <%= @order.product.woman_lodging %> places filles)</p>
-    </div>
+  <p>Prix total: <%= @order.print_amount %> CHF</p>
 
-    <% @order.product.participants.each do |participant| %>
-      <div class="participant">
-        <div class="row tight">
-          <span>Nom</span>
-          <p>
-            <%= t("participants/rj.genders.#{participant.gender}") %>
-            <%= participant.firstname %> <%= participant.lastname %>
-          </p>
-        </div>
-        <div class="row tight">
-          <p>Age</p>
-          <p><%= l participant.birthday if participant.birthday %></p>
-        </div>
-        <div class="row tight">
-          <span>Hébergement</span>
-          <p><%= participant.lodging ? "Dors sur place" : "Ne dors PAS sur place" %></p>
-        </div>
-      </div>
-    <% end %>
-
-    <div class="row">
-      <p><strong>Nom du groupe:</strong></p>
-      <p><%= @order.product.group %></p>
-    </div>
-  </div>
+  <%= render "connect/orders/show/#{@order.product_name}" %>
 
 </section>
