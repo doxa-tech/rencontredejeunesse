@@ -162,10 +162,10 @@ ActiveRecord::Schema.define(version: 20180123175806) do
   create_table "records_rj", id: :serial, force: :cascade do |t|
     t.integer "entries"
     t.string "group"
-    t.integer "woman_lodging"
-    t.integer "man_lodging"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "man_lodging"
+    t.integer "woman_lodging"
   end
 
   create_table "testimonies", id: :serial, force: :cascade do |t|
@@ -201,6 +201,17 @@ ActiveRecord::Schema.define(version: 20180123175806) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
+  create_table "volunteers", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "sector"
+    t.text "comment"
+    t.integer "year"
+    t.boolean "confirmed", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_volunteers_on_user_id"
+  end
+
   add_foreign_key "adeia_action_permissions", "adeia_actions"
   add_foreign_key "adeia_action_permissions", "adeia_permissions"
   add_foreign_key "adeia_group_users", "adeia_groups"
@@ -216,4 +227,5 @@ ActiveRecord::Schema.define(version: 20180123175806) do
   add_foreign_key "posts", "users"
   add_foreign_key "testimonies", "users"
   add_foreign_key "users", "images"
+  add_foreign_key "volunteers", "users"
 end
