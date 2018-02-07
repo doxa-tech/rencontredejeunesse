@@ -1,0 +1,18 @@
+<h2>Confirmation</h2>
+
+<p>Votre inscrition de bénévole est confirmé une fois le paiement reçu.</p>
+
+<div>
+  <!-- Order information -->
+  <div>
+    <p>Frais d'inscription</p>
+    <p><b><%= @order.fee %> CHF</b></p>
+  </div>
+  <div>
+    <p>Prix à payer</p>
+    <p><b><%= @order.print_amount %> CHF</b></p>
+  </div>
+</div>
+
+
+<%= render "orders/payments/postfinance" %>

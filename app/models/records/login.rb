@@ -8,7 +8,14 @@ module Records
 
     has_one :order, as: :product
 
-    has_many :participants, class_name: "Participants::Login", foreign_key: "records_login_id", inverse_of: :record
+    has_many :participants, class_name: "Participants::Login", foreign_key: "records_login_id", inverse_of: :record do
+
+      def build_from_user(user)
+        build(user.as_json(only: [:gender, :firstname, :lastname, :email], methods: :age))
+      end
+
+    end
+
     accepts_nested_attributes_for :participants, allow_destroy: true, reject_if: :all_blank
 
     validates :participants, presence: true

@@ -2,13 +2,21 @@ module Records
 
   class Rj < Record
     LODGING_PRICE = 30
+    VOLUNTEER_PRICE = 50
     FEE = 5
 
     self.table_name = 'records_rj'
 
     has_one :order, as: :product
 
-    has_many :participants, class_name: "Participants::Rj", foreign_key: "records_rj_id", inverse_of: :record
+    has_many :participants, class_name: "Participants::Rj", foreign_key: "records_rj_id", inverse_of: :record do
+
+      def build_from_user(user)
+        build(user.as_json(only: [:gender, :firstname, :lastname, :birthday]))
+      end
+
+    end
+    
     accepts_nested_attributes_for :participants, allow_destroy: true, reject_if: :all_blank
 
     validates :participants, presence: true

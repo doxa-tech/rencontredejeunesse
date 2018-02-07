@@ -14,10 +14,6 @@ module Participants
     validates :birthday, presence: true
     validate :must_be_six_years_old
 
-    def self.build_from_user(user)
-      relation.build(user.as_json(only: [:gender, :firstname, :lastname, :birthday]))
-    end
-
     def age
       unless birthday.nil?
         now = Date.today

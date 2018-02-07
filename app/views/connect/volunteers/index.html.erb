@@ -9,11 +9,24 @@
 
   <% if @volunteer %>
 
-  <p>Tu es inscrit comme bénévole.</p>
-  <% if @volunteer.sector %>
-  <p>Tu as choisi comme secteur: <%= t("sector.attributes.#{@volunteer.sector}") %></p>
-  <% end %>
-  <p>Inscription à prix préférentiel bientôt disponible.</p>
+    <p>Félicitation ! Tu es inscrit comme bénévole.</p>
+    <% if @volunteer.sector %>
+    <p>Tu as choisi comme secteur: <%= t("sector.attributes.#{@volunteer.sector}") %></p>
+    <% else %>
+    <p>Tu n'as pas donné de préférences pour le secteur.</p>
+    <% end %>
+
+    <% if @volunteer.confirmed %>
+
+    <p>Ton inscription bénévole est confirmée ! Tu peux visualiser ta commande dans "Mes commandes".</p>
+
+    <% else %>
+
+    <p>Commander et payer son entrée pour la RJ au prix préférentiel de 50 CHF confirme définitivement votre engagement lors de l'événement.</p>
+    <%= link_to "Commander mon entrée", confirmation_connect_volunteers_path, method: :post,
+      data: { confirm: "Commander son entrée en tant que bénévole confirme votre engagement lors de l'événement. Etes-vous sûr de vouloir continuer ?" } %>
+
+    <% end %>
 
   <% else %>
 
