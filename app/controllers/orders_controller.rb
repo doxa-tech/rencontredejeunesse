@@ -20,6 +20,7 @@ class OrdersController < Orders::BaseController
   def update
     if params[:SHASIGN] == shaout.upcase
       @order = Order.find_by_order_id(params[:orderID])
+      @order.amount = params[:amount]
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]
       @order.save

@@ -17,7 +17,7 @@ class Order < ApplicationRecord
   validates :human_id, uniqueness: true
 
   after_create :generate_id
-  before_validation :assign_amount, :assign_payment_method
+  before_validation :assign_amount, :assign_payment_method, unless: :paid?
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
@@ -44,11 +44,15 @@ class Order < ApplicationRecord
   end
 
   def human_status
-    if status == 5 || status == 9
+    if paid?
       "Payé"
     else
       "Non payé"
     end
+  end
+
+  def paid?
+    status == 5 || status == 9
   end
 
   private

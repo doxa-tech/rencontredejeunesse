@@ -36,7 +36,8 @@ RSpec.describe OrdersController, :type => :controller do
     end
 
     it "confirms a volunteer" do
-      @order.update_attribute(:lump_sum, (Records::Rj::VOLUNTEER_PRICE + Records::Rj::FEE) * 100)
+      @order.lump_sum = (Records::Rj::VOLUNTEER_PRICE + Records::Rj::FEE) * 100
+      @order.save!
       volunteer = @order.user.create_volunteer(year: 2018)
       post :update, params: {
         orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
