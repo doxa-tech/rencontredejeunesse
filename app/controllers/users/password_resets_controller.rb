@@ -8,7 +8,7 @@ class Users::PasswordResetsController < ApplicationController
     unless user.nil?
       user.reset_token =  SecureRandom.urlsafe_base64
       user.reset_sent_at = Time.zone.now
-      user.save(validate: false) # TODO: temporary
+      user.save!(validate: false) # TODO: temporary
       UserMailer.password_reset(user).deliver_now
     end
     redirect_to root_path, success: "Un email avec les instructions t'a été envoyé"
