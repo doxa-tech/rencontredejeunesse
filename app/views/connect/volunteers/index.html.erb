@@ -23,8 +23,11 @@
     <% else %>
 
     <p>Commander et payer son entrée pour la RJ au prix préférentiel de 50 CHF confirme définitivement votre engagement lors de l'événement.</p>
-    <%= link_to "Commander mon entrée", confirmation_connect_volunteers_path, method: :post,
-      data: { confirm: "Commander son entrée en tant que bénévole confirme votre engagement lors de l'événement. Etes-vous sûr de vouloir continuer ?" } %>
+    <p><center>
+      <%= link_to "Commander mon entrée", confirmation_connect_volunteers_path, method: :post,
+      data: { confirm: "Commander son entrée en tant que bénévole confirme votre engagement lors de l'événement. Etes-vous sûr de vouloir continuer ?" },
+      class: "connect-btn-light" %>
+    </center></p>
 
     <% end %>
 

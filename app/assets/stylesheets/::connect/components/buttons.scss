@@ -1,4 +1,4 @@
-a.connect-btn-light {
+@mixin connect-btn-light-mixin {
   text-align: center;
   padding: 15px 30px; 
   margin: auto;
@@ -13,4 +13,13 @@ a.connect-btn-light {
   &:hover {
     background: #f4f4f4;
   }
+}
+
+a.connect-btn-light, input.connect-btn-light {
+  @include connect-btn-light-mixin;
+}
+
+a.connect-btn-light-full, input.connect-btn-light-full {
+  @include connect-btn-light-mixin;
+  width: 100%;
 }

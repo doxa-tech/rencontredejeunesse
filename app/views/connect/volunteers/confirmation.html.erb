@@ -1,18 +1,27 @@
-<h2>Confirmation</h2>
+<% content_for :id, "volunteers-confirmation" %>
 
-<p>Votre inscrition de bénévole est confirmé une fois le paiement reçu.</p>
+<section class="content-wrap">
 
-<div>
-  <!-- Order information -->
-  <div>
-    <p>Frais d'inscription</p>
-    <p><b><%= @order.fee %> CHF</b></p>
+  <div id="connect-header">
+    <%= link_to image_tag("connect/layout/back.svg", class: "back"), connect_volunteers_path, remote: false %>
+    <h1>Confirmation</h1>
   </div>
-  <div>
-    <p>Prix à payer</p>
-    <p><b><%= @order.print_amount %> CHF</b></p>
+
+  <p>Votre inscrition de bénévole est confirmé une fois le paiement reçu.</p>
+
+  <div id="light-form">
+    <!-- Order information -->
+    <div class="row">
+      <p>Frais d'inscription</p>
+      <p><b><%= @order.fee %> CHF</b></p>
+    </div>
+    <div class="row">
+      <p>Prix à payer</p>
+      <p><b><%= @order.print_amount %> CHF</b></p>
+    </div>
   </div>
-</div>
 
 
-<%= render "orders/payments/postfinance" %>
+  <%= render "orders/payments/postfinance" %>
+
+</section>
