@@ -1,8 +1,8 @@
 <% content_for :id, "volunteers-index" %>
 
 <%= content_for :header do %>
-  <%= render "connect/page_header", 
-    link: connect_root_path, 
+  <%= render "connect/page_header",
+    link: connect_root_path,
     title: "Bénévolat" %>
 <% end %>
 
@@ -23,13 +23,28 @@
 
   <% else %>
 
-  <p>Commander et payer son entrée pour la RJ au prix préférentiel de 50 CHF confirme définitivement votre engagement lors de l'événement.</p>
-  
-  <p class="center link">
-    <%= link_to "Commander mon entrée", confirmation_connect_volunteers_path, method: :post,
-    data: { confirm: "Commander son entrée en tant que bénévole confirme votre engagement lors de l'événement. Etes-vous sûr de vouloir continuer ?" },
-    class: "connect-btn-light-dark long-connect-btn" %>
-  </p>
+  <h2>Commander</h2>
+
+  <div id="light-form">
+
+    <%= form_tag confirmation_connect_volunteers_path do %>
+
+    <div class="row">
+      <p>Commander et payer son entrée pour la RJ au prix préférentiel de 50 CHF confirme définitivement votre engagement lors de l'événement.</p>
+    </div>
+
+    <div class="row">
+      <%= label_tag :lodging, "Veux-tu dormir sur place (+ 30 CHF) ?" %>
+      <%= check_box_tag :lodging %>
+    </div>
+
+    <div class="submit">
+      <%= submit_tag "Commander mon entrée", class: "connect-btn-light-dark long-connect-btn",
+        data: { confirm: "Commander son entrée en tant que bénévole confirme votre engagement lors de l'événement. Etes-vous sûr de vouloir continuer ?" } %>
+    </div>
+
+    <% end %>
+  </div>
 
   <% end %>
 
@@ -40,4 +55,3 @@
   </p>
 
 <% end %>
-

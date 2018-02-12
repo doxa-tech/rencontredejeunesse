@@ -13,8 +13,8 @@ module Records
 
     has_many :participants, class_name: "Participants::Rj", foreign_key: "records_rj_id", inverse_of: :record do
 
-      def build_from_user(user)
-        build(user.as_json(only: [:gender, :firstname, :lastname, :birthday]))
+      def build_from_user(user, params = {})
+        build(user.as_json(only: [:gender, :firstname, :lastname, :birthday]).merge(params))
       end
 
     end
