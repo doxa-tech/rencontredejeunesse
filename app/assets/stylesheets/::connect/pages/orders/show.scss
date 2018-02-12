@@ -1,6 +1,19 @@
 #connect-container.orders-show {
 
-  section.content-wrap {
+  &::before, &::after {
+    background-color:  #ffffff;
+  }
 
+  div.connect-container-wrapper {
+    background-color: #ffffff;
+    color: #333;
+
+    p:first-of-type {
+      padding-top: 40px;
+    }
+
+    p {
+      padding: 0 0 20px 0;
+    }
   }
 }

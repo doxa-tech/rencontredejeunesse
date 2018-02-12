@@ -1,3 +1,5 @@
+@import "variables";
+
 @mixin connect-btn-light-mixin {
   text-align: center;
   padding: 15px 30px; 
@@ -22,4 +24,45 @@ a.connect-btn-light, input.connect-btn-light {
 a.connect-btn-light-full, input.connect-btn-light-full {
   @include connect-btn-light-mixin;
   width: 100%;
+}
+
+
+@mixin connect-btn-light-dark-mixin {
+  text-align: center;
+  padding: 15px 30px; 
+  margin: auto;
+  border-radius: 25px; 
+  border: none;
+  margin: 30px 0;
+  background: transparent;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  color: #fff;
+  // Needed for orders/payement/postfinance in volunteer
+  font-size: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+
+  &:hover {
+    background: rgba(244, 244, 244, 0.34);
+  }
+}
+
+a.connect-btn-light-dark, input.connect-btn-light-dark {
+  @include connect-btn-light-dark-mixin;
+}
+
+a.connect-btn-light-dark-full, input.connect-btn-light-dark-full {
+  @include connect-btn-light-dark-mixin;
+  width: 100%;
+}
+
+@media only screen and (max-width: $mobile-width) {
+  a.long-connect-btn {
+    border-radius: 0px !important;
+    border: none !important;
+    padding: 0px 0 3px 0 !important;
+    border-bottom: 1px dashed #fff !important;
+    line-height: 1.5em !important;
+  }
 }

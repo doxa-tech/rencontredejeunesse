@@ -13,8 +13,8 @@
 
     .name {
       font-size: 30px;
-      font-weight: 100;
-      color: #888;
+      font-weight: 200;
+      color: #fff;
       text-align: center;
       padding: 20px 0 0 0;
     }
@@ -22,21 +22,25 @@
     .apps {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
+
       padding: 100px 0 50px 0;
       
       .app {
         display: flex;
         justify-content: center;
         flex-direction: column;
+
         text-align: center;
         width: 90px;
-        color: #888;
+        color: #fff;
+        padding: 0 0 10px 0;
 
         .icon {
           width: 64px;
           height: 64px;
           background: red;
-          background: linear-gradient(red, #FF7600);
+          background: linear-gradient(#FF2D55, rgb(226, 25, 62));
           border-radius: 16px;
           align-self: center;
           position: relative;
@@ -47,13 +51,11 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -50%);
-            opacity: .5;
+            opacity: .7;
           }
         }
 
         .app-name {
-          // font-family: "Latina essential";
-          font-weight: 100;
           padding: 10px 0 0 0;
           font-size: 12px;
         }

@@ -1,13 +1,13 @@
 <div id="light-form">
 
   <div class="row">
-    <p>Nom du groupe</p>
-    <p><%= @order.product.group %></p>
+    <div>Nom du groupe</div>
+    <div><%= @order.product.group %></div>
   </div>
 
   <div class="row">
-    <p>Nombre d'entrées</p>
-    <p><%= @order.product.entries %></p>
+    <div>Nombre d'entrées</div>
+    <div><%= @order.product.entries %></div>
   </div>
 
   <div class="row">
@@ -18,14 +18,14 @@
     <div class="participant">
       <div class="row tight">
         <span>Nom</span>
-        <p>
+        <div>
           <%= t("participants/rj.genders.#{participant.gender}") %>
           <%= participant.firstname %> <%= participant.lastname %>
-        </p>
+        </div>
       </div>
       <div class="row tight">
-        <p>Age</p>
-        <p><%= participant.age %></p>
+        <div>Age</div>
+        <div><%= participant.age %></div>
       </div>
     </div>
   <% end %>

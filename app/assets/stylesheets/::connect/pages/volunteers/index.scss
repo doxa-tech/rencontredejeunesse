@@ -1,5 +1,27 @@
 #connect-container.volunteers-index {
 
-  section.content-wrap {
+  &::after, &::before {
+
+  }
+
+  div.connect-container-wrapper{
+
+    img {
+      width: 120px;
+      padding: 0 0 20px 0;
+    }
+
+    p {
+      padding: 0 0 20px 0;
+      line-height: 1.4em;
+    }
+
+    p.center {
+      text-align: center;
+    }
+
+    p.link {
+      padding: 30px 0;
+    }
   }
 }

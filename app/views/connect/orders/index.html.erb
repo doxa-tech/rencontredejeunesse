@@ -1,20 +1,18 @@
 <% content_for :id, "orders-index" %>
 
-<section class="content-wrap">
+<%= content_for :header do %>
+  <%= render "connect/page_header", 
+    link: connect_root_path, 
+    title: "Mes commandes" %>
+<% end %>
 
-  <div id="connect-header">
-    <%= link_to image_tag("connect/layout/back.svg", class: "back"), connect_root_path, remote: false %>
-    <h1>Mes commandes</h1>
-  </div>
+<p class="center link">
+  <%= link_to "Aller à mes commandes en cours", pending_connect_orders_path, class: "connect-btn-light-dark long-connect-btn" %>
+</p>
 
-  <p><center>
-    <%= link_to "Aller à mes commandes en cours", pending_connect_orders_path, class: "connect-btn-light" %>
-  </center></p>
+<% @orders.each do |order| %>
 
-  <% @orders.each do |order| %>
+  <p>Commande n°<%= link_to order.order_id, connect_order_path(order) %> pour la <%= order.product_name.capitalize %></p>
 
-    <p>Commande n°<%= link_to order.order_id, connect_order_path(order) %> pour la <%= order.product_name.capitalize %></p>
+<% end %>
 
-  <% end %>
-
-</section>

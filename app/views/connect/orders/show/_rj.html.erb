@@ -1,13 +1,13 @@
 <div id="light-form">
 
   <div class="row">
-    <p>Nom du groupe</p>
-    <p><%= @order.product.group %></p>
+    <div>Nom du groupe</div>
+    <div><%= @order.product.group %></div>
   </div>
 
   <div class="row">
-    <p>Nombre d'entrées</p>
-    <p><%= @order.product.entries %> (dont <%= @order.product.man_lodging %> places gars et <%= @order.product.woman_lodging %> places filles)</p>
+    <div>Nombre d'entrées</div>
+    <div><%= @order.product.entries %> (dont <%= @order.product.man_lodging %> places gars et <%= @order.product.woman_lodging %> places filles)</div>
   </div>
 
   <div class="row">
@@ -17,19 +17,19 @@
   <% @order.product.participants.each do |participant| %>
     <div class="participant">
       <div class="row tight">
-        <p>Nom</p>
-        <p>
+        <div>Nom</div>
+        <div>
           <%= t("participants/rj.genders.#{participant.gender}") %>
           <%= participant.firstname %> <%= participant.lastname %>
-        </p>
+        </div>
       </div>
       <div class="row tight">
-        <p>Age</p>
-        <p><%= l participant.birthday if participant.birthday %></p>
+        <div>Age</div>
+        <div><%= l participant.birthday if participant.birthday %></div>
       </div>
       <div class="row tight">
         <span>Hébergement</span>
-        <p><%= participant.lodging ? "Dors sur place" : "Ne dors PAS sur place" %></p>
+        <div><%= participant.lodging ? "Dors sur place" : "Ne dors PAS sur place" %></div>
       </div>
     </div>
   <% end %>

@@ -10,21 +10,23 @@ header#connect-header {
     align-items: flex-start;
     justify-content: flex-start;
 
-    img.logo {
+    svg.logo {
       width: 120px;
+      fill: #fff;
     }
 
     a.back {
       padding: 10px 0 0 5px;
       font-family: "Helvetica neue", "Helvetica", sans-serif;
       font-size: 10px;
-      color: #000;
+      color: #fff;
     }
   }
 
   div.right {
-    img.logout {
+    svg.logout {
       width: 30px;
+      fill: #fff;
     }
   }
 }

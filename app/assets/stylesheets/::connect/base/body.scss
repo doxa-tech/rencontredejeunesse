@@ -1,0 +1,12 @@
+body, html {
+  min-height: 100vh;
+}
+
+body {
+  background-image: image-url("connect/layout/blue-montain.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+}

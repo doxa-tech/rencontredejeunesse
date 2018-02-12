@@ -1,3 +1,5 @@
+@import "variables";
+
 #light-form {
 
   div#error {
@@ -20,6 +22,7 @@
   div.row {
     padding: 15px 0;
     display: flex;
+    flex-direction: row;
 
     & > *:nth-child(1) {
       padding: 0 10px 0 0;
@@ -81,4 +84,13 @@
     }
   }
 
+  p.description {
+    color: #797979;
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    div.row {
+      flex-direction: column !important;
+    }
+  }
 }
