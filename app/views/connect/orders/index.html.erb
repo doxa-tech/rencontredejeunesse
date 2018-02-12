@@ -10,9 +10,13 @@
   <%= link_to "Aller à mes commandes en cours", pending_connect_orders_path, class: "connect-btn-light-dark long-connect-btn" %>
 </p>
 
-<% @orders.each do |order| %>
+<div class="connect-list-view">
+  <% @orders.each do |order| %>
+  
+    <div class="item">
+      Commande n°<%= truncate(order.order_id, length: 3, omission: "") %> pour la <%= order.product_name.capitalize %>
+      <%= link_to "", connect_order_path(order), class: "overlay" %>
+    </div>
 
-  <p>Commande n°<%= link_to order.order_id, connect_order_path(order) %> pour la <%= order.product_name.capitalize %></p>
-
-<% end %>
-
+  <% end %>
+</div>
