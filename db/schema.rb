@@ -114,7 +114,7 @@ ActiveRecord::Schema.define(version: 20180212181725) do
     t.integer "payment_method", default: 0
     t.text "note"
     t.boolean "pending", default: false
-    t.integer "type", default: 0
+    t.integer "case", default: 0
     t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

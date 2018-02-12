@@ -4,6 +4,7 @@ Feature: Order as a volunteer
   As a volunteer
   I want to order an entry
 
+  @wip
   Scenario: I successfully order an entry
     Given I am a volunteer
     And I am signed in
