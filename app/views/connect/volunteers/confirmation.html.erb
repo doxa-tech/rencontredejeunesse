@@ -1,8 +1,8 @@
 <% content_for :id, "volunteers-confirmation" %>
 
 <%= content_for :header do %>
-  <%= render "connect/page_header", 
-    link: connect_volunteers_path, 
+  <%= render "connect/page_header",
+    link: connect_volunteers_path,
     title: "Confirmation" %>
 <% end %>
 
@@ -12,7 +12,7 @@
   <!-- Order information -->
   <div class="row">
     <p>Frais d'inscription</p>
-    <p><b><%= @order.fee %> CHF</b></p>
+    <p><b><%= Recors::Rj::VOLUNTEER_FEE %> CHF</b></p>
   </div>
   <div class="row">
     <p>Prix à payer</p>
@@ -22,4 +22,3 @@
 
 
 <%= render "orders/payments/postfinance" %>
-

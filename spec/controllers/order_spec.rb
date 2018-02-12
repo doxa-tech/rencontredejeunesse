@@ -36,7 +36,7 @@ RSpec.describe OrdersController, :type => :controller do
     end
 
     it "confirms a volunteer" do
-      @order.lump_sum = (Records::Rj::VOLUNTEER_PRICE + Records::Rj::FEE) * 100
+      @order.lump_sum = (Records::Rj::VOLUNTEER_TOTAL) * 100
       @order.save!
       volunteer = @order.user.create_volunteer(year: 2018)
       post :update, params: {
