@@ -6,6 +6,7 @@ class Order < ApplicationRecord
   attr_accessor :conditions, :lump_sum
 
   enum payment_method: [:postfinance, :invoice]
+  enum case: [:regular, :volunteer]
 
   belongs_to :user
   belongs_to :product, polymorphic: true
