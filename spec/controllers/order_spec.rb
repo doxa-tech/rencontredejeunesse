@@ -35,6 +35,17 @@ RSpec.describe OrdersController, :type => :controller do
       expect(response.status).to be(422)
     end
 
+    it "confirms a volunteer" do
+      @order.lump_sum = (Records::Rj::VOLUNTEER_TOTAL) * 100
+      @order.case = :volunteer
+      @order.save!
+      volunteer = @order.user.create_volunteer(year: 2018)
+      post :update, params: {
+        orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
+      }
+      expect(volunteer.reload.confirmed).to eq true
+    end
+
   end
 
   describe "#complete" do

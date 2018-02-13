@@ -14,6 +14,13 @@ FactoryBot.define do
     password "carottes"
     password_confirmation "carottes"
     confirmed true
+
+    factory :volunteer do
+      after(:create) do |user|
+        user.create_volunteer(year: 2018)
+      end
+    end
+
   end
 
   factory :rj, class: Records::Rj do

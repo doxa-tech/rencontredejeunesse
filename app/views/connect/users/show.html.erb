@@ -1,46 +1,40 @@
 <% content_for :id, "users-show" %>
 
-<section class="content-wrap">
+<div class="avatar">
+  <%= image_tag "connect/user.svg" %>
+</div>
 
-  <%# <div id="render-wrap">
-    <p>L'espace RJ Connect est en cours d'élaboration. Tu y trouveras prochainement de nouvelles fonctionnalités comme consulter tes commandes, t'inscrire comme bénévole ou même (qui sait?) un shop en ligne.</p>
-  </div> %>
+<div class="name">
+  <%= "#{current_user.firstname} #{current_user.lastname}" %>
+</div>
 
-    <div class="avatar">
-      <%= image_tag "connect/user.svg" %>
-    </div>
+<% unless current_user.valid? %>
+<!-- TODO: temporary -->
+  <p class="update-required">Il manque des informations à ton compte. Mets-le à jour dans "Paramètres" !</p>
+<% end %>
 
-    <div class="name">
-      <%= "#{current_user.firstname} #{current_user.lastname}" %>
-    </div>
+<div class="apps">
 
-    <% unless current_user.valid? %>
-    <!-- TODO: temporary -->
-      <p style="color: red; text-align: center;"><b>Il manque des informations à ton compte. Mets-le à jour dans "Paramètres" !</b></p>
-    <% end %>
+  <%= link_to connect_edit_path, {class: "app", remote: false} do %>
+    <div class="icon"><%= image_tag 'connect/home/adjust.svg' %></div>
+    <span class="app-name">Paramètres</span>
+  <% end %>
 
-    <div class="apps">
+  <%= link_to connect_orders_path, {class: "app", remote: false} do %>
+    <div class="icon"><%= image_tag 'connect/home/ticket.svg' %></div>
+    <span class="app-name">Achats</span>
+  <% end %>
 
-      <%= link_to connect_edit_path, {class: "app", remote: false} do %>
-        <div class="icon"><%= image_tag 'connect/home/adjust.svg' %></div>
-        <span class="app-name">Paramètres</span>
-      <% end %>
-
-      <%= link_to connect_orders_path, {class: "app", remote: false} do %>
-        <div class="icon"><%= image_tag 'connect/home/ticket.svg' %></div>
-        <span class="app-name">Achats</span>
-      <% end %>
-
-      <%= link_to connect_volunteers_path, {class: "app", remote: false} do %>
-        <div class="icon"><%= image_tag 'connect/home/power.svg' %></div>
-        <span class="app-name">Bénévolat</span>
-      <% end %>
+  <%= link_to connect_volunteers_path, {class: "app", remote: false} do %>
+    <div class="icon"><%= image_tag 'connect/home/power.svg' %></div>
+    <span class="app-name">Bénévolat</span>
+  <% end %>
 <!--
-      <%= link_to "#", {class: "app", remote: true} do %>
-        <div class="icon"><%= image_tag 'connect/home/candy.svg' %></div>
-        <span class="app-name">Goodies</span>
-      <% end %>
+  <%= link_to "#", {class: "app", remote: true} do %>
+    <div class="icon"><%= image_tag 'connect/home/candy.svg' %></div>
+    <span class="app-name">Goodies</span>
+  <% end %>
 -->
-    </div>
+</div>
 
-</section>
+

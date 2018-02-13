@@ -1,20 +1,23 @@
 <% content_for :id, "orders-pending" %>
 
-<section class="content-wrap">
+<%= content_for :header do %>
+  <%= render "connect/page_header", 
+    link: connect_orders_path, 
+    title: "Commandes en cours" %>
+<% end %>
 
-  <div id="connect-header">
-    <%= link_to image_tag("connect/layout/back.svg", class: "back"), connect_orders_path, remote: false %>
-    <h1>Commandes en cours</h1>
-  </div>
+<% if @orders.empty?%>
 
-  <% @orders.each do |order| %>
+  <p>Aucune commande en cours.</p>
 
-    <%= order.order_id %> /
-    <%= order.product_name.capitalize %> /
-    <%= l order.created_at, format: :date %> /
-    <%= link_to "Continuer", controller: "orders/#{order.product_name}", action: "edit", id: order.order_id %>
-    <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
+<% end %>
 
-  <% end %>
+<% @orders.each do |order| %>
 
-</div>
+  <%= order.order_id %> /
+  <%= order.product_name.capitalize %> /
+  <%= l order.created_at, format: :date %> /
+  <%= link_to "Continuer", controller: "orders/#{order.product_name}", action: "edit", id: order.order_id %>
+  <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
+
+<% end %>

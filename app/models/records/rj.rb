@@ -3,19 +3,29 @@ module Records
   class Rj < Record
     LODGING_PRICE = 30
     FEE = 5
+    VOLUNTEER_PRICE = 50
+    VOLUNTEER_FEE = 3
+    VOLUNTEER_TOTAL = VOLUNTEER_PRICE + VOLUNTEER_FEE
 
     self.table_name = 'records_rj'
 
     has_one :order, as: :product
 
-    has_many :participants, class_name: "Participants::Rj", foreign_key: "records_rj_id", inverse_of: :record
+    has_many :participants, class_name: "Participants::Rj", foreign_key: "records_rj_id", inverse_of: :record do
+
+      def build_from_user(user, params = {})
+        build(user.as_json(only: [:gender, :firstname, :lastname, :birthday]).merge(params))
+      end
+
+    end
+
     accepts_nested_attributes_for :participants, allow_destroy: true, reject_if: :all_blank
 
     validates :participants, presence: true
     validates :group, length: { maximum: 70 }
 
     after_initialize :defaults
-    before_save :calculate_entries, :calculate_lodging
+    before_validation :calculate_entries, :calculate_lodging
 
     def calculate_amount
       return ((entries * Rj.ENTRY_PRICE) + (man_lodging + woman_lodging) * LODGING_PRICE + FEE) * 100

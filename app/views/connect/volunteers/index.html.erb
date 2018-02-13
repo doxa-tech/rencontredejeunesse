@@ -1,24 +1,57 @@
 <% content_for :id, "volunteers-index" %>
 
-<section class="content-wrap">
+<%= content_for :header do %>
+  <%= render "connect/page_header",
+    link: connect_root_path,
+    title: "Bénévolat" %>
+<% end %>
 
-  <div id="connect-header">
-    <%= link_to image_tag("connect/layout/back.svg", class: "back"), connect_root_path, remote: false %>
-    <h1>Bénévolat</h1>
-  </div>
+<% if @volunteer %>
 
-  <% if @volunteer %>
+  <p class="center"><%= image_tag "connect/volunteers/medal.svg" %></p>
 
-  <p>Tu es inscrit comme bénévole.</p>
+  <p>Félicitation ! Tu es inscrit comme bénévole.</p>
   <% if @volunteer.sector %>
   <p>Tu as choisi comme secteur: <%= t("sector.attributes.#{@volunteer.sector}") %></p>
+  <% else %>
+  <p>Tu n'as pas donné de préférences pour le secteur.</p>
   <% end %>
-  <p>Inscription à prix préférentiel bientôt disponible.</p>
+
+  <% if @volunteer.confirmed %>
+
+  <p>Ton inscription bénévole est confirmée ! Tu peux visualiser ta commande dans "Achats".</p>
 
   <% else %>
 
-  <%= link_to "M'inscrire comme bénévole", volunteers_path(anchor: "letsgo"), "data-turbolinks" => "false" %>
+  <h2>Commander</h2>
+
+  <div id="light-form">
+
+    <%= form_tag confirmation_connect_volunteers_path do %>
+
+    <div class="row">
+      <p>Commander et payer son entrée pour la RJ au prix préférentiel de 50 CHF confirme définitivement votre engagement lors de l'événement.</p>
+    </div>
+
+    <div class="row">
+      <%= label_tag :lodging, "Veux-tu dormir sur place (+ 30 CHF) ?" %>
+      <%= check_box_tag :lodging %>
+    </div>
+
+    <div class="submit">
+      <%= submit_tag "Commander mon entrée", class: "connect-btn-light-dark long-connect-btn",
+        data: { confirm: "Commander son entrée en tant que bénévole confirme votre engagement lors de l'événement. Etes-vous sûr de vouloir continuer ?" } %>
+    </div>
+
+    <% end %>
+  </div>
 
   <% end %>
 
-</section>
+<% else %>
+
+  <p class="center">
+    <%= link_to "M'inscrire comme bénévole", volunteers_path(anchor: "letsgo"), "data-turbolinks" => "false", class: "connect-btn-light-dark long-connect-btn" %>
+  </p>
+
+<% end %>

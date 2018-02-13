@@ -3,9 +3,10 @@ class Order < ApplicationRecord
   PSPID = Rails.application.secrets.postfinance_pspid
   INVOICE_LIMIT = 800
 
-  attr_accessor :conditions
+  attr_accessor :conditions, :lump_sum
 
   enum payment_method: [:postfinance, :invoice]
+  enum case: [:regular, :volunteer]
 
   belongs_to :user
   belongs_to :product, polymorphic: true
@@ -17,7 +18,7 @@ class Order < ApplicationRecord
   validates :human_id, uniqueness: true
 
   after_create :generate_id
-  before_save :assign_amount_and_payment_method
+  before_validation :assign_amount, :assign_payment_method, unless: :paid?
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
@@ -44,22 +45,35 @@ class Order < ApplicationRecord
   end
 
   def human_status
-    if status == 5 || status == 9
+    if paid?
       "Payé"
     else
       "Non payé"
     end
   end
 
+  def paid?
+    status == 5 || status == 9
+  end
+
   private
 
-  def assign_amount_and_payment_method
-    self.amount = product.calculate_amount
-    self.payment_method = "invoice" if (self.amount / 100) > INVOICE_LIMIT
+  # careful: lump_sum must be set each time an object is saved
+  def assign_amount
+    if lump_sum
+      self.amount = lump_sum
+    else
+      self.amount = product.calculate_amount
+      self.amount = calculate_discount
+    end
   end
 
   def assign_payment_method
+    self.payment_method = "invoice" if (self.amount / 100) > INVOICE_LIMIT
+  end
 
+  def calculate_discount
+    self.amount
   end
 
   def generate_id

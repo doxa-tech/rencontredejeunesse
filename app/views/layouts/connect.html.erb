@@ -21,8 +21,17 @@
       <%= render 'layouts/flash' %>
     </div>
 
-    <div id="connect-container" class="<%= yield :id %>">
-      <%= yield %>
+    <div id="connect-main-container">
+      <div id="connect-header">
+        <div class="connect-header-wrapper">
+          <%= yield :header %>
+        </div>
+      </div>
+      <div id="connect-container" class="<%= yield :id %>">
+        <div class="connect-container-wrapper">
+          <%= yield %>
+        </div>
+      </div>
     </div>
 
     <footer>

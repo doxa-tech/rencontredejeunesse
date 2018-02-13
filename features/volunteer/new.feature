@@ -8,7 +8,7 @@ Feature: I sign up as a volunteer
     Given I am a confirmed user
     And I am signed in
 
-  @javascript @wip
+  @javascript
   Scenario: I successfully sign up as a volunteer
     When I visit "/volunteers"
     And I complete the volunteer form

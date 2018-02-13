@@ -1,0 +1,24 @@
+<% content_for :id, "volunteers-confirmation" %>
+
+<%= content_for :header do %>
+  <%= render "connect/page_header",
+    link: connect_volunteers_path,
+    title: "Confirmation" %>
+<% end %>
+
+<p>Votre inscrition de bénévole est confirmé une fois le paiement reçu.</p>
+
+<div id="light-form">
+  <!-- Order information -->
+  <div class="row">
+    <p>Frais d'inscription</p>
+    <p><b><%= Records::Rj::VOLUNTEER_FEE %> CHF</b></p>
+  </div>
+  <div class="row">
+    <p>Prix à payer</p>
+    <p><b><%= @order.print_amount %> CHF</b></p>
+  </div>
+</div>
+
+
+<%= render "orders/payments/postfinance" %>

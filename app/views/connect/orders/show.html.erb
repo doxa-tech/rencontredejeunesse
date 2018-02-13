@@ -1,16 +1,15 @@
 <% content_for :id, "orders-show" %>
 
-<section class="content-wrap">
+<%= content_for :header do %>
+  <%= render "connect/page_header", 
+    link: connect_orders_path, 
+    title: "Commande #{truncate(@order.order_id, length: 3, omission: "")}" %>
+<% end %>
 
-  <div id="connect-header">
-    <%= link_to image_tag("connect/layout/back.svg", class: "back"), connect_orders_path, remote: false %>
-    <h1>Commande <sup><%= @order.order_id %></sup></h1>
-  </div>
+<p>Résumé de ta commande pour la <b><%= @order.product_name.capitalize %></b>.</p>
 
-  <p>Résumé de ta commande pour la <b><%= @order.product_name.capitalize %></b>.</p>
+<p class="price">Prix total: <%= @order.print_amount %> CHF</p>
 
-  <p>Prix total: <%= @order.print_amount %> CHF</p>
+<%= render "connect/orders/show/#{@order.product_name}" %>
 
-  <%= render "connect/orders/show/#{@order.product_name}" %>
-
-</section>
+<p class="number">Commande n°<%= @order.order_id %></p>

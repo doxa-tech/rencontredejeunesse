@@ -1,18 +1,38 @@
+@import "variables.scss";
+
 div#connect-header {
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
-  padding: 0 0 30px 0;
-
-  img.back {
-    width: 32px;
+  
+  &::before, &::after {
+    content: "";
+    flex: 1;
   }
 
-  h1 {
-    font-size: 30px;
-    font-weight: 100;
-    color: #888;
-    text-align: center;
+  div.connect-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     flex: 1;
+
+    padding: 0 0 30px 0;
+    max-width: $max-width;
+
+    svg.back {
+      width: 32px;
+      fill: #fff;
+    }
+
+    h1 {
+      font-size: 30px;
+      font-weight: 300;
+      color: #fff;
+      text-align: center;
+      flex: 1;
+    }
+
+    div.right {
+      width: 32px;
+    }
   }
 }

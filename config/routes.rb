@@ -45,7 +45,9 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show] do
       get "pending", on: :collection
     end
-    resources :volunteers, only: [:index]
+    resources :volunteers, only: [:index] do
+      post "confirmation", on: :collection
+    end
 
   end
 
