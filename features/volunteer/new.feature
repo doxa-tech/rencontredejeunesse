@@ -12,7 +12,7 @@ Feature: I sign up as a volunteer
   Scenario: I successfully sign up as a volunteer
     When I visit "/volunteers"
     And I complete the volunteer form
-    Then I should see a flash with "BIENVENUE CHEZ NOUS !"
+    Then I should see a flash with "Bienvenue chez nous !"
     And I should see "Tu es inscrit comme bénévole."
     And I should see "Tu as choisi comme secteur: Fun park"
     And "john@smith.com" should receive an email
