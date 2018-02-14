@@ -7,7 +7,7 @@ class Record < ApplicationRecord
   private
 
   def calculate_entries
-    self.entries = participants.size
+    self.entries = selected_participants.size
   end
 
   def selected_participants
