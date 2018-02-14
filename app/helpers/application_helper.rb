@@ -10,5 +10,9 @@ module ApplicationHelper
     classes = classes.join(" ")
     current_page?(link_path) ? "active #{classes}" : classes
   end
+  
+  def hidden_if_destroyed(object)
+    return "display: none;" if object.marked_for_destruction?
+  end
 
 end

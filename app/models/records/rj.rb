@@ -50,12 +50,16 @@ module Records
     end
 
     def calculate_entries
-      self.entries = participants.size
+      self.entries = selected_participants.size
     end
 
     def calculate_lodging
-      self.man_lodging = participants.count { |p| p.gender == "male" && p.lodging }
-      self.woman_lodging = participants.count { |p| p.gender == "female" && p.lodging }
+      self.man_lodging = selected_participants.count { |p| p.gender == "male" && p.lodging }
+      self.woman_lodging = selected_participants.count { |p| p.gender == "female" && p.lodging }
+    end
+
+    def selected_participants
+      participants.select { |p| !p.marked_for_destruction? }
     end
   end
 
