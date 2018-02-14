@@ -27,4 +27,16 @@ RSpec.describe "Order", :type => :model do
     expect(@order.amount).to eq 1000
   end
 
+  it "assigns the right amount on create" do
+    @order = create(:order)
+    expect(@order.amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
+  end
+
+  it "assigns the right amount on create" do
+    @order = create(:order)
+    @order.product.participants.first.lodging = true
+    @order.save
+    expect(@order.amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::LODGING_PRICE + Records::Rj::FEE) * 100
+  end
+
 end
