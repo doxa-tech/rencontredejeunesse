@@ -44,7 +44,6 @@ RSpec.describe "Order", :type => :model do
     product = create(:rj, participants: participants)
     @order = create(:order, product: product)
     @order.product.participants.first.mark_for_destruction
-    puts @order.product.participants.first.marked_for_destruction?
     @order.save
     expect(@order.amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
   end
