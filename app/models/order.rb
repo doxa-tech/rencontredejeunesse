@@ -10,6 +10,7 @@ class Order < ApplicationRecord
 
   belongs_to :user
   belongs_to :product, polymorphic: true
+  belongs_to :discount, optional: true
 
   accepts_nested_attributes_for :product
 
