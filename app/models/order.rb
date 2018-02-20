@@ -18,7 +18,7 @@ class Order < ApplicationRecord
   validates :order_id, uniqueness: true
   validates :human_id, uniqueness: true
 
-  after_create :generate_id
+  before_create :generate_id
   before_validation :assign_amount, :assign_payment_method, unless: :paid?
 
   def shain
@@ -83,7 +83,6 @@ class Order < ApplicationRecord
       self.human_id = SecureRandom.hex(2).upcase
       break if valid?
     end
-    save
   end
 
 end
