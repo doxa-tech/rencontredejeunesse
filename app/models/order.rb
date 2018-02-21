@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   INVOICE_LIMIT = 800
 
   attr_accessor :conditions, :lump_sum
+  attr_reader :discount_code
 
   enum payment_method: [:postfinance, :invoice]
   enum case: [:regular, :volunteer]
@@ -45,16 +46,16 @@ class Order < ApplicationRecord
     product.class::FEE
   end
 
-  def human_status
-    if paid?
-      "Payé"
-    else
-      "Non payé"
-    end
-  end
-
   def paid?
     status == 5 || status == 9
+  end
+
+  def discount_code=(value)
+    if self.discount = Discount.find_by_code(value)
+      @discount_code = value
+    else
+      errors.add(:discount, "n'est pas valide")
+    end
   end
 
   private
@@ -65,7 +66,7 @@ class Order < ApplicationRecord
       self.amount = lump_sum
     else
       self.amount = product.calculate_amount
-      self.amount = calculate_discount
+      self.amount = self.discount.calculate_discount(self.amount)
     end
   end
 

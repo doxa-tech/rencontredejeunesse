@@ -13,4 +13,12 @@ module OrdersHelper
     record.entries * Records::Rj.ENTRY_PRICE(record.created_at)
   end
 
+  def human_status(order)
+    if order.paid?
+      "Payé"
+    else
+      "Non payé"
+    end
+  end
+
 end

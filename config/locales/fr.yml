@@ -53,6 +53,7 @@ fr:
         user: "Personne"
         order_id: "N° de commande"
         human_id: "N° d'entrée"
+        discount_code: "Code promotionel"
       volunteer:
         comment: "Remarque"
     errors:
@@ -127,7 +128,7 @@ fr:
       odd: "Le champ « %{attribute} » doit être impair"
       required: "Le champ « %{attribute} » doit exister"
       taken: "Le champ « %{attribute} » n'est pas disponible"
-      too_young: "Tu dois avoir min %{age} ans pour pouvoir t'inscrire."
+      too_young: "Tu dois avoir min %{age} ans pour pouvoir t'inscrire"
       too_long:
         one: "Le champ « %{attribute} » est trop long (pas plus d'un caractère)"
         other: "Le champ « %{attribute} » est trop long (pas plus de %{count} caractères)"

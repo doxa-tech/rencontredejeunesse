@@ -1,6 +1,6 @@
 When(/^I complete the RJ form$/) do
   fill_in "Groupe de jeunes ou église", with: "Waykup"
-  find(".participants-wrap input[type=checkbox]").set(true)
+  find(".participants-wrap input[type=checkbox]").set(true) # lodging
   step "I complete the order form"
 end
 

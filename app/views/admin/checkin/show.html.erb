@@ -5,7 +5,7 @@
 <div id="show">
 
   <div class="important">
-    <div>Statut: <b><%= @order.human_status %></b></div>
+    <div>Statut: <b><%= human_status(@order) %></b></div>
     <div>Nbre d'entrée: <b><%= @order.product.entries %></b></div>
   </div>
 

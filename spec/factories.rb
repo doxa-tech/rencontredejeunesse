@@ -59,7 +59,7 @@ FactoryBot.define do
   factory :discount do
     category :money
     product "Records::Rj"
-    reduction 20
+    reduction 2000
   end
 
 end
