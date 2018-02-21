@@ -4,6 +4,7 @@ class Discount < ApplicationRecord
 
   enum category: [:money, :percent, :free]
 
+  validates :code, uniqueness: true
   validates :category, presence: true, inclusion: { in: categories.keys }
   validates :product, presence: true, inclusion: { in: ["Records::Rj", "Records::Login"] }
   validates :reduction, presence: true, numericality: { greater_than: 0 }, if: [:money?, :percent?]

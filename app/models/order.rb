@@ -19,7 +19,7 @@ class Order < ApplicationRecord
   validates :order_id, uniqueness: true
   validates :human_id, uniqueness: true
 
-  after_create :generate_id
+  before_create :generate_id
   after_validation :assign_amount, :assign_payment_method, unless: :paid?
 
   def shain
@@ -56,26 +56,19 @@ class Order < ApplicationRecord
     else
       errors.add(:discount, "n'est pas valide")
     end
+    return @discount_code
   end
 
   private
 
   # careful: lump_sum must be set each time an object is saved
   def assign_amount
-    if lump_sum
-      self.amount = lump_sum
-    else
-      self.amount = product.calculate_amount
-      self.amount = self.discount.calculate_discount(self.amount)
-    end
+    self.amount = lump_sum || product.calculate_amount
+    self.amount = self.discount.calculate_discount(self.amount)
   end
 
   def assign_payment_method
     self.payment_method = "invoice" if (self.amount / 100) > INVOICE_LIMIT
-  end
-
-  def calculate_discount
-    self.amount
   end
 
   def generate_id

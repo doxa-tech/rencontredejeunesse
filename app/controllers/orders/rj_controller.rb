@@ -35,7 +35,7 @@ class Orders::RjController < Orders::BaseController
   private
 
   def order_params
-    params.require(:order).permit(:conditions,
+    params.require(:order).permit(:conditions, :discount_code,
       product_attributes: [:id, :group,
       participants_attributes: [:id, :gender, :firstname, :lastname, :birthday, :lodging, :_destroy]
     ])
