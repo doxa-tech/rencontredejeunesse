@@ -9,8 +9,6 @@ module Records
 
     self.table_name = 'records_rj'
 
-    has_one :order, as: :product
-
     has_many :participants, class_name: "Participants::Rj", foreign_key: "records_rj_id", inverse_of: :record do
 
       def build_from_user(user, params = {})
@@ -49,14 +47,11 @@ module Records
       self.woman_lodging ||= 0
     end
 
-    def calculate_entries
-      self.entries = participants.size
+    def calculate_lodging
+      self.man_lodging = selected_participants.count { |p| p.gender == "male" && p.lodging }
+      self.woman_lodging = selected_participants.count { |p| p.gender == "female" && p.lodging }
     end
 
-    def calculate_lodging
-      self.man_lodging = participants.count { |p| p.gender == "male" && p.lodging }
-      self.woman_lodging = participants.count { |p| p.gender == "female" && p.lodging }
-    end
   end
 
 end

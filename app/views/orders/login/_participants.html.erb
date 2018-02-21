@@ -1,6 +1,6 @@
 <div class="fields-for participants wrap standard-form-row">
   <%= product_f.fields_for :participants, (participants.build_from_user(current_user) unless participants.any?) do |f| %>
-    <div class="participants-fields wrap">
+    <%= content_tag :div, class: "participants-fields wrap", style: hidden_if_destroyed(f.object) do %>
 
       <div class="participants-wrap">
         <div class="row">
@@ -35,14 +35,14 @@
         <span></span>
         <button type="button" class="remove-fields" data-type="participants">Supprimer</button>
       </div>
-    </div>
-
-    <div class="row">
-      <span></span>
-      <button type="button" class="add-fields" data-type="participants" data-count="<%= participants.size %>">
-        Ajouter une entrée
-      </button>
-    </div>
+    <% end %>
 
   <% end %>
+
+  <div class="row">
+    <span></span>
+    <button type="button" class="add-fields" data-type="participants" data-count="<%= participants.size %>">
+      Ajouter une entrée
+    </button>
+  </div>
 </div>

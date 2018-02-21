@@ -1,8 +1,7 @@
-<!-- TODO -->
 <h1>Confirmation d'inscription</h1>
 <p>Merci pour ta commande.</p>
 
-<% if @order.payment_method == "postfinance" %>
+<% if @order.postfinance? %>
 <p>
   Votre paiement a bien été reçu et votre inscription à la RJ est validée.
 </p>
@@ -12,29 +11,7 @@
 </p>
 <% end %>
 
-<h5>Résumé de la commande</h5>
-<style>
-  table.order td, table.order th {
-    padding: 3px 6px;
-  }
-</style>
-<table class="order" style="background:#eee;">
-  <tr>
-    <th>Désignation</th><th>Quantité</th><th>CHF/pce</th><th></th>
-  </tr>
-  <tr>
-    <td>Forfaits RJ</td><td><%= @order.product.entries %></td><td><%= Records::Rj.ENTRY_PRICE(@order.created_at) %>.-</td><td><%= entries_price(@order.product) %>.-</td>
-  </tr>
-  <tr>
-    <td>Places pour dormir</td><td><%= @order.product.man_lodging %>x GARS / <%= @order.product.woman_lodging %>x FILLES</td><td><%= Records::Rj::LODGING_PRICE %>.-</td><td><%= lodging_price(@order.product) %>.-</td>
-  </tr>
-  <tr>
-    <td>Frais d'inscription</td><td></td><td></td><td><%= Records::Rj::FEE %>.-</td>
-  </tr>
-  <tr>
-    <td></td><td></td><td><b>Total</b></td><td><b><%= @order.print_amount %> CHF</b></td>
-  </tr>
-</table>
+<%= render "order_mailer/records/rj/summary" %>
 
 <p>
   <br>

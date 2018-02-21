@@ -5,8 +5,8 @@ module Records
 
     it "calculates the right amount" do
       participants = [
-        Participants::Login.create(gender: "male", firstname: "Alfred", lastname: "Dupont", email: "alfred@dupont.com", age: 84),
-        Participants::Login.create(gender: "male", firstname: "John", lastname: "Smith", email: "john@smith.com", age: 26)
+        Participants::Login.new(gender: "male", firstname: "Alfred", lastname: "Dupont", email: "alfred@dupont.com", age: 84),
+        Participants::Login.new(gender: "male", firstname: "John", lastname: "Smith", email: "john@smith.com", age: 26)
       ]
       @product = create(:login, participants: participants)
       @order = create(:order, product: @product)

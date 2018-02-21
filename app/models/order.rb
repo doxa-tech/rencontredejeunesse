@@ -19,8 +19,8 @@ class Order < ApplicationRecord
   validates :order_id, uniqueness: true
   validates :human_id, uniqueness: true
 
-  before_create :generate_id
-  before_validation :assign_amount, :assign_payment_method, unless: :paid?
+  after_create :generate_id
+  after_validation :assign_amount, :assign_payment_method, unless: :paid?
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\

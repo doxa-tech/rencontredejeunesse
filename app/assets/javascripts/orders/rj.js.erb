@@ -22,7 +22,7 @@ $(document).on("turbolinks:load", function() {
 
   $participants.on("click", ".remove-fields", function() {
     price -= ENTRY_PRICE;
-    var checkbox = $(this).parent().find(".lodging-checkbox");
+    var checkbox = $(this).parents(".participants-fields").find(".lodging-checkbox");
     if(checkbox[0].checked) { price -= LODGING_PRICE };
     $amount.html(price);
   });
