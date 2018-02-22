@@ -46,6 +46,16 @@ RSpec.describe OrdersController, :type => :controller do
       expect(volunteer.reload.confirmed).to eq true
     end
 
+    it "sets a discount as used" do
+      @order.discount = create(:discount)
+      @order.save!
+      post :update, params: {
+        orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
+      }
+      @order.reload
+      expect(@order.discount.used).to eq true
+    end
+
   end
 
   describe "#complete" do

@@ -4,7 +4,6 @@ class Order < ApplicationRecord
   INVOICE_LIMIT = 800
 
   attr_accessor :conditions, :lump_sum
-  attr_reader :discount_code
 
   enum payment_method: [:postfinance, :invoice]
   enum case: [:regular, :volunteer]
@@ -18,6 +17,7 @@ class Order < ApplicationRecord
   validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true
   validates :human_id, uniqueness: true
+  validate :validity_of_discount_code
 
   before_create :generate_id
   after_validation :assign_amount, :assign_payment_method, unless: :paid?
@@ -50,16 +50,22 @@ class Order < ApplicationRecord
     status == 5 || status == 9
   end
 
+  def discount_code
+    @discount_code ||= self.discount.try(:code)
+  end
+
   def discount_code=(value)
-    if self.discount = Discount.find_by_code(value)
-      @discount_code = value
-    else
-      errors.add(:discount, "n'est pas valide")
-    end
-    return @discount_code
+    self.discount = Discount.find_by_code(value)
+    @discount_code = value
   end
 
   private
+
+  def validity_of_discount_code
+    if discount_code.present? && self.discount.nil?
+      errors.add(:discount_code, "Le code promotionel n'est pas valide")
+    end
+  end
 
   # careful: lump_sum must be set each time an object is saved
   def assign_amount

@@ -15,7 +15,7 @@
 
     <div class="row">
       <%= f.label :discount_code %>
-      <%= f.text_field :discount_code %>
+      <%= f.field_with_errors :text, :discount_code %>
     </div>
 
     <div class="price row">

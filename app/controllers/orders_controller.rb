@@ -25,6 +25,7 @@ class OrdersController < Orders::BaseController
       @order.payid = params[:PAYID]
       @order.save
       if @order.status == 5
+        @order.discount.update_attribute(:used, true) if @order.discount
         OrderMailer.confirmation(@order).deliver_now
         Orders::Callbacks::Confirmation.send(@order.product_name, @order)
       end
