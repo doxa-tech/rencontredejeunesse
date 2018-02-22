@@ -29,10 +29,10 @@ module Records
       return ((entries * Rj.ENTRY_PRICE) + (man_lodging + woman_lodging) * LODGING_PRICE + FEE) * 100
     end
 
-    def self.ENTRY_PRICE(date = Time.now)
-      if date < Time.new(2018, 2, 25)
+    def self.ENTRY_PRICE(date = Time.zone.today)
+      if date < Date.new(2018, 2, 26)
         60
-      elsif date < Time.new(2018, 4, 22)
+      elsif date < Date.new(2018, 4, 23)
         75
       else
         90

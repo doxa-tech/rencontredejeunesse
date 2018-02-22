@@ -13,17 +13,17 @@
           <div class="price">
             <h3>60.-</h3>
             <p>du 27.01 au 25.02 à minuit</p>
-            <p><%= link_to "S'inscrire", new_orders_rj_path %></p>
+            <p><%= link_to_rj_order "S'inscrire", start: "27/01/2018", term: "25/02/2018" %></p>
           </div>
           <div class="price">
             <h3>75.-</h3>
             <p>du 26.02 au 22.04 à minuit</p>
-            <p><a class="disabled">S'inscrire</a><%#= link_to "S'inscrire", "", class: "disabled" %></p>
+            <p><%= link_to_rj_order "S'inscrire", start: "26/02/2018", term: "22/04/2018" %></p>
           </div>
           <div class="price">
             <h3>90.-</h3>
             <p>du 23.04 au 04.05</p>
-            <p><a class="disabled">S'inscrire</a><%#= link_to "S'inscrire", "", class: "disabled" %></p>
+            <p><%= link_to_rj_order "S'inscrire", start: "23/04/2018", term: "06/04/2018" %></p>
           </div>
         </div>
 
