@@ -10,12 +10,14 @@
   padding: $logo-burger-height 0 0 0;
   
   .content-wrap {
-    a {
-      border-bottom: 1px dashed rgb(138, 138, 138);
+    .standard-form-row {
+      a {
+        border-bottom: 1px dashed rgb(138, 138, 138);
 
-      &:hover {
-        border-bottom: 1px dashed rgb(26, 26, 26);
-        background-color: #f0f0f0;
+        &:hover {
+          border-bottom: 1px dashed rgb(26, 26, 26);
+          background-color: #f0f0f0;
+        }
       }
     }
   }
