@@ -2,7 +2,7 @@
 <p>Une nouvelle commande nécessite une facture.</p>
 <p>
   Commande n°<%= @order.order_id %><br>
-  Montant: <%= @order.amount %><br><br>
+  Montant: <%= @order.print_amount %><br><br>
 
   Nom: <%= @order.user.lastname %><br>
   Prénom: <%= @order.user.firstname %><br>
