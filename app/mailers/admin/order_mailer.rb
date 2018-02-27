@@ -1,4 +1,5 @@
 class Admin::OrderMailer < ApplicationMailer
+  helper OrdersHelper
   layout 'mailer'
 
   def invoice_registration(order)
