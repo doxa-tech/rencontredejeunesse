@@ -62,7 +62,7 @@ class Order < ApplicationRecord
   private
 
   def validity_of_discount_code
-    if (discount_code && discount.nil?) || unvalid_discount?(discount)
+    if (discount_code.present? && discount.nil?) || unvalid_discount?(discount)
       errors.add(:discount_code, "Le code promotionel n'est pas valide")
     end
   end
