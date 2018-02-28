@@ -62,9 +62,13 @@ class Order < ApplicationRecord
   private
 
   def validity_of_discount_code
-    if discount && (discount.used || discount.product != self.product_type)
+    if (discount_code && discount.nil?) || unvalid_discount?(discount)
       errors.add(:discount_code, "Le code promotionel n'est pas valide")
     end
+  end
+
+  def unvalid_discount?(discount)
+    discount && (discount.used || discount.product != self.product_type)
   end
 
   # careful: lump_sum must be set each time an object is saved
