@@ -20,3 +20,8 @@ Feature: Use a discount
     When I fill in a invalid discount
     And I complete the RJ form
     Then I should see an error on the discount field
+
+  Scenario: I have a free entry
+    Given I am on the confirmation page with an amount of zero
+    When I click the link "Finaliser ma commande"
+    Then I should see the success page

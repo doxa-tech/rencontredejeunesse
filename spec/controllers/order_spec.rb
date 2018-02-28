@@ -61,19 +61,28 @@ RSpec.describe OrdersController, :type => :controller do
   describe "#complete" do
 
     it "updates an order with the payment method invoice" do
-      @participants = build_list(:rj_participant, 15, lodging: true)
-      @product = create(:rj, participants: @participants)
-      @order = create(:order, product: @product)
-      post :complete, params: { id: @order.order_id }
-      @order.reload
-      expect(@order.status).to be 41
+      participants = build_list(:rj_participant, 15, lodging: true)
+      product = create(:rj, participants: participants)
+      order = create(:order, product: product)
+      post :complete, params: { id: order.order_id }
+      order.reload
+      expect(order.status).to be 41
+    end
+
+    it "updates an order with an amount of zero" do
+      order = create(:order)
+      order.lump_sum = 0
+      order.save
+      post :complete, params: { id: order.order_id }
+      order.reload
+      expect(order.status).to be 9
     end
 
     it "rejects an order with the payment method postfinance" do
-      @order = create(:order)
-      post :complete, params: { id: @order.order_id }
-      @order.reload
-      expect(@order.status).not_to be 41
+      order = create(:order)
+      post :complete, params: { id: order.order_id }
+      order.reload
+      expect(order.status).to eq nil
     end
 
   end

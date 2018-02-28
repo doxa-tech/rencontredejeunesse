@@ -24,8 +24,16 @@ RSpec.describe "Discount", :type => :model do
 
     it "offers free entries" do
       discount = create(:discount, category: :free, reduction: nil, number: 2)
-      amount = discount.calculate_discount(18500)
-      expect(amount).to eq 6500
+      klass = discount.product_class
+      amount = discount.calculate_discount (klass.ENTRY_PRICE * 3 + klass::FEE) * 100
+      expect(amount).to eq (klass.ENTRY_PRICE + klass::FEE) * 100
+    end
+
+    it "reduces the amount to zero if there is only the fee" do
+      discount = create(:discount, category: :free, reduction: nil, number: 1)
+      klass = discount.product_class
+      amount = discount.calculate_discount (klass.ENTRY_PRICE + klass::FEE) * 100
+      expect(amount).to eq 0
     end
 
   end

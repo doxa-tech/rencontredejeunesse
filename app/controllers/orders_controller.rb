@@ -42,11 +42,11 @@ class OrdersController < Orders::BaseController
   end
 
   def complete
-    if @order.payment_method == "invoice"
+    unless situation.nil?
       OrderMailer.confirmation(@order).deliver_now
       Orders::Callbacks::Confirmation.send(@order.product_name, @order)
-      Admin::OrderMailer.invoice_registration(@order).deliver_now
-      @order.update_attribute(:status, 41)
+      @order.update_attribute(:status, statuses[situation])
+      Admin::OrderMailer.invoice_registration(@order).deliver_now if situation == :invoice
       redirect_to orders_confirmed_path
     else
       redirect_to controller: "orders/#{@order.product_name}", action: "confirmation", id: @order.order_id, error: "Une erreur s'est produite"
@@ -61,5 +61,17 @@ class OrdersController < Orders::BaseController
             "ORDERID=#{params[:orderID]}#{Order::KEY}PAYID=#{params[:PAYID]}#{Order::KEY}"\
             "STATUS=#{params[:STATUS]}#{Order::KEY}"
     return Digest::SHA1.hexdigest(chain)
+  end
+
+  def situation
+    @situation ||= if @order.invoice?
+      :invoice
+    elsif @order.amount == 0
+      :free
+    end
+  end
+
+  def statuses
+    { invoice: 41, free: 9 }
   end
 end

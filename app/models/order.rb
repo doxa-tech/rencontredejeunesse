@@ -55,7 +55,10 @@ class Order < ApplicationRecord
   end
 
   def discount_code=(value)
-    self.discount = Discount.find_by_code(value)
+    discount = Discount.find_by_code(value)
+    if discount && !discount.used && discount.product == self.product_type
+      self.discount = discount
+    end
     @discount_code = value
   end
 
