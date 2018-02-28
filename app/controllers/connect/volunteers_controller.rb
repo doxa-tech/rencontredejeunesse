@@ -5,7 +5,7 @@ class Connect::VolunteersController < Connect::BaseController
   end
 
   def confirmation
-    price = Records::Rj::VOLUNTEER_TOTAL
+    price = discount_for_volunteer? ? 0 : Records::Rj::VOLUNTEER_TOTAL
     price += 30 if has_lodging?
     product = Records::Rj.new
     product.participants.build_from_user(current_user, lodging: has_lodging?)
@@ -15,6 +15,11 @@ class Connect::VolunteersController < Connect::BaseController
   end
 
   private
+
+  def discount_for_volunteer?
+    discount = Discount.find_by_code(params[:discount_code])
+    discount && discount.free? && discount.number == 1 && discount.product == "Records::Rj" && !discount.used
+  end
 
   def has_lodging?
     params[:lodging].present?

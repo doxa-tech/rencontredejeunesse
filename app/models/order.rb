@@ -72,8 +72,12 @@ class Order < ApplicationRecord
 
   # careful: lump_sum must be set each time an object is saved
   def assign_amount
-    self.amount = lump_sum || product.calculate_amount
-    self.amount = self.discount.calculate_discount(self.amount) if self.discount
+    if lump_sum
+      self.amount = lump_sum
+    else
+      self.amount = product.calculate_amount
+      self.amount = self.discount.calculate_discount(self.amount) if self.discount
+    end
   end
 
   def assign_payment_method
