@@ -19,3 +19,4 @@ Feature: Order as a volunteer
     And I click the button "Commander mon entrée"
     Then I should see the volunteer confirmation page
     And I should see a discount on the volunteer price
+    And I should see "Finaliser ma commande"

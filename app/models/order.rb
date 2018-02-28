@@ -55,17 +55,14 @@ class Order < ApplicationRecord
   end
 
   def discount_code=(value)
-    discount = Discount.find_by_code(value)
-    if discount && !discount.used && discount.product == self.product_type
-      self.discount = discount
-    end
+    self.discount = Discount.find_by_code(value)
     @discount_code = value
   end
 
   private
 
   def validity_of_discount_code
-    if discount_code.present? && self.discount.nil?
+    if discount && (discount.used || discount.product != self.product_type)
       errors.add(:discount_code, "Le code promotionel n'est pas valide")
     end
   end

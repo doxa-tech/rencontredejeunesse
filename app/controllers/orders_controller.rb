@@ -24,11 +24,7 @@ class OrdersController < Orders::BaseController
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]
       @order.save
-      if @order.status == 5
-        @order.discount.update_attribute(:used, true) if @order.discount
-        OrderMailer.confirmation(@order).deliver_now
-        Orders::Callbacks::Confirmation.send(@order.product_name, @order)
-      end
+      complete_a_successful_order if @order.status == 5
       head :ok
     else
       head :unprocessable_entity
@@ -43,8 +39,7 @@ class OrdersController < Orders::BaseController
 
   def complete
     unless situation.nil?
-      OrderMailer.confirmation(@order).deliver_now
-      Orders::Callbacks::Confirmation.send(@order.product_name, @order)
+      complete_a_successful_order
       @order.update_attribute(:status, statuses[situation])
       Admin::OrderMailer.invoice_registration(@order).deliver_now if situation == :invoice
       redirect_to orders_confirmed_path
@@ -61,6 +56,12 @@ class OrdersController < Orders::BaseController
             "ORDERID=#{params[:orderID]}#{Order::KEY}PAYID=#{params[:PAYID]}#{Order::KEY}"\
             "STATUS=#{params[:STATUS]}#{Order::KEY}"
     return Digest::SHA1.hexdigest(chain)
+  end
+
+  def complete_a_successful_order
+    @order.discount.update_attribute(:used, true) if @order.discount
+    OrderMailer.confirmation(@order).deliver_now
+    Orders::Callbacks::Confirmation.send(@order.product_name, @order)
   end
 
   def situation
