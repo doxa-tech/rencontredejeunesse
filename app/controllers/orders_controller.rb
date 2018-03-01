@@ -32,8 +32,7 @@ class OrdersController < Orders::BaseController
   end
 
   def destroy
-    @order = Order.find_by_order_id(params[:id])
-    @order.destroy if @order
+    Order.find_by_order_id!(params[:id]).destroy
     redirect_to pending_connect_orders_path
   end
 

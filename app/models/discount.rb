@@ -1,6 +1,6 @@
 class Discount < ApplicationRecord
 
-  has_one :order
+  has_many :orders
 
   enum category: [:money, :percent, :free]
 

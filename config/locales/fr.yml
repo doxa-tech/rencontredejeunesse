@@ -39,8 +39,14 @@ fr:
     current_password: "Mot de passe actuel"
     status: "Statut"
     created_at: "Créé le"
+    updated_at: "Modifié le"
     lodging: "Dormir sur place"
     sector: "Secteur"
+    category: "Catégorie"
+    product: "Produit"
+    reduction: "Réduction"
+    number: "Nombre"
+    used: "Utilisé"
   activerecord:
     attributes:
       records/login:
@@ -70,6 +76,11 @@ fr:
     genders:
       male: "M."
       female: "Mme"
+  discount:
+    categories:
+      free: "Gratuité"
+      money: "Argent"
+      percet: "Pourcentage"
   participants/login:
     genders:
       male: "M."
