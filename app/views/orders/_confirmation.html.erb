@@ -62,8 +62,4 @@
   </div>
 </div>
 
-<% if @order.payment_method == "invoice" %>
-  <%= render "orders/payments/invoice" %>
-<% else %>
-  <%= render "orders/payments/postfinance" %>
-<% end %>
+<%= render "orders/payments/payments" %>

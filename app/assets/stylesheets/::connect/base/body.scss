@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,700');
+
 body, html {
   min-height: 100vh;
 }
@@ -6,6 +8,10 @@ body {
   background-image: image-url("connect/layout/blue-montain.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: #fff;
 
   display: flex;
   flex-direction: column;

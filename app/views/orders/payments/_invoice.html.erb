@@ -1,3 +1,13 @@
-<p>Pour un montant supérieur à 800 CHF, le paiement se fait par facture. Après avoir confirmé votre commande, une facture vous sera envoyé par email.</p>
+<div class="standard-form-row">
 
-<%= link_to "Finaliser ma commande", complete_order_path(@order.order_id), method: :patch %>
+  <div class="row">
+    <span></span>
+    <p class="text-infos">Pour un montant supérieur à 800 CHF, le paiement se fait par facture. Après avoir confirmé votre commande, une facture vous sera envoyé par email.</p>
+  </div>
+
+  <div class="row">
+    <span></span>
+    <%= link_to "Finaliser ma commande", complete_order_path(@order.order_id), method: :patch, class: "button-link main-button connect-btn-light-dark-full" %>
+  </div>
+
+</div>

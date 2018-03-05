@@ -1,0 +1,25 @@
+<div id="form">
+
+	<%= form_for [:admin, @discount] do |f| %>
+
+		<%= render 'error_messages', object: f.object %>
+
+		<%= f.label :category %>
+		<%= f.select :category, options_for_enum(f.object, :category) %>
+
+    <p><i>Si de catégorie "Argent" ou "Pourcentage"</i></p>
+    <%= f.label :reduction %>
+    <%= f.number_field :reduction %>
+
+    <p><i>Si de catégorie "Gratuité"</i></p>
+    <%= f.label :number %>
+    <%= f.number_field :number %>
+
+    <%= f.label :product %>
+    <%= f.select :product, [["Rj", "Records::Rj"], ["Login", "Records::Login"]] %>
+
+		<%= f.submit nil, class: "button" %>
+
+	<% end %>
+
+</div>

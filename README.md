@@ -7,7 +7,7 @@ This repo hosts http://rencontredejeunesse.ch
 Build with
 
 ```
-docker docker-compose build
+docker-compose build
 ```
 
 Run webserver with

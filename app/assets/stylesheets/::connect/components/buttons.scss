@@ -48,7 +48,7 @@ a.connect-btn-light-full, input.connect-btn-light-full {
   }
 }
 
-a.connect-btn-light-dark, input.connect-btn-light-dark {
+a.connect-btn-light-dark, input.connect-btn-light-dark, input[type="submit"].connect-btn-light-dark {
   @include connect-btn-light-dark-mixin;
 }
 

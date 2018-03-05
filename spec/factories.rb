@@ -56,4 +56,10 @@ FactoryBot.define do
     pending false
   end
 
+  factory :discount do
+    category :money
+    product "Records::Rj"
+    reduction 2000
+  end
+
 end

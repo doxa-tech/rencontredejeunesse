@@ -13,6 +13,11 @@
 
   <div class="standard-form-row">
 
+    <div class="row">
+      <%= f.label :discount_code %>
+      <%= f.field_with_errors :text, :discount_code %>
+    </div>
+
     <div class="price row">
       <div>Frais d'inscription</div>
       <div><strong><%= @order.fee %> CHF</strong></div>

@@ -1,4 +1,5 @@
 class Admin::CheckinController < Admin::BaseController
+  include OrdersHelper
 
   def index
     authorize!

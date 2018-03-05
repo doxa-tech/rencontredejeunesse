@@ -46,24 +46,43 @@ RSpec.describe OrdersController, :type => :controller do
       expect(volunteer.reload.confirmed).to eq true
     end
 
+    it "sets a discount as used" do
+      @order.discount = create(:discount)
+      @order.save!
+      post :update, params: {
+        orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
+      }
+      @order.reload
+      expect(@order.discount.used).to eq true
+    end
+
   end
 
   describe "#complete" do
 
     it "updates an order with the payment method invoice" do
-      @participants = build_list(:rj_participant, 15, lodging: true)
-      @product = create(:rj, participants: @participants)
-      @order = create(:order, product: @product)
-      post :complete, params: { id: @order.order_id }
-      @order.reload
-      expect(@order.status).to be 41
+      participants = build_list(:rj_participant, 15, lodging: true)
+      product = create(:rj, participants: participants)
+      order = create(:order, product: product)
+      post :complete, params: { id: order.order_id }
+      order.reload
+      expect(order.status).to be 41
+    end
+
+    it "updates an order with an amount of zero" do
+      order = create(:order)
+      order.lump_sum = 0
+      order.save
+      post :complete, params: { id: order.order_id }
+      order.reload
+      expect(order.status).to be 9
     end
 
     it "rejects an order with the payment method postfinance" do
-      @order = create(:order)
-      post :complete, params: { id: @order.order_id }
-      @order.reload
-      expect(@order.status).not_to be 41
+      order = create(:order)
+      post :complete, params: { id: order.order_id }
+      order.reload
+      expect(order.status).to eq nil
     end
 
   end

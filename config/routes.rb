@@ -99,7 +99,10 @@ Rails.application.routes.draw do
 
   namespace :admin do
 
+    root to: "base#index"
+
     resources :users, except: :show
+    resources :discounts, except: [:edit, :update]
 
     namespace :orders do
 

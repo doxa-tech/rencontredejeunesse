@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180212181725) do
+ActiveRecord::Schema.define(version: 20180219194831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,17 @@ ActiveRecord::Schema.define(version: 20180212181725) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "discounts", force: :cascade do |t|
+    t.string "code"
+    t.integer "reduction"
+    t.integer "category"
+    t.string "product"
+    t.integer "number"
+    t.boolean "used", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "images", id: :serial, force: :cascade do |t|
     t.string "file"
     t.datetime "created_at", null: false
@@ -115,6 +126,8 @@ ActiveRecord::Schema.define(version: 20180212181725) do
     t.text "note"
     t.boolean "pending", default: false
     t.integer "case", default: 0
+    t.bigint "discount_id"
+    t.index ["discount_id"], name: "index_orders_on_discount_id"
     t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -221,6 +234,7 @@ ActiveRecord::Schema.define(version: 20180212181725) do
   add_foreign_key "adeia_tokens", "adeia_permissions"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "orders", "discounts"
   add_foreign_key "orders", "users"
   add_foreign_key "participants_login", "records_login"
   add_foreign_key "participants_rj", "records_rj"

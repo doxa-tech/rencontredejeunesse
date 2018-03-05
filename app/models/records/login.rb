@@ -26,6 +26,10 @@ module Records
       return (entries * ENTRY_PRICE + FEE) * 100
     end
 
+    def self.ENTRY_PRICE
+      ::ENTRY_PRICE
+    end
+
     private
 
     def defaults

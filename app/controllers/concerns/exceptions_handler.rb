@@ -16,7 +16,7 @@ module ExceptionsHandler
     rescue_from Adeia::LoginRequired do |exception|
       respond_to do |format|
         format.html do
-          redirect_to signin_path, error: "Veuillez vous connecter"
+          redirect_to "/signin", error: "Veuillez vous connecter"
           format.all { render nothing: true, status: 401 }
         end
       end
