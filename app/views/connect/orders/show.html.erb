@@ -13,3 +13,5 @@
 <%= render "connect/orders/show/#{@order.product_name}" %>
 
 <p class="number">Commande n°<%= @order.order_id %></p>
+
+<p><%= link_to "Get PDF invoice", format: "pdf" %>

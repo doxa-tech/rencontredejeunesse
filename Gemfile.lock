@@ -246,7 +246,11 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     os (0.9.6)
+    pdf-core (0.7.0)
     pg (0.21.0)
+    prawn (2.2.2)
+      pdf-core (~> 0.7.0)
+      ttfunk (~> 1.5)
     premailer (1.11.1)
       addressable
       css_parser (>= 1.6.0)
@@ -362,6 +366,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    ttfunk (1.5.1)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.3)
@@ -414,6 +419,7 @@ DEPENDENCIES
   mini_magick
   nokogiri
   pg
+  prawn
   premailer-rails
   puma (~> 3.0)
   rails (~> 5.1)
