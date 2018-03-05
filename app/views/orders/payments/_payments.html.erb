@@ -1,5 +1,7 @@
-<% if @order.invoice? || @order.amount == 0 %>
+<% if @order.invoice? %>
   <%= render "orders/payments/invoice" %>
+<% elsif @order.amount == 0 %>
+  <%= render "orders/payments/free" %>
 <% else %>
   <%= render "orders/payments/postfinance" %>
 <% end %>
