@@ -176,10 +176,10 @@ ActiveRecord::Schema.define(version: 20180219194831) do
   create_table "records_rj", id: :serial, force: :cascade do |t|
     t.integer "entries"
     t.string "group"
-    t.integer "woman_lodging"
-    t.integer "man_lodging"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "man_lodging"
+    t.integer "woman_lodging"
   end
 
   create_table "testimonies", id: :serial, force: :cascade do |t|
