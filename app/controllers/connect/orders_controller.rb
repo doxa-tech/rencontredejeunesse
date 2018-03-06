@@ -14,7 +14,6 @@ class Connect::OrdersController < Connect::BaseController
       format.html
       format.pdf do
         pdf = OrderPdf.new(@order)
-        pdf.text 'Hello World'
         send_data pdf.render, filename: "oinvoice#{@order.order_id}.pdf", 
           type: "application/pdf", disposition: 'inline'      
       end
