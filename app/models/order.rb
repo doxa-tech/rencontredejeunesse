@@ -77,7 +77,7 @@ class Order < ApplicationRecord
       self.amount = lump_sum
     else
       self.amount = product.calculate_amount
-      self.amount = self.discount.calculate_discount(self.amount) if self.discount
+      self.amount = self.discount.calculate_amount(self.amount) if self.discount
     end
   end
 
