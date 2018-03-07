@@ -21,19 +21,18 @@ class OrderPdf < Prawn::Document
 
     bounding_box([0, cursor], :width => bounds.width, :height => 170) do
       stroke_bounds if @debug
-      text "Facture", size: 14, style: :bold
+      text "Ticket de caisse #{@order.order_id}", size: 14, style: :bold
       move_down 8
 
       bounding_box([0, cursor], :width => 110, :height => 100) do
         stroke_bounds if @debug
-        text_box "Date de facturation
-          Echéance
-          Commande
+        text_box "Date de la commande
           Nunéro de Client
           Votre personne de référence
-          Option de livraison
-          Modalité de paiement
-          Monnaie", size: 8
+          Type de livraison
+          Option de paiement
+          Monnaie
+          Addresse de livraison", size: 8
       end
 
       move_up 100
@@ -41,13 +40,12 @@ class OrderPdf < Prawn::Document
       bounding_box([120, cursor], :width => 100, :height => 100) do
         stroke_bounds if @debug
         text_box "#{@order.created_at.strftime("%d.%m.%Y")}
-          #{(@order.created_at + 20.day).strftime("%d.%m.%Y")}
-          #{@order.order_id}
           #{@order.human_id}
           #{@order.user.full_name}
-          -
-          20 jours net
-          CHF", size: 8
+          PDF
+          #{@order.payment_method}
+          CHF
+          #{@order.user.email}", size: 8
       end
 
       move_up 120
@@ -128,7 +126,7 @@ class OrderPdf < Prawn::Document
       "incl. 8.0%", 
       "#{'%.2f' % (Records::Rj::LODGING_PRICE * @order.product.woman_lodging)}"] )
 
-    move_down 30
+    move_down 20
 
     bounding_box([180, cursor], :width => bounds.width-180, :height => 30) do
       stroke_bounds if @debug
@@ -146,6 +144,46 @@ class OrderPdf < Prawn::Document
       bounding_box([step*5, cursor], :width => step, :height => height) do
         stroke_bounds if @debug
         text_box "$$$", at: [0, cursor], size: 8, align: :right
+      end
+      stroke_horizontal_rule
+    end
+
+    bounding_box([180, cursor], :width => bounds.width-180, :height => 30) do
+      stroke_bounds if @debug
+      step = (bounds.width)/6
+      bounding_box([0, cursor], :width => step*4, :height => height) do
+        stroke_bounds if @debug
+        text_box "Paiement", at: [0, cursor], size: 8
+      end
+      move_down 4
+      bounding_box([0, cursor], :width => step*4, :height => height) do
+        stroke_bounds if @debug
+        text_box "#{@order.created_at.strftime("%d.%m.%Y")}", at: [0, cursor], size: 8
+      end
+      move_up height
+      bounding_box([step*4, cursor], :width => step, :height => height) do
+        stroke_bounds if @debug
+        text_box "#{@order.payment_method}", at: [0, cursor], size: 8, align: :right
+      end
+      move_up height
+      bounding_box([step*5, cursor], :width => step, :height => height) do
+        stroke_bounds if @debug
+        text_box "$$$", at: [0, cursor], size: 8, align: :right
+      end
+      move_down 10
+      bounding_box([0, cursor], :width => step*4, :height => height) do
+        stroke_bounds if @debug
+        text_box "Montant dû", at: [0, cursor], size: 8
+      end
+      move_up height
+      bounding_box([step*4, cursor], :width => step, :height => height) do
+        stroke_bounds if @debug
+        text_box "CHF incl.", at: [0, cursor], size: 8, align: :right
+      end
+      move_up height
+      bounding_box([step*5, cursor], :width => step, :height => height) do
+        stroke_bounds if @debug
+        text_box "0.00", at: [0, cursor], size: 8, align: :right
       end
       stroke_horizontal_rule
     end
