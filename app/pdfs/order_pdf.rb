@@ -10,21 +10,19 @@ class OrderPdf < Prawn::Document
     require 'barby/outputter/prawn_outputter'
     outputter = Barby::PrawnOutputter.new(barcode)
 
-    bounding_box([0, cursor], :width => bounds.width, :height => 140) do
+    bounding_box([0, cursor], :width => bounds.width, :height => 80) do
       stroke_bounds if @debug
       image "#{Rails.root}/app/assets/images/orders/pdf/logo.jpg", width: 40, at: [0,cursor+6]
       text_box "Association Rencontre de Jeunesse\n 1607 Palézieux\n Suisse", at: [80, cursor], size: 8
       text_box "www.rencontredejeunesse.ch\ninfo@rencontredejeunesse.ch", size: 8, align: :right
-      outputter.annotate_pdf(self, x: 280, y: 50, height: 30)
-      text_box "#{@order.order_id}", size: 8, at: [280, 45], character_spacing: 1.5
     end
 
-    bounding_box([0, cursor], :width => bounds.width, :height => 170) do
+    bounding_box([0, cursor], :width => bounds.width, :height => 200) do
       stroke_bounds if @debug
-      text "Ticket de caisse #{@order.order_id}", size: 14, style: :bold
-      move_down 8
+      text "Ticket de caisse #{@order.order_id}", size: 12#, style: :bold
+      move_down 15
 
-      bounding_box([0, cursor], :width => 110, :height => 100) do
+      bounding_box([0, cursor], :width => 110, :height => 80) do
         stroke_bounds if @debug
         text_box "Date de la commande
           Nunéro de Client
@@ -35,9 +33,9 @@ class OrderPdf < Prawn::Document
           Addresse de livraison", size: 8
       end
 
-      move_up 100
+      move_up 80
 
-      bounding_box([120, cursor], :width => 100, :height => 100) do
+      bounding_box([120, cursor], :width => 120, :height => 80) do
         stroke_bounds if @debug
         text_box "#{@order.created_at.strftime("%d.%m.%Y")}
           #{@order.human_id}
@@ -48,16 +46,31 @@ class OrderPdf < Prawn::Document
           #{@order.user.email}", size: 8
       end
 
-      move_up 120
+      move_up 100
 
-      bounding_box([280, cursor], :width => 180, :height => 100) do
+      bounding_box([290, cursor], :width => 180, :height => 100) do
         stroke_bounds if @debug
         text_box "#{@order.user.full_name}
           #{@order.user.address}
           #{@order.user.country}-#{@order.user.npa} #{@order.user.city}
-          #{@order.user.country_name}", size: 10, leading: 1, character_spacing: 0.75
+          #{@order.user.country_name}", size: 10, leading: 1, character_spacing: 0.4
       end
+      
+      delta = 3
+      min_x = 0
+      min_y = 30
+      max_x = 240
+      max_y = 95
+      drawCorner(min_x, min_y, delta, delta)
+      drawCorner(min_x, max_y, delta, -delta)
+      drawCorner(max_x, min_y, -delta, delta)
+      drawCorner(max_x, max_y, -delta, -delta)
+
+      outputter.annotate_pdf(self, x: 240/2 - outputter.width/2, y: 50, height: 30)
+      text_box "#{@order.order_id}", size: 8, at: [240/2 - outputter.width/2, 45], character_spacing: 1.5
     end
+
+    move_down 10
 
     sum = 0
     height = 10
@@ -187,7 +200,20 @@ class OrderPdf < Prawn::Document
       end
       stroke_horizontal_rule
     end
+
+    move_down 50
+
+    text "Ce document sert de justificatif d'achat. Veillez à l'avoir sur vous dans le cas où vous deviez retirer un ou plusieurs produits. Les conditions générales s'appliquent. ", size: 8
     
+  end
+
+  def drawCorner(x, y, delta1, delta2)
+    self.join_style = :round
+    stroke do
+      move_to(x+delta1, y)
+      line_to(x, y)
+      line_to(x, y+delta2)
+    end
   end
 
   def orderRow data
