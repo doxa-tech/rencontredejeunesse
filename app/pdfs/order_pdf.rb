@@ -10,12 +10,13 @@ class OrderPdf < Prawn::Document
     require 'barby/outputter/prawn_outputter'
     outputter = Barby::PrawnOutputter.new(barcode)
 
-    bounding_box([0, cursor], :width => bounds.width, :height => 130) do
+    bounding_box([0, cursor], :width => bounds.width, :height => 140) do
       stroke_bounds if @debug
       image "#{Rails.root}/app/assets/images/orders/pdf/logo.jpg", width: 40, at: [0,cursor+6]
-      text_box "Association Rencontre de Jeunesse\n 1607 Palézieux\n Suisse", at: [90, cursor], size: 8
+      text_box "Association Rencontre de Jeunesse\n 1607 Palézieux\n Suisse", at: [80, cursor], size: 8
       text_box "www.rencontredejeunesse.ch\ninfo@rencontredejeunesse.ch", size: 8, align: :right
-      outputter.annotate_pdf(self, x: 280, y: 40, height: 30)
+      outputter.annotate_pdf(self, x: 280, y: 50, height: 30)
+      text_box "#{@order.order_id}", size: 8, at: [280, 45], character_spacing: 1.5
     end
 
     bounding_box([0, cursor], :width => bounds.width, :height => 170) do
