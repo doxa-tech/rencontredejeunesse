@@ -2,13 +2,13 @@ class User < ApplicationRecord
   attr_accessor :current_password
   enum gender: [:male, :female]
 
-  has_many :orders
-  has_many :comments
-  has_one :volunteer
+  has_many :orders, dependent: :nullify
+  has_many :comments, dependent: :destroy
+  has_one :volunteer, dependent: :destroy
   belongs_to :image, optional: true
 
-  has_many :posts
-  has_many :testimonies
+  has_many :posts, dependent: :destroy
+  has_many :testimonies, dependent: :destroy
 
   has_secure_password
 

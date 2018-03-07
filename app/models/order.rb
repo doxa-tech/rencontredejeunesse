@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   enum case: [:regular, :volunteer]
 
   belongs_to :user
-  belongs_to :product, polymorphic: true
+  belongs_to :product, polymorphic: true, dependent: :destroy
   belongs_to :discount, optional: true
 
   accepts_nested_attributes_for :product

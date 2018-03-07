@@ -1,6 +1,6 @@
 class Discount < ApplicationRecord
 
-  has_many :orders
+  has_many :orders, dependent: :nullify
 
   enum category: [:money, :percent, :free]
 
