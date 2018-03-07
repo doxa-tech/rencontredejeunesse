@@ -19,7 +19,7 @@ class OrdersController < Orders::BaseController
   # request from Postfinance
   def update
     if params[:SHASIGN] == shaout.upcase
-      @order = Order.find_by_order_id(params[:orderID])
+      @order = Order.find_by_order_id!(params[:orderID])
       @order.amount = params[:amount].to_i * 100
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]

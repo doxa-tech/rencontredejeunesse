@@ -15,11 +15,11 @@ class Users::PasswordResetsController < ApplicationController
   end
 
   def edit
-    @user = User.find_by_reset_token(params[:id])
+    @user = User.find_by_reset_token!(params[:id])
   end
 
   def update
-    @user = User.find_by_reset_token(params[:id])
+    @user = User.find_by_reset_token!(params[:id])
     @user.assign_attributes(user_params)
     if @user.reset_sent_at < 2.hours.ago
 	    redirect_to new_users_password_reset_path, :error => "La demande pour un nouveau mot de passe a expiré"
