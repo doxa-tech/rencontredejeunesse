@@ -101,3 +101,6 @@ gem 'codeclimate-test-reporter', group: :test, require: nil
 
 # PDF generation
 gem 'prawn'
+
+# Barcode generation
+gem 'barby'
