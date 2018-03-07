@@ -6,6 +6,8 @@
     title: "Commande #{truncate(@order.order_id, length: 3, omission: "")}" %>
 <% end %>
 
+<p><%= link_to "> Voir le ticket de caisse au format PDF", format: "pdf" %></p>
+
 <p>Résumé de ta commande pour la <b><%= @order.product_name.capitalize %></b>.</p>
 
 <p class="price">Prix total: <%= @order.print_amount %> CHF</p>
@@ -13,5 +15,3 @@
 <%= render "connect/orders/show/#{@order.product_name}" %>
 
 <p class="number">Commande n°<%= @order.order_id %></p>
-
-<p><%= link_to "Get PDF invoice", format: "pdf" %>
