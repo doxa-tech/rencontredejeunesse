@@ -21,7 +21,7 @@ class Admin::DiscountsController < Admin::BaseController
 
   def destroy
     @discount = Discount.find(params[:id])
-    if @discount.orders.any?
+    if @discount.used
       flash[:error] = "Code promotionel utilisé"
     else
       @discount.destroy
@@ -33,6 +33,6 @@ class Admin::DiscountsController < Admin::BaseController
   private
 
   def discount_params
-    params.require(:discount).permit(:category, :product, :reduction, :number)
+    params.require(:discount).permit(:category, :product, :reduction, :number, :note)
   end
 end
