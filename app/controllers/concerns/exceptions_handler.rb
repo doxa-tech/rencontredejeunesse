@@ -9,7 +9,7 @@ module ExceptionsHandler
         format.html do
           redirect_to connect_root_path, error: "Accès non authorisé"
         end
-        format.all { render nothing: true, status: 403 }
+        format.all { head :forbidden }
       end
     end
 
@@ -17,7 +17,7 @@ module ExceptionsHandler
       respond_to do |format|
         format.html do
           redirect_to "/signin", error: "Veuillez vous connecter"
-          format.all { render nothing: true, status: 401 }
+          format.all { head :unauthorized }
         end
       end
     end
