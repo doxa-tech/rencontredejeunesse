@@ -1,28 +1,34 @@
 class Discount < ApplicationRecord
 
-  has_many :orders
+  has_many :orders, dependent: :nullify
 
   enum category: [:money, :percent, :free]
 
   validates :code, uniqueness: true
   validates :category, presence: true, inclusion: { in: categories.keys }
   validates :product, presence: true, inclusion: { in: ["Records::Rj", "Records::Login"] }
-  validates :reduction, presence: true, numericality: { greater_than: 1000 }, if: :money?
+  validates :reduction, presence: true, numericality: { greater_than: 500 }, if: :money?
   validates :reduction, presence: true, numericality: { greater_than: 0, less_than: 100 }, if: :percent?
   validates :number, presence: true, numericality: { greater_than: 0 }, if: :free?
 
   before_create :generate_code
 
+  def calculate_amount(amount)
+    amount = amount - self.calculate_discount(amount)
+    if amount == self.product_class::FEE * 100 || amount < 0
+      amount = 0
+    end
+    return amount
+  end
+
   def calculate_discount(amount)
     case category
     when "money"
-      return amount - self.reduction
+      self.reduction
     when "percent"
-      return amount - (amount * self.reduction / 100)
+      amount * self.reduction / 100
     when "free"
-      amount = amount - self.number * self.product_class.ENTRY_PRICE * 100
-      amount = 0 if amount == self.product_class::FEE * 100
-      return amount
+      self.number * self.product_class.ENTRY_PRICE * 100
     end
   end
 

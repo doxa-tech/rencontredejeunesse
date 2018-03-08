@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   enum case: [:regular, :volunteer]
 
   belongs_to :user
-  belongs_to :product, polymorphic: true
+  belongs_to :product, polymorphic: true, dependent: :destroy
   belongs_to :discount, optional: true
 
   accepts_nested_attributes_for :product
@@ -77,7 +77,7 @@ class Order < ApplicationRecord
       self.amount = lump_sum
     else
       self.amount = product.calculate_amount
-      self.amount = self.discount.calculate_discount(self.amount) if self.discount
+      self.amount = self.discount.calculate_amount(self.amount) if self.discount
     end
   end
 

@@ -2,7 +2,7 @@ class Record < ApplicationRecord
 
   self.abstract_class = true
 
-  has_one :order, as: :product
+  has_one :order, as: :product, dependent: :nullify
 
   private
 

@@ -80,7 +80,7 @@ fr:
     categories:
       free: "Gratuité"
       money: "Argent"
-      percet: "Pourcentage"
+      percent: "Pourcentage"
   participants/login:
     genders:
       male: "M."

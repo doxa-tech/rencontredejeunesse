@@ -6,7 +6,7 @@ module Records
 
     self.table_name = 'records_login'
 
-    has_many :participants, class_name: "Participants::Login", foreign_key: "records_login_id", inverse_of: :record do
+    has_many :participants, dependent: :destroy, class_name: "Participants::Login", foreign_key: "records_login_id", inverse_of: :record do
 
       def build_from_user(user)
         build(user.as_json(only: [:gender, :firstname, :lastname, :email], methods: :age))

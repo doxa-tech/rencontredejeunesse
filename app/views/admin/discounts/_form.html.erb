@@ -7,16 +7,22 @@
 		<%= f.label :category %>
 		<%= f.select :category, options_for_enum(f.object, :category) %>
 
-    <p><i>Si de catégorie "Argent" ou "Pourcentage"</i></p>
+    <p class="hint">
+			Si de catégorie "Argent" ou "Pourcentage"<br>
+			Argent: en centimes (min. 500) / Pourcentage: 0-100
+		</p>
     <%= f.label :reduction %>
     <%= f.number_field :reduction %>
 
-    <p><i>Si de catégorie "Gratuité"</i></p>
+    <p class="hint">Si de catégorie "Gratuité"</p>
     <%= f.label :number %>
     <%= f.number_field :number %>
 
     <%= f.label :product %>
     <%= f.select :product, [["Rj", "Records::Rj"], ["Login", "Records::Login"]] %>
+
+		<%= f.label :note %>
+		<%= f.text_field :note %>
 
 		<%= f.submit nil, class: "button" %>
 
