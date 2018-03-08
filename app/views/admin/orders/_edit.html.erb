@@ -1,14 +1,10 @@
 <div id="form">
 
+  <h1>Modifier la commande <%= @order.order_id %></h1>
+
   <%= form_for @order, url: { action: "update" } do |f| %>
 
     <%= render 'error_messages', object: f.object %>
-
-    <h3>Information de contact</h3>
-
-    <%= f.fields_for :user, @order.user do |user_f| %>
-      <%= render "users/fields/information", f: user_f %>
-    <% end %>
 
     <%= yield f %>
 
