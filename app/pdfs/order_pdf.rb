@@ -19,7 +19,7 @@ class OrderPdf < Prawn::Document
 
     bounding_box([0, cursor], :width => bounds.width, :height => 200) do
       stroke_bounds if @debug
-      text "Ticket de caisse #{@order.order_id}", size: 12#, style: :bold
+      text @order.title, size: 12#, style: :bold
       move_down 15
 
       bounding_box([0, cursor], :width => 110, :height => 80) do
@@ -37,23 +37,20 @@ class OrderPdf < Prawn::Document
 
       bounding_box([120, cursor], :width => 120, :height => 80) do
         stroke_bounds if @debug
-        text_box "#{@order.created_at.strftime("%d.%m.%Y")}
-          #{@order.human_id}
-          #{@order.user.full_name}
-          PDF
-          #{@order.payment_method}
-          CHF
-          #{@order.user.email}", size: 8
+        text_box "#{@order.order_date}
+          #{@order.client_id}
+          #{@order.reference_person}
+          #{@order.shipping_type}
+          #{@order.payment_type}
+          #{@order.currency}
+          #{@order.shipping_adress}", size: 8
       end
 
       move_up 100
 
-      bounding_box([290, cursor], :width => 180, :height => 100) do
+      bounding_box([291, cursor], :width => 180, :height => 100) do
         stroke_bounds if @debug
-        text_box "#{@order.user.full_name}
-          #{@order.user.address}
-          #{@order.user.country}-#{@order.user.npa} #{@order.user.city}
-          #{@order.user.country_name}", size: 10, leading: 1, character_spacing: 0.4
+        text_box @order.recipient_adress, size: 10, leading: 1, character_spacing: 0.4
       end
       
       delta = 3
@@ -67,7 +64,7 @@ class OrderPdf < Prawn::Document
       drawCorner(max_x, max_y, -delta, -delta)
 
       outputter.annotate_pdf(self, x: 240/2 - outputter.width/2, y: 50, height: 30)
-      text_box "#{@order.order_id}", size: 8, at: [240/2 - outputter.width/2, 45], character_spacing: 1.5
+      text_box "#{@order.order_id}", size: 9, at: [240/2 - outputter.width/2, 45], character_spacing: 1.5
     end
 
     move_down 10
@@ -115,29 +112,9 @@ class OrderPdf < Prawn::Document
 
     move_down 4
 
-    orderRow( ["Forfait RJ", 
-      "-", 
-      "#{@order.created_at.strftime("%d.%m.%Y")}",
-      "#{@order.product.entries}", 
-      "#{'%.2f' % Records::Rj.ENTRY_PRICE(@order.created_at)}",
-      "incl. 8.0%", 
-      "#{'%.2f' % Records::Rj.ENTRY_PRICE(@order.created_at)}"] )
-  
-    orderRow( ["Places pour dormir GARS", 
-      "-", 
-      "#{@order.created_at.strftime("%d.%m.%Y")}",
-      "#{@order.product.man_lodging}", 
-      "#{'%.2f' % Records::Rj::LODGING_PRICE}",
-      "incl. 8.0%", 
-      "#{'%.2f' % (Records::Rj::LODGING_PRICE * @order.product.man_lodging)}"] )
-
-    orderRow( ["Places pour dormir FILLE", 
-      "-", 
-      "#{@order.created_at.strftime("%d.%m.%Y")}",
-      "#{@order.product.man_lodging}", 
-      "#{'%.2f' % Records::Rj::LODGING_PRICE}",
-      "incl. 8.0%", 
-      "#{'%.2f' % (Records::Rj::LODGING_PRICE * @order.product.woman_lodging)}"] )
+    @order.products.each do |product|
+      orderRow( product )
+    end
 
     move_down 20
 
@@ -171,12 +148,12 @@ class OrderPdf < Prawn::Document
       move_down 4
       bounding_box([0, cursor], :width => step*4, :height => height) do
         stroke_bounds if @debug
-        text_box "#{@order.created_at.strftime("%d.%m.%Y")}", at: [0, cursor], size: 8
+        text_box "#{@order.order_date}", at: [0, cursor], size: 8
       end
       move_up height
       bounding_box([step*4, cursor], :width => step, :height => height) do
         stroke_bounds if @debug
-        text_box "#{@order.payment_method}", at: [0, cursor], size: 8, align: :right
+        text_box "#{@order.payment_type}", at: [0, cursor], size: 8, align: :right
       end
       move_up height
       bounding_box([step*5, cursor], :width => step, :height => height) do
@@ -216,7 +193,7 @@ class OrderPdf < Prawn::Document
     end
   end
 
-  def orderRow data
+  def orderRow product
     sum = 0
     height = 10
     horizontal_padding = [0, 180]
@@ -228,37 +205,37 @@ class OrderPdf < Prawn::Document
 
     bounding_box([horizontal_position[0], cursor], :width => horizontal_padding[1], :height => height) do
       stroke_bounds if @debug
-      text_box data[0], at: [0, cursor], size: 8
+      text_box product.description, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([horizontal_position[1], cursor], :width => horizontal_padding[2], :height => height) do
       stroke_bounds if @debug
-      text_box data[1], at: [0, cursor], size: 8
+      text_box product.product_number, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([horizontal_position[2], cursor], :width => horizontal_padding[3], :height => height) do
       stroke_bounds if @debug
-      text_box data[2], at: [0, cursor], size: 8
+      text_box product.shipping_date, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([horizontal_position[3], cursor], :width => horizontal_padding[4], :height => height) do
       stroke_bounds if @debug
-      text_box data[3], at: [0, cursor], size: 8, align: :right
+      text_box product.quantity, at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[4], cursor], :width => horizontal_padding[5], :height => height) do
       stroke_bounds if @debug
-      text_box data[4], at: [0, cursor], size: 8, align: :right
+      text_box product.price, at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[5], cursor], :width => horizontal_padding[6], :height => height) do
       stroke_bounds if @debug
-      text_box data[5], at: [0, cursor], size: 8, align: :right
+      text_box product.tva, at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[6], cursor], :width => horizontal_padding[7], :height => height) do
       stroke_bounds if @debug
-      text_box data[6], at: [0, cursor], size: 8, align: :right
+      text_box product.amount, at: [0, cursor], size: 8, align: :right
     end
 
     move_down 10
