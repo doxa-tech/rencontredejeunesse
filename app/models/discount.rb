@@ -7,7 +7,7 @@ class Discount < ApplicationRecord
   validates :code, uniqueness: true
   validates :category, presence: true, inclusion: { in: categories.keys }
   validates :product, presence: true, inclusion: { in: ["Records::Rj", "Records::Login"] }
-  validates :reduction, presence: true, numericality: { greater_than: 500 }, if: :money?
+  validates :reduction, presence: true, numericality: { greater_than_or_equal_to: 500 }, if: :money?
   validates :reduction, presence: true, numericality: { greater_than: 0, less_than: 100 }, if: :percent?
   validates :number, presence: true, numericality: { greater_than: 0 }, if: :free?
 
