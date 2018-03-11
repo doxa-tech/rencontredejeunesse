@@ -31,12 +31,45 @@ shared_examples "a PDF invoice responder" do
     it "order_id" do
       expect(responder.order_id).to be_a String
     end
+    it "total_products" do
+      expect(responder.total_products).to be_a String
+    end
+    it "total_payments" do
+      expect(responder.total_payments).to be_a String
+    end
   end
 
-  describe "The following method should return an array of product" do
+  describe "The following method should return an array of products" do
     it "products" do
       expect(responder.products).to be_an Array
-      expect(responder.products).to all( be_a_kind_of responder.product)
+      responder.products.each do |product|
+        expect(product.description).to be_a String
+        expect(product.product_number).to be_a String
+        expect(product.shipping_date).to be_a String
+        expect(product.quantity).to be_a String
+        expect(product.price).to be_a String
+        expect(product.tva).to be_a String
+        expect(product.display_amount).to be_a String
+        expect(product.amount).to be_a Float
+      end
     end
+  end
+
+  describe "The following method should return an array of payments" do
+    it "payments" do
+      expect(responder.payments).to be_an Array
+      responder.payments.each do |payment|
+        expect(payment.date).to be_a String
+        expect(payment.payment_type).to be_a String
+        expect(payment.display_amount).to be_a String
+        expect(payment.amount).to be_a Float
+      end
+    end
+  end
+end
+
+shared_examples "test" do
+  describe "test" do
+    it { is_expected.to respond_to(:description) }
   end
 end

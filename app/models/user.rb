@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_save :create_remember_token
+  before_save :create_remember_token, :format_input
   before_create :create_verify_token
 
   validates :firstname, presence: true, length: { maximum: 30 }
@@ -101,5 +101,12 @@ class User < ApplicationRecord
     if User.where(email: email).where.not(id: id, password_digest: nil).any?
       errors.add(:email, "L'email est déjà utilisé")
     end
+  end
+
+  def format_input
+    self.firstname = self.firstname.strip.split('-').map(&:capitalize).join('-')
+    self.lastname = self.lastname.strip.split('-').map(&:capitalize).join('-')
+    self.address = self.address.capitalize
+    self.city = self.city.capitalize
   end
 end

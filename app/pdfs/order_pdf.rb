@@ -133,7 +133,7 @@ class OrderPdf < Prawn::Document
       move_up height
       bounding_box([step*5, cursor], :width => step, :height => height) do
         stroke_bounds if @debug
-        text_box "$$$", at: [0, cursor], size: 8, align: :right
+        text_box @order.total_products, at: [0, cursor], size: 8, align: :right
       end
       stroke_horizontal_rule
     end
@@ -146,20 +146,11 @@ class OrderPdf < Prawn::Document
         text_box "Paiement", at: [0, cursor], size: 8
       end
       move_down 4
-      bounding_box([0, cursor], :width => step*4, :height => height) do
-        stroke_bounds if @debug
-        text_box "#{@order.order_date}", at: [0, cursor], size: 8
+
+      @order.payments.each do |payment|
+        paymentRow(payment)
       end
-      move_up height
-      bounding_box([step*4, cursor], :width => step, :height => height) do
-        stroke_bounds if @debug
-        text_box "#{@order.payment_type}", at: [0, cursor], size: 8, align: :right
-      end
-      move_up height
-      bounding_box([step*5, cursor], :width => step, :height => height) do
-        stroke_bounds if @debug
-        text_box "$$$", at: [0, cursor], size: 8, align: :right
-      end
+
       move_down 10
       bounding_box([0, cursor], :width => step*4, :height => height) do
         stroke_bounds if @debug
@@ -173,7 +164,7 @@ class OrderPdf < Prawn::Document
       move_up height
       bounding_box([step*5, cursor], :width => step, :height => height) do
         stroke_bounds if @debug
-        text_box "0.00", at: [0, cursor], size: 8, align: :right
+        text_box @order.total, at: [0, cursor], size: 8, align: :right
       end
       stroke_horizontal_rule
     end
@@ -190,6 +181,25 @@ class OrderPdf < Prawn::Document
       move_to(x+delta1, y)
       line_to(x, y)
       line_to(x, y+delta2)
+    end
+  end
+
+  def paymentRow payment
+    step = (bounds.width)/6
+    height = 10
+    bounding_box([0, cursor], :width => step*2, :height => height) do
+      stroke_bounds if @debug
+      text_box payment.date, at: [0, cursor], size: 8
+    end
+    move_up height
+    bounding_box([step*2, cursor], :width => step*3, :height => height) do
+      stroke_bounds if @debug
+      text_box payment.payment_type, at: [0, cursor], size: 8, align: :right
+    end
+    move_up height
+    bounding_box([step*5, cursor], :width => step, :height => height) do
+      stroke_bounds if @debug
+      text_box payment.display_amount, at: [0, cursor], size: 8, align: :right
     end
   end
 
@@ -235,7 +245,7 @@ class OrderPdf < Prawn::Document
     move_up height
     bounding_box([horizontal_position[6], cursor], :width => horizontal_padding[7], :height => height) do
       stroke_bounds if @debug
-      text_box product.amount, at: [0, cursor], size: 8, align: :right
+      text_box product.display_amount, at: [0, cursor], size: 8, align: :right
     end
 
     move_down 10
