@@ -17,8 +17,8 @@ module ExceptionsHandler
       respond_to do |format|
         format.html do
           redirect_to "/signin", error: "Veuillez vous connecter"
-          format.all { head :unauthorized }
         end
+        format.all { head :unauthorized }
       end
     end
 
