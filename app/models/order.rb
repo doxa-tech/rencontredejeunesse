@@ -87,7 +87,9 @@ class Order < ApplicationRecord
 
   def generate_id
     loop do
-      self.order_id = Time.now.to_i * rand(1000..9999)
+      #self.order_id = Time.now.to_i * rand(1000..9999)
+      #               |     2 digits for year      |              10 random digits              | 2 digits |
+      self.order_id = (Time.now.year%100)*(10**12) + SecureRandom.random_number(10**10)*(10**2) + 01
       self.human_id = SecureRandom.hex(2).upcase
       break if valid?
     end

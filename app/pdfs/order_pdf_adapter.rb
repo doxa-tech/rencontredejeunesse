@@ -34,7 +34,6 @@ class OrderPDFAdapter
     @payments
   end
 
-  # --- PDF Invoice interface implementation, see spec for definition --- #
   def recipient_adress
     "#{@order.user.full_name}
     #{@order.user.address.capitalize}
@@ -43,7 +42,7 @@ class OrderPDFAdapter
   end
 
   def title
-    "Ticket de caisse #{@order.order_id}"
+    "Ticket pass"
   end
 
   def order_date
@@ -78,11 +77,15 @@ class OrderPDFAdapter
     @order.order_id
   end
 
+  def display_order_id
+    @order.order_id.insert(2, " ").insert(8, " ").insert(-3, " ")
+  end
+
   def build_products_list
     products_list = []
     products_list << Product.new(
       description: "Forfait RJ", 
-      product_number: "-", 
+      product_number: "5402", 
       shipping_date: order_date, 
       quantity: @order.product.entries.to_s, 
       price: '%.2f' % Records::Rj.ENTRY_PRICE(@order.created_at), 
@@ -91,7 +94,7 @@ class OrderPDFAdapter
 
     products_list << Product.new(
       description: "Places pour dormir GARS", 
-      product_number: "-", 
+      product_number: "3590", 
       shipping_date: order_date, 
       quantity: @order.product.man_lodging.to_s,
       price: '%.2f' % Records::Rj::LODGING_PRICE, 
@@ -100,7 +103,7 @@ class OrderPDFAdapter
 
     products_list << Product.new(
       description: "Places pour dormir FILLE", 
-      product_number: "-", 
+      product_number: "5230", 
       shipping_date: order_date, 
       quantity: @order.product.woman_lodging.to_s,
       price: '%.2f' % Records::Rj::LODGING_PRICE, 
@@ -131,13 +134,14 @@ class OrderPDFAdapter
     '%.2f' % products.inject(0) { |sum, product| sum = sum + product.amount}
   end
 
-  def total_payments
-    '%.2f' % payments.inject(0) { |sum, payment| sum = sum + payment.amount}
+  def total
+    '%.2f' % (products.inject(0) { |sum, product| sum = sum + product.amount}.to_f + total_payments)
   end
 
-  def total
-    '%.2f' % (products.inject(0) { |sum, product| sum = sum + product.amount}.to_f + payments.inject(0) { |sum, payment| sum = sum + payment.amount}.to_f)
-  end
+  private
   
+  def total_payments
+    payments.inject(0) { |sum, payment| sum = sum + payment.amount}
+  end
 
 end

@@ -64,7 +64,7 @@ class OrderPdf < Prawn::Document
       drawCorner(max_x, max_y, -delta, -delta)
 
       outputter.annotate_pdf(self, x: 240/2 - outputter.width/2, y: 50, height: 30)
-      text_box "#{@order.order_id}", size: 9, at: [240/2 - outputter.width/2, 45], character_spacing: 1.5
+      text_box "#{@order.display_order_id}", size: 9, at: [240/2 - outputter.width/2, 45], character_spacing: 1.5
     end
 
     move_down 10

@@ -34,8 +34,8 @@ shared_examples "a PDF invoice responder" do
     it "total_products" do
       expect(responder.total_products).to be_a String
     end
-    it "total_payments" do
-      expect(responder.total_payments).to be_a String
+    it "total" do
+      expect(responder.total).to be_a String
     end
   end
 
