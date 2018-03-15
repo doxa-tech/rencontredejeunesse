@@ -84,8 +84,17 @@
           }
         }
 
-        div.address {
+        div.single-prices-and-address {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: flex-start;
+
           padding: 140px 0 70px 0;
+
+          div.address {
+            padding: 0 0 0 50px;
+          }
         }
       }
     }
@@ -129,6 +138,17 @@
 
             div.price {
               padding: 30px 10px !important;
+            }
+          }
+
+          div.single-prices-and-address {
+            padding: 40px 0 !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            text-align: center;
+
+            div.address {
+              padding: 20px 0 0 0 !important;
             }
           }
 
