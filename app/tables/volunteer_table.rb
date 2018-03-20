@@ -1,11 +1,11 @@
-class OrderTable < BaseTable
+class VolunteerTable < BaseTable
 
   def attributes
-    [:id, :amount, :order_id, :human_id, :status, { user: :name }, :created_at, :updated_at]
+    [:id, { user: :name } , :sector, :comment, :confirmed, :created_at, :updated_at]
   end
 
   def model
-    Order
+    Volunteer
   end
 
   def belongs_to_associations

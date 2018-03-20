@@ -2,7 +2,8 @@ class Admin::Orders::LoginController < Admin::BaseController
   load_and_authorize(model: Records::Login)
 
   def index
-    @table = OrderTable.new(self, Order.where("product_type = ? AND status NOTNULL", "Records::Login"))
+    @count = Order.where(product_type: "Records::Login", status: [5,9]).inject(0) { |sum, o| sum += o.product.entries }
+    @table = OrderTable.new(self, Order.where("product_type = ? AND status NOTNULL", "Records::Login"), search: true)
     @table.respond
   end
 
