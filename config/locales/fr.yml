@@ -90,7 +90,7 @@ fr:
       male: "M."
       female: "Mme"
   sector:
-    attributes:
+    attributes: &sectors
       hosts: "Gestion des hôtes"
       lounge: "Staff resto & lounge"
       volunteers: "Gestion des bénévoles"
@@ -117,6 +117,9 @@ fr:
       security: "Sécurité"
       session: "Plénières"
       technical: "Technique"
+  volunteer:
+    sectors:
+      <<: *sectors
   errors:
     format: "%{message}"
     messages:

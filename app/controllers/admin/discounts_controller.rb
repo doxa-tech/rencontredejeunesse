@@ -2,7 +2,7 @@ class Admin::DiscountsController < Admin::BaseController
   load_and_authorize
 
   def index
-    @table = Table.new(self, Discount)
+    @table = Table.new(self, @discounts)
 		@table.respond
   end
 

@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::BaseController
   load_and_authorize
 
   def index
-		@table = Table.new(self, User)
+		@table = UserTable.new(self, @users, search: true)
 		@table.respond
 	end
 

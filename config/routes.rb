@@ -102,6 +102,7 @@ Rails.application.routes.draw do
     root to: "base#index"
 
     resources :users, except: :show
+    resources :volunteers, except: [:new, :create]
     resources :discounts, except: [:edit, :update]
 
     namespace :orders do

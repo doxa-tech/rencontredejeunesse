@@ -173,6 +173,10 @@ class OrderPdf < Prawn::Document
 
     text "Ce document sert de justificatif d'achat. Veillez à l'avoir sur vous dans le cas où vous deviez retirer un ou plusieurs produits. Les conditions générales s'appliquent. ", size: 8
     
+    bounding_box([10, 0], :width => 50, :height => 10) do
+      stroke_bounds
+    end
+
   end
 
   def drawCorner(x, y, delta1, delta2)
