@@ -424,7 +424,7 @@ DEPENDENCIES
   prawn
   premailer-rails
   puma (~> 3.0)
-  rails (~> 5.1)
+  rails (~> 5.1.0)
   rails-controller-testing
   rails-i18n
   rspec-rails (~> 3.5)

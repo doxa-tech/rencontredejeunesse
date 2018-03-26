@@ -33,7 +33,7 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :reset
 
   def completed_orders
-    Order.where(user_id: self.id).where.not(status: nil)
+    Order.where(user_id: self.id).where(status: [8, 5, 9, 41])
   end
 
   def pending_orders
