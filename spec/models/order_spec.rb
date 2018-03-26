@@ -85,6 +85,14 @@ RSpec.describe "Order", :type => :model do
       expect { order.save! }.to raise_error ActiveRecord::RecordInvalid
     end
 
+    it "saves the amount of the discount" do
+      order = build(:order)
+      discount = create(:discount, category: :free, number: 1, product: "Records::Rj")
+      order.discount_code = discount.code
+      order.save
+      expect(order.discount_amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
+    end
+
   end
 
 end

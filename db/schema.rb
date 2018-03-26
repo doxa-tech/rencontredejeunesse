@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180308111114) do
+ActiveRecord::Schema.define(version: 20180326122946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180308111114) do
     t.boolean "pending", default: false
     t.integer "case", default: 0
     t.bigint "discount_id"
+    t.integer "discount_amount", default: 0
     t.index ["discount_id"], name: "index_orders_on_discount_id"
     t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
@@ -177,10 +178,10 @@ ActiveRecord::Schema.define(version: 20180308111114) do
   create_table "records_rj", id: :serial, force: :cascade do |t|
     t.integer "entries"
     t.string "group"
-    t.integer "woman_lodging"
-    t.integer "man_lodging"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "man_lodging"
+    t.integer "woman_lodging"
   end
 
   create_table "testimonies", id: :serial, force: :cascade do |t|
