@@ -9,14 +9,13 @@ class Connect::OrdersController < Connect::BaseController
   end
 
   def show
-    @order = Order.find(params[:id])
+    @order = Order.find_by_order_id!(params[:id])
     respond_to do |format|
       format.html
       format.pdf do
-        
         pdf = OrderPdf.new(OrderPDFAdapter.new(@order))
-        send_data pdf.render, filename: "Ticket#{@order.order_id}.pdf", 
-          type: "application/pdf", disposition: 'inline'      
+        send_data pdf.render, filename: "Ticket#{@order.order_id}.pdf",
+          type: "application/pdf", disposition: 'inline'
       end
     end
   end

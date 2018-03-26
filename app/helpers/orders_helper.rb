@@ -14,10 +14,15 @@ module OrdersHelper
   end
 
   def human_status(order)
-    if order.paid?
+    case order.status
+    when 5
+      "En traitement"
+    when 8
+      "Remboursé"
+    when 41
+      "En attente du paiement"
+    when 9
       "Payé"
-    else
-      "Non payé"
     end
   end
 

@@ -67,9 +67,3 @@ shared_examples "a PDF invoice responder" do
     end
   end
 end
-
-shared_examples "test" do
-  describe "test" do
-    it { is_expected.to respond_to(:description) }
-  end
-end

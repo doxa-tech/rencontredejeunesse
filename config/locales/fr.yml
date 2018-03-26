@@ -81,6 +81,10 @@ fr:
       free: "Gratuité"
       money: "Argent"
       percent: "Pourcentage"
+  order:
+    payment_methods:
+      postfinance: "Carte de débit/crédit"
+      invoice: "Facture"
   participants/login:
     genders:
       male: "M."

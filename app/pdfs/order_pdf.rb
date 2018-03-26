@@ -30,7 +30,7 @@ class OrderPdf < Prawn::Document
           Type de livraison
           Option de paiement
           Monnaie
-          Addresse de livraison", size: 8
+          Adresse de livraison", size: 8
       end
 
       move_up 80
@@ -52,7 +52,7 @@ class OrderPdf < Prawn::Document
         stroke_bounds if @debug
         text_box @order.recipient_adress, size: 10, leading: 1, character_spacing: 0.4
       end
-      
+
       delta = 3
       min_x = 0
       min_y = 30
@@ -172,7 +172,7 @@ class OrderPdf < Prawn::Document
     move_down 50
 
     text "Ce document sert de justificatif d'achat. Veillez à l'avoir sur vous dans le cas où vous deviez retirer un ou plusieurs produits. Les conditions générales s'appliquent. ", size: 8
-    
+
     bounding_box([10, 0], :width => 50, :height => 10) do
       stroke_bounds
     end

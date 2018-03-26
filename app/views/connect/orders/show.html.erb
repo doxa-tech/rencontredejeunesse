@@ -1,8 +1,8 @@
 <% content_for :id, "orders-show" %>
 
 <%= content_for :header do %>
-  <%= render "connect/page_header", 
-    link: connect_orders_path, 
+  <%= render "connect/page_header",
+    link: connect_orders_path,
     title: "Commande #{truncate(@order.order_id, length: 3, omission: "")}" %>
 <% end %>
 
@@ -10,6 +10,7 @@
 
 <p>Résumé de ta commande pour la <b><%= @order.product_name.capitalize %></b>.</p>
 
+<p class="price">Statut de la commande: <%= human_status(@order) %></p>
 <p class="price">Prix total: <%= @order.print_amount %> CHF</p>
 
 <%= render "connect/orders/show/#{@order.product_name}" %>
