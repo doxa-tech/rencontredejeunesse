@@ -128,7 +128,7 @@ class OrderPDFAdapter
     payments_list << Payment.new(
       date: "",
       payment_type: "Réduction",
-      amount: @order.discount_amount
+      amount: @order.discount_amount.to_f
     )
 
     payments_list
