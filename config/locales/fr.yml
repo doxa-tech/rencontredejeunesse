@@ -2,10 +2,9 @@ fr:
   time:
     formats:
       date: "%d. %b %y"
-  admin:
-    checkin:
-      login: "RJ Login"
-      rj: "Rencontre de jeunesse"
+  product:
+    login: "RJ Login"
+    rj: "Rencontre de jeunesse"
   helpers:
     submit:
       order:
