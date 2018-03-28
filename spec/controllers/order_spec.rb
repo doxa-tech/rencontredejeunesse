@@ -39,7 +39,7 @@ RSpec.describe OrdersController, :type => :controller do
       @order.lump_sum = (Records::Rj::VOLUNTEER_TOTAL) * 100
       @order.case = :volunteer
       @order.save!
-      volunteer = @order.user.create_volunteer(year: 2018)
+      volunteer = @order.user.create_volunteer!(year: 2018, tshirt_size: :m)
       post :update, params: {
         orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
       }

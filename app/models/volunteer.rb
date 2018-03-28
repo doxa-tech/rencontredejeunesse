@@ -7,7 +7,7 @@ class Volunteer < ApplicationRecord
   enum tshirt_size: [:xs, :m, :l, :xl]
 
   validates :comment, length: { maximum: 50 }
-  validates :sector, presence: true, inclusion: { in: sectors.keys }
+  validates :sector, inclusion: { in: sectors.keys }, allow_nil: true
   validates :tshirt_size, presence: true, inclusion: { in: tshirt_sizes.keys }
 
 end

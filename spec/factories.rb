@@ -17,7 +17,7 @@ FactoryBot.define do
 
     factory :volunteer do
       after(:create) do |user|
-        user.create_volunteer(year: 2018)
+        user.create_volunteer!(year: 2018, tshirt_size: "M")
       end
     end
 
