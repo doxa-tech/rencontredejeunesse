@@ -119,6 +119,11 @@ fr:
   volunteer:
     sectors:
       <<: *sectors
+    tshirt_sizes:
+      xs: "XS"
+      m: "M"
+      l: "L"
+      xl: "XL"
   errors:
     format: "%{message}"
     messages:

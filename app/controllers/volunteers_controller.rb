@@ -23,7 +23,7 @@ class VolunteersController < ApplicationController
   private
 
   def volunteer_params
-    params.require(:volunteer).permit(:sector, :comment)
+    params.require(:volunteer).permit(:sector, :comment, :tshirt_size)
   end
 
   def check_if_volunteer

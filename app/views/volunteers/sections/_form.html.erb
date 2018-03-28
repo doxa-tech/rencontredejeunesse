@@ -24,6 +24,11 @@
     </div>
 
     <div class="row">
+      <%= f.label :tshirt_size %>
+      <%= f.select :tshirt_size, options_for_enum(f.object, :tshirt_size) %>
+    </div>
+
+    <div class="row">
       <span></span>
       <%= f.submit %>
     </div>
