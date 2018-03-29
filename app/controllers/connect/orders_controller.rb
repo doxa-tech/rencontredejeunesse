@@ -13,7 +13,7 @@ class Connect::OrdersController < Connect::BaseController
     respond_to do |format|
       format.html
       format.pdf do
-        pdf = OrderPdf.new(OrderPDFAdapter.new(@order))
+        pdf = OrderPdf.new(Adapters::OrderPassRjPDFAdapter.new(@order))
         send_data pdf.render, filename: "Ticket#{@order.order_id}.pdf",
           type: "application/pdf", disposition: 'inline'
       end

@@ -1,4 +1,4 @@
-class OrderPDFAdapter
+class Adapters::OrderPassPDFAdapter
   attr_reader :products, :payments
 
   class Product

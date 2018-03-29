@@ -4,7 +4,7 @@ require 'interfaces/pdf_invoice'
 RSpec.describe "Order", :type => :model do
 
   it_should_behave_like "a PDF invoice responder" do
-    let(:responder)  {OrderPDFAdapter.new(create(:order))}
+    let(:responder)  {Adapters::OrderPassRjPDFAdapter.new(create(:order))}
   end
 
   it "generates the IDs" do
