@@ -16,7 +16,9 @@
   <% else %>
   <p>Tu n'as pas donné de préférences pour le secteur.</p>
   <% end %>
+  <% if @volunteer.tshirt_size %>
   <p>Taille du T-shirt: <%= t("volunteer.tshirt_sizes.#{@volunteer.tshirt_size}") %></p>
+  <% end %>
 
   <% if @volunteer.confirmed %>
 
