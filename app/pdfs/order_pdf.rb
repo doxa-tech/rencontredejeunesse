@@ -1,4 +1,5 @@
 class OrderPdf < Prawn::Document
+  
   def initialize(order)
     super(page_size: "A4", :margin => [50,50,50,50])
     @order = order

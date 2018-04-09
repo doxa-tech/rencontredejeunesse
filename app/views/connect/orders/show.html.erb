@@ -6,7 +6,9 @@
     title: "Commande #{truncate(@order.order_id, length: 3, omission: "")}" %>
 <% end %>
 
+<% if @order.paid? %>
 <p><%= link_to "> Voir le ticket de caisse au format PDF", format: "pdf" %></p>
+<% end %>
 
 <p>Résumé de ta commande pour la <b><%= @order.product_name.capitalize %></b>.</p>
 
