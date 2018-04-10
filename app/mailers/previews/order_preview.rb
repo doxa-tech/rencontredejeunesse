@@ -3,4 +3,9 @@ class OrderPreview < ActionMailer::Preview
     order = Order.last
     OrderMailer.confirmation(order)
   end
+
+  def pass
+    order = Order.last
+    OrderMailer.pass(order)
+  end
 end

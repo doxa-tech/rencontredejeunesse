@@ -1,5 +1,5 @@
 class OrderPdf < Prawn::Document
-  
+
   def initialize(order)
     super(page_size: "A4", :margin => [50,50,50,50])
     @order = order
@@ -174,8 +174,9 @@ class OrderPdf < Prawn::Document
 
     text "Ce document sert de justificatif d'achat. Veillez à l'avoir sur vous dans le cas où vous deviez retirer un ou plusieurs produits. Les conditions générales s'appliquent. ", size: 8
 
-    bounding_box([10, 0], :width => 50, :height => 10) do
-      stroke_bounds
+    bounding_box([0, 0], :width => 100, :height => 10) do
+      stroke_bounds if @debug
+      text_box "Généré le #{Time.now}", at: [0, cursor], size: 6
     end
 
   end

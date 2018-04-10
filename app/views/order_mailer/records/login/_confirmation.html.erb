@@ -1,0 +1,16 @@
+<table class="order" style="background:#eee;">
+
+  <tr>
+    <th>Désignation</th><th>Quantité</th><th>CHF/pce</th><th></th>
+  </tr>
+  <tr>
+    <td>Forfaits Login</td><td><%= @order.product.entries %></td><td><%= Records::Login::ENTRY_PRICE %>.-</td><td><%= entries_price_for_login(@order.product) %>.-</td>
+  </tr>
+  <tr>
+    <td>Frais d'inscription</td><td></td><td></td><td><%= Records::Login::FEE %>.-</td>
+  </tr>
+  <tr>
+    <td></td><td></td><td><b>Total</b></td><td><b><%= @order.print_amount %> CHF</b></td>
+  </tr>
+
+</table>

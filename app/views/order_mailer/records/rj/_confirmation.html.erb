@@ -1,18 +1,12 @@
-<h5>Résumé de la commande</h5>
-<style>
-  table.order td, table.order th {
-    padding: 3px 6px;
-  }
-</style>
 <table class="order" style="background:#eee;">
 
   <% if @order.regular? %>
-  
+
   <tr>
     <th>Désignation</th><th>Quantité</th><th>CHF/pce</th><th></th>
   </tr>
   <tr>
-    <td>Forfaits RJ</td><td><%= @order.product.entries %></td><td><%= Records::Rj.ENTRY_PRICE(@order.created_at) %>.-</td><td><%= entries_price(@order.product) %>.-</td>
+    <td>Forfaits RJ</td><td><%= @order.product.entries %></td><td><%= Records::Rj.ENTRY_PRICE(@order.created_at) %>.-</td><td><%= entries_price_for_rj(@order.product) %>.-</td>
   </tr>
   <tr>
     <td>Places pour dormir</td><td><%= @order.product.man_lodging %>x GARS / <%= @order.product.woman_lodging %>x FILLES</td><td><%= Records::Rj::LODGING_PRICE %>.-</td><td><%= lodging_price(@order.product) %>.-</td>
