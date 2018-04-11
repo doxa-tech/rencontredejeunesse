@@ -56,6 +56,14 @@ RSpec.describe OrdersController, :type => :controller do
       expect(@order.discount.used).to eq true
     end
 
+    it "sends an email" do
+      expect {
+        post :update, params: {
+          orderID: @order.order_id, amount: @order.amount, STATUS: 5, PAYID: 3010824561, NCERROR: 0, SHASIGN: shaout.upcase
+        }
+      }.to change(ActionMailer::Base.deliveries, :size).by(2)
+    end
+
   end
 
   describe "#complete" do
@@ -82,7 +90,7 @@ RSpec.describe OrdersController, :type => :controller do
       order = create(:order)
       post :complete, params: { id: order.order_id }
       order.reload
-      expect(order.status).to eq nil
+      expect(response).to redirect_to "/orders/#{order.product_name}/#{order.order_id}/confirmation"
     end
 
   end

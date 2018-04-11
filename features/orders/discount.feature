@@ -25,3 +25,4 @@ Feature: Use a discount
     Given I am on the confirmation page with an amount of zero
     When I click the link "Finaliser ma commande"
     Then I should see the success page
+    And "john@smith.com" should receive 2 emails

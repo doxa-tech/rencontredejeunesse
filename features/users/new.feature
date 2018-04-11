@@ -9,3 +9,4 @@ Feature: create an account
     When I visit "signup/new"
     And I successfully complete the signup form
     Then I should see a flash with "Votre compte RJ Connect a été créé avec succès"
+    And "john@smith.com" should receive an email
