@@ -10,6 +10,9 @@
     <td>Frais d'inscription</td><td></td><td></td><td><%= Records::Login::FEE %>.-</td>
   </tr>
   <tr>
+    <td>Réduction</td><td></td><td style="text-align:right;">-</td><td><%= @order.discount_amount / 100 %>.-</td>
+  </tr>
+  <tr>
     <td></td><td></td><td><b>Total</b></td><td><b><%= @order.print_amount %> CHF</b></td>
   </tr>
 

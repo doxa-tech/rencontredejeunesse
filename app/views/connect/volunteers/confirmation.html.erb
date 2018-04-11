@@ -15,6 +15,10 @@
     <p><b><%= Records::Rj::VOLUNTEER_FEE %> CHF</b></p>
   </div>
   <div class="row">
+    <p>Réduction</p>
+    <p><b><%= @order.discount_amount / 100 %> CHF</b></p>
+  </div>
+  <div class="row">
     <p>Prix à payer</p>
     <p><b><%= @order.print_amount %> CHF</b></p>
   </div>

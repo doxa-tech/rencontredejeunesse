@@ -93,7 +93,7 @@ module Adapters
       payments_list << Payment.new(
         date: "",
         payment_type: "Réduction",
-        amount: @order.discount_amount.to_f
+        amount: (@order.discount_amount / 100).to_f
       )
 
       payments_list

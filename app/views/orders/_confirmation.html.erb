@@ -57,6 +57,10 @@
     <p><b><%= @order.fee %> CHF</b></p>
   </div>
   <div class="row">
+    <p>Réduction</p>
+    <p><b><%= @order.discount_amount / 100 %> CHF</b></p>
+  </div>
+  <div class="row">
     <p class="amount">Prix à payer</p>
     <p><b><%= @order.print_amount %> CHF</b></p>
   </div>
