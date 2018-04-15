@@ -103,7 +103,8 @@ class OrderPdf < Prawn::Document
     move_up height
     bounding_box([horizontal_position[5], cursor], :width => horizontal_padding[6], :height => height) do
       stroke_bounds if @debug
-      text_box "TVA", at: [0, cursor], size: 7, align: :right
+      # TVA removed
+      text_box "", at: [0, cursor], size: 7, align: :right
     end
     move_up height
     bounding_box([horizontal_position[6], cursor], :width => horizontal_padding[7], :height => height) do
@@ -246,7 +247,8 @@ class OrderPdf < Prawn::Document
     move_up height
     bounding_box([horizontal_position[5], cursor], :width => horizontal_padding[6], :height => height) do
       stroke_bounds if @debug
-      text_box product.tva, at: [0, cursor], size: 8, align: :right
+      # product.tva
+      text_box "", at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[6], cursor], :width => horizontal_padding[7], :height => height) do
