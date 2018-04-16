@@ -34,7 +34,5 @@ module Rencontredejeunesse
       password:             Rails.application.secrets.email_pwd,
     }
 
-    config.action_mailer.asset_host = 'rencontredejeunesse.ch'
-
   end
 end

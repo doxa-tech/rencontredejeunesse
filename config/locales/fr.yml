@@ -47,6 +47,7 @@ fr:
     reduction: "Réduction"
     number: "Nombre"
     used: "Utilisé"
+    confirmed: "Confirmé"
   activerecord:
     attributes:
       records/login:
@@ -62,6 +63,7 @@ fr:
         discount_code: "Code promotionel"
       volunteer:
         comment: "Remarque"
+        user: "Personne"
     errors:
       models:
         order:
