@@ -1,7 +1,7 @@
 class VolunteerTable < BaseTable
 
   def attributes
-    [:id, { user: :name } , { user: :email }, { user: :phone }, :sector, :comment, :confirmed, :created_at]
+    [:id, { user: :name } , { user: :email }, { user: :phone }, :sector, :comment, :tshirt_size, :confirmed, :created_at]
   end
 
   def model
