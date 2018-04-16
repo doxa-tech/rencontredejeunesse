@@ -1,8 +1,8 @@
 <% content_for :id, "orders-index" %>
 
 <%= content_for :header do %>
-  <%= render "connect/page_header", 
-    link: connect_root_path, 
+  <%= render "connect/page_header",
+    link: connect_root_path,
     title: "Mes commandes" %>
 <% end %>
 
@@ -12,10 +12,10 @@
 
 <div class="connect-list-view">
   <% @orders.each do |order| %>
-  
+
     <div class="item">
       Commande n°<%= truncate(order.order_id, length: 3, omission: "") %> pour la <%= order.product_name.capitalize %>
-      <%= link_to "", connect_order_path(order), class: "overlay" %>
+      <%= link_to "", connect_order_path(order.order_id), class: "overlay" %>
     </div>
 
   <% end %>

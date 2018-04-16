@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.1.0'
 
 gem 'pg'
 
@@ -97,4 +97,10 @@ gem 'mime-types'
 gem 'will_paginate', '~> 3.1.0'
 
 # Code coverage
-gem "codeclimate-test-reporter", group: :test, require: nil
+gem 'codeclimate-test-reporter', group: :test, require: nil
+
+# PDF generation
+gem 'prawn'
+
+# Barcode generation
+gem 'barby'

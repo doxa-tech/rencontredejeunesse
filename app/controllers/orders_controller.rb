@@ -1,4 +1,4 @@
-require_relative "./orders/callbacks.rb"
+require "#{Rails.root}/lib/order_completion.rb"
 
 class OrdersController < Orders::BaseController
   skip_before_action :verify_authenticity_token, only: :update
@@ -24,7 +24,7 @@ class OrdersController < Orders::BaseController
       @order.status = params[:STATUS]
       @order.payid = params[:PAYID]
       @order.save
-      complete_a_successful_order if @order.status == 5
+      order_completion.complete(:postfinance) if @order.status == 5
       head :ok
     else
       head :unprocessable_entity
@@ -37,13 +37,11 @@ class OrdersController < Orders::BaseController
   end
 
   def complete
-    unless situation.nil?
-      complete_a_successful_order
-      @order.update_attribute(:status, statuses[situation])
-      Admin::OrderMailer.invoice_registration(@order).deliver_now if situation == :invoice
+    begin
+      order_completion.complete
       redirect_to orders_confirmed_path
-    else
-      redirect_to controller: "orders/#{@order.product_name}", action: "confirmation", id: @order.order_id, error: "Une erreur s'est produite"
+    rescue ArgumentError
+      redirect_to({ controller: "orders/#{@order.product_name}", action: "confirmation", id: @order.order_id }, error: "Une erreur s'est produite")
     end
   end
 
@@ -57,21 +55,8 @@ class OrdersController < Orders::BaseController
     return Digest::SHA1.hexdigest(chain)
   end
 
-  def complete_a_successful_order
-    @order.discount.update_attribute(:used, true) if @order.discount
-    OrderMailer.confirmation(@order).deliver_now
-    Orders::Callbacks::Confirmation.send(@order.product_name, @order)
+  def order_completion
+    @order_completion ||= OrderCompletion.new(@order)
   end
 
-  def situation
-    @situation ||= if @order.invoice?
-      :invoice
-    elsif @order.amount == 0
-      :free
-    end
-  end
-
-  def statuses
-    { invoice: 41, free: 9 }
-  end
 end

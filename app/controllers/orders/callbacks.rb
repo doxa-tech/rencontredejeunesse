@@ -6,7 +6,9 @@ module Orders
       def self.rj(order)
         case order.case
         when "volunteer"
-          Volunteer.find_by(user_id: order.user_id).update_attribute(:confirmed, true)
+          volunteer = Volunteer.find_by(user_id: order.user_id)
+          volunteer.update_attribute(:confirmed, true)
+          Admin::VolunteerMailer.confirmed(volunteer)
         end
       end
 

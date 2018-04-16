@@ -1,0 +1,29 @@
+<h1>Confirmation d'inscription</h1>
+<p>Merci pour ta commande sur <a href="https://rencontredejeunesse.ch" target="_blank">rencontredejeunesse.ch<a/></p>
+
+<% if @order.postfinance? %>
+<p>
+  Ton paiement a bien été reçu et ton inscription est validée.
+</p>
+<% else %>
+<p>
+  Ton inscription a bien été reçue. Une facture te parviendra dans les prochains jours. Une fois payée, ton inscription sera validée.
+</p>
+<% end %>
+
+<h5>Résumé de ta commande</h5>
+<style>
+  table.order td, table.order th {
+    padding: 3px 6px;
+  }
+</style>
+<%= render "order_mailer/#{@order.product_name}/summary" %>
+
+<p>
+  <br>
+  Ton peux en tout temps consulter ta commande sur RJ Connect en te connectant sur <a href="https://rencontredejeunesse.ch/signin" target="_blank">rencontredejeunesse.ch/signin</a>.
+</p>
+
+<p>
+  Pour tout complément d'information ou problème, tu peux envoyer un email à l'adresse inscriptions@rencontredejeunesse.ch</p>
+</p>

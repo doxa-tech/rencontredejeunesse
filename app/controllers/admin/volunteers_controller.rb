@@ -2,7 +2,7 @@ class Admin::VolunteersController < Admin::BaseController
   load_and_authorize
 
   def index
-    @table = VolunteerTable.new(self, @volunteers, search: true)
+    @table = VolunteerTable.new(self, @volunteers, search: true, truncate: false)
     @table.respond
   end
 

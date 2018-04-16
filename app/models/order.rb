@@ -20,7 +20,7 @@ class Order < ApplicationRecord
   validate :validity_of_discount_code
 
   before_create :generate_id
-  after_validation :assign_amount, :assign_payment_method, unless: :paid?
+  after_validation :assign_amount, :assign_payment_method, if: Proc.new { |o| o.status.nil? }
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
@@ -47,7 +47,7 @@ class Order < ApplicationRecord
   end
 
   def paid?
-    status == 5 || status == 9
+    status == 9
   end
 
   def discount_code
@@ -58,6 +58,16 @@ class Order < ApplicationRecord
     self.discount = Discount.find_by_code(value)
     @discount_code = value
   end
+
+  def pdf_adapter
+    case product_type
+    when "Records::Rj"
+      Adapters::OrderPassRjAdapter.new(self)
+    when "Records::Login"
+      Adapters::OrderPassLoginAdapter.new(self)
+    end
+  end
+
 
   private
 
@@ -77,7 +87,10 @@ class Order < ApplicationRecord
       self.amount = lump_sum
     else
       self.amount = product.calculate_amount
-      self.amount = self.discount.calculate_amount(self.amount) if self.discount
+      if self.discount
+        self.discount_amount = self.amount - self.discount.calculate_amount(self.amount)
+        self.amount = self.discount.calculate_amount(self.amount)
+      end
     end
   end
 
@@ -87,7 +100,8 @@ class Order < ApplicationRecord
 
   def generate_id
     loop do
-      self.order_id = Time.now.to_i * rand(1000..9999)
+      #               |     2 digits for year      |              10 random digits              | 2 digits |
+      self.order_id = (Time.now.year%100)*(10**12) + SecureRandom.random_number(10**10)*(10**2) + 01
       self.human_id = SecureRandom.hex(2).upcase
       break if valid?
     end

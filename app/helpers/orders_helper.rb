@@ -9,15 +9,24 @@ module OrdersHelper
     (record.man_lodging + record.woman_lodging) * Records::Rj::LODGING_PRICE
   end
 
-  def entries_price(record)
+  def entries_price_for_rj(record)
     record.entries * Records::Rj.ENTRY_PRICE(record.created_at)
   end
 
+  def entries_price_for_login(record)
+    record.entries * Records::Login::ENTRY_PRICE
+  end
+
   def human_status(order)
-    if order.paid?
+    case order.status
+    when 5
+      "En traitement"
+    when 8
+      "Remboursé"
+    when 41
+      "En attente du paiement"
+    when 9
       "Payé"
-    else
-      "Non payé"
     end
   end
 

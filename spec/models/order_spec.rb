@@ -1,6 +1,14 @@
 require 'rails_helper'
+require 'interfaces/pdf_invoice'
 
 RSpec.describe "Order", :type => :model do
+
+  it_should_behave_like "a PDF invoice responder" do
+    let(:responder) do
+      order = create(:order)
+      order.pdf_adapter
+    end
+  end
 
   it "generates the IDs" do
     order = create(:order)
@@ -78,6 +86,14 @@ RSpec.describe "Order", :type => :model do
       discount = create(:discount, product: "Records::Login")
       order.discount_code = discount.code
       expect { order.save! }.to raise_error ActiveRecord::RecordInvalid
+    end
+
+    it "saves the amount of the discount" do
+      order = build(:order)
+      discount = create(:discount, category: :free, number: 1, product: "Records::Rj")
+      order.discount_code = discount.code
+      order.save
+      expect(order.discount_amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
     end
 
   end
