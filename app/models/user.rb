@@ -12,7 +12,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_save :create_remember_token, :format_input
+  before_save :create_remember_token #, :format_input TODO: temp
   before_create :create_verify_token
 
   validates :firstname, presence: true, length: { maximum: 30 }
