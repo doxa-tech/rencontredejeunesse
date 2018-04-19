@@ -8,7 +8,7 @@ module Orders
         when "volunteer"
           volunteer = Volunteer.find_by(user_id: order.user_id)
           volunteer.update_attribute(:confirmed, true)
-          Admin::VolunteerMailer.confirmed(volunteer)
+          Admin::VolunteerMailer.confirmed(volunteer).deliver_now
         end
       end
 
