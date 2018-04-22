@@ -7,14 +7,21 @@ module Adapters
 
     def build_products_list
       products_list = []
+      entry_price = Records::Rj.ENTRY_PRICE(@order.created_at.in_time_zone).to_f
+      fee_price = Records::Rj::FEE.to_f
+      if @order.volunteer?
+        entry_price = 50.to_f
+        fee_price = Records::Rj::VOLUNTEER_FEE.to_f
+      end
+
       products_list << Product.new(
         description: "Forfait RJ",
         product_number: "5402",
         shipping_date: order_date,
         quantity: @order.product.entries.to_s,
-        price: '%.2f' % Records::Rj.ENTRY_PRICE(@order.created_at),
+        price: '%.2f' % entry_price,
         tva: "-",
-        amount: Records::Rj.ENTRY_PRICE(@order.created_at).to_f * @order.product.entries.to_f)
+        amount: entry_price * @order.product.entries.to_f)
 
       products_list << Product.new(
         description: "Places pour dormir GARS",
@@ -39,9 +46,9 @@ module Adapters
         product_number: "",
         shipping_date: "",
         quantity: "1",
-        price: '%.2f' % Records::Rj::FEE,
+        price: '%.2f' % fee_price,
         tva: "-",
-        amount: Records::Rj::FEE.to_f)
+        amount: fee_price)
 
       products_list
     end
