@@ -126,7 +126,7 @@ fr:
     sectors:
       <<: *sectors
     tshirt_sizes:
-      xs: "XS"
+      s: "S"
       m: "M"
       l: "L"
       xl: "XL"

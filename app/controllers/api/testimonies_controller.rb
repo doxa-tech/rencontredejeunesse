@@ -4,7 +4,7 @@ class Api::TestimoniesController < Api::BaseController
   before_action :authorized?, only: [:update, :destroy]
 
   def index
-    @testimonies = Testimony.includes(:user)
+    @testimonies = Testimony.includes(:user).paginate(page: params[:page], per_page: 10)
   end
 
   def create
