@@ -10,7 +10,7 @@ module Adapters
       entry_price = Records::Rj.ENTRY_PRICE(@order.created_at).to_f
       fee_price = Records::Rj::FEE.to_f
       if @order.volunteer?
-        entry_price = 50.to_f
+        entry_price = Records::RJ::VOLUNTEER_PRICE.to_f
         fee_price = Records::Rj::VOLUNTEER_FEE.to_f
       end
 
