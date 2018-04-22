@@ -8,7 +8,7 @@ class Connect::VolunteersController < Connect::BaseController
     product = Records::Rj.new
     product.participants.build_from_user(current_user, lodging: has_lodging?)
     @order = Order.create!(user: current_user, product: product, case: :volunteer,
-      lump_sum: price * 100, discount: discount
+      lump_sum: price * 100, discount: discount, discount_amount: (Records::Rj::VOLUNTEER_TOTAL - price)
     )
   end
 
