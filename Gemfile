@@ -87,6 +87,7 @@ gem 'sentry-raven'
 
 # File upload
 gem 'carrierwave', '~> 1.0'
+gem 'carrierwave-i18n'
 gem 'mini_magick' # brew install graphicsmagick
 gem 'carrierwave-imageoptimizer' # brew install optipng jpegoptim
 gem 'fog-google'
