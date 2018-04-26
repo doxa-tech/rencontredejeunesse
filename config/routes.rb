@@ -131,7 +131,7 @@ Rails.application.routes.draw do
     resources :users do
       post "signin", on: :collection
     end
-
+    resources :devices, only: :create
     resources :markers, only: :index
 
   end
