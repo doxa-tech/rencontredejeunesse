@@ -1,7 +1,7 @@
 class Api::PostsController < Api::BaseController
 
   def index
-    @posts = Post.includes(:comments, :user).paginate(page: params[:page], per_page: 10)
+    @posts = Post.includes(:comments, :user, :image).paginate(page: params[:page], per_page: 10)
   end
 
   def show
