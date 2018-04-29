@@ -2,15 +2,11 @@ class Api::DevicesController < Api::BaseController
 
   def create
     token = params[:platform] == "iOS" ? convert_apn_to_fcm(params[:token]) : params[:token]
-    if token.present?
-      device = Device.find_or_create_by(token: token)
-      if device.persisted?
-        render json: { id: device.id, token: device.token }
-      else
-        render json: { errors: device.errors.full_messages }, status: :unprocessable_entity
-      end
+    device = Device.new(token: token, platform: params[:platform])
+    if device.save
+      render json: { id: device.id, token: device.token }
     else
-      render json: { errors: ["Please provide a device token."] }
+      render json: { errors: device.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

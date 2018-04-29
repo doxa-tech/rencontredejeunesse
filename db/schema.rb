@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20180426102429) do
 
   create_table "devices", force: :cascade do |t|
     t.string "token"
+    t.integer "platform"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
