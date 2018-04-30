@@ -185,10 +185,10 @@ ActiveRecord::Schema.define(version: 20180426102429) do
   create_table "records_rj", id: :serial, force: :cascade do |t|
     t.integer "entries"
     t.string "group"
+    t.integer "woman_lodging"
+    t.integer "man_lodging"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "man_lodging"
-    t.integer "woman_lodging"
   end
 
   create_table "rpush_apps", force: :cascade do |t|
