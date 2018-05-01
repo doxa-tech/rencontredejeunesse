@@ -8,4 +8,8 @@ class OrderPreview < ActionMailer::Preview
     order = Order.last
     OrderMailer.pass(order)
   end
+
+  def reminder
+    OrderMailer.reminder
+  end
 end

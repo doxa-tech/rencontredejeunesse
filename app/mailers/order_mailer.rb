@@ -15,4 +15,9 @@ class OrderMailer < ApplicationMailer
     mail(to: order.user.email, subject: "Ticket pass pour ta commande")
   end
 
+  def reminder
+    emails = User.joins(:orders).where(orders: { product_type: "Records::Rj", status: [5,9] }).uniq
+    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails, subject: "Ta commande pour la RJ")
+  end
+
 end
