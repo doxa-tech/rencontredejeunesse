@@ -23,7 +23,7 @@ module Adapters
         quantity: "1",
         price: '%.2f' % Records::Login::FEE,
         tva: "-",
-        amount: Records::Rj::Login.to_f)
+        amount: Records::Login.to_f)
 
       products_list
     end
