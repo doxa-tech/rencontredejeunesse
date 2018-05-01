@@ -8,6 +8,7 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">OrderID</Data></Cell>
+        <Cell><Data ss:Type="String">PayID</Data></Cell>
         <Cell><Data ss:Type="String">Statut</Data></Cell>
         <Cell><Data ss:Type="String">Montant</Data></Cell>
         <Cell><Data ss:Type="String">Nbre entrée</Data></Cell>
@@ -23,6 +24,7 @@
     <% @orders.each do |order| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= order.order_id %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= order.payid %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= order.status %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= order.amount %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= order.product.entries %></Data></Cell>
