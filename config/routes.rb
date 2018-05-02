@@ -22,7 +22,9 @@ Rails.application.routes.draw do
   # Users
   #
 
-  resources :users, only: [:new, :create], path: "signup"
+  resources :users, only: [:new, :create], path: "signup" do
+    get "success", on: :collection
+  end
 
   namespace :users do
 
@@ -114,7 +116,7 @@ Rails.application.routes.draw do
 
     end
 
-    resources :checkin, only: [:index, :create, :show]
+    resources :checkin, only: [:index, :create, :update, :show]
 
   end
 

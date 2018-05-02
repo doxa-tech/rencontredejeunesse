@@ -30,4 +30,8 @@ module OrdersHelper
     end
   end
 
+  def delivered_status(order)
+   order.delivered ? "Livré" : "Non livré"
+  end
+
 end

@@ -8,8 +8,10 @@ $(document).on("turbolinks:load", function() {
     headerFrame.style.display = "none";
   }
 
-  headerBtn.onclick = function() {
-    headerFrame.style.display = "block";
+  if(headerBtn) {
+    headerBtn.onclick = function() {
+      headerFrame.style.display = "block";
+    }
   }
 
   if(closeBtn) {
