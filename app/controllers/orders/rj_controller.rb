@@ -1,4 +1,5 @@
 class Orders::RjController < Orders::BaseController
+  before_action { end_of_order "02.05.2018" }
   before_action :check_if_not_signed_in
   # @order fetched in before action #closed
 
