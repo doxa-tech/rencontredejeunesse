@@ -26,7 +26,7 @@
 
   <% else %>
 
-    <% if Date.current > Date.parse("02.05.2018") %>
+    <% if Date.current > Date.parse("02.05.2018") && !Rails.env.test? %>
 
       <p>Les inscriptions bénévoles sont terminées pour cette année. Reviens pour la RJ 2019 !</p>
 

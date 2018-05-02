@@ -3,6 +3,7 @@ class VolunteersController < ApplicationController
 
   before_action :check_if_signed_in, only: :create
   before_action :check_if_volunteer, only: :create
+  before_action only: :create { end_of_order "02.05.2018" }
 
   def index
     @volunteer = Volunteer.new
