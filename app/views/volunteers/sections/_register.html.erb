@@ -22,6 +22,16 @@
       Bénévole : qui rend un service sans demander de rémunération en retour, sans en tirer de profit.
     </p>
 
+    <% if Date.current > Date.parse("02.05.2018") %>
+
+    <h3 id="letsgo" class="ready">A l'année prochaine</h3>
+
+    <p>
+      Les inscriptions bénévoles sont terminées pour cette année. Reviens pour la RJ 2019 !
+    </p>
+
+    <% else %>
+
     <h3 id="letsgo" class="ready">Alors prêt à t’inscrire maintenant ?</h3>
 
     <% if !signed_in? %>
@@ -44,6 +54,8 @@
         <%= render "volunteers/sections/form" %>
       </div>
     </div>
+
+    <% end %>
 
     <% end %>
 

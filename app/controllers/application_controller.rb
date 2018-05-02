@@ -18,4 +18,11 @@ class ApplicationController < ActionController::Base
   def check_if_signed_in
     redirect_to signin_path, error: "Merci de te connecter avec ton compte RJ" unless signed_in?
   end
+
+  def end_of_order(date)
+    date = Date.parse(date)
+    if Date.current > date && !Rails.env.test?
+      redirect_to root_path, error: "Les commandes ne sont plus possibles."
+    end
+  end
 end

@@ -1,4 +1,5 @@
 class Connect::VolunteersController < Connect::BaseController
+  before_action only: :confirmation { end_of_order "02.05.2018" }
 
   def index
     @volunteer = current_user.volunteer

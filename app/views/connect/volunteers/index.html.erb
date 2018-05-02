@@ -22,37 +22,19 @@
 
   <% if @volunteer.confirmed %>
 
-  <p>Ton inscription bénévole est confirmée ! Tu peux visualiser ta commande dans "Achats".</p>
+    <p>Ton inscription bénévole est confirmée ! Tu peux visualiser ta commande dans "Achats".</p>
 
   <% else %>
 
-  <h2>Commander</h2>
+    <% if Date.current > Date.parse("02.05.2018") %>
 
-  <div id="light-form">
+      <p>Les inscriptions bénévoles sont terminées pour cette année. Reviens pour la RJ 2019 !</p>
 
-    <%= form_tag confirmation_connect_volunteers_path do %>
+    <% else %>
 
-    <div class="row">
-      <p>Commander et payer son entrée pour la RJ au prix préférentiel de 50 CHF confirme définitivement votre engagement lors de l'événement.</p>
-    </div>
-
-    <div class="row">
-      <%= label_tag :lodging, "Veux-tu dormir sur place (+ 30 CHF) ?" %>
-      <%= check_box_tag :lodging %>
-    </div>
-
-    <div class="row">
-      <%= label_tag :discount_code, "Code promotionel" %>
-      <%= text_field_tag :discount_code %>
-    </div>
-
-    <div class="">
-      <%= submit_tag "Commander mon entrée", class: "connect-btn-light-dark-full long-connect-btn",
-        data: { confirm: "Commander son entrée en tant que bénévole confirme votre engagement lors de l'événement. Etes-vous sûr de vouloir continuer ?" } %>
-    </div>
+      <%= render "order" %>
 
     <% end %>
-  </div>
 
   <% end %>
 

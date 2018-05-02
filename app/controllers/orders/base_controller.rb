@@ -34,12 +34,4 @@ class Orders::BaseController < ApplicationController
     redirect_to root_path, error: "Cette commande est en cours." if @order.pending
   end
 
-  def end_of_order(date)
-    date = Date.parse(date)
-    today = Time.current.to_date
-    if today > date && !Rails.env.test?
-      redirect_to root_path, error: "Les commandes ne sont plus possibles."
-    end
-  end
-
 end
