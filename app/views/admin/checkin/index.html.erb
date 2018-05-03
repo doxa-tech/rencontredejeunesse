@@ -1,12 +1,14 @@
-<% content_for :id, "checkin" %>
+<% content_for :id, "admin-checkin" %>
 
-<h1>Contrôle de commande</h1>
+<div class="content-wrap">
+  <h1>Contrôle de commande</h1>
 
-<%= form_tag admin_checkin_index_path do %>
+  <%= form_tag admin_checkin_index_path do %>
 
-  <%= label_tag :order_id, "Entrez le numéro de commande" %>
-  <%= text_field_tag :order_id, nil, maxlength: "14", autofocus: true %>
+    <%= label_tag :order_id, "Entrez le numéro de commande" %>
+    <%= text_field_tag :order_id, nil, maxlength: "14", autofocus: true %>
 
-  <%= submit_tag "Afficher", class: "button" %>
+    <%= submit_tag "Afficher", class: "button" %>
 
-<% end %>
+  <% end %>
+</div>
