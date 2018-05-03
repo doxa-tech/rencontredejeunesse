@@ -33,6 +33,10 @@ class Admin::Orders::RjController < Admin::BaseController
     @orders = Order.where(product_type: "Records::Rj").includes(:product, :user)
   end
 
+  def full_export
+    @orders = Order.where(product_type: "Records::Rj", status: [5,9]).includes(:product, :user)
+  end
+
   private
 
   def order_params
