@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Inscriptions">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">OrderID</Data></Cell>
+        <Cell><Data ss:Type="String">Montant</Data></Cell>
+        <Cell><Data ss:Type="String">Nbre entrée</Data></Cell>
+        <Cell><Data ss:Type="String">Lits gars</Data></Cell>
+        <Cell><Data ss:Type="String">Lits fille</Data></Cell>
+        <Cell><Data ss:Type="String">Sexe</Data></Cell>
+        <Cell><Data ss:Type="String">Prénom</Data></Cell>
+        <Cell><Data ss:Type="String">Nom</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Téléphone</Data></Cell>
+        <Cell><Data ss:Type="String">Adresse</Data></Cell>
+        <Cell><Data ss:Type="String">NPA</Data></Cell>
+        <Cell><Data ss:Type="String">Ville</Data></Cell>
+        <Cell><Data ss:Type="String">Pays</Data></Cell>
+        <Cell><Data ss:Type="String">Age</Data></Cell>
+      </Row>
+    <% @orders.each do |order| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= order.order_id %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= order.amount %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= order.product.entries %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= order.product.man_lodging %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= order.product.woman_lodging %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t("user.genders.#{order.user.gender}") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.firstname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.lastname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.address %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.npa %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.city %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= order.user.country %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= order.user.age %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

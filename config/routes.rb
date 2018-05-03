@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin"
 
+  get '/opening', to: redirect('https://opening.rencontredejeunesse.ch')
+
   root to: "pages#home"
 
   %w(login privacy application vision).each do |page|
@@ -111,6 +113,7 @@ Rails.application.routes.draw do
 
       resources :rj, only: [:index, :edit, :update, :show, :destroy] do
         get "export", on: :collection
+        get "full_export", on: :collection
       end
       resources :login, only: [:index, :edit, :update, :show, :destroy]
 
