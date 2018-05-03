@@ -10,10 +10,10 @@ class Admin::CheckinController < Admin::BaseController
     authorize!
     @order = Order.find_by!(order_id: params[:id])
     @state = "ok"
-    if !@order.note.blank?
-      @state = "infos"
-    elsif @order.status != 9 || @order.delivered
+    if @order.status != 9 || @order.delivered
       @state = "nok"
+    elsif !@order.note.blank?
+        @state = "infos"
     end
   end
 

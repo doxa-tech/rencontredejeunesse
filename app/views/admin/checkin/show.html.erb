@@ -9,12 +9,6 @@
 
 <div class="content-wrap">
 
-  <!-- Order information -->
-  <div class="order-information">
-    <p><strong>Montant:</strong> <%= @order.print_amount %> CHF</p>
-    <p><strong>Réduction:</strong> <%= @order.discount_amount / 100 %> CHF</p>
-  </div>
-
   <% if !@order.note.blank?%>
     <div class="note">
       <%= @order.note %>
@@ -28,8 +22,14 @@
   </div>
 
   <div class="product-informations">
-    <div>Statut: <%= human_status(@order) %></div>
-    <div>Livré: <%= delivered_status(@order) %></div>
+    <div><strong>Statut:</strong> <%= human_status(@order) %></div>
+    <div><strong>Livré:</strong> <%= delivered_status(@order) %></div>
+  </div>
+
+  <!-- Order information -->
+  <div class="order-information">
+    <div><strong>Montant:</strong> <%= @order.print_amount %> CHF</div>
+    <div><strong>Réduction:</strong> <%= @order.discount_amount / 100 %> CHF</div>
   </div>
   <!-- User information -->
 
