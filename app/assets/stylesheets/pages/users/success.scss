@@ -1,0 +1,43 @@
+@import "../../components/variables";
+
+#container.users-success {
+  background-color: rgb(46, 46, 46);
+  color: #fff;
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  div.content-wrap {
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: $logo-burger-height $main-padding 50px $main-padding;
+
+    h1 {
+      font-family: "Helvetica neue", "Helvetica", sans-serif;
+      padding: 0 0 10px 0;
+    }
+
+    p {
+      font-family: "Helvetica neue", "Helvetica", sans-serif;
+      padding: 15px 0 10px 0;
+      line-height: 1.5em;
+    }
+
+    a {
+      padding: 7px 15px;
+      border: 3px solid rgb(70, 70, 70);
+      border-radius: 3px;
+      margin: 2px 1px;
+      display: inline-block;
+
+      &:hover {
+        border-color: rgb(124, 124, 124);
+      }
+    }
+  }
+}
