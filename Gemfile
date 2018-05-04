@@ -74,7 +74,7 @@ end
 # authentication & authorization
 gem 'adeia'
 
-gem 'snaptable', path: "../snaptable"
+gem 'snaptable'
 
 gem 'bcrypt'
 
