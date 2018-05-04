@@ -1,4 +1,5 @@
 class Admin::Orders::LoginController < Admin::BaseController
+  include OrdersHelper
   load_and_authorize(model: Records::Login)
 
   def index

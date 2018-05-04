@@ -10,10 +10,11 @@
 
   <h3>Information sur la commande</h3>
   <p><strong>Montant:</strong> <%= @order.print_amount %> CHF</p>
-  <p><strong>Statut:</strong> <%= @order.status %></p>
+  <p><strong>Statut:</strong> <%= human_status(@order) %></p>
+  <p><strong>Livré:</strong> <%= delivered_status(@order) %></p>
   <p><strong>N° de commande:</strong> <%= @order.order_id %></p>
   <p><strong>N° d'entrée:</strong> <%= @order.human_id %></p>
-
+  
   <!-- User information -->
 
   <h3>Information de la personne</h3>

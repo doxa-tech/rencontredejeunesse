@@ -113,7 +113,6 @@ Rails.application.routes.draw do
 
       resources :rj, only: [:index, :edit, :update, :show, :destroy] do
         get "export", on: :collection
-        get "full_export", on: :collection
       end
       resources :login, only: [:index, :edit, :update, :show, :destroy]
 

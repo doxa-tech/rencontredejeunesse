@@ -35,7 +35,13 @@ class Admin::CheckinController < Admin::BaseController
     authorize!
     @order = Order.find_by!(order_id: params[:id])
     @order.update_attribute(:delivered, true)
-    redirect_to admin_checkin_index_path, success: "Livré"
+    redirect_to update_redirect_path, success: "Livré"
+  end
+
+  private
+
+  def update_redirect_path
+    params[:redirect_url] || admin_checkin_index_path
   end
 
 end

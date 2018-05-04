@@ -2,6 +2,23 @@
 
   <h1>Modifier la commande <%= @order.order_id %></h1>
 
+  <!-- Order information -->
+
+  <div class="information">
+    <h3>Information sur la commande</h3>
+    <p>
+      <b>Montant:</b> <%= @order.print_amount %> CHF<br>
+      <b>Statut:</b> <%= human_status(@order) %><br>
+      <b>Livré:</b> <%= delivered_status(@order) %><br>
+      <b>N° de commande:</b> <%= @order.order_id %><br>
+    </p>
+
+    <p>
+      <%= link_to "Livrer", admin_checkin_path(@order.order_id, redirect_url: admin_orders_rj_index_path), method: :patch, class: "button" %>
+    </p>
+  </div>
+
+
   <%= form_for @order, url: { action: "update" } do |f| %>
 
     <%= render 'error_messages', object: f.object %>
