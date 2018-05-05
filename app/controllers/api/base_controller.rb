@@ -10,7 +10,7 @@ class Api::BaseController < ActionController::API
   helper_method :can_edit?
 
   def can_edit?(resource)
-    if current_user && (resource.user == current_user || current_user.belongs_to?(:leaders))
+    if current_user && (resource.user == current_user || current_user.belongs_to?(:communication))
       return true
     end
     return false
