@@ -18,6 +18,10 @@ class PagesController < ApplicationController
     render "pages/rj/2018"
   end
 
+  def rj2019
+    render "pages/rj/2019"
+  end
+
   def contact
     @contact = Contact.new(contact_params)
     if @contact.valid?

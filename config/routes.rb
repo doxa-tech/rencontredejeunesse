@@ -2,15 +2,14 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin"
 
-  get '/opening', to: redirect('https://opening.rencontredejeunesse.ch')
-
   root to: "pages#home"
 
   %w(login privacy application vision).each do |page|
     get page, to: "pages##{page}"
   end
 
-  get "2018", to: "pages#rj2018"
+  get "2018", to: redirect('/2019')
+  get "2019", to: "pages#rj2019"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"

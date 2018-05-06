@@ -1,0 +1,27 @@
+@import '../../components/logo-burger-color';
+
+@include logo-burger-color(#000, ".rj-2019");
+
+#container.rj-2019 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  img {
+    width: 800px;
+    max-width: 100%;
+    padding: 10px;
+    animation-name: slogan-fadein;
+    animation-delay: .5s;
+    animation-duration: 1.3s;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes slogan-fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+}

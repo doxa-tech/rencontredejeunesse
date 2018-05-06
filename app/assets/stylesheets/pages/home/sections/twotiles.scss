@@ -6,10 +6,8 @@
     flex-direction: row;
 
     ._common-tiles {
-      color: #fff;
-      font-size: $medium-title;
-      height: 230px;
-      padding: 0 0 30px 20px;
+      font-size: $large-text;
+      padding: 20px 30px 30px 30px;
       position: relative;
       transition: all .5s;
 
@@ -17,7 +15,7 @@
       background-position: 50% 30%;
       
       display: flex;
-      flex: 1;
+      flex: 6;
       align-items: left;
       justify-content: flex-end;
       flex-direction: column;
@@ -58,18 +56,59 @@
 
     div.highlights {
       @extend ._common-tiles;
+      color: #fff;
       background-image: image-url("home/twotiles/highlights.jpg");
+      font-size: $medium-title;
     }
 
     div.next {
-      @extend ._common-tiles;
-      background-image: image-url("home/twotiles/rj2018.jpg");
+      display: flex;
+      flex-direction: column;
+      flex: 4;
 
-      span.hashtag {
-        font-size: $sub-title;
-      }
-      span.soon {
-        font-style: italic;
+      & > div {
+        @extend ._common-tiles;
+        background: #fff;
+
+        span.only-hash {
+          font-size: $medium-title;
+          font-style: normal;
+        }
+
+        span.hashtag {
+          font-size: $sub-title;
+          font-family: swiss;
+        }
+        span.soon {
+          // font-style: italic;
+        }
+
+        &:first-child {
+          align-items: flex-end;
+          // border-bottom: 2px solid #000;
+          background: rgb(232,232,232);
+          background: -moz-linear-gradient(-45deg, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
+          background: -webkit-linear-gradient(-45deg, rgba(232,232,232,1) 0%,rgba(255,255,255,1) 100%);
+          background: linear-gradient(135deg, rgba(232,232,232,1) 0%,rgba(255,255,255,1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#ffffff',GradientType=1 );
+        }
+
+        &:nth-child(2) {
+          // text-align: right;
+          // align-items: flex-end;
+          // padding-right: 20px;
+          // background: black;
+          // color: #fff;
+          background: rgb(255,255,255);
+          background: -moz-linear-gradient(-45deg, rgba(255,255,255,1) 0%, rgba(232,232,232,1) 100%);
+          background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%,rgba(232,232,232,1) 100%);
+          background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(232,232,232,1) 100%);
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=1 );
+        }
+
+        &:hover {
+          background: #fff;
+        }
       }
     }
   }
