@@ -1,3 +1,4 @@
+@ignore
 Feature: I sign in on the volunteer page
 
   So that I can fill in the form to become a volunteer

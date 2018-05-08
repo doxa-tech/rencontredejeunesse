@@ -1,3 +1,4 @@
+@ignore
 Feature: Order as a volunteer
 
   So that I can take advantage of the discount
