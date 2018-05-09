@@ -1,6 +1,6 @@
 class Admin::Orders::RjController < Admin::BaseController
   include OrdersHelper
-  #load_and_authorize(model: Records::Rj)
+  load_and_authorize(model: Records::Rj)
 
   def index
     @count = Order.where(product_type: "Records::Rj", status: [5,9]).inject(0) { |sum, o| sum += o.product.entries }
