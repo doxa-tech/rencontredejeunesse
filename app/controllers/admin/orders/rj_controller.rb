@@ -1,6 +1,6 @@
 class Admin::Orders::RjController < Admin::BaseController
   include OrdersHelper
-  load_and_authorize(model: Records::Rj)
+  #load_and_authorize(model: Records::Rj)
 
   def index
     @count = Order.where(product_type: "Records::Rj", status: [5,9]).inject(0) { |sum, o| sum += o.product.entries }
@@ -32,6 +32,14 @@ class Admin::Orders::RjController < Admin::BaseController
 
   def export
     @orders = Order.where(product_type: "Records::Rj").includes(:product, :user)
+  end
+
+  def users_export
+    @orders = Order.where(product_type: "Records::Rj", status: [5,9]).includes(:product, :user)
+  end
+
+  def participants_export
+    @participants = Participants::Rj.joins(record: :order).where(orders: { product_type: "Records::Rj", status: [5,9] })
   end
 
   private
