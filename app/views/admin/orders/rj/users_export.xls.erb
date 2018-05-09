@@ -8,6 +8,7 @@
     <Table>
       <Row>
         <Cell><Data ss:Type="String">OrderID</Data></Cell>
+        <Cell><Data ss:Type="String">Date</Data></Cell>
         <Cell><Data ss:Type="String">Montant</Data></Cell>
         <Cell><Data ss:Type="String">Réduction</Data></Cell>
         <Cell><Data ss:Type="String">Nbre entrées</Data></Cell>
@@ -27,6 +28,7 @@
     <% @orders.each do |order| %>
       <Row>
         <Cell><Data ss:Type="Number"><%= order.order_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= l order.created_at, format: :date %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= order.amount %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= order.discount_amount %></Data></Cell>
         <Cell><Data ss:Type="Number"><%= order.product.entries %></Data></Cell>

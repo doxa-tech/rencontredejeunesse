@@ -1,7 +1,8 @@
 fr:
   time:
     formats:
-      date: "%d. %b %y"
+      pretty_date: "%d. %b %y"
+      date: "%d.%m.%y"
   product:
     login: "RJ Login"
     rj: "Rencontre de jeunesse"

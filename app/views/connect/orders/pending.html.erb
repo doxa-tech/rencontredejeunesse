@@ -1,8 +1,8 @@
 <% content_for :id, "orders-pending" %>
 
 <%= content_for :header do %>
-  <%= render "connect/page_header", 
-    link: connect_orders_path, 
+  <%= render "connect/page_header",
+    link: connect_orders_path,
     title: "Commandes en cours" %>
 <% end %>
 
@@ -16,7 +16,7 @@
 
   <%= order.order_id %> /
   <%= order.product_name.capitalize %> /
-  <%= l order.created_at, format: :date %> /
+  <%= l order.created_at, format: :pretty_date %> /
   <%= link_to "Continuer", controller: "orders/#{order.product_name}", action: "edit", id: order.order_id %>
   <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
 
