@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Inscriptions">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Secteur</Data></Cell>
+        <Cell><Data ss:Type="String">Sexe</Data></Cell>
+        <Cell><Data ss:Type="String">Prénom</Data></Cell>
+        <Cell><Data ss:Type="String">Nom</Data></Cell>
+        <Cell><Data ss:Type="String">Age</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+        <Cell><Data ss:Type="String">Téléphone</Data></Cell>
+        <Cell><Data ss:Type="String">Adresse</Data></Cell>
+        <Cell><Data ss:Type="String">NPA</Data></Cell>
+        <Cell><Data ss:Type="String">Ville</Data></Cell>
+        <Cell><Data ss:Type="String">Pays</Data></Cell>
+      </Row>
+    <% @volunteers.each do |volunteer| %>
+      <Row>
+        <Cell><Data ss:Type="Number"><%= t("sector.attributes.#{volunteer.sector}") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= t("user.genders.#{volunteer.user.gender}") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.firstname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.lastname %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= volunteer.user.age %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.email %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.phone %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.address %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.npa %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.city %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= volunteer.user.country %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

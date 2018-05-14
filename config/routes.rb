@@ -105,7 +105,9 @@ Rails.application.routes.draw do
     root to: "base#index"
 
     resources :users, except: :show
-    resources :volunteers, except: [:new, :create]
+    resources :volunteers, except: [:new, :create] do
+      get "export", on: :collection
+    end
     resources :discounts, except: [:edit, :update]
 
     namespace :orders do

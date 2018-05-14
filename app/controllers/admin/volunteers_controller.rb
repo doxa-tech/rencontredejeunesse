@@ -24,6 +24,10 @@ class Admin::VolunteersController < Admin::BaseController
 		redirect_to admin_volunteers_path, success: "Bénévole supprimé"
   end
 
+  def export
+		@volunteers = Volunteer.where(confirmed: true).includes(:user)
+	end
+
   private
 
   def volunteer_params
