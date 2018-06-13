@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502120229) do
+ActiveRecord::Schema.define(version: 20180613111707) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,17 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.string "price"
+    t.integer "number"
+    t.boolean "active", default: true
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "markers", id: :serial, force: :cascade do |t|
     t.decimal "lat"
     t.decimal "lng"
@@ -119,51 +130,40 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.string "content"
   end
 
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
   create_table "orders", id: :serial, force: :cascade do |t|
     t.integer "amount"
     t.string "order_id"
     t.integer "status"
-    t.bigint "payid"
     t.integer "user_id"
-    t.string "product_type"
-    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "human_id"
-    t.integer "payment_method", default: 0
     t.text "note"
     t.boolean "pending", default: false
-    t.integer "case", default: 0
     t.bigint "discount_id"
     t.integer "discount_amount", default: 0
-    t.boolean "delivered", default: false
     t.index ["discount_id"], name: "index_orders_on_discount_id"
-    t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "participants_login", force: :cascade do |t|
-    t.integer "gender"
-    t.string "firstname"
-    t.string "lastname"
-    t.integer "age"
-    t.bigint "records_login_id"
+  create_table "payments", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "method"
+    t.datetime "time"
+    t.integer "status"
+    t.bigint "payid"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
-    t.index ["records_login_id"], name: "index_participants_login_on_records_login_id"
-  end
-
-  create_table "participants_rj", id: :serial, force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.integer "records_rj_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "gender"
-    t.date "birthday"
-    t.boolean "lodging", default: false
-    t.index ["records_rj_id"], name: "index_participants_rj_on_records_rj_id"
+    t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|
@@ -176,20 +176,17 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "records_login", id: :serial, force: :cascade do |t|
-    t.integer "entries"
-    t.string "group"
+  create_table "registrants", force: :cascade do |t|
+    t.integer "gender"
+    t.string "firstname"
+    t.string "lastname"
+    t.date "birthday"
+    t.bigint "item_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "records_rj", id: :serial, force: :cascade do |t|
-    t.integer "entries"
-    t.string "group"
-    t.integer "woman_lodging"
-    t.integer "man_lodging"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_registrants_on_item_id"
+    t.index ["order_id"], name: "index_registrants_on_order_id"
   end
 
   create_table "rpush_apps", force: :cascade do |t|
@@ -306,12 +303,15 @@ ActiveRecord::Schema.define(version: 20180502120229) do
   add_foreign_key "adeia_tokens", "adeia_permissions"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "discounts"
   add_foreign_key "orders", "users"
-  add_foreign_key "participants_login", "records_login"
-  add_foreign_key "participants_rj", "records_rj"
+  add_foreign_key "payments", "orders"
   add_foreign_key "posts", "images"
   add_foreign_key "posts", "users"
+  add_foreign_key "registrants", "items"
+  add_foreign_key "registrants", "orders"
   add_foreign_key "testimonies", "users"
   add_foreign_key "users", "images"
   add_foreign_key "volunteers", "users"

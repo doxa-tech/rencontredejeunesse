@@ -5,22 +5,19 @@ class Order < ApplicationRecord
 
   attr_accessor :conditions, :lump_sum
 
-  enum payment_method: [:postfinance, :invoice]
   enum case: [:regular, :volunteer]
 
   belongs_to :user
-  belongs_to :product, polymorphic: true, dependent: :destroy
   belongs_to :discount, optional: true
-
-  accepts_nested_attributes_for :product
+  has_many :items, through: :order_items, dependent: :nullify
+  has_many :tickets, throught: :registrants, source: :item, dependent: :nullify
 
   validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true
-  validates :human_id, uniqueness: true
   validate :validity_of_discount_code
 
   before_create :generate_id
-  after_validation :assign_amount, :assign_payment_method, if: Proc.new { |o| o.status.nil? }
+  after_validation :assign_amount
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
@@ -30,24 +27,8 @@ class Order < ApplicationRecord
     return Digest::SHA1.hexdigest(chain)
   end
 
-  def product_name
-    return product_type.demodulize.downcase
-  end
-
-  def print_amount
-    if amount.present?
-      amount / 100
-    else
-      product.calculate_amount / 100
-    end
-  end
-
   def fee
     product.class::FEE
-  end
-
-  def paid?
-    status == 9
   end
 
   def discount_code
@@ -68,7 +49,6 @@ class Order < ApplicationRecord
     end
   end
 
-
   private
 
   def validity_of_discount_code
@@ -86,16 +66,13 @@ class Order < ApplicationRecord
     if lump_sum
       self.amount = lump_sum
     else
-      self.amount = product.calculate_amount
+      # TODO
+      # self.amount = product.calculate_amount
       if self.discount
         self.discount_amount = self.amount - self.discount.calculate_amount(self.amount)
         self.amount = self.discount.calculate_amount(self.amount)
       end
     end
-  end
-
-  def assign_payment_method
-    self.payment_method = "invoice" if (self.amount / 100) > INVOICE_LIMIT
   end
 
   def generate_id

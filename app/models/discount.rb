@@ -1,6 +1,9 @@
 class Discount < ApplicationRecord
 
-  has_many :orders, dependent: :nullify
+  # TODO: no more a product field, but a link to item
+
+
+  has_many :orders, dependent: :restrict_with_exception
 
   enum category: [:money, :percent, :free]
 
