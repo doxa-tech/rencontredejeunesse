@@ -1,12 +1,12 @@
-class Orders::LoginController < Orders::BaseController
-  before_action { end_of_order "27.01.2018" }
+class Orders::EventsController < Orders::BaseController
   before_action :check_if_not_signed_in
-  # @order fetched in before action #closed
+  before_action :closed, only: [:edit, :update, :confirmation]
+  before_action :not_pending, only: :confirmation
 
   def new
     @order = order
   end
-
+  
   def create
     @order = order(order_params)
     @order.pending = pending?
@@ -38,15 +38,16 @@ class Orders::LoginController < Orders::BaseController
   def order_params
     params.require(:order).permit(:conditions, :discount_code,
       product_attributes: [:id, :group,
-      participants_attributes: [:id, :gender, :firstname, :lastname, :email, :age, :_destroy],
+      participants_attributes: [:id, :gender, :firstname, :lastname, :birthday, :lodging, :_destroy]
     ])
   end
 
   def order(params = {})
     order = Order.new
     order.user = current_user
-    order.product = Records::Login.new
+    order.product = Records::Rj.new
     order.assign_attributes(params)
     return order
   end
+
 end

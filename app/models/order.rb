@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :discount, optional: true
   has_many :items, through: :order_items, dependent: :nullify
-  has_many :tickets, throught: :registrants, source: :item, dependent: :nullify
+  has_many :tickets, through: :registrants, source: :item, dependent: :nullify
 
   validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true

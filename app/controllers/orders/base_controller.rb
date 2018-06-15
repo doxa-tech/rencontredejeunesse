@@ -3,9 +3,6 @@ class Orders::BaseController < ApplicationController
 
   # TODO: method #order to fetch the order
 
-  before_action :closed, only: [:edit, :update, :confirmation, :complete]
-  before_action :not_pending, only: [:confirmation, :complete]
-
   def check_if_not_signed_in
     redirect_to controller: "orders/users", action: :new, product: controller_name unless signed_in?
   end
@@ -21,8 +18,6 @@ class Orders::BaseController < ApplicationController
       redirect_to action: :confirmation, id: @order.order_id
     end
   end
-
-  private
 
   def closed
     @order = Order.find_by_order_id!(params[:id])

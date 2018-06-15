@@ -1,5 +1,6 @@
 class Orders::UsersController < Orders::BaseController
   before_action :check_if_signed_in, only: [:new, :create, :signin]
+  before_action :check_if_not_signed_in, only: [:edit, :update]
 
   def new
     @user = User.new

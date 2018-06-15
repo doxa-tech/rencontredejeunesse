@@ -38,7 +38,6 @@ Rails.application.routes.draw do
   # Connect
   #
 
-
   namespace :connect do
 
     root to: "users#show"
@@ -58,40 +57,41 @@ Rails.application.routes.draw do
   # ORDERS
   #
 
-  %w(confirmed canceled uncertain declined).each do |status|
-    get "orders/#{status}", to: "orders##{status}"
-  end
-
   resources :orders, only: :destroy do
-    patch "complete", on: :member
+    %w(confirmed canceled uncertain declined).each do |status|
+      get "#{status}", on: :collection
+    end
   end
-
-  # postfinance
-  post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }
-
-
-
+    
   namespace :orders do
 
-    # user update from order
-    scope ":id/users", constraints: { id: /\d*/ } do
-      get "edit", to: "users#edit", as: "users_edit"
-      patch "update", to: "users#update", as: "users_update"
+    # postfinance
+    post "postfinance", to: "completion#postfinance", constraints: { subdomain: 'uapi' }
+
+    # complete free or invoice order
+    resource :completition, only: :update
+
+    # order a ticket for an event
+    resources :events, only: [:edit, :update] do
+      get "confirmation", on: :member
     end
 
-    # sign in/up before order
-    scope ":product", constraints: { product: /login|rj/ } do
+    # user update from order
+    scope ":id/user", constraints: { id: /\d*/ }, as: :user do
+      get "edit", to: "users#edit"
+      patch "update", to: "users#update"
+    end
+
+    scope "(:item)" do
+
+      # order a ticket for an event
+      resources :events, only: [:new, :create]
+
+      # sign in/up before order
       resources :users, only: [:new, :create] do
         post "signin", on: :collection
       end
-    end
 
-    resources :rj, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
-    end
-
-    resources :login, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
     end
 
   end
