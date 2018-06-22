@@ -20,12 +20,12 @@
 
         <div class="row">
           <%= f.label :birthday %>
-          <div class="select"><%= f.date_select :birthday, start_year: 1920, end_year: 2006 %></div>
+          <div class="select"><%= f.date_select_with_errors :birthday, start_year: 1920, end_year: 2006 %></div>
         </div>
 
         <div class="row">
           <%= f.label :item_id %>
-          <div><%= f.collection_select :item_id, items, :id, :name %></div>
+          <div><%= f.collection_select_with_errors :item_id, items, :id, :name %></div>
         </div>
       </div>
 

@@ -37,7 +37,7 @@
 
   <div class="row">
     <span></span>
-    <p><%= link_to "Editer mon compte", orders_user_edit_path(id: @order.order_id), class: "button-link" %></p>
+    <p><%= link_to "Editer mon compte", orders_user_edit_path(@order.order_id), class: "button-link" %></p>
   </div>
 </div>
 
@@ -70,7 +70,7 @@
 
   <div class="row">
     <span></span>
-    <%= link_to " Modifier la commande", { action: "edit" }, class: "button-link" %>
+    <%= link_to " Modifier la commande", edit_orders_event_path(@order.order_id, item: params[:item]), class: "button-link" %>
   </div>
 </div>
 

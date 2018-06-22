@@ -68,7 +68,9 @@ class Order < ApplicationRecord
   end
 
   def calculate_amount
-    self.order_items.inject(0) { |sum, obj| sum + obj.quantity * obj.item.price } + self.fee     
+    self.order_items.inject(0) do |sum, obj|
+      (obj.quantity > 0 && !obj.item.nil?) ? (sum + obj.quantity * obj.item.price) : sum
+    end + self.fee
   end
 
   def assign_payment

@@ -15,8 +15,6 @@ class Orders::EventsController < Orders::BaseController
     if @order.save
       to_confirmation_step_or_pending
     else
-      puts @order.errors.to_yaml
-      puts @order.registrants.to_yaml
       render 'new'
     end
   end

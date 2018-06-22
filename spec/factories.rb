@@ -37,4 +37,21 @@ FactoryBot.define do
     reduction 2000
   end
 
+  factory :registrant do
+    gender "male"
+    firstname "Patrick"
+    lastname "Johnson"
+    birthday Date.new(1996, 02, 15)
+    item
+  end
+
+  factory :event_order, class: "Orders::Event" do
+
+    order_type :event
+    user
+    pending false
+    registrants { [build(:registrant)] }
+
+  end
+
 end

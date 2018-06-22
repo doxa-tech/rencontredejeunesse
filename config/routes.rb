@@ -71,11 +71,6 @@ Rails.application.routes.draw do
     # complete free or invoice order
     resource :completition, only: :update
 
-    # order a ticket for an event
-    resources :events, only: [:edit, :update] do
-      get "confirmation", on: :member
-    end
-
     # user update from order
     scope ":id/user", constraints: { id: /\d*/ }, as: :user do
       get "edit", to: "users#edit"
@@ -85,7 +80,9 @@ Rails.application.routes.draw do
     scope "(:item)" do
 
       # order a ticket for an event
-      resources :events, only: [:new, :create]
+      resources :events, only: [:new, :create, :edit, :update] do
+        get "confirmation", on: :member
+      end
 
       # sign in/up before order
       resources :users, only: [:new, :create] do

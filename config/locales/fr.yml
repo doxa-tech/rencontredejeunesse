@@ -53,6 +53,7 @@ fr:
         comment: "Remarque"
         user: "Personne"
       registrant:
+        item: "Produit"
         item_id: "Produit"
     errors:
       models:
@@ -129,7 +130,7 @@ fr:
       not_a_number: "Le champ « %{attribute} » n'est pas un nombre"
       not_an_integer: "Le champ « %{attribute} » doit être un nombre entier"
       odd: "Le champ « %{attribute} » doit être impair"
-      required: "Le champ « %{attribute} » doit exister"
+      required: "Le champ « %{attribute} » doit être rempli"
       taken: "Le champ « %{attribute} » n'est pas disponible"
       too_young: "Tu dois avoir min %{age} ans pour pouvoir t'inscrire"
       too_long:
