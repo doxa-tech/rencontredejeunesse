@@ -3,12 +3,9 @@ fr:
     formats:
       pretty_date: "%d. %b %y"
       date: "%d.%m.%y"
-  product:
-    login: "RJ Login"
-    rj: "Rencontre de jeunesse"
   helpers:
     submit:
-      order:
+      orders_event:
         create: "S'inscrire"
         update: "Mettre à jour"
       volunteer:
@@ -33,47 +30,36 @@ fr:
     country: "Pays"
     birthday: "Date de naissance"
     phone: "Portable"
-    group: "Groupe de jeunes ou église"
     password: "Mot de passe"
     password_confirmation: "Confirmation"
     current_password: "Mot de passe actuel"
     status: "Statut"
     created_at: "Créé le"
     updated_at: "Modifié le"
-    lodging: "Dormir sur place"
     sector: "Secteur"
     category: "Catégorie"
-    product: "Produit"
     reduction: "Réduction"
     number: "Nombre"
     used: "Utilisé"
     confirmed: "Confirmé"
   activerecord:
     attributes:
-      records/login:
-        entries: "Nombre d'entrées"
-      records/rj:
-        entries: "Nombre de forfaits"
       order:
         conditions: "J'ai lu les conditions générales et les accepte."
-        print_amount: "Montant"
         user: "Personne"
         order_id: "N° de commande"
-        human_id: "N° d'entrée"
         discount_code: "Code promotionel"
       volunteer:
         comment: "Remarque"
         user: "Personne"
+      registrant:
+        item_id: "Produit"
     errors:
       models:
         order:
           attributes:
             conditions:
               accepted: "Veuillez accepter les conditions générales"
-        records/login:
-          attributes:
-            participants:
-              blank: "Ajouter au moins une entrée"
   user:
     genders:
       male: "M."
@@ -83,15 +69,7 @@ fr:
       free: "Gratuité"
       money: "Argent"
       percent: "Pourcentage"
-  order:
-    payment_methods:
-      postfinance: "Carte de débit/crédit"
-      invoice: "Facture"
-  participants/login:
-    genders:
-      male: "M."
-      female: "Mme"
-  participants/rj:
+  registrant:
     genders:
       male: "M."
       female: "Mme"

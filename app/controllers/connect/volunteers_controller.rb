@@ -6,6 +6,7 @@ class Connect::VolunteersController < Connect::BaseController
   end
 
   def confirmation
+    # TODO
     product = Records::Rj.new
     product.participants.build_from_user(current_user, lodging: has_lodging?)
     @order = Order.create!(user: current_user, product: product, case: :volunteer,

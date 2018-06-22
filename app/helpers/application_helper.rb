@@ -1,5 +1,9 @@
 module ApplicationHelper
 
+  def display_price(price)
+    "#{price / 100} CHF"
+  end
+
   def options_for_enum(record, enum)
     model = record.class
     pluralized_enum = enum.to_s.pluralize

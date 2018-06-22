@@ -1,4 +1,11 @@
 class Registrant < ApplicationRecord
-    belongs_to :order
-    belongs_to :item
+
+  enum gender: [:male, :female]
+
+  belongs_to :order, inverse_of: :registrants
+  belongs_to :item
+
+  def quantity
+    1
+  end
 end

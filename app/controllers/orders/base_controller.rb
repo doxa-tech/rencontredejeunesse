@@ -20,8 +20,8 @@ class Orders::BaseController < ApplicationController
   end
 
   def closed
-    @order = Order.find_by_order_id!(params[:id])
-    redirect_to root_path, error: "Cette commande est déjà traitée." unless @order.status.nil?
+    @order = Orders::Event.find_by_order_id!(params[:id])
+    redirect_to root_path, error: "Cette commande est déjà traitée." unless @order.main_payment.status.nil?
   end
 
   def not_pending

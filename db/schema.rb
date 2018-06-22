@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613111707) do
+ActiveRecord::Schema.define(version: 20180618094343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,12 +98,18 @@ ActiveRecord::Schema.define(version: 20180613111707) do
     t.string "code"
     t.integer "reduction"
     t.integer "category"
-    t.string "product"
     t.integer "number"
     t.boolean "used", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "note"
+  end
+
+  create_table "discounts_items", id: false, force: :cascade do |t|
+    t.bigint "discount_id"
+    t.bigint "item_id"
+    t.index ["discount_id"], name: "index_discounts_items_on_discount_id"
+    t.index ["item_id"], name: "index_discounts_items_on_item_id"
   end
 
   create_table "images", id: :serial, force: :cascade do |t|
@@ -115,9 +121,10 @@ ActiveRecord::Schema.define(version: 20180613111707) do
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "price"
+    t.integer "price"
     t.integer "number"
     t.boolean "active", default: true
+    t.date "valid_until"
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -133,6 +140,7 @@ ActiveRecord::Schema.define(version: 20180613111707) do
   create_table "order_items", force: :cascade do |t|
     t.bigint "order_id"
     t.bigint "item_id"
+    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
@@ -141,7 +149,7 @@ ActiveRecord::Schema.define(version: 20180613111707) do
 
   create_table "orders", id: :serial, force: :cascade do |t|
     t.integer "amount"
-    t.string "order_id"
+    t.bigint "order_id"
     t.integer "status"
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -150,6 +158,7 @@ ActiveRecord::Schema.define(version: 20180613111707) do
     t.boolean "pending", default: false
     t.bigint "discount_id"
     t.integer "discount_amount", default: 0
+    t.integer "order_type"
     t.index ["discount_id"], name: "index_orders_on_discount_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
@@ -161,6 +170,8 @@ ActiveRecord::Schema.define(version: 20180613111707) do
     t.integer "status"
     t.bigint "payid"
     t.bigint "order_id"
+    t.integer "payment_type"
+    t.bigint "payment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_id"], name: "index_payments_on_order_id"

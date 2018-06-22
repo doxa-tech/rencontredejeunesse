@@ -6,13 +6,6 @@
     <span></span>
     <h3>Mes informations</h3>
   </div>
-  <% unless @order.user.valid? %>
-  <!-- TODO: temporary -->
-  <div class="row">
-    <span></span>
-    <p><b style="color: red;">Attention, mets à jour ton compte avec une adresse postale sinon le paiement risque d'être refusé !</b></p>
-  </div>
-  <% end %>
   <div class="row tight">
     <span></span>
     <p><%= t("user.genders.#{@order.user.gender}") %> <%= @order.user.lastname %> <%= @order.user.firstname %></p>
@@ -44,25 +37,56 @@
 
   <div class="row">
     <span></span>
-    <p><%= link_to "Editer mon compte", orders_users_edit_path(id: @order.order_id), class: "button-link" %></p>
+    <p><%= link_to "Editer mon compte", orders_user_edit_path(id: @order.order_id), class: "button-link" %></p>
   </div>
 </div>
 
-<%= yield %>
+<!-- Registrants information -->
+<div class="registrants-information standard-form-row">
+  <div class="row">
+    <span></span>
+    <h3>Mes entrées</h3>
+  </div>
+
+  <% @order.registrants.each do |registrant| %>
+    <div class="registrant">
+      <div class="row tight">
+        <span>Nom</span>
+        <p>
+          <%= t("registrants/rj.genders.#{registrant.gender}") %>
+          <%= registrant.firstname %> <%= registrant.lastname %>
+        </p>
+      </div>
+      <div class="row tight">
+        <p>Age</p>
+        <p><%= l registrant.birthday if registrant.birthday %></p>
+      </div>
+      <div class="row tight">
+        <span></span>
+        <p><%= registrant.item.name %></p>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <span></span>
+    <%= link_to " Modifier la commande", { action: "edit" }, class: "button-link" %>
+  </div>
+</div>
 
 <div class="price standard-form-row">
   <!-- Order information -->
   <div class="row">
     <p>Frais d'inscription</p>
-    <p><b><%= @order.fee %> CHF</b></p>
+    <p><b><%= display_price(@order.fee) %></b></p>
   </div>
   <div class="row">
     <p>Réduction</p>
-    <p><b><%= @order.discount_amount / 100 %> CHF</b></p>
+    <p><b><%= display_price(@order.discount_amount) %></b></p>
   </div>
   <div class="row">
     <p class="amount">Prix à payer</p>
-    <p><b><%= @order.print_amount %> CHF</b></p>
+    <p><b><%= display_price(@order.amount) %></b></p>
   </div>
 </div>
 

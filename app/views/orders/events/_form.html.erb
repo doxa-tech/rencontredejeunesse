@@ -1,15 +1,20 @@
-<%= form_for @order, url: { action: @order.new_record? ? "create" : "update" } do |f| %>
+<%= form_for @order do |f| %>
 
   <% if f.object.errors.any? %>
   <div id="error">
     <p>Le formulaire contient <%= pluralize(f.object.errors.count, "erreur") %>.</p>
-    <p><%= f.object.product.errors.full_messages_for(:participants).join(" / ") %></p>
+    <p><%= f.object.errors.full_messages_for(:registrants).join(" / ") %></p>
   </div>
   <% end %>
 
-  <!-- Event specific information -->
-  <%= yield f %>
-  <!-- -->
+  <div class="row">
+    <span></span>
+    <div>
+      <h3>Entrées</h3>
+      <p>Commande ci-dessous 1 ou plusieurs entrées pour l'événements. Remplis pour chaque entrée les informations requises.</p>
+    </div>
+  </div>
+  <%= render "registrants", parent_f: f, registrants: @order.registrants %>
 
   <div class="standard-form-row">
 
@@ -20,11 +25,11 @@
 
     <div class="price row">
       <div>Frais d'inscription</div>
-      <div><strong><%= @order.fee %> CHF</strong></div>
+      <div><b><%= @order.fee %></b></div>
     </div>
     <div class="row">
       <div>Total</div>
-      <div><strong><span id="amount"><%= @order.print_amount %></span> CHF</strong></div>
+      <div><b><span id="amount"><%= @order.amount %></span></b></div>
     </div>
 
     <div class="conditions checkbox row">

@@ -1,4 +1,4 @@
-Feature: RJ order
+Feature: Event order
 
   So that I can have an entry
   As a visitor
@@ -6,13 +6,15 @@ Feature: RJ order
 
   Background:
     Given I am a confirmed user
-    Given I am signed in
+    And I am signed in
+    Given there is an event
 
+  @wip
   Scenario: I successfully complete the inscription form
-    Given I visit the page to order a RJ entry
-    When I complete the RJ form
-    Then I should see the confirmation page
-    And I should see the right amount for the RJ order
+    Given I visit the page to order an entry
+    When I complete the event form
+    Then I should see the event order confirmation page
+    And I should see the right amount for the event order
 
   Scenario: I miscomplete the inscription form
     Given I visit the page to order a RJ entry

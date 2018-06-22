@@ -4,15 +4,19 @@ class Orders::EventsController < Orders::BaseController
   before_action :not_pending, only: :confirmation
 
   def new
-    @order = order
+    @order = Orders::Event.new
+    @order.user = current_user
   end
   
   def create
-    @order = order(order_params)
+    @order = Orders::Event.new(order_params)
+    @order.user = current_user
     @order.pending = pending?
     if @order.save
       to_confirmation_step_or_pending
     else
+      puts @order.errors.to_yaml
+      puts @order.registrants.to_yaml
       render 'new'
     end
   end
@@ -36,18 +40,9 @@ class Orders::EventsController < Orders::BaseController
   private
 
   def order_params
-    params.require(:order).permit(:conditions, :discount_code,
-      product_attributes: [:id, :group,
-      participants_attributes: [:id, :gender, :firstname, :lastname, :birthday, :lodging, :_destroy]
+    params.require(:orders_event).permit(:conditions, :discount_code,
+      registrants_attributes: [:id, :gender, :firstname, :lastname, :birthday, :item_id, :_destroy
     ])
-  end
-
-  def order(params = {})
-    order = Order.new
-    order.user = current_user
-    order.product = Records::Rj.new
-    order.assign_attributes(params)
-    return order
   end
 
 end

@@ -23,14 +23,12 @@ FactoryBot.define do
 
   end
 
-  factory :order do
-    transient do
-      product_name :rj
-    end
-
-    user
-    product { create(product_name) }
-    pending false
+  factory :item do
+    name "Rencontre de jeunesse 2018 - WE"
+    price 6000
+    active true
+    number 5045
+    key "rj"
   end
 
   factory :discount do

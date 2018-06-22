@@ -6,14 +6,14 @@ class Orders::CompletionController < Orders::BaseController
 
   def postfinance
     if params[:SHASIGN] == shaout.upcase
-      @order = Order.find_by_order_id!(params[:orderID])
-      @order.amount = params[:amount].to_i * 100
-      @order.status = params[:STATUS]
-      @order.payid = params[:PAYID]
-      @order.save
-      order_completion.complete(:postfinance) if @order.status == 5
+      @payment = Payment.find_by_payment_id!(params[:orderID])
+      @payment.amount = params[:amount].to_i * 100
+      @payment.status = params[:STATUS]
+      @payment.payid = params[:PAYID]
+      @payment.save
+      order_completion.complete(:postfinance) if @payment.status == 5
       head :ok
-      else
+    else
       head :unprocessable_entity
     end
   end
@@ -30,10 +30,10 @@ class Orders::CompletionController < Orders::BaseController
   private
 
   def shaout
-    ncerror = "NCERROR=#{params[:NCERROR]}#{Order::KEY}" if params[:NCERROR].present?
-    chain = "AMOUNT=#{params[:amount]}#{Order::KEY}#{ncerror}"\
-            "ORDERID=#{params[:orderID]}#{Order::KEY}PAYID=#{params[:PAYID]}#{Order::KEY}"\
-            "STATUS=#{params[:STATUS]}#{Order::KEY}"
+    ncerror = "NCERROR=#{params[:NCERROR]}#{Payment::KEY}" if params[:NCERROR].present?
+    chain = "AMOUNT=#{params[:amount]}#{Payment::KEY}#{ncerror}"\
+            "ORDERID=#{params[:orderID]}#{Payment::KEY}PAYID=#{params[:PAYID]}#{Payment::KEY}"\
+            "STATUS=#{params[:STATUS]}#{Payment::KEY}"
     return Digest::SHA1.hexdigest(chain)
   end
 

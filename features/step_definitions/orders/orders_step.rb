@@ -1,8 +1,8 @@
-Given(/^I visit the page to order a (.*?) entry$/) do |event|
-  visit url_for(controller: "orders/#{event.downcase}", action: "new", only_path: true)
+Given(/^I visit the page to order an entry$/) do
+  visit new_orders_event_path(item: :rj)
 end
 
-Given(/^I am on the confirmation page for a (.*?) entry$/) do |event|
+Given(/^I am on the confirmation page for an entry$/) do
   @order = create(:order, user: @user, product_name: event.downcase.to_sym)
   visit url_for(controller: "orders/#{event.downcase}", action: "confirmation", id: @order.order_id, only_path: true)
 end
@@ -32,11 +32,4 @@ end
 
 Then(/^I should see errors for the order form$/) do
   expect(page).to have_css(".error-message", text: "conditions")
-end
-
-Then(/^I should see the confirmation page$/) do
-  expect(find "h2").to have_content("Récapitulatif")
-  expect(find ".user-information").to have_content("john@smith.com")
-  expect(find ".product-information").to have_content("Waykup")
-  expect(find ".product-information").to have_content("John")
 end
