@@ -8,7 +8,7 @@ Feature: Payment
   Background:
     Given I am a confirmed user
     And I am signed in
-    Given I am on the confirmation page for a RJ entry
+    Given I am on the confirmation page for an entry
     And I confirm my order
 
   Scenario: I successfully complete my payment

@@ -83,9 +83,9 @@ class Order < ApplicationRecord
 
   def generate_id
     loop do
-      #               |     2 digits for year      |              10 random digits              | 2 digits |
-      self.order_id = (Time.now.year%100)*(10**12) + SecureRandom.random_number(10**10)*(10**2) + 01
-      break if valid?
+      #               |     2 digits for year      |              10 random digits               | 2 digits |
+      self.order_id = (Time.now.year%100)*(10**12) + (SecureRandom.random_number(9*10**9)+10**9) * (10**2) + 01
+      break unless Order.where(order_id: self.order_id).exists?
     end
   end
 

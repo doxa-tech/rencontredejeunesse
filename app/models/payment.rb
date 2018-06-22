@@ -8,6 +8,7 @@ class Payment < ApplicationRecord
 
   belongs_to :order
 
+  before_create :generate_id
   before_validation :assign_method
   after_save :update_order
 
@@ -40,6 +41,14 @@ class Payment < ApplicationRecord
       :paid
     else
       :unpaid
+    end
+  end
+
+  def generate_id
+    loop do
+      #                 |              14 random digits               |
+      self.payment_id = (SecureRandom.random_number(9*10**13) + 10**13)
+      break unless Payment.where(payment_id: self.payment_id).exists?
     end
   end
 

@@ -50,7 +50,7 @@ class Discount < ApplicationRecord
   def generate_code
     loop do
       self.code = SecureRandom.hex(4).upcase
-      break if valid?
+      break unless Discount.where(code: self.code).exists?
     end
   end
 
