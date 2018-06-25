@@ -75,7 +75,7 @@ class Order < ApplicationRecord
 
   def assign_payment
     if !main_payment.nil? && main_payment.status.nil?
-      main_payment.update_attribute(:amount, self.amount)
+      main_payment.update_attributes(amount: self.amount)
     elsif main_payment.nil?
       self.payments.create!(amount: self.amount, payment_type: :main)
     end

@@ -25,7 +25,7 @@ class Payment < ApplicationRecord
   end
 
   def assign_method
-    self.method ||= (self.amount > INVOICE_LIMIT ? :invoice : :postfinance)
+    self.method = (self.amount > Payment::INVOICE_LIMIT ? :invoice : :postfinance)
   end
 
   private
