@@ -63,8 +63,8 @@ class Order < ApplicationRecord
     if self.discount
       self.discount_amount = self.discount.calculate_discount(self)
       self.amount = self.amount - self.discount_amount
-      self.amount = 0 if self.amount == self.fee
     end
+    self.amount = 0 if self.amount == self.fee || self.amount < 0
   end
 
   def calculate_amount

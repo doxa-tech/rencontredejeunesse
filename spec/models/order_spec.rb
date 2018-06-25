@@ -16,6 +16,10 @@ RSpec.describe "Order", :type => :model do
     expect(order.order_id).to be_present
   end
 
+  it "calculate the right amount" do
+    pending
+  end
+
   describe "payment method" do
 
     it "assigns invoice as payment method when the amount is above the limit" do
@@ -60,6 +64,17 @@ RSpec.describe "Order", :type => :model do
       order.product.participants.first.mark_for_destruction
       order.save
       expect(order.amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
+    end
+
+    it "reduces the amount to zero if there is only the fee" do
+      pending
+    end
+
+    it "doesn't return a negative amount" do
+      order = create(:order_with_items)
+      discount = create(:discount, category: :money, reduction: order.amount + 1000)
+      amount = discount.calculate_discount(order)
+      expect(amount).to eq order.amount
     end
 
   end

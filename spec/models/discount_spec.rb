@@ -7,38 +7,55 @@ RSpec.describe "Discount", :type => :model do
     expect(discount.code).to be_present
   end
 
-
-  describe "#calculate_amount" do
+  describe "#calculate_discount" do
 
     it "reduces an amount of money" do
+      order = create(:order)
       discount = create(:discount, category: :money, reduction: 2000)
-      amount = discount.calculate_amount(6000)
-      expect(amount).to eq 4000
+      amount = discount.calculate_discount(order)
+      expect(amount).to eq 2000
     end
 
-    it "reduces a percentage" do
+    it "reduces a percentage on the order" do
+      order = create(:order_with_items)
       discount = create(:discount, category: :percent, reduction: 40)
-      amount = discount.calculate_amount(10000)
-      expect(amount).to eq 6000
+      amount = discount.calculate_discount(order)
+      expect(amount).to eq (order.amount * 0.4)
     end
 
-    it "offers free entries" do
-      discount = create(:discount, category: :free, reduction: nil, number: 2)
-      klass = discount.product_class
-      amount = discount.calculate_amount (klass.ENTRY_PRICE * 3 + klass::FEE) * 100
-      expect(amount).to eq (klass.ENTRY_PRICE + klass::FEE) * 100
+    it "reduces a percentage on multiple items" do
+      items = create_list(:item, 2)
+      order = create(:order)
+      order.order_items.create([{ quantity: 1, item: items[0] }, { quantity: 2, item: items[1] }])
+      discount = create(:discount, category: :percent, reduction: 40, items: items)
+      amount = discount.calculate_discount(order)
+      expect(amount).to eq items[0].price * 3 * 0.4
     end
 
-    it "reduces the amount to zero if there is only the fee" do
+    it "offers an item multiple times limited by number" do
+      item = create(:item)
+      order = create(:order)
+      order.order_items.create(quantity: 3, item: item)
+      discount = create(:discount, category: :free, reduction: nil, number: 2, items: [item])
+      amount = discount.calculate_discount(order)
+      expect(amount).to eq (item.price * 2)
+    end
+
+    it "offers multiple items limited by number" do
+      items = create_list(:item, 3)
+      order = create(:order)
+      order.order_items.create([
+        { quantity: 1, item: items[0] }, { quantity: 1, item: items[1] }, { quantity: 1, item: items[2] }
+      ])
+      discount = create(:discount, category: :free, reduction: nil, number: 2, items: items)
+      amount = discount.calculate_discount(order)
+      expect(amount).to eq (items[0].price * 2)
+    end
+
+    it "does not offer a free item" do
+      order = create(:order_with_items)
       discount = create(:discount, category: :free, reduction: nil, number: 1)
-      klass = discount.product_class
-      amount = discount.calculate_amount (klass.ENTRY_PRICE + klass::FEE) * 100
-      expect(amount).to eq 0
-    end
-
-    it "doesn't return a negative amount" do
-      discount = create(:discount, category: :money, reduction: 4000)
-      amount = discount.calculate_amount(2000)
+      amount = discount.calculate_discount(order)
       expect(amount).to eq 0
     end
 

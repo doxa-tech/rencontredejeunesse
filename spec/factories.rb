@@ -45,15 +45,28 @@ FactoryBot.define do
     association :order, factory: :event_order
   end
 
-  factory :event_order, class: "Orders::Event" do
+  factory :order_item do
+    quantity 1 
+    item
+    order
+  end
 
-    order_type :event
+  factory :order do
+
+    order_type :regular
     user
     pending false
     
-    after(:create) do |order|
-      create(:registrant, order: order)
-      order.reload
+    factory :order_with_items do
+      after(:create) do |order|
+        order.order_items.create(quantity: 1, item: create(:item))
+        order.save!
+      end
+    end
+
+    factory :event_order, class: "Orders::Event" do
+      order_type :event
+      registrants { build_list(:registrant, 1, order: nil) }
     end
 
   end
