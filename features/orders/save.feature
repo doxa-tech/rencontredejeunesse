@@ -7,10 +7,11 @@ Feature: Save an order
   Background:
     Given I am a confirmed user
     And I am signed in
+    Given there is an event
 
   Scenario: I save my order
-    Given I visit the page to order a Login entry
-    When I complete the Login form without submiting it
+    Given I visit the page to order an entry
+    When I complete the event form without submiting it
     And I click the button "Continuer plus tard"
     Then I should see my pending order
 

@@ -1,3 +1,5 @@
+<h2>Commande</h2>
+
 <%= form_for @order, url: { action: @order.new_record? ? :create : :update, item: params[:item] } do |f| %>
 
   <% if f.object.errors.any? %>
@@ -25,11 +27,11 @@
 
     <div class="price row">
       <div>Frais d'inscription</div>
-      <div><b><%= @order.fee %></b></div>
+      <div><b><%= display_price(@order.fee) %></b></div>
     </div>
     <div class="row">
       <div>Total</div>
-      <div><b><span id="amount"><%= @order.amount %></span></b></div>
+      <div><b><span id="amount"><%= display_price(@order.amount) %></span></b></div>
     </div>
 
     <div class="conditions checkbox row">

@@ -15,9 +15,8 @@
 <% @orders.each do |order| %>
 
   <%= order.order_id %> /
-  <%= order.product_name.capitalize %> /
   <%= l order.created_at, format: :pretty_date %> /
-  <%= link_to "Continuer", controller: "orders/#{order.product_name}", action: "edit", id: order.order_id %>
+  <%= link_to "Continuer", edit_orders_event_path(order.order_id) %>
   <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
 
 <% end %>
