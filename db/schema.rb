@@ -148,7 +148,7 @@ ActiveRecord::Schema.define(version: 20180618094343) do
   end
 
   create_table "orders", id: :serial, force: :cascade do |t|
-    t.integer "amount"
+    t.integer "amount", default: 0
     t.bigint "order_id"
     t.integer "status"
     t.integer "user_id"

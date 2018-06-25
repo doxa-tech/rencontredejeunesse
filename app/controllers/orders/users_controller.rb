@@ -11,7 +11,7 @@ class Orders::UsersController < Orders::BaseController
 		if @user.save
       UserMailer.confirmation(@user).deliver_now
       sign_in @user
-			redirect_to controller: "orders/#{params[:product]}", action: "new"
+			redirect_to new_orders_event_path(item: params[:item])
 		else
 			render 'new'
 		end
@@ -25,7 +25,7 @@ class Orders::UsersController < Orders::BaseController
     @user = current_user
     if @user.update_attributes(user_params)
       sign_in @user
-      redirect_to confirmation_orders_login_path(params[:id]), success: "Utilisateur mis à jour"
+      redirect_to confirmation_orders_event_path(params[:id]), success: "Utilisateur mis à jour"
     else
       render 'edit'
     end
@@ -35,7 +35,7 @@ class Orders::UsersController < Orders::BaseController
     user = User.where("lower(email) = ?", params[:session][:email].strip.downcase).first
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_to controller: "orders/#{params[:product]}", action: "new"
+      redirect_to new_orders_event_path(item: params[:item])
     else
       @user = User.new # sign up form
       flash.now[:error] = "Nom d'utilisateur et/ou mot de passe incorrect(s)"
