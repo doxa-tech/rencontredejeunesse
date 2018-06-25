@@ -6,19 +6,20 @@ Feature: Use a discount
 
   Background:
     Given I am a confirmed user
-    Given I am signed in
+    And I am signed in
+    Given there is an event
 
   Scenario: I use a valid discount
-    Given I visit the page to order a RJ entry
+    Given I visit the page to order an entry
     When I fill in a valid discount
-    And I complete the RJ form
-    Then I should see the confirmation page
+    And I complete the event form
+    Then I should see the event confirmation page
     And I should see a discount
 
   Scenario: I use a invalid discount
-    Given I visit the page to order a RJ entry
+    Given I visit the page to order an entry
     When I fill in a invalid discount
-    And I complete the RJ form
+    And I complete the event form
     Then I should see an error on the discount field
 
   Scenario: I have a free entry

@@ -23,17 +23,17 @@ class OrderCompletion
   end
 
   def free
-    @order.update_attribute(:status, statuses[@situation])
+    @order.main_payment.update_attribute(:status, statuses[@situation])
     OrderMailer.pass(@order).deliver_now
   end
 
   def invoice
-    @order.update_attribute(:status, statuses[@situation])
+    @order.main_payment.update_attribute(:status, statuses[@situation])
     Admin::OrderMailer.invoice_registration(@order).deliver_now
   end
 
   def get_situation
-    if @order.invoice?
+    if @order.main_payment.invoice?
       :invoice
     elsif @order.amount == 0
       :free

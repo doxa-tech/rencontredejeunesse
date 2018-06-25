@@ -69,7 +69,7 @@ Rails.application.routes.draw do
     post "postfinance", to: "completion#postfinance", constraints: { subdomain: 'uapi' }
 
     # complete free or invoice order
-    resource :completition, only: :update
+    resources :completion, only: :update, controller: :completion
 
     # user update from order
     scope ":id/user", constraints: { id: /\d*/ }, as: :user do

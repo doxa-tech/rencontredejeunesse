@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   belongs_to :user
   belongs_to :discount, optional: true
 
-  has_many :order_items
+  has_many :order_items, inverse_of: :order
   has_many :items, through: :order_items, dependent: :destroy
   
   has_many :registrants, inverse_of: :order do
@@ -61,8 +61,8 @@ class Order < ApplicationRecord
   def assign_amount
     self.amount = calculate_amount
     if self.discount
-      self.discount_amount = self.amount - self.discount.calculate_amount(self.amount)
-      self.amount = self.discount.calculate_amount(self.amount)
+      self.discount_amount = self.discount.calculate_discount(self)
+      self.amount = self.amount - self.discount_amount
       self.amount = 0 if self.amount == self.fee
     end
   end

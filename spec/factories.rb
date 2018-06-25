@@ -33,7 +33,6 @@ FactoryBot.define do
 
   factory :discount do
     category :money
-    product "Records::Rj"
     reduction 2000
   end
 
@@ -43,6 +42,7 @@ FactoryBot.define do
     lastname "Johnson"
     birthday Date.new(1996, 02, 15)
     item
+    association :order, factory: :event_order
   end
 
   factory :event_order, class: "Orders::Event" do
@@ -50,7 +50,11 @@ FactoryBot.define do
     order_type :event
     user
     pending false
-    registrants { [build(:registrant)] }
+    
+    after(:create) do |order|
+      create(:registrant, order: order)
+      order.reload
+    end
 
   end
 

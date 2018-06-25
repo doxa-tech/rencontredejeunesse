@@ -8,6 +8,10 @@ module Orders
       registrants
     end
 
+    def items
+      tickets
+    end
+
   end
 
 end

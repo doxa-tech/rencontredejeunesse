@@ -17,7 +17,8 @@ class Discount < ApplicationRecord
   # Percent: a percentage applied to 1. the amount of order 2. a list of items
   # Free: free item(s) limited by #number
   def calculate_discount(order)
-    item_ids = self.item_ids
+    @item_ids = self.item_ids
+    @order = order
     if self.money? 
       return self.reduction
     elsif self.percent? && item_ids.empty?
@@ -28,15 +29,15 @@ class Discount < ApplicationRecord
   end
 
   def calculate_percent
-    order.items.inject(0) do |sum, item|
-      item.id.in?(item_ids) ? sum + (item.price * self.reduction) : sum
+    @order.items.inject(0) do |sum, item|
+      item.id.in?(@item_ids) ? sum + (item.price * self.reduction) : sum
     end
   end
 
   def calculate_free
     count = self.number 
-    order.items.inject(0) do |sum, item|
-      if item.id.in? item_ids && count != 0
+    @order.items.inject(0) do |sum, item|
+      if item.id.in?(@item_ids) && count != 0
         count -= 1
         sum + item.price
       else

@@ -21,9 +21,9 @@ class Orders::CompletionController < Orders::BaseController
   def update
     begin
       order_completion.complete
-      redirect_to orders_confirmed_path
+      redirect_to confirmed_orders_path
     rescue ArgumentError
-      redirect_to({ controller: "orders/#{@order.product_name}", action: "confirmation", id: @order.order_id }, error: "Une erreur s'est produite")
+      redirect_to confirmation_orders_event_path(@order.order_id), error: "Une erreur s'est produite"
     end
   end
 

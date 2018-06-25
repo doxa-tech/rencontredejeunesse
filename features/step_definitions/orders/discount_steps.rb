@@ -1,7 +1,9 @@
 Given("I am on the confirmation page with an amount of zero") do
-  @discount = create(:discount, category: :free, number: 1)
-  @order = create(:order, user: @user, discount: @discount)
-  visit confirmation_orders_rj_path(@order.order_id)
+  @order = create(:event_order, user: @user)
+  @discount = create(:discount, category: :free, number: 1, items: @order.items)
+  @order.discount = @discount
+  @order.save!
+  visit confirmation_orders_event_path(@order.order_id)
 end
 
 When("I fill in a valid discount") do
@@ -14,7 +16,7 @@ When("I fill in a invalid discount") do
 end
 
 Then("I should see a discount") do
-  price = Records::Rj.ENTRY_PRICE + Records::Rj::LODGING_PRICE + Records::Rj::FEE - @discount.reduction / 100
+  price = (@item.price + 500 - @discount.reduction) / 100
   expect(find ".price").to have_content "#{price} CHF"
 end
 
