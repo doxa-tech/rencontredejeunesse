@@ -32,24 +32,25 @@ RSpec.describe "Discount", :type => :model do
       expect(amount).to eq items[0].price * 3 * 0.4
     end
 
-    it "offers an item multiple times limited by number" do
-      item = create(:item)
-      order = create(:order)
-      order.order_items.create(quantity: 3, item: item)
-      discount = create(:discount, category: :free, reduction: nil, number: 2, items: [item])
+    it "does not reduce a percentage" do
+      order = create(:order_with_items)
+      discount = create(:discount, category: :percent, reduction: 40, items: create_list(:item, 2))
       amount = discount.calculate_discount(order)
-      expect(amount).to eq (item.price * 2)
+      expect(amount).to eq 0
+    end
+
+    it "offers an item multiple times limited by number" do
+      order = create(:order_with_items, number: 1, quantity: 3)
+      discount = create(:discount, category: :free, reduction: nil, number: 2, items: order.items)
+      amount = discount.calculate_discount(order)
+      expect(amount).to eq (order.items[0].price * 2)
     end
 
     it "offers multiple items limited by number" do
-      items = create_list(:item, 3)
-      order = create(:order)
-      order.order_items.create([
-        { quantity: 1, item: items[0] }, { quantity: 1, item: items[1] }, { quantity: 1, item: items[2] }
-      ])
-      discount = create(:discount, category: :free, reduction: nil, number: 2, items: items)
+      order = create(:order_with_items, number: 3)
+      discount = create(:discount, category: :free, reduction: nil, number: 2, items: order.items)
       amount = discount.calculate_discount(order)
-      expect(amount).to eq (items[0].price * 2)
+      expect(amount).to eq (order.items[0].price * 2)
     end
 
     it "does not offer a free item" do

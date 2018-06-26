@@ -17,7 +17,7 @@ class Order < ApplicationRecord
   end
   has_many :tickets, through: :registrants, source: :item, dependent: :destroy
 
-  has_many :payments, dependent: :destroy
+  has_many :payments, dependent: :destroy, autosave: true
 
   accepts_nested_attributes_for :registrants, allow_destroy: true, reject_if: :all_blank
 
@@ -27,10 +27,10 @@ class Order < ApplicationRecord
 
   before_create :generate_id
   before_validation :assign_amount
-  after_save :assign_payment
+  before_save :assign_payment
 
   def fee
-    500
+    self.amount == 0 ? 0 : 500
   end
 
   def discount_code
@@ -62,23 +62,25 @@ class Order < ApplicationRecord
     self.amount = calculate_amount
     if self.discount
       self.discount_amount = self.discount.calculate_discount(self)
+      self.discount_amount = self.amount if self.discount_amount > self.amount
       self.amount = self.amount - self.discount_amount
     end
-    self.amount = 0 if self.amount == self.fee || self.amount < 0
+    self.amount += self.fee
   end
 
   def calculate_amount
     self.order_items.inject(0) do |sum, obj|
       (obj.quantity > 0 && !obj.item.nil?) ? (sum + obj.quantity * obj.item.price) : sum
-    end + self.fee
+    end
   end
 
   def assign_payment
     if !main_payment.nil? && main_payment.status.nil?
       main_payment.update_attributes(amount: self.amount)
     elsif main_payment.nil?
-      self.payments.create!(amount: self.amount, payment_type: :main)
+      @main_payment = self.payments.build(amount: self.amount, payment_type: :main)
     end
+    self.status = self.main_payment.order_status
   end
 
   def generate_id

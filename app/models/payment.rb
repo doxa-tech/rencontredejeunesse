@@ -28,21 +28,21 @@ class Payment < ApplicationRecord
     self.method = (self.amount > Payment::INVOICE_LIMIT ? :invoice : :postfinance)
   end
 
-  private
-
   def update_order
-    unless self.order.delivered?
-      self.order.update_column(:status, order_status)
-    end
+    self.order.update_column(:status, order_status) 
   end
 
   def order_status
-    if self.order.payments.where(status: 9).inject(0) { |sum, obj| sum + obj.amount } == self.order.amount
+    if self.order.delivered?
+      :delivered
+    elsif self.order.payments.where(status: 9).inject(0) { |sum, obj| sum + obj.amount } == self.order.amount
       :paid
     else
       :unpaid
     end
   end
+
+  private
 
   def generate_id
     loop do

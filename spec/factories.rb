@@ -27,7 +27,7 @@ FactoryBot.define do
     name "Rencontre de jeunesse 2018 - WE"
     price 6000
     active true
-    number 5045
+    number { Random.new.rand(1000..9999) }
     key "rj"
   end
 
@@ -58,8 +58,13 @@ FactoryBot.define do
     pending false
     
     factory :order_with_items do
-      after(:create) do |order|
-        order.order_items.create(quantity: 1, item: create(:item))
+      transient do
+        number 1
+        quantity 1
+      end
+
+      after(:create) do |order, evaluator|
+        order.order_items = create_list(:order_item, evaluator.number, quantity: evaluator.quantity, order: order)
         order.save!
       end
     end
