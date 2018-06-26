@@ -69,7 +69,7 @@ class Order < ApplicationRecord
   end
 
   def calculate_amount
-    self.order_items.inject(0) do |sum, obj|
+    self.order_items.select { |i| !i.marked_for_destruction? }.inject(0) do |sum, obj|
       (obj.quantity > 0 && !obj.item.nil?) ? (sum + obj.quantity * obj.item.price) : sum
     end
   end

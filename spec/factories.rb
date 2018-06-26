@@ -70,8 +70,12 @@ FactoryBot.define do
     end
 
     factory :event_order, class: "Orders::Event" do
+      transient do
+        number 1
+      end
+
       order_type :event
-      registrants { build_list(:registrant, 1, order: nil) }
+      registrants { build_list(:registrant, number, order: nil) }
     end
 
   end
