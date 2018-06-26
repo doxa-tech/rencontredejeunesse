@@ -9,7 +9,7 @@ class Payment < ApplicationRecord
   belongs_to :order
 
   before_create :generate_id
-  before_validation :assign_method
+  before_save :assign_method
   after_save :update_order
 
   def shain
@@ -34,11 +34,11 @@ class Payment < ApplicationRecord
 
   def order_status
     if self.order.delivered?
-      :delivered
+      "delivered"
     elsif self.order.payments.where(status: 9).inject(0) { |sum, obj| sum + obj.amount } == self.order.amount
-      :paid
+      "paid"
     else
-      :unpaid
+      "unpaid"
     end
   end
 
