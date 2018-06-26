@@ -7,6 +7,7 @@ class Orders::CompletionController < Orders::BaseController
   def postfinance
     if params[:SHASIGN] == shaout.upcase
       @payment = Payment.find_by_payment_id!(params[:orderID])
+      @order = @payment.order
       @payment.amount = params[:amount].to_i * 100
       @payment.status = params[:STATUS]
       @payment.payid = params[:PAYID]
