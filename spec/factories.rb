@@ -25,6 +25,7 @@ FactoryBot.define do
 
   factory :item do
     name "Rencontre de jeunesse 2018 - WE"
+    description "RJ 2018"
     price 6000
     active true
     number { Random.new.rand(1000..9999) }
@@ -32,7 +33,7 @@ FactoryBot.define do
   end
 
   factory :discount do
-    category :money
+    category "money"
     reduction 2000
   end
 
@@ -53,7 +54,7 @@ FactoryBot.define do
 
   factory :order do
 
-    order_type :regular
+    order_type "regular"
     user
     pending false
     
@@ -74,7 +75,7 @@ FactoryBot.define do
         number 1
       end
 
-      order_type :event
+      order_type "event"
       registrants { build_list(:registrant, number, order: nil) }
     end
 

@@ -8,6 +8,11 @@ class Item < ApplicationRecord
 
     has_and_belongs_to_many :discounts
 
+    validates :name, presence: true, length: { maximum: 50 }
+    validates :description, presence: true, length: { maximum: 250 }
+    validates :price, presence: true, numericality: { greater_than_or_equal_to: 500 }
+    validates :number, presence: true, numericality: { greater_than_or_equal_to: 1000 }
+
     # TODO: test with rspec
     scope :valid, -> { where("active = ? AND (valid_until IS ? OR valid_until >= ?)", true, nil, Date.current) }
 

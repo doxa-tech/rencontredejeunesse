@@ -12,6 +12,12 @@ class Payment < ApplicationRecord
   before_save :assign_method
   after_save :update_order
 
+  validates :amount, presence: true
+  validates :method, inclusion: { in: methods.keys }, allow_nil: true
+  validates :payment_type, inclusion: { in: payment_types.keys }
+
+  # TODO: set time
+
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
             "EMAIL=#{user.email}#{KEY}LANGUAGE=fr_FR#{KEY}ORDERID=#{payment_id}#{KEY}"\
@@ -25,7 +31,7 @@ class Payment < ApplicationRecord
   end
 
   def assign_method
-    self.method = (self.amount > Payment::INVOICE_LIMIT ? :invoice : :postfinance)
+    self.method = (self.amount > Payment::INVOICE_LIMIT ? "invoice" : "postfinance")
   end
 
   def update_order

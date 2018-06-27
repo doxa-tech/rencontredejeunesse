@@ -66,7 +66,7 @@ RSpec.describe "Order", :type => :model do
     it "doesn't update the main when there is a status" do
       order = create(:order_with_items)
       paid_amount = order.amount
-      order.main_payment.update_attributes(status: 9)
+      order.main_payment.update_attributes!(status: 9)
       order.order_items << create(:order_item, order: order)
       order.save!
       expect(order.main_payment.amount).to eq paid_amount
@@ -74,7 +74,7 @@ RSpec.describe "Order", :type => :model do
 
     it "updates order status" do
       order = create(:order_with_items)
-      order.main_payment.update_attributes(status: 9)
+      order.main_payment.update_attributes!(status: 9)
       order.order_items << create(:order_item, order: order)
       order.save!
       expect(order.status).to eq "unpaid"

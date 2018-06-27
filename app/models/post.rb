@@ -8,7 +8,6 @@ class Post < ApplicationRecord
   before_validation :strip_content
 
   validates :message, presence: true, length: { maximum: 500 }
-  validates :user, presence: true
 
   def last_comment
     comments.first

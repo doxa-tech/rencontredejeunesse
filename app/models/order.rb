@@ -21,6 +21,8 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :registrants, allow_destroy: true, reject_if: :all_blank
 
+  validates :order_type, inclusion: { in: order_types.keys }, allow_nil: true
+  validates :status, inclusion: { in: statuses.keys }, allow_nil: true
   validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true
   validate :validity_of_discount_code
