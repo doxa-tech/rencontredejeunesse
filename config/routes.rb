@@ -85,9 +85,7 @@ Rails.application.routes.draw do
       end
 
       # sign in/up before order
-      resources :users, only: [:new, :create] do
-        post "signin", on: :collection
-      end
+      resources :users, only: [:new, :create]
 
     end
 

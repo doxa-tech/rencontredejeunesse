@@ -1,5 +1,5 @@
 class Orders::UsersController < Orders::BaseController
-  before_action :check_if_signed_in, only: [:new, :create, :signin]
+  before_action :check_if_signed_in, only: [:new, :create]
   before_action :check_if_not_signed_in, only: [:edit, :update]
 
   def new
@@ -28,18 +28,6 @@ class Orders::UsersController < Orders::BaseController
       redirect_to confirmation_orders_event_path(params[:id]), success: "Utilisateur mis à jour"
     else
       render 'edit'
-    end
-  end
-
-  def signin
-    user = User.where("lower(email) = ?", params[:session][:email].strip.downcase).first
-    if user && user.authenticate(params[:session][:password])
-      sign_in user
-      redirect_to new_orders_event_path(item: params[:item])
-    else
-      @user = User.new # sign up form
-      flash.now[:error] = "Nom d'utilisateur et/ou mot de passe incorrect(s)"
-      render 'new'
     end
   end
 
