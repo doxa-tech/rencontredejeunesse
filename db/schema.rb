@@ -125,6 +125,7 @@ ActiveRecord::Schema.define(version: 20180618094343) do
     t.integer "number"
     t.boolean "active", default: true
     t.date "valid_until"
+    t.date "valid_from"
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

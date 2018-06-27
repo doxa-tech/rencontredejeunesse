@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[5.1]
       t.integer :number
       t.boolean :active, default: true
       t.date :valid_until
+      t.date :valid_from
       t.string :key
 
       t.timestamps

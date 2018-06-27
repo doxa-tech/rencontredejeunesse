@@ -13,14 +13,13 @@ class Admin::CheckinController < Admin::BaseController
     if @order.status != 9 || @order.delivered
       @state = "nok"
     elsif !@order.note.blank?
-        @state = "infos"
+      @state = "infos"
     end
   end
 
   # Look for the order
   def create
     authorize!
-    p params[:order_id]
     @order = Order.find_by(order_id: params[:order_id])
     unless @order.nil?
       redirect_to admin_checkin_path(params[:order_id])

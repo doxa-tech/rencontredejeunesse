@@ -13,7 +13,14 @@ class Item < ApplicationRecord
     validates :price, presence: true, numericality: { greater_than_or_equal_to: 500 }
     validates :number, presence: true, numericality: { greater_than_or_equal_to: 1000 }
 
-    # TODO: test with rspec
-    scope :valid, -> { where("active = ? AND (valid_until IS ? OR valid_until >= ?)", true, nil, Date.current) }
+    scope :active, -> { where("active = :active AND
+      (valid_until IS :null OR valid_until >= :date) AND (valid_from IS :null OR valid_from <= :date)", 
+      active: true, null: nil, date: Date.current) 
+    }
+
+    def active?
+      date = Date.current
+      active && (valid_until.nil? || valid_until >= date) && (valid_from.nil? || valid_from <= date)
+    end
 
 end

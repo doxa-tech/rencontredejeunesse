@@ -49,4 +49,20 @@ RSpec.describe "Payment", :type => :model do
 
   end
 
+  describe "#set_time_of_payment" do
+
+    it "set the time if the payment is completed" do
+      order = create(:event_order)
+      order.main_payment.update_attributes!(status: 9)
+      expect(order.main_payment.time).not_to be nil
+    end
+
+    it "does not set the time if the payment is not completed" do
+      order = create(:event_order)
+      order.main_payment.update_attributes!(status: 8)
+      expect(order.main_payment.time).to be nil
+    end
+
+  end
+
 end

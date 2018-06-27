@@ -6,7 +6,7 @@ module OrdersHelper
   end
 
   def items
-    @items ||= Item.valid.where(key: params[:item])
+    @items ||= Item.active.where(key: params[:item])
   end
 
 end

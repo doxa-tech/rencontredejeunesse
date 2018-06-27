@@ -7,6 +7,7 @@ class Registrant < ApplicationRecord
   validates :lastname, presence: true, length: { maximum: 50 }
   validates :birthday, presence: true
   validate :must_be_six_years_old
+  validate :validity_of_item
 
   belongs_to :order, inverse_of: :registrants
   belongs_to :item
@@ -30,6 +31,12 @@ class Registrant < ApplicationRecord
   def must_be_six_years_old
     if birthday && (birthday.to_date + 6.years) > Date.today
       errors.add(:birthday, :too_young, age: "6")
+    end
+  end
+
+  def validity_of_item
+    unless item.active?
+      errors.add(:item, :exclusion)
     end
   end
 end
