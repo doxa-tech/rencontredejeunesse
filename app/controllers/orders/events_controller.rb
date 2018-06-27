@@ -23,9 +23,9 @@ class Orders::EventsController < Orders::BaseController
   end
 
   def update
-    @order.assign_attributes(order_params)
-    @order.pending = pending?
-    if @order.save
+    order.assign_attributes(order_params)
+    order.pending = pending?
+    if order.save
       to_confirmation_step_or_pending
     else
       render 'edit'

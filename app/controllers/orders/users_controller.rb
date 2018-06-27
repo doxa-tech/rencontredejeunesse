@@ -34,7 +34,7 @@ class Orders::UsersController < Orders::BaseController
   private
 
   def check_if_signed_in
-    redirect_to controller: "orders/#{params[:product]}", action: "new" if signed_in?
+    redirect_to new_orders_event_path(item: params[:item]) if signed_in?
   end
 
   def user_params(new_record: false)

@@ -1,10 +1,8 @@
 class Orders::BaseController < ApplicationController
   include OrdersHelper
 
-  # TODO: method #order to fetch the order
-
   def check_if_not_signed_in
-    redirect_to controller: "orders/users", action: :new, product: controller_name unless signed_in?
+    redirect_to new_orders_user_path(item: params[:item]) unless signed_in?
   end
 
   def pending?
@@ -15,18 +13,24 @@ class Orders::BaseController < ApplicationController
     if pending?
       redirect_to pending_connect_orders_path
     else
-      redirect_to action: :confirmation, id: @order.order_id
+      redirect_to action: :confirmation, id: order.order_id
     end
   end
 
   def closed
-    @order = Orders::Event.find_by_order_id!(params[:id])
-    redirect_to root_path, error: "Cette commande est déjà traitée." unless @order.main_payment.status.nil?
+    redirect_to root_path, error: "Cette commande est déjà traitée." unless order.main_payment.status.nil?
   end
 
   def not_pending
-    # @order fetched in before_action #closed
-    redirect_to root_path, error: "Cette commande est en cours." if @order.pending
+    redirect_to root_path, error: "Cette commande est en cours." if order.pending
+  end
+
+  def order
+    if @order.nil?
+      @order = Orders::Event.find_by_order_id!(params[:id])
+      @order = @order.becomes(Orders::Event) if params[:controller] == "orders/events"
+    end
+    return @order
   end
 
 end
