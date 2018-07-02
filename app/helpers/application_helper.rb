@@ -1,6 +1,7 @@
 module ApplicationHelper
 
   def display_price(price)
+    price ||= 0
     "#{price / 100} CHF"
   end
 

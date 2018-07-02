@@ -6,7 +6,7 @@
 
   <h1>Contrôle de commande</h1>
 
-  <%= form_tag admin_checkin_index_path, id: "checkin-form" do %>
+  <%= form_tag admin_orders_checkin_index_path, id: "checkin-form" do %>
 
     <%= label_tag :order_id, "Entrez le numéro de commande" %>
     <%= text_field_tag :order_id, nil, maxlength: "14", autofocus: true %>

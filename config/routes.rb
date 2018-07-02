@@ -99,24 +99,22 @@ Rails.application.routes.draw do
 
     root to: "base#index"
 
-    resources :users, except: :show
     resources :volunteers, except: [:new, :create] do
       get "export", on: :collection
     end
+
+    resources :users, except: :show
     resources :discounts, except: [:edit, :update]
+    resources :payments, except: [:index, :new]
 
     namespace :orders do
 
-      resources :rj, only: [:index, :edit, :update, :show, :destroy] do
+      resources :events do
         get "export", on: :collection
-        get "users_export", on: :collection
-        get "participants_export", on: :collection
       end
-      resources :login, only: [:index, :edit, :update, :show, :destroy]
+      resources :checkin, only: [:index, :create, :update]
 
     end
-
-    resources :checkin, only: [:index, :create, :update, :show]
 
   end
 

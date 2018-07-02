@@ -61,6 +61,11 @@ fr:
           attributes:
             conditions:
               accepted: "Veuillez accepter les conditions générales"
+  order:
+    statuses:
+      paid: "Payé"
+      unpaid: "En attente de paiement"
+      delivered: "Livré"
   user:
     genders:
       male: "M."

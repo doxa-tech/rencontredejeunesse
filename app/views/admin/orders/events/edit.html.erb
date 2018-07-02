@@ -1,0 +1,37 @@
+<div id="form">
+
+  <h1>Modifier la commande <%= @event.order_id %></h1>
+
+  <%= form_for [:admin, @event] do |f| %>
+
+    <%= render 'error_messages', object: f.object %>
+
+    <h3>Produits commandés</h3>
+    <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.active %>
+
+    <%= f.label :note %>
+    <%= f.text_area :note, cols: "50", rows: "6" %>
+
+    <%= f.submit nil, class: "button" %>
+
+  <% end %>
+
+  <h3>Paiements</h3>
+
+  <% @event.payments.each do |payment| %>
+
+    <ul>
+      <li>
+        <%= payment.payment_type %> · 
+        <%= payment.time %> ·
+        <%= display_price(payment.amount) %> · 
+        <%= payment.status %> · 
+        <%= link_to "Modifier", edit_admin_payment_path(payment) %> · 
+        <%= link_to "Annuler", admin_payment_path(payment), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer ce paiement ?" } %></li>
+    </ul>
+
+  <% end %>
+
+  <h4>Ajouter</h4>
+  <%= render "admin/payments/form", order: @event %>
+</div>

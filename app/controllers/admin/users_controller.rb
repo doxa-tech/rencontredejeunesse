@@ -20,11 +20,9 @@ class Admin::UsersController < Admin::BaseController
 	end
 
 	def edit
-		@user = User.find(params[:id])
 	end
 
 	def update
-		@user = User.find(params[:id])
     @user.assign_attributes(user_params)
 		if @user.save
 			redirect_to admin_users_path, success: "Utilisateur mis à jour"
@@ -34,7 +32,7 @@ class Admin::UsersController < Admin::BaseController
 	end
 
 	def destroy
-		User.find(params[:id]).destroy
+		@user.destroy
 		redirect_to admin_users_path, success: "Utilisateur supprimé"
 	end
 
