@@ -10,6 +10,10 @@ class PagesController < ApplicationController
   def vision
   end
 
+  def highlights
+    @images_i = (0..21).to_a.shuffle
+  end
+
   def volunteer
     @volunteer = Volunteer.new
   end

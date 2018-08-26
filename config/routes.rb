@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  %w(login privacy application vision).each do |page|
+  %w(login privacy application vision highlights).each do |page|
     get page, to: "pages##{page}"
   end
 
