@@ -11,7 +11,6 @@ function closeModal() {
 }
 
 var slideIndex = 0;
-showSlides(slideIndex);
 
 // Next/previous controls
 function plusSlides(n) {
