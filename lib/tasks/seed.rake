@@ -19,4 +19,10 @@ namespace :seed do
     puts "User created with id=#{user.id}"
   end
 
+  desc "Initialize adeia elements"
+  task adeia_elements: :environment do
+    ENV['elements'] = "api/comments, api/users, api/testimonies, api/posts, admin/volunteers, admin/discounts, admin/orders/events, admin/users, admin/payments, admin/orders/checkin"
+    Rake::Task["adeia:permissions"].invoke
+  end
+
 end
