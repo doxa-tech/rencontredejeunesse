@@ -157,9 +157,9 @@ ActiveRecord::Schema.define(version: 20180618094343) do
     t.datetime "updated_at", null: false
     t.text "note"
     t.boolean "pending", default: false
+    t.integer "order_type", default: 0
     t.bigint "discount_id"
     t.integer "discount_amount", default: 0
-    t.integer "order_type"
     t.index ["discount_id"], name: "index_orders_on_discount_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

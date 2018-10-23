@@ -39,6 +39,8 @@ gem 'rails-i18n'
 
 gem 'database_cleaner'
 
+gem 'capybara-webkit', :group => :headless_driver
+
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -48,7 +50,6 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'cucumber-rails', :require => false
   gem 'factory_bot_rails'
-  gem 'capybara-webkit'
   gem 'email_spec'
 end
 
@@ -91,7 +92,6 @@ gem 'carrierwave-i18n'
 gem 'mini_magick' # brew install graphicsmagick
 gem 'carrierwave-imageoptimizer' # brew install optipng jpegoptim
 gem 'fog-google'
-gem 'google-api-client', '~> 0.8.6'
 gem 'mime-types'
 
 # Pagination
