@@ -43,7 +43,6 @@ shared_examples "an invoice PDF responder" do
     it "items" do
       expect(responder.items).to be_an Array
       responder.items.each do |item|
-        p item
         expect(item.name).to be_a String
         expect(item.number).to be_a String
         expect(item.shipping_date).to be_a String
@@ -59,7 +58,6 @@ shared_examples "an invoice PDF responder" do
     it "payments" do
       expect(responder.payments).to be_an Array
       responder.payments.each do |payment|
-        p payment
         expect(payment.time).to be_a String
         expect(payment.payment_type).to be_a String
         expect(payment.display_amount).to be_a String
