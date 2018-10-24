@@ -105,6 +105,7 @@ gem 'prawn'
 
 # Barcode generation
 gem 'barby'
+gem 'rqrcode'
 
 # Push notifications / rpush init on update
 gem 'rpush'

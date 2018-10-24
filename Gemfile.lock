@@ -96,6 +96,7 @@ GEM
     carrierwave-imageoptimizer (1.4.0)
       carrierwave (>= 0.8, < 2.0)
       image_optimizer (~> 1.6)
+    chunky_png (1.3.10)
     codeclimate-test-reporter (1.0.9)
       simplecov (<= 0.13)
     coffee-rails (4.2.2)
@@ -321,6 +322,8 @@ GEM
       net-http2 (~> 0.14)
       railties
       thor (>= 0.18.1, < 2.0)
+    rqrcode (0.10.1)
+      chunky_png (~> 1.0)
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -455,6 +458,7 @@ DEPENDENCIES
   rails-i18n
   rest-client
   rpush
+  rqrcode
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
   sentry-raven
