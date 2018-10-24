@@ -14,7 +14,7 @@
   <% @orders.each do |order| %>
 
     <div class="item">
-      Commande n°<%= truncate(order.order_id, length: 3, omission: "") %> pour la <%= order.product_name.capitalize %>
+      Commande n°<%= order.order_id %>
       <%= link_to "", connect_order_path(order.order_id), class: "overlay" %>
     </div>
 
