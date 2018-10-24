@@ -2,6 +2,7 @@ class Payment < ApplicationRecord
   KEY = Rails.application.secrets.postfinance_key
   PSPID = Rails.application.secrets.postfinance_pspid
   INVOICE_LIMIT = 80000
+  FDIV = 100 # Float division
 
   enum payment_type: [:main, :refund, :addition]
   enum method: [:postfinance, :invoice, :cash]
