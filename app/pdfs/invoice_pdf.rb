@@ -1,4 +1,4 @@
-class OrderPdf < Prawn::Document
+class InvoicePdf < Prawn::Document
 
   def initialize(order)
     super(page_size: "A4", :margin => [50,50,50,50])
@@ -114,8 +114,8 @@ class OrderPdf < Prawn::Document
 
     move_down 4
 
-    @order.products.each do |product|
-      orderRow( product )
+    @order.items.each do |item|
+      orderRow( item )
     end
 
     move_down 20
@@ -135,7 +135,7 @@ class OrderPdf < Prawn::Document
       move_up height
       bounding_box([step*5, cursor], :width => step, :height => height) do
         stroke_bounds if @debug
-        text_box @order.total_products, at: [0, cursor], size: 8, align: :right
+        text_box @order.total_items, at: [0, cursor], size: 8, align: :right
       end
       stroke_horizontal_rule
     end
@@ -196,7 +196,7 @@ class OrderPdf < Prawn::Document
     height = 10
     bounding_box([0, cursor], :width => step*2, :height => height) do
       stroke_bounds if @debug
-      text_box payment.date, at: [0, cursor], size: 8
+      text_box payment.time, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([step*2, cursor], :width => step*3, :height => height) do
@@ -210,7 +210,7 @@ class OrderPdf < Prawn::Document
     end
   end
 
-  def orderRow product
+  def orderRow item
     sum = 0
     height = 10
     horizontal_padding = [0, 180]
@@ -222,38 +222,38 @@ class OrderPdf < Prawn::Document
 
     bounding_box([horizontal_position[0], cursor], :width => horizontal_padding[1], :height => height) do
       stroke_bounds if @debug
-      text_box product.description, at: [0, cursor], size: 8
+      text_box item.name, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([horizontal_position[1], cursor], :width => horizontal_padding[2], :height => height) do
       stroke_bounds if @debug
-      text_box product.product_number, at: [0, cursor], size: 8
+      text_box item.number, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([horizontal_position[2], cursor], :width => horizontal_padding[3], :height => height) do
       stroke_bounds if @debug
-      text_box product.shipping_date, at: [0, cursor], size: 8
+      text_box item.shipping_date, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([horizontal_position[3], cursor], :width => horizontal_padding[4], :height => height) do
       stroke_bounds if @debug
-      text_box product.quantity, at: [0, cursor], size: 8, align: :right
+      text_box item.quantity, at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[4], cursor], :width => horizontal_padding[5], :height => height) do
       stroke_bounds if @debug
-      text_box product.price, at: [0, cursor], size: 8, align: :right
+      text_box item.price.to_s, at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[5], cursor], :width => horizontal_padding[6], :height => height) do
       stroke_bounds if @debug
-      # product.tva
+      # item.tva
       text_box "", at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[6], cursor], :width => horizontal_padding[7], :height => height) do
       stroke_bounds if @debug
-      text_box product.display_amount, at: [0, cursor], size: 8, align: :right
+      text_box item.display_price, at: [0, cursor], size: 8, align: :right
     end
 
     move_down 10
