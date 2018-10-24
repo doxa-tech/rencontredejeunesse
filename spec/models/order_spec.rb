@@ -6,7 +6,7 @@ RSpec.describe "Order", :type => :model do
   it_should_behave_like "an invoice PDF responder" do
     let(:responder) do
       order = create(:order_with_items)
-      order.invoie_pdf_adapter
+      order.invoice_pdf_adapter
     end
   end
 
