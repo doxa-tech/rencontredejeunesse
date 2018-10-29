@@ -44,8 +44,12 @@ Rails.application.routes.draw do
     get "edit", to: "users#edit"
     patch "update", to: "users#update"
 
-    resources :orders, only: [:index, :show] do
+    resources :orders, only: [:index, :show, :invoice, :ticket] do
       get "pending", on: :collection
+      member do
+        get 'invoice', :defaults => { :format => 'pdf' }
+        get 'ticket', :defaults => { :format => 'pdf' }
+      end
     end
     resources :volunteers, only: [:index] do
       post "confirmation", on: :collection

@@ -66,6 +66,12 @@ fr:
       paid: "Payé"
       unpaid: "En attente de paiement"
       delivered: "Livré"
+  payment:
+    method:
+      multiple: "Paiement multiples"
+      postfinance: "Postfinance"
+      invoice: "Facture"
+      cash: "Cash"
   user:
     genders:
       male: "M."

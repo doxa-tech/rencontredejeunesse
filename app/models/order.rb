@@ -48,6 +48,14 @@ class Order < ApplicationRecord
     @main_payment ||= Payment.find_by(order_id: self.id, payment_type: :main)
   end
 
+  def invoice_pdf_adapter
+    Adapters::InvoicePdf.new(self)
+  end
+
+  def ticket_pfd_adapter
+    Adapters::TicketPdf.new(self)
+  end
+
   private
 
   def validity_of_discount_code

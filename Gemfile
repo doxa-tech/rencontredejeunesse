@@ -34,8 +34,6 @@ gem 'rails-i18n'
 
 gem 'database_cleaner'
 
-gem 'capybara-webkit', :group => :headless_driver
-
 group :development, :test do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
@@ -44,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'cucumber-rails', :require => false
+  gem 'capybara-webkit'
   gem 'factory_bot_rails'
   gem 'email_spec'
 end
@@ -97,6 +96,7 @@ gem 'prawn'
 
 # Barcode generation
 gem 'barby'
+gem 'rqrcode'
 
 # Push notifications / rpush init on update
 gem 'rpush'
