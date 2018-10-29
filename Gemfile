@@ -45,7 +45,10 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'factory_bot_rails'
   gem 'email_spec'
+  gem 'simplecov', require: false
 end
+
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

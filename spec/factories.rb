@@ -4,8 +4,8 @@ FactoryBot.define do
     firstname { "John" }
     lastname { "Smith" }
     email { "#{firstname.downcase}@#{lastname.downcase}.com" }
-    address { "Route du chemin 1" }
-    npa 1630
+    address { "Route du chemin 1" }
+    npa { 1630 }
     city { "Bulle" }
     phone { "+41790000000" }
     country { "CH" }
