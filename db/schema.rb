@@ -306,7 +306,7 @@ ActiveRecord::Schema.define(version: 20181029215203) do
 
   create_table "volunteers", force: :cascade do |t|
     t.bigint "user_id"
-    t.integer "options"
+    t.integer "sector"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
