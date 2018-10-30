@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :orders, dependent: :nullify
   has_many :comments, dependent: :destroy
-  has_one :volunteer, dependent: :destroy
+  has_many :volunteer, dependent: :destroy
   belongs_to :image, optional: true
 
   has_many :posts, dependent: :destroy

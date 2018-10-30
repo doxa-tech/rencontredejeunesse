@@ -2,12 +2,12 @@ class Volunteer < ApplicationRecord
   include Sectors
 
   belongs_to :user
+  belongs_to :volunteering
+  belongs_to :order
 
-  enum sector: self.SECTORS_TO_ENUM
-  enum tshirt_size: [:s, :m, :l, :xl]
+  enum option: self.SECTORS_TO_ENUM
 
   validates :comment, length: { maximum: 50 }
   validates :sector, inclusion: { in: sectors.keys }, allow_nil: true
-  validates :tshirt_size, presence: true, inclusion: { in: tshirt_sizes.keys }
 
 end
