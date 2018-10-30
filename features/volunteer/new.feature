@@ -1,3 +1,4 @@
+@wip
 Feature: I sign up as a volunteer
 
   So that I can be a volunteer for an event
