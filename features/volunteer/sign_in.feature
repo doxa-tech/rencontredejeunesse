@@ -9,11 +9,11 @@ Feature: I sign in on the volunteer page
 
   Scenario: I successfully sign in
     Given I am a confirmed user
-    When I visit "/volunteers"
+    When I visit "/volunteering"
     And I complete the sign in form
     Then I should see a flash with "Connexion réussie"
     And I should see the volunteer form
 
   Scenario: I am not signed in
-    When I visit "/volunteers"
+    When I visit "/volunteering"
     Then I should not see the volunteer form

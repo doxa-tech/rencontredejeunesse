@@ -2,7 +2,7 @@ class Connect::VolunteersController < Connect::BaseController
   before_action(only: :confirmation) { end_of_order "03.05.2018" }
 
   def index
-    @volunteer = current_user.volunteer
+    @volunteers = current_user.volunteers
   end
 
   def confirmation
@@ -16,6 +16,8 @@ class Connect::VolunteersController < Connect::BaseController
 
   private
 
+
+  # TODO
   def price
     price = discount ? 0 : Records::Rj::VOLUNTEER_TOTAL
     price += 30 if has_lodging?

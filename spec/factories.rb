@@ -23,6 +23,13 @@ FactoryBot.define do
 
   end
 
+  factory :volunteering do
+    name { "Bénévole à la RJ19"}
+    description { "Deviens bénévole durant le weekend de la RJ !"}
+    key { "rj2019" }
+    item  { create(:item, name: "Bénévole RJ19") }
+  end
+
   factory :item do
     name { "Rencontre de jeunesse 2018 - WE" }
     description { "RJ 2018" }

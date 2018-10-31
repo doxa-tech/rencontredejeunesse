@@ -3,5 +3,5 @@ Given("I am a volunteer") do
 end
 
 Given("a volunteering is available") do
-  pending # Write code here that turns the phrase above into concrete actions
+  @volunteering = create(:volunteering, key: "rj2019")
 end

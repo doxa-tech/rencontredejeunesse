@@ -66,6 +66,8 @@ Capybara.javascript_driver = :webkit
 
 Capybara.server_port = 3000
 
+Capybara.server = :puma, { Silent: true } 
+
 Capybara::Webkit.configure do |config|
 
   config.block_unknown_urls

@@ -6,5 +6,5 @@ When("I successfully complete the volunteer form") do
 end
 
 Then("I should see the volunteering confirmation page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  pending
 end

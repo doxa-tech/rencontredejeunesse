@@ -1,30 +1,31 @@
 class VolunteersController < ApplicationController
   include SectorsHelper
 
-  before_action :check_if_signed_in, only: :create
-  before_action :check_if_volunteer, only: :create
-  before_action(only: :create) { end_of_order "03.05.2018" }
+  # TODO
+  # before_action :check_if_signed_in, only: :create
+  # before_action :check_if_volunteer, only: :create
 
-  def index
+  def new
     @volunteer = Volunteer.new
   end
 
   def create
-    @volunteer = Volunteer.new(volunteer_params)
+    @volunteering = Volunteering.find(params[:volunteering_id])
+    @volunteer = @volunteering.volunteers.new(volunteer_params)
     @volunteer.user = current_user
-    @volunteer.year = 2018 # TODO: use constant
+    @volunteer.build_order(current_user, @volunteering.item)
     if @volunteer.save
       VolunteerMailer.confirmation(@volunteer).deliver_now
       redirect_to connect_volunteers_path, success: "Bienvenue chez nous !"
     else
-      render "index"
+      render "new"
     end
   end
 
   private
 
   def volunteer_params
-    params.require(:volunteer).permit(:sector, :comment, :tshirt_size)
+    params.require(:volunteer).permit(:sector, :comment)
   end
 
   def check_if_volunteer

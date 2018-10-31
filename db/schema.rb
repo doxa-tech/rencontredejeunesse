@@ -297,6 +297,7 @@ ActiveRecord::Schema.define(version: 20181029215203) do
 
   create_table "volunteerings", force: :cascade do |t|
     t.string "name"
+    t.string "key"
     t.text "description"
     t.bigint "item_id"
     t.datetime "created_at", null: false

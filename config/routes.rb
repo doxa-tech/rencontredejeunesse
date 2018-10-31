@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   post "contact", to: "pages#contact"
 
-  resources :volunteers, only: [:index, :create]
+  resources :volunteering, only: [:index] do
+    resources :volunteers, only: [:new, :create]
+  end
 
   #
   # Users

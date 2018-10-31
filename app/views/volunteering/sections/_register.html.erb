@@ -22,40 +22,23 @@
       Bénévole : qui rend un service sans demander de rémunération en retour, sans en tirer de profit.
     </p>
 
-    <% if Date.current > Date.parse("03.05.2018") && !Rails.env.test? %>
+    <% if @volunteering %>
+
+    <h3 id="letsgo" class="ready">Alors prêt à t’inscrire maintenant ?</h3>
+
+    <div>
+      <%= @volunteering.name %>
+      <%= @volunteering.description %>
+      <%= link_to "S'engager", new_volunteering_volunteer_path(@volunteering) %>
+    </div>
+
+    <% else %>
 
     <h3 id="letsgo" class="ready">A l'année prochaine</h3>
 
     <p>
       Les inscriptions bénévoles sont terminées pour cette année. Reviens pour la RJ 2019 !
     </p>
-
-    <% else %>
-
-    <h3 id="letsgo" class="ready">Alors prêt à t’inscrire maintenant ?</h3>
-
-    <% if !signed_in? %>
-
-    <div class="form">
-      <div class="content-wrap">
-        <%= render "sessions/form", redirect_url: volunteers_path(anchor: "letsgo") %>
-      </div>
-    </div>
-
-    <% elsif current_user.volunteer && !current_user.volunteer.new_record? %>
-
-    <p>Bravo ! Tu es déjà inscrit comme bénévole. Toutes les informations sont sur ton compte <%= link_to "RJ Connect", connect_root_path %>.</p>
-    <p><%= link_to "Espace bénévole", connect_volunteers_path %></p>
-
-    <% else %>
-
-    <div class="form">
-      <div class="content-wrap">
-        <%= render "volunteers/sections/form" %>
-      </div>
-    </div>
-
-    <% end %>
 
     <% end %>
 

@@ -1,4 +1,4 @@
-<%= form_for @volunteer do |f| %>
+<%= form_for @volunteer, url: volunteering_volunteers_path(params[:volunteering_id]) do |f| %>
 
   <%= render 'error_messages', object: f.object %>
 
@@ -24,11 +24,6 @@
     </div>
 
     <div class="row">
-      <%= f.label :tshirt_size %>
-      <%= f.select :tshirt_size, options_for_enum(f.object, :tshirt_size) %>
-    </div>
-
-    <div class="row">
       <span></span>
       <%= f.submit %>
     </div>
@@ -37,7 +32,7 @@
       <span></span>
       <p class="description">
         * La préférence choisie ne peut pas être garantie. Chaque bénévole sera réparti selon les besoins.<br>
-        * Si tu es déjà impliqué comme bénévole, merci d'inquiquer ton responsable de secteur dans les remarques.
+        * Si tu es déjà impliqué comme bénévole, merci d'indiquer ton responsable de secteur dans les remarques.
       </p>
     </div>
 
