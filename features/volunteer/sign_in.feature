@@ -1,6 +1,3 @@
-# TODO
-
-@ignore
 Feature: I sign in on the volunteer page
 
   So that I can fill in the form to become a volunteer
@@ -9,11 +6,9 @@ Feature: I sign in on the volunteer page
 
   Scenario: I successfully sign in
     Given I am a confirmed user
+    And a volunteering is available
     When I visit "/volunteering"
-    And I complete the sign in form
-    Then I should see a flash with "Connexion réussie"
+    And I click the link "S'engager"
+    Then I should see the sign in form
+    When I complete the sign in form
     And I should see the volunteer form
-
-  Scenario: I am not signed in
-    When I visit "/volunteering"
-    Then I should not see the volunteer form

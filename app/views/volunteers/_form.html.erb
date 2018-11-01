@@ -1,0 +1,41 @@
+<%= form_for @volunteer, url: volunteering_volunteers_path(params[:volunteering_id]) do |f| %>
+
+  <%= render 'error_messages', object: f.object %>
+
+  <div class="standard-form-row">
+    <div class="row">
+      <%= label_tag :volunteer_area, "Domaine" %>
+      <%= select_tag :volunteer_area, options_for_categories, prompt: "Pas de préférences" %>
+    </div>
+
+    <div class="row">
+      <%= f.label :sector %>
+      <%= f.select :sector, [] %>
+    </div>
+
+    <div class="row">
+      <span></span>
+      <p class="description">Maximum 50 caractères</p>
+    </div>
+
+    <div class="row">
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+
+    <div class="row">
+      <span></span>
+      <%= f.submit %>
+    </div>
+
+    <div class="row">
+      <span></span>
+      <p class="description">
+        * La préférence choisie ne peut pas être garantie. Chaque bénévole sera réparti selon les besoins.<br>
+        * Si tu es déjà impliqué comme bénévole, merci d'indiquer ton responsable de secteur dans les remarques.
+      </p>
+    </div>
+
+  </div>
+
+<% end %>

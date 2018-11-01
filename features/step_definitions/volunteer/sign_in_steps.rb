@@ -8,6 +8,6 @@ Then("I should see the volunteer form") do
   expect(page).to have_css("form#new_volunteer")
 end
 
-Then("I should not see the volunteer form") do
-  expect(page).not_to have_css("form#new_volunteer")
+Then("I should see the sign in form") do
+  expect(page).to have_button "Se connecter"
 end

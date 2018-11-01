@@ -5,7 +5,6 @@ Feature: I sign up as a volunteer
   I want to sign up
 
   Background:
-    Given no emails have been sent
     Given I am a confirmed user
     And I am signed in
     Given a volunteering is available
@@ -17,6 +16,13 @@ Feature: I sign up as a volunteer
     And I successfully complete the volunteer form
     Then I should see the volunteering confirmation page
 
-  # TODO: test that an email is sent (RSpec, because @javascript is not compatible with email spec)
+  Scenario: I already sign up and complete my volunteer order
+    Given I already signed up as a volunteer
+    When I visit "/volunteering"
+    And I click the link "S'engager"
+    Then I should see the volunteering management page
+    And I should see a flash with "Tu es déjà inscrit comme bénévole."
+
+  Scenario: I already signed up but I haven't completed my order
 
   # TODO: I use a discount in the volunteer form

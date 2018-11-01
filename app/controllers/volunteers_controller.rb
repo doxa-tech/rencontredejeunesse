@@ -1,16 +1,14 @@
 class VolunteersController < ApplicationController
   include SectorsHelper
 
-  # TODO
-  # before_action :check_if_signed_in, only: :create
-  # before_action :check_if_volunteer, only: :create
+  before_action :check_if_signed_in, only: :create
+  before_action :check_if_volunteer, only: [:new, :create]
 
   def new
     @volunteer = Volunteer.new
   end
 
   def create
-    @volunteering = Volunteering.find(params[:volunteering_id])
     @volunteer = @volunteering.volunteers.new(volunteer_params)
     @volunteer.user = current_user
     @volunteer.build_order(current_user, @volunteering.item)
@@ -29,6 +27,9 @@ class VolunteersController < ApplicationController
   end
 
   def check_if_volunteer
-    redirect_to connect_volunteers_path if current_user.volunteer
+    @volunteering = Volunteering.find(params[:volunteering_id])
+    if current_user && volunteer = Volunteer.find_by(volunteering: @volunteering, user: current_user)
+      redirect_to connect_volunteer_path(volunteer), error: "Tu es déjà inscrit comme bénévole."
+    end
   end
 end

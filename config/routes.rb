@@ -53,9 +53,7 @@ Rails.application.routes.draw do
         get 'ticket', :defaults => { :format => 'pdf' }
       end
     end
-    resources :volunteers, only: [:index] do
-      post "confirmation", on: :collection
-    end
+    resources :volunteers, only: [:index, :show]
 
   end
 

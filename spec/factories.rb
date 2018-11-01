@@ -15,12 +15,6 @@ FactoryBot.define do
     password_confirmation { "carottes" }
     confirmed { true }
 
-    factory :volunteer do
-      after(:create) do |user|
-        user.create_volunteer!(year: 2018, tshirt_size: :m)
-      end
-    end
-
   end
 
   factory :volunteering do
@@ -28,6 +22,14 @@ FactoryBot.define do
     description { "Deviens bénévole durant le weekend de la RJ !"}
     key { "rj2019" }
     item  { create(:item, name: "Bénévole RJ19") }
+  end
+
+  factory :volunteer do
+    sector { "fun_park" }
+    comment { "I am ready !" }
+    volunteering
+    user
+    order { create(:event_order, user: self.user) }
   end
 
   factory :item do
