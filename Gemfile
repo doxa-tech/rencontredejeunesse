@@ -42,7 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'rails-controller-testing'
   gem 'cucumber-rails', :require => false
-  gem 'capybara-webkit'
+  gem 'selenium-webdriver'
   gem 'factory_bot_rails'
   gem 'email_spec'
   gem 'simplecov', require: false

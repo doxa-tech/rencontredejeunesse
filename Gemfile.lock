@@ -86,9 +86,6 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.2)
       xpath (~> 3.2)
-    capybara-webkit (1.15.1)
-      capybara (>= 2.3, < 4.0)
-      json
     carrierwave (1.2.3)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -97,6 +94,8 @@ GEM
     carrierwave-imageoptimizer (1.4.0)
       carrierwave (>= 0.8, < 2.0)
       image_optimizer (~> 1.6)
+    childprocess (0.9.0)
+      ffi (~> 1.0, >= 1.0.11)
     chunky_png (1.3.10)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
@@ -342,6 +341,7 @@ GEM
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
     ruby_dep (1.5.0)
+    rubyzip (1.2.2)
     sass (3.6.0)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
@@ -353,6 +353,9 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (3.141.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.2, >= 1.2.2)
     sentry-raven (2.7.4)
       faraday (>= 0.7.6, < 1.0)
     signet (0.11.0)
@@ -431,7 +434,6 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano-server!
-  capybara-webkit
   carrierwave (~> 1.0)
   carrierwave-i18n
   carrierwave-imageoptimizer
@@ -460,6 +462,7 @@ DEPENDENCIES
   rqrcode
   rspec-rails (~> 3.5)
   sass-rails (~> 5.0)
+  selenium-webdriver
   sentry-raven
   simplecov
   snaptable
