@@ -10,7 +10,7 @@ Feature: I sign up as a volunteer
     And I am signed in
     Given a volunteering is available
 
-  @javascript @wip
+  @javascript
   Scenario: I successfully sign up as a volunteer
     When I visit "/volunteering"
     And I click the link "S'engager"
@@ -20,10 +20,3 @@ Feature: I sign up as a volunteer
   # TODO: test that an email is sent (RSpec, because @javascript is not compatible with email spec)
 
   # TODO: I use a discount in the volunteer form
-
-  # TODO
-  @ignore
-  Scenario: I am not signed up as a volunteer
-    When I visit "/connect/volunteering"
-    And I should not see "Tu es inscrit comme bénévole."
-    Then I should see the link to volunteer form

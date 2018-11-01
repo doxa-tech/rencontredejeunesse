@@ -16,7 +16,7 @@ class VolunteersController < ApplicationController
     @volunteer.build_order(current_user, @volunteering.item)
     if @volunteer.save
       VolunteerMailer.confirmation(@volunteer).deliver_now
-      redirect_to connect_volunteers_path, success: "Bienvenue chez nous !"
+      redirect_to confirmation_orders_event_path(@volunteer.order.order_id)
     else
       render "new"
     end

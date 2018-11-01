@@ -6,5 +6,6 @@ When("I successfully complete the volunteer form") do
 end
 
 Then("I should see the volunteering confirmation page") do
-  pending
+  expect(page).to have_content "Récapitulatif"
+  expect(page).to have_content "#{@volunteering.item.price / 100 + 5} CHF"
 end
