@@ -1,7 +1,23 @@
 require 'rails_helper'
+require 'interfaces/pdf_invoice'
+require 'interfaces/pdf_ticket'
 
 module Orders
   RSpec.describe "Event", :type => :model do
+
+    it_should_behave_like "an invoice PDF responder" do
+      let(:responder) do
+        order = create(:event_order, number: 2)
+        order.invoice_pdf_adapter
+      end
+    end
+
+    it_should_behave_like "a ticket PDF responder" do
+      let(:responder) do
+        order = create(:event_order, number: 2)
+        order.ticket_pdf_adapter
+      end
+    end
 
     describe "#calculate_amount" do
 
