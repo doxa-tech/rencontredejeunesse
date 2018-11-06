@@ -52,10 +52,6 @@ class Order < ApplicationRecord
     Adapters::InvoicePdf.new(self)
   end
 
-  def ticket_pfd_adapter
-    Adapters::TicketPdf.new(self)
-  end
-
   private
 
   def validity_of_discount_code
