@@ -4,7 +4,6 @@ $(document).on("turbolinks:load", function() {
 
   // On first select change
   $("select#volunteer_area").on('change', function(){
-
       var selectedId = $(this).val();
 
       var subItems = sectors[selectedId];
@@ -18,7 +17,7 @@ $(document).on("turbolinks:load", function() {
           option.attr('value', subId);
           option.html(subItems[subId]);
 
-          $("select#volunteer_sector").append(option);
+          $("select#option_order_sector").append(option);
 
       }
 

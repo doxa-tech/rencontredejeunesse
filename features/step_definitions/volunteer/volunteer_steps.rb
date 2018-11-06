@@ -1,7 +1,7 @@
 Given("I am a volunteer") do
-  @user = create(:volunteer)
+  @user = create(:option_order)
 end
 
 Given("a volunteering is available") do
-  @volunteering = create(:volunteering, key: "rj2019")
+  @order_bundle = create(:order_bundle, key: "volunteers-rj-19")
 end

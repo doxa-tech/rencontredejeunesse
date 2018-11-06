@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181029215203) do
+ActiveRecord::Schema.define(version: 20181104161538) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,8 @@ ActiveRecord::Schema.define(version: 20181029215203) do
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_bundle_id"
+    t.index ["order_bundle_id"], name: "index_items_on_order_bundle_id"
   end
 
   create_table "markers", id: :serial, force: :cascade do |t|
@@ -136,6 +138,27 @@ ActiveRecord::Schema.define(version: 20181029215203) do
     t.decimal "lng"
     t.string "title"
     t.string "content"
+  end
+
+  create_table "option_orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "sector"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "order_id"
+    t.bigint "order_bundle_id"
+    t.index ["order_bundle_id"], name: "index_option_orders_on_order_bundle_id"
+    t.index ["order_id"], name: "index_option_orders_on_order_id"
+    t.index ["user_id"], name: "index_option_orders_on_user_id"
+  end
+
+  create_table "order_bundles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -295,29 +318,6 @@ ActiveRecord::Schema.define(version: 20181029215203) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
-  create_table "volunteerings", force: :cascade do |t|
-    t.string "name"
-    t.string "key"
-    t.text "description"
-    t.bigint "item_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["item_id"], name: "index_volunteerings_on_item_id"
-  end
-
-  create_table "volunteers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "sector"
-    t.text "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "order_id"
-    t.bigint "volunteering_id"
-    t.index ["order_id"], name: "index_volunteers_on_order_id"
-    t.index ["user_id"], name: "index_volunteers_on_user_id"
-    t.index ["volunteering_id"], name: "index_volunteers_on_volunteering_id"
-  end
-
   add_foreign_key "adeia_action_permissions", "adeia_actions"
   add_foreign_key "adeia_action_permissions", "adeia_permissions"
   add_foreign_key "adeia_group_users", "adeia_groups"
@@ -326,6 +326,10 @@ ActiveRecord::Schema.define(version: 20181029215203) do
   add_foreign_key "adeia_tokens", "adeia_permissions"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "items", "order_bundles"
+  add_foreign_key "option_orders", "order_bundles"
+  add_foreign_key "option_orders", "orders"
+  add_foreign_key "option_orders", "users"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "discounts"
@@ -337,8 +341,4 @@ ActiveRecord::Schema.define(version: 20181029215203) do
   add_foreign_key "registrants", "orders"
   add_foreign_key "testimonies", "users"
   add_foreign_key "users", "images"
-  add_foreign_key "volunteerings", "items"
-  add_foreign_key "volunteers", "orders"
-  add_foreign_key "volunteers", "users"
-  add_foreign_key "volunteers", "volunteerings"
 end

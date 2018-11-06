@@ -7,7 +7,7 @@ Feature: I sign in on the volunteer page
   Scenario: I successfully sign in
     Given I am a confirmed user
     And a volunteering is available
-    When I visit "/volunteering"
+    When I visit "/volunteers"
     And I click the link "S'engager"
     Then I should see the sign in form
     When I complete the sign in form

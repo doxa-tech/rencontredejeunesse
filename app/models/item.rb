@@ -7,6 +7,7 @@ class Item < ApplicationRecord
     has_many :registrations, through: :registrants, source: :order, dependent: :restrict_with_exception
 
     has_and_belongs_to_many :discounts
+    belongs_to :order_bundle, optional: true
 
     validates :name, presence: true, length: { maximum: 50 }
     validates :description, presence: true, length: { maximum: 250 }

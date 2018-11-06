@@ -1,9 +1,0 @@
-<% if signed_in? %>
-
-  <%= render 'form' %>
-
-<% else %>
-
-  <%= render "sessions/form", redirect_url:  new_volunteering_volunteer_path(params[:volunteering_id]) %>
-
-<% end %>
