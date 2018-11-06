@@ -3,13 +3,13 @@
 <%= content_for :header do %>
   <%= render "connect/page_header",
     link: connect_root_path,
-    title: "Bénévolat" %>
+    title: "Mes engagements" %>
 <% end %>
 
 <p>Mes engagements</p>
 
-<% @volunteers.each do |volunteer| %>
+<% @orders.each do |order| %>
 
-  <%= volunteer.volunteering.name %>
+  <%= order.order_bundle.name %>
 
 <% end %>

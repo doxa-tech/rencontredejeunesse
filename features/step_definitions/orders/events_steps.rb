@@ -29,7 +29,7 @@ end
 
 When(/^I miscomplete the event update form$/) do
   fill_in "Prénom", with: ""
-  click_button "Mettre à jour"
+  click_button "Enregistrer"
 end
 
 When(/^I successfully update my information$/) do
@@ -37,7 +37,7 @@ When(/^I successfully update my information$/) do
   fill_in "Prénom", with: "Albert"
   fill_in "Nom de famille", with: "Dupont"
   check "J'ai lu les conditions générales et les accepte."
-  click_button "Mettre à jour"
+  click_button "Enregistrer"
 end
 
 Then(/^I should see errors for the event form$/) do

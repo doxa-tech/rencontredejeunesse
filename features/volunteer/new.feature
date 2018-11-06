@@ -11,18 +11,26 @@ Feature: I sign up as a volunteer
 
   @javascript
   Scenario: I successfully sign up as a volunteer
-    When I visit "/volunteering"
+    When I visit "/volunteers"
     And I click the link "S'engager"
-    And I successfully complete the volunteer form
-    Then I should see the volunteering confirmation page
+    And I successfully submit my volunteering preferences
+    Then I should see the form to order my volunteer pass
+    When I successfully complete the form to order my volunteer pass
+    Then I should see the confirmation page for my volunteer order
 
   Scenario: I already sign up and complete my volunteer order
-    Given I already signed up as a volunteer
-    When I visit "/volunteering"
+    Given I already signed up as a volunteer and I completed my order
+    When I visit "/volunteers"
     And I click the link "S'engager"
     Then I should see the volunteering management page
-    And I should see a flash with "Tu es déjà inscrit comme bénévole."
+    And I should see a flash with "Tu es déjà inscrit !"
 
   Scenario: I already signed up but I haven't completed my order
+    Given I already signed up as a volunteer
+    When I visit "/volunteers"
+    And I click the link "S'engager"
+    Then I should see the form to order my volunteer pass
+    And I should see a flash with "Tu peux continuer ta commande."
+
 
   # TODO: I use a discount in the volunteer form

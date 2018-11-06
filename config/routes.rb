@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  %w(login privacy application vision).each do |page|
+  %w(login privacy application vision volunteers).each do |page|
     get page, to: "pages##{page}"
   end
 
@@ -17,8 +17,8 @@ Rails.application.routes.draw do
 
   post "contact", to: "pages#contact"
 
-  resources :volunteering, only: [:index] do
-    resources :volunteers, only: [:new, :create]
+  scope "order_bundles/:order_bundle_id" do
+    resources :option_orders, only: [:new, :create]
   end
 
   #
@@ -53,7 +53,7 @@ Rails.application.routes.draw do
         get 'ticket', :defaults => { :format => 'pdf' }
       end
     end
-    resources :volunteers, only: [:index, :show]
+    resources :option_orders, only: [:index, :show]
 
   end
 

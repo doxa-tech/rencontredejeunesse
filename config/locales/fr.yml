@@ -7,8 +7,8 @@ fr:
     submit:
       orders_event:
         create: "S'inscrire"
-        update: "Mettre à jour"
-      volunteer:
+        update: "Enregistrer"
+      option_order:
         create: "S'inscrire"
       create: "Créer"
       submit: "Envoyer"
@@ -49,7 +49,7 @@ fr:
         user: "Personne"
         order_id: "N° de commande"
         discount_code: "Code promotionel"
-      volunteer:
+      option_order:
         comment: "Remarque"
         user: "Personne"
       registrant:

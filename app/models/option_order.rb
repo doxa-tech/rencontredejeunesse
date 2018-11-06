@@ -1,8 +1,8 @@
-class Volunteer < ApplicationRecord
+class OptionOrder < ApplicationRecord
   include Sectors
 
   belongs_to :user
-  belongs_to :volunteering
+  belongs_to :order_bundle
   belongs_to :order, autosave: true
 
   enum sector: self.SECTORS_TO_ENUM

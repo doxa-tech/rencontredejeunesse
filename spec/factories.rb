@@ -17,17 +17,19 @@ FactoryBot.define do
 
   end
 
-  factory :volunteering do
+  factory :order_bundle do
     name { "Bénévole à la RJ19"}
     description { "Deviens bénévole durant le weekend de la RJ !"}
-    key { "rj2019" }
-    item  { create(:item, name: "Bénévole RJ19") }
+    key { "volunteers-rj-19" }
+    after(:create) do |bundle|
+      create(:item, order_bundle: bundle)
+    end
   end
 
-  factory :volunteer do
+  factory :option_order do
     sector { "fun_park" }
     comment { "I am ready !" }
-    volunteering
+    order_bundle
     user
     order { create(:event_order, user: self.user) }
   end
