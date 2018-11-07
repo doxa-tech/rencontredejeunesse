@@ -12,6 +12,14 @@ module Orders
       tickets
     end
 
+    def invoice_pdf_adapter
+      Adapters::InvoiceEventPdf.new(self)
+    end
+
+    def ticket_pdf_adapter
+      Adapters::TicketPdf.new(self)
+    end
+
   end
 
 end

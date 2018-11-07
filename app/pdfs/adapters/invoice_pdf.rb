@@ -1,34 +1,36 @@
 module Adapters
   class InvoicePdf
-    attr_reader :items, :payments
 
     class Item
-      attr_reader :name, :number, :shipping_date, :quantity, :price, :tva, :display_price, :price
+      attr_reader :name, :number, :shipping_date, :quantity, :price, :tva, 
+                  :tot_price, :price, :sub_info, :order_item
 
       def initialize order_item
-        item = order_item.item
-        item.attributes.each do |k,v|
-          instance_variable_set("@#{k}", v) unless v.nil?
-        end
-        @display_price = '%.2f' % (item["price"] / ::Payment::FDIV)
+        @order_item = order_item
+        item = @order_item.item
+        # item.attributes.each do |k,v|
+        #   instance_variable_set("@#{k}", v) unless v.nil?
+        # end
         @shipping_date = "-"
-        @quantity = order_item.quantity.to_s
-        @number = @number.to_s
-        @price = (@price / ::Payment::FDIV).to_f
+        @quantity = order_item.quantity
+        @number = @order_item.item.number.to_s
+        @price = "%.2f" % (@order_item.item.price / ::Payment::FDIV)
         @tva = "-"
+        @name = @order_item.item.name
+        @quantity = @order_item.quantity.to_s
+        @sub_info = "Pass à imprimer sois-même"
+        @tot_price = '%.2f' % (@order_item.item.price*@order_item.quantity / ::Payment::FDIV)
       end
     end
 
     class Payment
       attr_reader :time, :payment_type, :display_amount, :amount
 
-      def initialize args
-        args.each do |k,v|
-          instance_variable_set("@#{k}", v) unless v.nil?
-        end
-        @display_amount = '%.2f' % (args["amount"] / 100)
-        @time = "TODO-TIME"
+      def initialize payment
+        @display_amount = '%.2f' % (payment["amount"] / 100)
+        @time = payment.time.nil? ? "-" : payment.time.strftime("%d.%m.%Y")
         @amount = @amount.to_f
+        @payment_type = "#{payment.method} (#{I18n.t('payment.type.'+ payment.payment_type).downcase})"
       end
     end
 
@@ -44,7 +46,7 @@ module Adapters
 
     def payments
       @order.payments.to_a.map do |payment|
-        Payment.new(payment.attributes)
+        Payment.new(payment)
       end
     end
 
@@ -56,7 +58,7 @@ module Adapters
     end
 
     def title
-      "Ticket pass"
+      "Facture"
     end
 
     def order_date
@@ -64,7 +66,7 @@ module Adapters
     end
 
     def client_id
-      @order.order_id.to_s
+      "-"
     end
 
     def reference_person
@@ -72,7 +74,7 @@ module Adapters
     end
 
     def shipping_type
-      "PDF"
+      "print@home"
     end
 
     def payment_type
@@ -88,7 +90,7 @@ module Adapters
     end
 
     def shipping_adress
-      @order.user.email
+      "-"
     end
 
     def order_id
@@ -99,59 +101,18 @@ module Adapters
       order_id.insert(2, " ").insert(8, " ").insert(-3, " ")
     end
 
-    def build_items_list
-      items_list = []
-      items_list << Product.new(
-        description: "Forfait Login",
-        product_number: "5502",
-        shipping_date: order_date,
-        quantity: @order.product.entries.to_s,
-        price: '%.2f' % Records::Login::ENTRY_PRICE,
-        tva: "-",
-        amount: Records::Login::ENTRY_PRICE.to_f * @order.product.entries.to_f)
-
-      items_list << Product.new(
-        description: "Frais d'inscription",
-        product_number: "",
-        shipping_date: "",
-        quantity: "1",
-        price: '%.2f' % Records::Login::FEE,
-        tva: "-",
-        amount: Records::Login::FEE.to_f)
-
-      items_list
-    end
-
-
-    def build_payments_list
-      payments_list = []
-      payments_list << Payment.new(
-        date: order_date,
-        payment_type: payment_type,
-        amount: ((@order.amount / 100)*-1).to_f
-      )
-
-      payments_list << Payment.new(
-        date: "",
-        payment_type: "Réduction",
-        amount: ((@order.discount_amount / 100)*-1).to_f
-      )
-
-      payments_list
-    end
-
     def total_items
       '%.2f' % _total_items
     end
 
     def total
-      '%.2f' % (_total_items + _total_payments)
+      '%.2f' % (_total_items - _total_payments)
     end
 
     private
 
     def _total_items
-      @order.items.inject(0) { |sum, item| sum = sum + item.price} / ::Payment::FDIV
+      items.inject(0) { |sum, item| sum = sum + item.order_item.item.price*item.order_item.quantity} / ::Payment::FDIV
     end
 
     def _total_payments

@@ -48,8 +48,9 @@ shared_examples "an invoice PDF responder" do
         expect(item.shipping_date).to be_a String
         expect(item.quantity).to be_a String
         expect(item.tva).to be_a String
-        expect(item.display_price).to be_a String
-        expect(item.price).to be_a Float
+        expect(item.tot_price).to be_a String
+        expect(item.price).to be_a String
+        expect(item.sub_info).to be_a String
       end
     end
   end

@@ -72,6 +72,10 @@ fr:
       postfinance: "Postfinance"
       invoice: "Facture"
       cash: "Cash"
+    type:
+      main: "Principal"
+      refund: "Ristourne"
+      addition: "ajout"
   user:
     genders:
       male: "M."

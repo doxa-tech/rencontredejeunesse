@@ -18,7 +18,7 @@ class InvoicePdf < Prawn::Document
       text_box "www.rencontredejeunesse.ch\ninfo@rencontredejeunesse.ch", size: 8, align: :right
     end
 
-    bounding_box([0, cursor], :width => bounds.width, :height => 200) do
+    bounding_box([0, cursor], :width => bounds.width, :height => 120) do
       stroke_bounds if @debug
       text @order.title, size: 12#, style: :bold
       move_down 15
@@ -53,19 +53,6 @@ class InvoicePdf < Prawn::Document
         stroke_bounds if @debug
         text_box @order.recipient_adress, size: 10, leading: 1, character_spacing: 0.4
       end
-
-      delta = 3
-      min_x = 0
-      min_y = 30
-      max_x = 240
-      max_y = 95
-      drawCorner(min_x, min_y, delta, delta)
-      drawCorner(min_x, max_y, delta, -delta)
-      drawCorner(max_x, min_y, -delta, delta)
-      drawCorner(max_x, max_y, -delta, -delta)
-
-      outputter.annotate_pdf(self, x: 240/2 - outputter.width/2, y: 50, height: 30)
-      text_box "#{@order.display_order_id}", size: 9, at: [240/2 - outputter.width/2, 45], character_spacing: 1.5
     end
 
     move_down 10
@@ -173,7 +160,7 @@ class InvoicePdf < Prawn::Document
 
     move_down 50
 
-    text "Ce document sert de justificatif d'achat. Veillez à l'avoir sur vous dans le cas où vous deviez retirer un ou plusieurs produits. Les conditions générales s'appliquent. ", size: 8
+    text "Ce document sert de justificatif d'achat. Les conditions générales s'appliquent. ", size: 8
 
     bounding_box([0, 0], :width => 100, :height => 10) do
       stroke_bounds if @debug
@@ -212,7 +199,7 @@ class InvoicePdf < Prawn::Document
 
   def orderRow item
     sum = 0
-    height = 10
+    height = 20
     horizontal_padding = [0, 180]
     6.times {horizontal_padding << (bounds.width-180)/6}
     horizontal_position = horizontal_padding.map{|x| sum += x}
@@ -222,7 +209,7 @@ class InvoicePdf < Prawn::Document
 
     bounding_box([horizontal_position[0], cursor], :width => horizontal_padding[1], :height => height) do
       stroke_bounds if @debug
-      text_box item.name, at: [0, cursor], size: 8
+      text_box item.name + "\n" + item.sub_info, at: [0, cursor], size: 8
     end
     move_up height
     bounding_box([horizontal_position[1], cursor], :width => horizontal_padding[2], :height => height) do
@@ -242,7 +229,7 @@ class InvoicePdf < Prawn::Document
     move_up height
     bounding_box([horizontal_position[4], cursor], :width => horizontal_padding[5], :height => height) do
       stroke_bounds if @debug
-      text_box item.price.to_s, at: [0, cursor], size: 8, align: :right
+      text_box item.price, at: [0, cursor], size: 8, align: :right
     end
     move_up height
     bounding_box([horizontal_position[5], cursor], :width => horizontal_padding[6], :height => height) do
@@ -253,10 +240,10 @@ class InvoicePdf < Prawn::Document
     move_up height
     bounding_box([horizontal_position[6], cursor], :width => horizontal_padding[7], :height => height) do
       stroke_bounds if @debug
-      text_box item.display_price, at: [0, cursor], size: 8, align: :right
+      text_box item.tot_price, at: [0, cursor], size: 8, align: :right
     end
 
-    move_down 10
+    move_down 2
   end
 
 end
