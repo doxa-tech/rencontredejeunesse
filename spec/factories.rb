@@ -21,9 +21,17 @@ FactoryBot.define do
     name { "Bénévole à la RJ19"}
     description { "Deviens bénévole durant le weekend de la RJ !"}
     key { "volunteers-rj-19" }
+    order_type
+    trait :event do
+      association :order_type, name: "event"
+    end
     after(:create) do |bundle|
       create(:item, order_bundle: bundle)
     end
+  end
+
+  factory :order_type do 
+    name { "event" }
   end
 
   factory :option_order do
@@ -41,6 +49,11 @@ FactoryBot.define do
     active { true }
     number { Random.new.rand(1000..9999) }
     key { "rj" }
+
+    factory :item_with_bundle do
+      association :order_bundle, :event
+    end
+
   end
 
   factory :discount do
@@ -53,8 +66,11 @@ FactoryBot.define do
     firstname { "Patrick" }
     lastname { "Johnson" }
     birthday { Date.new(1996, 02, 15) }
-    item
     association :order, factory: :event_order
+    item {
+      bundle = OrderBundle.find_by(key: "rj-2019") || create(:order_bundle, :event, key: "rj-2019")
+      bundle.items.first
+    }
   end
 
   factory :order_item do

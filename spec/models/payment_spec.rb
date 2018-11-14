@@ -12,7 +12,7 @@ RSpec.describe "Payment", :type => :model do
 
     it "assigns invoice as payment method when the amount is above the limit" do
       order = create(:event_order)
-      item = create(:item, price: 10000)
+      item = create(:item_with_bundle, price: 10000)
       order.registrants = create_list(:registrant, 10, order: order, item: item)
       order.save!
       expect(order.main_payment.method).to eq "invoice"

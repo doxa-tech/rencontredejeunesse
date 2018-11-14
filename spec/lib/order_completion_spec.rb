@@ -30,7 +30,7 @@ RSpec.describe OrderCompletion do
 
     it "sets the payment status to 41" do
       order = create(:event_order)
-      item = create(:item, price: 10000)
+      item = create(:item_with_bundle, price: 10000)
       order.registrants = create_list(:registrant, 10, order: order, item: item)
       order.save!
       OrderCompletion.new(order).complete

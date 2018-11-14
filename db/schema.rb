@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181104161538) do
+ActiveRecord::Schema.define(version: 20181112211050) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -159,6 +159,8 @@ ActiveRecord::Schema.define(version: 20181104161538) do
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_type_id"
+    t.index ["order_type_id"], name: "index_order_bundles_on_order_type_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -169,6 +171,14 @@ ActiveRecord::Schema.define(version: 20181104161538) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "order_types", force: :cascade do |t|
+    t.string "name"
+    t.bigint "supertype_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supertype_id"], name: "index_order_types_on_supertype_id"
   end
 
   create_table "orders", id: :serial, force: :cascade do |t|
@@ -330,6 +340,7 @@ ActiveRecord::Schema.define(version: 20181104161538) do
   add_foreign_key "option_orders", "order_bundles"
   add_foreign_key "option_orders", "orders"
   add_foreign_key "option_orders", "users"
+  add_foreign_key "order_bundles", "order_types"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "discounts"

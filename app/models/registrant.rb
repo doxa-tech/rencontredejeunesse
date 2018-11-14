@@ -39,4 +39,5 @@ class Registrant < ApplicationRecord
       errors.add(:item, :exclusion)
     end
   end
+
 end
