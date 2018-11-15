@@ -2,6 +2,7 @@ class BundleValidator < ActiveModel::Validator
 
     def validate(record)
       @record = record
+      @item_ids = record.registrants.map(&:item_id)
       @items_count = items_count
       @bundle_ids = bundle_ids
       if @items_count != 0
@@ -24,11 +25,11 @@ class BundleValidator < ActiveModel::Validator
     end
 
     def items_count
-      Item.joins(:registrants).where(registrants: { id: @record.registrant_ids }).count
+      Item.where(id: @item_ids).count
     end
 
     def bundle_ids
-      Item.joins(:registrants).where(registrants: { id: @record.registrant_ids }).pluck("DISTINCT order_bundle_id")
+      Item.where(id: @item_ids).pluck("DISTINCT order_bundle_id")
     end
 
     def order_type

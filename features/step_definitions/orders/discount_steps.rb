@@ -1,6 +1,7 @@
 Given("I am on the confirmation page with an amount of zero") do
-  @order = create(:event_order, user: @user)
-  @discount = create(:discount, category: :free, number: 1, items: @order.items)
+  @order = create(:event_order, user: @user, registrants: [])
+  @order.registrants = [create(:registrant, order: @order, item: @item)]
+  @discount = create(:discount, category: :free, number: 1, items: [@item])
   @order.discount = @discount
   @order.save!
   visit confirmation_orders_event_path(@order.order_id)

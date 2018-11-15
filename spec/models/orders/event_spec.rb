@@ -31,7 +31,7 @@ module Orders
   
       it "assigns the right amount on update" do
         order = create(:event_order)
-        order.registrants.first.item = create(:item, price: 4000)
+        order.registrants.first.item = create(:item_with_bundle, price: 4000)
         order.save!
         expect(order.amount).to eq 4000 + order.fee
       end
@@ -50,7 +50,7 @@ module Orders
 
       it "is possible to order an item with the type event" do
         order_type = create(:order_type, name: "event")
-        bundle = create(:order_bundle, order_type: order_type)
+        bundle = create(:order_bundle_with_items, order_type: order_type)
         order.registrants = [create(:registrant, item: bundle.items.first, order: order)]
         order.save
         expect(order.errors[:base]).to be_empty
@@ -59,7 +59,7 @@ module Orders
       it "is possible to order an item with a subtype from event" do
         event_type = create(:order_type, name: "event")
         subtype = create(:order_type, name: "volunteer", supertype_id: event_type.id)
-        bundle = create(:order_bundle, order_type: subtype)
+        bundle = create(:order_bundle_with_items, order_type: subtype)
         order.registrants = [create(:registrant, item: bundle.items.first, order: order)]
         order.save
         expect(order.errors[:base]).to be_empty
@@ -74,15 +74,15 @@ module Orders
 
       it "is not possible to order an item that has a bundle with the wrong category" do
         order_type = create(:order_type, name: "sales")
-        bundle = create(:order_bundle, order_type: order_type)
+        bundle = create(:order_bundle_with_items, order_type: order_type)
         order.registrants = [create(:registrant, item: bundle.items.first, order: order)]
         order.save
         expect(order.errors[:base]).to include "Un article n'est pas compatible."
       end
 
       it "is not possible to order items with different bundles" do
-        sales_bundle = create(:order_bundle, order_type: create(:order_type, name: "sales"))
-        event_bundle = create(:order_bundle, order_type: create(:order_type, name: "event"))
+        sales_bundle = create(:order_bundle_with_items, order_type: create(:order_type, name: "sales"))
+        event_bundle = create(:order_bundle_with_items, order_type: create(:order_type, name: "event"))
         order.registrants = [
           create(:registrant, item: sales_bundle.items.first, order: order),
           create(:registrant, item: event_bundle.items.first, order: order)

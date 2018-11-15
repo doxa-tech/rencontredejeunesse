@@ -1,5 +1,5 @@
 Given("there is an event") do
-  @item = create(:item)
+  @item = create(:item_with_bundle)
 end
 
 Given(/^I visit the page to order an entry$/) do
