@@ -27,6 +27,8 @@ class Order < ApplicationRecord
   validates :order_id, uniqueness: true
   validate :validity_of_discount_code
 
+  validates_with BundleValidator
+
   before_create :generate_id
   before_validation :assign_amount
   before_save :assign_payment

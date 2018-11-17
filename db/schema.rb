@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181112211050) do
+ActiveRecord::Schema.define(version: 20181117155108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 20181112211050) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "order_type_id"
+    t.boolean "open", default: true
     t.index ["order_type_id"], name: "index_order_bundles_on_order_type_id"
   end
 
@@ -193,6 +194,7 @@ ActiveRecord::Schema.define(version: 20181112211050) do
     t.integer "order_type", default: 0
     t.bigint "discount_id"
     t.integer "discount_amount", default: 0
+    t.boolean "limited", default: false
     t.index ["discount_id"], name: "index_orders_on_discount_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end

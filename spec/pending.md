@@ -6,7 +6,3 @@ Users
 
 * Update
 * New: validation errors
-
-Volunteer
-
-* Refactoring

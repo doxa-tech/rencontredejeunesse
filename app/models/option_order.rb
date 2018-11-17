@@ -13,6 +13,7 @@ class OptionOrder < ApplicationRecord
   def build_order(user, item)
     # TODO: readonly order
     self.order = Orders::Event.new(user: user)
+    self.order.limited = true
     self.order.registrants.build_from_user(user)
     self.order.registrants.first.item = item
   end

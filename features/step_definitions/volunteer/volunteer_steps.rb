@@ -3,5 +3,5 @@ Given("I am a volunteer") do
 end
 
 Given("a volunteering is available") do
-  @order_bundle = create(:order_bundle_with_items, key: "volunteers-rj-19")
+  @order_bundle = create(:order_bundle_with_items, open: false, key: "volunteers-rj-19")
 end

@@ -82,7 +82,7 @@ RSpec.describe "Order", :type => :model do
 
   end
   
-  describe "discount" do
+  context "discounts" do
 
     it "apply a valid discount" do
       order = create(:order_with_items)

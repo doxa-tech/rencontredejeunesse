@@ -21,6 +21,7 @@ FactoryBot.define do
     name { "Bénévole à la RJ19"}
     description { "Deviens bénévole durant le weekend de la RJ !"}
     key { "volunteers-rj-19" }
+    open { true }
     order_type
     trait :event do
       association :order_type, name: "event"
@@ -87,6 +88,7 @@ FactoryBot.define do
     order_type { "regular" }
     user
     pending { false }
+    limited { false }
     
     factory :order_with_items do
       transient do

@@ -1,11 +1,7 @@
 module Orders
 
   class Event < Order
-
-    ORDER_TYPE = "event"
-
-    validates_with BundleValidator
-
+    
     default_scope { where(order_type: :event) }
 
     def order_items
