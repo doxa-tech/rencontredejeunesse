@@ -4,6 +4,8 @@ module Orders
     
     default_scope { where(order_type: :event) }
 
+    validate :number_of_registrants, if: :limited
+
     def order_items
       registrants
     end
@@ -18,6 +20,14 @@ module Orders
 
     def ticket_pdf_adapter
       Adapters::TicketPdf.new(self)
+    end
+
+    private
+
+    def number_of_registrants
+      if self.registrants.size > 1
+        self.errors.add(:base, "Il ne doit pas y avoir plus d'un article.")
+      end
     end
 
   end
