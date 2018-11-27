@@ -1,7 +1,7 @@
 class OrderBundle < ApplicationRecord
 
-  has_many :option_orders
-  has_many :items
+  has_many :option_orders, dependent: :destroy
+  has_many :items, dependent: :nullify
 
   belongs_to :order_type
   
