@@ -12,6 +12,8 @@ class Registrant < ApplicationRecord
   belongs_to :order, inverse_of: :registrants
   belongs_to :item
 
+  before_create :generate_id
+
   # for compatibility with order/item
   def quantity
     1
@@ -37,6 +39,16 @@ class Registrant < ApplicationRecord
   def validity_of_item
     unless item.active?
       errors.add(:item, :exclusion)
+    end
+  end
+
+  private
+
+  def generate_id
+    loop do
+      #               |     2 digits for year      |              10 random digits               | 2 digits |
+      self.ticket_id = (Time.now.year%100)*(10**12) + (SecureRandom.random_number(9*10**9)+10**9) * (10**2) + 01
+      break unless Registrant.where(ticket_id: self.ticket_id).exists?
     end
   end
 
