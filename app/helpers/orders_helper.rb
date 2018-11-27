@@ -6,12 +6,12 @@ module OrdersHelper
   end
 
   def items
-    order_bundle = OrderBundle.find_by(key: params[:item])
-    if order_bundle
-      @items ||= order_bundle.items
-    else
-      @items ||= Item.active.where(key: params[:item])
+    unless @items.present?
+      order_bundle = OrderBundle.find_by(key: params[:item])
+      @items = []
+      @items = order_bundle.items.active if order_bundle
     end
+    return @items
   end
 
 end

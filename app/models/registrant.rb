@@ -37,7 +37,7 @@ class Registrant < ApplicationRecord
   end
 
   def validity_of_item
-    unless item.active?
+    unless item && item.active?
       errors.add(:item, :exclusion)
     end
   end
