@@ -5,6 +5,13 @@ class MainMailer < ApplicationMailer
     mail(to: contact_email, subject: "Formulaire de contact: #{@contact.subject}", reply_to: @contact.email)
   end
 
+  def remove_accounts
+    emails = User.where(address: nil).pluck(:email)
+    mail(to: "Rencontredejeunesse <noreply@rencontredejeunesse.ch>", bcc: emails, subject: "Mise à jour obligatoire du compte RJ") do |format|
+      format.html { render layout: "mailer" }
+    end
+  end
+
   private
 
   def contact_email

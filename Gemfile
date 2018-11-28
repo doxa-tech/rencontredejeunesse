@@ -48,7 +48,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   gem 'cucumber-rails', :require => false
   gem 'factory_bot_rails'
-  gem 'capybara-webkit'
+  # gem 'capybara-webkit'
   gem 'email_spec'
 end
 
