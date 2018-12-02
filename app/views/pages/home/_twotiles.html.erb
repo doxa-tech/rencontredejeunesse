@@ -13,8 +13,15 @@
       </div>
       <div class="login">
         <h3>
-          <span class="only-hash">#</span><span class="hashtag">RJLOGIN19</span><br>
+          <p>
+          <span class="only-hash">#</span><span class="hashtag"><!--
+          <% "RJLOGIN19".each_char do |char|%>
+            --><%= content_tag :span, char, :class=>"c#{rand(0...6)}" %><!--
+          <% end %>-->
+          <span class="news">NEWS!</span>
+          </span><br>
           <span class="soon">26 janvier 2019</span>
+          </p>
         </h3>
         <%= link_to "", "/login" %>
         <div class="mask"></div>

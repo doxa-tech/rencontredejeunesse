@@ -1,2 +1,6 @@
+@import '../../components/logo-burger-color';
+
+@include logo-burger-color(#FFDB51, ".login");
+
 #container.login {
 }

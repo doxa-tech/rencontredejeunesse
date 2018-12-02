@@ -27,3 +27,5 @@ config/secrets.yml
 public/uploads
 
 data/
+
+.sass-cache/

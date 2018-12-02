@@ -1,7 +1,7 @@
 @import "../../../components/variables";
 @import '../../../components/logo-burger-color';
 
-@include logo-burger-color(#000, ".login");
+@include logo-burger-color(#000, ".login-vitrine");
 
 #container.login section#vitrine {
   width: 100%;

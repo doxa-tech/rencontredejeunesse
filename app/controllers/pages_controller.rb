@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def login
+    @images_i = (0...8).to_a.shuffle
   end
 
   def vision
