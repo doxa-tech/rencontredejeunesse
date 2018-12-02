@@ -95,3 +95,6 @@ gem 'rpush'
 
 # HTTP client
 gem 'rest-client'
+
+# Style guide css
+gem "livingstyleguide"
