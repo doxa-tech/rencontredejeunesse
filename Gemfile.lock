@@ -89,9 +89,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    capybara-webkit (1.14.0)
-      capybara (>= 2.3.0, < 2.14.0)
-      json
     carrierwave (1.2.2)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -430,7 +427,6 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano-server!
-  capybara-webkit
   carrierwave (~> 1.0)
   carrierwave-i18n
   carrierwave-imageoptimizer
@@ -471,4 +467,4 @@ DEPENDENCIES
   will_paginate (~> 3.1.0)
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
