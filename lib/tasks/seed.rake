@@ -25,4 +25,7 @@ namespace :seed do
     Rake::Task["adeia:permissions"].invoke
   end
 
+  # Create the superuser group in adeia
+  # rake adeia:superuser user_id=59
+
 end
