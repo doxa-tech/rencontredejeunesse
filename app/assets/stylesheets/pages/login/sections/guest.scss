@@ -15,25 +15,32 @@
     margin: auto;
 
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
 
-    div.guest {
-      padding: 20px;
+    div.guests {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0 0 40px 0;
 
-      img {
-        border-radius: 50%;
-        width: 200px;
-      }
+      div.guest {
+        padding: 20px;
 
-      p:first-of-type {
-        font-size: $medium-title;
-        padding: 10px 0 0 0;
-      }
+        img {
+          border-radius: 50%;
+          width: 200px;
+        }
 
-      p:nth-of-type(2) {
-        font-size: $normal-text;
+        p:first-of-type {
+          font-size: $medium-title;
+          padding: 10px 0 0 0;
+        }
+
+        p:nth-of-type(2) {
+          font-size: $normal-text;
+        }
       }
     }
   }
