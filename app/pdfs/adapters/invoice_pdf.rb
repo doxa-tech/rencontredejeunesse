@@ -2,35 +2,56 @@ module Adapters
   class InvoicePdf
 
     class Item
-      attr_reader :name, :number, :shipping_date, :quantity, :price, :tva, 
-                  :tot_price, :price, :sub_info, :order_item
+      attr_reader :name, :number, :shipping_date, :quantity, :_quantity, 
+                  :price, :_price, :tva, 
+                  :tot_price, :_tot_price, :price, :sub_info, :order_item
 
       def initialize order_item
         @order_item = order_item
         item = @order_item.item
-        # item.attributes.each do |k,v|
-        #   instance_variable_set("@#{k}", v) unless v.nil?
-        # end
         @shipping_date = "-"
-        @quantity = order_item.quantity
+        @_quantity = order_item.quantity
+        @quantity = @_quantity.to_s
         @number = @order_item.item.number.to_s
-        @price = "%.2f" % (@order_item.item.price / ::Payment::FDIV)
+        @_price = @order_item.item.price / ::Payment::FDIV
+        @price = "%.2f" % @_price
         @tva = "-"
         @name = @order_item.item.name
-        @quantity = @order_item.quantity.to_s
+        
         @sub_info = "Pass à imprimer sois-même"
-        @tot_price = '%.2f' % (@order_item.item.price*@order_item.quantity / ::Payment::FDIV)
+        @_tot_price = @_price * @_quantity
+        @tot_price = '%.2f' % @_tot_price
+      end
+    end
+
+    class PaymentFee
+      attr_reader :name, :number, :shipping_date, :quantity, :_quantity, 
+                  :price, :_price, :tva, 
+                  :tot_price, :_tot_price, :price, :sub_info, :order_item
+      
+      def initialize amount
+        @name = "Frais de paiement"
+        @number = "-"
+        @shipping_date = "-"
+        @_quantity = 1
+        @quantity = @_quantity.to_s
+        @tva = "-"
+        @_tot_price = amount / ::Payment::FDIV
+        @tot_price = '%.2f' % @_tot_price
+        @_price = amount / ::Payment::FDIV
+        @price = '%.2f' % @_price
+        @sub_info = ""
       end
     end
 
     class Payment
-      attr_reader :time, :payment_type, :display_amount, :amount
+      attr_reader :time, :payment_type, :display_amount, :amount, :_amount
 
-      def initialize payment
-        @display_amount = '%.2f' % (payment["amount"] / 100)
-        @time = payment.time.nil? ? "-" : payment.time.strftime("%d.%m.%Y")
-        @amount = @amount.to_f
-        @payment_type = "#{payment.method} (#{I18n.t('payment.type.'+ payment.payment_type).downcase})"
+      def initialize amount, time, payment_type, method
+        @time = time.nil? ? "-" : time.strftime("%d.%m.%Y")
+        @_amount = amount / ::Payment::FDIV
+        @amount = '%.2f' % @_amount
+        @payment_type = "#{method} (#{I18n.t('payment.type.'+ payment_type).downcase})"
       end
     end
 
@@ -41,12 +62,13 @@ module Adapters
     def items
       @order.order_items.to_a.map do |order_item|
         Item.new(order_item)
-      end
+      end << PaymentFee.new(@order.fee)
     end
 
     def payments
       @order.payments.to_a.map do |payment|
-        Payment.new(payment)
+        Payment.new(payment.amount, payment.time, 
+                    payment.payment_type, payment.method)
       end
     end
 
@@ -112,11 +134,11 @@ module Adapters
     private
 
     def _total_items
-      items.inject(0) { |sum, item| sum = sum + item.order_item.item.price*item.order_item.quantity} / ::Payment::FDIV
+      items.inject(0) { |sum, item| sum = sum + item._price*item._quantity}
     end
 
     def _total_payments
-      @order.payments.inject(0) { |sum, payment| sum = sum + payment.amount} / ::Payment::FDIV
+      payments.inject(0) { |sum, payment| sum = sum + payment._amount}
     end
 
   end
