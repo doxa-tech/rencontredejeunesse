@@ -26,6 +26,7 @@ class InvoicePdf < Prawn::Document
       bounding_box([0, cursor], :width => 110, :height => 80) do
         stroke_bounds if @debug
         text_box "Date de la commande
+          Numéro de commande
           Nunéro de Client
           Votre personne de référence
           Type de livraison
@@ -39,6 +40,7 @@ class InvoicePdf < Prawn::Document
       bounding_box([120, cursor], :width => 120, :height => 80) do
         stroke_bounds if @debug
         text_box "#{@order.order_date}
+          #{@order.order_id}
           #{@order.client_id}
           #{@order.reference_person}
           #{@order.shipping_type}
@@ -193,7 +195,7 @@ class InvoicePdf < Prawn::Document
     move_up height
     bounding_box([step*5, cursor], :width => step, :height => height) do
       stroke_bounds if @debug
-      text_box payment.display_amount, at: [0, cursor], size: 8, align: :right
+      text_box payment.amount, at: [0, cursor], size: 8, align: :right
     end
   end
 
