@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181127203431) do
+ActiveRecord::Schema.define(version: 20181208132645) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "adeia_action_permissions", id: :serial, force: :cascade do |t|
     t.integer "adeia_action_id"
@@ -161,6 +162,7 @@ ActiveRecord::Schema.define(version: 20181127203431) do
     t.datetime "updated_at", null: false
     t.bigint "order_type_id"
     t.boolean "open", default: true
+    t.hstore "options"
     t.index ["order_type_id"], name: "index_order_bundles_on_order_type_id"
   end
 

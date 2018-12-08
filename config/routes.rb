@@ -49,8 +49,8 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :invoice, :ticket] do
       get "pending", on: :collection
       member do
-        get 'invoice', :defaults => { :format => 'pdf' }
-        get 'ticket', :defaults => { :format => 'pdf' }
+        get 'invoice'
+        get 'ticket'
       end
     end
     resources :option_orders, only: [:index, :show]
