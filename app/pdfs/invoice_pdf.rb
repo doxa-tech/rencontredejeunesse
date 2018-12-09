@@ -167,7 +167,7 @@ class InvoicePdf < Prawn::Document
 
     move_down 50
 
-    text "Ce document sert de justificatif d'achat. Les conditions générales s'appliquent. ", size: 8
+    text "Les conditions générales s'appliquent. ", size: 8
 
     move_down 30
 

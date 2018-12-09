@@ -158,3 +158,8 @@ fr:
         one: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter un seul caractère)"
         other: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter %{count} caractères)"
       other_than: "Le champ « %{attribute} » doit être différent de %{count}"
+  mailers:
+    order:
+      pass:
+        one: Voici ton pass pour récupérer ton entrée le jour J.
+        other: Voici tes %{count} pass pour récupérer tes entrées le jour J.
