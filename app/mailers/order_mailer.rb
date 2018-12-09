@@ -16,6 +16,11 @@ class OrderMailer < ApplicationMailer
     mail(to: order.user.email, subject: "Ticket pass pour ta commande")
   end
 
+  def invoice_registration(order)
+    @order = order
+    mail(to: order.user.email, cc: ["kocher.ke@gmail.com"], subject: "Votre facture pour la commande #{@order.order_id}")
+  end
+
   def reminder
     # TODO
     @event = ""

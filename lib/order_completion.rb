@@ -29,7 +29,7 @@ class OrderCompletion
 
   def invoice
     @order.main_payment.update_attribute(:status, statuses[@situation])
-    Admin::OrderMailer.invoice_registration(@order).deliver_now
+    OrderMailer.invoice_registration(@order).deliver_now
   end
 
   def get_situation
