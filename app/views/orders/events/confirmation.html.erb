@@ -57,7 +57,7 @@
         <div class="row tight">
           <span>Nom</span>
           <p>
-            <%= t("registrants/rj.genders.#{registrant.gender}") %>
+            <%= t("registrant.genders.#{registrant.gender}") %>
             <%= registrant.firstname %> <%= registrant.lastname %>
           </p>
         </div>
@@ -67,7 +67,7 @@
         </div>
         <div class="row tight">
           <span></span>
-          <p><%= registrant.item.name %></p>
+          <p><%= registrant.item.name_with_price %></p>
         </div>
       </div>
     <% end %>
