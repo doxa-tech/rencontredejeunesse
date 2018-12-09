@@ -12,4 +12,9 @@ class OrderPreview < ActionMailer::Preview
   def reminder
     OrderMailer.reminder
   end
+
+  def invoice_registration
+    order = Order.last
+    OrderMailer.invoice_registration(order)
+  end
 end
