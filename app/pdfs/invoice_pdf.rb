@@ -175,7 +175,7 @@ class InvoicePdf < Prawn::Document
       start_new_page
     end
 
-    text_box "Informations de paiement:
+    text_box "Informations de paiement (en cas de versement nécessaire):
 
     Association Rencontre de Jeunesse
     1607 Palézieux - Suisse
