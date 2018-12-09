@@ -1,7 +1,6 @@
 class Order < ApplicationRecord
   attr_accessor :conditions
 
-  enum order_type: [:regular, :event]
   enum status: [:unpaid, :paid, :delivered]
 
   belongs_to :user
@@ -21,7 +20,6 @@ class Order < ApplicationRecord
 
   accepts_nested_attributes_for :registrants, allow_destroy: true, reject_if: :all_blank
 
-  validates :order_type, inclusion: { in: order_types.keys }, allow_nil: true
   validates :status, inclusion: { in: statuses.keys }, allow_nil: true
   validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true
@@ -52,6 +50,10 @@ class Order < ApplicationRecord
 
   def invoice_pdf_adapter
     Adapters::InvoicePdf.new(self)
+  end
+
+  def order_type
+    :regular
   end
 
   private

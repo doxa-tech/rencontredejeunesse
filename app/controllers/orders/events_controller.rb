@@ -35,6 +35,11 @@ class Orders::EventsController < Orders::BaseController
   def confirmation
   end
 
+  # helper method to fetch the order
+  def order
+    @order ||= Orders::Event.find_by_order_id!(params[:id])
+  end
+
   private
 
   def order_params(limited: false)

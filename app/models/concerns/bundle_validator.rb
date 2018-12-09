@@ -11,7 +11,7 @@ class BundleValidator < ActiveModel::Validator
       @items_count = items_count
       @bundle_ids = bundle_ids
       if @items_count != 0
-        VALIDATIONS[@record.order_type.to_sym].each do |v|
+        VALIDATIONS[@record.order_type].each do |v|
           send(v)
         end
       end
@@ -56,7 +56,7 @@ class BundleValidator < ActiveModel::Validator
       OrderType.joins(:order_bundles)
         .joins("LEFT JOIN order_types supertypes ON supertypes.id = order_types.supertype_id")
         .where("order_bundles.id = :bundle_id AND (order_types.name = :name OR supertypes.name = :name)", 
-        bundle_id: @bundle_ids[0], name: @record.order_type )
+        bundle_id: @bundle_ids[0], name: @record.order_type)
     end
 
 end

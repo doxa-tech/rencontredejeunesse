@@ -9,7 +9,7 @@ class OrderMailer < ApplicationMailer
   end
 
   def pass(order)
-    @order = order.becomes(Orders::Event)
+    @order = order
     pdf = TicketPdf.new(@order.ticket_pdf_adapter)
     attachments["Tickets_#{@order.order_id}.pdf"] = { :mime_type => 'application/pdf', :content => pdf.render }
     mail(to: order.user.email, subject: "Pass pour ta commande")

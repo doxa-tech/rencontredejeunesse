@@ -2,8 +2,6 @@ module Orders
 
   class Event < Order
     
-    default_scope { where(order_type: :event) }
-
     validate :number_of_registrants, if: :limited
 
     def order_items
@@ -20,6 +18,10 @@ module Orders
 
     def ticket_pdf_adapter
       Adapters::TicketPdf.new(self)
+    end
+
+    def order_type
+      :event
     end
 
     private

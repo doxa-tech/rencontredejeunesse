@@ -19,12 +19,12 @@ class OrderCompletion
   end
 
   def postfinance
-    OrderMailer.pass(@order).deliver_now
+    send_pass
   end
 
   def free
     @order.main_payment.update_attribute(:status, statuses[@situation])
-    OrderMailer.pass(@order).deliver_now
+    send_pass
   end
 
   def invoice
@@ -38,6 +38,10 @@ class OrderCompletion
     elsif @order.amount == 0
       :free
     end
+  end
+
+  def send_pass
+    OrderMailer.pass(@order).deliver_now if @order.order_type == :event
   end
 
   def statuses

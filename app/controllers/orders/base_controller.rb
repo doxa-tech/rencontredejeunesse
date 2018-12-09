@@ -26,11 +26,7 @@ class Orders::BaseController < ApplicationController
   end
 
   def order
-    if @order.nil?
-      @order = Orders::Event.find_by_order_id!(params[:id])
-      @order = @order.becomes(Orders::Event) if params[:controller] == "orders/events"
-    end
-    return @order
+    @order ||= Order.find_by_order_id!(params[:id])
   end
 
 end

@@ -85,7 +85,6 @@ FactoryBot.define do
 
   factory :order do
 
-    order_type { "regular" }
     user
     pending { false }
     limited { false }
@@ -107,7 +106,6 @@ FactoryBot.define do
         number { 1 }
       end
 
-      order_type { "event" }
       registrants { build_list(:registrant, number, order: nil) }
     end
 
