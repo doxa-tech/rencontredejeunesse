@@ -44,7 +44,7 @@ RSpec.describe OrderCompletion do
     it "sends an email with the pass" do
       order = create(:event_order)
       OrderCompletion.new(order).complete(:postfinance)
-      expect(ActionMailer::Base.deliveries.any? { |mail| mail.subject == "Ticket pass pour ta commande" }).to be true
+      expect(ActionMailer::Base.deliveries.any? { |mail| mail.subject == "Pass pour ta commande" }).to be true
     end
 
   end
@@ -57,7 +57,7 @@ RSpec.describe OrderCompletion do
       order.discount = discount
       order.save!
       OrderCompletion.new(order).complete
-      expect(ActionMailer::Base.deliveries.any? { |mail| mail.subject == "Ticket pass pour ta commande" }).to be true
+      expect(ActionMailer::Base.deliveries.any? { |mail| mail.subject == "Pass pour ta commande" }).to be true
     end
 
     it "sets the payment status to 41" do

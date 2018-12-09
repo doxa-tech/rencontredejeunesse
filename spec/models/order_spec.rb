@@ -3,6 +3,8 @@ require 'interfaces/pdf_invoice'
 
 RSpec.describe "Order", :type => :model do
 
+  # TODO: test invoice deadline
+
   it_should_behave_like "an invoice PDF responder" do
     let(:responder) do
       order = create(:order_with_items)
