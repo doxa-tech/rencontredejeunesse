@@ -28,7 +28,7 @@ class Connect::OrdersController < Connect::BaseController
     respond_to do |format|
       format.pdf do
         pdf = TicketPdf.new(@order.ticket_pdf_adapter)
-        send_data pdf.render, filename: "Facture_#{@order.order_id}.pdf", type: "application/pdf", disposition: 'inline'
+        send_data pdf.render, filename: "Tickets_#{@order.order_id}.pdf", type: "application/pdf", disposition: 'inline'
       end
     end
   end

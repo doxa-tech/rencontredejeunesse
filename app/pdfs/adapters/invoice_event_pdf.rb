@@ -1,8 +1,9 @@
 module Adapters
   class InvoiceEventPdf < Adapters::InvoicePdf
     class Item
-      attr_reader :name, :number, :shipping_date, :quantity, :price, :tva, 
-                  :tot_price, :price, :sub_info, :order_item
+      attr_reader :name, :number, :shipping_date, :quantity, :_quantity, 
+                  :price, :_price, :tva, 
+                  :tot_price, :_tot_price, :price, :sub_info, :order_item
 
       def initialize order_item
         @order_item = order_item
@@ -10,12 +11,15 @@ module Adapters
         @shipping_date = "-"
         @quantity = order_item.quantity
         @number = @order_item.item.number.to_s
-        @price = "%.2f" % (@order_item.item.price / ::Payment::FDIV)
+        @_price = @order_item.item.price / ::Payment::FDIV
+        @price = "%.2f" % @_price
         @tva = "-"
         @name = @order_item.item.name
-        @quantity = @order_item.quantity.to_s
+        @_quantity = @order_item.quantity
+        @quantity = @_quantity.to_s
         @sub_info = "Pass pour #{order_item.firstname} #{order_item.lastname}"
-        @tot_price = '%.2f' % (@order_item.item.price*@order_item.quantity / ::Payment::FDIV)
+        @_tot_price = @_price * @_quantity
+        @tot_price = '%.2f' % @_tot_price
       end
     end
 
@@ -27,7 +31,7 @@ module Adapters
     def items
       @order_event.order_items.to_a.map do |order_item|
         Item.new(order_item)
-      end
+      end << PaymentFee.new(@order.fee)
     end
   end
 end

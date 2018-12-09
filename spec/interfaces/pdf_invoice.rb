@@ -10,6 +10,9 @@ shared_examples "an invoice PDF responder" do
     it "order_date" do
       expect(responder.order_date).to be_a String
     end
+    it "order_id" do
+      expect(responder.order_id).to be_a String
+    end
     it "client_id" do
       expect(responder.client_id).to be_a String
     end
@@ -61,8 +64,7 @@ shared_examples "an invoice PDF responder" do
       responder.payments.each do |payment|
         expect(payment.time).to be_a String
         expect(payment.payment_type).to be_a String
-        expect(payment.display_amount).to be_a String
-        expect(payment.amount).to be_a Float
+        expect(payment.amount).to be_a String
       end
     end
   end

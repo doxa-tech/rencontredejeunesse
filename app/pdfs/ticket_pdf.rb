@@ -49,7 +49,7 @@ class TicketPdf < Prawn::Document
             fill_color "000000"
             text_box "Ticket Pass", at: [20, cursor-15], size: 20, style: :bold_italic
             fill_color "ffffff"
-            text_box "www.rencontredejeunesse.ch", at: [info_w-100, 10], size: 6, style: :italic
+            text_box ticket.upinfo, at: [info_w-100, 10], size: 6, style: :italic
             fill_color "000000"
           end
           # Infos part
@@ -170,7 +170,7 @@ class TicketPdf < Prawn::Document
           move_down barecode_height + 13
           outputter.annotate_pdf(self, x: 0 , y: cursor, height: barecode_height, xdim: scale)
           move_down 5
-          text_box "#{ticket.main_code}", size: 9.6, at: [0, cursor], character_spacing: 1.2, align: :center, width: bounds.width, style: :bold
+          text_box "#{ticket.main_code_str}", size: 9.6, at: [0, cursor], character_spacing: 1.2, align: :center, width: bounds.width, style: :bold
           barecode_height = 39
           move_down barecode_height + 13
           outputter.annotate_pdf(self, x: 0 , y: cursor, height: barecode_height, xdim: scale)
