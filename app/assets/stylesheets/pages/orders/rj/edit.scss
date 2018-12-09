@@ -6,7 +6,7 @@
 
 #container.orders-rj-edit {
   @include standard-form();
-  padding: $logo-burger-height 0 0 0;
+  padding-top: $logo-burger-height;
 
   div.content-wrap {
   }
