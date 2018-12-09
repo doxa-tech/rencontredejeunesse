@@ -66,7 +66,7 @@ module Adapters
     end
 
     def payments
-      @order.payments.to_a.map do |payment|
+      @order.payments.where("status=?", 9).to_a.map do |payment|
         Payment.new(payment.amount, payment.time, 
                     payment.payment_type, payment.method)
       end
@@ -97,6 +97,10 @@ module Adapters
 
     def shipping_type
       "print@home"
+    end
+
+    def status
+      I18n.t("order.statuses.#{@order.status}")
     end
 
     def payment_type

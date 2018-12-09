@@ -6,9 +6,11 @@
     title: "Commande #{@order.order_id}" %>
 <% end %>
 
-<% if @order.paid? %>
 <p><%= link_to "> Voir la facture au format PDF", invoice_connect_order_path(@order.order_id, format: "pdf") %></p>
+<% if @order.paid? %>
 <p><%= link_to "> Voir le billet au format PDF", ticket_connect_order_path(@order.order_id, format: "pdf") %></p>
+<% else %>
+<p>Le billet sera visible ici après reception du paiement</p>
 <% end %>
 
 <p>Résumé de ta commande pour la <b>TODO</b>.</p>
