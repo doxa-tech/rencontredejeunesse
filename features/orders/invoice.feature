@@ -10,4 +10,4 @@ Feature: Pay by invoice
     And I am on the confirmation page with a payment by invoice
     When I click the link "Finaliser ma commande"
     Then I should see the success page
-    And "john@smith.com" should receive an email
+    And "john@smith.com" should receive 2 emails
