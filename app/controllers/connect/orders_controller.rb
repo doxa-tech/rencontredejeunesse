@@ -1,5 +1,5 @@
 class Connect::OrdersController < Connect::BaseController
-  before_action :check_if_paid, only: [:show, :invoice, :ticket]
+  before_action :check_if_paid, only: [:show, :ticket]
 
   def index
     @orders = current_user.completed_orders
@@ -17,6 +17,7 @@ class Connect::OrdersController < Connect::BaseController
 
   def invoice
     respond_to do |format|
+      @order = Orders::Event.find_by_order_id!(params[:id])
       format.pdf do
         pdf = InvoicePdf.new(@order.invoice_pdf_adapter)
         send_data pdf.render, filename: "Facture_#{@order.order_id}.pdf", type: "application/pdf", disposition: 'inline'

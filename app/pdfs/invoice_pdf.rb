@@ -23,7 +23,7 @@ class InvoicePdf < Prawn::Document
       text @order.title, size: 12#, style: :bold
       move_down 15
 
-      bounding_box([0, cursor], :width => 110, :height => 80) do
+      bounding_box([0, cursor], :width => 110, :height => 90) do
         stroke_bounds if @debug
         text_box "Date de la commande
           Numéro de commande
@@ -32,12 +32,13 @@ class InvoicePdf < Prawn::Document
           Type de livraison
           Option de paiement
           Monnaie
+          Status
           Adresse de livraison", size: 8
       end
 
-      move_up 80
+      move_up 90
 
-      bounding_box([120, cursor], :width => 120, :height => 80) do
+      bounding_box([120, cursor], :width => 120, :height => 90) do
         stroke_bounds if @debug
         text_box "#{@order.order_date}
           #{@order.order_id}
@@ -46,6 +47,7 @@ class InvoicePdf < Prawn::Document
           #{@order.shipping_type}
           #{@order.payment_type}
           #{@order.currency}
+          #{@order.status}
           #{@order.shipping_adress}", size: 8
       end
 
@@ -57,7 +59,7 @@ class InvoicePdf < Prawn::Document
       end
     end
 
-    move_down 10
+    move_down 30
 
     sum = 0
     height = 10
@@ -103,7 +105,10 @@ class InvoicePdf < Prawn::Document
 
     move_down 4
 
-    @order.items.each do |item|
+    @order.items[0..190].each do |item|
+      if cursor < 110
+        start_new_page
+      end
       orderRow( item )
     end
 
@@ -164,9 +169,33 @@ class InvoicePdf < Prawn::Document
 
     text "Ce document sert de justificatif d'achat. Les conditions générales s'appliquent. ", size: 8
 
+    move_down 30
+
+    if cursor < 60
+      start_new_page
+    end
+
+    text_box "Informations de paiement:
+
+    Association Rencontre de Jeunesse
+    1607 Palézieux - Suisse
+
+    IBAN : CH91 0900 0000 1717 2886 0
+    BIB POFICHBEXXX
+    
+    Mention: 'Commande #{@order.order_id}'", at: [0,cursor], size: 8
+
     bounding_box([0, 0], :width => 100, :height => 10) do
       stroke_bounds if @debug
       text_box "Généré le #{Time.now}", at: [0, cursor], size: 6
+    end
+
+    self.page_count.times do |i|
+        self.bounding_box([self.bounds.left, self.bounds.bottom], :width => self.bounds.width, :height => 30) {
+        # for each page, count the page number and write it
+        self.go_to_page i+1
+             self.text "#{i+1}/#{self.page_count}", :align => :right, size: 6 # write the page number and the total page count
+        }
     end
 
   end
