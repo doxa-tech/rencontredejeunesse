@@ -3,6 +3,7 @@ fr:
     formats:
       pretty_date: "%d. %b %y"
       date: "%d.%m.%y"
+      normal: "%d-%m-%Y, %H:%M"
   helpers:
     submit:
       orders_event:

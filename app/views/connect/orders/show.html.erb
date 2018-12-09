@@ -6,18 +6,32 @@
     title: "Commande #{@order.order_id}" %>
 <% end %>
 
+<h2>Documents de la commande</h2>
+
 <p><%= link_to "> Voir la facture au format PDF", invoice_connect_order_path(@order.order_id, format: "pdf") %></p>
 <% if @order.paid? %>
 <p><%= link_to "> Voir le billet au format PDF", ticket_connect_order_path(@order.order_id, format: "pdf") %></p>
 <% else %>
-<p>Le billet sera visible ici après reception du paiement</p>
+<p>> Le billet sera visible ici après reception du paiement</p>
 <% end %>
 
-<p>Résumé de ta commande pour la <b>TODO</b>.</p>
+<h2>Résumé</h2>
 
-<p class="price">Statut de la commande: HUMAN STATUS</p>
-<p class="price">Prix total: TOTAL CHF</p>
+<p>Type: "<%= @order.items.first.order_bundle.name %>"</b>.</p>
 
-RENDER ORDER INFOS
+<p>Statut de la commande: <%= t("order.statuses.#{@order.status}") %></p>
+
+<p>Date: <%= l @order.created_at, format: :normal %>
+
+
+<h2>Contenu de la commande</h2>
+
+<ul>
+<% @order.order_items.each do |order_item| %>
+  <li><%= order_item.quantity %>x <%= order_item.item.name %></li>
+<% end %>
+</ul>
+
+<p>Prix total: <%= "%.2f" % (@order.amount / ::Payment::FDIV) %>CHF</p>
 
 <p class="number">Commande n°<%= @order.order_id %></p>
