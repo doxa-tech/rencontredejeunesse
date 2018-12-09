@@ -4,16 +4,21 @@
     background-color:  #ffffff;
   }
 
+  h2 {
+    border-top: 2px solid #e7e7e7;
+    border-bottom: 2px solid #e7e7e7;
+    padding: 5px 0;
+    margin: 20px 0;
+    color: #5a5a5a;
+    font-size: 18px;
+  }
+
   div.connect-container-wrapper {
     background-color: #ffffff;
     color: #333;
 
-    p:first-of-type {
-      padding-top: 40px;
-    }
-
     p {
-      padding: 0 0 20px 0;
+      padding: 10px 0;
     }
 
     p.number, p.price {
