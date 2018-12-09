@@ -19,6 +19,10 @@ class Item < ApplicationRecord
       active: true, null: nil, date: Date.current) 
     }
 
+    def name_with_price
+      "#{name} / #{price/100} CHF"
+    end
+
     def active?
       date = Date.current
       active && (valid_until.nil? || valid_until >= date) && (valid_from.nil? || valid_from <= date)

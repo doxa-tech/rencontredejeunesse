@@ -7,12 +7,12 @@
 
   <div class="row">
     <span></span>
-    <!-- TODO -->
-    <% if Date.current > Date.parse("02.05.2018") && !Rails.env.test? %>
-    <p><b>Il n'est plus possible de payer par facture !</b></p>
-    <% else %>
+    <% if is_invoice_available?(@order) %>
     <%= link_to "Finaliser ma commande", orders_completion_path(@order.order_id), method: :patch, class: "button-link main-button connect-btn-light-dark-full" %>
+    <% else %>
+    <p><b>Il n'est plus possible de payer par facture !</b></p>
     <% end %>
   </div>
 
 </div>
+

@@ -11,7 +11,6 @@ class OptionOrder < ApplicationRecord
   validates :sector, inclusion: { in: sectors.keys }, allow_nil: true
 
   def build_order(user, item)
-    # TODO: readonly order
     self.order = Orders::Event.new(user: user)
     self.order.limited = true
     self.order.registrants.build_from_user(user)

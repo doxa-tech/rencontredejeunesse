@@ -14,4 +14,13 @@ module OrdersHelper
     return @items
   end
 
+  def is_invoice_available?(order)
+    nearest_date = order.items.pluck(:valid_until).sort.first
+    if nearest_date && !Rails.env.test?
+      return Date.current < (nearest_date - 1.week)
+    else
+      return true
+    end
+  end
+
 end
