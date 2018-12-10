@@ -23,6 +23,9 @@
 
 <p>Date: <%= l @order.created_at, format: :normal %>
 
+<% if @order.discount_amount > 0 %>
+<p>Réduction appliquée: <%= "%.2f" % (@order.discount_amount / ::Payment::FDIV) %>CHF</p>
+<% end %>
 
 <h2>Contenu de la commande</h2>
 

@@ -102,6 +102,40 @@
                 </table>
               </td>
             </tr>
+
+            <% if @order.discount_amount > 0 %>
+            <tr>
+              <td class="small-12 large-6 columns first">
+                <table>
+                  <tr>
+                    <td><%= "Réduction appliquée" %></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <td>-1</td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <td><%= "%.2f" % (@order.discount_amount / ::Payment::FDIV) %></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns last">
+                <table>
+                  <tr>
+                    <td><%= "%.2f" % (@order.discount_amount / ::Payment::FDIV) %></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <% end %>
+
             <tr>
               <td class="small-12 large-6 columns first">
                 <table>

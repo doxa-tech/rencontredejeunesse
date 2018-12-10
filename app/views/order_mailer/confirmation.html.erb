@@ -3,7 +3,7 @@
 
 <% if @order.main_payment.postfinance? %>
 <p>
-  Ton paiement a bien été reçu et ta commande est validée.
+  Ton paiement a bien été reçu et ta commande n°<%= link_to @order.order_id, connect_order_url(@order.order_id) %> est validée.
 </p>
 <% else %>
 <p>
