@@ -1,6 +1,6 @@
-module ticket_option
+module OrderBundleOptions
 
-  options = {
+  OPTIONS = {
     upinfo: "https://rencontredejeunesse.ch",
     subtitle3: "À présenter le jour de l'événement",
     dates: "03.05.-05.05.2018",
@@ -17,3 +17,5 @@ module ticket_option
     contact: "info@rencontredejeunesse.ch"
   }
 end
+
+OrderBundle.create!(name: "RJ Login 19", description: "Une journée qui réunit les leaders de Suisse romande", order_type_id: 1, options: 

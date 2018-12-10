@@ -3,6 +3,7 @@ class User < ApplicationRecord
   enum gender: [:male, :female]
 
   has_many :orders, dependent: :nullify
+  has_many :option_orders
   has_many :comments, dependent: :destroy
   has_many :volunteers, dependent: :destroy
   belongs_to :image, optional: true
