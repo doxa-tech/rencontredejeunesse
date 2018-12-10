@@ -3,15 +3,13 @@ fr:
     formats:
       pretty_date: "%d. %b %y"
       date: "%d.%m.%y"
-  product:
-    login: "RJ Login"
-    rj: "Rencontre de jeunesse"
+      normal: "%d-%m-%Y, %H:%M"
   helpers:
     submit:
-      order:
+      orders_event:
         create: "S'inscrire"
-        update: "Mettre à jour"
-      volunteer:
+        update: "Enregistrer"
+      option_order:
         create: "S'inscrire"
       create: "Créer"
       submit: "Envoyer"
@@ -33,47 +31,52 @@ fr:
     country: "Pays"
     birthday: "Date de naissance"
     phone: "Portable"
-    group: "Groupe de jeunes ou église"
     password: "Mot de passe"
     password_confirmation: "Confirmation"
     current_password: "Mot de passe actuel"
     status: "Statut"
     created_at: "Créé le"
     updated_at: "Modifié le"
-    lodging: "Dormir sur place"
     sector: "Secteur"
     category: "Catégorie"
-    product: "Produit"
     reduction: "Réduction"
     number: "Nombre"
     used: "Utilisé"
     confirmed: "Confirmé"
   activerecord:
     attributes:
-      records/login:
-        entries: "Nombre d'entrées"
-      records/rj:
-        entries: "Nombre de forfaits"
       order:
         conditions: "J'ai lu les conditions générales et les accepte."
-        print_amount: "Montant"
         user: "Personne"
         order_id: "N° de commande"
-        human_id: "N° d'entrée"
         discount_code: "Code promotionel"
-      volunteer:
+      option_order:
         comment: "Remarque"
         user: "Personne"
+      registrant:
+        item: "Produit"
+        item_id: "Produit"
     errors:
       models:
         order:
           attributes:
             conditions:
               accepted: "Veuillez accepter les conditions générales"
-        records/login:
-          attributes:
-            participants:
-              blank: "Ajouter au moins une entrée"
+  order:
+    statuses:
+      paid: "Payé"
+      unpaid: "En attente de paiement"
+      delivered: "Livré"
+  payment:
+    method:
+      multiple: "Paiement multiples"
+      postfinance: "Postfinance"
+      invoice: "Facture"
+      cash: "Cash"
+    type:
+      main: "Principal"
+      refund: "Ristourne"
+      addition: "ajout"
   user:
     genders:
       male: "M."
@@ -83,15 +86,7 @@ fr:
       free: "Gratuité"
       money: "Argent"
       percent: "Pourcentage"
-  order:
-    payment_methods:
-      postfinance: "Carte de débit/crédit"
-      invoice: "Facture"
-  participants/login:
-    genders:
-      male: "M."
-      female: "Mme"
-  participants/rj:
+  registrant:
     genders:
       male: "M."
       female: "Mme"
@@ -141,7 +136,7 @@ fr:
       empty: "Le champ « %{attribute} » doit être rempli(e)"
       equal_to: "Le champ « %{attribute} » doit être égal à %{count}"
       even: "Le champ « %{attribute} » doit être pair"
-      exclusion: "Le champ « %{attribute} » n'est pas disponible"
+      exclusion: "Le/La « %{attribute} » n'est pas disponible"
       greater_than: "Le champ « %{attribute} » doit être supérieur à %{count}"
       greater_than_or_equal_to: "Le champ « %{attribute} » doit être supérieur ou égal à %{count}"
       inclusion: "Le champ « %{attribute} » n'est pas inclus(e) dans la liste"
@@ -151,8 +146,8 @@ fr:
       not_a_number: "Le champ « %{attribute} » n'est pas un nombre"
       not_an_integer: "Le champ « %{attribute} » doit être un nombre entier"
       odd: "Le champ « %{attribute} » doit être impair"
-      required: "Le champ « %{attribute} » doit exister"
-      taken: "Le champ « %{attribute} » n'est pas disponible"
+      required: "Le champ « %{attribute} » doit être rempli"
+      taken: "Le/La « %{attribute} » n'est pas disponible"
       too_young: "Tu dois avoir min %{age} ans pour pouvoir t'inscrire"
       too_long:
         one: "Le champ « %{attribute} » est trop long (pas plus d'un caractère)"
@@ -164,3 +159,8 @@ fr:
         one: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter un seul caractère)"
         other: "Le champ « %{attribute} » ne fait pas la bonne longueur (doit comporter %{count} caractères)"
       other_than: "Le champ « %{attribute} » doit être différent de %{count}"
+  mailers:
+    order:
+      pass:
+        one: Voici ton pass pour récupérer ton entrée le jour J.
+        other: Voici tes %{count} pass pour récupérer tes entrées le jour J.

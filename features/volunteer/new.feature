@@ -1,4 +1,3 @@
-@ignore
 Feature: I sign up as a volunteer
 
   So that I can be a volunteer for an event
@@ -8,17 +7,30 @@ Feature: I sign up as a volunteer
   Background:
     Given I am a confirmed user
     And I am signed in
+    Given a volunteering is available
 
   @javascript
   Scenario: I successfully sign up as a volunteer
     When I visit "/volunteers"
-    And I complete the volunteer form
-    Then I should see a flash with "Bienvenue chez nous !"
-    And I should see "Tu es inscrit comme bénévole."
-    And I should see "Tu as choisi comme secteur: Fun park"
-    And "john@smith.com" should receive an email
+    And I click the link "S'engager"
+    And I successfully submit my volunteering preferences
+    Then I should see the form to order my volunteer pass
+    When I successfully complete the form to order my volunteer pass
+    Then I should see the confirmation page for my volunteer order
 
-  Scenario: I am not signed up as a volunteer
-    When I visit "/connect/volunteers"
-    And I should not see "Tu es inscrit comme bénévole."
-    Then I should see the link to volunteer form
+  Scenario: I already sign up and complete my volunteer order
+    Given I already signed up as a volunteer and I completed my order
+    When I visit "/volunteers"
+    And I click the link "S'engager"
+    Then I should see the volunteering management page
+    And I should see a flash with "Tu es déjà inscrit !"
+
+  Scenario: I already signed up but I haven't completed my order
+    Given I already signed up as a volunteer
+    When I visit "/volunteers"
+    And I click the link "S'engager"
+    Then I should see the form to order my volunteer pass
+    And I should see a flash with "Tu peux continuer ta commande."
+
+
+  # TODO: I use a discount in the volunteer form

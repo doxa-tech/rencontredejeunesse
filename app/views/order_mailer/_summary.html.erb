@@ -1,0 +1,140 @@
+<!-- TODO -->
+
+<p>Statut de la commande: <%= t("order.statuses.#{@order.status}") %></p>
+
+<p>Date: <%= l @order.created_at, format: :normal %>
+
+<table align="center" class="container">
+  <tbody>
+    <tr>
+      <td>
+        <table class="row">
+          <tbody>
+            <tr>
+              <th class="small-12 large-6 columns first">
+                <table>
+                  <tr>
+                    <th>Article</th>
+                  </tr>
+                </table>
+              </th>
+              <th class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <th>Quantité</th>
+                  </tr>
+                </table>
+              </th>
+              <th class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <th>Prix/Article</th>
+                  </tr>
+                </table>
+              </th>
+              <th class="small-12 large-2 columns last">
+                <table>
+                  <tr>
+                    <th>Total</th>
+                  </tr>
+                </table>
+              </th>
+            </tr>
+            <% @order.order_items.each do |order_item| %>
+            <tr>
+              <td class="small-12 large-6 columns first">
+                <table>
+                  <tr>
+                    <td><%= order_item.item.name %></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <td><%= order_item.quantity %></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <td><%= "%.2f" % (order_item.item.price / ::Payment::FDIV) %></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns last">
+                <table>
+                  <tr>
+                    <td><%= "%.2f" % (order_item.item.price / ::Payment::FDIV)*order_item.quantity %></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <% end %>
+            <tr>
+              <td class="small-12 large-6 columns first">
+                <table>
+                  <tr>
+                    <td><%= "Frais de paiement" %></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <td>1</td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <td><%= "%.2f" % (@order.fee / ::Payment::FDIV) %></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns last">
+                <table>
+                  <tr>
+                    <td><%= "%.2f" % (@order.fee / ::Payment::FDIV) %></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td class="small-12 large-6 columns first">
+                <table>
+                  <tr>
+                    <td></td>
+                  </tr>
+                </table>
+              </td>
+              <td class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <td></td>
+                  </tr>
+                </table>
+              </td>
+              <th class="small-12 large-2 columns">
+                <table>
+                  <tr>
+                    <th>Total:</th>
+                  </tr>
+                </table>
+              </th>
+              <th class="small-12 large-2 columns last">
+                <table>
+                  <tr>
+                    <th><%= "%.2f" % (@order.amount / ::Payment::FDIV) %> (CHF)</th>
+                  </tr>
+                </table>
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>

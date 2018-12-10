@@ -3,97 +3,108 @@ require 'interfaces/pdf_invoice'
 
 RSpec.describe "Order", :type => :model do
 
-  it_should_behave_like "a PDF invoice responder" do
+  # TODO: test invoice deadline
+
+  it_should_behave_like "an invoice PDF responder" do
     let(:responder) do
-      order = create(:order)
-      order.pdf_adapter
+      order = create(:order_with_items)
+      order.invoice_pdf_adapter
     end
   end
 
   it "generates the IDs" do
     order = create(:order)
-    expect(order.human_id).to be_present
     expect(order.order_id).to be_present
   end
 
-  describe "payment method" do
+  describe "#assign_amount" do
 
-    it "assigns invoice as payment method when the amount is above the limit" do
-      participants = build_list(:rj_participant, 15, lodging: true)
-      product = create(:rj, participants: participants)
-      order = create(:order, product: product)
-      expect(order.payment_method).to eq "invoice"
+    it "saves the amount" do
+      order = create(:order_with_items)
+      expect(order.amount).not_to eq 0
     end
 
-    it "assigns postfinance as payment method when the amount is under the limit" do
-      order = create(:order)
-      expect(order.payment_method).to eq "postfinance"
-    end
-
-  end
-
-  describe "amount" do
-
-    it "doesn't calculate amount if a lump sum is used" do
-      order = build(:order)
-      order.lump_sum = 1000
-      order.save
-      expect(order.amount).to eq 1000
-    end
-
-    it "assigns the right amount on create" do
-      order = create(:order)
-      expect(order.amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
-    end
-
-    it "assigns the right amount on update" do
-      order = create(:order)
-      order.product.participants.first.lodging = true
-      order.save
-      expect(order.amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::LODGING_PRICE + Records::Rj::FEE) * 100
-    end
-
-    it "assigns the right number of entries when deleting a participant" do
-      participants = build_list(:rj_participant, 2)
-      product = create(:rj, participants: participants)
-      order = create(:order, product: product)
-      order.product.participants.first.mark_for_destruction
-      order.save
-      expect(order.amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
-    end
-
-  end
-
-  describe "discount" do
-
-    it "omits the fee if the amount is zero" do
-      order = build(:order)
-      discount = create(:discount, category: :free, number: 1, product: "Records::Rj")
+    it "sets the amount to zero if there is only the fee" do
+      order = create(:order_with_items)
+      discount = create(:discount, category: :free, number: 1, items: order.items)
       order.discount_code = discount.code
       order.save
       expect(order.amount).to eq 0
     end
 
-    it "doesn't apply an already used discount" do
-      order = build(:order)
-      discount = create(:discount, used: true)
+    it "sets the amount to zero if it is negative" do
+      order = create(:order_with_items)
+      discount = create(:discount, category: :money, reduction: order.amount + 1000)
       order.discount_code = discount.code
-      expect { order.save! }.to raise_error ActiveRecord::RecordInvalid
-    end
-
-    it "doesn't apply a discount with the wrong product" do
-      order = build(:order)
-      discount = create(:discount, product: "Records::Login")
-      order.discount_code = discount.code
-      expect { order.save! }.to raise_error ActiveRecord::RecordInvalid
+      order.save
+      expect(order.amount).to eq 0
     end
 
     it "saves the amount of the discount" do
-      order = build(:order)
-      discount = create(:discount, category: :free, number: 1, product: "Records::Rj")
+      order = create(:order_with_items)
+      discount = create(:discount, category: :money, reduction: 2000)
       order.discount_code = discount.code
       order.save
-      expect(order.discount_amount).to eq (Records::Rj.ENTRY_PRICE + Records::Rj::FEE) * 100
+      expect(order.discount_amount).to eq 2000
+    end
+
+  end
+
+  describe "#assign_payment" do
+
+    it "creates a main payment" do
+      order = create(:order_with_items)
+      expect(order.main_payment.amount).to eq order.amount
+      expect(order.main_payment.payment_type).to eq "main"
+    end
+
+    it "updates the main payment when there is no status" do
+      order = create(:order_with_items)
+      order.order_items << create(:order_item, order: order)
+      order.save!
+      expect(order.main_payment.amount).to eq order.amount
+    end
+
+    it "doesn't update the main when there is a status" do
+      order = create(:order_with_items)
+      paid_amount = order.amount
+      order.main_payment.update_attributes!(status: 9)
+      order.order_items << create(:order_item, order: order)
+      order.save!
+      expect(order.main_payment.amount).to eq paid_amount
+    end
+
+    it "updates order status" do
+      order = create(:order_with_items)
+      order.main_payment.update_attributes!(status: 9)
+      order.order_items << create(:order_item, order: order)
+      order.save!
+      expect(order.status).to eq "unpaid"
+    end
+
+  end
+  
+  context "discounts" do
+
+    it "apply a valid discount" do
+      order = create(:order_with_items)
+      discount = create(:discount)
+      order.discount_code = discount.code
+      expect(order.discount).to eq discount
+    end
+
+    it "doesn't apply an non valid code" do
+      order = create(:order_with_items)
+      order.discount_code = "FALS"
+      order.valid?
+      expect(order.errors[:discount_code]).not_to be_empty
+    end
+
+    it "doesn't apply an already used discount" do
+      order = create(:order_with_items)
+      discount = create(:discount, used: true)
+      order.discount_code = discount.code
+      expect { order.save! }.to raise_error ActiveRecord::RecordInvalid
     end
 
   end

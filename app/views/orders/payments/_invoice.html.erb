@@ -2,16 +2,17 @@
 
   <div class="row">
     <span></span>
-    <p class="text-infos">Pour un montant supérieur à 800 CHF, le paiement se fait par facture. Après avoir confirmé votre commande, une facture vous sera envoyé par email.</p>
+    <p class="text-infos">Pour un montant supérieur à 800 CHF, le paiement se fait par facture. Après avoir confirmé votre commande, une facture vous sera envoyée par email.</p>
   </div>
 
   <div class="row">
     <span></span>
-    <% if Date.current > Date.parse("02.05.2018") && !Rails.env.test? %>
-    <p><b>Il n'est plus possible de payer par facture !</b></p>
+    <% if is_invoice_available?(@order) %>
+    <%= link_to "Finaliser ma commande", orders_completion_path(@order.order_id), method: :patch, class: "button-link main-button connect-btn-light-dark-full" %>
     <% else %>
-    <%= link_to "Finaliser ma commande", complete_order_path(@order.order_id), method: :patch, class: "button-link main-button connect-btn-light-dark-full" %>
+    <p><b>Il n'est plus possible de payer par facture !</b></p>
     <% end %>
   </div>
 
 </div>
+

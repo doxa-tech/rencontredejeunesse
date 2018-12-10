@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   root to: "pages#home"
 
-  %w(login privacy application vision highlights).each do |page|
+  %w(login privacy application vision volunteers highlights).each do |page|
     get page, to: "pages##{page}"
   end
 
@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   post "contact", to: "pages#contact"
 
-  resources :volunteers, only: [:index, :create]
+  scope "order_bundles/:order_bundle_id" do
+    resources :option_orders, only: [:new, :create]
+  end
 
   #
   # Users
@@ -38,19 +40,20 @@ Rails.application.routes.draw do
   # Connect
   #
 
-
   namespace :connect do
 
     root to: "users#show"
     get "edit", to: "users#edit"
     patch "update", to: "users#update"
 
-    resources :orders, only: [:index, :show] do
+    resources :orders, only: [:index, :show, :invoice, :ticket] do
       get "pending", on: :collection
+      member do
+        get 'invoice'
+        get 'ticket'
+      end
     end
-    resources :volunteers, only: [:index] do
-      post "confirmation", on: :collection
-    end
+    resources :option_orders, only: [:index, :show]
 
   end
 
@@ -58,40 +61,36 @@ Rails.application.routes.draw do
   # ORDERS
   #
 
-  %w(confirmed canceled uncertain declined).each do |status|
-    get "orders/#{status}", to: "orders##{status}"
-  end
-
   resources :orders, only: :destroy do
-    patch "complete", on: :member
+    %w(confirmed canceled uncertain declined).each do |status|
+      get "#{status}", on: :collection
+    end
   end
-
-  # postfinance
-  post "orders/update", to: "orders#update", constraints: { subdomain: 'uapi' }
-
-
-
+    
   namespace :orders do
 
+    # postfinance
+    post "postfinance", to: "completion#postfinance", constraints: { subdomain: 'uapi' }
+
+    # complete free or invoice order
+    resources :completion, only: :update, controller: :completion
+
     # user update from order
-    scope ":id/users", constraints: { id: /\d*/ } do
-      get "edit", to: "users#edit", as: "users_edit"
-      patch "update", to: "users#update", as: "users_update"
+    scope ":id/user", constraints: { id: /\d*/ }, as: :user do
+      get "edit", to: "users#edit"
+      patch "update", to: "users#update"
     end
 
-    # sign in/up before order
-    scope ":product", constraints: { product: /login|rj/ } do
-      resources :users, only: [:new, :create] do
-        post "signin", on: :collection
+    scope "(:item)" do
+
+      # order a ticket for an event
+      resources :events, only: [:new, :create, :edit, :update] do
+        get "confirmation", on: :member
       end
-    end
 
-    resources :rj, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
-    end
+      # sign in/up before order
+      resources :users, only: [:new, :create]
 
-    resources :login, only: [:new, :create, :edit, :update] do
-      get :confirmation, on: :member
     end
 
   end
@@ -104,24 +103,22 @@ Rails.application.routes.draw do
 
     root to: "base#index"
 
-    resources :users, except: :show
     resources :volunteers, except: [:new, :create] do
       get "export", on: :collection
     end
+
+    resources :users, except: :show
     resources :discounts, except: [:edit, :update]
+    resources :payments, except: [:index, :new]
 
     namespace :orders do
 
-      resources :rj, only: [:index, :edit, :update, :show, :destroy] do
+      resources :events do
         get "export", on: :collection
-        get "users_export", on: :collection
-        get "participants_export", on: :collection
       end
-      resources :login, only: [:index, :edit, :update, :show, :destroy]
+      resources :checkin, only: [:index, :create, :update]
 
     end
-
-    resources :checkin, only: [:index, :create, :update, :show]
 
   end
 

@@ -1,0 +1,8 @@
+// Replace with your default Sass/SCSS file name:
+@scss application.css
+
+// Set the HTML title of the document:
+@title My Living Style Guide
+
+// Import all your style guide files
+@import **/*.lsg

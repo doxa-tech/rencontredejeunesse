@@ -1,0 +1,152 @@
+# Standard form
+
+## Import / Inculde
+
+Import the component's file with a relative path:
+
+```css
+&#64;import '../../../components/standard-form';
+```
+
+Include the style where needed in the stylesheet's page:
+
+``` css
+.page {
+  &#64;include standard-form();
+}
+```
+
+## basic
+
+Then start styling. This is the basic scaffold:
+
+```
+<div class="page">
+  <div class="content-wrap">
+    <div class="standard-form-row">
+      <div class="row">
+        <p>Left element</p>
+        <p>Right element</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Input
+
+```
+<div class="page">
+  <div class="content-wrap">
+    <div class="standard-form-row">
+      <div class="row">
+        <div>Simple input</div>
+        <input></input>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Textarea
+
+```
+<div class="page">
+  <div class="content-wrap">
+    <div class="standard-form-row">
+      <div class="row">
+        <span>Textarea</span>
+        <textarea>tpye your text here...</textarea>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Select
+
+```
+<div class="page">
+  <div class="content-wrap">
+    <div class="standard-form-row">
+      <div class="row">
+        <p>Select</p>
+        <div class="select">
+          <select>
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Links, button, submit
+
+```
+<div class="page">
+  <div class="content-wrap">
+    <div class="standard-form-row">
+      <div class="row">
+        <p>Standard button</p>
+        <button>A button</button>
+      </div>
+      <div class="row">
+        <p>.button-link</p>
+        <p class="button-link">A link that uses .button-link</p>
+      </div>
+      <div class="row">
+        <span>Submit input</span>
+        <input type="submit">
+      </div>
+      <div class="row">
+        <p>Sub button</p>
+        <button class="sub-button">A button</button>
+      </div>
+      <div class="row">
+        <p>Main button</p>
+        <button class="main-button">A button</button>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+## Row tight, error, misc
+
+```
+<div class="page">
+  <div class="content-wrap">
+    <div class="standard-form-row">
+      <div class="row">
+        <p>A label</p>
+        <p class="error-message">An error message</p>
+      </div>
+      <div class="row tight">
+        <p>A tight row</p>
+        <p>Any text</p>
+      </div>
+      <div class="row">
+        <p class="description">.description</p>
+        <p>Any text</p>
+      </div>
+      <div class="row">
+        <p class="text-infos">.text-infos</p>
+        <p>Any text</p>
+      </div>
+    </div>
+  </div>
+</div>
+```
+
+@scss {
+  @import 'components/standard-form';
+  .page {
+    @include standard-form();
+    min-height: auto;
+  }
+}

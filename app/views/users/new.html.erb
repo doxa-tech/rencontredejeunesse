@@ -8,22 +8,8 @@
 
       <%= render "error_messages", object: f.object %>
 
-      <%= render "users/fields/information", f: f %>
-
-      <div class="row">
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-      </div>
-
-      <div class="row">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-      </div>
-
-      <div class="row">
-        <span></span>
-        <%= f.submit "Créer mon compte", class: "button" %>
-      </div>
+      <%= render "users/fields/new", f: f %>
+      
     <% end %>
   </div>
 </div>

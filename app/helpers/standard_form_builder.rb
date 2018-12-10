@@ -6,9 +6,21 @@ class StandardFormBuilder < ActionView::Helpers::FormBuilder
       html_wrapper(message, field)
     end
 
-    def checkbox_with_errors(attribute, options = {})
-      field = self.check_box(attribute, options)
+    def checkbox_with_errors(attribute, options = {}, checked_value = "1", unchecked_value = "0")
+      field = self.check_box(attribute, options, checked_value, unchecked_value)
       message = error_message_for(attribute)
+      html_wrapper(message, field)
+    end
+
+    def date_select_with_errors(attribute, options = {}, html_options = {})
+      field = self.date_select(attribute, options, html_options)
+      message = error_message_for(attribute)
+      html_wrapper(message, field)
+    end
+
+    def collection_select_with_errors(attribute, collection, value_method, text_method, options = {}, html_options = {})
+      field = self.collection_select(attribute, collection, value_method, text_method, options, html_options)
+      message = error_message_for(attribute.to_s.chomp("_id"))
       html_wrapper(message, field)
     end
 

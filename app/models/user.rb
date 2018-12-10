@@ -4,7 +4,7 @@ class User < ApplicationRecord
 
   has_many :orders, dependent: :nullify
   has_many :comments, dependent: :destroy
-  has_one :volunteer, dependent: :destroy
+  has_many :volunteers, dependent: :destroy
   belongs_to :image, optional: true
 
   has_many :posts, dependent: :destroy
@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :firstname, presence: true, length: { maximum: 30 }
   validates :lastname, presence: true, length: { maximum: 30 }
   validates :email, format: { with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/ }
-  validates :gender, presence: true, inclusion: { in: genders.keys }
+  validates :gender, inclusion: { in: genders.keys }
   validate :uniqueness_of_email
 
   validates :phone, format: { with: /\A\+\d{11}\z/ }
@@ -33,7 +33,7 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :reset
 
   def completed_orders
-    Order.where(user_id: self.id).where(status: [8, 5, 9, 41]).order(:created_at)
+    Order.where(user_id: self.id).where(status: [:paid, :unpaid, :delivered]).order(:created_at)
   end
 
   def pending_orders

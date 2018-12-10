@@ -16,29 +16,32 @@ class OrderCompletion
   def common_steps
     @order.discount.update_attribute(:used, true) if @order.discount
     OrderMailer.confirmation(@order).deliver_now
-    Orders::Callbacks::Confirmation.send(@order.product_name, @order)
   end
 
   def postfinance
-    OrderMailer.pass(@order).deliver_now
+    send_pass
   end
 
   def free
-    @order.update_attribute(:status, statuses[@situation])
-    OrderMailer.pass(@order).deliver_now
+    @order.main_payment.update_attribute(:status, statuses[@situation])
+    send_pass
   end
 
   def invoice
-    @order.update_attribute(:status, statuses[@situation])
-    Admin::OrderMailer.invoice_registration(@order).deliver_now
+    @order.main_payment.update_attribute(:status, statuses[@situation])
+    OrderMailer.invoice_registration(@order).deliver_now
   end
 
   def get_situation
-    if @order.invoice?
+    if @order.main_payment.invoice?
       :invoice
     elsif @order.amount == 0
       :free
     end
+  end
+
+  def send_pass
+    OrderMailer.pass(@order).deliver_now if @order.order_type == :event
   end
 
   def statuses

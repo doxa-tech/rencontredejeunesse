@@ -5,33 +5,22 @@ module OrdersHelper
     return "https://e-payment.postfinance.ch/ncol/#{env}/orderstandard_utf8.asp"
   end
 
-  def lodging_price(record)
-    (record.man_lodging + record.woman_lodging) * Records::Rj::LODGING_PRICE
-  end
-
-  def entries_price_for_rj(record)
-    record.entries * Records::Rj.ENTRY_PRICE(record.created_at)
-  end
-
-  def entries_price_for_login(record)
-    record.entries * Records::Login::ENTRY_PRICE
-  end
-
-  def human_status(order)
-    case order.status
-    when 5
-      "En traitement"
-    when 8
-      "Remboursé"
-    when 41
-      "En attente du paiement"
-    when 9
-      "Payé"
+  def items
+    unless @items.present?
+      order_bundle = OrderBundle.find_by(key: params[:item])
+      @items = []
+      @items = order_bundle.items.active if order_bundle
     end
+    return @items
   end
 
-  def delivered_status(order)
-   order.delivered ? "Livré" : "Non livré"
+  def is_invoice_available?(order)
+    nearest_date = order.items.pluck(:valid_until).sort.first
+    if nearest_date && !Rails.env.test?
+      return Date.current < (nearest_date - 1.week)
+    else
+      return true
+    end
   end
 
 end

@@ -5,21 +5,6 @@ class Api::UsersController < Api::BaseController
     render json: { errors: ["User not found."] }, status: :not_found if @user.nil?
   end
 
-  def create
-    @user = User.new(user_params)
-    unless @user.save
-      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
-    end
-  end
-
-  def update
-    @user = User.find_by_remember_token!(params[:id])
-    @user.assign_attributes(user_params)
-    unless @user.save
-      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
-    end
-  end
-
   def signin
     @user = User.where("lower(email) = ?", params[:user][:email].strip.downcase).first
     unless @user && @user.authenticate(params[:user][:password])

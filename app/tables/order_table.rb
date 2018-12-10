@@ -1,7 +1,7 @@
 class OrderTable < BaseTable
 
   def attributes
-    [:id, :amount, :order_id, :payid, :status, { user: :name }, :created_at, :updated_at]
+    [:id, :amount, :order_id, :status, { user: :name }, :created_at, :updated_at]
   end
 
   def model

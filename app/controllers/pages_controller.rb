@@ -27,6 +27,10 @@ class PagesController < ApplicationController
     render "pages/rj/2019"
   end
 
+  def volunteers
+    @order_bundle = OrderBundle.find_by(key: "volunteers-rj-19")
+  end
+
   def contact
     @contact = Contact.new(contact_params)
     if @contact.valid?

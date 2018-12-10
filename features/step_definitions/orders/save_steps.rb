@@ -1,9 +1,11 @@
 Given("I have a pending order") do
-  @order = create(:order, pending: true, user: @user)
+  @order = create(:event_order, pending: true, user: @user)
 end
 
-When("I complete the Login form without submiting it") do
-  check "J'ai lu les conditions générales et les accepte."
+When("I complete the event form without submiting it") do
+  within(".registrants-wrap") do
+    select "Rencontre de jeunesse 2018 - WE", from: "Produit"
+  end
 end
 
 Then("I should see my pending order") do
@@ -18,5 +20,5 @@ Then("I should not see my pending order") do
 end
 
 Then("I should see the page to edit my order") do
-  expect(page).to have_content "Inscription"
+  expect(page).to have_content "Commande"
 end

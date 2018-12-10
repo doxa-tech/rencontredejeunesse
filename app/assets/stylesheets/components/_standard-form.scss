@@ -20,6 +20,7 @@
 
   div.content-wrap {
     flex: 2;
+    padding-bottom: 80px;
 
     h2 {
       padding: 60px 0 30px 0;
@@ -40,7 +41,7 @@
     }
 
     .standard-form-row {
-        .row {
+      .row {
         display: flex;
         flex-direction: row;
         padding: 10px 0;
@@ -112,7 +113,7 @@
           width: 120px;
           border-radius: 3px;
           overflow: hidden;
-          background: #fafafa url("img/icon-select.png") no-repeat 90% 50%;
+          background: #fafafa;
       
           select {
             padding: 5px 8px;
@@ -145,8 +146,9 @@
           width: 100%;
         }
         .text-infos {
-          border: 5px solid #deedff;
+          border: 5px solid #d9e9fa;
           padding: 4px 8px;
+          background: #deedff;
         }
       }
 

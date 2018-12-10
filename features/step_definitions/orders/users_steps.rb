@@ -1,9 +1,3 @@
-Given("I am on the order confirmation page") do
-  step "I am signed in"
-  @order = create(:order, product_name: :login, user: @user)
-  visit confirmation_orders_login_path(@order.order_id)
-end
-
 When("I update my account information") do
   fill_in "Prénom", with: "Albert"
   fill_in "Nom de famille", with: "Dupont"

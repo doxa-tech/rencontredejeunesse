@@ -1,26 +1,11 @@
 <% content_for :id, "orders-users-new" %>
 
 <div class="content-wrap">
-  <div class="signin standard-form-row">
 
+  <div class="signin">
     <h2>Se connecter</h2>
 
-    <%= form_for :session, url: signin_orders_users_path(product: params[:product]) do |f| %>
-
-      <div class="row">
-        <%= f.label :email %>
-        <%= f.text_field :email, placeholder: "Email" %>
-      </div>
-      <div class="row">
-        <%= f.label :password %>
-        <%= f.password_field :password, placeholder: "Mot de passe" %>
-      </div>
-      <div class="row">
-        <span></span>
-        <div><%= f.button class: "main-button" %></div>
-      </div>
-
-    <% end %>
+    <%= render "sessions/form", redirect_url: new_orders_event_path(item: params[:item]) %>
   </div>
 
   <div class="signup standard-form-row">
@@ -30,22 +15,7 @@
 
       <%= render "error_messages", object: f.object %>
 
-      <%= render "users/fields/information", f: f %>
-
-      <div class="row">
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-      </div>
-
-      <div class="row">
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
-      </div>
-
-      <div class="row">
-        <span></span>
-        <div><%= f.submit "Créer mon compte", class: "button main-button" %></div>
-      </div>
+      <%= render "users/fields/new", f: f %>
 
     <% end %>
   </div>

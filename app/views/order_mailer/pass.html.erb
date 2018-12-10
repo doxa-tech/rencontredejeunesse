@@ -1,9 +1,15 @@
 <h1>Ton pass pour l'événement</h1>
 
 <p>
-  Voici ton pass pour récupérer ton/tes entrées le jour J.<br>
+  <%= t("mailers.order.pass", count: @order.items.count) %><br>
   <b>Il est donc indispensable que tu l'imprimes et le prennes avec toi !</b>
 </p>
+
+<p>
+Tu peux également télécharger ce document dans ton compte client, depuis l'aperçu de la commande:
+<%= link_to connect_order_url(@order.order_id), connect_order_url(@order.order_id) %>
+</p>
+
 <p>
   Présente ce document au guichet et les entrées correspondant à ta commande te seront remises.
 </p>

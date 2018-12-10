@@ -1,4 +1,5 @@
 class Admin::VolunteersController < Admin::BaseController
+  # TODO
   load_and_authorize
 
   def index

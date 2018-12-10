@@ -20,7 +20,6 @@ class Admin::DiscountsController < Admin::BaseController
   end
 
   def destroy
-    @discount = Discount.find(params[:id])
     if @discount.used
       flash[:error] = "Code promotionel utilisé"
     else

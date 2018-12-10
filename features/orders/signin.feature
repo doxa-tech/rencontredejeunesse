@@ -31,5 +31,5 @@ Feature: Sign in/Sign up
 
   Scenario: I visit the order page without being signed in
     Given I am a visitor
-    When I visit "orders/login/new"
+    When I visit "orders/login/events/new"
     Then I should see the sign in and up page

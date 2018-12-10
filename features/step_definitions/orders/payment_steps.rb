@@ -9,7 +9,9 @@ When(/^I successfully pay online$/) do
 end
 
 When(/^I cancel the payment$/) do
-  find("#ncol_cancel").click
+  accept_alert do
+    find("#ncol_cancel").click
+  end
   click_button "OK"
 end
 

@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502120229) do
+ActiveRecord::Schema.define(version: 20181209215302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "adeia_action_permissions", id: :serial, force: :cascade do |t|
     t.integer "adeia_action_id"
@@ -98,7 +99,6 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.string "code"
     t.integer "reduction"
     t.integer "category"
-    t.string "product"
     t.integer "number"
     t.boolean "used", default: false
     t.datetime "created_at", null: false
@@ -106,10 +106,32 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.string "note"
   end
 
+  create_table "discounts_items", id: false, force: :cascade do |t|
+    t.bigint "discount_id"
+    t.bigint "item_id"
+    t.index ["discount_id"], name: "index_discounts_items_on_discount_id"
+    t.index ["item_id"], name: "index_discounts_items_on_item_id"
+  end
+
   create_table "images", id: :serial, force: :cascade do |t|
     t.string "file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "price"
+    t.integer "number"
+    t.boolean "active", default: true
+    t.date "valid_until"
+    t.date "valid_from"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "order_bundle_id"
+    t.index ["order_bundle_id"], name: "index_items_on_order_bundle_id"
   end
 
   create_table "markers", id: :serial, force: :cascade do |t|
@@ -119,51 +141,78 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.string "content"
   end
 
-  create_table "orders", id: :serial, force: :cascade do |t|
-    t.integer "amount"
-    t.string "order_id"
-    t.integer "status"
-    t.bigint "payid"
-    t.integer "user_id"
-    t.string "product_type"
-    t.integer "product_id"
+  create_table "option_orders", force: :cascade do |t|
+    t.bigint "user_id"
+    t.integer "sector"
+    t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "human_id"
-    t.integer "payment_method", default: 0
+    t.bigint "order_id"
+    t.bigint "order_bundle_id"
+    t.index ["order_bundle_id"], name: "index_option_orders_on_order_bundle_id"
+    t.index ["order_id"], name: "index_option_orders_on_order_id"
+    t.index ["user_id"], name: "index_option_orders_on_user_id"
+  end
+
+  create_table "order_bundles", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "key"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "order_type_id"
+    t.boolean "open", default: true
+    t.hstore "options"
+    t.index ["order_type_id"], name: "index_order_bundles_on_order_type_id"
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.bigint "order_id"
+    t.bigint "item_id"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_order_items_on_item_id"
+    t.index ["order_id"], name: "index_order_items_on_order_id"
+  end
+
+  create_table "order_types", force: :cascade do |t|
+    t.string "name"
+    t.bigint "supertype_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["supertype_id"], name: "index_order_types_on_supertype_id"
+  end
+
+  create_table "orders", id: :serial, force: :cascade do |t|
+    t.integer "amount", default: 0
+    t.bigint "order_id"
+    t.integer "status"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.text "note"
     t.boolean "pending", default: false
-    t.integer "case", default: 0
     t.bigint "discount_id"
     t.integer "discount_amount", default: 0
-    t.boolean "delivered", default: false
+    t.boolean "limited", default: false
+    t.string "type"
     t.index ["discount_id"], name: "index_orders_on_discount_id"
-    t.index ["product_type", "product_id"], name: "index_orders_on_product_type_and_product_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
-  create_table "participants_login", force: :cascade do |t|
-    t.integer "gender"
-    t.string "firstname"
-    t.string "lastname"
-    t.integer "age"
-    t.bigint "records_login_id"
+  create_table "payments", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "method"
+    t.datetime "time"
+    t.integer "status"
+    t.bigint "payid"
+    t.bigint "order_id"
+    t.integer "payment_type"
+    t.bigint "payment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "email"
-    t.index ["records_login_id"], name: "index_participants_login_on_records_login_id"
-  end
-
-  create_table "participants_rj", id: :serial, force: :cascade do |t|
-    t.string "firstname"
-    t.string "lastname"
-    t.integer "records_rj_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "gender"
-    t.date "birthday"
-    t.boolean "lodging", default: false
-    t.index ["records_rj_id"], name: "index_participants_rj_on_records_rj_id"
+    t.index ["order_id"], name: "index_payments_on_order_id"
   end
 
   create_table "posts", id: :serial, force: :cascade do |t|
@@ -176,20 +225,19 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "records_login", id: :serial, force: :cascade do |t|
-    t.integer "entries"
-    t.string "group"
+  create_table "registrants", force: :cascade do |t|
+    t.integer "gender"
+    t.string "firstname"
+    t.string "lastname"
+    t.date "birthday"
+    t.bigint "item_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "records_rj", id: :serial, force: :cascade do |t|
-    t.integer "entries"
-    t.string "group"
-    t.integer "woman_lodging"
-    t.integer "man_lodging"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "ticket_id"
+    t.boolean "delivered", default: false
+    t.index ["item_id"], name: "index_registrants_on_item_id"
+    t.index ["order_id"], name: "index_registrants_on_order_id"
   end
 
   create_table "rpush_apps", force: :cascade do |t|
@@ -286,18 +334,6 @@ ActiveRecord::Schema.define(version: 20180502120229) do
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 
-  create_table "volunteers", force: :cascade do |t|
-    t.bigint "user_id"
-    t.integer "sector"
-    t.text "comment"
-    t.integer "year"
-    t.boolean "confirmed", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "tshirt_size"
-    t.index ["user_id"], name: "index_volunteers_on_user_id"
-  end
-
   add_foreign_key "adeia_action_permissions", "adeia_actions"
   add_foreign_key "adeia_action_permissions", "adeia_permissions"
   add_foreign_key "adeia_group_users", "adeia_groups"
@@ -306,13 +342,20 @@ ActiveRecord::Schema.define(version: 20180502120229) do
   add_foreign_key "adeia_tokens", "adeia_permissions"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "items", "order_bundles"
+  add_foreign_key "option_orders", "order_bundles"
+  add_foreign_key "option_orders", "orders"
+  add_foreign_key "option_orders", "users"
+  add_foreign_key "order_bundles", "order_types"
+  add_foreign_key "order_items", "items"
+  add_foreign_key "order_items", "orders"
   add_foreign_key "orders", "discounts"
   add_foreign_key "orders", "users"
-  add_foreign_key "participants_login", "records_login"
-  add_foreign_key "participants_rj", "records_rj"
+  add_foreign_key "payments", "orders"
   add_foreign_key "posts", "images"
   add_foreign_key "posts", "users"
+  add_foreign_key "registrants", "items"
+  add_foreign_key "registrants", "orders"
   add_foreign_key "testimonies", "users"
   add_foreign_key "users", "images"
-  add_foreign_key "volunteers", "users"
 end
