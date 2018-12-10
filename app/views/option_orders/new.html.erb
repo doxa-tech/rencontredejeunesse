@@ -1,5 +1,11 @@
-<% if signed_in? %>
+<% content_for :id, "option_order-new" %>
 
+<div class="content-wrap">
+
+<h1>Inscription bénévole</h1>
+
+<% if signed_in? %>
+  
   <%= render 'form' %>
 
 <% else %>
@@ -7,3 +13,6 @@
   <%= render "sessions/form", redirect_url: new_option_order_path(params[:order_bundle_id]) %>
 
 <% end %>
+</div>
+
+<%= render "layouts/headers/application" %>
