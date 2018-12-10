@@ -6,6 +6,8 @@
     title: "Commandes en cours" %>
 <% end %>
 
+<div class="connect-list-view">
+
 <% if @orders.empty?%>
 
   <p>Aucune commande en cours.</p>
@@ -14,9 +16,12 @@
 
 <% @orders.each do |order| %>
 
-  <%= order.order_id %> /
-  <%= l order.created_at, format: :pretty_date %> /
-  <%= link_to "Continuer", edit_orders_event_path(order.order_id) %>
-  <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
+  <div class="item">
+    Commande du <%= l order.created_at, format: :pretty_date %>
+    <%= link_to "Continuer", edit_orders_event_path(order.order_id) %>
+    <%= link_to "Annuler", order_path(order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" } %>
+  </div>
 
 <% end %>
+
+</div>
