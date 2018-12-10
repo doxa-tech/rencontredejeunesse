@@ -51,7 +51,11 @@ module Adapters
         @time = time.nil? ? "-" : time.strftime("%d.%m.%Y")
         @_amount = amount / ::Payment::FDIV
         @amount = '%.2f' % @_amount
-        @payment_type = "#{method} (#{I18n.t('payment.type.'+ payment_type).downcase})"
+        if payment_type.nil?
+          @payment_type = method
+        else
+          @payment_type = "#{method} (#{I18n.t('payment.type.'+ payment_type).downcase})"
+        end
       end
     end
 
@@ -66,10 +70,15 @@ module Adapters
     end
 
     def payments
-      @order.payments.where("status=?", 9).to_a.map do |payment|
+      payments = @order.payments.where("status=?", 9).to_a.map do |payment|
         Payment.new(payment.amount, payment.time, 
                     payment.payment_type, payment.method)
       end
+      if @order.discount_amount > 0
+        payments << Payment.new(@order.discount_amount, @order.created_at,
+          nil, "Réduction")
+      end
+      payments
     end
 
     def recipient_adress
@@ -92,7 +101,7 @@ module Adapters
     end
 
     def reference_person
-      @order.user.full_name
+      @order.user.full_name.truncate(30)
     end
 
     def shipping_type
