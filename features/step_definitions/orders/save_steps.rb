@@ -11,12 +11,12 @@ end
 Then("I should see my pending order") do
   pending_order = Order.last
   expect(page).to have_content "Commandes en cours"
-  expect(page).to have_content pending_order.order_id unless pending_order.nil?
+  expect(page).to have_content (I18n.l pending_order.created_at, format: :pretty_date) unless pending_order.nil?
 end
 
 Then("I should not see my pending order") do
   pending_order = Order.last
-  expect(page).not_to have_content pending_order.order_id unless pending_order.nil?
+  expect(page).not_to have_content (I18n.l pending_order.created_at, format: :pretty_date) unless pending_order.nil?
 end
 
 Then("I should see the page to edit my order") do

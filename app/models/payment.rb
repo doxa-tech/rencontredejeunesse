@@ -34,9 +34,12 @@ class Payment < ApplicationRecord
   end
 
   def order_status
+    payments = self.order.payments
     if self.order.delivered?
       "delivered"
-    elsif self.order.payments.where(status: 9).inject(0) { |sum, obj| sum + obj.amount } == self.order.amount
+    elsif payments.find { |p| p.payment_type == "main" }.status == nil
+      nil
+    elsif payments.select{ |p| p.status == 9 }.inject(0) { |sum, obj| sum + obj.amount } == self.order.amount
       "paid"
     else
       "unpaid"
