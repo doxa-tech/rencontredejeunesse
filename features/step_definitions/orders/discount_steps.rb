@@ -1,10 +1,11 @@
 Given("I am on the confirmation page with an amount of zero") do
-  @order = create(:event_order, user: @user, registrants: [])
-  @order.registrants = [create(:registrant, order: @order, item: @item)]
+  registrant = build(:registrant, item: @item, order: nil)
+  @order = create(:event_order, user: @user, registrants: [registrant])
   @discount = create(:discount, category: :free, number: 1, items: [@item])
   @order.discount = @discount
   @order.save!
   visit confirmation_orders_event_path(@order.order_id)
+  save_and_open_page
 end
 
 When("I fill in a valid discount") do

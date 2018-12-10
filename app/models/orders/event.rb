@@ -2,6 +2,7 @@ module Orders
 
   class Event < Order
     
+    validates :registrants, presence: true
     validate :number_of_registrants, if: :limited
 
     def order_items

@@ -62,6 +62,8 @@ fr:
           attributes:
             conditions:
               accepted: "Veuillez accepter les conditions générales"
+            registrants:
+              blank: "Vous devez ajouter au moins une entrée à votre commande"
   order:
     statuses:
       paid: "Payé"

@@ -22,7 +22,7 @@ module Orders
     describe "#calculate_amount" do
 
       it "assigns the right amount on create" do
-        order = create(:event_order, registrants: [])
+        order = build(:event_order, registrants: [])
         item = create(:item_with_bundle, price: 10000)
         order.registrants = create_list(:registrant, 2, item: item, order: order)
         order.save!

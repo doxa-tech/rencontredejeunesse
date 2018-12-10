@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe "BundleValidator" do
-  let!(:order) { create(:event_order, registrants: []) }
+  let!(:order) { build(:event_order, registrants: []) }
 
   describe "#presence_of_bundle" do
         
