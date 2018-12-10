@@ -27,6 +27,11 @@ RSpec.describe "Payment", :type => :model do
 
   describe "#order_status" do
 
+    it "return nil if the payment has not a status yet" do
+      order = create(:event_order)
+      expect(order.main_payment.order_status).to be_nil
+    end
+
     it "return paid if the valid payments equal the order amount" do
       order = create(:event_order)
       order.main_payment.update_attributes!(status: 1)
@@ -43,7 +48,8 @@ RSpec.describe "Payment", :type => :model do
     end
 
     it "returns delivered if already delivered" do
-      order = create(:event_order, status: :delivered)
+      order = create(:event_order, status: "delivered")
+      order.main_payment.update_attributes!(status: 9)
       expect(order.main_payment.order_status).to eq "delivered"
     end
 
