@@ -13,6 +13,7 @@
     width: 100%;
     max-width: $main-width;
     padding: 0 $main-padding + $sub-padding;
+    padding-bottom: 40px;
     margin: auto;
 
     display: flex;
@@ -30,37 +31,9 @@
       font-size: $large-text;
 
       &.last {
-        padding-bottom: 50px;
+        padding-bottom: 30px;
         padding-top: 50px;
         font-weight: bold;
-        text-align: center;
-        position: relative;
-
-        &::after {
-          content: "";
-          position: absolute;
-          left: 40%;
-          bottom: 15px;
-          height: 20px;
-          width: 290px;
-          z-index: 1;
-
-          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+66,131ec7+100 */
-          background: #1e5799; /* Old browsers */
-          background: -moz-linear-gradient(45deg, #1e5799 66%, #131ec7 100%); /* FF3.6-15 */
-          background: -webkit-linear-gradient(45deg, #1e5799 66%,#131ec7 100%); /* Chrome10-25,Safari5.1-6 */
-          background: linear-gradient(45deg, #1e5799 66%,#131ec7 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#131ec7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-        }
-
-        &:hover::after {
-          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#131ec7+0,1e5799+34 */
-          background: rgb(19,30,199); /* Old browsers */
-          background: -moz-linear-gradient(-45deg, rgba(19,30,199,1) 0%, rgba(30,87,153,1) 34%); /* FF3.6-15 */
-          background: -webkit-linear-gradient(-45deg, rgba(19,30,199,1) 0%,rgba(30,87,153,1) 34%); /* Chrome10-25,Safari5.1-6 */
-          background: linear-gradient(135deg, rgba(19,30,199,1) 0%,rgba(30,87,153,1) 34%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131ec7', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */        animation-name: register-login-button;
-        }
       }
     }
 
