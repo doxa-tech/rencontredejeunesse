@@ -10,5 +10,8 @@
   padding: $logo-burger-height 0 0 0;
   
   .content-wrap {
+    a {
+      text-transform: uppercase;
+    }
   }
 }
