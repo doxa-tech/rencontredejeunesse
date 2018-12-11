@@ -1,17 +1,143 @@
 @import '../../components/variables';
 @import '../../components/logo-burger-color';
-@import '../../components/standard-form';
 
 @include logo-burger-color(#178daf, ".orders-confirmed");
 
 
 #container.orders-confirmed {
-  @include standard-form();
   padding: $logo-burger-height 0 0 0;
-  
-  .content-wrap {
-    a {
-      text-transform: uppercase;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  section {
+    padding: 0 $blank-space 0 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+
+    div.dino {
+      flex-grow: 1;
+      text-align: right;
+
+      &:before {
+        flex: 1;
+        content: "";
+      }
+
+      img {
+        opacity: .5;
+        animation: bounce 1s 1s infinite alternate;
+        -webkit-animation: bounce 1s 1s infinite alternate;
+        transition: opacity 1s;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      @keyframes bounce {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(-15px);
+        }
+      }
+      @-webkit-keyframes bounce {
+        from {
+          transform: translateY(0px);
+        }
+        to {
+          transform: translateY(-15px);
+        }
+      }
+
+    }
+
+    div.text {
+      flex-grow: 1;
+
+      &:after {
+        flex: 1;
+        content: "";
+      }
+
+      p a {
+        border-bottom: 1px dashed rgb(138, 138, 138);
+
+        &:hover {
+          border-bottom: 1px dashed rgb(26, 26, 26);
+          background-color: #f0f0f0;
+        }
+      }
+
+      .text-container {
+        max-width: $main-width * 3/4;
+        padding: 60px $sub-padding 20px $sub-padding;
+        flex-grow: 1;
+
+        h1 {
+          font-size: $sub-title;
+        }
+        p {
+          font-size: $large-text;
+          padding: 0 0 10px 0;
+        }
+        .social {
+          flex: 1;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          padding: 50px;
+          svg {
+            width: 40px;
+            margin: 20px;
+
+            path, rect {
+              fill: #ccc !important;
+            }
+
+            &:hover path, &:hover rect {
+              fill: rgb(153, 153, 153) !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    section {
+      flex-direction: column-reverse !important;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+
+      div.dino {
+        text-align: center;
+
+        img {
+          width: 100px;
+        }
+      }
+
+      div.text {
+        .text-container {
+          padding: 40px 5px 20px 5px;
+          text-align: center;
+
+          .social {
+            padding: 10px;
+          }
+        }
+      }
     }
   }
 }

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get page, to: "pages##{page}"
   end
 
-  get "2018", to: redirect('/2019')
+  get "2018", to: "pages#rj2018"# redirect('/2019')
   get "2019", to: "pages#rj2019"
 
   resources :sessions, only: :create
