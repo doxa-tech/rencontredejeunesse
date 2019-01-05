@@ -1,0 +1,35 @@
+var vid_wrapper = document.getElementById("vid-wrapper");
+var btn = document.getElementById("btn");
+var slogan = document.getElementById("slogan");
+
+var video = document.createElement('video');
+video.loop = "loop";
+video.autoplay = "autoplay";
+video.muted = "muted";
+var source = document.createElement('source');
+source.src = '<%= video_path("Devoilement_theme_FB.mp4") %>';
+source.type = 'video/mp4';
+video.appendChild(source);
+vid_wrapper.appendChild(video);
+
+btn.onclick = function() {
+  playPause();
+}
+
+video.onplay = function() {
+    slogan.style.display = "none";
+    btn.style.display = "block";
+    btn.classList.add("playing");
+    console.log("can play!");
+};
+
+// Pause and play the video, and change the button text
+function playPause() {
+  if (video.paused) {
+    video.play();
+    btn.classList.add("playing");
+  } else {
+    video.pause();
+    btn.classList.remove("playing");
+  }
+}
