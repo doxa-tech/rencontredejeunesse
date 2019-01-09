@@ -51,7 +51,8 @@
     transform: translate(-50%, -50%);
 
     img {
-      max-width: 400px;
+      width: 400px;
+      max-width: 100%;
       animation: wheel 10s linear infinite;
     }
   }
