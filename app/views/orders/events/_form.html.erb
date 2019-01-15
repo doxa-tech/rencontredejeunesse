@@ -16,7 +16,7 @@
       <p>Commande ci-dessous 1 ou plusieurs entrées pour l'événement. Remplis pour chaque entrée les informations requises.</p>
     </div>
   </div>
-  <%= render "registrants", parent_f: f, registrants: @order.registrants %>
+  <%= render "registrants", parent_f: f, registrants: @order.registrants, limited: @order.limited %>
 
   <div class="standard-form-row">
 

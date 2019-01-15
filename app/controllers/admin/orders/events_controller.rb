@@ -3,8 +3,9 @@ class Admin::Orders::EventsController < Admin::BaseController
   load_and_authorize(model: ::Orders::Event)
 
   def index
-    @keys = Item.active.pluck(:key)
-    @events = @events.joins(registrants: :item).where(registrants: { items: { key: params[:key] }}) if params[:key]
+    @keys = OrderBundle.pluck(:key)
+    @bundle = OrderBundle.find_by(key: params[:key])
+    @events = @events.joins(:tickets).where(items: { order_bundle_id: @bundle.id }).distinct if @bundle
     @count = @events.inject(0) { |sum, o| sum += o.registrants.size }
     @table = OrderTable.new(self, @events, search: true)
     @table.respond

@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   belongs_to :discount, optional: true
 
   has_many :order_items, inverse_of: :order
-  has_many :items, through: :order_items, dependent: :destroy
+  has_many :items, through: :order_items, source: :item, dependent: :destroy
   
   has_many :registrants, inverse_of: :order do
     def build_from_user(user)
