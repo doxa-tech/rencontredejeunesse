@@ -4,6 +4,7 @@ class OptionOrder < ApplicationRecord
   belongs_to :user
   belongs_to :order_bundle
   belongs_to :order, autosave: true
+  belongs_to :completed_form, class_name: "Form::CompletedForm"
 
   enum sector: self.SECTORS_TO_ENUM
 

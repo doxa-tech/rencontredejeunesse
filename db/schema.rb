@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181209215302) do
+ActiveRecord::Schema.define(version: 20190116212229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,22 @@ ActiveRecord::Schema.define(version: 20181209215302) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "completed_fields", force: :cascade do |t|
+    t.bigint "completed_form_id"
+    t.bigint "field_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["completed_form_id"], name: "index_completed_fields_on_completed_form_id"
+    t.index ["field_id"], name: "index_completed_fields_on_field_id"
+  end
+
+  create_table "completed_forms", force: :cascade do |t|
+    t.bigint "form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["form_id"], name: "index_completed_forms_on_form_id"
+  end
+
   create_table "devices", force: :cascade do |t|
     t.string "token"
     t.integer "platform"
@@ -111,6 +127,22 @@ ActiveRecord::Schema.define(version: 20181209215302) do
     t.bigint "item_id"
     t.index ["discount_id"], name: "index_discounts_items_on_discount_id"
     t.index ["item_id"], name: "index_discounts_items_on_item_id"
+  end
+
+  create_table "fields", force: :cascade do |t|
+    t.string "name"
+    t.integer "field_type"
+    t.boolean "required"
+    t.bigint "form_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["form_id"], name: "index_fields_on_form_id"
+  end
+
+  create_table "forms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "images", id: :serial, force: :cascade do |t|
@@ -149,6 +181,8 @@ ActiveRecord::Schema.define(version: 20181209215302) do
     t.datetime "updated_at", null: false
     t.bigint "order_id"
     t.bigint "order_bundle_id"
+    t.bigint "completed_form_id"
+    t.index ["completed_form_id"], name: "index_option_orders_on_completed_form_id"
     t.index ["order_bundle_id"], name: "index_option_orders_on_order_bundle_id"
     t.index ["order_id"], name: "index_option_orders_on_order_id"
     t.index ["user_id"], name: "index_option_orders_on_user_id"
@@ -181,6 +215,8 @@ ActiveRecord::Schema.define(version: 20181209215302) do
     t.bigint "supertype_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "form_id"
+    t.index ["form_id"], name: "index_order_types_on_form_id"
     t.index ["supertype_id"], name: "index_order_types_on_supertype_id"
   end
 
@@ -342,13 +378,19 @@ ActiveRecord::Schema.define(version: 20181209215302) do
   add_foreign_key "adeia_tokens", "adeia_permissions"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
+  add_foreign_key "completed_fields", "completed_forms"
+  add_foreign_key "completed_fields", "fields"
+  add_foreign_key "completed_forms", "forms"
+  add_foreign_key "fields", "forms"
   add_foreign_key "items", "order_bundles"
+  add_foreign_key "option_orders", "completed_forms"
   add_foreign_key "option_orders", "order_bundles"
   add_foreign_key "option_orders", "orders"
   add_foreign_key "option_orders", "users"
   add_foreign_key "order_bundles", "order_types"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
+  add_foreign_key "order_types", "forms"
   add_foreign_key "orders", "discounts"
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"

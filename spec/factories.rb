@@ -36,6 +36,7 @@ FactoryBot.define do
 
   factory :order_type do 
     name { "event" }
+    form
   end
 
   factory :option_order do
@@ -109,6 +110,20 @@ FactoryBot.define do
       registrants { build_list(:registrant, number, order: nil) }
     end
 
+  end
+
+  factory :form do
+    name { "volunteer" }
+    after(:create) do |form|
+      create(:field, name: "comment", required: true, form: form)
+    end
+  end
+
+  factory :field, class: "Form::Field" do
+    name { "name" }
+    required { true }
+    field_type { "text" }
+    form
   end
 
 end
