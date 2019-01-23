@@ -27,6 +27,10 @@ class PagesController < ApplicationController
     render "pages/rj/2019"
   end
 
+  def resources
+    render "pages/resources"
+  end
+
   def volunteers
     @order_bundle = OrderBundle.find_by(key: "volunteers-rj-19")
   end
