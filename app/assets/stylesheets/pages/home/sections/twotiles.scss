@@ -44,6 +44,13 @@
         transition: all .5s;
         z-index: 1;
       }
+    }
+
+    div.highlights {
+      @extend ._common-tiles;
+      color: #fff;
+      background-image: image-url("home/twotiles/highlights.jpg");
+      font-size: $medium-title;
 
       &:hover {
         background-position: 46% 29%;
@@ -52,13 +59,6 @@
           background-color: rgba($color: #fff, $alpha: .10);
         }
       }
-    }
-
-    div.highlights {
-      @extend ._common-tiles;
-      color: #fff;
-      background-image: image-url("home/twotiles/highlights.jpg");
-      font-size: $medium-title;
     }
 
     div.next {
@@ -84,13 +84,15 @@
         }
 
         &:first-child {
+          background: image-url("rj/2019/home/background.svg"); 
+          color: #fff;
           align-items: flex-end;
-          // border-bottom: 2px solid #000;
-          background: rgb(232,232,232);
-          background: -moz-linear-gradient(-45deg, rgba(232,232,232,1) 0%, rgba(255,255,255,1) 100%);
-          background: -webkit-linear-gradient(-45deg, rgba(232,232,232,1) 0%,rgba(255,255,255,1) 100%);
-          background: linear-gradient(135deg, rgba(232,232,232,1) 0%,rgba(255,255,255,1) 100%);
-          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e8e8e8', endColorstr='#ffffff',GradientType=1 );
+
+          &:hover {
+            & .mask {
+              background-color: #ff0000;
+            }
+          }
         }
 
         &:nth-child(2) {
@@ -104,6 +106,14 @@
           background: -webkit-linear-gradient(-45deg, rgba(255,255,255,1) 0%,rgba(232,232,232,1) 100%);
           background: linear-gradient(135deg, rgba(255,255,255,1) 0%,rgba(232,232,232,1) 100%);
           filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=1 );
+        
+          &:hover {
+            background-position: 46% 29%;
+
+            & .mask {
+              background-color: rgba($color: #fff, $alpha: .10);
+            }
+          }
         }
 
         &.login {

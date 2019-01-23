@@ -1,0 +1,116 @@
+@import "../../../components/variables";
+
+#container.rj-2019 section#welcome {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: image-url("rj/2019/home/background.svg"); 
+
+  .section-container {
+    max-width: $main-width;
+    padding: $logo-burger-height $main-padding 0 $main-padding;
+    position: relative;
+
+    .text {
+      text-align: center;
+      text-transform: uppercase;
+      font-family: monument, sans-serif;
+      margin: 45px 0 70px 0;
+      line-height: 4em;
+
+      p {
+        line-height: 1.1em;
+      }
+
+      p:nth-of-type(1) {
+        font-size: 5em;
+      }
+      p:nth-of-type(2) {
+        font-size: 4.2em;
+      }
+      p:nth-of-type(3) {
+        font-size: 4.6em;
+      }
+      p:nth-of-type(4) {
+        font-size: 2.46em;
+      }
+      p:nth-of-type(5) {
+        font-size: 3.7em;
+      }
+      p:nth-of-type(6) {
+        font-size: 4.1em;
+      }
+    }
+
+    .video {
+      margin: 0 0 80px 0;
+      display: flex;
+      justify-content: center;
+      position: relative;
+
+      video {
+        max-width: 600px;
+      }
+
+      div.brush-0 {
+        svg {
+          position: absolute;
+          width: 250px;
+          bottom: -180px;
+          right: -150px;
+
+          path {
+            fill: white;
+          }
+        }
+      }
+    }
+
+    div.brush-1 {
+      position: absolute;
+      width: 300px;
+      left: -150px;
+      top: 200px;
+
+      path {
+        fill: white;
+      }
+    }
+    div.brush-2 {
+      position: absolute;
+      height: 350px;
+      left: 250px;
+      top: 130px;
+      transform: rotate(-40deg);
+
+      path {
+        fill: white;
+      }
+    }
+    div.brush-3 {
+      position: absolute;
+      height: 220px;
+      right: 130px;
+      top: 210px;
+      transform: rotate(25deg);
+
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      padding: 0 !important;
+      margin-top: $logo-burger-height;
+
+      .text {
+        font-size: 6px !important;
+      }
+    }
+  } 
+}

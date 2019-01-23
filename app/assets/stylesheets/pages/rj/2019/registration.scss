@@ -1,0 +1,151 @@
+@import "../../../components/variables";
+
+#container.rj-2019 section#registration {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  color: black;
+  background: #ff0000;
+
+  .section-container {
+    max-width: $main-width;
+    padding: $logo-burger-height $main-padding 80px $main-padding;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+
+    div.title {
+      flex: 1;
+      font-size: $medium-title;
+      text-transform: uppercase;
+      padding: 0 0 20px 0;
+    }
+
+    div.right {
+      flex: 2;
+
+      .text {
+        padding: 4px 0 50px 0;
+        font-size: $normal-text;
+      }
+
+      .offers {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        p.price {
+          font-size: 3.5em;
+        }
+        p.date {
+          text-transform: uppercase;
+          font-size: $small-text;
+          padding: 0 0 30px 0;
+        }
+        a, button {
+          text-transform: uppercase;
+          color: #ff0000;
+          background: black;
+          padding: 7px 16px;
+          font-size: $normal-text;
+          transition: .3s all;
+          border: 3px solid black;
+          display: inline-block;
+
+          &:disabled {
+            background: #ff6b6b;
+            border: 3px solid #ff6b6b;
+            color: #ffc1c1;
+          }
+
+          &:hover:not(:disabled) {
+            color: black;
+            background: #ff0000;
+          }
+        }
+      }
+
+      .faq {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 160px 0 0 0;
+        font-size: $normal-text;
+
+        a {
+          padding: 8px 50px;
+          border: 2px solid black;
+          transition: .3s all;
+
+          &:hover {
+            background: black;
+            color: #ff0000;
+          }
+        }
+
+        p {
+          flex: 1;
+          padding: 0 0 0 20px;
+        }
+      }
+    }
+
+    div.brush-1 {
+      position: absolute;
+      width: 500px;
+      left: -300px;
+      bottom: -180px;
+
+      path {
+        fill: white;
+      }
+    }
+  }
+  div.brush-2 {
+    position: absolute;
+    height: 500px;
+    right: -50px;
+    bottom: -600px;
+
+    path {
+      fill: white;
+    }
+  }
+
+  .banner {
+    height: 400px;
+    width: 100%;
+    background: image-url("rj/2019/registration/banner.jpg");
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      flex-direction: column !important;
+
+      div.right {
+        .offers {
+          flex-direction: column !important;
+        }
+
+        .faq {
+          flex-direction: column-reverse !important;
+          align-items: flex-start !important;
+          padding: 100px 0 0 0 !important;
+
+          p {
+            padding: 0 0 10px 0 !important;
+          }
+        }
+      }
+    }
+  } 
+}
