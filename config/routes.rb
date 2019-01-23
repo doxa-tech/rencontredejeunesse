@@ -116,6 +116,7 @@ Rails.application.routes.draw do
       resources :events do
         get "export", on: :collection
       end
+      resources :registrants, only: [:index, :show, :update]
       resources :checkin, only: [:index, :create, :update]
 
     end

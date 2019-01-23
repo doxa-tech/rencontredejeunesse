@@ -8,8 +8,8 @@
 
   <%= form_tag admin_orders_checkin_index_path, id: "checkin-form" do %>
 
-    <%= label_tag :order_id, "Entrez le numéro de commande" %>
-    <%= text_field_tag :order_id, nil, maxlength: "14", autofocus: true %>
+    <%= label_tag :ticket_id, "Entrez le numéro de commande" %>
+    <%= text_field_tag :ticket_id, nil, maxlength: "14", autofocus: true %>
 
     <%= submit_tag "Afficher", class: "button" %>
 
