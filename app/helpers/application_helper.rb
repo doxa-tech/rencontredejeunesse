@@ -22,8 +22,12 @@ module ApplicationHelper
 
   def link_to_order(text, start:, term:, item:)
     span = Date.parse(start)..Date.parse(term)
-    css_class = "disabled" unless span === Date.current
-    link_to text, new_orders_event_path(item: item), class: css_class
+    link = new_orders_event_path(item: item)
+    unless span === Date.current
+      css_class = "disabled" 
+      link = "#"
+    end
+    link_to text, link, class: css_class
   end
 
 end
