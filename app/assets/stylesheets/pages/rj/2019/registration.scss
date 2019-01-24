@@ -39,6 +39,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        padding: 0 0 160px 0;
 
         p.price {
           font-size: 3.5em;
@@ -72,13 +73,17 @@
         }
       }
 
-      .faq {
+      .more {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
-        padding: 160px 0 0 0;
+        align-items: flex-start;
         font-size: $normal-text;
+
+        h3 {
+          font-family: monument, sans-serif;
+          text-transform: uppercase;
+        }
 
         a {
           padding: 8px 50px;
@@ -93,7 +98,8 @@
 
         p {
           flex: 1;
-          padding: 0 0 0 20px;
+          padding: 0 10px 0 0;
+          font-family: monument-regular, sans-serif;
         }
       }
     }
@@ -135,12 +141,12 @@
       div.right {
         .offers {
           flex-direction: column !important;
+          padding: 0 0 100px 0 !important;
         }
 
-        .faq {
-          flex-direction: column-reverse !important;
+        .more {
+          flex-direction: column !important;
           align-items: flex-start !important;
-          padding: 100px 0 0 0 !important;
 
           p {
             padding: 0 0 10px 0 !important;
