@@ -13,7 +13,7 @@
     <%= render 'layouts/favicon' %>
   </head>
 
-  <body>
+  <body class="body-<%= yield :id %>">
 
     <div id="application-flash">
       <%= render 'layouts/flash' %>
