@@ -72,6 +72,17 @@
             height: 150px;
             border-radius: 50%;
             background: #e7eaee;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+              width: 100px;
+
+              path {
+                fill: #67686d;
+              }
+            }
           }
 
           p {
@@ -80,11 +91,18 @@
             padding: 20px 0 30px 0;
           }
 
-          svg {
-            width: 40px;
+          a {
 
-            path {
-              fill: #57586a;
+            svg.download {
+              width: 40px;
+
+              path {
+                fill: #57586a;
+              }
+            }
+
+            &:hover path {
+              fill: red !important;
             }
           }
         }
