@@ -58,13 +58,13 @@
           border: 3px solid black;
           display: inline-block;
 
-          &:disabled {
+          &.disabled {
             background: #ff6b6b;
             border: 3px solid #ff6b6b;
             color: #ffc1c1;
           }
 
-          &:hover:not(:disabled) {
+          &:hover:not(.disabled) {
             color: black;
             background: #ff0000;
           }
