@@ -11,6 +11,10 @@ server '37.139.9.38', user: 'rencontredejeunesse', roles: %w{web app db}, primar
 
 # ask(:password, nil, echo: false)
 
+set :url, '37.139.9.38'
+
+set :ssl, false
+
 set :ssh_options, {
     forward_agent: true,
     user: 'rencontredejeunesse',
