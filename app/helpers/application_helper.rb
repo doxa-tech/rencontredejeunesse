@@ -20,10 +20,10 @@ module ApplicationHelper
     return "display: none;" if object.marked_for_destruction?
   end
 
-  def link_to_rj_order(text, start:, term:)
+  def link_to_order(text, start:, term:, item:)
     span = Date.parse(start)..Date.parse(term)
-    css_class = "disabled" unless span === Time.zone.today
-    link_to text, new_orders_rj_path, class: css_class
+    css_class = "disabled" unless span === Date.current
+    link_to text, new_orders_event_path(item: item), class: css_class
   end
 
 end
