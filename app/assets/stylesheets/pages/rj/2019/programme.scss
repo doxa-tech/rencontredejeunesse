@@ -45,6 +45,7 @@
 
     div.text {
       flex: 2;
+      font-family: monument-regular, sans-serif;
 
       .day {
         padding: 0 0 50px 0;
@@ -54,6 +55,7 @@
           letter-spacing: .1em;
           padding: 5px 0 7px 0;
           font-size: $large-text;
+          font-family: monument, sans-serif;
         }
 
         p {
