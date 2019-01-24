@@ -28,6 +28,7 @@
 
     div.right {
       flex: 2;
+      font-family: monument-regular, sans-serif;
 
       .text {
         padding: 4px 0 50px 0;
@@ -42,6 +43,7 @@
 
         p.price {
           font-size: 3.5em;
+          font-family: monument, sans-serif;
         }
         p.date {
           text-transform: uppercase;
