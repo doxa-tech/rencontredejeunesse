@@ -19,6 +19,7 @@ class Admin::Orders::RegistrantsController < Admin::BaseController
     elsif !@order.note.blank?
       @state = "infos"
     end
+    render "show", layout: "checkin"
   end
 
 
