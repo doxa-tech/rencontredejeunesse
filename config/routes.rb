@@ -3,12 +3,13 @@ Rails.application.routes.draw do
   mount Adeia::Engine => "/admin"
 
   root to: "pages#home"
+  root to: "pages#resources", constraints: { subdomain: 'ressources' }
 
   %w(login privacy application vision volunteers highlights resources).each do |page|
     get page, to: "pages##{page}"
   end
 
-  get "2018", to: "pages#rj2018"# redirect('/2019')
+  get "2018", to: "pages#rj2018"
   get "2019", to: "pages#rj2019"
 
   resources :sessions, only: :create
