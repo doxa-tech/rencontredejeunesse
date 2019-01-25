@@ -1,7 +1,7 @@
 @import "../../components/variables";
 @import '../../components/logo-burger-color';
 
-@include logo-burger-color(#000, ".rj-2019");
+@include logo-burger-color(#fff, ".rj-2019");
 
 #container.rj-2019 {
   font-family: monument, sans-serif;

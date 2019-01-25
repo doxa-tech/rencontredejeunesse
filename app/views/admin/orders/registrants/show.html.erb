@@ -1,4 +1,4 @@
-<% content_for :id, "admin-checkin-show" %>
+<% content_for :id, "admin-orders-registrants-show" %>
 
 <div class="checkin-header">
   <%= link_to "Retour au CHECKIN", admin_orders_checkin_index_path, class: "back" %>
@@ -42,7 +42,7 @@
 </div>
 
 <style>
-  #checkin.admin-checkin-show {
+  #checkin.admin-orders-registrants-show {
     <% case @state %>
     <% when "ok" %>
     background: rgb(171,255,0);
