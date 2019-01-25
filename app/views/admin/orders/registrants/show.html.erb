@@ -2,7 +2,7 @@
 
 <div class="checkin-header">
   <%= link_to "Retour au CHECKIN", admin_orders_checkin_index_path, class: "back" %>
-  <h1>Commande <i>TODO</i></h1>
+  <h1>Ticket <i><%= @registrant.ticket_id %></i></h1>
   <%= link_to "Livrer", admin_orders_checkin_path(@registrant.ticket_id), method: :patch, class: "deliver" %>
   <p>N°<%= @registrant.ticket_id %></p>
 </div>

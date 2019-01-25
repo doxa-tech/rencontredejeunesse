@@ -13,6 +13,12 @@ class Admin::Orders::RegistrantsController < Admin::BaseController
 
   def show
     @order = @registrant.order
+    @state = "ok"
+    if @order.status != "paid" || @registrant.delivered
+      @state = "nok"
+    elsif !@order.note.blank?
+      @state = "infos"
+    end
   end
 
 
