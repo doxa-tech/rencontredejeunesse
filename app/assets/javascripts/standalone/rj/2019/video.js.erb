@@ -49,3 +49,7 @@ function muteUnmute() {
     sound.classList.remove("playing");
   }
 }
+
+document.addEventListener("turbolinks:before-cache", function () {
+  video.remove();
+});
