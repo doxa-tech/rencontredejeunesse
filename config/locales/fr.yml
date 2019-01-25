@@ -56,6 +56,9 @@ fr:
       registrant:
         item: "Produit"
         item_id: "Produit"
+        delivered: "Livré"
+        "true": "Oui"
+        "false": "Non"
     errors:
       models:
         order:
