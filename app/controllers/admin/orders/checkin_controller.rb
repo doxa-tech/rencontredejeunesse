@@ -22,7 +22,7 @@ class Admin::Orders::CheckinController < Admin::BaseController
   def update
     authorize!
     @registrant = Registrant.find_by(ticket_id: params[:id])
-    @registrant.update_attributes(delivered: true)
+    @registrant.update_attribute(:delivered, true)
     redirect_to admin_orders_checkin_index_path, success: "Livré"
   end
 
