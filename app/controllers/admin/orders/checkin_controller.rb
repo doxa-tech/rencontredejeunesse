@@ -11,7 +11,7 @@ class Admin::Orders::CheckinController < Admin::BaseController
     authorize!
     @registrant = Registrant.find_by(ticket_id: params[:ticket_id])
     unless @registrant.nil?
-      redirect_to admin_orders_event_path(@order)
+      redirect_to admin_orders_registrant_path(@registrant)
     else
       flash.now[:error] = "Commande non trouvée !"
       render 'index'
