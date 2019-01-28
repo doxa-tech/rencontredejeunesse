@@ -27,6 +27,10 @@ class PagesController < ApplicationController
     render "pages/rj/2019"
   end
 
+  def resources
+    render "pages/resources"
+  end
+
   def volunteers
     @order_bundle = OrderBundle.find_by(key: "volunteers-rj-19")
   end
@@ -44,7 +48,7 @@ class PagesController < ApplicationController
   private
 
   def contact_params
-    params.require(:contact).permit(:firstname, :lastname, :subject, :email, :message)
+    params.require(:contact).permit(:firstname, :lastname, :subject, :email, :message, :category)
   end
 
 end

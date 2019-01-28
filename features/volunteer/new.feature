@@ -31,6 +31,3 @@ Feature: I sign up as a volunteer
     And I click the link "S'engager"
     Then I should see the form to order my volunteer pass
     And I should see a flash with "Tu peux continuer ta commande."
-
-
-  # TODO: I use a discount in the volunteer form

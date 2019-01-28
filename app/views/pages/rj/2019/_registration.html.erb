@@ -1,0 +1,80 @@
+<section id="registration">
+
+  <div class="section-container">
+    <div class="title">
+      <h2>Inscris-<br>toi</h2>
+    </div>
+
+    <div class="right">
+      <div class="text">
+          <p>
+          Le prix comprend le pass d’entrée pour le week-end. On te conseille de t’inscrire le plus vite possible pour profiter des rabais et pour assurer ta place.<br>
+          Rejoins plus de 3200 jeunes pour amener la liberté dans cette génération !
+          </p>
+      </div>
+
+      <div class="offers">
+        <div class="offer">
+          <p class="price">60.-</p>
+          <p class="date">Du 26.01 au 17.03</p>
+          <%= link_to_order "S'inscrire", start: "26.01.2019", term: "'17.03.2019", item: "rj-2019" %>
+        </div>
+        <div class="offer">
+          <p class="price">75.-</p>
+          <p class="date">Du 18.03 au 22.04</p>
+          <%= link_to_order "S'inscrire", start: "18.03.2019", term: "'22.04.2019", item: "rj-2019" %>
+        </div>
+        <div class="offer">
+          <p class="price">90.-</p>
+          <p class="date">Du 23.04 au weekend</p>
+          <%= link_to_order "S'inscrire", start: "23.04.2019", term: "'04.05.2019", item: "rj-2019" %>
+        </div>
+      </div>
+
+      <p>Besoin d'inscrire un grand groupe ?</p>
+      <p>
+        Les groupes de 20 personnes ou plus ont le possibilité de commander un pack de tickets durant les prélocations. 
+        Ton groupe peut ainsi commander des tickets aux prix avantageux des prélocations sans encore inscrire les personnes qui en profiteront.
+        1. Tu nous contactes via le formulaire du site, en choisissant la catégorie "Commande de groupe".
+        2. Dans le formulaire, tu précises les informations de contact (Nom, association, adresse, etc.) et le nombre de tickets que tu veux acheter (précise avec/sans hébergement).
+        3. On t'envoie la facture que tu paies dans un délai de 5 jours ouvrables.
+        4. Une fois le paiement reçu, on t'envoie le code qui te permettra de commander tes tickets et d'inscire les personnes avant le jour J.
+      </p>
+
+      <div class="more">
+        <div>
+          <h3>Sur place</h3>
+          <p>
+            Weekend // 90 CHF<br>
+            Vendredi soir // 30 CHF<br>
+            Samedi journée // 40 CHF<br>
+            Samedi soir // 30 CHF<br>
+            Dimanche // 30 CHF
+          </p>
+        </div>
+
+        <div>
+          <h3>Lieu</h3>
+          <p>
+            Espace Gruyère SA<br>
+            Rue de Vevey 136/144<br>
+            Case postale 460<br>
+            1630 Bulle
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="brush-1">
+      <%= render "pages/rj/2019/brushes/b4" %>
+    </div>
+    <div class="brush-2">
+      <%= render "pages/rj/2019/brushes/b5" %>
+    </div>
+    
+  </div>
+
+  <div class="banner">
+  </div>
+
+</section>

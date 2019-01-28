@@ -1,0 +1,21 @@
+@import "../../../components/variables";
+
+#container.rj-2019 section#video {
+
+  background-color: black;
+  background-size: cover;
+
+  width: 100%;
+  height: 100vh;
+  min-height: 650px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      padding: 0 $mobile-padding !important;
+    }
+  }
+}

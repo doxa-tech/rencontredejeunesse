@@ -1,12 +1,12 @@
 $(document).on("turbolinks:load", function() {
 
-  $order_id = $("#order_id");
+  $ticket_id = $("#ticket_id");
   $form = $("#checkin-form");
 
-  $order_id.focus();
+  $ticket_id.focus();
 
-  $order_id.keydown(function() {
-    if($order_id.val().length == 14) {
+  $ticket_id.keydown(function() {
+    if($ticket_id.val().length == 14) {
       $form.submit();
     }
   });

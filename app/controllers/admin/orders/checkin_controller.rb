@@ -9,9 +9,9 @@ class Admin::Orders::CheckinController < Admin::BaseController
   # Look for the order
   def create
     authorize!
-    @order = Order.find_by(order_id: params[:order_id])
-    unless @order.nil?
-      redirect_to admin_orders_event_path(@order)
+    @registrant = Registrant.find_by(ticket_id: params[:ticket_id])
+    unless @registrant.nil?
+      redirect_to admin_orders_registrant_path(@registrant)
     else
       flash.now[:error] = "Commande non trouvée !"
       render 'index'
@@ -21,8 +21,8 @@ class Admin::Orders::CheckinController < Admin::BaseController
   # Deliver the order
   def update
     authorize!
-    @order = Order.find(params[:id])
-    @order.update_attributes(status: "delivered")
+    @registrant = Registrant.find_by(ticket_id: params[:id])
+    @registrant.update_attribute(:delivered, true)
     redirect_to admin_orders_checkin_index_path, success: "Livré"
   end
 

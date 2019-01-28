@@ -7,7 +7,7 @@
     <%= render 'error_messages', object: f.object %>
 
     <h3>Produits commandés</h3>
-    <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.active %>
+    <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.active, limited: false %>
 
     <%= f.label :note %>
     <%= f.text_area :note, cols: "50", rows: "6" %>

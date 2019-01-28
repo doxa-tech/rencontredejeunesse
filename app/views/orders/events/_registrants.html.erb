@@ -5,22 +5,22 @@
       <div class="registrants-wrap">
         <div class="row">
           <%= f.label :gender %>
-          <div class="select"><%= f.select :gender, options_for_enum(f.object, :gender), {}, { disabled: @order.limited } %></div>
+          <div class="select"><%= f.select :gender, options_for_enum(f.object, :gender), {}, { disabled: limited } %></div>
         </div>
 
         <div class="row">
           <%= f.label :firstname %>
-          <%= f.field_with_errors :text, :firstname, autocomplete: "off", readonly: @order.limited %>
+          <%= f.field_with_errors :text, :firstname, autocomplete: "off", readonly: limited %>
         </div>
 
         <div class="row">
           <%= f.label :lastname %>
-          <%= f.field_with_errors :text, :lastname, autocomplete: "off", readonly: @order.limited %>
+          <%= f.field_with_errors :text, :lastname, autocomplete: "off", readonly: limited %>
         </div>
 
         <div class="row">
           <%= f.label :birthday %>
-          <div class="select"><%= f.date_select_with_errors :birthday, { start_year: 1920, end_year: 2006 }, { disabled: @order.limited } %></div>
+          <div class="select"><%= f.date_select_with_errors :birthday, { start_year: 1920, end_year: 2006 }, { disabled: limited } %></div>
         </div>
 
         <div class="row">

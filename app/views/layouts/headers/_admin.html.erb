@@ -13,6 +13,7 @@
     <li class="text">Commandes</li>
     <% if can?(:read, "admin/orders/checkin") %><li><%= link_to "Checkin", admin_orders_checkin_index_path %></li><% end %>
     <% if can?(:read, "admin/orders/events") %><li><%= link_to "Commandes", admin_orders_events_path %></li><% end %>
+    <% if can?(:read, "admin/orders/registrants") %><li><%= link_to "Participants", admin_orders_registrants_path %></li><% end %>
     <% if can?(:read, "admin/discounts") %><li><%= link_to "Codes promotionels", admin_discounts_path %></li><% end %>
     <li class="text">Bénévoles</li>
     <% if can?(:read, "admin/volunteers") %><li><%= link_to "Bénévoles", admin_volunteers_path %></li><% end %>

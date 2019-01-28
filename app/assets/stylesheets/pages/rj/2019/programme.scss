@@ -1,0 +1,111 @@
+@import "../../../components/variables";
+
+#container.rj-2019 section#programme {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background: black;
+
+  .banner {
+    height: 400px;
+    width: 100%;
+
+    &.b1{
+      background: image-url("rj/2019/programme/banner1.jpg");
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+
+    &.b2{
+      background: image-url("rj/2019/programme/banner2.jpg");
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+  }
+
+  .section-container {
+    max-width: $main-width;
+    padding: $logo-burger-height $main-padding 80px $main-padding;
+    color: #ff0000;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+
+    div.title {
+      flex: 1;
+      font-size: $medium-title;
+      text-transform: uppercase;
+      padding: 0 0 20px 0;
+    }
+
+    div.text {
+      flex: 2;
+      font-family: monument-regular, sans-serif;
+
+      .day {
+        padding: 0 0 50px 0;
+
+        h3 {
+          text-transform: uppercase;
+          letter-spacing: .1em;
+          padding: 5px 0 7px 0;
+          font-size: $large-text;
+          font-family: monument, sans-serif;
+        }
+
+        p {
+          font-size: $normal-text;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 10px 0 0 0;
+
+          span:first-of-type {
+            width: 100px;
+            flex-shrink: 0;
+          }
+        }
+      }
+
+      .description {
+        p {
+          padding: 5px 0 20px 0;
+          font-size: $normal-text;
+        }
+      }
+    }
+
+    div.brush-1 {
+      position: absolute;
+      width: 300px;
+      left: -230px;
+      top: -180px;
+
+      path {
+        fill: white;
+      }
+    }
+    div.brush-2 {
+      position: absolute;
+      height: 330px;
+      right: -230px;
+      bottom: -80px;
+      transform: rotate(-15deg);
+
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      flex-direction: column !important;
+    }
+  } 
+}

@@ -6,6 +6,7 @@ set :repo_url, 'git@github.com:JS-Tech/rencontredejeunesse.git'
 set :deploy_user, "rencontredejeunesse"
 
 set :url, 'rencontredejeunesse.ch'
+set :subdomains, ["ressources"]
 
 set :ssl, true
 

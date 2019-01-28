@@ -1,27 +1,19 @@
+@import "../../components/variables";
 @import '../../components/logo-burger-color';
 
-@include logo-burger-color(#000, ".rj-2019");
+@include logo-burger-color(#fff, ".rj-2019");
 
 #container.rj-2019 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  font-family: monument, sans-serif;
+  overflow-x: hidden;
 
-  img {
-    width: 800px;
-    max-width: 100%;
-    padding: 10px;
-    animation-name: slogan-fadein;
-    animation-delay: .5s;
-    animation-duration: 1.3s;
-    animation-fill-mode: both;
-    animation-timing-function: ease-in-out;
+  p {
+    line-height: 1.5em;
   }
+}
 
-  @keyframes slogan-fadein {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+@media only screen and (max-width: $mobile-width) {
+  div[class^="brush-"] {
+    display: none !important;
   }
 }

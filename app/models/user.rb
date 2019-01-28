@@ -5,7 +5,6 @@ class User < ApplicationRecord
   has_many :orders, dependent: :nullify
   has_many :option_orders
   has_many :comments, dependent: :destroy
-  has_many :volunteers, dependent: :destroy
   belongs_to :image, optional: true
 
   has_many :posts, dependent: :destroy
@@ -13,7 +12,7 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  before_save :create_remember_token #, :format_input TODO: temp
+  before_save :create_remember_token, :format_input
   before_create :create_verify_token
 
   validates :firstname, presence: true, length: { maximum: 30 }
@@ -107,6 +106,7 @@ class User < ApplicationRecord
   def format_input
     self.firstname = self.firstname.strip.split('-').map(&:capitalize).join('-')
     self.lastname = self.lastname.strip.split('-').map(&:capitalize).join('-')
+    self.email = self.email.strip.downcase
     self.address = self.address.capitalize
     self.city = self.city.capitalize
   end
