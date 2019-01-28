@@ -124,6 +124,12 @@ fr:
       security: "Sécurité"
       session: "Plénières"
       technical: "Technique"
+  contact:
+    categories:
+      order: "Commandes"
+      group_order: "Commande pour un groupe"
+      bug: "Signaler un bug"
+      general: "Question générale"
   volunteer:
     sectors:
       <<: *sectors
