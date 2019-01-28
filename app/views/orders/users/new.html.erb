@@ -11,7 +11,7 @@
   <div class="signup standard-form-row">
     <h2>S'inscrire</h2>
 
-    <%= form_for @user, url: orders_users_path(product: params[:product]) do |f| %>
+    <%= form_for @user, url: orders_users_path(item: params[:item]) do |f| %>
 
       <%= render "error_messages", object: f.object %>
 
