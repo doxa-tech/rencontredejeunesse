@@ -6,11 +6,11 @@
 
 <% if signed_in? %>
   
-  <%= render 'form' %>
+  <%= @custom_form.render %>
 
 <% else %>
 
-  <%= render "sessions/form", redirect_url: new_option_order_path(params[:order_bundle_id]) %>
+  <%= render "sessions/form", redirect_url: new_option_order_path(params[:key]) %>
 
 <% end %>
 </div>

@@ -1,3 +1,5 @@
+require "#{Rails.root}/lib/custom_form.rb"
+
 class OptionOrdersController < ApplicationController
   include SectorsHelper
 
@@ -5,7 +7,9 @@ class OptionOrdersController < ApplicationController
   before_action :check_if_signed_up, only: [:new, :create]
 
   def new
-    @option_order = OptionOrder.new
+    @option_order = order_bundle.option_orders.new
+    form = Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } )
+    @custom_form = CustomForm.new(form)
   end
 
   def create
@@ -36,6 +40,6 @@ class OptionOrdersController < ApplicationController
   end
 
   def order_bundle
-    @order_bundle ||= OrderBundle.find(params[:order_bundle_id])
+    @order_bundle ||= OrderBundle.find_by(key: params[:key])
   end
 end

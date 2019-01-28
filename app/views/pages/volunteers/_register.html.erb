@@ -29,7 +29,7 @@
     <div>
       <%= @order_bundle.name %>
       <%= @order_bundle.description %>
-      <%= link_to "S'engager", new_option_order_path(@order_bundle.id) %>
+      <%= link_to "S'engager", new_option_order_path(@order_bundle.key) %>
     </div>
 
     <% else %>

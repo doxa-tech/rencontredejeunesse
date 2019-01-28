@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get page, to: "pages##{page}"
   end
 
-  get "2018", to: "pages#rj2018"# redirect('/2019')
+  get "2018", to: "pages#rj2018"
   get "2019", to: "pages#rj2019"
 
   resources :sessions, only: :create
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   post "contact", to: "pages#contact"
 
-  scope "order_bundles/:order_bundle_id" do
+  scope "order_bundles/:key" do
     resources :option_orders, only: [:new, :create]
   end
 
