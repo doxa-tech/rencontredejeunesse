@@ -1,6 +1,6 @@
 <h2>Commande</h2>
 
-<%= form_for @order, url: { action: @order.new_record? ? :create : :update, item: params[:item] } do |f| %>
+<%= form_for @order, url: { action: @order.new_record? ? :create : :update, key: params[:key] } do |f| %>
 
   <% if f.object.errors.any? %>
   <div id="error">

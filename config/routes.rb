@@ -82,7 +82,7 @@ Rails.application.routes.draw do
       patch "update", to: "users#update"
     end
 
-    scope "(:item)" do
+    scope "(:key)" do
 
       # order a ticket for an event
       resources :events, only: [:new, :create, :edit, :update] do

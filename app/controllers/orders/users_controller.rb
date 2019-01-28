@@ -11,7 +11,7 @@ class Orders::UsersController < Orders::BaseController
 		if @user.save
       UserMailer.confirmation(@user).deliver_now
       sign_in @user
-			redirect_to new_orders_event_path(item: params[:item])
+			redirect_to new_orders_event_path(key: params[:key])
 		else
 			render 'new'
 		end
@@ -34,7 +34,7 @@ class Orders::UsersController < Orders::BaseController
   private
 
   def check_if_signed_in
-    redirect_to new_orders_event_path(item: params[:item]) if signed_in?
+    redirect_to new_orders_event_path(key: params[:key]) if signed_in?
   end
 
   def user_params(new_record: false)

@@ -7,7 +7,7 @@ module OrdersHelper
 
   def items
     unless @items.present?
-      order_bundle = OrderBundle.find_by(key: params[:item])
+      order_bundle = OrderBundle.find_by(key: params[:key])
       @items = []
       @items = order_bundle.items.active if order_bundle
     end

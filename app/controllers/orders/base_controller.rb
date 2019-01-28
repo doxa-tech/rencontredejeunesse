@@ -2,7 +2,7 @@ class Orders::BaseController < ApplicationController
   include OrdersHelper
 
   def check_if_not_signed_in
-    redirect_to new_orders_user_path(item: params[:item]) unless signed_in?
+    redirect_to new_orders_user_path(key: params[:key]) unless signed_in?
   end
 
   def pending?
