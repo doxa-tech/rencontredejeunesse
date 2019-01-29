@@ -8,6 +8,14 @@
   
   <%= @custom_form.render %>
 
+  <div class="row">
+    <span></span>
+    <p class="description">
+      * La préférence choisie ne peut pas être garantie. Chaque bénévole sera réparti selon les besoins.<br>
+      * Si tu es déjà impliqué comme bénévole, merci d'indiquer ton responsable de secteur dans les remarques.
+    </p>
+  </div>
+
 <% else %>
 
   <%= render "sessions/form", redirect_url: new_option_order_path(params[:key]) %>

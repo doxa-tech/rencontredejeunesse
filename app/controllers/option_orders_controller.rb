@@ -1,5 +1,4 @@
 class OptionOrdersController < ApplicationController
-  include SectorsHelper
 
   before_action :check_if_signed_in, only: :create
   before_action :check_if_signed_up, only: [:new, :create]
@@ -13,9 +12,8 @@ class OptionOrdersController < ApplicationController
     form = Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } ).first
     @custom_form = CustomForm.new(form, option_orders_path, view_context)
     @custom_form.assign_attributes(params[:custom_form])
-    if @custom_form.valid?
-      completed_form = @custom_form.save!
-      option_order = OptionOrder.new(user: current_user, order_bundle: @order_bundle, completed_form: completed_form)
+    if @custom_form.save
+      option_order = OptionOrder.new(user: current_user, order_bundle: @order_bundle, completed_form: @custom_form.completed_form)
       option_order.build_order(current_user, order_bundle.items.first)
       option_order.save!
       # TODO: VolunteerMailer.confirmation(@option_order).deliver_now
@@ -26,10 +24,6 @@ class OptionOrdersController < ApplicationController
   end
 
   private
-
-  def option_order_params
-    params.require(:option_order).permit(:sector, :comment)
-  end
 
   def check_if_signed_up
     option_order = OptionOrder.find_by(order_bundle: order_bundle, user: current_user) if current_user

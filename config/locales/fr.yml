@@ -147,10 +147,10 @@ fr:
     format: "%{message}"
     messages:
       accepted: "Le champ « %{attribute} » doit être accepté(e)"
-      blank: "Le champ « %{attribute} » doit être rempli(e)"
+      blank: "Le champ « %{attribute} » doit être rempli"
       present: "Le champ « %{attribute} » doit être vide"
       confirmation: "Le champ « %{attribute} » ne concorde pas avec la confirmation"
-      empty: "Le champ « %{attribute} » doit être rempli(e)"
+      empty: "Le champ « %{attribute} » doit être rempli"
       equal_to: "Le champ « %{attribute} » doit être égal à %{count}"
       even: "Le champ « %{attribute} » doit être pair"
       exclusion: "Le/La « %{attribute} » n'est pas disponible"
