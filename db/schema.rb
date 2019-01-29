@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190116212229) do
+ActiveRecord::Schema.define(version: 20190129115724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 20190116212229) do
     t.bigint "field_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "value"
     t.index ["completed_form_id"], name: "index_completed_fields_on_completed_form_id"
     t.index ["field_id"], name: "index_completed_fields_on_field_id"
   end

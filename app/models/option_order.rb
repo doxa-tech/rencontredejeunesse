@@ -8,6 +8,7 @@ class OptionOrder < ApplicationRecord
 
   enum sector: self.SECTORS_TO_ENUM
 
+  # TODO
   validates :comment, length: { maximum: 50 }
   validates :sector, inclusion: { in: sectors.keys }, allow_nil: true
 
