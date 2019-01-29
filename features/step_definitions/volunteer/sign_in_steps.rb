@@ -5,7 +5,7 @@ When("I complete the sign in form") do
 end
 
 Then("I should see the volunteer form") do
-  expect(page).to have_css("form#new_option_order")
+  expect(page).to have_css("form#custom_form")
 end
 
 Then("I should see the sign in form") do

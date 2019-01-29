@@ -9,7 +9,6 @@ Feature: I sign up as a volunteer
     And I am signed in
     Given a volunteering is available
 
-  @javascript @wip
   Scenario: I successfully sign up as a volunteer
     When I visit "/volunteers"
     And I click the link "S'engager"

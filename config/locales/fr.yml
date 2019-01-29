@@ -16,11 +16,16 @@ fr:
       update: "Enregistrer"
       session:
         submit: "Se connecter"
+      custom_form:
+        submit: "Enregistrer"
     label:
       session:
         email: "Email"
         password: "Mot de passe"
         remember_me: "Rester connecté"
+      custom_form:
+        sector: "Secteur"
+        comment: "Remarque"
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"

@@ -114,8 +114,13 @@ FactoryBot.define do
 
   factory :form do
     name { "volunteer" }
-    after(:create) do |form|
-      create(:field, name: "comment", required: true, form: form)
+
+    factory :form_with_fields do
+
+      after(:create) do |form|
+        create(:field, name: "comment", required: true, form: form)
+      end
+
     end
   end
 

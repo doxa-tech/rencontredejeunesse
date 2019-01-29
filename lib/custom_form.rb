@@ -32,12 +32,12 @@ class CustomForm
   end
 
   def render
-    @view.form_with scope: :custom_form, url: @url, local: true do |f|
+    @view.form_for :custom_form, url: @url, html: { id: "custom_form" } do |f|
       content = errors_tag.html_safe
       content += @form.fields.map do |field|
         Field.new(field, f, value: @attributes[field.name]).render
       end.join.html_safe
-      content += f.submit "Envoyer"
+      content += f.submit
     end
   end
 
@@ -75,7 +75,7 @@ class CustomForm
     end
 
     def select_field
-      @form.select @field.name, []
+      @form.select @field.name, [["Animation", 0], ["Fun park", 1]]
     end
 
   end

@@ -5,7 +5,6 @@ Given("I am on the confirmation page with an amount of zero") do
   @order.discount = @discount
   @order.save!
   visit confirmation_orders_event_path(@order.order_id)
-  save_and_open_page
 end
 
 When("I fill in a valid discount") do
