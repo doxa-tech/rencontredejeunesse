@@ -1,5 +1,4 @@
 require 'rails_helper'
-require "#{Rails.root}/lib/order_completion.rb"
 
 RSpec.describe OrderCompletion do
 

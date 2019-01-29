@@ -1,5 +1,3 @@
-require "#{Rails.root}/lib/custom_form.rb"
-
 class OptionOrdersController < ApplicationController
   include SectorsHelper
 
@@ -8,8 +6,8 @@ class OptionOrdersController < ApplicationController
 
   def new
     @option_order = order_bundle.option_orders.new
-    form = Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } )
-    @custom_form = CustomForm.new(form)
+    form = Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } ).first
+    @custom_form = CustomForm.new(form, option_orders_path, view_context)
   end
 
   def create
