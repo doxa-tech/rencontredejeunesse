@@ -40,7 +40,7 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 0 0 160px 0;
+        padding: 0 0 20px 0;
 
         p.price {
           font-size: 3.5em;
@@ -72,6 +72,35 @@
             color: black;
             background: #ff0000;
           }
+        }
+      }
+
+      div.big-groups {
+        text-align: center;
+        padding: 0 0 140px;
+
+        .collapsible-button {
+          background-color: #ff0000;
+          cursor: pointer;
+          padding: 7px 16px;
+          border: none;
+          text-align: left;
+          outline: none;
+          font-size: 15px;
+          border: 2px solid transparent;
+          margin: 0 0 10px 0;
+        }
+
+        .collapsible-active, .collapsible-button:hover {
+          border: 2px solid #fff;
+        }
+
+        .collapsible-content {
+          padding: 0 16px;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.2s ease-out;
+          text-align: justify;
         }
       }
 

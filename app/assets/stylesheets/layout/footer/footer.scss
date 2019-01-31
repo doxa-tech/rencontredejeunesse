@@ -28,6 +28,10 @@ section#application-footer {
       p {
         padding: 0 0 10px 0;
 
+        a {
+          display: inline-block;
+        }
+
         &.address {
           padding-top: 10px;
           text-transform: none;
