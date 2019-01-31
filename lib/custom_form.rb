@@ -1,5 +1,5 @@
 class CustomForm
-  attr_reader :completed_form
+  attr_reader :completed_form, :errors
 
   def initialize(form, url, view, attributes: {})
     @form = form
@@ -15,15 +15,14 @@ class CustomForm
   end
 
   def valid?
-    valid = true
+    @errors = []
     @fields.each do |field|
       if field.required && @attributes[field.name].blank?
         field_name = I18n.t("helpers.label.custom_form.#{field.name}")
         @errors << I18n.t("errors.messages.required", attribute: field_name)
-        valid = false
       end
     end
-    return valid
+    return !@errors.any?
   end
 
   def save
