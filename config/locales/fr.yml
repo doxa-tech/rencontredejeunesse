@@ -26,6 +26,10 @@ fr:
       custom_form:
         sector: "Secteur"
         comment: "Remarque"
+        t-shirt: "T-shirt"
+        select:
+          sectors: "Secteur"
+          park: "Fun park"
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"

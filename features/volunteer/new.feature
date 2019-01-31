@@ -17,6 +17,13 @@ Feature: I sign up as a volunteer
     When I successfully complete the form to order my volunteer pass
     Then I should see the confirmation page for my volunteer order
 
+  Scenario: I miscomplete the volunteer form
+    When I visit "/volunteers"
+    And I click the link "S'engager"
+    And I click the button "Enregistrer"
+    Then I should see errors for the fields "T-shirt"
+    And I should not see errors for the fields "Remarque"
+
   Scenario: I already sign up and complete my volunteer order
     Given I already signed up as a volunteer and I completed my order
     When I visit "/volunteers"

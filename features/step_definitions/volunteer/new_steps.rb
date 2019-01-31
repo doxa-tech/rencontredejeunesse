@@ -11,6 +11,7 @@ end
 
 When("I successfully submit my volunteering preferences") do
   select "Fun park", from: "Secteur"
+  fill_in "T-shirt", with: "XS"
   fill_in "Remarque", with: "J'ai déjà un contact avec Alfred Dupont."
   click_button "Enregistrer"
 end

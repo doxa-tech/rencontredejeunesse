@@ -66,12 +66,13 @@ class CustomForm
   end
 
   class Field
-    include ActionView::Helpers::FormHelper
-
+    include ActionView::Helpers::FormOptionsHelper
+    
     def initialize(field, form, value:)
       @field = field
       @form = form
       @value = value
+      @options = @field.options || []
     end
 
     def render
@@ -95,7 +96,18 @@ class CustomForm
     end
 
     def select_field
-      @form.select @field.name, [["Animation", 0], ["Fun park", 1]]
+      @form.select @field.name, grouped_options
+    end 
+
+    def grouped_options
+      count = -1
+      options = @options.map do |k, v|
+        [
+          I18n.t("helpers.label.custom_form.select.#{k}"), 
+          v.map { |e| count += 1; [I18n.t("helpers.label.custom_form.select.#{e}"), count] }
+        ]
+      end
+      grouped_options_for_select options
     end
 
   end
