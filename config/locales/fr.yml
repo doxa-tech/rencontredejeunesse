@@ -81,6 +81,7 @@ fr:
       paid: "Payé"
       unpaid: "En attente de paiement"
       delivered: "Livré"
+      uncompleted: "Incomplet"
   payment:
     method:
       multiple: "Paiement multiples"

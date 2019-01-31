@@ -21,7 +21,7 @@
   </div>
 
   <div class="product-informations">
-    <div><strong>Statut de la commande:</strong> <%= t("order.statuses.#{@order.status}") %></div>
+    <div><strong>Statut de la commande:</strong> <%= human_order_status(@order) %></div>
     <div><strong>Ticket distribué:</strong> <%= t("activerecord.attributes.registrant.#{@registrant.delivered}") %></div>
   </div>
 

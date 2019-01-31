@@ -5,6 +5,11 @@ module OrdersHelper
     return "https://e-payment.postfinance.ch/ncol/#{env}/orderstandard_utf8.asp"
   end
 
+  def human_order_status(order)
+    key = order.status.blank? ? "uncompleted" : order.status
+    I18n.t("order.statuses.#{key}")
+  end
+
   def items
     unless @items.present?
       order_bundle = OrderBundle.find_by(key: params[:key])

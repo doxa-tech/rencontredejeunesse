@@ -10,6 +10,6 @@
 
 <% @orders.each do |order| %>
 
-  <%= order.order_bundle.name %>
+  <%= link_to order.order_bundle.name, connect_option_order_path(order) %>
 
 <% end %>

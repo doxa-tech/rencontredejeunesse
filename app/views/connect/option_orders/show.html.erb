@@ -1,1 +1,26 @@
 <%= @order.order_bundle.name %>
+
+<%= @order.order_bundle.description %>
+
+<% if @order.order.status.nil? %>
+
+  <p>Commande incomplète</p>
+  <%= link_to "Continuer la commande", edit_orders_event_path(@order.order.order_id, key: @order.order_bundle.key) %>
+
+<% end %>
+
+<h2>Ton inscription</h2>
+
+<ul>
+  <% CustomForm.display(@order.completed_form) do |label, value| %>
+
+    <li><%= label %>: <i><%= value %></i></li>
+
+  <% end %>
+</ul>
+
+<h2>Ta commande</h2>
+
+<p>L'inscription est validée si la commande est complétée et payée.</p>
+<%= link_to "Voir ma commande", connect_order_path(@order.order.order_id) %>
+<p>Statut de la commande:  <%= human_order_status(@order.order) %></p>
