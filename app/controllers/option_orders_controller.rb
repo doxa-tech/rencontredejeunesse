@@ -4,19 +4,17 @@ class OptionOrdersController < ApplicationController
   before_action :check_if_signed_up, only: [:new, :create]
 
   def new
-    form = Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } ).first
     @custom_form = CustomForm.new(form, option_orders_path, view_context)
   end
 
   def create
-    form = Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } ).first
     @custom_form = CustomForm.new(form, option_orders_path, view_context)
     @custom_form.assign_attributes(params[:custom_form])
     if @custom_form.save
       option_order = OptionOrder.new(user: current_user, order_bundle: @order_bundle, completed_form: @custom_form.completed_form)
       option_order.build_order(current_user, order_bundle.items.first)
       option_order.save!
-      # TODO: VolunteerMailer.confirmation(@option_order).deliver_now
+      OptionOrderMailer.confirmation(option_order).deliver_now
       redirect_to edit_orders_event_path(option_order.order.order_id, key: order_bundle.key)
     else
       render "new"
@@ -36,6 +34,10 @@ class OptionOrdersController < ApplicationController
 
   def order_bundle
     @order_bundle ||= OrderBundle.find_by(key: params[:key])
+  end
+
+  def form
+    @form ||= Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } ).first
   end
 
 end

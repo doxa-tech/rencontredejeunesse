@@ -1,4 +1,6 @@
 class CustomForm
+  I18N_PATH = "helpers.label.custom_form"
+
   attr_reader :completed_form, :errors
 
   def initialize(form, url, view, attributes: {})
@@ -18,7 +20,7 @@ class CustomForm
     @errors = []
     @fields.each do |field|
       if field.required && @attributes[field.name].blank?
-        field_name = I18n.t("helpers.label.custom_form.#{field.name}")
+        field_name = I18n.t("#{I18N_PATH}.#{field.name}")
         @errors << I18n.t("errors.messages.required", attribute: field_name)
       end
     end
@@ -48,6 +50,16 @@ class CustomForm
     end
   end
 
+  def self.display(completed_form)
+    completed_fields = completed_form.completed_fields.includes(:field)
+    completed_fields.each do |field|
+      label, value = Field.display(field)
+      yield(label, value)
+    end
+  end
+
+  private
+
   def errors_tag
     count = @view.pluralize(@errors.count, "erreur")
     errors_wrapper(count) do
@@ -62,53 +74,6 @@ class CustomForm
       <ul>#{yield}</ul>
     </div>
     }.html_safe
-  end
-
-  class Field
-    include ActionView::Helpers::FormOptionsHelper
-    
-    def initialize(field, form, value:)
-      @field = field
-      @form = form
-      @value = value
-      @options = @field.options || []
-    end
-
-    def render
-      content = @form.label @field.name
-      content += send(@field.field_type)
-      return content.html_safe
-    end
-
-    private
-
-    def text
-      @form.text_field @field.name, value: @value
-    end
-
-    def number
-      @form.number_field @field.name, value: @value
-    end
-
-    def email
-      @form.email_field @field.name, value: @value
-    end
-
-    def select_field
-      @form.select @field.name, grouped_options
-    end 
-
-    def grouped_options
-      count = -1
-      options = @options.map do |k, v|
-        [
-          I18n.t("helpers.label.custom_form.select.#{k}"), 
-          v.map { |e| count += 1; [I18n.t("helpers.label.custom_form.select.#{e}"), count] }
-        ]
-      end
-      grouped_options_for_select options
-    end
-
   end
 
 end

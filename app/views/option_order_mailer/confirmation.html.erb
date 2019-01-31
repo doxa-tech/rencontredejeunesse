@@ -1,0 +1,27 @@
+<h1>Ton inscription est enregistrée</h1>
+
+<p>
+  Félicitation ! Tu t'es enregistrée pour: <i><%= @option_order.order_bundle.name %></i>.
+</p>
+<p>
+  Cette inscription est effective une fois la commande complétée et payée.
+</p>
+
+<h5>Résumé de ton inscription</h5>
+
+<ul>
+  <% CustomForm.display(@completed_form) do |label, value| %>
+
+    <li><%= label %>: <i><%= value %></i></li>
+
+  <% end %>
+</ul>
+
+
+<p>
+  Tu peux en tout temps consulter ton inscription sur RJ Connect en te connectant sur <a href="https://rencontredejeunesse.ch/signin" target="_blank">rencontredejeunesse.ch/signin</a>.
+</p>
+
+<p>
+  A bientôt !
+</p>
