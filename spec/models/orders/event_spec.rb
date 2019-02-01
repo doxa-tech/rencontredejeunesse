@@ -45,22 +45,5 @@ module Orders
 
     end
 
-    context "limit in a bundle" do
-
-      it "should be valid if the order has not more registrants than the limit" do
-        bundle = create(:order_bundle_with_items, limit: 2)
-        registrants = build_list(:registrant, 2, order: nil, item: bundle.items.first)
-        order = create(:event_order, registrants: registrants)
-        expect(order).to be_valid
-      end
-
-      it "should not be valid if the order has more registrants than the limit" do
-        bundle = create(:order_bundle_with_items, limit: 1)
-        registrants = build_list(:registrant, 2, order: nil, item: bundle.items.first)
-        order = create(:event_order, registrants: registrants)
-        expect(order).not_to be_valid
-      end
-
-    end
   end
 end

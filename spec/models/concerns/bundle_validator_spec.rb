@@ -82,4 +82,20 @@ RSpec.describe "BundleValidator" do
 
   end
 
+  describe "limit_in_bundle" do
+
+    it "should be valid if the order has not more registrants than the limit" do
+      bundle = create(:order_bundle_with_items, limit: 2)
+      order.registrants = build_list(:registrant, 2, order: nil, item: bundle.items.first)
+      expect(order).to be_valid
+    end
+
+    it "should not be valid if the order has more registrants than the limit" do
+      bundle = create(:order_bundle_with_items, limit: 1)
+      order.registrants = build_list(:registrant, 2, order: nil, item: bundle.items.first)
+      expect(order).not_to be_valid
+    end
+
+  end
+
 end
