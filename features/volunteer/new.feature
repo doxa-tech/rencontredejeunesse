@@ -16,6 +16,7 @@ Feature: I sign up as a volunteer
     Then I should see the form to order my volunteer pass
     When I successfully complete the form to order my volunteer pass
     Then I should see the confirmation page for my volunteer order
+    And "john@smith.com" should receive an email
 
   Scenario: I miscomplete the volunteer form
     When I visit "/volunteers"

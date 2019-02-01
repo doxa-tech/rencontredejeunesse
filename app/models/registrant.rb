@@ -2,7 +2,7 @@ class Registrant < ApplicationRecord
 
   enum gender: [:male, :female]
 
-  validates :gender, inclusion: { in: genders.keys }
+  validates :gender, presence: true
   validates :firstname, presence: true, length: { maximum: 50 }
   validates :lastname, presence: true, length: { maximum: 50 }
   validates :birthday, presence: true

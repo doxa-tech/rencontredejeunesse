@@ -3,7 +3,7 @@ class CreateFields < ActiveRecord::Migration[5.1]
     create_table :fields do |t|
       t.string :name
       t.integer :field_type
-      t.boolean :required
+      t.boolean :required, default: false
       t.belongs_to :form, foreign_key: true
 
       t.timestamps

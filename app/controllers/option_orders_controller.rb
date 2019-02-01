@@ -25,7 +25,7 @@ class OptionOrdersController < ApplicationController
 
   def check_if_signed_up
     option_order = OptionOrder.find_by(order_bundle: order_bundle, user: current_user) if current_user
-    if option_order && option_order.order.status.present? # TODO
+    if option_order && option_order.order.status.present?
       redirect_to connect_option_order_path(option_order), error: "Tu es déjà inscrit !"
     elsif option_order
       redirect_to edit_orders_event_path(option_order.order.order_id, key: order_bundle.key), success: "Tu peux continuer ta commande."
