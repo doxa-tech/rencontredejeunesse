@@ -2,7 +2,8 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin"
 
-  root to: "pages#resources", constraints: { subdomain: 'ressources' }
+  get "/", to: "pages#resources", constraints: { subdomain: 'ressources' }
+  
   root to: "pages#home"
   
   %w(login privacy application vision volunteers highlights resources).each do |page|

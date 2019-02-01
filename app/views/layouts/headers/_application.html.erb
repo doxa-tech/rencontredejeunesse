@@ -3,11 +3,11 @@
     <%= image_tag "home/welcome/close.svg", id: "close-header" %>
 
     <ul data-gumshoe>
-      <li><%= link_to "home", root_url, class: active_class("/") %></li>
-      <li><%= link_to "/vision", vision_url, class: active_class("/vision") %></li>
-      <li><%= link_to "/bénévole", volunteers_url, class: active_class("/volunteering") %></li>
-      <li><%= link_to "/RJ2019", rj_url, class: active_class("/2019") %></li>
-      <li><%= link_to "/RJLogin", login_url, class: active_class("/login") %></li>
+      <li><%= link_to "home", root_url(host: request.domain), class: active_class("/") %></li>
+      <li><%= link_to "/vision", vision_url(host: request.domain), class: active_class("/vision") %></li>
+      <li><%= link_to "/bénévole", volunteers_url(host: request.domain), class: active_class("/volunteering") %></li>
+      <li><%= link_to "/RJ2019", rj_url(host: request.domain), class: active_class("/2019") %></li>
+      <li><%= link_to "/RJLogin", login_url(host: request.domain), class: active_class("/login") %></li>
     </ul>
 
     <%= render "layouts/headers/signin" %>
