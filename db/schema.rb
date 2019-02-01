@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190130143238) do
+ActiveRecord::Schema.define(version: 20190201121830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -197,6 +197,7 @@ ActiveRecord::Schema.define(version: 20190130143238) do
     t.bigint "order_type_id"
     t.boolean "open", default: true
     t.hstore "options"
+    t.integer "limit"
     t.index ["order_type_id"], name: "index_order_bundles_on_order_type_id"
   end
 

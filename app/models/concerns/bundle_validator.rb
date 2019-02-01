@@ -7,10 +7,10 @@ class BundleValidator < ActiveModel::Validator
 
     def validate(record)
       @record = record
-      @item_ids = record.registrants.map(&:item_id)
-      @items_count = items_count
+      @order_items = record.order_items
+      @item_ids = @order_items.map(&:item_id)
       @bundle_ids = bundle_ids
-      if @items_count != 0
+      if @item_ids.size != 0
         VALIDATIONS[@record.order_type].each do |v|
           send(v)
         end
@@ -42,10 +42,6 @@ class BundleValidator < ActiveModel::Validator
       if bundle && !bundle.open && !@record.limited
         @record.errors.add(:base, "Les articles ne sont pas disponibles.")
       end
-    end
-
-    def items_count
-      Item.where(id: @item_ids).count
     end
 
     def bundle_ids
