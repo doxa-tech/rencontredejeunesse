@@ -33,11 +33,11 @@ Item.create!(name: "Pass WE pour bénévole", description: "Ton pass pour le WE 
 
 ## Permissions
 
-The project use the adeia gem to manage the permissions. ([see documentation](https://github.com/JS-Tech/adeia))
+The project uses the adeia gem to manage the permissions. ([see documentation](https://github.com/JS-Tech/adeia))
 
 ## Testing
 
-The project use Cucumber and Rspec for testing. Both use Capybara to interact with the app. Cucumber uses Selenium with the headless chrome driver.
+The project uses Cucumber and Rspec for testing. Both use Capybara to interact with the app. Cucumber uses Selenium with the headless chrome driver.
 Run the tests:
 ```
 rake cucumber
