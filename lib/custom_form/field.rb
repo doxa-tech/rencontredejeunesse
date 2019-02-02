@@ -27,7 +27,7 @@
       value = if completed_field.value.blank?
         "vide"
       elsif completed_field.field.select_field?
-        key = completed_field.field.options.values.flatten[value.to_i]
+        key = completed_field.field.options.values.flatten[completed_field.value.to_i]
         I18n.t("#{I18N_PATH}.select.#{key}")
       else
         completed_field.value
