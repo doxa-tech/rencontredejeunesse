@@ -46,7 +46,7 @@ class CustomForm
       content += @form.fields.map do |field|
         Field.new(field, f, value: @attributes[field.name]).render
       end.join.html_safe
-      content += f.submit
+      content += "<div class='row'><span></span>#{f.submit}</div>".html_safe
     end
   end
 

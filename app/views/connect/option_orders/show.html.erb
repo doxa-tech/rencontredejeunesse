@@ -1,23 +1,32 @@
-<%= @order.order_bundle.name %>
+<% content_for :id, "option-orders-show" %>
 
-<%= @order.order_bundle.description %>
+<%= content_for :header do %>
+  <%= render "connect/page_header",
+    link: connect_option_orders_path,
+    title: @order.order_bundle.name %>
+<% end %>
+
+
+<h2>Résumé</h2>
+
+  <p>Date: <%= l @order.created_at, format: :pretty_date %></p>
 
 <% if @order.order.status.nil? %>
 
-  <p>Commande incomplète</p>
-  <%= link_to "Continuer la commande", edit_orders_event_path(@order.order.order_id, key: @order.order_bundle.key) %>
+  <p>
+    Commande incomplète<br>
+    <%= link_to "Continuer la commande", edit_orders_event_path(@order.order.order_id, key: @order.order_bundle.key) %>
+  </p>
 
 <% end %>
 
 <h2>Ton inscription</h2>
 
-<ul>
-  <% CustomForm.display(@order.completed_form) do |label, value| %>
-
-    <li><%= label %>: <i><%= value %></i></li>
-
-  <% end %>
-</ul>
+  <p>
+    <% CustomForm.display(@order.completed_form) do |label, value| %>
+      <%= label %>: <i><%= value %></i><br>
+    <% end %>
+  </p>
 
 <h2>Ta commande</h2>
 

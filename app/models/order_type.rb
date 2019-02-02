@@ -6,6 +6,6 @@ class OrderType < ApplicationRecord
 
   has_many :subtypes, class_name: "OrderType", foreign_key: "supertype_id", dependent: :nullify
   belongs_to :supertype, class_name: "OrderType", optional: true
-  belongs_to :form
+  belongs_to :form, optional: true
   
 end

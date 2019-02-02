@@ -23,9 +23,9 @@
     <h3 id="letsgo" class="ready">Alors prêt à t’inscrire maintenant ?</h3>
 
     <div>
-      <%= @order_bundle.name %>
-      <%= @order_bundle.description %>
-      <%= link_to "S'engager", new_option_order_path(@order_bundle.key) %>
+      <p><%= @order_bundle.name %></p>
+      <p><%= @order_bundle.description %></p>
+      <p class="link"><%= link_to "S'engager", new_option_order_path(@order_bundle.key) %></p>
     </div>
 
     <% else %>
