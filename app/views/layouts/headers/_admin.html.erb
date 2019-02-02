@@ -1,8 +1,8 @@
 <header>
-  <%= image_tag "layout/logo.png", class: "logo" %>
+  <%= link_to image_tag("layout/logo.png", class: "logo"), connect_root_path %>
 
   <div class="user">
-    <div><%= current_user.full_name %></div>
+    <div><%= current_user.try(:full_name) || "Invité" %></div>
     <div><%= link_to image_tag("icons/gear.png") + " Mon compte", connect_edit_path %></div>
   </div>
   <div class="signout"><%= link_to "Déconnexion", signout_path, method: :delete %></div>
