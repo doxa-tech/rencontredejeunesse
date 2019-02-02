@@ -2,9 +2,9 @@
 @import '../../components/logo-burger-color';
 @import '../../components/standard-form';
 
-@include logo-burger-color(#178daf, ".option_order-new");
+@include logo-burger-color(#178daf, ".option-orders-new");
 
-#container.option_order-new {
+#container.option-orders-new {
   @include standard-form();
   padding-top: $logo-burger-height;
 
