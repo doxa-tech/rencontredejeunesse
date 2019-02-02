@@ -1,0 +1,22 @@
+<div id="show">
+
+  <h1>Commande spéciale</h1>
+
+  <h3>Information du formulaire</h3>
+  <ul>
+  <% CustomForm.display(@option_order.completed_form) do |label, value| %>
+
+    <li><%= label %>: <i><%= value %></i></li>
+
+  <% end %>
+  </ul>
+
+  <h3>Information de la personne</h3>
+  <%= render 'admin/users/show', user: @option_order.user %>
+
+  <h3>Information de la commande</h3>
+  <p>
+    <%= human_order_status(@option_order.order) %>
+  </p>
+
+</div>

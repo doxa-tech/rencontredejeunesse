@@ -104,9 +104,10 @@ Rails.application.routes.draw do
 
     root to: "base#index"
 
-    resources :volunteers, except: [:new, :create] do
-      get "export", on: :collection
-    end
+    resources :volunteers, only: :index
+    get '/volunteers/:id', to: redirect('admin/option_orders/%{id}')
+    resources :option_orders
+
 
     resources :users, except: :show
     resources :discounts, except: [:edit, :update]

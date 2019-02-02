@@ -1,15 +1,15 @@
-class VolunteerTable < BaseTable
+class OptionOrderTable < BaseTable
 
   def attributes
-    [:id, { user: :name } , { user: :email }, { user: :phone }, :sector, :comment, :tshirt_size, :confirmed, :created_at]
+    [:id, { user: :name } , { user: :email }, { user: :phone }, { order: :status }]
   end
 
   def model
-    Volunteer
+    OptionOrder
   end
 
   def belongs_to_associations
-    [:user]
+    [:user, :order]
   end
 
   module Search
