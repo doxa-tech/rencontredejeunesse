@@ -137,14 +137,6 @@ fr:
       group_order: "Commande pour un groupe"
       bug: "Signaler un bug"
       general: "Question générale"
-  volunteer:
-    sectors:
-      <<: *sectors
-    tshirt_sizes:
-      s: "S"
-      m: "M"
-      l: "L"
-      xl: "XL"
   errors:
     format: "%{message}"
     messages:
