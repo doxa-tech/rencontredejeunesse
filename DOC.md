@@ -2,6 +2,17 @@
 
 ## Getting started
 
+Create the superuser:
+```
+# create the user
+rails superuser
+# create the permissions
+rails adeia_elements
+# Add the permission to the superuser
+rake adeia:superuser user_id=1
+```
+You can now use the superuser with the email "kocher.ke@gmail.com" and the password "12341".
+
 ## Order
 
 ## Volunteers (with Option Order)
@@ -22,4 +33,13 @@ Item.create!(name: "Pass WE pour bénévole", description: "Ton pass pour le WE 
 
 ## Permissions
 
+The project use the adeia gem to manage the permissions. ([see documentation](https://github.com/JS-Tech/adeia))
+
 ## Testing
+
+The project use Cucumber and Rspec for testing. Both use Capybara to interact with the app. Cucumber uses Selenium with the headless chrome driver.
+Run the tests:
+```
+rake cucumber
+rspec spec/
+```
