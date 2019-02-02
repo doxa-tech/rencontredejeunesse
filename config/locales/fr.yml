@@ -28,8 +28,32 @@ fr:
         comment: "Remarque"
         t-shirt: "T-shirt"
         select:
-          sectors: "Secteur"
-          park: "Fun park"
+          hosts: "Gestion des hôtes"
+          lounge: "Staff resto & lounge"
+          volunteers: "Gestion des bénévoles"
+          setup: "Montage général (vendredi)"
+          disassembly: "Démontage (dimanche soir)"
+          cleaning: "Clean service"
+          decoration: Décoration entrée
+          fun_park: "Fun park"
+          photography: "Stand photo"
+          lights: "Lumières et ambiance"
+          goodies: "Vente de goodies"
+          security: Service ordre (18+)
+          doors: "Contrôle aux portes"
+          lodging: "Dortoirs"
+          welcoming: "Accueil aux portes"
+          care: "Service médical (compétences requises)"
+          prayer: "Espace prière"
+          opening: "Opening"
+          video: "Vidéo"
+          technical_setup: "Montage technique"
+          technical_disassembly: "Démontage technique"
+          log: "Logistique"
+          animation: "Animation"
+          security: "Sécurité"
+          session: "Plénières"
+          technical: "Technique"
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"
@@ -107,34 +131,6 @@ fr:
     genders:
       male: "M."
       female: "Mme"
-  sector:
-    attributes: &sectors
-      hosts: "Gestion des hôtes"
-      lounge: "Staff resto & lounge"
-      volunteers: "Gestion des bénévoles"
-      setup: "Montage général (vendredi)"
-      disassembly: "Démontage (dimanche)"
-      cleaning: "Clean service"
-      decoration: Décoration entrée
-      fun_park: "Fun park"
-      photography: "Stand photo"
-      lights: "Lumières et ambiance"
-      goodies: "Vente de goodies"
-      security: Service ordre (18+)
-      doors: "Contrôle aux portes"
-      lodging: "Dortoirs"
-      welcoming: "Accueil aux portes"
-      care: "Service médical (compétences requises)"
-      prayer: "Espace prière"
-      opening: "Opening"
-      video: "Vidéo"
-      technical_setup: "Montage technique"
-    categories:
-      log: "Logistique"
-      animation: "Animation"
-      security: "Sécurité"
-      session: "Plénières"
-      technical: "Technique"
   contact:
     categories:
       order: "Commandes"
