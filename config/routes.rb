@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   post "contact", to: "pages#contact"
 
-  scope "order_bundles/:order_bundle_id" do
+  scope "order_bundles/:key" do
     resources :option_orders, only: [:new, :create]
   end
 
@@ -83,7 +83,7 @@ Rails.application.routes.draw do
       patch "update", to: "users#update"
     end
 
-    scope "(:item)" do
+    scope "(:key)" do
 
       # order a ticket for an event
       resources :events, only: [:new, :create, :edit, :update] do
@@ -105,9 +105,10 @@ Rails.application.routes.draw do
 
     root to: "base#index"
 
-    resources :volunteers, except: [:new, :create] do
-      get "export", on: :collection
-    end
+    resources :volunteers, only: :index
+    get '/volunteers/:id', to: redirect('admin/option_orders/%{id}')
+    resources :option_orders
+
 
     resources :users, except: :show
     resources :discounts, except: [:edit, :update]

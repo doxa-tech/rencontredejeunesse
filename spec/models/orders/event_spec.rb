@@ -45,14 +45,5 @@ module Orders
 
     end
 
-    context "limited orders" do
-
-      it "should only have one registrant and item" do
-        order = create(:event_order, limited: true)
-        order.registrants = create_list(:registrant, 2, order: order)
-        expect(order).not_to be_valid
-      end
-
-    end
   end
 end

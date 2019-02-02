@@ -1,18 +1,22 @@
-<% content_for :id, "option_order-new" %>
+<% content_for :id, "option-orders-new" %>
 
 <div class="content-wrap">
 
-<h1>Inscription bénévole</h1>
+  <h1><%= order_bundle.name %></h1>
+  <p><%= order_bundle.description %></p>
 
-<% if signed_in? %>
-  
-  <%= render 'form' %>
+  <h1>Inscription bénévole</h1>
 
-<% else %>
+  <% if signed_in? %>
+    <div class="standard-form-row">
+      <%= @custom_form.render %>
+    </div>
+  <% else %>
+    <div class="standard-form-row">
+      <%= render "sessions/form", redirect_url: new_option_order_path(params[:key]) %>
+    </div>
 
-  <%= render "sessions/form", redirect_url: new_option_order_path(params[:order_bundle_id]) %>
-
-<% end %>
+  <% end %>
 </div>
 
 <%= render "layouts/headers/application" %>

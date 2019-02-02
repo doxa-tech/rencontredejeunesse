@@ -1,0 +1,12 @@
+<h1>Commandes</h1>
+
+<%= form_tag nil, method: :get do %>
+
+  <%= hidden_field_tag :token, params[:token] %>
+  <%= select_tag :key, options_for_select(@keys, params[:key]) %>
+
+  <%= submit_tag "Sélectionner" %>
+
+<% end %>
+
+<%= @table.present(buttons: "buttons") %>

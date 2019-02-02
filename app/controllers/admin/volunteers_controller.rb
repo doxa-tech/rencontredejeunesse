@@ -1,38 +1,30 @@
 class Admin::VolunteersController < Admin::BaseController
-  # TODO
-  load_and_authorize
 
   def index
-    @table = VolunteerTable.new(self, @volunteers, search: true, truncate: false)
+    authorize!
+    bundle = OrderBundle.joins(:order_type).where(key: params[:key], order_types: { name: "volunteer" }).first
+    value = sectors.index(params[:sector])
+    @orders = OptionOrder.where(order_bundle: bundle)
+    @orders = @orders.joins(completed_form: :completed_fields).where(
+        completed_forms: { completed_fields: { field_id: select_field.id, value: value.to_s }}) if value
+    @table = OptionOrderTable.new(self, @orders, search: true, truncate: false)
     @table.respond
   end
 
-  def edit
-    @volunteer = Volunteer.find(params[:id])
+  helper_method :sectors, :keys
+  def sectors
+    @sectors ||= select_field.options.values.flatten
+    t(@sectors, scope: CustomForm::I18N_PATH + ".select")
   end
 
-  def update
-    @volunteer = Volunteer.find(params[:id])
-    if @volunteer.update_attributes(volunteer_params)
-      redirect_to admin_volunteers_path, success: "Bénévole mis à jour"
-    else
-      render 'edit'
-    end
+  def keys
+    @keys ||= OrderBundle.joins(:order_type).where(order_types: { name: "volunteer" }).pluck(:key)
   end
-
-  def destroy
-    Volunteer.find(params[:id]).destroy
-		redirect_to admin_volunteers_path, success: "Bénévole supprimé"
-  end
-
-  def export
-		@volunteers = Volunteer.where(confirmed: true).includes(:user)
-	end
 
   private
 
-  def volunteer_params
-    params.require(:volunteer).permit(:sector, :comment)
+  def select_field
+    @select_field ||= Form::Field.joins(form: :order_types).where(name: "sector", field_type: "select_field", forms: { order_types: { name: "volunteer" }}).first
   end
 
 end

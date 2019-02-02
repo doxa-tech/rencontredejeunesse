@@ -17,9 +17,9 @@
 
 <h2>Résumé</h2>
 
-<p>Type: "<%= @order.items.first.order_bundle.name %>"</b>.</p>
+<p>Type: "<%= @order.bundle.name %>"</b>.</p>
 
-<p>Statut de la commande: <%= t("order.statuses.#{@order.status}") %></p>
+<p>Statut de la commande: <%= human_order_status(@order) %></p>
 
 <p>Date: <%= l @order.created_at, format: :normal %>
 

@@ -2,6 +2,7 @@
 
 <%= form_tag nil, method: :get do %>
 
+  <%= hidden_field_tag :token, params[:token] %>
   <%= select_tag :key, options_for_select(@keys, params[:key]) %>
 
   <%= submit_tag "Sélectionner" %>

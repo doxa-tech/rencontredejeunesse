@@ -1,6 +1,6 @@
 class Admin::BaseController < ApplicationController
   layout "admin"
-  require_login
+  # require_login
 
   def index
   end

@@ -26,6 +26,8 @@ module Rencontredejeunesse
 
     config.action_view.default_form_builder = "StandardFormBuilder"
 
+    config.eager_load_paths += ["#{Rails.root}/lib"]
+
     # Mailer
     config.action_mailer.smtp_settings = {
       address:              'mail.infomaniak.ch',

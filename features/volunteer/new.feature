@@ -9,7 +9,6 @@ Feature: I sign up as a volunteer
     And I am signed in
     Given a volunteering is available
 
-  @javascript
   Scenario: I successfully sign up as a volunteer
     When I visit "/volunteers"
     And I click the link "S'engager"
@@ -17,6 +16,14 @@ Feature: I sign up as a volunteer
     Then I should see the form to order my volunteer pass
     When I successfully complete the form to order my volunteer pass
     Then I should see the confirmation page for my volunteer order
+    And "john@smith.com" should receive an email
+
+  Scenario: I miscomplete the volunteer form
+    When I visit "/volunteers"
+    And I click the link "S'engager"
+    And I click the button "Enregistrer"
+    Then I should see errors for the fields "T-shirt"
+    And I should not see errors for the fields "Remarque"
 
   Scenario: I already sign up and complete my volunteer order
     Given I already signed up as a volunteer and I completed my order

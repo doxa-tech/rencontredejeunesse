@@ -43,6 +43,12 @@ Then("I should see errors for the fields {string}") do |fields|
 	end
 end
 
+Then("I should not see errors for the fields {string}") do |fields|
+  fields.split(",").each do |field|
+		expect(find '#error').not_to have_content field
+	end
+end
+
 Then ("I should see {string}") do |content|
   expect(page).to have_content content
 end

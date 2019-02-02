@@ -14,8 +14,7 @@ class Payment < ApplicationRecord
   after_save :update_order
 
   validates :amount, presence: true
-  validates :method, inclusion: { in: methods.keys }, allow_nil: true
-  validates :payment_type, inclusion: { in: payment_types.keys }
+  validates :payment_type, presence: true
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\

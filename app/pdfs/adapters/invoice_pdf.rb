@@ -1,5 +1,6 @@
 module Adapters
   class InvoicePdf
+    include OrdersHelper
 
     class Item
       attr_reader :name, :number, :shipping_date, :quantity, :_quantity, 
@@ -109,7 +110,7 @@ module Adapters
     end
 
     def status
-      I18n.t("order.statuses.#{@order.status}")
+      human_order_status(@order)
     end
 
     def payment_type

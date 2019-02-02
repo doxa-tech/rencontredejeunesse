@@ -1,18 +1,19 @@
 Given("I already signed up as a volunteer") do
-  create(:option_order, order_bundle: @order_bundle, user: @user)
+  visit new_option_order_path(key: @order_bundle.key)
+  step "I successfully submit my volunteering preferences"
 end
 
 Given("I already signed up as a volunteer and I completed my order") do
-  @order = create(:event_order, user: @user)
-  @order.main_payment.update_attributes(status: 9)
-  create(:option_order, order_bundle: @order_bundle, user: @user, order: @order)
+  visit new_option_order_path(key: @order_bundle.key)
+  step "I successfully submit my volunteering preferences"
+  Order.last.main_payment.update_attributes(status: 9)
 end
 
 When("I successfully submit my volunteering preferences") do
-  select "Animation", from: "Domaine"
   select "Fun park", from: "Secteur"
+  fill_in "T-shirt", with: "XS"
   fill_in "Remarque", with: "J'ai déjà un contact avec Alfred Dupont."
-  click_button "S'inscrire"
+  click_button "Enregistrer"
 end
 
 When("I successfully complete the form to order my volunteer pass") do

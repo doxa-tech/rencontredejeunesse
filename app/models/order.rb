@@ -17,10 +17,10 @@ class Order < ApplicationRecord
   has_many :tickets, through: :registrants, source: :item, dependent: :destroy
 
   has_many :payments, dependent: :destroy, autosave: true
+  has_one :option_order, dependent: :destroy
 
   accepts_nested_attributes_for :registrants, allow_destroy: true, reject_if: :all_blank
 
-  validates :status, inclusion: { in: statuses.keys }, allow_nil: true
   validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true
   validate :validity_of_discount_code

@@ -1,4 +1,4 @@
-<div class="fields-for registrants wrap standard-form-row">
+<div class="fields-for nested-form registrants wrap standard-form-row">
   <%= parent_f.fields_for :registrants, (registrants.build_from_user(current_user) unless registrants.any?) do |f| %>
     <%= content_tag :div, class: "registrants-fields wrap", style: hidden_if_destroyed(f.object) do %>
 
@@ -20,7 +20,7 @@
 
         <div class="row">
           <%= f.label :birthday %>
-          <div class="select"><%= f.date_select_with_errors :birthday, { start_year: 1920, end_year: 2006 }, { disabled: limited } %></div>
+          <div class="select"><%= f.date_select_with_errors :birthday, { start_year: 1920, end_year: 2007 }, { disabled: limited } %></div>
         </div>
 
         <div class="row">
@@ -28,7 +28,7 @@
           <div><%= f.collection_select_with_errors :item_id, items, :id, :name_with_price %></div>
         </div>
       </div>
-
+      
       <%= f.hidden_field :_destroy, identifier: "destroy" %>
       <div class="row">
         <span></span>
@@ -40,7 +40,7 @@
 
   <div class="row">
     <span></span>
-    <button type="button" class="add-fields sub-button" data-type="registrants" data-count="<%= registrants.size %>">
+    <button type="button" class="add-fields sub-button" data-type="registrants" data-limit="<%= bundle_limit %>" data-count="<%= registrants.size %>">
       Ajouter une entrée
     </button>
   </div>

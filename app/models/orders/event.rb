@@ -3,7 +3,6 @@ module Orders
   class Event < Order
     
     validates :registrants, presence: true
-    validate :number_of_registrants, if: :limited
 
     def order_items
       registrants
@@ -25,12 +24,8 @@ module Orders
       :event
     end
 
-    private
-
-    def number_of_registrants
-      if self.registrants.size > 1
-        self.errors.add(:base, "Il ne doit pas y avoir plus d'un article.")
-      end
+    def bundle
+      @bundle ||= OrderBundle.joins(items: :registrations).where(items: { orders: { id: self.id } }).first
     end
 
   end

@@ -20,11 +20,11 @@ module ApplicationHelper
     return "display: none;" if object.marked_for_destruction?
   end
 
-  def link_to_order(text, start:, term:, item:)
+  def link_to_order(text, start:, term:, key:)
     span = Date.parse(start)..Date.parse(term)
-    link = new_orders_event_path(item: item)
+    link = new_orders_event_path(key: key)
     unless span === Date.current
-      css_class = "disabled" 
+      css_class = "disabled"
       link = "#"
     end
     link_to text, link, class: css_class

@@ -17,5 +17,3 @@ module OrderBundleOptions
     contact: "info@rencontredejeunesse.ch"
   }
 end
-
-OrderBundle.create!(name: "RJ Login 19", description: "Une journée qui réunit les leaders de Suisse romande", order_type_id: 1, options: 

@@ -1,14 +1,9 @@
 class OptionOrder < ApplicationRecord
-  include Sectors
 
   belongs_to :user
   belongs_to :order_bundle
   belongs_to :order, autosave: true
-
-  enum sector: self.SECTORS_TO_ENUM
-
-  validates :comment, length: { maximum: 50 }
-  validates :sector, inclusion: { in: sectors.keys }, allow_nil: true
+  belongs_to :completed_form, class_name: "Form::CompletedForm", dependent: :destroy
 
   def build_order(user, item)
     self.order = Orders::Event.new(user: user)

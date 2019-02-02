@@ -2,15 +2,16 @@ class BundleValidator < ActiveModel::Validator
 
     VALIDATIONS = {
       regular: [:uniqueness_of_bundle, :name_of_order_type, :availability_of_bundle],
-      event: [:presence_of_bundle, :uniqueness_of_bundle, :name_of_order_type, :availability_of_bundle]
+      event: [:presence_of_bundle, :uniqueness_of_bundle, :name_of_order_type, :availability_of_bundle, :limit_in_bundle]
     }
 
     def validate(record)
       @record = record
-      @item_ids = record.registrants.map(&:item_id)
-      @items_count = items_count
+      @order_items = record.order_items
+      @item_ids = @order_items.map(&:item_id)
       @bundle_ids = bundle_ids
-      if @items_count != 0
+      @bundle = bundle
+      if @item_ids.size != 0
         VALIDATIONS[@record.order_type].each do |v|
           send(v)
         end
@@ -32,24 +33,30 @@ class BundleValidator < ActiveModel::Validator
     end
 
     def name_of_order_type
-      unless order_type.any?
+      if @bundle_ids.any? && !order_type.any?
         @record.errors.add(:base, "Un article n'est pas compatible.")
       end
     end
 
     def availability_of_bundle
-      bundle = OrderBundle.find_by(id: @bundle_ids[0])
-      if bundle && !bundle.open && !@record.limited
+      if @bundle && !@bundle.open && !@record.limited
         @record.errors.add(:base, "Les articles ne sont pas disponibles.")
       end
     end
 
-    def items_count
-      Item.where(id: @item_ids).count
+    def limit_in_bundle
+      sum = @order_items.inject(0) { |sum, i| sum + i.quantity }
+      if @bundle && @bundle.limit && sum > @bundle.limit
+        @record.errors.add(:base, "Il ne doit pas y avoir plus de #{@bundle.limit} article(s).")
+      end
     end
 
     def bundle_ids
       Item.where(id: @item_ids).pluck("DISTINCT order_bundle_id")
+    end
+
+    def bundle
+      OrderBundle.find_by(id: @bundle_ids[0])
     end
 
     def order_type

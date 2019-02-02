@@ -1,4 +1,4 @@
-<% content_for :id, "volunteers-index" %>
+<% content_for :id, "option-orders-index" %>
 
 <%= content_for :header do %>
   <%= render "connect/page_header",
@@ -6,10 +6,13 @@
     title: "Mes engagements" %>
 <% end %>
 
-<p>Mes engagements</p>
+<div class="connect-list-view">
 
-<% @orders.each do |order| %>
+  <div class="item">
+    <% @orders.each do |order| %>
+      <%= order.order_bundle.name %> (<%= l order.created_at, format: :pretty_date %>)
+      <%= link_to "", connect_option_order_path(order), class: "overlay" %>
+    <% end %>
+  </div>
 
-  <%= order.order_bundle.name %>
-
-<% end %>
+</div>

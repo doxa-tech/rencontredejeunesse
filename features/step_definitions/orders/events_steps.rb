@@ -3,7 +3,7 @@ Given("there is an event") do
 end
 
 Given(/^I visit the page to order an entry$/) do
-  visit new_orders_event_path(item: @item.order_bundle.key)
+  visit new_orders_event_path(key: @item.order_bundle.key)
 end
 
 Given(/^I am on the confirmation page for an entry$/) do
