@@ -5,8 +5,6 @@
   <h1><%= order_bundle.name %></h1>
   <p><%= order_bundle.description %></p>
 
-  <h1>Inscription bénévole</h1>
-
   <% if signed_in? %>
     <div class="standard-form-row">
       <%= @custom_form.render %>

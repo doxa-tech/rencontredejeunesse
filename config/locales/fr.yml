@@ -24,14 +24,12 @@ fr:
         password: "Mot de passe"
         remember_me: "Rester connecté"
       custom_form:
-        sector: "Secteur"
-        comment: "Remarque"
-        t-shirt: "T-shirt"
+        sector: "Chosir un secteur"
+        comment: "Remarque ou personne de contact"
         select:
-          hosts: "Gestion des hôtes"
+          other: "Pas de préférences"
           lounge: "Staff resto & lounge"
-          volunteers: "Gestion des bénévoles"
-          setup: "Montage général (vendredi)"
+          setup: "Montage général (vendredi journée)"
           disassembly: "Démontage (dimanche soir)"
           cleaning: "Clean service"
           decoration: Décoration entrée
@@ -52,8 +50,9 @@ fr:
           log: "Logistique"
           animation: "Animation"
           security: "Sécurité"
-          session: "Plénières"
+          session: "Plénière"
           technical: "Technique"
+          z: "Autre"
   attributes:
     firstname: "Prénom"
     lastname: "Nom de famille"
