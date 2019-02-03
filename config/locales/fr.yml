@@ -26,6 +26,7 @@ fr:
       custom_form:
         sector: "Chosir un secteur"
         comment: "Remarque ou personne de contact"
+        t-shirt: "T-shirt"
         select:
           other: "Pas de préférences"
           lounge: "Staff resto & lounge"
