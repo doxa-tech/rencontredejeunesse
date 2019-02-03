@@ -8,7 +8,7 @@ Feature: I sign in on the volunteer page
     Given I am a confirmed user
     And a volunteering is available
     When I visit "/volunteers"
-    And I click the link "S'engager"
+    And I follow the link to sign up as a volunteer
     Then I should see the sign in form
     When I complete the sign in form
     And I should see the volunteer form
@@ -17,6 +17,6 @@ Feature: I sign in on the volunteer page
     Given I am a confirmed user
     And a volunteering is available
     When I visit "/volunteers"
-    And I click the link "S'engager"
+    And I follow the link to sign up as a volunteer
     When I click the button "Se connecter"
     And I should see a flash with "Nom d'utilisateur et/ou mot de passe incorrect(s)"

@@ -1,3 +1,9 @@
+When("I follow the link to sign up as a volunteer") do
+  within("#register") do
+  click_link "S'engager"
+  end
+end
+
 Given("I am a volunteer") do
   @user = create(:option_order)
 end
