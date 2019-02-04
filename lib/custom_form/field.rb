@@ -14,13 +14,7 @@
     def render
       content = @form.label @field.name
       content += send(@field.field_type)
-      row_wrapper do
-        content.html_safe
-      end
-    end
-
-    def row_wrapper
-      "<div class='row'>#{yield}</div>".html_safe
+      content.html_safe
     end
 
     def self.display(completed_field)
@@ -50,7 +44,7 @@
     end
 
     def select_field
-      "<div class='select'>#{@form.select @field.name, grouped_options}</div>".html_safe
+      %{<div class="select">#{@form.select @field.name, grouped_options}</div>}.html_safe
     end 
 
     def grouped_options

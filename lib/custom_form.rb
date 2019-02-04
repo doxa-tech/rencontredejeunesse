@@ -1,5 +1,6 @@
 class CustomForm
   I18N_PATH = "helpers.label.custom_form"
+  TEMPLATE_PATH = File.join(Rails.root, 'lib', 'custom_form', 'template.html.erb')
 
   attr_reader :completed_form, :errors
 
@@ -40,13 +41,8 @@ class CustomForm
   end
 
   def render
-    content = "".html_safe
-    @view.form_for :custom_form, url: @url, html: { id: "custom_form" } do |f|
-      content += errors_tag if @errors.any?
-      content += @form.fields.map do |field|
-        Field.new(field, f, value: @attributes[field.name]).render
-      end.join.html_safe
-      content += "<div class='row'><span></span>#{f.submit}</div>".html_safe
+    return @view.form_for :custom_form, url: @url, html: { id: "custom_form" } do |form|
+      content = ERB.new(File.read(TEMPLATE_PATH)).result(binding).html_safe
     end
   end
 
@@ -56,24 +52,6 @@ class CustomForm
       label, value = Field.display(field)
       yield(label, value)
     end
-  end
-
-  private
-
-  def errors_tag
-    count = @view.pluralize(@errors.count, "erreur")
-    errors_wrapper(count) do
-      @errors.map { |e| "<li>#{e}</li>" }.join
-    end
-  end
-
-  def errors_wrapper(count)
-    %{
-    <div id="error">
-		  <p class="title">Le formulaire contient #{count}</p>
-      <ul>#{yield}</ul>
-    </div>
-    }.html_safe
   end
 
 end
