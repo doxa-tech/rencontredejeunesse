@@ -23,7 +23,7 @@ class Orders::EventsController < Orders::BaseController
   end
 
   def update
-    order.assign_attributes(order_params limited: order.limited)
+    order.assign_attributes(order_params)
     order.pending = pending?
     if order.save
       to_confirmation_step_or_pending
@@ -42,9 +42,8 @@ class Orders::EventsController < Orders::BaseController
 
   private
 
-  def order_params(limited: false)
-    attributes = [:conditions, :discount_code, registrants_attributes: [:id, :item_id]]
-    attributes[-1][:registrants_attributes].push(:gender, :firstname, :lastname, :birthday, :_destroy) unless limited
+  def order_params
+    attributes = [:conditions, :discount_code, registrants_attributes: [:id, :item_id, :gender, :firstname, :lastname, :birthday, :_destroy]]
     params.require(:orders_event).permit(attributes)
   end
   

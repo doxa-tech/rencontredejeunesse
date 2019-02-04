@@ -27,6 +27,7 @@ fr:
         sector: "Chosir un secteur"
         comment: "Remarque ou personne de contact"
         t-shirt: "T-shirt"
+        organisation: "Organisation"
         select:
           other: "Pas de préférences"
           lounge: "Staff resto & lounge"
