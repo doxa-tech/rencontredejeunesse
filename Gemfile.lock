@@ -370,7 +370,7 @@ GEM
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
     sixarm_ruby_unaccent (1.2.0)
-    snaptable (2.2.2)
+    snaptable (2.2.3)
       jquery-rails
       rails (>= 5.0.0)
       sass-rails
