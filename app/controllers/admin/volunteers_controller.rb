@@ -1,7 +1,7 @@
 class Admin::VolunteersController < Admin::BaseController
 
   def index
-    authorize!(controller: "admin/option_orders")
+    authorize!
     bundle = OrderBundle.joins(:order_type).where(key: params[:key], order_types: { name: "volunteer" }).first
     value = sectors.index(params[:sector])
     @orders = OptionOrder.where(order_bundle: bundle)
@@ -9,6 +9,12 @@ class Admin::VolunteersController < Admin::BaseController
         completed_forms: { completed_fields: { field_id: select_field.id, value: value.to_s }}) if value
     @table = OptionOrderTable.new(self, @orders, search: true, truncate: false)
     @table.respond
+  end
+
+  def show
+    authorize!
+    @option_order = OptionOrder.find(params[:id])
+    render "admin/option_orders/show"
   end
 
   helper_method :sectors, :keys
