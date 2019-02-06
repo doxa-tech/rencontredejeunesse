@@ -1,0 +1,1 @@
+Snaptable.use_permission = true
