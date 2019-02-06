@@ -19,7 +19,7 @@ class OrderMailer < ApplicationMailer
     @order = order
     pdf = InvoicePdf.new(@order.invoice_pdf_adapter)
     attachments["Facture_#{@order.order_id}.pdf"] = { :mime_type => 'application/pdf', :content => pdf.render }
-    mail(to: order.user.email, bcc: ["kocher.ke@gmail.com"], subject: "Votre facture pour la commande #{@order.order_id}")
+    mail(to: order.user.email, bcc: ["kocher.ke@gmail.com", "mchristen@hotmail.ch"], subject: "Votre facture pour la commande #{@order.order_id}")
   end
 
   def reminder
