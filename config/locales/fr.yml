@@ -88,6 +88,7 @@ fr:
         comment: "Remarque"
         user: "Personne"
         order: Commande
+        completed_form: "Formulaire"
       registrant:
         item: "Produit"
         item_id: "Produit"
