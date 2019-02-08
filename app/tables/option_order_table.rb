@@ -1,7 +1,7 @@
 class OptionOrderTable < BaseTable
 
   def attributes
-    [:id, { user: :name } , { user: :email }, { user: :phone }, { order: :status }]
+    [:id, { user: :name } , { user: :email }, { user: :phone }, { order: :status }, { completed_form: :to_s }]
   end
 
   def model
