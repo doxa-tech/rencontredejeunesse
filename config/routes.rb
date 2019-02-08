@@ -72,7 +72,11 @@ Rails.application.routes.draw do
   namespace :orders do
 
     # postfinance
-    post "postfinance", to: "completion#postfinance", constraints: { subdomain: 'uapi' }
+    if Rails.env.production?
+      post "postfinance", to: "completion#postfinance", constraints: { subdomain: 'uapi' }
+    else
+      post "postfinance", to: "completion#postfinance"
+    end
 
     # complete free or invoice order
     resources :completion, only: :update, controller: :completion
