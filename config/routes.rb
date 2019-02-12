@@ -55,7 +55,7 @@ Rails.application.routes.draw do
         get 'ticket'
       end
     end
-    resources :option_orders, only: [:index, :show]
+    resources :option_orders, only: [:index, :show, :destroy]
 
   end
 

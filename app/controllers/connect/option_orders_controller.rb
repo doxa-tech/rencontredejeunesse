@@ -5,7 +5,15 @@ class Connect::OptionOrdersController < Connect::BaseController
   end
 
   def show
-    @order = OptionOrder.find(params[:id])
+    @order = current_user.option_orders.find(params[:id])
+  end
+
+  def destroy
+    @order = current_user.option_orders.find(params[:id])
+    if @order.order.unpaid? || @order.order.status.nil?
+      @order.destroy
+    end
+    redirect_to new_option_order_path(@order.order_bundle.key), success: "Tu peux recommencer ta commande."
   end
 
 end

@@ -20,6 +20,15 @@
 
 <% end %>
 
+<% if @order.order.status.nil? || @order.order.unpaid? %>
+
+  <p>
+    Tu peux recommencer ta commande depuis le départ<br>
+    <%= link_to "Recommencer la commande", connect_option_order_path(@order), method: :delete, data: { confirm: "Es-tu sûr de vouloir recommencer ?" } %>
+  </p>
+
+<% end %>
+
 <h2>Ton inscription</h2>
 
   <p>
@@ -33,3 +42,9 @@
 <p>L'inscription est validée si la commande est complétée et payée.</p>
 <%= link_to "Voir ma commande", connect_order_path(@order.order.order_id) %>
 <p>Statut de la commande:  <%= human_order_status(@order.order) %></p>
+
+<% if @order.order.paid? %>
+
+<p><i>Ta commande est validée. Félicitations !</i></p>
+
+<% end %>
