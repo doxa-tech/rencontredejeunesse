@@ -53,6 +53,13 @@ RSpec.describe "Payment", :type => :model do
       expect(order.main_payment.order_status).to eq "delivered"
     end
 
+    it "returns pending if there is a pending payment" do
+      order = create(:event_order)
+      order.main_payment.update_attributes!(status: 1)
+      order.payments.create!(amount: 6500, status: 41, payment_type: "addition")
+      expect(order.main_payment.order_status).to eq "pending"
+    end
+
   end
 
   describe "#set_time_of_payment" do
