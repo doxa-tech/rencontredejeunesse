@@ -32,7 +32,7 @@ class InvoicePdf < Prawn::Document
           Type de livraison
           Option de paiement
           Monnaie
-          Status
+          Statut
           Adresse de livraison", size: 8
       end
 
