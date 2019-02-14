@@ -10,7 +10,7 @@ class Orders::CompletionController < Orders::BaseController
       @payment.status = params[:STATUS]
       @payment.payid = params[:PAYID]
       @payment.save
-      order_completion.complete(:postfinance) if @payment.status == 5
+      order_completion.complete(:postfinance) if @payment.status == 9
       head :ok
     else
       head :unprocessable_entity
