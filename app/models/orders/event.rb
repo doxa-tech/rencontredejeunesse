@@ -24,10 +24,6 @@ module Orders
       :event
     end
 
-    def bundle
-      @bundle ||= OrderBundle.joins(items: :registrations).where(items: { orders: { id: self.id } }).first
-    end
-
   end
 
 end

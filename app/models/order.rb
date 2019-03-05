@@ -56,6 +56,10 @@ class Order < ApplicationRecord
     :regular
   end
 
+  def bundle
+    @bundle ||= OrderBundle.joins(items: :registrations).where(items: { orders: { id: self.id } }).first
+  end
+
   private
 
   def validity_of_discount_code
