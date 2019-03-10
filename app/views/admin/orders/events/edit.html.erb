@@ -1,4 +1,6 @@
-<div id="form">
+<% content_for :id, "orders-events-show" %>
+
+<div class="content-wrap">
 
   <h1>Modifier la commande <%= @event.order_id %></h1>
 
@@ -8,30 +10,57 @@
 
     <h3>Produits commandés</h3>
     <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.active %>
-
-    <%= f.label :note %>
-    <%= f.text_area :note, cols: "50", rows: "6" %>
-
-    <%= f.submit nil, class: "button" %>
+    <div class="standard-form-row">
+      <div class="row">
+        <%= f.label :note %>
+        <%= f.text_area :note, cols: "50", rows: "6" %>
+      </div>
+      <div class="row">
+        <span></span>
+        <%= f.submit nil, class: "button" %>
+      </div>
+    </div>
 
   <% end %>
 
   <h3>Paiements</h3>
 
-  <% @event.payments.each do |payment| %>
+  <table class="payments">
+    <tr>
+      <th>Type</th>
+      <th>Date</th>
+      <th>Montant</th>
+      <th>Status</th>
+      <th>Action 1</th>
+      <th>Action 2</th>
+    </tr>
+    <% @event.payments.each do |payment| %>
+      <tr>
+        <td>
+          <%= payment.payment_type %>
+        </td>
+        <td>
+          <%= payment.time %>
+        </td>
+        <td>
+          <%= display_price(payment.amount) %>
+        </td>
+        <td>
+          <%= payment.status %>
+        </td>
+        <td>
+          <%= link_to "Modifier", edit_admin_payment_path(payment) %>
+        </td>
+        <td>
+          <%= link_to "Annuler", admin_payment_path(payment), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer ce paiement ?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
-    <ul>
-      <li>
-        <%= payment.payment_type %> · 
-        <%= payment.time %> ·
-        <%= display_price(payment.amount) %> · 
-        <%= payment.status %> · 
-        <%= link_to "Modifier", edit_admin_payment_path(payment) %> · 
-        <%= link_to "Annuler", admin_payment_path(payment), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer ce paiement ?" } %></li>
-    </ul>
+  <h3>Ajouter un paiement</h3>
 
-  <% end %>
-
-  <h4>Ajouter</h4>
-  <%= render "admin/payments/form", order: @event %>
+  <div class="standard-form-row">
+    <%= render "admin/payments/form", order: @event %>
+  </div>
 </div>

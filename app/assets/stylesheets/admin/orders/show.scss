@@ -1,0 +1,28 @@
+@import '../../components/standard-form';
+
+#admin-container.orders-events-show {
+  @include standard-form();
+
+  h3 {
+    padding: 40px 0 10px 0;
+  }
+
+  table.payments {
+    width: 100%;
+
+    tr {
+      td, th {
+        padding: 10px 0;
+        text-align: center;
+
+        a {
+          color: blue;
+
+          &:hover {
+            border-bottom: 1px solid blue;
+          }
+        }
+      }
+    }
+  }
+}

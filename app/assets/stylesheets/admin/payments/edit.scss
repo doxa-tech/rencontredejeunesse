@@ -1,0 +1,5 @@
+@import '../../components/standard-form';
+
+#admin-container.payments-edit {
+  @include standard-form();
+}
