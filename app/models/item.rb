@@ -9,7 +9,7 @@ class Item < ApplicationRecord
     has_and_belongs_to_many :discounts
     belongs_to :order_bundle, optional: true
 
-    validates :name, presence: true, length: { maximum: 50 }
+    validates :name, presence: true, length: { maximum: 70 }
     validates :description, presence: true, length: { maximum: 250 }
     validates :price, presence: true, numericality: { greater_than_or_equal_to: 500 }
     validates :number, presence: true, numericality: { greater_than_or_equal_to: 1000 }

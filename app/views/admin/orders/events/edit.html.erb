@@ -24,23 +24,23 @@
   <% end %>
 
   <h3>Paiements</h3>
-
+  <p>Montant de la commande: <%= display_price(@event.amount) %></p>
   <table class="payments">
     <tr>
       <th>Type</th>
       <th>Date</th>
       <th>Montant</th>
-      <th>Status</th>
+      <th>Statut</th>
       <th>Action 1</th>
       <th>Action 2</th>
     </tr>
     <% @event.payments.each do |payment| %>
       <tr>
         <td>
-          <%= payment.payment_type %>
+          <%= t("payment.payment_types.#{payment.payment_type}") %>
         </td>
         <td>
-          <%= payment.time %>
+          <%= l(payment.time, format: :normal) %>
         </td>
         <td>
           <%= display_price(payment.amount) %>

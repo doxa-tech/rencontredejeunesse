@@ -95,6 +95,9 @@ fr:
         delivered: "Livré"
         "true": "Oui"
         "false": "Non"
+      payment:
+        payment_type: "Type"
+        amount: "Montant"
     errors:
       models:
         order:
@@ -134,6 +137,11 @@ fr:
     genders:
       male: "M."
       female: "Mme"
+  payment:
+    payment_types:
+      main: "Principal"
+      addition: "Ajout"
+      refund: "Remboursement"
   contact:
     categories:
       order: "Commandes"

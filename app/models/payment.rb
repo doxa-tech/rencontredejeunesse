@@ -33,7 +33,7 @@ class Payment < ApplicationRecord
   end
 
   def order_status
-    payments = self.order.payments
+    payments = Payment.where(order: self.order).where.not(id: self.id).to_a << self
     main = payments.find { |p| p.main? }
     if self.order.delivered?
       "delivered"

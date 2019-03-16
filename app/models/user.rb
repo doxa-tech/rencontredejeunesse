@@ -107,7 +107,6 @@ class User < ApplicationRecord
     self.firstname = self.firstname.strip.split('-').map(&:capitalize).join('-')
     self.lastname = self.lastname.strip.split('-').map(&:capitalize).join('-')
     self.email = self.email.strip.downcase
-    self.address = self.address.capitalize
     self.city = self.city.capitalize
   end
 end
