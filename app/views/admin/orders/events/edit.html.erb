@@ -37,7 +37,7 @@
     <% @event.payments.each do |payment| %>
       <tr>
         <td>
-          <%= t("payment.payment_types.#{payment.payment_type}") %>
+          <%= t("payment.type.#{payment.payment_type}") %>
         </td>
         <td>
           <%= l(payment.time, format: :normal) %>

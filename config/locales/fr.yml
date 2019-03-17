@@ -121,8 +121,8 @@ fr:
       cash: "Cash"
     type:
       main: "Principal"
-      refund: "Ristourne"
-      addition: "ajout"
+      addition: "Ajout"
+      refund: "Remboursement"
       discount: "réduction"
   user:
     genders:
@@ -137,11 +137,6 @@ fr:
     genders:
       male: "M."
       female: "Mme"
-  payment:
-    payment_types:
-      main: "Principal"
-      addition: "Ajout"
-      refund: "Remboursement"
   contact:
     categories:
       order: "Commandes"
