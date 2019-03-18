@@ -214,7 +214,7 @@ class TicketPdf < Prawn::Document
           move_down 70
           text_box "N'achetez pas ce billet à un inconnu", at: [0, cursor], size: 8, style: :bold
           move_down 10
-          text_box "Billet non-remboursable et non-échageable.\nLes conditions générales d'appliquent.", at: [0, cursor], size: 8
+          text_box "Billet non-remboursable et non-échangeable.\nLes conditions générales d'appliquent.", at: [0, cursor], size: 8
         end
         move_up sub_height
         bounding_box([bounds.width/2+pad/2, cursor], width: bounds.width/2-pad/2, height: sub_height) do
