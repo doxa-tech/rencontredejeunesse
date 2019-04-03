@@ -2,6 +2,8 @@
 
   <%= hidden_field_tag :order_id, order.id if @payment.new_record? %>
 
+  <p>Le montant est en centimes: pour 30 CHF, indiquez 3000</p>
+
   <div class="row">
     <%= f.label :payment_type %>
     <div class="select">
