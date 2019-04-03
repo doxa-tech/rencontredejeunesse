@@ -5,7 +5,7 @@ class Admin::Orders::EventsController < Admin::BaseController
   def index
     @keys = OrderBundle.pluck(:key)
     @bundle = OrderBundle.find_by(key: params[:key])
-    @events = @events.joins(:tickets).where(status: :paid, items: { order_bundle_id: @bundle.id }).distinct if @bundle
+    @events = @events.joins(:tickets).where(status: [:paid, :pending], items: { order_bundle_id: @bundle.id }).distinct if @bundle
     @count = @events.size
     @table = OrderTable.new(self, @events, search: true)
     @table.respond
