@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  attr_accessor :conditions
+  attr_accessor :conditions, :admin
 
   enum status: [:unpaid, :paid, :delivered, :pending]
 

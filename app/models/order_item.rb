@@ -8,7 +8,7 @@ class OrderItem < ApplicationRecord
   private
 
   def validity_of_item
-    unless item.active?
+    if (item.nil? || !item.active?) && !order.admin
       errors.add(:item, :exclusion)
     end
   end

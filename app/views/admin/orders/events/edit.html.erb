@@ -9,7 +9,7 @@
     <%= render 'error_messages', object: f.object %>
 
     <h3>Produits commandés</h3>
-    <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.active %>
+    <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.all %>
     <div class="standard-form-row">
       <div class="row">
         <%= f.label :note %>
@@ -25,38 +25,7 @@
 
   <h3>Paiements</h3>
   <p>Montant de la commande: <%= display_price(@event.amount) %></p>
-  <table class="payments">
-    <tr>
-      <th>Type</th>
-      <th>Date</th>
-      <th>Montant</th>
-      <th>Statut</th>
-      <th>Action 1</th>
-      <th>Action 2</th>
-    </tr>
-    <% @event.payments.each do |payment| %>
-      <tr>
-        <td>
-          <%= t("payment.type.#{payment.payment_type}") %>
-        </td>
-        <td>
-          <%= l(payment.time, format: :normal) %>
-        </td>
-        <td>
-          <%= display_price(payment.amount) %>
-        </td>
-        <td>
-          <%= payment.status %>
-        </td>
-        <td>
-          <%= link_to "Modifier", edit_admin_payment_path(payment) %>
-        </td>
-        <td>
-          <%= link_to "Annuler", admin_payment_path(payment), method: :delete, data: { confirm: "Etes-vous sûr de vouloir supprimer ce paiement ?" } %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+  <%= render "admin/payments/summary", payments: @event.payments %>
 
   <h3>Ajouter un paiement</h3>
 

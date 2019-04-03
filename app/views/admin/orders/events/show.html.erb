@@ -10,7 +10,7 @@
   <ul>
     <li><b>Montant:</b> <%= display_price(@event.amount) %></li>
     <li><b>Réduction:</b> <%= display_price(@event.discount_amount) %></li>
-    <li><b>Statut:</b> <%= @event.status %></li>
+    <li><b>Statut:</b> <%= human_order_status(@event) %></li>
     <li><b>N° de commande:</b> <%= @event.order_id %></li>
   </ul>
 
@@ -23,11 +23,7 @@
   <!-- Paiements -->
 
   <h3>Paiements</h3>
-  <% @event.payments.each do |payment| %>
-  <ul>
-    <li><%= payment.payment_type %> · <%= payment.time %> · <%= display_price(payment.amount) %> · <%= payment.status %></li>
-  </ul>
-  <% end %>
+  <%= render "admin/payments/summary", payments: @event.payments %>
 
   <!-- Items -->
 

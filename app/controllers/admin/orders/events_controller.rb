@@ -26,6 +26,7 @@ class Admin::Orders::EventsController < Admin::BaseController
   end
 
   def update
+    @event.admin = true
     if @event.update_attributes(order_params)
       redirect_to admin_orders_event_path(@event), success: "Commande mise à jour"
     else
