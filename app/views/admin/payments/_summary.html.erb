@@ -13,7 +13,7 @@
           <%= t("payment.payment_types.#{payment.payment_type}") %>
         </td>
         <td>
-          <%= l(payment.time, format: :normal) %>
+          <%= l(payment.time, format: :normal) if payment.time %>
         </td>
         <td>
           <%= display_price(payment.amount) %>
