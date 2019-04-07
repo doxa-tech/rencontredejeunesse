@@ -27,6 +27,15 @@ class Admin::VolunteersController < Admin::BaseController
     @keys ||= OrderBundle.joins(:order_type).where(order_types: { name: "volunteer" }).pluck(:key)
   end
 
+  def badge
+    respond_to do |format|
+      format.pdf do
+        pdf = BadgePdf.new()
+        send_data pdf.render, filename: "Badges.pdf", type: "application/pdf", disposition: 'inline'
+      end
+    end
+  end
+
   private
 
   def select_field
