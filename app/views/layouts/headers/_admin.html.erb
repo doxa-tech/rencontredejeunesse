@@ -20,5 +20,7 @@
     <li class="text">Bénévoles</li>
     <% if can?(:read, "admin/volunteers") %><li><%= link_to "Bénévoles", admin_volunteers_path %></li><% end %>
     <li><%= link_to "Badges", badge_admin_volunteers_path(format: "pdf") %></li>
+    <li><%= link_to "Badges bénévoles", badge_volunteer_admin_volunteers_path(format: "pdf") %></li>
+    <li><%= link_to "Badges équipiers", badge_prayer_admin_volunteers_path(format: "pdf") %></li>
   </ul>
 </header>

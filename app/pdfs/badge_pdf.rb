@@ -244,18 +244,4 @@ class BadgePdf < Prawn::Document
     end
   end
 
-  # get an array of maximum 10 items and reverses it
-  # by chuncks of 5.
-  def row_inverse(data)
-    a = data[0...5]
-    b = data[5...10]
-    if(a.nil?)
-      a = []
-    end
-    if(b.nil?)
-      b = []
-    end
-    a.reverse() + b.reverse()
-  end
-
 end
