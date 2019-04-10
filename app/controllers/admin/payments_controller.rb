@@ -2,12 +2,12 @@ class Admin::PaymentsController < Admin::BaseController
   load_and_authorize
 
   def create
-    @order = Order.find(params[:order_id])
-    @payment = @order.payments.new(payment_attributes)
+    @event = Order.find(params[:order_id])
+    @payment = @event.payments.new(payment_attributes)
     if @payment.save
-      redirect_to edit_admin_orders_event_path(@order)
+      redirect_to edit_admin_orders_event_path(@event)
     else
-      render 'admin/orders/events/edit'
+      render 'edit'
     end
   end
 
