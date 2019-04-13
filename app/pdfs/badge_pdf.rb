@@ -2,7 +2,28 @@ class BadgePdf < Prawn::Document
   require "prawn/measurement_extensions"
 
   def initialize()
-    super(page_size: "A4", :margin => [15.mm,12.mm,15.mm,10.mm], page_layout: :landscape)
+    # When printing in double-sided mode, odd pages have right margin 
+    # of 12mm and left margin of 10mm
+    #
+    # First page:
+    #  12mm      10mm
+    #  +------------+15mm
+    #  +------------+
+    #  | |        | |
+    #  +------------+15mm
+    #
+    # Second page:
+    #  10mm      12mm
+    #  +------------+15mm
+    #  +------------+
+    #  | |        | |
+    #  +------------+15mm
+    #  +------------+
+
+
+    even_margin = [15.mm,10.mm,15.mm,12.mm] # top, right, bottom, left
+    odd_margin = [15.mm,12.mm,15.mm,10.mm]
+    super(page_size: "A4", :margin => even_margin, page_layout: :landscape)
     @debug = true
 
     self.font_families.update("omnes" =>  {
@@ -20,17 +41,18 @@ class BadgePdf < Prawn::Document
       {name: "Lumière & Ambiance Halle50", zones: [0,1,2,3,4,5,6]}
     ]
     @zones = [
-      {name: "Village & Fun Park", color: "00FF00"},
-      {name: "Plénière & Backstage", color: "0000FF"},
-      {name: "Régies", color: "7F00FF"},
-      {name: "Espace Lounge", color: "FF0000"},
-      {name: "Caisse", color: "5B3C11"},
-      {name: "Espace médias",color: "C0C0C0"},
-      {name: "Dortoirs", color: "FFA500"}
+      {name: "Village & Fun Park", color: "00FF00", abb: "vlg"},
+      {name: "Plénière & Backstage", color: "0000FF", abb: "plb"},
+      {name: "Régies", color: "7F00FF", abb: "reg"},
+      {name: "Espace Lounge", color: "FF0000", abb: "lng"},
+      {name: "Caisse", color: "5B3C11", abb: "css"},
+      {name: "Espace médias", color: "C0C0C0", abb: "med"},
+      {name: "Dortoirs", color: "FFA500", abb: "doo"}
     ]
 
     # stroke_axis
-    # draw_horizontal_layout()
+    # draw_horizontal_layout(true)
+    # draw_horizontal_guides(true)
     # bounding_box([0, 85.mm*2+10.mm], :width => 55.mm, :height => 85.mm) do
     #     stroke_bounds
     # end
@@ -97,12 +119,19 @@ class BadgePdf < Prawn::Document
       }
     ]
     i = 0
+    first_time = true
     while i < data.size
+      if first_time
+        first_time = false
+      else
+        start_new_page(margin: even_margin)
+      end
+      draw_horizontal_guides(true)
       draw_page(data[i...i+10], false)
-      start_new_page
+      start_new_page(margin: odd_margin)
+      draw_horizontal_guides(false)
       draw_page(data[i...i+10], true)
       i = i+10
-      start_new_page
     end
   end
 
@@ -129,7 +158,7 @@ class BadgePdf < Prawn::Document
       col = 4 - col if row_reverse
       bounding_box([col*55.mm, 85.mm*2+10.mm - row*(85.mm+10.mm)], :width => 55.mm, :height => 85.mm) do
 
-        image "#{Rails.root}/app/assets/images/pdf/badges/logo.png", height: 50, at: [40.mm, 80.mm]
+        image "#{Rails.root}/app/assets/images/pdf/badges/logo.png", height: 45, at: [35.mm, 80.mm]
         image "#{Rails.root}/app/assets/images/pdf/badges/logo_changemoi_noir.png", width: 60, at: [4.mm, 70.mm]
 
         text_box "2019", :at => [5.mm, 76.mm],
@@ -185,23 +214,28 @@ class BadgePdf < Prawn::Document
         # end
 
         num_zone = @sectors[el[:sec_id]][:zones].size
-        from_bottom = 5.mm
+        from_bottom = 10.mm
         margin = -4.mm
         growth_factor = 1 + (7-num_zone)**1.3*0.1
         shape_w = 5.mm * growth_factor
+        shape_h = 17.mm
         shapes_width = num_zone * shape_w*2 + (num_zone-1) * margin
         position_from_left = (55.mm - shapes_width) / 2
+        angle = -Math.atan(shape_h / shape_w) * 180 / Math::PI
 
         @sectors[el[:sec_id]][:zones].each.with_index do |zone_id, i|
           local_position_from_left = position_from_left + i*(shape_w*2 + margin)
           fill_color @zones[@sectors[el[:sec_id]][:zones][i]][:color]
           fill_polygon [local_position_from_left, from_bottom], 
                        [local_position_from_left+shape_w, from_bottom], 
-                       [local_position_from_left+shape_w*2, from_bottom + 20.mm], 
-                       [local_position_from_left+shape_w, from_bottom + 20.mm], 
+                       [local_position_from_left+shape_w*2, from_bottom + shape_h], 
+                       [local_position_from_left+shape_w, from_bottom + shape_h], 
                        [local_position_from_left, from_bottom]
+          fill_color "000000"
+          text_box @zones[@sectors[el[:sec_id]][:zones][i]][:abb].upcase, 
+                    at: [local_position_from_left+shape_w/2, from_bottom-1.mm],
+                    rotate: angle, size: 8, style: :bold, rotate_around: :upper_left
         end
-        fill_color "000000"
       end
     end
 
@@ -214,7 +248,8 @@ class BadgePdf < Prawn::Document
 
   # This method uses absolute positions to draw a layout with
   # a landscape orientation.
-  def draw_horizontal_layout
+  def draw_horizontal_layout(even)
+    left_margin = even ? 12.mm : 10.mm
     canvas do
       dash([1])
 
@@ -226,8 +261,36 @@ class BadgePdf < Prawn::Document
     
       # vertical lines
       6.times do |i|
-        x = bounds.left+10.mm+55.mm*i
+        x = bounds.left+left_margin+55.mm*i
         stroke_line [x, bounds.top], [x, bounds.bottom]
+      end
+      undash
+    end
+  end
+
+  def draw_horizontal_guides(even)
+    left_margin = even ? 12.mm : 10.mm
+    stroke_color "000000"
+    canvas do
+      dash([1])
+      # vertical lines
+      6.times do |i|
+        x = left_margin + i*55.mm
+        stroke_line [x, bounds.top], [x, bounds.top-3.mm]
+      end
+      6.times do |i|
+        x = left_margin + i*55.mm
+        base_y = bounds.top - 15.mm - 85.mm - 6.mm
+        stroke_line [x, base_y], [x, base_y+2.mm]
+      end
+      6.times do |i|
+        x = left_margin + i*55.mm
+        stroke_line [x, bounds.bottom], [x, bounds.bottom+3.mm]
+      end
+      # horizonal lines
+      [15.mm, 15.mm+85.mm, 15.mm+85.mm+10.mm, 15.mm+85.mm*2+10.mm].each do |from_y|
+        stroke_line [bounds.left, bounds.top-from_y], [bounds.left+3.mm, bounds.top-from_y]
+        stroke_line [bounds.right, bounds.top-from_y], [bounds.right-3.mm, bounds.top-from_y]
       end
       undash
     end
