@@ -18,7 +18,7 @@
       D’avance nous vous remercions pour votre engagement et votre désir de contribuer au bon fonctionnement de la Rencontre de Jeunessse.
     </p>
 
-    <% if @order_bundle %>
+    <% if @order_bundle.items.active.any? %>
 
     <h3 id="letsgo" class="ready">Alors prêt à t’inscrire maintenant ?</h3>
 
@@ -28,11 +28,9 @@
 
     <% else %>
 
-    <h3 id="letsgo" class="ready">A l'année prochaine</h3>
-
-    <p>
-      Les inscriptions bénévoles sont terminées pour cette année. Reviens pour la RJ 2020 !
-    </p>
+    <p><b>
+      Les inscriptions bénévoles sont terminées pour cette année.
+    </b></p>
 
     <% end %>
 
