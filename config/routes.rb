@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   root to: "pages#home"
   
-  %w(login privacy application vision volunteers highlights resources).each do |page|
+  %w(login privacy application vision volunteers highlights resources support).each do |page|
     get page, to: "pages##{page}"
   end
 
