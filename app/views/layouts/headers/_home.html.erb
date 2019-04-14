@@ -8,8 +8,7 @@
       <li><%= link_to "/bénévole", "/volunteers" %></li>
       <li><%= link_to "/RJ2019", "/2019" %></li>
       <li><%= link_to "/RJLogin", "/login" %></li>
-      <li data-turbolinks="false"><%= link_to "devenir bénévole", "#volunteer" %></li>
-      <li data-turbolinks="false"><%= link_to "devenir partenaire", "#partner" %></li>
+      <li><%= link_to "/FAQ", support_url(subdomain: false), class: active_class("/support") %></li>
       <li data-turbolinks="false"><%= link_to "histoire", "#history" %></li>
       <li data-turbolinks="false"><%= link_to "contact", "#contact" %></li>
     </ul>

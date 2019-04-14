@@ -5,9 +5,10 @@
     <ul data-gumshoe>
       <li><%= link_to "home", root_url(subdomain: false), class: active_class("/") %></li>
       <li><%= link_to "/vision", vision_url(subdomain: false), class: active_class("/vision") %></li>
-      <li><%= link_to "/bénévole", volunteers_url(subdomain: false), class: active_class("/volunteering") %></li>
+      <li><%= link_to "/bénévole", volunteers_url(subdomain: false), class: active_class("/volunteers") %></li>
       <li><%= link_to "/RJ2019", rj_url(subdomain: false), class: active_class("/2019") %></li>
       <li><%= link_to "/RJLogin", login_url(subdomain: false), class: active_class("/login") %></li>
+      <li><%= link_to "/FAQ", support_url(subdomain: false), class: active_class("/support") %></li>
     </ul>
 
     <%= render "layouts/headers/signin" %>

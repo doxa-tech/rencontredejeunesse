@@ -4,7 +4,7 @@
 
 ### Quel est le prix de la RJ ?
 
-- Le week-end CHF 80.-
+- Le week-end CHF 90.-
 - Le Vendredi soir CHF 30.-
 - Le Samedi tout la journée CHF 40.-
 - Le samedi dès 17:00 CHF 30.-
