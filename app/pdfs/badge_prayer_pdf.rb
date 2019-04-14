@@ -2,7 +2,9 @@ class BadgePrayerPdf < Prawn::Document
   require "prawn/measurement_extensions"
 
   def initialize()
-    super(page_size: "A4", :margin => [15.mm,12.mm,15.mm,10.mm], page_layout: :landscape)
+    even_margin = [15.mm,10.mm,15.mm,12.mm] # top, right, bottom, left
+    odd_margin = [15.mm,12.mm,15.mm,10.mm]
+    super(page_size: "A4", :margin => even_margin, page_layout: :landscape)
     @debug = true
 
     self.font_families.update("omnes" =>  {
@@ -14,13 +16,15 @@ class BadgePrayerPdf < Prawn::Document
     font "omnes"
 
     # stroke_axis
-    draw_horizontal_layout()
+    # draw_horizontal_layout(true)
     # bounding_box([0, 85.mm*2+10.mm], :width => 55.mm, :height => 85.mm) do
     #     stroke_bounds
     # end
     
     draw_page(false)
-    start_new_page
+    draw_horizontal_guides(true)
+    start_new_page(margin: odd_margin)
+    draw_horizontal_guides(false)
     draw_page(true)
 
   end
@@ -43,7 +47,7 @@ class BadgePrayerPdf < Prawn::Document
     end
 
     canvas do
-      fill_color "ffff00"
+      fill_color "ffff77"
       fill_polygon [bounds.left, bounds.top - 7.mm],
                    [bounds.right, bounds.top - 7.mm],
                    [bounds.right, bounds.bottom + 7.mm],
@@ -56,7 +60,7 @@ class BadgePrayerPdf < Prawn::Document
       row = i/5
       bounding_box([col*55.mm, 85.mm*2+10.mm - row*(85.mm+10.mm)], :width => 55.mm, :height => 85.mm) do
 
-        image "#{Rails.root}/app/assets/images/pdf/badges/logo.png", height: 50, at: [40.mm, 80.mm]
+        image "#{Rails.root}/app/assets/images/pdf/badges/logo.png", height: 45, at: [35.mm, 80.mm]
         image "#{Rails.root}/app/assets/images/pdf/badges/logo_changemoi_noir.png", width: 60, at: [4.mm, 70.mm]
 
         text_box "2019", :at => [5.mm, 76.mm],
@@ -80,7 +84,8 @@ class BadgePrayerPdf < Prawn::Document
 
   # This method uses absolute positions to draw a layout with
   # a landscape orientation.
-  def draw_horizontal_layout
+  def draw_horizontal_layout(even)
+    left_margin = even ? 12.mm : 10.mm
     canvas do
       dash([1])
 
@@ -92,8 +97,36 @@ class BadgePrayerPdf < Prawn::Document
     
       # vertical lines
       6.times do |i|
-        x = bounds.left+10.mm+55.mm*i
+        x = bounds.left+left_margin+55.mm*i
         stroke_line [x, bounds.top], [x, bounds.bottom]
+      end
+      undash
+    end
+  end
+
+  def draw_horizontal_guides(even)
+    left_margin = even ? 12.mm : 10.mm
+    stroke_color "000000"
+    canvas do
+      dash([1])
+      # vertical lines
+      6.times do |i|
+        x = left_margin + i*55.mm
+        stroke_line [x, bounds.top], [x, bounds.top-3.mm]
+      end
+      6.times do |i|
+        x = left_margin + i*55.mm
+        base_y = bounds.top - 15.mm - 85.mm - 6.mm
+        stroke_line [x, base_y], [x, base_y+2.mm]
+      end
+      6.times do |i|
+        x = left_margin + i*55.mm
+        stroke_line [x, bounds.bottom], [x, bounds.bottom+3.mm]
+      end
+      # horizonal lines
+      [15.mm, 15.mm+85.mm, 15.mm+85.mm+10.mm, 15.mm+85.mm*2+10.mm].each do |from_y|
+        stroke_line [bounds.left, bounds.top-from_y], [bounds.left+3.mm, bounds.top-from_y]
+        stroke_line [bounds.right, bounds.top-from_y], [bounds.right-3.mm, bounds.top-from_y]
       end
       undash
     end
@@ -101,7 +134,7 @@ class BadgePrayerPdf < Prawn::Document
 
   def draw_special_line(x, y, width, size)
     canvas do
-      stroke_color "eeeeee"
+      stroke_color "ffffff"
       self.line_width = 0.4
       while(x+size <= width)
         stroke_line [x,y], [x+size, y+size]

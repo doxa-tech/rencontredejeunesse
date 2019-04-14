@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Rencontre de jeunesse RJ - FAQ</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'markdown', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'markdown', 'data-turbolinks-track': 'reload' %>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%= render 'layouts/favicon' %>
+  </head>
+
+  <body>
+
+    <%= render 'layouts/headers/markdown' %>
+
+    <div id="container" class="<%= yield :id %>">
+
+      <%= yield %>
+
+    </div>
+
+    <%= render 'layouts/footers/markdown' %>
+
+  </body>
+</html>

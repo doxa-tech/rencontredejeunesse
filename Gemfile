@@ -98,3 +98,6 @@ gem 'rest-client'
 
 # Style guide css
 gem "livingstyleguide"
+
+# Markdown parser
+gem "redcarpet"

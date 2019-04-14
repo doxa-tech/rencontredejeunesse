@@ -45,6 +45,12 @@ class PagesController < ApplicationController
     end
   end
 
+  def support
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @content = @markdown.render(render_to_string "support.md", layout: false)
+    render layout: "markdown"
+  end
+
   private
 
   def contact_params

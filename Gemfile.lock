@@ -456,6 +456,7 @@ DEPENDENCIES
   rails (~> 5.1.0)
   rails-controller-testing
   rails-i18n
+  redcarpet
   rest-client
   rpush
   rqrcode
