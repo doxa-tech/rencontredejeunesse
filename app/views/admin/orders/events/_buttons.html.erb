@@ -1,4 +1,3 @@
 <%= show_button if show_button? %>
 <%= edit_button if edit_button? %>
 <%= delete_button if delete_button? %>
-<%= link_to "Exporter", export_admin_orders_rj_index_path(format: :xls), class: "add" if can?(:export, "admin/orders/rj") %>

@@ -40,11 +40,6 @@ class Admin::Orders::EventsController < Admin::BaseController
 		redirect_to admin_orders_events_path, success: "Commande supprimée"
   end
 
-  def export
-    @events = Orders::Event.all
-    @events = @events.joins(registrants: :item).where(registrants: { items: { key: params[:key] }}) if params[:key]
-  end
-
   private
 
   def order_params

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Inscriptions">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">M/Mme</Data></Cell>
+        <Cell><Data ss:Type="String">Prénom</Data></Cell>
+        <Cell><Data ss:Type="String">Nom</Data></Cell>
+        <Cell><Data ss:Type="String">Produit</Data></Cell>
+        <Cell><Data ss:Type="String">Prix</Data></Cell>
+        <Cell><Data ss:Type="String">Livré</Data></Cell>
+        <Cell><Data ss:Type="String">N° de commande</Data></Cell>
+        <Cell><Data ss:Type="String">Statut</Data></Cell>
+        <Cell><Data ss:Type="String">Montant total</Data></Cell>
+        <Cell><Data ss:Type="String">Prénom</Data></Cell>
+        <Cell><Data ss:Type="String">Nom</Data></Cell>
+        <Cell><Data ss:Type="String">Email</Data></Cell>
+      </Row>
+    <% @registrants.each do |registrant| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= t("user.genders.#{registrant.gender}") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registrant.firstname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registrant.lastname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registrant.item.name %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= registrant.item.price %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registrant.delivered %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= registrant.order.order_id %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= human_order_status(registrant.order) %></Data></Cell>
+        <Cell><Data ss:Type="Number"><%= registrant.order.amount %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registrant.order.user.firstname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registrant.order.user.lastname %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= registrant.order.user.email %></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
