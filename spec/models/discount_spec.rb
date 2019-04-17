@@ -55,7 +55,7 @@ RSpec.describe "Discount", :type => :model do
 
     it "does not offer a free item" do
       order = create(:order_with_items)
-      discount = create(:discount, category: :free, reduction: nil, number: 1)
+      discount = create(:discount, category: :free, reduction: nil, number: 1, items: [create(:item)])
       amount = discount.calculate_discount(order)
       expect(amount).to eq 0
     end
