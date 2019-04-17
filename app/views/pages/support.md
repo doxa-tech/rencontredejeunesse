@@ -9,7 +9,6 @@
 - Le Samedi tout la journée CHF 40.-
 - Le samedi dès 17:00 CHF 30.-
 - Le dimanche matin CHF 30.-
-- dimanche dès midi CHF 0.-
 
 ### Où se déroule la rencontre ?
 
@@ -33,7 +32,7 @@ Non. Par contre, tu pourras trouver des snacks et repas chauds sur place à bon
 
 ### Un parking est-il disponible ?
 
-Le parking d'Espace Gruyère est à disposition durant l'événement. Celui-ci est payant, tu peux cependant acheter des tickets de parking à un tarif préférentiel à la caisse: forfait de 12 CHF pour le weekend ou 5 CHF par jour (uniquement valable pour le parking adjacent au bâtiment).
+Le parking payant de l'Espace Gruyère est à disposition durant l'événement.
 
 ### Comment puis-je soutenir cet évènement?
 
