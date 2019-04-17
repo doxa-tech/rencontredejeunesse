@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190201121830) do
+ActiveRecord::Schema.define(version: 20190417194345) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -133,11 +133,12 @@ ActiveRecord::Schema.define(version: 20190201121830) do
   create_table "fields", force: :cascade do |t|
     t.string "name"
     t.integer "field_type"
-    t.boolean "required", default: false
+    t.boolean "required"
     t.bigint "form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.jsonb "options"
+    t.boolean "admin", default: false
     t.index ["form_id"], name: "index_fields_on_form_id"
   end
 
@@ -291,10 +292,14 @@ ActiveRecord::Schema.define(version: 20190201121830) do
     t.string "client_secret"
     t.string "access_token"
     t.datetime "access_token_expiration"
+    t.text "apn_key"
+    t.string "apn_key_id"
+    t.string "team_id"
+    t.string "bundle_id"
   end
 
   create_table "rpush_feedback", force: :cascade do |t|
-    t.string "device_token", limit: 64, null: false
+    t.string "device_token"
     t.datetime "failed_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -304,7 +309,7 @@ ActiveRecord::Schema.define(version: 20190201121830) do
 
   create_table "rpush_notifications", force: :cascade do |t|
     t.integer "badge"
-    t.string "device_token", limit: 64
+    t.string "device_token"
     t.string "sound"
     t.text "alert"
     t.text "data"
@@ -335,6 +340,8 @@ ActiveRecord::Schema.define(version: 20190201121830) do
     t.text "notification"
     t.boolean "mutable_content", default: false, null: false
     t.string "external_device_id"
+    t.string "thread_id"
+    t.boolean "dry_run", default: false, null: false
     t.index ["delivered", "failed", "processing", "deliver_after", "created_at"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))"
   end
 
