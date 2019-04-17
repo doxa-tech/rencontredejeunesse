@@ -18,6 +18,10 @@
     <%= f.label :number %>
     <%= f.number_field :number %>
 
+		<p class="hint">Si de catégorie "Gratuité".<br>Presser Ctrl (Win) ou cmd (Mac) pour sélectionner plusieurs produits.</p>
+    <%= f.label :item_ids %>
+    <%= f.collection_select :item_ids, Item.active, :id, :name_with_price, {}, { multiple: true } %>
+
 		<%= f.label :note %>
 		<%= f.text_field :note %>
 

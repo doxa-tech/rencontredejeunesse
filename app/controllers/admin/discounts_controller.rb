@@ -32,6 +32,6 @@ class Admin::DiscountsController < Admin::BaseController
   private
 
   def discount_params
-    params.require(:discount).permit(:category, :product, :reduction, :number, :note)
+    params.require(:discount).permit(:category, :product, :reduction, :number, :note, item_ids: [])
   end
 end

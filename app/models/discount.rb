@@ -10,6 +10,7 @@ class Discount < ApplicationRecord
   validates :reduction, presence: true, numericality: { greater_than_or_equal_to: 500 }, if: :money?
   validates :reduction, presence: true, numericality: { greater_than: 0, less_than: 100 }, if: :percent?
   validates :number, presence: true, numericality: { greater_than: 0 }, if: :free?
+  validates :items, presence: true, if: :free?
 
   before_create :generate_code
 

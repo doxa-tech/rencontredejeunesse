@@ -79,6 +79,9 @@ fr:
     confirmed: "Confirmé"
   activerecord:
     attributes:
+      discount:
+        items: "Produits"
+        item_ids: "Produits"
       order:
         conditions: "J'ai lu les conditions générales et les accepte."
         user: "Personne"
