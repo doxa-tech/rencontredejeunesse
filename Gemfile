@@ -28,6 +28,9 @@ gem 'rails-i18n'
 
 gem 'database_cleaner'
 
+# Speed up boot time
+gem 'bootsnap', require: false
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
@@ -47,7 +50,6 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'bootsnap', require: false
 
   gem 'capistrano', '3.6.1'
   gem 'capistrano-maintenance', require: false
