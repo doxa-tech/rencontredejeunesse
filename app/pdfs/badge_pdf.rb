@@ -118,6 +118,7 @@ class BadgePdf < Prawn::Document
         sec_id: 0
       }
     ]
+    data.sort!{ |a,b| "#{a[:sec_id]}#{a[:firstname]}#{a[:lastname]}" <=> "#{b[:sec_id]}#{b[:firstname]}#{b[:lastname]}" }
     i = 0
     first_time = true
     while i < data.size
