@@ -7,7 +7,7 @@ class Image < ApplicationRecord
   validate :file_dimensions
 
   def file_dimensions
-    if self.file_width < 400 || file_height < 400
+    if file.present? && (file_width < 400 || file_height < 400)
       errors.add :avatar, "Votre image est trop petite. Une largeur d'au moins 400px et une hauteur d'au moins 400px est nécessaire."
     end
   end

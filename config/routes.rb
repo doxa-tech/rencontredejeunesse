@@ -119,6 +119,9 @@ Rails.application.routes.draw do
     resources :users, except: :show
     resources :discounts, except: [:edit, :update]
     resources :payments, except: [:index, :new]
+    resources :testimonies, except: [:show, :new, :create]
+    resources :posts
+    resources :comments, only: [:edit, :update, :destroy]
 
     namespace :orders do
 

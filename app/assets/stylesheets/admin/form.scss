@@ -31,6 +31,11 @@
         -ms-flex-align: center;
             align-items: center;
 
+    textarea {
+      width: 500px;
+      height: 200px;
+    }
+    
     p.hint {
       font-style: italic;
       text-align: center;

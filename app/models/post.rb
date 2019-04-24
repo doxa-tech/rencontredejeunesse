@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   default_scope { order created_at: :desc }
 
   belongs_to :user
-  belongs_to :image, optional: true
+  belongs_to :image, optional: true, autosave: true
   has_many :comments, dependent: :destroy
 
   before_validation :strip_content

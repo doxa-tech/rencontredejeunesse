@@ -1,0 +1,17 @@
+<div id="form">
+
+	<%= form_for [:admin, @post] do |f| %>
+
+		<%= render 'error_messages', object: f.object %>
+
+		<%= f.label :message %>
+		<%= f.text_area :message %>
+
+		<%= f.label :image %>
+		<%= f.file_field :image %>
+
+		<%= f.submit nil, class: "button" %>
+
+	<% end %>
+
+</div>

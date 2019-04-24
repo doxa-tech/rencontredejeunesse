@@ -15,7 +15,7 @@ class Admin::PaymentsController < Admin::BaseController
   end
 
   def update
-    if @payment.update(payment_attributes)
+    if @payment.update_attributes(payment_attributes)
       redirect_to edit_admin_orders_event_path(@payment.order_id)
     else
       render 'edit'

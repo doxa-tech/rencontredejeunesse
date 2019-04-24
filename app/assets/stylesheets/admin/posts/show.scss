@@ -1,0 +1,31 @@
+@import '../../components/standard-form';
+
+#admin-container.posts-show {
+  //@include standard-form();
+
+  h3 {
+    padding: 40px 0 10px 0;
+  }
+
+  table.comments {
+    width: 100%;
+
+    tr {
+      th {
+        white-space: nowrap;
+      }
+      td, th {
+        padding: 10px 5px;
+        text-align: center;
+
+        a {
+          color: blue;
+
+          &:hover {
+            border-bottom: 1px solid blue;
+          }
+        }
+      }
+    }
+  }
+}
