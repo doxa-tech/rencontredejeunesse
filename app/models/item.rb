@@ -12,7 +12,7 @@ class Item < ApplicationRecord
     validates :name, presence: true, length: { maximum: 70 }
     validates :description, presence: true, length: { maximum: 250 }
     validates :price, presence: true, numericality: { greater_than_or_equal_to: 500 }
-    validates :number, presence: true, numericality: { greater_than_or_equal_to: 1000 }
+    validates :number, presence: true, numericality: { greater_than_or_equal_to: 1000 }, uniqueness: true
 
     scope :active, -> { where("active = :active AND
       (valid_until IS :null OR valid_until >= :date) AND (valid_from IS :null OR valid_from <= :date)", 
