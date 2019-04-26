@@ -5,7 +5,7 @@ $(document).on("turbolinks:load", function() {
 
   $ticket_id.focus();
 
-  $ticket_id.keydown(function() {
+  $ticket_id.keyup(function() {
     if($ticket_id.val().length == 14) {
       $form.submit();
     }

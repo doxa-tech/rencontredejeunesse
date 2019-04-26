@@ -52,7 +52,7 @@ class BundleValidator < ActiveModel::Validator
     end
 
     def bundle_ids
-      Item.where(id: @item_ids).pluck("DISTINCT order_bundle_id")
+      Item.where(id: @item_ids).pluck(:order_bundle_id).uniq
     end
 
     def bundle

@@ -9,7 +9,7 @@
   <%= form_tag admin_orders_checkin_index_path, id: "checkin-form" do %>
 
     <%= label_tag :ticket_id, "Entrez le numéro de commande" %>
-    <%= text_field_tag :ticket_id, nil, maxlength: "14", autofocus: true %>
+    <%= text_field_tag :ticket_id, nil, maxlength: "14", autofocus: true, autocomplete: "off" %>
 
     <%= submit_tag "Afficher", class: "button" %>
 
