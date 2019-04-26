@@ -19,9 +19,7 @@
     <% if can?(:read, "admin/option_orders") %><li><%= link_to "Commandes spéciales", admin_option_orders_path %></li><% end %>
     <li class="text">Bénévoles</li>
     <% if can?(:read, "admin/volunteers") %><li><%= link_to "Bénévoles", admin_volunteers_path %></li><% end %>
-    <li><%= link_to "Badges", badge_admin_volunteers_path(format: "pdf") %></li>
-    <li><%= link_to "Badges bénévoles", badge_volunteer_admin_volunteers_path(format: "pdf") %></li>
-    <li><%= link_to "Badges équipiers", badge_prayer_admin_volunteers_path(format: "pdf") %></li>
+    <% if can?(:read, "admin/volunteers") %><li><%= link_to "Badges", admin_badges_path %></li><% end %>
     <li class="text">Application</li>
     <% if can?(:read, "admin/testimonies") %><li><%= link_to "Témoignages", admin_testimonies_path %></li><% end %>
     <% if can?(:read, "admin/posts") %><li><%= link_to "Posts", admin_posts_path %></li><% end %>

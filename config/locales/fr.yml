@@ -112,7 +112,7 @@ fr:
   order:
     statuses:
       paid: "Payé"
-      unpaid: "Inpayé"
+      unpaid: "Impayé"
       pending: "En attente de paiement"
       delivered: "Livré"
       uncompleted: "Incomplet"
