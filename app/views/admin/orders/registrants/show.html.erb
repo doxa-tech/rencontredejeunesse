@@ -18,6 +18,7 @@
   <!-- Product information -->
 
   <div class="products">
+    <%= @registrant.item.name %>
   </div>
 
   <div class="product-informations">
@@ -38,6 +39,8 @@
     <p>Nom: <%= @registrant.lastname %></p>
     <p>Prénom: <%= @registrant.firstname %></p>
   </div>
+
+  <%= link_to "Voir la commande", admin_orders_event_path(@order) %>
 
 </div>
 

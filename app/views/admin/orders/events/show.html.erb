@@ -2,7 +2,7 @@
 
   <h1>Commande <%= @event.order_id %></h1>
 
-  <%= link_to "Editer", { action: "edit" }, class: "edit" %>
+  <%= link_to "Editer", { action: "edit" }, class: "edit" if can?(:edit, "admin/orders/events") %>
 
   <!-- Order information -->
 

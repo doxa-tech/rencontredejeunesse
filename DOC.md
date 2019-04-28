@@ -35,6 +35,13 @@ Item.create!(name: "Pass WE pour bénévole", description: "Ton pass pour le WE 
 
 The project uses the adeia gem to manage the permissions. ([see documentation](https://github.com/JS-Tech/adeia))
 
+## Notifications
+
+The application can send push notifications using the gem RPush. 
+In order to work, you have to:
+- Include the `fcm_server_key` in your secrets.yml. You find it in the Firebase console.
+- Create an RPush app using these instructions: https://github.com/rpush/rpush#firebase-cloud-messaging
+
 ## Testing
 
 The project uses Cucumber and Rspec for testing. Both use Capybara to interact with the app. Cucumber uses Selenium with the headless chrome driver.

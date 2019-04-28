@@ -1,4 +1,5 @@
 class Admin::PostsController < Admin::BaseController
+  include PushNotifications
   load_and_authorize
 
   def index
@@ -14,6 +15,8 @@ class Admin::PostsController < Admin::BaseController
     @post.image = Image.new(file: params[:post][:image]) if params[:post][:image]
     @post.user = current_user
     if @post.save
+      message = @post.message.truncate(100)
+      send_push_notifications(message)
       redirect_to admin_posts_path, success: "Post créé"
     else
       render 'new'
