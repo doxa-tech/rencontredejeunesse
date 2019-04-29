@@ -1,14 +1,19 @@
+require 'csv'
+
 class Admin::BadgesController < Admin::BaseController
 
   def index
   end
 
   def create
-    respond_to do |format|
-      format.pdf do
-        pdf = BadgePdf.new()
-        send_data pdf.render, filename: "Badges.pdf", type: "application/pdf", disposition: 'inline'
+    file = params[:file]
+    if file
+      CSV.foreach(file.path, headers: true) do |row|
       end
+      pdf = BadgePdf.new()
+      send_data pdf.render, filename: "Badges.pdf", type: "application/pdf", disposition: 'inline'
+    else
+      redirect_to admin_badges_path, error: "Erreur"
     end
   end
 
