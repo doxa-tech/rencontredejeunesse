@@ -1,7 +1,9 @@
 class BadgePdf < Prawn::Document
   require "prawn/measurement_extensions"
 
-  def initialize()
+  def initialize(data, sectors, zones)
+    @sectors = sectors
+    @zones = zones
     # When printing in double-sided mode, odd pages have right margin 
     # of 12mm and left margin of 10mm
     #
@@ -34,90 +36,13 @@ class BadgePdf < Prawn::Document
     })
     font "omnes"
 
-    @sectors = [
-      {name: "Audio Recording", zones: [0,2,3]}, 
-      {name: "Badges & Bons", zones: [1,5]}, 
-      {name: "Staff Espace Gruyère", zones: [0,1,5,6]},
-      {name: "Lumière & Ambiance Halle50", zones: [0,1,2,3,4,5,6]}
-    ]
-    @zones = [
-      {name: "Village & Fun Park", color: "00FF00", abb: "vlg"},
-      {name: "Plénière & Backstage", color: "0000FF", abb: "plb"},
-      {name: "Régies", color: "7F00FF", abb: "reg"},
-      {name: "Espace Lounge", color: "FF0000", abb: "lng"},
-      {name: "Caisse", color: "5B3C11", abb: "css"},
-      {name: "Espace médias", color: "C0C0C0", abb: "med"},
-      {name: "Dortoirs", color: "FFA500", abb: "doo"}
-    ]
-
     # stroke_axis
     # draw_horizontal_layout(true)
     # draw_horizontal_guides(true)
     # bounding_box([0, 85.mm*2+10.mm], :width => 55.mm, :height => 85.mm) do
     #     stroke_bounds
     # end
-    data = [
-      {
-        firstname: "Noémien",
-        lastname: "Kocher",
-        sec_id: 1
-      },
-      {
-        firstname: "David",
-        lastname: "Dupont",
-        sec_id: 0
-      },
-      {
-        firstname: "François",
-        lastname: "Delabatte",
-        sec_id: 2
-      },
-      {
-        firstname: "Baptiste",
-        lastname: "Baumann",
-        sec_id: 3
-      },
-      {
-        firstname: "Sévin",
-        lastname: "Kocher",
-        sec_id: 1
-      },
-      {
-        firstname: "Chainy",
-        lastname: "Sudan",
-        sec_id: 2
-      },
-      {
-        firstname: "Sandrine",
-        lastname: "Meyer",
-        sec_id: 3
-      },
-      {
-        firstname: "Dupont",
-        lastname: "Chat",
-        sec_id: 0
-      },
-      {
-        firstname: "Bonnet",
-        lastname: "Chaise",
-        sec_id: 2
-      },
-      {
-        firstname: "Tabouret",
-        lastname: "Voiture",
-        sec_id: 3
-      },
-      {
-        firstname: "Table",
-        lastname: "Tiroire",
-        sec_id: 1
-      },
-      {
-        firstname: "Soleil",
-        lastname: "Chevet",
-        sec_id: 0
-      }
-    ]
+
     data.sort!{ |a,b| "#{a[:sec_id]}#{a[:firstname]}#{a[:lastname]}" <=> "#{b[:sec_id]}#{b[:firstname]}#{b[:lastname]}" }
     i = 0
     first_time = true
