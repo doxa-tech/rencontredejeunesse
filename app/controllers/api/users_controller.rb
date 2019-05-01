@@ -12,6 +12,14 @@ class Api::UsersController < Api::BaseController
     end
   end
 
+  def update
+    @user = User.find_by_remember_token!(params[:id])
+    @user.assign_attributes(user_params)
+    unless @user.save
+      render json: { errors: @user.errors.full_messages }, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def user_params

@@ -40,7 +40,9 @@
     <p>Prénom: <%= @registrant.firstname %></p>
   </div>
 
-  <%= link_to "Voir la commande", admin_orders_event_path(@order) %>
+  <div>
+    <%= link_to "Voir la commande", admin_orders_event_path(@order), class: "show-order" %>
+  </div>
 
 </div>
 
