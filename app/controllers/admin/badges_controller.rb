@@ -7,8 +7,6 @@ class Admin::BadgesController < Admin::BaseController
 
   def create
     file = params[:file]
-    
-
     items_not_found = []
     @data = []
     if file
