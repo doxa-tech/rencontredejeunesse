@@ -10,9 +10,7 @@ class Admin::BadgesController < Admin::BaseController
     file = params[:file]
     items_not_found = []
     data = []
-    if !file
-      redirect_to admin_badges_path, error: "Erreur dans l'ouverture du fichier."
-    else
+    if file
       CSV.foreach(file.path, headers: true, col_sep: ";").with_index(1) do |row, i|
         found = SECTORS.select { |e| e[:name] == row["Secteur"] }
         if found.size < 1
@@ -22,7 +20,9 @@ class Admin::BadgesController < Admin::BaseController
         end
       end
     end
-    if items_not_found.size > 0
+    if !file
+      redirect_to admin_badges_path, error: "Erreur dans l'ouverture du fichier."
+    elsif items_not_found.size > 0
       redirect_to admin_badges_path, error: "Nous n'avons pas trouvé ce/ces secteurs:\n#{items_not_found}"   
     else
       # At this stage, we assume everything went good.
