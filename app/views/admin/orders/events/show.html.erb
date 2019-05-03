@@ -18,8 +18,6 @@
 
   <p><%= @event.note %></p>
 
-  <%= link_to "Livrer", admin_orders_checkin_path(@event.id), method: :patch %>
-
   <!-- Paiements -->
 
   <h3>Paiements</h3>
@@ -30,7 +28,8 @@
   <h3>Produits commandés</h3>
   <ul>
   <% @event.registrants.includes(:item).each do |registrant| %>
-    <li><%= registrant.firstname %> · <%= registrant.lastname %> · <%= registrant.age %> ans · <%= registrant.item.name %> · <%= registrant.item.price %></li>
+    <li><%= registrant.firstname %> · <%= registrant.lastname %> · <%= registrant.age %> ans · <%= registrant.item.name %> · <%= registrant.item.price %> 
+    | Livré ? : <%= t("activerecord.attributes.registrant.#{registrant.delivered}") %> | <%= link_to "LIVRER", admin_orders_checkin_path(registrant.ticket_id), method: :patch %></li>
   <% end %>
   </ul>
   
