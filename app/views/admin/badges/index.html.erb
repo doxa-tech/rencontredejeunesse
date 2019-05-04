@@ -20,8 +20,9 @@
 <h3>Autres badges</h3>
 
 <ul>
-  <li><%= link_to "Badges bénévoles", volunteer_admin_badges_path(format: "pdf") %></li>
-  <li><%= link_to "Badges équipiers", prayer_admin_badges_path(format: "pdf") %></li>
+  <li><%= link_to "> Badges bénévoles", volunteer_admin_badges_path(format: "pdf") %></li>
+  <li><%= link_to "> Badges équipiers", prayer_admin_badges_path(format: "pdf") %></li>
+  <li><%= link_to "> PDF d'explication!", "https://github.com/JS-Tech/rencontredejeunesse/blob/master/doc/badges/README.md"%></li>
 </ul>
 <hr>
 <h3>Secteurs autorisés</h3>
@@ -30,3 +31,8 @@
   <li><%= sector[:name] %></li>
 <% end %>
 </ul>
+
+<style>
+  li { padding: 5px;}
+  li a:hover { color: blue;}
+</style>
