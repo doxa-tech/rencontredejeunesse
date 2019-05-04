@@ -2,7 +2,7 @@
 
 #container.home section#welcome {
 
-  background-color: black;
+  background-image: image-url('home/welcome/background2.jpg');
   background-size: cover;
 
   width: 100%;
@@ -13,71 +13,117 @@
   justify-content: center;
   align-items: center;
 
-  #vid-wrapper {
-    video {
-      width: 100%;
-      height: 100%;
-      max-width: 100%;
-      max-height: 100%;
-    }
-  }
+  .section-container {
+    height: 100%;
+    width: 100%;
+    max-width: $main-width;
+    padding: $logo-burger-height $main-padding 0 $main-padding;
 
-  .btn {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translate(-50%);
-    z-index: 1;
+    display: flex;
+    flex-direction: column;
 
-    button {
-      background: white;
-      padding: 10px;
-      border-radius: 50%;
-      border: none;
-      line-height: 0;
-      display: none;
+    div.row1 {
+        flex: 1;
+        display: flex;
+        align-items: center;
 
-      &.playing {
-        animation: wheel-clock 7s linear infinite;
-        background: #ea0003;
+      h1 {
+        font-size: $title-size;
+        line-height: 1.1em;
+        font-family: "Helvetica neue", "Helvetica", sans-serif;
+        color: #fff;
+        padding: 0 0 0 $sub-padding;
+
+        span {
+          position: relative;
+          z-index: 1;
+
+          &::after {
+            position: absolute;
+            content: "";
+            left: -.1em;
+            right: -.3em;
+            bottom: .1em;
+            height: 20px;
+            background-color: #f56953;
+            z-index: -1;
+          }
+        }
       }
     }
-  }
 
-  #slogan {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    div.row1-2 {
+      padding: 0 0 0 $sub-padding;
 
-    img {
-      width: 400px;
-      max-width: 100%;
-      animation: wheel 10s linear infinite;
+      a {
+        position: relative;
+        z-index: 0;
+        display: block;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        margin: 40px 0 50px 0;
+        font-size: $sub-title;
+        font-weight: bold;
+        text-transform: lowercase;
+
+        &::after {
+          content: "";
+          position: absolute;
+          background-color: #fbe35b;
+          left: 0;
+          bottom: -5px;
+          height: 20px;
+          width: 4.8em;
+          z-index: -1;
+          transition: background-color .5s ease-out;
+        }
+
+        &:hover::after {
+          background-color: yellow;
+        }
+      }
     }
-  }
 
-  @keyframes wheel {
-    from {
-      transform: rotate(360deg);
-    }
-    to {
-      transform: rotate(0deg);
-    }
-  }
+    div.row2 {
+      color: #fff;
+      height: 200px;
+      display: flex;
+      align-items: center;
 
-  @keyframes wheel-clock {
-    from {
-      transform: rotate(0deg);
-    }    
-    to {
-      transform: rotate(360deg);
+      div.app {
+        padding: 0 0 0 $sub-padding;
+
+        h3 {
+          padding: 0 0 20px 0;
+        }
+
+        img {
+          width: 100px;
+        }
+      }
     }
   }
 
   @media only screen and (max-width: $mobile-width) {
     .section-container {
       padding: 0 $mobile-padding !important;
+
+      div.row2 {
+        h1 {
+          padding: 100px 0 40px 0 !important;
+        }
+
+        p {
+          padding: 0 !important;
+        }
+      }
+
+      div.row3 {
+        div.app {
+          padding: 0 !important;
+        }
+      }
     }
   }
 }
