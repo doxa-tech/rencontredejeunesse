@@ -127,6 +127,7 @@
     }
 
     div.user-informations {
+      margin-bottom: 60px;
       h3 {
         padding: 0 0 5px 0;
       } 
@@ -134,6 +135,21 @@
       p {
         margin: 0;
         padding: 3px;
+      }
+    }
+
+    a.show-order {
+      text-transform: uppercase;
+      color: #f7f7f7;
+      background: #b3b0f0;
+      padding: 10px 20px;
+      border-radius: 4px;
+      transition-duration: .3s;
+      transition-property: all;
+
+      &:hover {
+        color: #f0f0f0;
+        background: #505050;
       }
     }
   }

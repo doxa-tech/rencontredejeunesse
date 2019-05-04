@@ -1,6 +1,6 @@
 # Impression des badges
 
-![](images/intro.jpg)
+![](images/intro.JPG)
 
 ## Le fichier
 

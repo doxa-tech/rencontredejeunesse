@@ -3,6 +3,12 @@
 <div id="form">
   <%= form_tag admin_badges_path, multipart: true do %>
 
+    <p>
+      Fichier d'exemple CSV: <%= link_to "exemple.csv", "/exemple.csv", download: "exemple" %><br>
+      Si vous avez une erreur alors que le secteur est juste, il s'agit parfois de caractères invisibles qui gènent.<br>
+      Réécrivez la ligne en question à main.
+    </p>
+
     <%= label_tag :file, "Fichier" %>
     <%= file_field_tag :file, accept: '.csv' %>
 
@@ -17,6 +23,13 @@
   <li><%= link_to "> Badges bénévoles", volunteer_admin_badges_path(format: "pdf") %></li>
   <li><%= link_to "> Badges équipiers", prayer_admin_badges_path(format: "pdf") %></li>
   <li><%= link_to "> PDF d'explication!", "https://github.com/JS-Tech/rencontredejeunesse/blob/master/doc/badges/README.md"%></li>
+</ul>
+<hr>
+<h3>Secteurs autorisés</h3>
+<ul>
+<% @sectors.each do |sector| %>
+  <li><%= sector[:name] %></li>
+<% end %>
 </ul>
 
 <style>
