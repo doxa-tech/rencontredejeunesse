@@ -27,8 +27,8 @@ class PagesController < ApplicationController
     render "pages/rj/2019"
   end
 
-  def rj2019flash
-    render "pages/rj/2019-flash"
+  def rj_flash
+    render "pages/rj/flash"
   end
 
   def resources

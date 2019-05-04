@@ -3,7 +3,7 @@
     <%= image_tag "home/welcome/close.svg", id: "close-header" %>
 
     <ul data-gumshoe>
-      <li><%= link_to "home", root_url(subdomain: false), class: active_class("/") %></li>
+      <li><%= link_to "home", home_url(subdomain: false) %></li>
       <li><%= link_to "/vision", vision_url(subdomain: false), class: active_class("/vision") %></li>
       <li><%= link_to "/bénévole", volunteers_url(subdomain: false), class: active_class("/volunteers") %></li>
       <li><%= link_to "/RJ2019", rj_url(subdomain: false), class: active_class("/2019") %></li>

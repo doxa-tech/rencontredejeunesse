@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   if bundle && bundle.items.active.any?
     root to: "pages#home"
   else
-    root to: "pages#home"
+    root to: "pages#rj_flash"
   end
 
   %w(home login privacy application vision volunteers highlights resources support).each do |page|
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
 
   get "2018", to: "pages#rj2018"
   get "2019", to: "pages#rj2019", as: :rj
-  get "flash", to: "pages#rj2019flash"
+  get "flash", to: "pages#rj_flash"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
