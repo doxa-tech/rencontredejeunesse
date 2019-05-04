@@ -15,6 +15,7 @@
     <% if can?(:read, "admin/orders/events") %><li><%= link_to "Commandes", admin_orders_events_path %></li><% end %>
     <% if can?(:read, "admin/orders/registrants") %><li><%= link_to "Participants", admin_orders_registrants_path %></li><% end %>
     <% if can?(:read, "admin/discounts") %><li><%= link_to "Codes promotionels", admin_discounts_path %></li><% end %>
+    <% if can?(:read, "admin/items") %><li><%= link_to "Produits", admin_items_path %></li><% end %>
     <li class="text">Commandes spéciales</li>
     <% if can?(:read, "admin/option_orders") %><li><%= link_to "Commandes spéciales", admin_option_orders_path %></li><% end %>
     <li class="text">Bénévoles</li>

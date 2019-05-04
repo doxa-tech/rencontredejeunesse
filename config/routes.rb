@@ -116,6 +116,7 @@ Rails.application.routes.draw do
       get "prayer", on: :collection
     end
     resources :option_orders
+    resources :items
 
     resources :users, except: :show
     resources :discounts, except: [:edit, :update]

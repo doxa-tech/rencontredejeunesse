@@ -77,6 +77,8 @@ fr:
     number: "Nombre"
     used: "Utilisé"
     confirmed: "Confirmé"
+    price: "Prix"
+    name: "Nom"
   activerecord:
     attributes:
       discount:
@@ -101,6 +103,11 @@ fr:
       payment:
         payment_type: "Type"
         amount: "Montant"
+      item:
+        valid_until: "Jusqu'au"
+        valid_from: "A partir de"
+        key: "Clé"
+        order_bundle_id: "Paquet"
     errors:
       models:
         order:
