@@ -3,7 +3,7 @@ class Admin::PaymentsController < Admin::BaseController
 
   def create
     @event = Order.find(params[:order_id])
-    @payment = @event.payments.new(payment_attributes)
+    @payment = @event.payments.new(payment_params)
     if @payment.save
       redirect_to edit_admin_orders_event_path(@event)
     else
@@ -15,7 +15,7 @@ class Admin::PaymentsController < Admin::BaseController
   end
 
   def update
-    if @payment.update_attributes(payment_attributes)
+    if @payment.update_attributes(payment_params)
       redirect_to edit_admin_orders_event_path(@payment.order_id)
     else
       render 'edit'
@@ -29,7 +29,7 @@ class Admin::PaymentsController < Admin::BaseController
 
   private
 
-  def payment_attributes
+  def payment_params
     params.require(:payment).permit(:payment_type, :amount, :status)
   end
 end
