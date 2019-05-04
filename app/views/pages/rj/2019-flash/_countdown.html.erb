@@ -2,7 +2,7 @@
 
   <div class="section-container">
     <div class="left">
-      <p>count..</p>
+      <p id="countdown-text"></p>
     </div>
     <div class="right">
       <p>49CHF</p>
@@ -10,3 +10,6 @@
   </div>
 
 </section>
+
+<%= javascript_include_tag "countdown", 'data-turbolinks-track': 'reload' %>
+<%= javascript_include_tag "standalone/rj/flash/countdown.js", 'data-turbolinks-track': 'reload' %>
