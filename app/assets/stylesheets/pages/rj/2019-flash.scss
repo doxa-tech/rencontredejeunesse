@@ -1,0 +1,9 @@
+@import "../../components/variables";
+@import '../../components/logo-burger-color';
+
+@include logo-burger-color(#000, ".rj-2019-flash");
+@include logo-burger-hover(#fff, ".rj-2019-flash");
+
+#container.rj-2019-flash {
+  min-height: 100%;
+}
