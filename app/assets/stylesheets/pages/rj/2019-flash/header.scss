@@ -56,15 +56,12 @@
           padding: 0 0 0 20px;
 
           &::after {
-            content: "";
-            position: absolute;
-            line-height: 0;
-            right: 0;
-            bottom: -.2em;
-            left: 0;
-            z-index: -1;
-            padding: 20px 10px;
+            @include button-bar(-2em, 0, right, 20px);
             background-color: #000;
+          }
+
+          &:hover::after {
+            @include button-bar-hover-right();
           }
         }
 
