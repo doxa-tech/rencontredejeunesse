@@ -4,9 +4,14 @@ Rails.application.routes.draw do
 
   get "/", to: "pages#resources", constraints: { subdomain: 'ressources' }
   
-  root to: "pages#home"
-  
-  %w(login privacy application vision volunteers highlights resources support).each do |page|
+  bundle = OrderBundle.find_by(key: "rj-2020")
+  if bundle && bundle.items.active.any?
+    root to: "pages#home"
+  else
+    root to: "pages#home"
+  end
+
+  %w(home login privacy application vision volunteers highlights resources support).each do |page|
     get page, to: "pages##{page}"
   end
 
