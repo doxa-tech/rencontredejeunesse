@@ -15,14 +15,16 @@
 
   <body>
 
+    <% if (bundle = OrderBundle.find_by(key: "rj-2020")) && bundle.items.active.any? %>
     <div id="flash-sale">
       <div class="flash-sale-container">
         <p><strong class="countdown-text"></strong> 🔥 Vente flash, pass pour la RJ 2020 à 49CHF!</p>
         <a href="/flash">
-          👍🏻 je profite
+          👍🏻 j'en profite
         </a>
       </div>
     </div>
+    <% end %>
 
     <div id="application-flash">
       <%= render 'layouts/flash' %>
