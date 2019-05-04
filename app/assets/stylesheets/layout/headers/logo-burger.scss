@@ -71,4 +71,9 @@ section#logo-burger {
       }
     }
   }
+
+  // Needed for the sale flash banner
+  @media only screen and (max-width: $mobile-width) {
+    top: 70px !important;
+  }
 }
