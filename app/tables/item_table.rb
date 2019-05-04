@@ -1,7 +1,7 @@
 class ItemTable < BaseTable
 
   def attributes
-    [:id, :name, :description, :price, :active, :valid_from, :valid_until, { order_bundle: :name }, :created_at, :updated_at]
+    [:id, :name, :description, :number, :price, :active, :valid_from, :valid_until, { order_bundle: :name }, :created_at, :updated_at]
   end
 
   def model
