@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   
   bundle = OrderBundle.find_by(key: "rj-2020")
   if bundle && bundle.items.active.any?
+    get "flash", to: "pages#rj_flash"
     root to: "pages#home"
   else
     root to: "pages#rj_flash"
@@ -17,7 +18,6 @@ Rails.application.routes.draw do
 
   get "2018", to: "pages#rj2018"
   get "2019", to: "pages#rj2019", as: :rj
-  get "flash", to: "pages#rj_flash"
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"

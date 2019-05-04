@@ -17,10 +17,9 @@
 
     <div id="flash-sale">
       <div class="flash-sale-container">
-        <p>-COUNT- Vente flash, pass pour la RJ 2020 à 49CHF!</p>
-        <a href="#">
-          <%= image_tag "layout/thumbs-up.png" %>
-          je profite
+        <p><strong class="countdown-text"></strong> 🔥 Vente flash, pass pour la RJ 2020 à 49CHF!</p>
+        <a href="/flash">
+          👍🏻 je profite
         </a>
       </div>
     </div>
@@ -39,5 +38,7 @@
 
     <%= render "layouts/footers/application" %>
 
+    <%= javascript_include_tag "countdown", 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag "standalone/rj/flash/countdown.js", 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
