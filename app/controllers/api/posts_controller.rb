@@ -2,7 +2,7 @@ class Api::PostsController < Api::BaseController
   include PushNotifications
 
   def index
-    @posts = Post.includes(:comments, :user, :image).paginate(page: params[:page], per_page: 10)
+    @posts = Post.where("created_at > ?", Date.new(2019, 05, 01)).includes(:comments, :user, :image).paginate(page: params[:page], per_page: 10)
   end
 
   def show
