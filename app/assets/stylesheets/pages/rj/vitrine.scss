@@ -36,24 +36,24 @@
           opacity: 0;
           width: 80px;
           animation: 1s ease 0s normal forwards 1 fadein;
-          animation-delay: 7s;
+          animation-delay: 6.5s;
         }
       }
       &:nth-of-type(2) {
         opacity: 0;
         animation: 1s ease 0s normal forwards 1 fadein;
-        animation-delay: 7.1s;
+        animation-delay: 6.6s;
       }
       &:nth-of-type(3) {
         span.first {
           opacity: 0;
           animation: 2s ease 0s normal forwards 1 fadein;
-          animation-delay: 1s;
+          animation-delay: 0.5s;
         }
         span.second {
           opacity: 0;
           animation: 2s ease 0s normal forwards 1 fadein;
-          animation-delay: 3s;
+          animation-delay: 2.5s;
         }
         max-width: 300px;
         font-size: $large-text;
@@ -67,7 +67,7 @@
         font-style: italic;
         font-weight: bold;
         animation: 1s ease 0s normal forwards 1 fadein;
-        animation-delay: 5s;
+        animation-delay: 4.5s;
       }
     }
 
