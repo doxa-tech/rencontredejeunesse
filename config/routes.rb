@@ -7,9 +7,11 @@ Rails.application.routes.draw do
   root to: "pages#rj_flash"
   get "flash", to: "pages#rj_flash"
 
-  %w(home login privacy application vision volunteers highlights resources support vitrine).each do |page|
+  %w(home login privacy application vision volunteers resources support vitrine).each do |page|
     get page, to: "pages##{page}"
   end
+  
+  get "highlights/:year", to: "pages#highlights", as: :highlights
 
   get "2018", to: "pages#rj2018"
   get "2019", to: "pages#rj2019", as: :rj
