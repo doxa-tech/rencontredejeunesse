@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   root to: "pages#rj_flash"
   get "flash", to: "pages#rj_flash"
 
-  %w(home login privacy application vision volunteers highlights resources support).each do |page|
+  %w(home login privacy application vision volunteers highlights resources support vitrine).each do |page|
     get page, to: "pages##{page}"
   end
 

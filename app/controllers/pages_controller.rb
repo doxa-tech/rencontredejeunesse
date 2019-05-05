@@ -27,6 +27,10 @@ class PagesController < ApplicationController
     render "pages/rj/2019"
   end
 
+  def vitrine
+    render "pages/rj/vitrine"
+  end
+
   def rj_flash
     bundle = OrderBundle.find_by(key: "rj-2020")
     if bundle && bundle.items.active.any?
