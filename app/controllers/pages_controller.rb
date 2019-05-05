@@ -13,6 +13,11 @@ class PagesController < ApplicationController
 
   def highlights
     @images_i = (0..21).to_a.shuffle
+    begin
+      render "pages/highlights/#{params[:year]}"
+    rescue ActionView::MissingTemplate
+      redirect_to root_path, error: "Année introuvable" 
+    end
   end
 
   def volunteer
@@ -25,6 +30,10 @@ class PagesController < ApplicationController
 
   def rj2019
     render "pages/rj/2019"
+  end
+
+  def vitrine
+    render "pages/rj/vitrine"
   end
 
   def rj_flash
