@@ -2,12 +2,12 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin"
 
-  get "/", to: "pages#resources", constraints: { subdomain: 'ressources' }
+  # get "/", to: "pages#resources", constraints: { subdomain: 'ressources' }
   
   root to: "pages#rj_flash"
   get "flash", to: "pages#rj_flash"
 
-  %w(home login privacy application vision volunteers resources support vitrine).each do |page|
+  %w(home login privacy application vision volunteers support vitrine).each do |page|
     get page, to: "pages##{page}"
   end
   
