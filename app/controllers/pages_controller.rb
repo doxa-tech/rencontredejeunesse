@@ -12,7 +12,6 @@ class PagesController < ApplicationController
   end
 
   def highlights
-    @images_i = (0..21).to_a.shuffle
     begin
       render "pages/highlights/#{params[:year]}"
     rescue ActionView::MissingTemplate
