@@ -1,6 +1,6 @@
 When("I follow the link to sign up as a volunteer") do
   within("#register") do
-  click_link "S'engager"
+    click_link "S'engager"
   end
 end
 

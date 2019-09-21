@@ -4,7 +4,6 @@ Feature: Fill in a custom form
   As a visitor
   I want to complete a form
 
-  @wip
   Scenario: I successfully complete the form
     Given a custom form is available
     When I visit the form page

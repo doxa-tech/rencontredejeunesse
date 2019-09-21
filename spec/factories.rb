@@ -36,7 +36,6 @@ FactoryBot.define do
 
   factory :order_type do 
     name { "event" }
-    form
   end
 
   factory :option_order do
