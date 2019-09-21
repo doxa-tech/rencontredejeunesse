@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190417194345) do
+ActiveRecord::Schema.define(version: 2019_09_21_122950) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
   enable_extension "hstore"
+  enable_extension "plpgsql"
 
   create_table "adeia_action_permissions", id: :serial, force: :cascade do |t|
     t.integer "adeia_action_id"
@@ -146,6 +146,8 @@ ActiveRecord::Schema.define(version: 20190417194345) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "key"
+    t.string "description"
   end
 
   create_table "images", id: :serial, force: :cascade do |t|

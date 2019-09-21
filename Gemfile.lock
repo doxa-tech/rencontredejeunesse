@@ -101,6 +101,7 @@ GEM
       image_optimizer (~> 1.6)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
+    choice (0.2.0)
     chunky_png (1.3.11)
     concurrent-ruby (1.1.5)
     connection_pool (2.2.2)
@@ -294,6 +295,11 @@ GEM
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
+    rails-erd (1.6.0)
+      activerecord (>= 4.2)
+      activesupport (>= 4.2)
+      choice (~> 0.2.0)
+      ruby-graphviz (~> 1.2)
     rails-html-sanitizer (1.0.4)
       loofah (~> 2.2, >= 2.2.2)
     rails-i18n (5.1.3)
@@ -348,6 +354,7 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
+    ruby-graphviz (1.2.4)
     ruby_dep (1.5.0)
     rubyzip (1.2.2)
     sass (3.7.4)
@@ -472,6 +479,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rails (~> 5.2.0)
   rails-controller-testing
+  rails-erd
   rails-i18n
   redcarpet
   rest-client

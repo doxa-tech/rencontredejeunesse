@@ -113,7 +113,8 @@ FactoryBot.define do
   end
 
   factory :form do
-    name { "volunteer" }
+    name { "Bénévoles" }
+    key { "volunteer" }
 
     factory :form_with_fields do
 

@@ -26,6 +26,10 @@ Rails.application.routes.draw do
     resources :option_orders, only: [:new, :create]
   end
 
+  scope ":key" do
+    resources :forms, only: [:new, :create]
+  end
+
   #
   # Users
   #

@@ -60,6 +60,7 @@ group :development do
   gem 'capistrano-bundler'
   # if you are using RVM
   gem 'capistrano-rvm'
+  gem 'rails-erd'
 end
 
 # authentication & authorization

@@ -24,6 +24,7 @@ fr:
         password: "Mot de passe"
         remember_me: "Rester connecté"
       custom_form:
+        name: "Nom"
         sector: "Chosir un secteur"
         comment: "Remarque ou personne de contact"
         t-shirt: "T-shirt"

@@ -15,6 +15,17 @@ You can now use the superuser with the email "kocher.ke@gmail.com" and the passw
 
 ## Order
 
+Database design:
+
+The core table is `orders`. Every order made by a client has a record in it. There are two types of order, designed with a single table inheritance: `regular` and `event`.
+- `regular`: an order of `items`, the record has many `items` (many-to-many association).
+- `event`: an order of `tickets`, the record has many `tickets` (many-to-many association). In fact, `tickets` are `items` (the table is called `items`) . The difference is in the junctions table: the junctions table `registrants` contains the personal information of the client ordering a ticket.
+
+Order bundles: an order bundle is a collection of `items`. In case of an event for example, the ticket options (1-day, 2-days, etc) are collected in an order bundle so that it can be sold in a form.
+The table is called `order_bundles`. A record has many `items`, a `key` as an identifier and belongs to an `order_type`.
+An `order_type` defines the type of the bundle, i.g the type of order it matches (`regular` or `event`). A type can belong to another type (self inheritance), allowing subtypes of `regular` or `event`.
+
+
 ## Volunteers (with Option Order)
 
 To create the volunteer form:
