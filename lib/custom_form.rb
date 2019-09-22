@@ -4,13 +4,15 @@ class CustomForm
 
   attr_reader :completed_form, :errors
 
-  def initialize(form, url, view, attributes: {})
+  def initialize(form, url, view, attributes: {}, email: false)
     @form = form
     @url = url
     @view = view
-    @attributes = attributes
+    @attributes =  attributes
+    @email = email
     @errors = []
     @fields = form.fields
+    @fields << Form::Field.new(name: "email", field_type: :email) if @email
   end
 
   def assign_attributes(attributes)
@@ -25,6 +27,7 @@ class CustomForm
         @errors << I18n.t("errors.messages.required", attribute: field_name)
       end
     end
+    @errors << I18n.t("errors.messages.required", attribute: "email") if @email && @attributes["email"].blank?
     return !@errors.any?
   end
 
@@ -34,6 +37,7 @@ class CustomForm
       @fields.each do |field|
         Form::CompletedField.create!(field: field, value: @attributes[field.name], completed_form: @completed_form)
       end
+      CustomFormMailer.confirmation(@attributes["email"], @completed_form).deliver_now if @email
       return true
     else
       return false

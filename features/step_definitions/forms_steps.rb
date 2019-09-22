@@ -9,6 +9,7 @@ When("I visit the form page") do
 end
 
 When("I complete the custom form") do
+  fill_in "Email", with: "john@smith.com"
   fill_in "Nom", with: "GBE"
   fill_in "Description", with: "Réseau de groupes bibliques étudiants"
   click_button "Enregistrer"

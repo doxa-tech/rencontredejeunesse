@@ -33,6 +33,7 @@ class OptionOrdersController < ApplicationController
   end
 
   def order_bundle
+    # What if no bundle found ? TODO
     @order_bundle ||= OrderBundle.find_by(key: params[:key])
   end
 

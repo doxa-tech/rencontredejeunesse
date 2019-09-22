@@ -20,6 +20,14 @@ RSpec.describe CustomForm do
       expect(custom_form.valid?).to be false
     end
 
+    it "should add an error if no email is specified" do
+      create(:field, name: "name", required: true, field_type: "text", form: form)
+      attributes = { "name" => "John Smith" }
+      custom_form = CustomForm.new(form, nil, view_context, attributes: attributes, email: true)
+      custom_form.valid?
+      expect(custom_form.errors.count).to eq 1
+    end
+
   end
 
   describe "#save" do
@@ -39,6 +47,20 @@ RSpec.describe CustomForm do
       custom_form.completed_form.completed_fields.each do |field|
         expect(field.value).to eq attributes[field.field.name]
       end
+    end
+
+    it "should not send a confirmation if the params is not specified" do
+      create(:field, name: "name", required: true, field_type: "text", form: form)
+      attributes = { "name" => "John Smith", "email" => "john@smith.com" }
+      custom_form = CustomForm.new(form, nil, view_context, attributes: attributes)
+      expect { custom_form.save }.to change { ActionMailer::Base.deliveries.count }.by(0)
+    end
+
+    it "should send a confirmation email" do
+      create(:field, name: "name", required: true, field_type: "text", form: form)
+      attributes = { "name" => "John Smith", "email" => "john@smith.com" }
+      custom_form = CustomForm.new(form, nil, view_context, attributes: attributes, email: true)
+      expect { custom_form.save }.to change { ActionMailer::Base.deliveries.count }.by(1)
     end
 
   end
