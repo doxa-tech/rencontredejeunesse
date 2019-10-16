@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_21_122950) do
+ActiveRecord::Schema.define(version: 2019_10_16_164230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -298,6 +298,7 @@ ActiveRecord::Schema.define(version: 2019_09_21_122950) do
     t.string "apn_key_id"
     t.string "team_id"
     t.string "bundle_id"
+    t.boolean "feedback_enabled", default: true
   end
 
   create_table "rpush_feedback", force: :cascade do |t|
