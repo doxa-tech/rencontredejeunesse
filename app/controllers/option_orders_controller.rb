@@ -38,7 +38,7 @@ class OptionOrdersController < ApplicationController
   end
 
   def form
-    @form ||= Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } ).first
+    @form ||= order_bundle.form
   end
 
 end

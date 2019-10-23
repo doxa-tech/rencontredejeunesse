@@ -32,18 +32,21 @@ class BundleValidator < ActiveModel::Validator
       end
     end
 
+    # requires uniqueness of bundle
     def name_of_order_type
-      if @bundle_ids.any? && !order_type.any?
+      if @bundle_ids.any? && @bundle.order_type != @record.order_type.to_s
         @record.errors.add(:base, "Un article n'est pas compatible.")
       end
     end
 
+    # requires uniqueness of bundle
     def availability_of_bundle
       if @bundle && !@bundle.open && !@record.limited
         @record.errors.add(:base, "Les articles ne sont pas disponibles.")
       end
     end
 
+    # requires uniqueness of bundle
     def limit_in_bundle
       sum = @order_items.inject(0) { |sum, i| sum + i.quantity }
       if @bundle && @bundle.limit && sum > @bundle.limit
@@ -57,13 +60,6 @@ class BundleValidator < ActiveModel::Validator
 
     def bundle
       OrderBundle.find_by(id: @bundle_ids[0])
-    end
-
-    def order_type
-      OrderType.joins(:order_bundles)
-        .joins("LEFT JOIN order_types supertypes ON supertypes.id = order_types.supertype_id")
-        .where("order_bundles.id = :bundle_id AND (order_types.name = :name OR supertypes.name = :name)", 
-        bundle_id: @bundle_ids[0], name: @record.order_type)
     end
 
 end

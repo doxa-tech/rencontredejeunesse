@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_164230) do
+ActiveRecord::Schema.define(version: 2019_10_21_183325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -197,11 +197,13 @@ ActiveRecord::Schema.define(version: 2019_10_16_164230) do
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "order_type_id"
     t.boolean "open", default: true
     t.hstore "options"
     t.integer "limit"
-    t.index ["order_type_id"], name: "index_order_bundles_on_order_type_id"
+    t.bigint "form_id"
+    t.integer "bundle_type"
+    t.integer "order_type"
+    t.index ["form_id"], name: "index_order_bundles_on_form_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -398,7 +400,7 @@ ActiveRecord::Schema.define(version: 2019_10_16_164230) do
   add_foreign_key "option_orders", "order_bundles"
   add_foreign_key "option_orders", "orders"
   add_foreign_key "option_orders", "users"
-  add_foreign_key "order_bundles", "order_types"
+  add_foreign_key "order_bundles", "forms"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_types", "forms"
