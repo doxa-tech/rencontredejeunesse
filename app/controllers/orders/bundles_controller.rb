@@ -12,10 +12,10 @@ class Orders::BundlesController < Orders::BaseController
 
   def update
     @order_bundle = OrderBundle.find_by(key: params[:key])
-    @order_items = @order_bundle.items.map do |i| 
+    @order_bundle.items.each do |i| 
       quantity = params.dig(:order, :items, i.id.to_s, :quantity).to_i
       order.order_items.build(item: i, quantity: quantity) if quantity > 0
-    end.compact
+    end
     order.pending = pending?
     if order.save
       to_confirmation_step_or_pending

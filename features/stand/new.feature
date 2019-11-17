@@ -1,4 +1,3 @@
-@wip
 Feature: I sign up as a stand manager
 
   So that I can hold a stand for an event
