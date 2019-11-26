@@ -1,0 +1,93 @@
+@import "../../../components/variables";
+@import '../../../components/button-bar';
+
+#container.rj-2020 section#welcome {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: image-url("rj/2020/welcome/background.png");
+  background-size: cover;
+  background-position-x: center;
+  color: #fff;
+
+  .section-container {
+    max-width: $main-width;
+    padding: $logo-burger-height $main-padding 0 $main-padding;
+    position: relative;
+
+    display: flex;
+    flex-direction: row;
+
+    .left {
+      flex: 3;
+      font-size: $title-size + 1em;
+
+      p.a {
+        font-family: "helvetica-now-display";
+        line-height: 1.4em;
+      }
+      p.b {
+        font-family: "PPWoodland";
+        line-height: .8em;
+      }
+      p.c {
+        font-family: "helvetica-now-display";
+        line-height: .6em;
+      }
+      p.d {
+        font-size: 1.2em;
+        text-transform: uppercase;
+        font-family: "PPWoodland";
+        line-height: 1.5em;
+      }
+    }
+
+    .right {
+      flex: 2;
+      padding: 30px 0 0 0;
+
+      .orator {
+
+      }
+
+      .info-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 50px 0 90px 0;
+        align-items: center;
+        font-size: $large-text;
+
+        .info {
+          padding: 0px 10px 0px 0;
+        }
+      }
+
+      .subscribe {
+        font-size: $normal-text;
+
+        a {
+          background: #fff;
+          color: #000;
+          padding: 5px 14px;
+        }
+
+        p {
+          padding: 40px 0;
+        }
+      }
+    }
+  }
+}
+
+div.nice-image {
+  width: 100%;
+  height: 500px;
+  background: image-url("rj/2020/welcome/nice-image.png");
+  background-size: cover;
+  background-position: center center;
+}

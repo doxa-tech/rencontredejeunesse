@@ -1,0 +1,11 @@
+@import "../../components/variables";
+@import '../../components/logo-burger-color';
+
+@include logo-burger-color(#fff, ".rj-2020");
+
+#container.rj-2020 {
+}
+
+@media only screen and (max-width: $mobile-width) {
+
+}
