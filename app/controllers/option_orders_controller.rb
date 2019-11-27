@@ -1,6 +1,6 @@
 class OptionOrdersController < ApplicationController
 
-  before_action :check_if_signed_in, only: :create
+  before_action :check_if_signed_in, only: [:new, :create]
   before_action :check_if_signed_up, only: [:new, :create]
 
   def new
@@ -12,10 +12,14 @@ class OptionOrdersController < ApplicationController
     @custom_form.assign_attributes(params[:custom_form])
     if @custom_form.save
       option_order = OptionOrder.new(user: current_user, order_bundle: @order_bundle, completed_form: @custom_form.completed_form)
-      option_order.build_order(current_user, order_bundle.items.first)
+      if order_bundle.event?
+        option_order.build_event_order(current_user, order_bundle.items.first)
+      else # event
+        option_order.build_order(current_user)
+      end
       option_order.save!
       OptionOrderMailer.confirmation(option_order).deliver_now
-      redirect_to edit_orders_event_path(option_order.order.order_id, key: order_bundle.key)
+      redirect_to order_path(option_order.order)
     else
       render "new"
     end
@@ -28,7 +32,7 @@ class OptionOrdersController < ApplicationController
     if option_order && option_order.order.status.present?
       redirect_to connect_option_order_path(option_order), error: "Tu es déjà inscrit !"
     elsif option_order
-      redirect_to edit_orders_event_path(option_order.order.order_id, key: order_bundle.key), success: "Tu peux continuer ta commande."
+      redirect_to order_path(option_order.order), success: "Tu peux continuer ta commande."
     end
   end
 
@@ -38,7 +42,12 @@ class OptionOrdersController < ApplicationController
   end
 
   def form
-    @form ||= Form.joins(:order_types).where(order_types: { id: order_bundle.order_type_id } ).first
+    @form ||= order_bundle.form
+  end
+
+  def order_path(order)
+    controller = order_bundle.event? ? "events" : "bundles"
+    url_for action: :edit, controller: "orders/#{controller}", key: order_bundle.key, id: order.order_id
   end
 
 end

@@ -1,0 +1,70 @@
+<% content_for :id, "orders-rj-confirmation" %>
+
+<div class="content-wrap">
+
+  <h2>Récapitulatif</h2>
+  <!-- User information -->
+
+  <div class="user-information standard-form-row">
+    <div class="row tight">
+      <span></span>
+      <h3>Mes informations</h3>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p><%= t("user.genders.#{@order.user.gender}") %> <%= @order.user.lastname %> <%= @order.user.firstname %></p>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p><%= l @order.user.birthday if @order.user.birthday %></p>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p><%= @order.user.email %></p>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p><%= @order.user.phone %></p>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p><%= @order.user.address %></p>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p><%= @order.user.npa %> <%= @order.user.city %></p>
+    </div>
+    <div class="row tight">
+      <span></span>
+      <p> <%= @order.user.country_name %></p>
+    </div>
+
+    <div class="row">
+      <span></span>
+      <p><%= link_to "Editer mon compte", orders_user_edit_path(@order.order_id), class: "button-link" %></p>
+    </div>
+  </div>
+
+  <%= yield %>
+
+  <div class="price standard-form-row">
+    <!-- Order information -->
+    <div class="row">
+      <p>Frais d'inscription</p>
+      <p><b><%= display_price(@order.fee) %></b></p>
+    </div>
+    <div class="row">
+      <p>Réduction</p>
+      <p><b><%= display_price(@order.discount_amount) %></b></p>
+    </div>
+    <div class="row">
+      <p class="amount">Prix à payer</p>
+      <p><b><%= display_price(@order.amount) %></b></p>
+    </div>
+  </div>
+
+  <%= render "orders/payments/payments" %>
+
+</div>
+
+<%= render "layouts/headers/application" %>

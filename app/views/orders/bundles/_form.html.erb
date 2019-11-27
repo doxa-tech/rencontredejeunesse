@@ -1,0 +1,16 @@
+<%= render "orders/form" do |f| %>
+
+  <%= render "error_messages", object: f.object %>
+
+  <div class="standard-form-row">
+  <% @order_items.each do |k, v| %>
+
+    <div class="row">
+      <%= label_tag "order_items_#{k}_quantity", v[:name] %>
+      <%= select_tag "order[items][#{k}][quantity]", options_for_select((0..20), selected: v[:quantity]) %>
+    </div>
+  
+  <% end %>
+  </div>
+
+<% end %>

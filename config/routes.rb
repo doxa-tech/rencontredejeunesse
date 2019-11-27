@@ -102,6 +102,11 @@ Rails.application.routes.draw do
         get "confirmation", on: :member
       end
 
+      # Order from a bundle
+      resources :bundles, only: [:edit, :update] do
+        get "confirmation", on: :member
+      end
+
       # sign in/up before order
       resources :users, only: [:new, :create]
 

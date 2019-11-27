@@ -1,0 +1,62 @@
+<h2>Commande</h2>
+
+<%= form_for @order, url: { action: @order.new_record? ? :create : :update, key: params[:key] } do |f| %>
+
+  <%= yield f %>
+
+  <div class="standard-form-row">
+
+    <div class="row">
+      <%= f.label :discount_code %>
+      <%= f.field_with_errors :text, :discount_code %>
+    </div>
+
+    <div class="price row">
+      <div>Frais d'inscription</div>
+      <div><b><%= display_price(@order.fee) %></b></div>
+    </div>
+    <div class="row">
+      <div>Total</div>
+      <div><b><span id="amount"><%= display_price(@order.amount) %></span></b></div>
+    </div>
+
+    <div class="conditions checkbox row">
+      <div>
+        <%= f.label :conditions do %>
+          J'ai lu <%= link_to "les conditions générales", "/conditions_generales.html", target: "_blank" %> et les accepte.
+        <% end %>
+      </div>
+      <div>
+        <%= f.checkbox_with_errors :conditions %>
+      </div>
+    </div>
+
+    <div class="row">
+      <span></span>
+      <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
+    </div>
+    <div class="row">
+      <span></span>
+      <p><%= image_tag "orders/pay-cards.png" %></p>
+    </div>
+
+    <div class="row">
+      <span></span>
+      <%= f.submit class: "main-button" %>
+    </div>
+
+    <% unless @order.new_record? %>
+    <div class="row">
+      <span></span>
+      <%= link_to "Annuler", order_path(@order.order_id), method: :delete, data: { confirm: "Etes-vous sûr de vouloir annuler votre commande ?" }, class: "button-link" %>
+    </div>
+    <% end %>
+
+    <div class="row">
+      <span></span>
+      <%= f.submit "Continuer plus tard", name: "pending" %>
+    </div>
+
+  </div>
+
+<% end %>
