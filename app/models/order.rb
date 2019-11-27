@@ -20,6 +20,7 @@ class Order < ApplicationRecord
   has_one :option_order, dependent: :destroy
 
   accepts_nested_attributes_for :registrants, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :order_items
 
   validates :conditions, acceptance: true, unless: :pending
   validates :order_id, uniqueness: true

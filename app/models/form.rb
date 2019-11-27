@@ -5,6 +5,6 @@ class Form < ApplicationRecord
 
   has_many :fields, class_name: "Form::Field", dependent: :destroy
 
-  has_many :order_types, dependent: :restrict_with_exception
+  has_many :order_bundles, dependent: :restrict_with_exception
 
 end

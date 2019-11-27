@@ -2,7 +2,7 @@ class Admin::VolunteersController < Admin::BaseController
 
   def index
     authorize!
-    bundle = OrderBundle.joins(:order_type).where(key: params[:key], order_types: { name: "volunteer" }).first
+    bundle = OrderBundle.where(key: params[:key], order_type:  name: "volunteer").first
     value = sectors.index(params[:sector])
     @orders = OptionOrder.where(order_bundle: bundle)
     @orders = @orders.joins(completed_form: :completed_fields).where(
@@ -24,13 +24,13 @@ class Admin::VolunteersController < Admin::BaseController
   end
 
   def keys
-    @keys ||= OrderBundle.joins(:order_type).where(order_types: { name: "volunteer" }).pluck(:key)
+    @keys ||= OrderBundle.where(order_type: "volunteer").pluck(:key)
   end
 
   private
 
   def select_field
-    @select_field ||= Form::Field.joins(form: :order_types).where(name: "sector", field_type: "select_field", forms: { order_types: { name: "volunteer" }}).first
+    @select_field ||= Form::Field.joins(form: :order_bundle).where(name: "sector", field_type: "select_field", forms: { order_bundles: { bundle_type: "volunteer" }}).first
   end
 
 end

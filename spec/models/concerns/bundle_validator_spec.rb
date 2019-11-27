@@ -17,8 +17,8 @@ RSpec.describe "BundleValidator" do
   describe "#uniqueness_of_bundle" do
 
     it "is not possible to order items with different bundles" do
-      sales_bundle = create(:order_bundle_with_items, order_type: create(:order_type, name: "sales"))
-      event_bundle = create(:order_bundle_with_items, order_type: create(:order_type, name: "event"))
+      sales_bundle = create(:order_bundle_with_items)
+      event_bundle = create(:order_bundle_with_items)
       order.registrants = [
         create(:registrant, item: sales_bundle.items.first, order: order),
         create(:registrant, item: event_bundle.items.first, order: order)
@@ -32,25 +32,14 @@ RSpec.describe "BundleValidator" do
   describe "#name_of_order_type" do
 
     it "is possible to order an item with the type event" do
-      order_type = create(:order_type, name: "event")
-      bundle = create(:order_bundle_with_items, order_type: order_type)
-      order.registrants = [create(:registrant, item: bundle.items.first, order: order)]
-      order.save
-      expect(order.errors[:base]).to be_empty
-    end
-
-    it "is possible to order an item with a subtype from event" do
-      event_type = create(:order_type, name: "event")
-      subtype = create(:order_type, name: "volunteer", supertype_id: event_type.id)
-      bundle = create(:order_bundle_with_items, order_type: subtype)
+      bundle = create(:order_bundle_with_items, order_type: :event)
       order.registrants = [create(:registrant, item: bundle.items.first, order: order)]
       order.save
       expect(order.errors[:base]).to be_empty
     end
 
     it "is not possible to order an item that has a bundle with the wrong category" do
-      order_type = create(:order_type, name: "sales")
-      bundle = create(:order_bundle_with_items, order_type: order_type)
+      bundle = create(:order_bundle_with_items, order_type: :regular)
       order.registrants = [create(:registrant, item: bundle.items.first, order: order)]
       order.save
       expect(order.errors[:base]).to include "Un article n'est pas compatible."
