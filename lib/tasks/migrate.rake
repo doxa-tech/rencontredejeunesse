@@ -13,7 +13,7 @@ namespace :migrate do
         bundle_type = "stand"
       when "event"
         order_type = "event"
-      when "regualr"
+      when "regular"
         order_type = "regular"
       end
       puts "Bundle #{b.name} set with order type `#{order_type}` and bundle type `#{bundle_type}`"
