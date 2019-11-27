@@ -1,6 +1,6 @@
 class OptionOrdersController < ApplicationController
 
-  before_action :check_if_signed_in, only: [:new, :create]
+  before_action :check_if_signed_in, only: [:create]
   before_action :check_if_signed_up, only: [:new, :create]
 
   def new

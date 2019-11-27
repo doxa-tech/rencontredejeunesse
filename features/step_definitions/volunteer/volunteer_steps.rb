@@ -1,7 +1,5 @@
-When("I follow the link to sign up as a volunteer") do
-  within("#register") do
-    click_link "S'engager"
-  end
+When("I visit to volunteer sign up page") do
+  visit new_option_order_path(@order_bundle.key)
 end
 
 Given("I am a volunteer") do
