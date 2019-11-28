@@ -2,7 +2,7 @@ class Admin::VolunteersController < Admin::BaseController
 
   def index
     authorize!
-    bundle = OrderBundle.where(key: params[:key], order_type:  name: "volunteer").first
+    bundle = OrderBundle.where(key: params[:key], order_type: "volunteer").first
     value = sectors.index(params[:sector])
     @orders = OptionOrder.where(order_bundle: bundle)
     @orders = @orders.joins(completed_form: :completed_fields).where(
