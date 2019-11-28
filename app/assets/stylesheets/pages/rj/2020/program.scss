@@ -255,4 +255,116 @@
       }
     }
   }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      flex-direction: column !important;
+      padding: $mobile-padding $mobile-padding 0 $mobile-padding !important;
+
+      .program {
+        width: 100% !important;
+        flex-direction: column !important;
+
+        .sub-title {
+          img {
+            width: 110px !important;
+          }
+        }
+
+        .program-content {
+          padding: 30px 0 10px 0 !important;
+
+          .day {
+            padding: 0 0 30px 0;
+          }
+        }
+      }
+
+      .contact {
+        width: 100% !important;
+        flex-direction: column !important;
+        order: 3;
+
+        .top {
+          width: 100% !important;
+          flex-direction: column !important;
+          padding: 30px 0;
+
+          .sub-title {
+            padding: 10px 0 10px 0 !important;
+            img {
+              width: 110px !important;
+              left: 5px !important;
+            }
+          }
+
+          .address {
+            font-size: $large-text !important;
+          }
+        }
+
+        .form {
+          padding: 0px 0 0 0 !important;
+        }
+      }
+
+      .registration {
+        width: 100% !important;
+        flex-direction: column !important;
+
+        .title {
+          width: 100% !important;
+          max-width: 100% !important;
+          flex-direction: column !important;
+
+          .sub-title {
+            img {
+              width: 100px !important;
+              left: -50px !important;
+              top: -40px !important;
+            }
+          }
+
+          p.text {
+            padding: 10px 0 0 0 !important;
+          }
+        }
+
+        .prices {
+          justify-content: flex-start !important;
+          flex-wrap: wrap !important;
+          padding: 0px 0 0 0 !important;
+
+          .price {
+            justify-content: space-between !important;
+            border: none !important;
+            padding: 5px 0px !important;
+
+            .price-wrapper {
+              flex: 1 !important;
+
+              p:nth-child(2) {
+                font-size: $normal-text !important;
+                text-transform: uppercase !important;
+              }
+              p:nth-child(3) {
+                font-size: $normal-text !important;
+                text-transform: uppercase !important;
+                padding: 0 0 20px 0 !important;
+              }
+            }
+          }
+        }
+
+        .faq {
+          padding: 40px 0 0 0;
+          align-items: center !important;
+        }
+      }
+
+      p.hands {
+        order: 4;
+      }
+    }
+  }
 }

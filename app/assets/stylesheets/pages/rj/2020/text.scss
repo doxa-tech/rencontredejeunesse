@@ -1,5 +1,5 @@
 @import "../../../components/variables";
-@import '../../../components/button-bar';
+@import "../../../components/button-bar";
 
 #container.rj-2020 section#text {
   width: 100%;
@@ -9,7 +9,7 @@
   justify-content: center;
   align-items: center;
 
-  background-color: #FBBAA4;
+  background-color: #fbbaa4;
   animation-name: bg-rotate;
   animation-duration: 11s;
   animation-iteration-count: infinite;
@@ -38,12 +38,37 @@
   }
 
   @keyframes bg-rotate {
-    0% {background-color: #FBBAA4;}
-    27% {background-color: #FBBAA4;}
-    33% {background-color: #FC8AE1};
-    60% {background-color: #FC8AE1;}
-    67% {background-color: #10BFA3;}
-    94% {background-color: #10BFA3;}
-    100% {background-color: #FBBAA4;}
+    0% {
+      background-color: #fbbaa4;
+    }
+    27% {
+      background-color: #fbbaa4;
+    }
+    33% {
+      background-color: #fc8ae1;
+    }
+    60% {
+      background-color: #fc8ae1;
+    }
+    67% {
+      background-color: #10bfa3;
+    }
+    94% {
+      background-color: #10bfa3;
+    }
+    100% {
+      background-color: #fbbaa4;
+    }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    .section-container {
+      flex-direction: column !important;
+      padding: 10px $mobile-padding !important;
+
+      .left {
+        padding: 10px 0 20px 0 !important;
+      }
+    }
   }
 }
