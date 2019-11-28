@@ -199,6 +199,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_183325) do
     t.boolean "open", default: true
     t.hstore "options"
     t.integer "limit"
+    t.integer "order_type_id"
     t.bigint "form_id"
     t.integer "bundle_type"
     t.integer "order_type"
