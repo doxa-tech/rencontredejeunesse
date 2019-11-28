@@ -18,7 +18,7 @@ RSpec.describe "Tasks" do
     end
 
     it "should update stand type" do
-      type = OrderType.create!(name: :stand)
+      type = OrderType.create!(name: :stands)
       bundle = create(:order_bundle, order_type_id: type.id)
       Rake::Task['migrate:order_types'].invoke
       bundle.reload

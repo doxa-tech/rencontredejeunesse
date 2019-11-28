@@ -9,7 +9,7 @@ namespace :migrate do
       when "volunteer"
         order_type = "event"
         bundle_type = "volunteer"
-      when "stand"
+      when "stands"
         order_type = "event"
         bundle_type = "stand"
       when "event"
