@@ -1,6 +1,6 @@
 # FAQ
 
-## Rencontre de jeunesse 2019
+## Rencontre de jeunesse 2020
 
 ### Quel est le prix de la RJ ?
 
@@ -9,6 +9,17 @@
 - Le Samedi tout la journée CHF 40.-
 - Le samedi dès 17:00 CHF 30.-
 - Le dimanche matin CHF 30.-
+
+### Réserver des places pour un groupe
+
+Si tu as besoin de réserver des places pour ton groupe, mais que tu ne sais pas encore précisément à qui seront destinées les places, tu peux le faire en suivant les instructions ci-dessous.
+Les groupes de 20 personnes et plus ont la possibilité de commander des entrées aux prix avantageux des prélocations, et de confirmer le nom des participants dans un 2e temps. **Si tu connais déjà le nom des participants, tu peux faire une commande normale**.
+
+1. Tu nous contactes via le formulaire du site, en choisissant la catégorie "Commande de groupe".
+2. Dans le formulaire, tu précises les informations de contact pour la facturation (nom de la personne de contact, église/association, adresse, etc.) et le nombre de pass commandés (précise avec/sans hébergement).
+3. On t'envoie la facture que tu paies dans un délai de 5 jours ouvrables.
+4. Une fois le paiement reçu, on t'envoie un code qui te permettra de compléter ton inscription de groupe avant le jour J. Les détails de tous les participants doivent être saisis en une fois.
+5. Les prélocations surnuméraires ne sont pas remboursées.
 
 ### Où se déroule la rencontre ?
 
@@ -41,3 +52,13 @@ Partage l'évènement sur Facebook, encourage tes amis à y participer! Si tu
 ### Quelle est l'adresse de contact?
 
 Rencontre de Jeunesse, 1607 Palézieux, info@rencontredejeunesse.ch
+
+## Mon compte RJ Connect
+
+### A quoi me sert mon compte ?
+
+En te connectant à ton compte, tu peux consulter les informations sur tes commandes comme les articles commandées, l'état du paiement, etc. Tu peux aussi imprimer tes billets pour les événements. Tes engagements sont également visibles comme par exemple ton bénévolat à la RJ.
+
+### J'ai perdu le mot de passe de mon compte
+
+Si tu ne te souviens pas du mot de passe pour te connecter à ton compte, tu peux cliquer sur "Mot de passe oublié" sur la page de connection et suivre les instructions.
