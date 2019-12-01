@@ -15,10 +15,6 @@
 
   <body>
 
-    <% if (bundle = OrderBundle.find_by(key: "rj-2020")) && bundle.items.active.any? %>
-      <%= render "layouts/headers/flash_banner" %>
-    <% end %>
-
     <div id="application-flash">
       <%= render 'layouts/flash' %>
     </div>

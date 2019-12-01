@@ -40,12 +40,7 @@ class PagesController < ApplicationController
   end
 
   def rj_flash
-    bundle = OrderBundle.find_by(key: "rj-2020")
-    if bundle && bundle.items.active.any?
-      render "pages/rj/flash"
-    else
-      render "home"
-    end
+    render "home"
   end
 
   def resources
