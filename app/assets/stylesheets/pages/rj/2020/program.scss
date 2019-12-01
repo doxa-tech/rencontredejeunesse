@@ -24,6 +24,7 @@
     flex-direction: row;
     align-items: flex-start;
     flex-wrap: wrap;
+    position: relative;
 
     .program {
       width: 60%;
@@ -112,6 +113,10 @@
               background: #fff;
               color: #000;
               padding: 5px 14px;
+
+              &:hover {
+                background: #fbbaa4;
+              }
             }
           }
         }
@@ -119,6 +124,7 @@
 
       .form {
         padding: 70px 0 0 0;
+
         form {
           input,
           textarea,
@@ -145,6 +151,10 @@
             text-transform: capitalize;
             padding: 5px 14px;
             font-size: $large-text;
+
+            &:hover {
+              background: #10bfa3;
+            }
           }
         }
       }
@@ -210,10 +220,6 @@
             p:nth-child(2) {
               font-size: $large-text;
               text-transform: uppercase;
-            }
-            p:nth-child(3) {
-              font-size: $large-text;
-              text-transform: uppercase;
               padding: 0 0 20px 0;
             }
             a {
@@ -221,6 +227,14 @@
               background: #fff;
               color: #000;
               font-size: $medium-title;
+              &:hover {
+                background: #fbbaa4;
+              }
+
+              &.disabled {
+                cursor: not-allowed;
+                background: #707070;
+              }
             }
           }
         }
@@ -235,6 +249,10 @@
           background: #fff;
           color: #000;
           padding: 5px 14px;
+
+          &:hover {
+            background: #fc8ae1;
+          }
         }
 
         p {
@@ -245,13 +263,59 @@
       }
     }
 
-    p.hands {
-      width: 100%;
-      text-align: center;
-      line-height: 0;
+    img.hands {
+      max-width: 100%;
+      width: 500px;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
 
-      img {
-        max-width: 100%;
+    .footer {
+      padding: 500px 0 20px 0;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+
+      .left {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+
+        .img {
+          img {
+            width: 50px;
+          }
+        }
+
+        p {
+          text-transform: uppercase;
+          font-size: $small-text;
+          padding: 0 10px 15px 10px;
+
+          a {
+            padding: 0 5px 0 0;
+          }
+        }
+      }
+
+      .right {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        img {
+          width: 30px;
+          padding: 5px;
+        }
+        svg {
+          fill: #fff;
+        }
       }
     }
   }
@@ -284,6 +348,7 @@
         width: 100% !important;
         flex-direction: column !important;
         order: 3;
+        padding-bottom: 600px !important;
 
         .top {
           width: 100% !important;
@@ -362,8 +427,8 @@
         }
       }
 
-      p.hands {
-        order: 4;
+      .footer {
+        display: none;
       }
     }
   }
