@@ -1,7 +1,7 @@
 @import "../../../../components/variables";
 
 #container.highlights-2019 section#banner {
-  background-image: image-url('highlights/19/banner/background.jpg');
+  background-image: image-url("highlights/19/banner/background.jpg");
   background-size: cover;
   background-position-y: center;
 
@@ -23,11 +23,11 @@
     flex-direction: column;
 
     div.row1 {
-        flex: 1;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-        flex-direction: column;
+      flex: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: column;
 
       h1 {
         font-size: $title-size;
@@ -39,13 +39,11 @@
       }
 
       p {
-        font-size: $medium-title;
-        font-style: italic;
+        font-size: $normal-text;
         color: #fff;
-        font-weight: bold;
-        padding: 0 0 0 $sub-padding;
+        font-weight: normal;
+        padding: 0 0 0 $sub-padding + 5px;
       }
     }
-
   }
 }

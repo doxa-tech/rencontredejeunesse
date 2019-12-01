@@ -1,8 +1,7 @@
 @import "../../../components/variables";
 
 #container.home section#welcome {
-
-  background-image: image-url('home/welcome/background2.jpg');
+  background-image: image-url("home/welcome/background2.jpg");
   background-size: cover;
 
   width: 100%;
@@ -23,9 +22,9 @@
     flex-direction: column;
 
     div.row1 {
-        flex: 1;
-        display: flex;
-        align-items: center;
+      flex: 1;
+      display: flex;
+      align-items: center;
 
       h1 {
         font-size: $title-size;
@@ -41,9 +40,9 @@
           &::after {
             position: absolute;
             content: "";
-            left: -.1em;
-            right: -.3em;
-            bottom: .1em;
+            left: -0.1em;
+            right: -0.3em;
+            bottom: 0.1em;
             height: 20px;
             background-color: #f56953;
             z-index: -1;
@@ -70,17 +69,17 @@
         &::after {
           content: "";
           position: absolute;
-          background-color: #fbe35b;
+          background-color: #fbbaa4;
           left: 0;
           bottom: -5px;
           height: 20px;
           width: 4.8em;
           z-index: -1;
-          transition: background-color .5s ease-out;
+          transition: background-color 0.5s ease-out;
         }
 
         &:hover::after {
-          background-color: yellow;
+          background-color: #fc8ae1;
         }
       }
     }
