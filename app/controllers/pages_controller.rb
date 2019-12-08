@@ -48,7 +48,7 @@ class PagesController < ApplicationController
   end
 
   def volunteers
-    @order_bundle = OrderBundle.find_by(key: "volunteers-rj-19")
+    @order_bundle = OrderBundle.find_by(key: "volunteers-rj-20")
   end
 
   def contact
