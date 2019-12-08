@@ -3,8 +3,8 @@ class Contact
 
    CONTACT_EMAILS = {
       "order" => "info@rencontredejeunesse.ch",
-      "group_order" => "we@jstech.ch",
-      "bug" => "we@jstech.ch",
+      "group_order" => "contact@doxatech.ch",
+      "bug" => "contact@doxatech.ch",
       "general" => "info@rencontredejeunesse.ch"
    }
 
