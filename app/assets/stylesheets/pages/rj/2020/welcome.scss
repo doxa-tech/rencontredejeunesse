@@ -24,7 +24,7 @@
 
     .left {
       flex: 3;
-      font-size: $title-size + 1em;
+      font-size: $title-size + 2em;
 
       p.a {
         font-family: "helvetica-now-display";
@@ -36,13 +36,13 @@
       }
       p.c {
         font-family: "helvetica-now-display";
-        line-height: 0.6em;
+        line-height: 0.8em;
       }
       p.d {
         font-size: 1.2em;
         text-transform: uppercase;
         font-family: "PPWoodland";
-        line-height: 1.5em;
+        line-height: 1.6em;
       }
     }
 
