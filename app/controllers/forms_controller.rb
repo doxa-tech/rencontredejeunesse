@@ -5,7 +5,7 @@ class FormsController < ApplicationController
   end
 
   def create
-    @custom_form = CustomForm.new(form, option_orders_path, view_context, email: true)
+    @custom_form = CustomForm.new(form, forms_path, view_context, email: true)
     @custom_form.assign_attributes(params[:custom_form])
     if @custom_form.save
       redirect_to root_path, success: "Votre formulaire a été envoyé !"

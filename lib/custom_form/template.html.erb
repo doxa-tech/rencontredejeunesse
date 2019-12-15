@@ -9,7 +9,7 @@
 </div>
 <% end %>
 
-<% @fields.each do |field| %>
+<% @form_fields.each do |field| %>
 
 <div class="row">
   <%= Field.new(field, form, value: @attributes[field.name]).render.html_safe %>

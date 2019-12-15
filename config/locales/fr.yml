@@ -25,7 +25,7 @@ fr:
         remember_me: "Rester connecté"
       custom_form:
         name: "Nom"
-        emai: "Email"
+        email: "Email"
         sector: "Chosir un secteur"
         comment: "Remarque ou personne de contact"
         t-shirt: "T-shirt"

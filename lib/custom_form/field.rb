@@ -21,8 +21,7 @@
       value = if completed_field.value.blank?
         "vide"
       elsif completed_field.field.select_field?
-        key = completed_field.field.options.values.flatten[completed_field.value.to_i]
-        I18n.t("#{I18N_PATH}.select.#{key}")
+        completed_field.field.options.map { |v| v.respond_to?(:values) ? v.values : v }.flatten[completed_field.value.to_i]
       else
         completed_field.value
       end
@@ -47,15 +46,22 @@
       %{<div class="select">#{@form.select @field.name, grouped_options}</div>}.html_safe
     end 
 
+    # options = ["Autres", "Logisique" => ["Rangement", "Montage"]]
     def grouped_options
       count = -1
-      options = @options.map do |k, v|
-        [
-          I18n.t("#{I18N_PATH}.select.#{k}"), 
-          v.map { |e| count += 1; [I18n.t("#{I18N_PATH}.select.#{e}"), count] }
-        ]
-      end
-      grouped_options_for_select options
+      @options.map do |v|
+        if v.is_a? String
+          count += 1
+          options_for_select [[v, count]]
+        elsif v.is_a? Hash
+          grouped = v.map do |name, values| 
+            [name, values.map { |e| count += 1; [e, count] }]
+          end
+          grouped_options_for_select grouped
+        else
+          raise ArgumentError, "Custom form: options for select are not correctly formatted."
+        end
+      end.join.html_safe
     end
 
   end

@@ -12,10 +12,11 @@ class Form::Field < ApplicationRecord
 
   private
 
+  # options = ["Autres", "Logisique" => ["Rangement", "Montage"]]
   def structure_of_options
-    valid = options.is_a?(Hash) && options.values.all? do |v| 
-      v.is_a?(Array) && v.all? do |s|
-        s.is_a?(String)
+    valid = options.is_a?(Array) && options.all? do |v| 
+      v.is_a?(String) || v.is_a?(Hash) && v.values.all? do |s|
+        s.is_a?(Array) && s.all? { |w| w.is_a?(String)}
       end
     end
     errors.add(:options, "n'est pas valide") unless valid

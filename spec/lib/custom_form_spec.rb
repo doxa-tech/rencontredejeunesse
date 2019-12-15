@@ -40,7 +40,7 @@ RSpec.describe CustomForm do
 
     it "saves the fields to the database if the form is valid" do
       create(:field, name: "comment", required: false, field_type: "text", form: form)
-      create(:field, name: "sector", required: true, field_type: "select_field", options: { sectors: ["Fun park", "Animation"]}, form: form)
+      create(:field, name: "sector", required: true, field_type: "select_field", options: ["Fun park", "Animation"], form: form)
       attributes = { "comment" => "Un commentaire", "sector" => "0" }
       custom_form = CustomForm.new(form, nil, view_context, attributes: attributes)
       expect(custom_form.save).to be true

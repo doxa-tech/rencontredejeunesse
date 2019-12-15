@@ -12,7 +12,10 @@ class CustomForm
     @email = email
     @errors = []
     @fields = form.fields
-    @fields << Form::Field.new(name: "email", field_type: :email) if @email
+    @form_fields = @fields.to_a
+    if @email && @fields.none? { |f| f.name == "email"}
+      @form_fields = @form_fields << Form::Field.new(name: "email", field_type: :email)
+    end
   end
 
   def assign_attributes(attributes)
@@ -27,7 +30,7 @@ class CustomForm
         @errors << I18n.t("errors.messages.required", attribute: field_name)
       end
     end
-    @errors << I18n.t("errors.messages.required", attribute: "email") if @email && @attributes["email"].blank?
+    @errors << I18n.t("errors.messages.required", attribute: "Email") if @email && @attributes["email"].blank?
     return !@errors.any?
   end
 
