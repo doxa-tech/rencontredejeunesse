@@ -37,8 +37,9 @@ class OptionOrdersController < ApplicationController
   end
 
   def order_bundle
-    # What if no bundle found ? TODO
     @order_bundle ||= OrderBundle.find_by(key: params[:key])
+    raise ActionController::RoutingError.new('Not Found') unless @order_bundle
+    @order_bundle
   end
 
   def form

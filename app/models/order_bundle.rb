@@ -10,6 +10,6 @@ class OrderBundle < ApplicationRecord
   
   validates :name, presence: true, length: { maximum: 50 }
   validates :description, presence: true, length: { maximum: 250 }
-  validates :key, presence: true, length: { maximum: 20 }
+  validates :key, presence: true, length: { maximum: 50 }, uniqueness: true
   
 end

@@ -1,6 +1,6 @@
 class Form < ApplicationRecord
 
-  validates :key, presence: true, uniqueness: true
+  validates :key, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :name, presence: true
 
   has_many :fields, class_name: "Form::Field", dependent: :destroy

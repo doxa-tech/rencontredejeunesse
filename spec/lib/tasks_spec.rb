@@ -47,8 +47,8 @@ RSpec.describe "Tasks" do
     it "should transfer the form to the bundle" do
       form = create(:form)
       type = OrderType.create!(name: :regular, form: form)
-      bundle1 = create(:order_bundle, order_type_id: type.id)
-      bundle2 = create(:order_bundle, order_type_id: type.id)
+      bundle1 = create(:order_bundle, order_type_id: type.id, key: "key-1")
+      bundle2 = create(:order_bundle, order_type_id: type.id, key: "key-2")
       Rake::Task['migrate:order_types'].invoke
       bundle1.reload
       bundle2.reload

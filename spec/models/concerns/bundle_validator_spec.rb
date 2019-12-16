@@ -17,8 +17,8 @@ RSpec.describe "BundleValidator" do
   describe "#uniqueness_of_bundle" do
 
     it "is not possible to order items with different bundles" do
-      sales_bundle = create(:order_bundle_with_items)
-      event_bundle = create(:order_bundle_with_items)
+      sales_bundle = create(:order_bundle_with_items, key: "key-1")
+      event_bundle = create(:order_bundle_with_items, key: "key-2")
       order.registrants = [
         create(:registrant, item: sales_bundle.items.first, order: order),
         create(:registrant, item: event_bundle.items.first, order: order)
