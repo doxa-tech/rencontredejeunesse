@@ -26,7 +26,7 @@ fr:
       custom_form:
         name: "Nom"
         email: "Email"
-        sector: "Chosir un secteur"
+        sector: "Choisir un secteur"
         comment: "Remarque ou personne de contact"
         t-shirt: "T-shirt"
         organisation: "Organisation"

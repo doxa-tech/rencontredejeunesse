@@ -2,7 +2,7 @@ class Contact
    include ActiveModel::Model
 
    CONTACT_EMAILS = {
-      "order" => "info@rencontredejeunesse.ch",
+      "order" => "billetterie@rencontredejeunesse.ch",
       "group_order" => "contact@doxatech.ch",
       "bug" => "contact@doxatech.ch",
       "general" => "info@rencontredejeunesse.ch"
@@ -18,7 +18,7 @@ class Contact
       if Rails.env.production? 
          CONTACT_EMAILS[category]
       else
-         "test@jstech.ch"
+         "test@doxatech.ch"
       end
    end
 
