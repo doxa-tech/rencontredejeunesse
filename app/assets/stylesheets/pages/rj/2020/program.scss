@@ -409,7 +409,8 @@
             padding: 5px 0px !important;
 
             .price-wrapper {
-              flex: 1 !important;
+              flex-grow: 1 !important;
+              flex-shrink: 0 !important;
 
               p:nth-child(2) {
                 font-size: $normal-text !important;
