@@ -2,11 +2,11 @@ class Admin::VolunteersController < Admin::BaseController
 
   def index
     authorize!
-    bundle = OrderBundle.where(key: params[:key], order_type: "volunteer").first
-    value = sectors.index(params[:sector])
-    @orders = OptionOrder.where(order_bundle: bundle)
-    @orders = @orders.joins(completed_form: :completed_fields).where(
-        completed_forms: { completed_fields: { field_id: select_field.id, value: value.to_s }}) if value
+    @orders = bundle ? OptionOrder.where(order_bundle: bundle) : OptionOrder.all
+    if select_field
+      @orders = @orders.joins(completed_form: :completed_fields).where(
+          completed_forms: { completed_fields: { field: select_field, value: sectors.index(params[:sector]).to_s }})
+    end
     @table = OptionOrderTable.new(self, @orders, search: true, truncate: false)
     @table.respond
   end
@@ -18,19 +18,25 @@ class Admin::VolunteersController < Admin::BaseController
   end
 
   helper_method :sectors, :keys
-  def sectors
-    @sectors ||= select_field.options.values.flatten
-    t(@sectors, scope: CustomForm::I18N_PATH + ".select")
+  def keys
+    @keys ||= OrderBundle.where(bundle_type: "volunteer").pluck(:key)
   end
 
-  def keys
-    @keys ||= OrderBundle.where(order_type: "volunteer").pluck(:key)
+  def sectors
+    @sectors ||= select_field ? select_field.options.map { |v| v.respond_to?(:values) ? v.values : v }.flatten : []
   end
 
   private
 
+  def bundle
+    @bundle ||= OrderBundle.find_by(key: params[:key], bundle_type: "volunteer")
+  end
+
   def select_field
-    @select_field ||= Form::Field.joins(form: :order_bundle).where(name: "sector", field_type: "select_field", forms: { order_bundles: { bundle_type: "volunteer" }}).first
+    if bundle
+      @select_field ||= 
+        Form::Field.where("lower(name) LIKE ?", "%secteur%").find_by(field_type: "select_field", form_id: bundle.form_id)
+    end
   end
 
 end
