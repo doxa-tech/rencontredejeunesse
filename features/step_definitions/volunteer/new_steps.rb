@@ -10,7 +10,7 @@ Given("I already signed up as a volunteer and I completed my order") do
 end
 
 When("I successfully submit my volunteering preferences") do
-  select "Fun park", from: "Chosir un secteur"
+  select "Fun park", from: "Choisir un secteur"
   fill_in "T-shirt", with: "XS"
   fill_in "Remarque ou personne de contact", with: "J'ai déjà un contact avec Alfred Dupont."
   click_button "Enregistrer"
