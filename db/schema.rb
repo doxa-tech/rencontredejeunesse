@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_183325) do
+ActiveRecord::Schema.define(version: 2020_01_02_172544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -133,11 +133,13 @@ ActiveRecord::Schema.define(version: 2019_10_21_183325) do
   create_table "fields", force: :cascade do |t|
     t.string "name"
     t.integer "field_type"
-    t.boolean "required", default: false
+    t.boolean "required"
     t.bigint "form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.jsonb "options"
+    t.string "label"
     t.index ["form_id"], name: "index_fields_on_form_id"
   end
 
@@ -196,7 +198,6 @@ ActiveRecord::Schema.define(version: 2019_10_21_183325) do
     t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "order_type_id"
     t.boolean "open", default: true
     t.hstore "options"
     t.integer "limit"
@@ -204,7 +205,6 @@ ActiveRecord::Schema.define(version: 2019_10_21_183325) do
     t.integer "bundle_type"
     t.integer "order_type"
     t.index ["form_id"], name: "index_order_bundles_on_form_id"
-    t.index ["order_type_id"], name: "index_order_bundles_on_order_type_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -215,16 +215,6 @@ ActiveRecord::Schema.define(version: 2019_10_21_183325) do
     t.datetime "updated_at", null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
-  end
-
-  create_table "order_types", force: :cascade do |t|
-    t.string "name"
-    t.bigint "supertype_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "form_id"
-    t.index ["form_id"], name: "index_order_types_on_form_id"
-    t.index ["supertype_id"], name: "index_order_types_on_supertype_id"
   end
 
   create_table "orders", id: :serial, force: :cascade do |t|
@@ -402,10 +392,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_183325) do
   add_foreign_key "option_orders", "orders"
   add_foreign_key "option_orders", "users"
   add_foreign_key "order_bundles", "forms"
-  add_foreign_key "order_bundles", "order_types"
   add_foreign_key "order_items", "items"
   add_foreign_key "order_items", "orders"
-  add_foreign_key "order_types", "forms"
   add_foreign_key "orders", "discounts"
   add_foreign_key "orders", "users"
   add_foreign_key "payments", "orders"

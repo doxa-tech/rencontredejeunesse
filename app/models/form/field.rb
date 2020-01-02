@@ -3,7 +3,7 @@ class Form::Field < ApplicationRecord
   
   enum field_type: [:text, :number, :email, :select_field]
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { maximum: 50 }
   validates :field_type, presence: true
   validate :structure_of_options, if: :select_field?
 

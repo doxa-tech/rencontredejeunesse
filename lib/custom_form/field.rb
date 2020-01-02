@@ -12,7 +12,7 @@
     end
 
     def render
-      content = @form.label @field.name
+      content = @form.label @field.name, @field.label
       content += send(@field.field_type)
       content.html_safe
     end
