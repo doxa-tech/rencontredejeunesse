@@ -1,6 +1,7 @@
 namespace :migrate do
   
   # After the migration is successful, drop the order_types table and remove the order_type_id from order_bundles.
+  # DOES NOT WORK ANYMORE SINCE THE DATABASE HAS CHANGED
   desc "Migrate the order_type association to an enum on order_bundle"
   task order_types: :environment do
     OrderBundle.all.each do |b|
