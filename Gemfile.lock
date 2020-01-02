@@ -147,7 +147,7 @@ GEM
       launchy (~> 2.1)
       mail (~> 2.7)
     erubi (1.9.0)
-    excon (0.67.0)
+    excon (0.71.0)
     execjs (2.7.0)
     factory_bot (5.1.1)
       activesupport (>= 4.2.0)
@@ -221,7 +221,7 @@ GEM
       sassc
       thor
       tilt
-    loofah (2.3.0)
+    loofah (2.3.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.1)
@@ -268,8 +268,8 @@ GEM
       actionmailer (>= 3)
       premailer (~> 1.7, >= 1.7.9)
     public_suffix (4.0.1)
-    puma (3.12.1)
-    rack (2.0.7)
+    puma (3.12.2)
+    rack (2.0.8)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (5.2.3)
@@ -465,7 +465,7 @@ DEPENDENCIES
   pg
   prawn
   premailer-rails
-  puma (~> 3.0)
+  puma (~> 3.12)
   rails (~> 5.2.0)
   rails-controller-testing
   rails-erd
