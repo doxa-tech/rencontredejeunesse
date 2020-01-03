@@ -6,6 +6,7 @@
 
 #container.forms-new {
   @include standard-form();
+  @include standard-form-large();
   padding-top: $logo-burger-height;
 
   div.content-wrap {
