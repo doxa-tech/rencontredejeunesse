@@ -1,1 +1,9 @@
-<%= @custom_form.render %>
+<% content_for :id, "forms-new" %>
+
+<div class="content-wrap">
+  <div class="standard-form-row">
+    <%= @custom_form.render %>
+  </div>
+</div>
+
+<%= render "layouts/headers/application" %>
