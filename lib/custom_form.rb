@@ -26,7 +26,7 @@ class CustomForm
     @errors = []
     @fields.each do |field|
       if field.required && @attributes[field.name].blank?
-        field_name = I18n.t("#{I18N_PATH}.#{field.name}")
+        field_name = field.label ? field.label : I18n.t("#{I18N_PATH}.#{field.name}")
         @errors << I18n.t("errors.messages.required", attribute: field_name)
       end
     end
