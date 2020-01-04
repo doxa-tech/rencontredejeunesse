@@ -1,0 +1,14 @@
+<div id="show">
+
+  <h1>Formulaire</h1>
+
+  <h3>Information du formulaire</h3>
+  <ul>
+  <% CustomForm.display(@completed_form) do |label, value| %>
+
+    <li><%= label %>: <i><%= value %></i></li>
+
+  <% end %>
+  </ul>
+
+</div>

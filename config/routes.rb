@@ -147,6 +147,12 @@ Rails.application.routes.draw do
 
     end
 
+    namespace :forms do
+
+      resources :completed_forms, only: [:index, :show, :destroy]
+
+    end
+
   end
 
   #

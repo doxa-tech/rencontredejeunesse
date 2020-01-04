@@ -3,7 +3,7 @@ class Admin::VolunteersController < Admin::BaseController
   def index
     authorize!
     @orders = bundle ? OptionOrder.where(order_bundle: bundle) : OptionOrder.all
-    if select_field
+    if select_field && params[:sector].present?
       @orders = @orders.joins(completed_form: :completed_fields).where(
           completed_forms: { completed_fields: { field: select_field, value: sectors.index(params[:sector]).to_s }})
     end

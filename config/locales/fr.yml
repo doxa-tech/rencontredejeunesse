@@ -54,8 +54,11 @@ fr:
     confirmed: "Confirmé"
     price: "Prix"
     name: "Nom"
+    form: "Formulaire"
   activerecord:
     attributes:
+      form/completed_form:
+        to_s: "Résumé"
       discount:
         items: "Produits"
         item_ids: "Produits"
