@@ -25,7 +25,8 @@
       else
         completed_field.value
       end
-      label = field.label ? field.label : I18n.t("#{I18N_PATH}.#{completed_field.field.name}")
+      field = completed_field.field
+      label = field.label ? field.label : I18n.t("#{I18N_PATH}.#{field.name}")
       return label, value
     end
 
