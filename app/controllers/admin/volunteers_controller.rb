@@ -35,7 +35,7 @@ class Admin::VolunteersController < Admin::BaseController
   def select_field
     if bundle
       @select_field ||= 
-        Form::Field.where("lower(name) LIKE ?", "%secteur%").find_by(field_type: "select_field", form_id: bundle.form_id)
+        Form::Field.find_by(name: "sector", field_type: "select_field", form_id: bundle.form_id)
     end
   end
 
