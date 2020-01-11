@@ -1,0 +1,5 @@
+<h2>Faire un paiement</h2>
+
+<p>Montant du paiement: <%= display_price(@payment.amount) %></p>
+
+<%= render "orders/payments/postfinance", payment: @payment, user: @user %>

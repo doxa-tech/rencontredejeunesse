@@ -21,6 +21,13 @@
 
 <p>Statut de la commande: <%= human_order_status(@order) %></p>
 
+<% if @pending_payments.any? %>
+<p>Paiements en attente</p>
+<% end %>
+<% @pending_payments.each do |payment| %>
+<p>Montant: <%=  display_price(payment.amount) %> <%= link_to "Payer", orders_payment_path(payment.payment_id) %></p>
+<% end %>
+
 <p>Date: <%= l @order.created_at, format: :normal %>
 
 <% if @order.discount_amount > 0 %>

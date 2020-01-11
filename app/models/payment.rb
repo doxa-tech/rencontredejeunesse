@@ -16,6 +16,8 @@ class Payment < ApplicationRecord
   validates :amount, presence: true
   validates :payment_type, presence: true
 
+  scope :pending_on_postfinance, -> { where(payment_type: :addition, method: :postfinance, status: 41) }
+
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
             "EMAIL=#{user.email}#{KEY}LANGUAGE=fr_FR#{KEY}ORDERID=#{payment_id}#{KEY}"\
