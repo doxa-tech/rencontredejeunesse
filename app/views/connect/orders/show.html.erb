@@ -6,6 +6,14 @@
     title: "Commande #{@order.order_id}" %>
 <% end %>
 
+<% if @pending_payments.any? %>
+  <h2>Paiements en attente</h2>
+  <p>Un ou plusieurs paiements sont en attente. Complète-les pour finaliser ta commande</p>
+  <% @pending_payments.each do |payment| %>
+    <p>> <%=  display_price(payment.amount) %> (créé le <%= l payment.created_at, format: :pretty_date %>) <%= link_to "Payer en ligne", orders_payment_path(payment.payment_id) %></p>
+  <% end %>
+<% end %>
+
 <h2>Documents de la commande</h2>
 
 <p><%= link_to "> Voir la facture au format PDF", invoice_connect_order_path(@order.order_id, format: "pdf") %></p>
@@ -20,13 +28,6 @@
 <p>Type: "<%= @order.bundle.name %>"</b>.</p>
 
 <p>Statut de la commande: <%= human_order_status(@order) %></p>
-
-<% if @pending_payments.any? %>
-<p>Paiements en attente</p>
-<% end %>
-<% @pending_payments.each do |payment| %>
-<p>Montant: <%=  display_price(payment.amount) %> <%= link_to "Payer", orders_payment_path(payment.payment_id) %></p>
-<% end %>
 
 <p>Date: <%= l @order.created_at, format: :normal %>
 

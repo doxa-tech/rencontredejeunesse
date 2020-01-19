@@ -1,5 +1,9 @@
-<h2>Faire un paiement</h2>
+<% content_for :id, "orders-payments-show" %>
 
-<p>Montant du paiement: <%= display_price(@payment.amount) %></p>
+<div class="content-wrap">
+  <h2>Faire un paiement</h2>
+  <p>Montant du paiement: <%= display_price(@payment.amount) %></p>
+  <%= render "orders/payments/postfinance", payment: @payment, user: @user %>
+</div>
 
-<%= render "orders/payments/postfinance", payment: @payment, user: @user %>
+<%= render "layouts/headers/application" %>
