@@ -19,7 +19,7 @@ module Adapters
         @tva = "-"
         @name = @order_item.item.name
         
-        @sub_info = "Pass à imprimer sois-même"
+        @sub_info = "Pass à imprimer soi-même"
         @_tot_price = @_price * @_quantity
         @tot_price = '%.2f' % @_tot_price
       end
@@ -55,7 +55,7 @@ module Adapters
         if payment_type.nil?
           @payment_type = method
         else
-          @payment_type = "#{method} (#{I18n.t('payment.type.'+ payment_type).downcase})"
+          @payment_type = I18n.t("payment.method." + method) + " (" +I18n.t("payment.payment_types."+ payment_type).downcase + ")"
         end
       end
     end
