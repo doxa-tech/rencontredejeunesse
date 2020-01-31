@@ -22,11 +22,10 @@ class OrderMailer < ApplicationMailer
     mail(to: order.user.email, bcc: ["kocher.ke@gmail.com", "mchristen@hotmail.ch"], subject: "Votre facture pour la commande #{@order.order_id}")
   end
 
-  def reminder
-    # TODO
-    @event = ""
-    emails = []
-    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails, subject: "Ta commande pour la RJ")
+  def reminder(key)
+    bundle = OrderBundle.find_by(key: key)
+    emails = User.joins(orders: :tickets).where(orders: { status: :paid, items: { order_bundle_id: bundle.id  }}).distinct.pluck(:email)
+    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "La RJ Login commence demain !")
   end
 
 end
