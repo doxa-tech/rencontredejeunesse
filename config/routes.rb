@@ -89,6 +89,8 @@ Rails.application.routes.draw do
     # complete free or invoice order
     resources :completion, only: :update, controller: :completion
 
+    resources :payments, only: [:show]
+
     # user update from order
     scope ":id/user", constraints: { id: /\d*/ }, as: :user do
       get "edit", to: "users#edit"

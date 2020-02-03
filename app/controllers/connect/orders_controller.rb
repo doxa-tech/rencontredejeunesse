@@ -11,6 +11,7 @@ class Connect::OrdersController < Connect::BaseController
 
   def show
     @order = order
+    @pending_payments = @order.payments.pending_on_postfinance
   end
 
   def invoice

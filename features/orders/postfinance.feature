@@ -1,5 +1,5 @@
 @javascript
-Feature: Payment
+Feature: Postfinance
 
   So that I directly pay my entry
   As a buyer
