@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_02_174258) do
+ActiveRecord::Schema.define(version: 2020_02_04_144249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -337,6 +337,7 @@ ActiveRecord::Schema.define(version: 2020_01_02_174258) do
     t.string "external_device_id"
     t.string "thread_id"
     t.boolean "dry_run", default: false, null: false
+    t.boolean "sound_is_json", default: false
     t.index ["delivered", "failed", "processing", "deliver_after", "created_at"], name: "index_rpush_notifications_multi", where: "((NOT delivered) AND (NOT failed))"
   end
 
