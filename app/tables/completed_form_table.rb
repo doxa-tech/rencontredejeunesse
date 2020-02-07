@@ -19,7 +19,7 @@ class CompletedFormTable < BaseTable
     end
 
     def self.fields
-      { form: [:name] }
+      { forms: [:name] }
     end
 
   end
