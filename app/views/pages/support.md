@@ -53,6 +53,12 @@ Partage l'évènement sur Facebook, encourage tes amis à y participer! Si tu
 
 Rencontre de Jeunesse, 1607 Palézieux, info@rencontredejeunesse.ch
 
+## Commandes
+
+### Remboursement
+
+Le remboursement n'est que possible dans les 10 jours suivant l'achat pour autant que le billet n'ait pas été utilisé.
+
 ## Mon compte RJ Connect
 
 ### A quoi me sert mon compte ?

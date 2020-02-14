@@ -5,27 +5,27 @@
 
     <input type="hidden" name="PSPID" value="<%= Payment::PSPID %>">
 
-    <input type="hidden" name="ORDERID" value="<%= @order.main_payment.payment_id %>">
+    <input type="hidden" name="ORDERID" value="<%= payment.payment_id %>">
 
-    <input type="hidden" name="AMOUNT" value="<%= @order.main_payment.amount %>">
+    <input type="hidden" name="AMOUNT" value="<%= payment.amount %>">
 
     <input type="hidden" name="CURRENCY" value="CHF">
 
     <input type="hidden" name="LANGUAGE" value="fr_FR">
 
-    <input type="hidden" name="CN" value="<%= @order.user.full_name %>">
+    <input type="hidden" name="CN" value="<%= user.full_name %>">
 
-    <input type="hidden" name="EMAIL" value="<%= @order.user.email %>">
+    <input type="hidden" name="EMAIL" value="<%= user.email %>">
 
-    <input type="hidden" name="OWNERZIP" value="<%= @order.user.npa %>">
+    <input type="hidden" name="OWNERZIP" value="<%= user.npa %>">
 
-    <input type="hidden" name="OWNERADDRESS" value="<%= @order.user.address %>">
+    <input type="hidden" name="OWNERADDRESS" value="<%= user.address %>">
 
-    <input type="hidden" name="OWNERCTY" value="<%= @order.user.country_name %>">
+    <input type="hidden" name="OWNERCTY" value="<%= user.country_name %>">
 
-    <input type="hidden" name="OWNERTOWN" value="<%= @order.user.city %>">
+    <input type="hidden" name="OWNERTOWN" value="<%= user.city %>">
 
-    <input type="hidden" name="SHASIGN" value="<%= @order.main_payment.shain %>">
+    <input type="hidden" name="SHASIGN" value="<%= payment.shain %>">
 
     <div class="row">
       <span></span>

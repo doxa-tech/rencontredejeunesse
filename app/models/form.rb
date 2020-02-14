@@ -7,4 +7,9 @@ class Form < ApplicationRecord
 
   has_many :order_bundles, dependent: :restrict_with_exception
 
+  def active?
+    date = Date.current
+    active && (valid_until.nil? || valid_until >= date) && (valid_from.nil? || valid_from <= date)
+  end
+
 end

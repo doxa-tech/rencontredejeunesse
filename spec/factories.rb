@@ -125,4 +125,9 @@ FactoryBot.define do
     form
   end
 
+  factory :payment do
+    payment_type { :addition }
+    amount { 10000 }
+  end
+
 end

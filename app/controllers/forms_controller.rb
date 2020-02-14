@@ -1,4 +1,5 @@
 class FormsController < ApplicationController
+  before_action :check_if_active
 
   def new
     @custom_form = CustomForm.new(form, forms_path, view_context, email: true)
@@ -16,9 +17,13 @@ class FormsController < ApplicationController
 
   private
 
+  def check_if_active
+    redirect_to root_path, error: "Le formulaire n'est plus disponible" unless form.active?
+  end
+
   def form
     @form ||= Form.find_by(key: params[:key])
-    redirect_to root_path, error: "Ce formulaire n'existe pas" if @form.nil?
+    raise ActionController::RoutingError.new('Not Found') unless @form
     return @form
   end
 

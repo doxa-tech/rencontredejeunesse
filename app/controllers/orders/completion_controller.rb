@@ -5,12 +5,12 @@ class Orders::CompletionController < Orders::BaseController
   def postfinance
     if params[:SHASIGN] == shaout.upcase
       @payment = Payment.find_by_payment_id!(params[:orderID])
-      @order = @payment.order
       @payment.amount = params[:amount].to_i * 100
       @payment.status = params[:STATUS]
       @payment.payid = params[:PAYID]
       @payment.save
-      order_completion.complete(:postfinance) if @payment.status == 9
+      order_completion = OrderCompletion.new(@payment.order)
+      order_completion.complete(:postfinance) if @payment.order.paid?
       head :ok
     else
       head :unprocessable_entity
@@ -19,6 +19,7 @@ class Orders::CompletionController < Orders::BaseController
 
   def update
     begin
+      order_completion = OrderCompletion.new(order)
       order_completion.complete
       redirect_to confirmed_orders_path
     rescue ArgumentError
@@ -34,10 +35,6 @@ class Orders::CompletionController < Orders::BaseController
             "ORDERID=#{params[:orderID]}#{Payment::KEY}PAYID=#{params[:PAYID]}#{Payment::KEY}"\
             "STATUS=#{params[:STATUS]}#{Payment::KEY}"
     return Digest::SHA1.hexdigest(chain)
-  end
-
-  def order_completion
-    @order_completion ||= OrderCompletion.new(order)
   end
 
 end

@@ -5,11 +5,14 @@
 Create the superuser:
 ```
 # create the user
-rails superuser
+rails seed:superuser
 # create the permissions
-rails adeia_elements
+rails seed:adeia_elements
 # Add the permission to the superuser
 rake adeia:superuser user_id=1
+# Confirm its email
+rails c
+User.find(1).update_attribute :confirmed, true
 ```
 You can now use the superuser with the email "kocher.ke@gmail.com" and the password "12341".
 
