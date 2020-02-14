@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_04_144249) do
+ActiveRecord::Schema.define(version: 2020_02_14_154904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -133,10 +133,11 @@ ActiveRecord::Schema.define(version: 2020_02_04_144249) do
   create_table "fields", force: :cascade do |t|
     t.string "name"
     t.integer "field_type"
-    t.boolean "required", default: false
+    t.boolean "required"
     t.bigint "form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.jsonb "options"
     t.string "label"
     t.index ["form_id"], name: "index_fields_on_form_id"
@@ -148,6 +149,9 @@ ActiveRecord::Schema.define(version: 2020_02_04_144249) do
     t.datetime "updated_at", null: false
     t.string "key"
     t.string "description"
+    t.boolean "active", default: true
+    t.date "valid_from"
+    t.date "valid_until"
   end
 
   create_table "images", id: :serial, force: :cascade do |t|
