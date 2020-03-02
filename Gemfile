@@ -4,21 +4,19 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 
-gem 'pg'
+gem 'pg', '~> 1.2'
 
 # Use Puma as the app server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.3'
 # Use SCSS for stylesheets
-gem 'sassc-rails'
+gem 'sassc-rails', '~> 2.1'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.5'
+gem 'jbuilder', '~> 2.10'
 
 # HTML select list for countries
 gem 'country_select'
@@ -26,7 +24,11 @@ gem 'country_select'
 # Common translations
 gem 'rails-i18n'
 
+# for the test suite and tasks
 gem 'database_cleaner'
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
 
 # Speed up boot time
 gem 'bootsnap', require: false
@@ -85,7 +87,7 @@ gem 'carrierwave-imageoptimizer' # brew install optipng jpegoptim
 gem 'fog-google'
 
 # Pagination
-gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate'
 
 # PDF generation
 gem 'prawn'
@@ -95,13 +97,13 @@ gem 'barby'
 gem 'rqrcode'
 
 # Push notifications / rpush init on update
-gem 'rpush'
+gem 'rpush', '~> 5'
 
 # HTTP client
 gem 'rest-client'
 
 # Style guide css
-gem "livingstyleguide"
+gem 'livingstyleguide'
 
 # Markdown parser
-gem "redcarpet"
+gem 'redcarpet'
