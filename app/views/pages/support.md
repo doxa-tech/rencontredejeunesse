@@ -13,7 +13,7 @@
 ### Réserver des places pour un groupe
 
 Si tu as besoin de réserver des places pour ton groupe, mais que tu ne sais pas encore précisément à qui seront destinées les places, tu peux le faire en suivant les instructions ci-dessous.
-Les groupes de 20 personnes et plus ont la possibilité de commander des entrées aux prix avantageux des prélocations, et de confirmer le nom des participants dans un 2e temps. **Si tu connais déjà le nom des participants, tu peux faire une commande normale**.
+Les groupes de 20 personnes et plus ont la possibilité de commander des entrées aux prix avantageux des prélocations (les mêmes prix que ceux affichés sur le site), et de confirmer le nom des participants dans un 2e temps. **Si tu connais déjà le nom des participants, tu peux faire une commande normale**.
 
 1. Tu nous contactes via le formulaire du site, en choisissant la catégorie "Commande de groupe".
 2. Dans le formulaire, tu précises les informations de contact pour la facturation (nom de la personne de contact, église/association, adresse, etc.) et le nombre de pass commandés (précise avec/sans hébergement).
@@ -54,6 +54,14 @@ Partage l'évènement sur Facebook, encourage tes amis à y participer! Si tu
 Rencontre de Jeunesse, 1607 Palézieux, info@rencontredejeunesse.ch
 
 ## Commandes
+
+### Quelles sont les possibilités de paiement
+
+Les moyens de paiement sont les suivants: Twint, Postfinance, carte de crédit, Paypal. Cependant, les commandes au-dessus de 800 CHF se paient par facture (le processus de commande reste le même, via le site).
+
+### J'ai perdu mon billet pour l'événement
+
+Tu peux à tout moment te connecter à ton compte pour consulter l'état de ta commande. Depuis le résumé de ta commande, tu as la possibilité de télécharger ton billet à nouveau.
 
 ### Remboursement
 
