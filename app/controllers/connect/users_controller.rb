@@ -1,6 +1,7 @@
 class Connect::UsersController < Connect::BaseController
 
   def show
+    @refund = Refund.new(user: current_user)
   end
 
   def edit

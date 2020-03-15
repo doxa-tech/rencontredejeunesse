@@ -1,0 +1,15 @@
+<h1>Confirmation de ta demande</h1>
+
+<p>
+  Voici un résumé de ta demande sur <a href="https://rencontredejeunesse.ch">rencontredejeunesse.ch</a>
+</p>
+
+<ul>
+  <li>Commande: <%= @refund.order.summary %></li>
+  <li>Type de remboursement: <%= t "refund.refund_types.#{@refund.refund_type}" %></li>
+  <li>Commentaire: <%= @refund.comment %></li>
+</ul>
+
+<p>
+  Tu recevras des informations prochainement selon ta demande. Merci pour ta confiance.
+</p>

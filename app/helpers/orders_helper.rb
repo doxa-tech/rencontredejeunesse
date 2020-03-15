@@ -1,5 +1,12 @@
 module OrdersHelper
 
+  def self.summary(order)
+    summary = "#{I18n.l order.created_at, format: :date}"
+    summary += " - #{order.bundle.name}" if order.bundle
+    summary += " - #{order.amount / 100} CHF"
+    summary
+  end
+
   def postfinance_url
     env = Rails.env.production? ? "prod" : "test"
     return "https://e-payment.postfinance.ch/ncol/#{env}/orderstandard_utf8.asp"

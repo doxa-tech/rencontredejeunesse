@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_14_154904) do
+ActiveRecord::Schema.define(version: 2020_03_15_152728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -261,6 +261,17 @@ ActiveRecord::Schema.define(version: 2020_02_14_154904) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "refunds", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "order_id"
+    t.integer "refund_type"
+    t.string "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_refunds_on_order_id"
+    t.index ["user_id"], name: "index_refunds_on_user_id"
+  end
+
   create_table "registrants", force: :cascade do |t|
     t.integer "gender"
     t.string "firstname"
@@ -403,6 +414,8 @@ ActiveRecord::Schema.define(version: 2020_02_14_154904) do
   add_foreign_key "payments", "orders"
   add_foreign_key "posts", "images"
   add_foreign_key "posts", "users"
+  add_foreign_key "refunds", "orders"
+  add_foreign_key "refunds", "users"
   add_foreign_key "registrants", "items"
   add_foreign_key "registrants", "orders"
   add_foreign_key "testimonies", "users"

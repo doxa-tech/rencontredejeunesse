@@ -56,6 +56,8 @@ Rails.application.routes.draw do
     get "edit", to: "users#edit"
     patch "update", to: "users#update"
 
+    resources :refunds, only: :create
+
     resources :orders, only: [:index, :show, :invoice, :ticket] do
       get "pending", on: :collection
       member do

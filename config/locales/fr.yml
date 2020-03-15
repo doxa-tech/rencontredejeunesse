@@ -86,6 +86,10 @@ fr:
         valid_from: "A partir de"
         key: "Clé"
         order_bundle_id: "Paquet"
+      refund:
+        refund_type: Type de remboursement
+        order: Commande
+        comment: Commentaire
     errors:
       models:
         order:
@@ -131,6 +135,11 @@ fr:
       group_order: "Commande pour un groupe"
       bug: "Signaler un bug"
       general: "Question générale"
+  refund:
+    refund_types:
+      nothing: Pas de remboursement
+      discount: Recevoir un bon
+      money: Remboursement sur mon moyen de paiement
   errors:
     format: "%{message}"
     messages:

@@ -1,0 +1,22 @@
+
+<%= form_with model: [:connect, @refund] do |f| %>
+
+  <%= f.label :order %>
+  <%= f.collection_select :order, @refund.orders, :id, :summary %>
+
+  <%= f.label :refund_type %>
+  <span>Pas de remboursement</span>
+  <%= f.radio_button :refund_type, :nothing %>
+
+  <span>Recevoir un bon</span>
+  <%= f.radio_button :refund_type, :discount %>
+
+  <span>Remboursement sur mon moyen de paiement</span>
+  <%= f.radio_button :refund_type, :money %>
+
+  <%= f.label :comment %>
+  <%= f.text_area :comment %>
+
+  <%= f.submit "Envoyer ma demande" %>
+
+<% end %>

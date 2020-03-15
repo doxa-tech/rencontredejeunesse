@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-  default reply_to: "inscriptions@rencontredejeunesse.ch"
+  default reply_to: "billetterie@rencontredejeunesse.ch"
   helper OrdersHelper
   layout 'mailer'
 
