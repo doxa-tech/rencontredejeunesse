@@ -22,16 +22,16 @@ class OrderMailer < ApplicationMailer
     mail(to: order.user.email, bcc: ["kocher.ke@gmail.com", "mchristen@hotmail.ch"], subject: "Votre facture pour la commande #{@order.order_id}")
   end
 
-  def announcement
-    keys = %w(rj-2020 volunteers-rj-20 volunteers-private-rj-20)
-    User.joins(orders: [registrants: [item: :order_bundle]]).where(
-      orders: { status: :paid, 
-        registrants: { items: { order_bundles: { key: keys }}}
-      }
-    ).distinct.pluck(:email).each_slice(50).each do |emails|
-      sleep(5)
-      mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
-    end
+  def announcement(emails)
+    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
   end
+
+  # def emails_from_order(keys)
+  #   User.joins(orders: [registrants: [item: :order_bundle]]).where(
+  #     orders: { status: :paid, 
+  #       registrants: { items: { order_bundles: { key: keys }}}
+  #     }
+  #   ).distinct.pluck(:email)
+  # end
 
 end
