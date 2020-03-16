@@ -9,26 +9,40 @@
   justify-content: center;
   align-items: center;
 
+  background: #000;
+
   .banner {
-    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 250px;
     background: image-url("rj/2020/welcome/background.png");
     background-size: cover;
     background-position-x: center;
     color: #fff;
     width: 100%;
+
+    h1 {
+      font-size: $title-size;
+    }
   }
 
   .section-container {
     max-width: $main-width;
     padding: $logo-burger-height $main-padding 0 $main-padding;
     position: relative;
-    text-align: center;
+    text-align: left;
+    padding: 130px 20px 150px 20px;
 
     p {
       padding: 20px 0 0 0;
       line-height: 1.2em;
       font-size: $large-text;
-      color: #555;
+      color: #fff;
+      font-size: $medium-title;
+      font-weight: bold;
+      font-family: "Helvetica neue", "Helvetica", sans-serif;
     }
   }
 }
