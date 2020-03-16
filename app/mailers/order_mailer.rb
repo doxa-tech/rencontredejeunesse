@@ -1,5 +1,5 @@
 class OrderMailer < ApplicationMailer
-  default reply_to: "inscriptions@rencontredejeunesse.ch"
+  default reply_to: "billetterie@rencontredejeunesse.ch"
   helper OrdersHelper
   layout 'mailer'
 
@@ -22,10 +22,14 @@ class OrderMailer < ApplicationMailer
     mail(to: order.user.email, bcc: ["kocher.ke@gmail.com", "mchristen@hotmail.ch"], subject: "Votre facture pour la commande #{@order.order_id}")
   end
 
-  def reminder(key)
-    bundle = OrderBundle.find_by(key: key)
-    emails = User.joins(orders: :tickets).where(orders: { status: :paid, items: { order_bundle_id: bundle.id  }}).distinct.pluck(:email)
-    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "La RJ Login commence demain !")
+  def announcement
+    keys = %w(rj-2020 volunteers-rj-20 volunteers-private-rj-20)
+    emails = User.joins(orders: [registrants: [item: :order_bundle]]).where(
+      orders: { status: :paid, 
+        registrants: { items: { order_bundles: { key: keys }}}
+      }
+    ).distinct.pluck(:email)
+    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
   end
 
 end
