@@ -29,7 +29,7 @@ class OrderMailer < ApplicationMailer
         registrants: { items: { order_bundles: { key: keys }}}
       }
     ).distinct.pluck(:email)
-    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
+    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
   end
 
 end
