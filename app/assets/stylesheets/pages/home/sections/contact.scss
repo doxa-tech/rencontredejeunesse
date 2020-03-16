@@ -1,4 +1,4 @@
-@import '../../../components/variables';
+@import "../../../components/variables";
 
 #container.home section#contact,
 #container.login section#contact,
@@ -7,7 +7,8 @@
 #container.rj-2019 section#contact,
 #container.resources section#contact,
 #container.highlights-2018 section#contact,
-#container.highlights-2019 section#contact {
+#container.highlights-2019 section#contact,
+#container.rj-2020 section#contact {
   position: relative;
 
   .section-container {
@@ -38,41 +39,41 @@
           width: 100%;
           padding: 5px 10px;
           margin: 0 0 15px 0;
-          background-color: #EBEBEB;
+          background-color: #ebebeb;
           border: none;
         }
 
         textarea {
           display: block;
           width: 100%;
-          background-color: #EBEBEB;
+          background-color: #ebebeb;
           border: none;
           padding: 5px 10px;
           //color: #aaa;
         }
-        
+
         select {
-          background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
-          background-color:#3498DB;
-          background-repeat:no-repeat;
+          background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+          background-color: #3498db;
+          background-repeat: no-repeat;
           background-position: right 10px top 15px;
           background-size: 16px 16px;
           margin: 0 0 15px 0;
-          padding:12px;
-          width:auto;
-          color:#6d6869;
-          background-color:#EBEBEB;
+          padding: 12px;
+          width: auto;
+          color: #6d6869;
+          background-color: #ebebeb;
           width: 100%;
-          border-radius:3px;
-          -webkit-border-radius:3px;
+          border-radius: 3px;
+          -webkit-border-radius: 3px;
           -webkit-appearance: none;
-          border:0;
-          outline:0;
-          -webkit-transition:0.3s ease all;
-            -moz-transition:0.3s ease all;
-              -ms-transition:0.3s ease all;
-              -o-transition:0.3s ease all;
-                  transition:0.3s ease all;
+          border: 0;
+          outline: 0;
+          -webkit-transition: 0.3s ease all;
+          -moz-transition: 0.3s ease all;
+          -ms-transition: 0.3s ease all;
+          -o-transition: 0.3s ease all;
+          transition: 0.3s ease all;
         }
 
         div.input {
@@ -93,20 +94,28 @@
           &::after {
             content: "";
             position: absolute;
-            background-color: #1AE4AD;
+            background-color: #1ae4ad;
             left: 0;
             bottom: -5px;
             height: 20px;
             width: 150px;
             z-index: -1;
-            transition: background-color .5s ease-out;
+            transition: background-color 0.5s ease-out;
           }
 
           @keyframes contact-button {
-            0%  {background-color: #17a4ac;}
-            50%  {background-color: #17a4ac;}
-            80%   {background-color: #1AE4AD;}
-            100% {background-color: #17a4ac;}
+            0% {
+              background-color: #17a4ac;
+            }
+            50% {
+              background-color: #17a4ac;
+            }
+            80% {
+              background-color: #1ae4ad;
+            }
+            100% {
+              background-color: #17a4ac;
+            }
           }
 
           &:hover::after {
@@ -121,7 +130,7 @@
       }
     }
 
-   div.address {
+    div.address {
       flex: 1;
       font-weight: bold;
       font-size: $sub-title;
