@@ -24,12 +24,14 @@ class OrderMailer < ApplicationMailer
 
   def announcement
     keys = %w(rj-2020 volunteers-rj-20 volunteers-private-rj-20)
-    emails = User.joins(orders: [registrants: [item: :order_bundle]]).where(
+    User.joins(orders: [registrants: [item: :order_bundle]]).where(
       orders: { status: :paid, 
         registrants: { items: { order_bundles: { key: keys }}}
       }
-    ).distinct.pluck(:email)
-    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
+    ).distinct.pluck(:email).each_slice(50).each do |emails|
+      sleep(5)
+      mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
+    end
   end
 
 end
