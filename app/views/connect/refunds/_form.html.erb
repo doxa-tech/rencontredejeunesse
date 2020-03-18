@@ -1,22 +1,46 @@
+<div class="corona-form-row">
+    <h2>Demande de remboursement</h2>
 
-<%= form_with model: [:connect, @refund] do |f| %>
+    <%= form_with model: [:connect, @refund] do |f| %>
 
-  <%= f.label :order %>
-  <%= f.collection_select :order, @refund.orders, :id, :summary %>
+    <div class="row">
+        <%= f.label :order %>
+        <%= f.collection_select :order, @refund.orders, :id, :summary %>
+    </div>
 
-  <%= f.label :refund_type %>
-  <span>Pas de remboursement</span>
-  <%= f.radio_button :refund_type, :nothing %>
+    <div class="row">
+        <p class="title"><%= f.label :refund_type %></p>
 
-  <span>Recevoir un bon</span>
-  <%= f.radio_button :refund_type, :discount %>
+        <div class="radio">
+            <label>
+                <%= f.radio_button :refund_type, :nothing %>
+                <span>Pas de remboursement</span>
+            </label>
+        </div>
 
-  <span>Remboursement sur mon moyen de paiement</span>
-  <%= f.radio_button :refund_type, :money %>
+        <div class="radio">
+            <label>
+                <%= f.radio_button :refund_type, :discount %>
+                <span>Recevoir un bon</span>
+            </label>
+        </div>
 
-  <%= f.label :comment %>
-  <%= f.text_area :comment %>
+        <div class="radio">
+            <label>
+                <%= f.radio_button :refund_type, :money %>
+                <span>Remboursement sur mon moyen de paiement</span>
+            </label>
+        </div>
+    </div>
 
-  <%= f.submit "Envoyer ma demande" %>
+    <div class="row comment">
+        <%= f.label :comment %>
+        <%= f.text_area :comment %>
+    </div>
 
-<% end %>
+    <div class="row">
+        <%= f.submit "Envoyer ma demande" %>
+    </div>
+
+    <% end %>
+</div>
