@@ -6,6 +6,9 @@ class Refund < ApplicationRecord
 
   enum refund_type: [:nothing, :discount, :money]
 
+  validates :refund_type, presence: true
+  validates :comment, length: { maximum: 150 }
+
   def orders
     Orders::Event.joins(registrants: [item: :order_bundle]).where(
       status: :paid,

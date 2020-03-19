@@ -1,11 +1,13 @@
 <div class="corona-form-row">
     <h2>Demande de remboursement</h2>
 
-    <%= form_with model: [:connect, @refund] do |f| %>
+    <%= form_for [:connect, @refund] do |f| %>
+
+    <%= render "error_messages", object: f.object %>
 
     <div class="row">
-        <%= f.label :order %>
-        <%= f.collection_select :order, @refund.orders, :id, :summary %>
+        <%= f.label :order_id %>
+        <%= f.collection_select :order_id, @refund.orders, :id, :summary %>
     </div>
 
     <div class="row">

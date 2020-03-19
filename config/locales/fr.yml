@@ -88,7 +88,7 @@ fr:
         order_bundle_id: "Paquet"
       refund:
         refund_type: Type de remboursement
-        order: Commande
+        order_id: Commande
         comment: Commentaire
     errors:
       models:

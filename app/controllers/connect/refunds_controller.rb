@@ -2,8 +2,10 @@ class Connect::RefundsController <Connect::BaseController
 
   def create
     @refund = Refund.new(refund_params)
+    @refund.user = current_user
     if @refund.save
-      redirect_to connect_path, success: "Votre demande a été enregistrée"
+      RefundMailer.confirmation(@refund).deliver_now
+      redirect_to connect_root_path, success: "Votre demande a été enregistrée"
     else
       render "connect/users/show"
     end
@@ -12,7 +14,7 @@ class Connect::RefundsController <Connect::BaseController
   private
 
   def refund_params
-    params.require(:refund).permit(:order, :refund_type, :comment)
+    params.require(:refund).permit(:order_id, :refund_type, :comment)
   end
 
 end

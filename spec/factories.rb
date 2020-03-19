@@ -66,7 +66,7 @@ FactoryBot.define do
     birthday { Date.new(1996, 02, 15) }
     association :order, factory: :event_order
     item {
-      bundle = OrderBundle.find_by(key: "rj-2019") || create(:order_bundle_with_items, order_type: :event, key: "rj-2019")
+      bundle = OrderBundle.find_by(key: "rj-2020") || create(:order_bundle_with_items, order_type: :event, key: "rj-2020")
       bundle.items.first
     }
   end
