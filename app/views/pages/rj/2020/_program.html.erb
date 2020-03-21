@@ -102,21 +102,22 @@
           <div class="price-wrapper">
             <p>60.-</p>
             <p>du 01.12.19 au 01.03.20</p>
-            <%= link_to_order "S'inscrire", start: "01.12.2019", term: "'01.03.2020", key: "rj-2020" %>
+            <%= link_to "S'inscrire", "#", class: "disabled" %>
           </div>
         </div>
         <div class="price">
           <div class="price-wrapper">
             <p>75.-</p>
             <p>du 02.03.20 au 13.04.20</p>
-            <%= link_to_order "S'inscrire", start: "02.03.2020", term: "'13.04.2020", key: "rj-2020" %>
+            <%= link_to "S'inscrire", "#", class: "disabled" %>
           </div>
         </div>
         <div class="price">
           <div class="price-wrapper">
             <p>90.-</p>
             <p>du 14.04.20 au WEEKEND</p>
-            <%= link_to_order "S'inscrire", start: "14.04.2020", term: "'01.05.2020", key: "rj-2020" %>
+            <%#= link_to_order "S'inscrire", start: "14.04.2020", term: "'01.05.2020", key: "rj-2020" %>
+            <%= link_to "S'inscrire", "#", class: "disabled" %>
           </div>
         </div>
       </div>
@@ -130,9 +131,11 @@
           Besoin d'inscrire un grand groupe en prélocation ? Consulte la FAQ.
         </p>
       </div>
+      <!--
       <div class="volunteer">
         <a href="/volunteers">S'inscrire comme bénévole</a>
       </div>
+      -->
     </div>
 
     <%= image_tag "rj/2020/program/hands.png", class: "hands" %>
