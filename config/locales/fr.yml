@@ -137,9 +137,8 @@ fr:
       general: "Question générale"
   refund:
     refund_types:
-      nothing: Pas de remboursement
-      discount: Recevoir un bon
-      money: Remboursement sur mon moyen de paiement
+      nothing: Je fais don de mon inscription
+      money: Je souhaite être remboursé
   errors:
     format: "%{message}"
     messages:

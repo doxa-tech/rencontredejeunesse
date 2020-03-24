@@ -3,8 +3,9 @@ class Refund < ApplicationRecord
   belongs_to :order
 
   BUNDLE_KEYS = %w(rj-2020 volunteers-rj-20 volunteers-private-rj-20)
+  LIMIT_DATE = Date.new(2020, 4, 10)
 
-  enum refund_type: [:nothing, :discount, :money]
+  enum refund_type: [:nothing, :money]
 
   validates :refund_type, presence: true
   validates :comment, length: { maximum: 150 }

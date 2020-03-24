@@ -5,7 +5,7 @@ end
 
 When("I fill in the refund form") do
   select OrdersHelper.summary(@order), from: "Commande"
-  choose("Pas de remboursement")
+  choose("Je fais don de mon inscription")
   fill_in("Commentaire", with: "Merci !")
   click_button "Envoyer ma demande"
 end
