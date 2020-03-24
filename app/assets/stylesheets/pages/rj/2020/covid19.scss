@@ -1,6 +1,7 @@
 @import "../../../components/variables";
 @import "../../../components/button-bar";
 
+#container.home section#covid19,
 #container.rj-2020 section#covid19 {
   width: 100%;
 
@@ -33,16 +34,27 @@
     padding: $logo-burger-height $main-padding 0 $main-padding;
     position: relative;
     text-align: left;
-    padding: 130px 20px 150px 20px;
+    padding: 90px 20px 90px 20px;
+
+    h2 {
+      font-size: $sub-title;
+      color: #fff;
+    }
 
     p {
       padding: 20px 0 0 0;
       line-height: 1.2em;
-      font-size: $large-text;
       color: #fff;
-      font-size: $medium-title;
+      font-size: $large-text;
       font-weight: bold;
       font-family: "Helvetica neue", "Helvetica", sans-serif;
+
+      &.account {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
+      }
+
     }
   }
 }
