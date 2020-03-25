@@ -34,9 +34,9 @@ module Rencontredejeunesse
 
     # Mailer
     config.action_mailer.smtp_settings = {
-      address:              'mail.infomaniak.ch',
+      address:              Rails.application.secrets.email_smtp,
       port:                 587,
-      user_name:            'noreply@rencontredejeunesse.ch',
+      user_name:            Rails.application.secrets.email_address,
       password:             Rails.application.secrets.email_pwd,
     }
 
