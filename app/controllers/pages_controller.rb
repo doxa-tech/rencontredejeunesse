@@ -67,6 +67,12 @@ class PagesController < ApplicationController
     render layout: "markdown"
   end
 
+  def refund
+    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+    @content = @markdown.render(render_to_string "refund.md", layout: false)
+    render layout: "markdown"
+  end
+
   private
 
   def contact_params
