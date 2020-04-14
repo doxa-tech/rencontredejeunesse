@@ -39,6 +39,7 @@ module Rencontredejeunesse
       user_name:            Rails.application.secrets.email_address,
       password:             Rails.application.secrets.email_pwd,
     }
+    config.action_mailer.logger = nil
 
   end
 end

@@ -13,9 +13,9 @@ namespace :mailer do
 
     desc "Send the refund#announcement email in batches"
     task give: :environment do
-      give_emails.drop(1150).each_slice(50) do |g|
-        puts "#{g.length} give emails sent"
+      give_emails.each_slice(50) do |g|
         RefundMailer.give(g).deliver_now
+        puts "#{g.length} give emails sent"
         sleep(10)
       end
     end

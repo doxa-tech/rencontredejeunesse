@@ -98,15 +98,15 @@ class User < ApplicationRecord
   end
 
   def uniqueness_of_email
-    if User.where(email: email).where.not(id: id, password_digest: nil).any?
+    if User.where(email: self.email.strip.downcase).where.not(id: id, password_digest: nil).any?
       errors.add(:email, "L'email est déjà utilisé")
     end
   end
 
   def format_input
+    self.email = self.email.strip.downcase
     self.firstname = self.firstname.strip.split('-').map(&:capitalize).join('-')
     self.lastname = self.lastname.strip.split('-').map(&:capitalize).join('-')
-    self.email = self.email.strip.downcase
     self.city = self.city.capitalize
   end
 end
