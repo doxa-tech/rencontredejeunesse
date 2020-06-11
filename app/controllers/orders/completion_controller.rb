@@ -5,8 +5,13 @@ class Orders::CompletionController < Orders::BaseController
   def postfinance
     if params[:SHASIGN] == shaout.upcase
       @payment = Payment.find_by_payment_id!(params[:orderID])
-      @payment.amount = params[:amount].to_i * 100
-      @payment.status = params[:STATUS]
+      if params[:STATUS][0] == "8" # refund status
+        @payment.refund_amount = params[:amount].to_i * 100
+        @payment.refund_status = params[:STATUS]
+      else
+        @payment.amount = params[:amount].to_i * 100
+        @payment.status = params[:STATUS]
+      end
       @payment.payid = params[:PAYID]
       @payment.save
       order_completion = OrderCompletion.new(@payment.order)

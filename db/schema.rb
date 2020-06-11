@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_15_152728) do
+ActiveRecord::Schema.define(version: 2020_04_14_075515) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -248,6 +248,8 @@ ActiveRecord::Schema.define(version: 2020_03_15_152728) do
     t.bigint "payment_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "refund_amount"
+    t.integer "refund_status"
     t.index ["order_id"], name: "index_payments_on_order_id"
   end
 

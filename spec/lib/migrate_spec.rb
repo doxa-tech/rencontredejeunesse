@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'rake'
 Rails.application.load_tasks
 
-RSpec.describe "Tasks" do
+RSpec.describe "Migrate task" do
 
   # DOES NOT WORK ANYMORE SINCE THE DATABASE HAS CHANGED
   # describe "migrate.rake" do

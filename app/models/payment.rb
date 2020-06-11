@@ -41,13 +41,17 @@ class Payment < ApplicationRecord
       "delivered"
     elsif main.status == nil
       nil
-    elsif payments.select{ |p| p.status == 9 }.inject(0) { |sum, obj| sum + obj.amount } == self.order.amount
+    elsif payments.select{ |p| p.status == 9 }.inject(0) { |sum, obj| sum + obj.total_amount } == self.order.amount
       "paid"
     elsif payments.any? { |p| p.status == 41 }
       "pending"
     else
       "unpaid"
     end
+  end
+
+  def total_amount
+    refund_status == 8 ? amount - refund_amount : amount
   end
 
   private

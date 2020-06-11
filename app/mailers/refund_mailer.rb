@@ -14,4 +14,8 @@ class RefundMailer < ApplicationMailer
     mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation RJ 2020 - Faire un don")
   end
 
+  def done(emails)
+    mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Ton remboursement de la RJ 2020")
+  end
+
 end
