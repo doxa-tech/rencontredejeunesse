@@ -30,6 +30,7 @@
         100% { opacity:1; }
     }
 
+    /* For 2019-2020
     p {
       &:nth-of-type(1) {
         img {
@@ -70,6 +71,28 @@
         animation-delay: 4.5s;
       }
     }
+    */
+
+    /* For 2020-2021 */
+    p {
+      &:nth-of-type(1) {
+        img {
+          opacity: 0;
+          width: 100px;
+          animation: 1.5s ease 0s normal forwards 1 fadein;
+          animation-delay: 1.0s;
+        }
+      }
+      &:nth-of-type(2) {
+        opacity: 0;
+        animation: 1.5s ease 0s normal forwards 1 fadein;
+        animation-delay: 3.0s;
+
+        font-size: $large-text;
+        padding: 30px 0 0 0;
+      }
+    }
+
 
   }
   
