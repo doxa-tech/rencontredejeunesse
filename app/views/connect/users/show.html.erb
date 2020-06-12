@@ -31,6 +31,3 @@
   <% end %>
 -->
 </div>
-<% if Date.current <= Refund::LIMIT_DATE && @refund.orders.any? %>
-  <%= render "connect/refunds/form" %>
-<% end %>
