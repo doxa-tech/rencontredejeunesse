@@ -60,6 +60,18 @@ RSpec.describe "Payment", :type => :model do
       expect(order.main_payment.order_status).to eq "pending"
     end
 
+    it "returns refunded if there is a completed refund" do
+      order = create(:event_order)
+      order.main_payment.update_attributes!(status: 9, refund_amount: 20, refund_status: 8)
+      expect(order.main_payment.order_status).to eq "refunded"
+    end
+
+    it "returns paid if the refund is not completed" do
+      order = create(:event_order)
+      order.main_payment.update_attributes!(status: 9, refund_amount: 20, refund_status: 81)
+      expect(order.main_payment.order_status).to eq "paid"
+    end
+
   end
 
   describe "#set_time_of_payment" do

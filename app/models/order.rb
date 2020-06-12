@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   attr_accessor :conditions, :admin
 
-  enum status: [:unpaid, :paid, :delivered, :pending]
+  enum status: [:unpaid, :paid, :delivered, :pending, :refunded]
 
   belongs_to :user
   belongs_to :discount, optional: true

@@ -104,6 +104,7 @@ fr:
       unpaid: "Impayé"
       pending: "En attente de paiement"
       delivered: "Livré"
+      refunded: "Remboursé"
       uncompleted: "Incomplet"
   payment:
     method:
