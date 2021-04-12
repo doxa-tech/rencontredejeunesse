@@ -15,7 +15,8 @@ Rails.application.routes.draw do
 
   get "2018", to: "pages#rj2018"
   get "2019", to: "pages#rj2019"
-  get "2020", to: "pages#rj2020", as: :rj
+  get "2020", to: "pages#rj2020"
+  get "2021", to: "pages#rj2021", as: :rj
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"

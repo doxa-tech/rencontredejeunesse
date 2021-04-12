@@ -35,6 +35,10 @@ class PagesController < ApplicationController
     render "pages/rj/2020"
   end
 
+  def rj2021
+    render "pages/rj/2021"
+  end
+
   def vitrine
     render "pages/rj/vitrine"
   end
