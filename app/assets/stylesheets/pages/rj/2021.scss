@@ -5,45 +5,36 @@
 
 #container.rj-2021 {
 
-  .restart {
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
-
-  .box {
-
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-  }
-
   .information {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: black;
+    color: white;
 
     .container {
       max-width: $main-width;
       padding: 60px $main-padding 60px $main-padding;
 
+      .subtitle {
+        margin: 15px 0;
+        font-size: $medium-title;
+        font-weight: bold;
+      }
+
       h2 {
         font-size: $title-size;
-        text-align: right;
         line-height: 1.1em;
         font-family: "Helvetica neue";
         text-transform: uppercase;
-        padding: 0 0 25px 0;
+        padding: 50px 0 25px 0;
       }
 
       p {
         margin: 15px 0;
-        font-size: $medium-title;
         font-weight: bold;
+        font-size: $large-text;
       }
     }
   }
