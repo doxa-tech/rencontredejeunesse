@@ -43,13 +43,19 @@ document.onkeydown = function (e) {
   }
 };
 
-$(".slideshow.close.cursor").click((e) => closeModal());
+$(".slideshow.close.cursor").click(function(e) {
+    closeModal()
+});
 
-$(".slideshow.image").click((e) => {
+$(".slideshow.image").click(function(e) {
     let i = $(e.target).data("index");
     openModal();
     currentSlide(i);
 })
 
-$(".slideshow.prev").click(e => plusSlides(-1));
-$(".slideshow.next").click(e => plusSlides(1));
+$(".slideshow.prev").click(function(e){
+    plusSlides(-1)
+});
+$(".slideshow.next").click(function(e){
+    plusSlides(1)
+});
