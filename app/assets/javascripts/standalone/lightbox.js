@@ -48,7 +48,7 @@ $(".slideshow.close.cursor").click(function(e) {
 });
 
 $(".slideshow.image").click(function(e) {
-    let i = $(e.target).data("index");
+    var i = $(e.target).data("index");
     openModal();
     currentSlide(i);
 })
