@@ -57,7 +57,9 @@ class PagesController < ApplicationController
 
   def contact
     @contact = Contact.new(contact_params)
-    if @contact.valid?
+    response = verify_captcha
+    result = JSON.parse(response.body)
+    if result["success"] && @contact.valid?
       MainMailer.contact(@contact).deliver_now
       redirect_to root_path, success: "Votre message a été envoyé"
     else
@@ -81,6 +83,14 @@ class PagesController < ApplicationController
 
   def contact_params
     params.require(:contact).permit(:firstname, :lastname, :subject, :email, :message, :category)
+  end
+
+  def verify_captcha
+    return RestClient.post('https://hcaptcha.com/siteverify', { 
+      secret: Rails.application.secrets.hcaptcha_secret,
+      response: params["g-recaptcha-response"],
+      sitekey: Rails.application.secrets.hcaptcha_site_key
+    })
   end
 
 end
