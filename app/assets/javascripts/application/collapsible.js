@@ -1,6 +1,6 @@
 // copied from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate
 
-$(document).on("turbolinks:load", function () {
+$(document).on("DOMContentLoaded", function () {
   var coll = document.getElementsByClassName("collapsible-button");
   var i;
 

@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require raven.min
 //= require_tree ./sitewide

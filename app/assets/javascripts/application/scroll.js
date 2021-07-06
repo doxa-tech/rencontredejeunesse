@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load", function() {
+$(document).on("DOMContentLoaded", function() {
 
   var closeBtn = document.getElementById("close-header");
   var headerBtn = document.getElementById("header-btn");

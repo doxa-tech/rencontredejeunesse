@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require gumshoe
 //= require raven.min
 //= require_tree ./application

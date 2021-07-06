@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load", function() {
+$(document).on("DOMContentLoaded", function() {
 
   $timetableContent = $("#timetable-content");
   $timetableLinks = $("#timetable-links");

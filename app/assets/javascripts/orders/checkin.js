@@ -1,4 +1,4 @@
-$(document).on("turbolinks:load", function() {
+$(document).on("DOMContentLoaded", function() {
 
   $ticket_id = $("#ticket_id");
   $form = $("#checkin-form");

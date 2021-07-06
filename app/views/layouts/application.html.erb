@@ -4,8 +4,8 @@
     <title>Rencontre de jeunesse RJ</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
     <%= yield :javascript %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,7 +27,5 @@
 
     </div>
     <%= content_for?(:footer) ? render(yield(:footer)) : render("layouts/footers/application") %>
-    <%#= javascript_include_tag "countdown", 'data-turbolinks-track': 'reload' %>
-    <%#= javascript_include_tag "standalone/rj/flash/countdown.js", 'data-turbolinks-track': 'reload' %>
   </body>
 </html>

@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require gumshoe
 //= require snaptable
 //= require raven.min

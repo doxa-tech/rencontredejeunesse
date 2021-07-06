@@ -3,14 +3,14 @@
     <%= image_tag "home/welcome/close.svg", id: "close-header" %>
 
     <ul data-gumshoe>
-      <li data-turbolinks="false"><%= link_to "home", "#welcome", class: "active" %></li>
+      <li><%= link_to "home", "#welcome", class: "active" %></li>
       <li><%= link_to "/vision", "/vision" %></li>
       <li><%= link_to "/bénévole", "/volunteers" %></li>
       <li><%= link_to "/RJ2021", "/2021" %></li>
       <li><%= link_to "/RJLogin", "/login" %></li>
       <li><%= link_to "/FAQ", "/support" %></li>
-      <li data-turbolinks="false"><%= link_to "histoire", "#history" %></li>
-      <li data-turbolinks="false"><%= link_to "contact", "#contact" %></li>
+      <li><%= link_to "histoire", "#history" %></li>
+      <li><%= link_to "contact", "#contact" %></li>
     </ul>
 
     <%= render "layouts/headers/signin" %>
