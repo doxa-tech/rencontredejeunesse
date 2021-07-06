@@ -15,27 +15,27 @@
         <figure>
           <picture>
             <source type="image/webp" srcset="<%= image_url "highlights/18/top20/images/small/#{j}.jpg.webp" %>">
-            <%= image_tag "highlights/18/top20/images/small/#{j}.jpg", onclick: "openModal();currentSlide(#{index})" %>
+            <%= image_tag "highlights/18/top20/images/small/#{j}.jpg", class: "slideshow small image", data: { index: index } %>
           </picture>
         </figure>
       <% end %>
     </div>
 
     <div id="myModal" class="modal">
-      <span class="close cursor" onclick="closeModal()">&times;</span>
+      <span class="slideshow close cursor">&times;</span>
       <div class="modal-content">
         <% @images_i.each.with_index do |j, index| %>
           <div class="mySlides">
             <div class="numbertext"><%= "#{index+1} / #{@images_i.size}" %></div>
             <picture>
               <source type="image/webp" srcset="<%= image_url "highlights/18/top20/images/#{j}.jpg.webp" %>">
-              <%= image_tag "highlights/18/top20/images/#{j}.jpg", onclick: "openModal();currentSlide(#{index})" %>
+              <%= image_tag "highlights/18/top20/images/#{j}.jpg", class: "slideshow big image", data: { index: index } %>
             </picture>
           </div>
         <% end %>
         
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="slideshow prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="slideshow next" onclick="plusSlides(1)">&#10095;</a>
 
         <div class="caption-container">
           <p id="caption"></p>
@@ -49,14 +49,4 @@
 
 </section>
 
-<script>
-document.onkeydown = function (e) {
-    switch (e.key) {
-        case 'ArrowLeft':
-            plusSlides(-1)
-            break;
-        case 'ArrowRight':
-            plusSlides(1)
-    }
-};
-</script>
+<%= javascript_include_tag "standalone/lightbox.js" %>
