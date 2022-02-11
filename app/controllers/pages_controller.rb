@@ -23,28 +23,8 @@ class PagesController < ApplicationController
     @volunteer = Volunteer.new
   end
 
-  def rj2018
-    render "pages/rj/2018"
-  end
-
-  def rj2019
-    render "pages/rj/2019"
-  end
-
-  def rj2020
-    render "pages/rj/2020"
-  end
-
-  def rj2021
-    render "pages/rj/2021"
-  end
-
-  def vitrine
-    render "pages/rj/vitrine"
-  end
-
-  def rj_flash
-    render "home"
+  def rj
+    render "pages/rj" + request.path
   end
 
   def resources
@@ -70,12 +50,6 @@ class PagesController < ApplicationController
   def support
     @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     @content = @markdown.render(render_to_string "support.md", layout: false)
-    render layout: "markdown"
-  end
-
-  def refund
-    @markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
-    @content = @markdown.render(render_to_string "refund.md", layout: false)
     render layout: "markdown"
   end
 

@@ -4,19 +4,19 @@ Rails.application.routes.draw do
 
   # get "/", to: "pages#resources", constraints: { subdomain: 'ressources' }
   
-  root to: "pages#rj_flash"
-  get "flash", to: "pages#rj_flash"
+  root to: "pages#home"
 
-  %w(home login privacy application vision volunteers support vitrine refund).each do |page|
+  %w(home login privacy application vision volunteers support).each do |page|
     get page, to: "pages##{page}"
   end
   
+  # RJ highlights
   get "highlights/:year", to: "pages#highlights", as: :highlights
 
-  get "2018", to: "pages#rj2018"
-  get "2019", to: "pages#rj2019"
-  get "2020", to: "pages#rj2020"
-  get "2021", to: "pages#rj2021", as: :rj
+  # RJ editions
+  %w(2018 2019 2020 2021 2022).each do |year|
+    get year, to: "pages#rj"
+  end
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
