@@ -10,22 +10,26 @@ $color3: #ffeede;
 #container.rj-2022 {
   position: relative;
 
-  div.bg-1 {
+  section#bg-1 {
     position: absolute;
-    width: 3000px;
-    left: -800px;
-    top: -0px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    path.el1 {
-      fill: $color1;
-    }
+    div.section-container {
+      position: relative;
+      width: 3000px;
 
-    path.el2 {
-      fill: $color2;
-    }
+      path.el1 {
+        fill: $color1;
+      }
 
-    path.el3 {
-      fill: $color3;
+      path.el2 {
+        fill: $color2;
+      }
+
+      path.el3 {
+        fill: $color3;
+      }
     }
   }
 
