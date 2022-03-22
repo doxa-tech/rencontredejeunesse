@@ -1,47 +1,121 @@
 @import "../../components/variables";
-@import '../../components/logo-burger-color';
+@import "../../components/logo-burger-color";
+
+$color1: #cda884;
+$color2: #e8c7a7;
+$color3: #ffeede;
 
 @include logo-burger-color(#fff, ".rj-2022");
 
 #container.rj-2022 {
+  position: relative;
 
-  .information {
+  div.bg-1 {
+    position: absolute;
+    width: 3000px;
+    left: -800px;
+    top: -0px;
+
+    path.el1 {
+      fill: $color1;
+    }
+
+    path.el2 {
+      fill: $color2;
+    }
+
+    path.el3 {
+      fill: $color3;
+    }
+  }
+
+  section#welcome {
+    width: 100%;
+
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: black;
-    color: white;
-    height: 100vh;
+    flex-direction: column;
 
-    .container {
+    position: relative;
+
+    .section-container {
       max-width: $main-width;
-      padding: 60px $main-padding 60px $main-padding;
+      width: 100%;
+      padding: $logo-burger-height $main-padding 80px $main-padding;
+      position: relative;
 
-      .subtitle {
-        margin: 15px 0;
-        font-size: $medium-title;
-        font-weight: bold;
-      }
-
-      h2 {
+      h1 {
         font-size: $title-size;
-        line-height: 1.1em;
-        font-family: "Helvetica neue";
-        text-transform: uppercase;
-        padding: 50px 0 25px 0;
+        margin: 0;
+        padding: 45px 0 0 0;
       }
 
-      p {
-        margin: 15px 0;
-        font-weight: bold;
+      .sub {
+        font-size: $sub-title;
+        padding: 0 0 20px 0;
+      }
+
+      .intro {
+        max-width: 300px;
         font-size: $large-text;
       }
     }
   }
 
+  section#locations {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: relative;
+
+    .section-container {
+      max-width: $main-width;
+      width: 100%;
+      padding: $logo-burger-height $main-padding 80px $main-padding;
+      position: relative;
+
+      div.locations {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 0 40px 0;
+
+        p {
+          text-transform: uppercase;
+          font-size: $sub-title;
+        }
+      }
+
+      div.time {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+
+        p:nth-of-type(1) {
+          text-transform: uppercase;
+          width: 100px;
+          font-size: $medium-title;
+        }
+
+        p:nth-of-type(2) {
+          font-size: $medium-title;
+          padding: 0 40px 0 0;
+        }
+
+        p:nth-of-type(3) {
+          font-size: $large-text;
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: $mobile-width) {
-
 }
