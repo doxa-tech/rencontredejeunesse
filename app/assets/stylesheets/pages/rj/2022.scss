@@ -12,6 +12,8 @@ $color4: #fff7f0;
 
 #container.rj-2022 section#contact {
   background-color: white !important;
+  z-index: 10;
+  color: black;
 }
 
 #container.rj-2022 {
@@ -65,9 +67,6 @@ $color4: #fff7f0;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
-    position: relative;
-    z-index: 10;
 
     .section-container {
       max-width: $main-width;
@@ -218,56 +217,62 @@ $color4: #fff7f0;
       width: 100%;
       padding: 100px $main-padding 80px $main-padding;
 
-      div.card {
-        background: $color3;
-        margin: auto;
-        width: 300px;
+      div.prices {
         text-align: center;
-        padding: 40px;
-        font-size: $large-text;
-        border-radius: 5px;
-        margin-top: 40px;
+        padding: 30px 0 0 0;
 
-        p:nth-child(1) {
-          font-size: $sub-title;
-          font-family: "futura";
-          text-transform: uppercase;
+        span {
+          font-family: futura;
         }
+      }
+      
+      div.cards {
+        display: flex;
 
-        p:nth-child(2) {
-          padding: 0 0 30px 0;
-        }
+        div.card {
+          background: $color2;
+          margin: auto;
+          width: 250px;
+          text-align: center;
+          padding: 40px 20px;
+          font-size: $small-text;
+          border-radius: 5px;
+          margin-top: 40px;
 
-        p:nth-child(3) {
-          span {
-            font-family: futura;
-          }
-        }
-
-        p:nth-child(4) {
-          padding: 10px 0 40px 0;
-
-          span {
-            font-family: futura;
-          }
-        }
-
-        p:nth-child(5) {
-          padding: 0 0 15px 0;
-        
-          a {
-            padding: 10px 25px;
-            color: #fff;
-            background: darken($color1, 30%);
+          p:nth-child(1) {
+            font-size: $sub-title;
+            font-family: "futura";
             text-transform: uppercase;
-            transition: all 300ms;
-            border-radius: 7px;
-            font-family: futura;
+          }
 
-            &:hover {
-              background: darken($color1, 50%);
-              padding: 11px 25px 9px 25px;
-              text-shadow: 0px 2px 0px #b3a59a;
+          p:nth-child(2) {
+            padding: 10px 0 10px 0;
+          }
+
+          p:nth-child(3) {
+          }
+
+          p:nth-child(4) {
+            padding: 10px 0 40px 0;
+          }
+
+          p:nth-child(5) {
+            padding: 0 0 15px 0;
+          
+            a {
+              padding: 10px 25px;
+              color: #fff;
+              background: darken($color1, 20%);
+              text-transform: uppercase;
+              transition: all 300ms;
+              border-radius: 7px;
+              font-family: futura;
+
+              &:hover {
+                background: darken($color1, 30%);
+                padding: 11px 25px 9px 25px;
+                text-shadow: 0px 2px 0px #b3a59a;
+              }
             }
           }
         }

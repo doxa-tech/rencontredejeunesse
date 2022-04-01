@@ -12,13 +12,17 @@
 ### Où se déroule la rencontre ?
 
 La RJ se déroule sur trois sites:
-- Genève
-- Lausanne
-- Neuchâtel 
+- Genève: Salle Centrale de la Madeleine, Rue de la Madeleine 10, 1204 Genève
+- Neuchâtel: Centre de Vie, Rue des Mille Boilles 4, 2000 Neuchâtel
+- Oron: Gospel Center Oron, Route du Flon 28, 1610 Oron
 
 ### Est-ce que je peux acheter mon entrée sur place?
 
-Oui! Au stand Accueil tu pourras acheter des pass journaliers en liquide.
+Oui ! Mais attention, tu ne peux acheter que des pass journaliers (soit vendredi, soit samedi) et on n'acceptera que du cash. Si tu peux, on t’encourage donc à prendre tes billets en avance !
+
+### Dans le passé, il y avait les fameux dortoirs, est-ce qu’il y a des possibilités cette année encore de dormir sur place?
+
+Non, étant donné ce retour à l’essentiel et le multi-site, nous estimons qu’il est possible de ne pas être trop loin de chez soi et on ne propose donc pas de solution pour la nuit de vendredi à samedi. Mais on est sûr que tu sauras être créatif !
 
 ### A partir de quel âge est-ce que je peux participer à la RJ?
 
