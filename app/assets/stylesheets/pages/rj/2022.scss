@@ -1,7 +1,7 @@
 @import "../../components/variables";
 @import "../../components/logo-burger-color";
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:wght@800&display=swap");
 
 $color1: #ffeede;
 $color2: #ecd2b9;
@@ -78,11 +78,11 @@ $color4: #fff7f0;
         font-size: $title-size;
         margin: 0;
         padding: 45px 0 0 0;
-        font-family: 'futura', serif;
+        font-family: "futura", serif;
         font-weight: normal;
 
         span {
-          font-size: .8em;
+          font-size: 0.8em;
         }
       }
 
@@ -133,7 +133,7 @@ $color4: #fff7f0;
         p {
           text-transform: uppercase;
           font-size: $sub-title;
-          font-family: 'futura', serif;
+          font-family: "futura", serif;
           font-weight: 800;
           position: relative;
           padding: 0 10px;
@@ -190,11 +190,11 @@ $color4: #fff7f0;
 
       svg {
         position: absolute;
-        width: 4500px;
-        height: 2000px;
+        width: 9500px;
+        height: 4000px;
         left: 50%;
         transform: translateX(-50%);
-        top: -865px;
+        top: -1740px;
 
         path.el1 {
           fill: $color1;
@@ -219,7 +219,7 @@ $color4: #fff7f0;
       width: 100%;
       padding: 100px $main-padding 80px $main-padding;
 
-      div.prices {   
+      div.prices {
         text-align: center;
         padding: 30px 0 0 0;
 
@@ -227,13 +227,16 @@ $color4: #fff7f0;
           font-family: futura;
         }
       }
-      
+
       div.cards {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
 
         div.card {
           background: $color2;
-          margin: auto;
+          margin: 10px;
           width: 250px;
           text-align: center;
           padding: 40px 20px;
@@ -260,7 +263,7 @@ $color4: #fff7f0;
 
           p:nth-child(5) {
             padding: 0 0 15px 0;
-          
+
             a {
               padding: 10px 25px;
               color: #fff;
@@ -302,7 +305,7 @@ $color4: #fff7f0;
           p {
             margin-bottom: 20px;
 
-             &:after {
+            &:after {
               left: 50%;
               transform: translateX(-50%);
             }
