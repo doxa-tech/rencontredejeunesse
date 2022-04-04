@@ -1,49 +1,36 @@
 # FAQ
 
-## Rencontre de jeunesse 2020
+## Rencontre de jeunesse 2022
 
 ### Quel est le prix de la RJ ?
 
-- Le week-end CHF 90.-
-- Le Vendredi soir CHF 30.-
-- Le Samedi tout la journée CHF 40.-
-- Le samedi dès 17:00 CHF 30.-
-- Le dimanche matin CHF 30.-
-
-### Réserver des places pour un groupe
-
-Si tu as besoin de réserver des places pour ton groupe, mais que tu ne sais pas encore précisément à qui seront destinées les places, tu peux le faire en suivant les instructions ci-dessous.
-Les groupes de 20 personnes et plus ont la possibilité de commander des entrées aux prix avantageux des prélocations (les mêmes prix que ceux affichés sur le site), et de confirmer le nom des participants dans un 2e temps. **Si tu connais déjà le nom des participants, tu peux faire une commande normale**.
-
-1. Tu nous contactes via le formulaire du site, en choisissant la catégorie "Commande de groupe".
-2. Dans le formulaire, tu précises les informations de contact pour la facturation (nom de la personne de contact, église/association, adresse, etc.) et le nombre de pass commandés (précise avec/sans hébergement).
-3. On t'envoie la facture que tu paies dans un délai de 5 jours ouvrables.
-4. Une fois le paiement reçu, on t'envoie un code qui te permettra de compléter ton inscription de groupe avant le jour J. Les détails de tous les participants doivent être saisis en une fois.
-5. Les prélocations surnuméraires ne sont pas remboursées.
+- Le pass 2 jour (vendredi et samedi) 50.-
+- Le vendredi (soir) CHF 20.-
+- Le samedi (tout la journée) CHF 40.-
+- Il n'y a pas d'autres forfaits.
 
 ### Où se déroule la rencontre ?
 
-A l'Espace Gruyère SA, Rue de Vevey 136/144, Case postale 460, 1630 Bulle. Tu y es en 10 min à pied depuis la gare ou en 5 min avec le bus 202.
+La RJ se déroule sur trois sites:
+- Genève: Salle Centrale de la Madeleine, Rue de la Madeleine 10, 1204 Genève
+- Neuchâtel: Centre de Vie, Rue des Mille Boilles 4, 2000 Neuchâtel
+- Oron: Gospel Center Oron, Route du Flon 28, 1610 Oron
 
 ### Est-ce que je peux acheter mon entrée sur place?
 
-Oui! Au stand Accueil tu pourras acheter des pass journaliers en liquide. Mais profite des réductions et assure-toi ton entrée en t’inscrivant avant la fin des prélocations !
+Oui ! Mais attention, tu ne peux acheter que des pass journaliers (soit vendredi, soit samedi) et on n'acceptera que du cash. Si tu peux, on t’encourage donc à prendre tes billets en avance !
+
+### Dans le passé, il y avait les fameux dortoirs, est-ce qu’il y a des possibilités cette année encore de dormir sur place?
+
+Non, étant donné ce retour à l’essentiel et le multi-site, nous estimons qu’il est possible de ne pas être trop loin de chez soi et on ne propose donc pas de solution pour la nuit de vendredi à samedi. Mais on est sûr que tu sauras être créatif !
 
 ### A partir de quel âge est-ce que je peux participer à la RJ?
 
 Dès 12 ans. Même si le programme s’adresse principalement à des 12-22 ans, il n’y a pas d’âge limite (les encadrants, accompagnants,... sont les bienvenus!). Les entrées sont payantes dès 11 ans.
 
-### Est-ce que je dois prendre mon matelas avec moi?
-
-Oui (max. 80cm). N’oublie pas ton sac de couchage et oreiller si tu veux dormir confortablement!
-
 ### Est-ce que les repas seront inclus?
 
-Non. Par contre, tu pourras trouver des snacks et repas chauds sur place à bon prix. Un supermarché se trouve à deux pas de l’Espace Gruyère.
-
-### Un parking est-il disponible ?
-
-Le parking payant de l'Espace Gruyère est à disposition durant l'événement.
+Non.
 
 ### Comment puis-je soutenir cet évènement?
 
