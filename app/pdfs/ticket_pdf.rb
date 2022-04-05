@@ -64,7 +64,7 @@ class TicketPdf < Prawn::Document
             text_box ticket.title, at: [0, cursor], size: 16, style: :bold
             move_down 20
             text_box ticket.subtitle1, at: [0, cursor], size: 13
-            move_down 18
+            move_down 28
             text_box ticket.subtitle2, at: [0, cursor], size: 11
             move_down 14
             text_box ticket.subtitle3, at: [0, cursor], size: 11
@@ -89,7 +89,7 @@ class TicketPdf < Prawn::Document
               # Row 2 col 1
               bounding_box([0, cursor], width: width1, height: height2) do
                 stroke_bounds if @debug
-                text_box "Localisation:", at: [0, cursor], size: 4
+                text_box "Lieu:", at: [0, cursor], size: 4
                 move_down 7
                 draw_special_line(-1, cursor, width1, 1.6)
                 move_down 5
@@ -141,7 +141,7 @@ class TicketPdf < Prawn::Document
               bounding_box([0, cursor], width: info_w-pad, height: 40) do
                 stroke_bounds if @debug
                 fill_color "FF9912"
-                text_box "Issued for", at: [0, cursor], size: 11
+                text_box "Émis pour", at: [0, cursor], size: 11
                 fill_color "000000"
                 move_down 17
                 text_box ticket.issued_for, at: [0, cursor], size: 16, style: :bold
@@ -158,10 +158,10 @@ class TicketPdf < Prawn::Document
           stroke_bounds if @debug
           qr_width = bounds.width * 0.4
           qr_x = bounds.width / 2 - 0.5*qr_width 
-          move_down qr_width + 10
+          move_down qr_width + 15
           scale = qr_width / outputter_qr.width
           outputter_qr.annotate_pdf(self, x: qr_x , y: cursor, xdim: scale)
-          move_down 29
+          move_down 34
           scale = bounds.width / outputter.width
           outputter.annotate_pdf(self, x: 0 , y: cursor, height: 20, xdim: scale)
           move_down 5
@@ -209,12 +209,12 @@ class TicketPdf < Prawn::Document
           text_box "Utilisation", at: [0, cursor], style: :bold_italic, size: 16
           fill_color "000000"
           move_down 20
-          text_box "Merci pour l'achat de ce pass!\nVous devriez imprimer ce billet au format DIN A4. Le fait d'imprimer en couleur ou noir/blanc n'a pas d'importance tant que la lecture est possible. Le code-bar à droite doit particulièrement être lisible, ainsi veuillez à ne pas le plier. Traiter ce pass comme si il s'agissait de cash. Si vous le perder, quelqu'un pourrait l'utiliser à votre dépend.", 
+          text_box "Merci pour l'achat de ce pass!\nVous pouvez imprimer ce billet au format DIN A4. Imprimer en couleur ou noir/blanc n'a pas d'importance tant que la lecture est possible. Le code-bar à droite doit particulièrement être lisible, ainsi veuillez ne pas le plier. Traitez ce pass comme s'il s'agissait d'argent. Si vous le perdez, quelqu'un pourrait l'utiliser à vos dépends.", 
           at: [0, cursor], size: 8, width: bounds.width, leading: 2
           move_down 70
           text_box "N'achetez pas ce billet à un inconnu", at: [0, cursor], size: 8, style: :bold
           move_down 10
-          text_box "Billet non-remboursable et non-échangeable.\nLes conditions générales d'appliquent.", at: [0, cursor], size: 8
+          text_box "Billet non-remboursable et non-échangeable.\nLes conditions générales s'appliquent.", at: [0, cursor], size: 8
         end
         move_up sub_height
         bounding_box([bounds.width/2+pad/2, cursor], width: bounds.width/2-pad/2, height: sub_height) do
