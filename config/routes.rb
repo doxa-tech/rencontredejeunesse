@@ -83,7 +83,7 @@ Rails.application.routes.draw do
   namespace :orders do
 
     # postfinance
-    get "postfinance", to: "completion#postfinance"
+    post "postfinance", to: "completion#postfinance"
 
     # complete free or invoice order
     resources :completion, only: :update, controller: :completion
