@@ -10,7 +10,7 @@ Rails.application.config.content_security_policy do |policy|
 #   policy.img_src     :self, :https, :data
 #   policy.object_src  :none
     policy.script_src  :self, "https://hcaptcha.com", "https://*.hcaptcha.com", "https://maps.googleapis.com"
-    policy.style_src   :self, :unsafe_inline, "https://hcaptcha.com", "https://*.hcaptcha.com"
+    policy.style_src   :self, :unsafe_inline, "https://hcaptcha.com", "https://*.hcaptcha.com", "https://fonts.googleapis.com"
     policy.frame_src   :self, "https://hcaptcha.com", "https://*.hcaptcha.com", "https://www.youtube.com", "https://www.youtube-nocookie.com"
     policy.connect_src :self, "https://hcaptcha.com", "https://*.hcaptcha.com"
 
@@ -19,7 +19,7 @@ Rails.application.config.content_security_policy do |policy|
 end
 
 # If you are using UJS then enable automatic nonce generation
-# Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
+Rails.application.config.content_security_policy_nonce_generator = -> request { SecureRandom.base64(16) }
 
 # Report CSP violations to a specified URI
 # For further information see the following documentation:
