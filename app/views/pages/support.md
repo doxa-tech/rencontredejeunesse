@@ -2,8 +2,6 @@
 
 ## Rencontre de jeunesse 2022
 
-### Quel est le prix de la RJ ?
-
 ### Est-ce que je peux acheter mon entrée sur place?
 
 Oui ! Tu peux acheter des pass weekend et journalier (soit vendredi, soit samedi).<br>
