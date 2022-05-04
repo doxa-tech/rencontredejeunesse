@@ -5,7 +5,16 @@
 ### Est-ce que je peux acheter mon entrée sur place?
 
 Oui ! Tu peux acheter des pass weekend et journalier (soit vendredi, soit samedi).<br>
-Le paiement ne peut se faire que **en cash**. Si tu peux, on t’encourage donc à prendre tes billets en avance !<br>
+Le paiement peut se faire en cash ou avec TWINT. Si tu peux, on t’encourage donc à prendre tes billets en avance !
+
+Prix **en ligne**:
+
+- Le pass 2 jour (vendredi et samedi) 50.-
+- Le vendredi (soir) CHF 20.-
+- Le samedi (tout la journée) CHF 40.-
+- Il n'y a pas d'autres forfaits.
+- Un montant forfaitaire de 5.-/commande en ligne est facturé pour couvrir les frais de transactions.
+
 Prix **sur place**:
 
 - Le pass 2 jour (vendredi et samedi) 55.-
@@ -44,7 +53,7 @@ Rencontre de Jeunesse, 1607 Palézieux, info@rencontredejeunesse.ch
 
 ### Quelles sont les possibilités de paiement
 
-Les moyens de paiement sont les suivants: Twint, Postfinance, carte de crédit, Paypal. Cependant, les commandes au-dessus de 800 CHF se paient par facture (le processus de commande reste le même, via le site).
+Les moyens de paiement sont les suivants: Twint, Postfinance et carte de crédit. Cependant, les commandes au-dessus de 800 CHF se paient par facture (le processus de commande reste le même, via le site).
 
 ### J'ai perdu mon billet pour l'événement
 
