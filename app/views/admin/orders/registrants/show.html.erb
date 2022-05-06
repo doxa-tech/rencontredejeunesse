@@ -28,7 +28,8 @@
 
   <!-- Order information -->
   <div class="order-information">
-    <div><strong>Montant:</strong> <%= @order.amount / 100 %> CHF</div>
+    <div><strong>Montant total:</strong> <%= @order.amount / 100 %> CHF</div>
+    <div><strong>Prix du ticket:</strong> <%= @registrant.item.price / 100 %> CHF</div>
     <div><strong>Réduction:</strong> <%= @order.discount_amount / 100 %> CHF</div>
   </div>
 
