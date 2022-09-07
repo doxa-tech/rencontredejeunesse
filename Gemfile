@@ -105,3 +105,6 @@ gem 'livingstyleguide'
 
 # Markdown parser
 gem 'redcarpet'
+
+# Postfinance Flex Checkout
+gem 'postfinancecheckout-ruby-sdk'

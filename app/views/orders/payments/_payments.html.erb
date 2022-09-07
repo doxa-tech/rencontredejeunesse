@@ -3,5 +3,5 @@
 <% elsif @order.main_payment.invoice? %>
   <%= render "orders/payments/invoice" %>
 <% elsif @order.main_payment.postfinance? %>
-  <%= render "orders/payments/postfinance", payment: @order.main_payment, user: @order.user %>
+  <%= render "orders/payments/postfinance", order: @order %>
 <% end %>

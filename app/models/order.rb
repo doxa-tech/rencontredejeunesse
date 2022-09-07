@@ -1,4 +1,9 @@
 class Order < ApplicationRecord
+
+  # unique item number
+  FEE_NUMBER = 10
+  DISCOUNT_NUMBER = 11
+
   attr_accessor :conditions, :admin
 
   enum status: [:unpaid, :paid, :delivered, :pending, :refunded]

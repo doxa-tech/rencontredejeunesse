@@ -75,7 +75,10 @@ Rails.application.routes.draw do
   #
 
   resources :orders, only: :destroy do
-    %w(confirmed canceled uncertain declined).each do |status|
+    # complete the order and proceed to payment
+    post "pay", on: :member
+
+    %w(success failed).each do |status|
       get "#{status}", on: :collection
     end
   end
@@ -104,7 +107,7 @@ Rails.application.routes.draw do
       end
 
       # Order from a bundle
-      resources :bundles, only: [:edit, :update] do
+      resources :bundles, only: [:new, :edit, :update] do
         get "confirmation", on: :member
       end
 
