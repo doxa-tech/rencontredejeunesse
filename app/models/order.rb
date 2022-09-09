@@ -6,7 +6,7 @@ class Order < ApplicationRecord
 
   attr_accessor :conditions, :admin
 
-  enum status: [:unpaid, :paid, :delivered, :pending, :refunded]
+  enum status: [:unpaid, :paid, :delivered, :pending, :refunded, :progress]
 
   belongs_to :user
   belongs_to :discount, optional: true
@@ -35,7 +35,6 @@ class Order < ApplicationRecord
 
   before_create :generate_id
   before_validation :assign_amount
-  before_save :assign_payment
 
   def fee
     self.amount == 0 ? 0 : 500
@@ -51,7 +50,7 @@ class Order < ApplicationRecord
   end
 
   def main_payment
-    @main_payment ||= Payment.find_by(order_id: self.id, payment_type: :main)
+    @main_payment ||= Payment.where(order_id: self.id, payment_type: :main).last
   end
 
   def invoice_pdf_adapter
@@ -96,15 +95,6 @@ class Order < ApplicationRecord
     self.order_items.select { |i| !i.marked_for_destruction? }.inject(0) do |sum, obj|
       (obj.quantity > 0 && !obj.item.nil?) ? (sum + obj.quantity * obj.item.price) : sum
     end
-  end
-
-  def assign_payment
-    if !main_payment.nil? && main_payment.status.nil?
-      main_payment.update_attributes(amount: self.amount)
-    elsif main_payment.nil?
-      @main_payment = self.payments.build(amount: self.amount, payment_type: :main)
-    end
-    self.status = self.main_payment.order_status
   end
 
   def generate_id

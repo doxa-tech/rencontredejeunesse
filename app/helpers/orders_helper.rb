@@ -13,8 +13,7 @@ module OrdersHelper
   end
 
   def human_order_status(order)
-    key = order.status.blank? ? "uncompleted" : order.status
-    I18n.t("order.statuses.#{key}")
+    I18n.t("order.statuses.#{order.status}")
   end
 
   def items

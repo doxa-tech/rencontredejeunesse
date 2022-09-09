@@ -11,16 +11,16 @@
 
   <p>Date: <%= l @order.created_at, format: :pretty_date %></p>
 
-<% if @order.order.status.nil? %>
+<% if @order.order.progress? %>
 
   <p>
-    Commande incomplète<br>
+    Commande en cours<br>
     <%= link_to "Continuer la commande", edit_orders_event_path(@order.order.order_id, key: @order.order_bundle.key) %>
   </p>
 
 <% end %>
 
-<% if @order.order.status.nil? || @order.order.unpaid? %>
+<% if @order.order.progress? || @order.order.unpaid? %>
 
   <p>
     Tu peux recommencer ta commande depuis le départ<br>
