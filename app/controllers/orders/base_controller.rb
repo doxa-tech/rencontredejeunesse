@@ -18,7 +18,7 @@ class Orders::BaseController < ApplicationController
   end
 
   def closed
-    redirect_to root_path, error: "Cette commande est déjà traitée." unless order.main_payment.status.nil?
+    redirect_to root_path, error: "Cette commande est déjà traitée." unless order.progress?
   end
 
   def not_pending

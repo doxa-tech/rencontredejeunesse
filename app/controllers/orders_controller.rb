@@ -1,9 +1,13 @@
 class OrdersController < Orders::BaseController
-  before_action :check_if_not_signed_in, only: :destroy
+  before_action :check_if_not_signed_in, only: [:destroy, :pay]
+  before_action :closed, only: :pay
 
-  # TODO: security check
   def pay
-    transaction = OrderTransaction.new(order)
+    payment = order.payments.create!(
+      payment_type: :main, method: :postfinance, amount: order.amount, state: :confirmed
+    )
+    order.update(status: :pending)
+    transaction = OrderTransaction.new(order, payment)
     payment_url = transaction.execute
     redirect_to payment_url
   end

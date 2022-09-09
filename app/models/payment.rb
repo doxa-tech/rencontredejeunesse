@@ -6,6 +6,15 @@ class Payment < ApplicationRecord
 
   enum payment_type: [:main, :refund, :addition]
   enum method: [:postfinance, :invoice, :cash]
+  
+  # Postfinance transaction states
+  # failed, voided, fullfill, decline are final states
+  # transaction:
+  # - created -> pending
+  # - payment url fetched -> confirmed
+  # - client reached payment page -> processing
+  # if a payment is failed, we let the client retry
+  enum state: [:pending, :confirmed, :processing, :authorized, :completed, :failed, :voided, :fullfill, :decline]
 
   belongs_to :order
 
@@ -16,7 +25,7 @@ class Payment < ApplicationRecord
   validates :amount, presence: true
   validates :payment_type, presence: true
 
-  scope :pending_on_postfinance, -> { where(payment_type: :addition, method: :postfinance, status: 41) }
+  scope :pending_on_postfinance, -> { where(payment_type: :addition, method: :postfinance, status: pending_states) }
 
   def shain
     chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
@@ -35,35 +44,39 @@ class Payment < ApplicationRecord
   end
 
   def order_status
+    # TODO: refund
     payments = Payment.where(order: self.order).where.not(id: self.id).to_a << self
-    main = payments.find { |p| p.main? }
-    if self.order.delivered?
-      "delivered"
-    elsif main.status == nil
-      nil
-    elsif payments.select{ |p| p.status == 9 }.inject(0) { |sum, obj| sum + obj.total_amount } >= self.order.amount
-      "paid"
-    elsif payments.any? { |p| p.status == 41 }
-      "pending"
-    elsif payments.any? { |p| p.refund_status == 8 }
-      "refunded"
+    main = payments.select{ |p| p.main? }.last
+    if self.order.delivered? 
+      "delivered" # delivered is a final state
+    elsif main.state.in? [:pending, :confirmed, :failed]
+      "progress" # the order is still opened
+    elsif payments.any{ |p| p.state.in?  pending_states }
+      "pending" # a payment has not reached a final state yet
+    elsif payments.select{ |p| p.state == :fullfill }.inject(0) { |sum, obj| sum + obj.total_amount } >= self.order.amount
+      "paid" # the order is paid
     else 
       "unpaid"
     end
   end
 
   def total_amount
-    refund_status == 8 ? amount - refund_amount : amount
+    # TODO: refund
+    amount
   end
 
   private
+
+  def pending_states
+    [:processing, :authorized, :completed]
+  end
 
   def assign_method
     self.method = (self.amount > Payment::INVOICE_LIMIT ? "invoice" : "postfinance")
   end
 
   def set_time_of_payment
-    self.time = Time.current if self.status == 9
+    self.time = Time.current if self.state == :fullfill
   end
 
   def generate_id

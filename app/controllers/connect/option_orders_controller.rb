@@ -10,7 +10,7 @@ class Connect::OptionOrdersController < Connect::BaseController
 
   def destroy
     @order = current_user.option_orders.find(params[:id])
-    if @order.order.unpaid? || @order.order.status.nil?
+    if @order.order.unpaid? || @order.order.progress?
       @order.destroy
     end
     redirect_to new_option_order_path(@order.order_bundle.key), success: "Tu peux recommencer ta commande."

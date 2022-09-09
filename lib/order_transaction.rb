@@ -1,8 +1,9 @@
 class OrderTransaction
   include Rails.application.routes.url_helpers
 
-  def initialize(order)
+  def initialize(order, payment)
     @order = order
+    @payment = payment
     @user = order.user
   end
 
@@ -35,8 +36,8 @@ class OrderTransaction
       customerPresence: PostFinanceCheckout::CustomersPresence::VIRTUAL_PRESENT,
       failedUrl: failed_orders_url,
       successUrl: success_orders_url,
-      invoiceMerchantReference: @order.main_payment.payment_id,
-      merchantReference: @order.main_payment.payment_id,
+      invoiceMerchantReference: @payment.payment_id,
+      merchantReference: @payment.payment_id,
       language: "fr_CH",
       lineItems: line_items
     })

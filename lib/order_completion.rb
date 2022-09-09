@@ -23,12 +23,12 @@ class OrderCompletion
   end
 
   def free
-    @order.main_payment.update_attribute(:status, statuses[@situation])
+    @order.main_payment.update_attribute(:state, states[@situation])
     send_pass
   end
 
   def invoice
-    @order.main_payment.update_attribute(:status, statuses[@situation])
+    @order.main_payment.update_attribute(:state, states[@situation])
     OrderMailer.invoice_registration(@order).deliver_now
   end
 
@@ -44,8 +44,8 @@ class OrderCompletion
     OrderMailer.pass(@order).deliver_now if @order.order_type == :event
   end
 
-  def statuses
-    { invoice: 41, free: 9 }
+  def states
+    { invoice: :processing, free: :fullfill }
   end
 
   def situations
