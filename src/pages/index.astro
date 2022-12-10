@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Welcome from "../components/home/Welcome.astro";
+import Twotiles from "../components/home/Twotiles.astro";
+import Vision from "../components/home/Vision.astro";
+import Justtext from "../components/home/Justtext.astro";
+import Volunteer from "../components/home/Volunteer.astro";
+import Partner from "../components/home/Partner.astro";
+import History from "../components/home/History.astro";
+import Contact from "../components/home/Contact.astro";
+---
+
+<Layout title="RJ - Rencontre de Jeunesse">
+	<section>
+		<Welcome />
+		<Twotiles />
+		<Vision />
+		<Justtext />
+		<Volunteer />
+		<Partner />
+		<History />
+		<Contact />
+	</section>
+</Layout>
+
+<style lang="scss">
+	section {
+		min-height: 100%;
+	}
+</style>

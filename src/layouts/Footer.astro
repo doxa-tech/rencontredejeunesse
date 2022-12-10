@@ -1,0 +1,127 @@
+---
+---
+
+<section id="application-footer">
+  <div class="section-container">
+    <div class="partners">
+      <div class="content-wrap">
+        <p>Partenaires</p>
+        <p>
+          <a href="https://vecteurcom.com" target="_blank">Vecteurcom</a> · <a
+            href="http://cash-solutions.ch"
+            target="_blank">Cash Solutions</a
+          > · <a href="https://doxatech.ch" target="_blank">DOXATECH</a> · <a
+            href="https://www.topchretien.com"
+            target="_blank">TOPCHRÉTIEN</a
+          > · <a href="http://www.ligue.ch" target="_blank"
+            >Ligue pour la lecture de la Bible</a
+          >
+        </p>
+        <div>
+          <p class="address">
+            Rencontre de jeunesse, 1607 Palézieux<br />
+            IBAN CH91 0900 0000 1717 2886 0<br />
+            Copyright © 2022
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="social-medias">
+      <p>
+        <a href="https://facebook.com/rencontredejeunesse" target="_blank"
+          ><img src="/footer/facebook.svg" />
+        </a>
+        <a href="https://www.instagram.com/rencontredejeunesse" target="_blank"
+          ><img src="/footer/instagram.svg" />
+        </a>
+        <a
+          href="https://www.youtube.com/user/RencontredeJeunesse"
+          target="_blank"
+          ><img src="/footer/youtube.svg" />
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../styles/variables";
+
+  section#application-footer {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1ae4ad+53,131dc7+100 */
+    background: #1ae4ad; /* Old browsers */
+    background: -moz-linear-gradient(
+      45deg,
+      #1ae4ad 53%,
+      #131dc7 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      45deg,
+      #1ae4ad 53%,
+      #131dc7 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      45deg,
+      #1ae4ad 53%,
+      #131dc7 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1ae4ad', endColorstr='#131dc7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    .section-container {
+      max-width: $main-width;
+      margin: auto;
+      display: flex;
+      flex-direction: row;
+      height: 180px;
+      padding: 0 $main-padding;
+
+      div.partners {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: $small-text;
+
+        p {
+          padding: 0 0 10px 0;
+
+          a {
+            display: inline-block;
+          }
+
+          &.address {
+            padding-top: 10px;
+            text-transform: none;
+          }
+        }
+      }
+
+      div.social-medias {
+        flex: 1;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+
+        img {
+          height: 25px;
+          margin: 0 0 0 10px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      padding: 40px 0 0 0;
+
+      .section-container {
+        div.social-medias {
+          img {
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+</style>

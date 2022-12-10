@@ -1,0 +1,177 @@
+---
+import { HistoryReact } from "./HistoryReact";
+---
+
+<section>
+  <HistoryReact client:visible />
+</section>
+
+<style lang="scss" is:global>
+  @import "../../styles/variables";
+
+  section {
+    .section-container {
+      display: flex;
+      flex-direction: row;
+      font-weight: bold;
+
+      div.timeline {
+        flex: 7;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        background-image: url("/home/history/background.jpg");
+        background-size: cover;
+        background-position: center top;
+        padding: 90px 0 200px;
+        color: #fff;
+
+        div.wrapper {
+          max-width: $main-width * 7/12;
+          flex: 1 0 auto;
+          padding: 0 $main-padding;
+          margin-right: 8%; // heuristic
+
+          h2 {
+            font-size: 60px;
+            line-height: 55px;
+          }
+
+          ul {
+            li {
+              padding: 65px 0 0 0;
+              font-size: $large-text;
+              //border-left: 1px solid #fff;
+              position: relative;
+              z-index: 3;
+
+              &:not(:first-child) {
+                border-left: 1px solid #fff;
+              }
+
+              p {
+                cursor: pointer;
+                position: absolute;
+                bottom: -9px;
+                z-index: 1;
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: -100vw;
+                  right: -10px;
+                  top: -5px;
+                  bottom: -5px;
+                  z-index: -1;
+                  transition: 0.2s;
+                }
+
+                &.selected::after {
+                  background-color: #131dc7;
+                }
+
+                &:hover::after {
+                  background-color: #131dc7;
+                }
+
+                span.arrow {
+                  white-space: 0;
+                }
+
+                span.link {
+                  cursor: pointer;
+                  position: absolute;
+                  top: -10px;
+                  right: -30px;
+                  bottom: -10px;
+                  left: -30px;
+                  z-index: 2;
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      div.show {
+        flex: 5;
+        background-image: url("/home/history/Samedimatin_Olivia-2.jpg");
+        background-size: cover;
+        background-position: left top;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        div.content {
+          color: #fff;
+          width: 300px;
+          background-color: #131dc7;
+          padding: 40px 30px 55px 30px;
+          transform: translateX(-60%);
+
+          h3 {
+            font-size: $sub-title;
+            padding: 0 0 18px 0;
+          }
+
+          p {
+            font-size: $large-text;
+          }
+
+          ul {
+            li {
+              list-style-type: disc;
+              padding: 10px 0 0 0;
+            }
+          }
+        }
+
+        div.content-10 {
+          width: 400px;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        flex-direction: column !important;
+
+        div.timeline {
+          padding: 40px;
+
+          div.wrapper {
+            margin: 0 !important;
+
+            ul {
+              li {
+                border: none !important;
+                font-size: $medium-title !important;
+                padding: 10px 0 !important;
+
+                p {
+                  position: relative !important;
+
+                  span.arrow {
+                    display: none !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        div.show {
+          div.content {
+            transform: none !important;
+            width: 90%;
+
+            p {
+              font-size: $medium-title;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>
