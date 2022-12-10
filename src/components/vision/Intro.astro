@@ -1,0 +1,188 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <div class="row-title">
+      <div class="first-half"></div>
+      <div class="second-half">
+        <h2>Plus qu'une<br />conférence</h2>
+      </div>
+    </div>
+
+    <div class="row-text">
+      <div class="first-half">
+        <p>
+          <span>La RJ</span> a pour vision d’accompagner et d’équiper la jeunesse
+          de Suisse romande et de francophonie au travers de rassemblements. Nous
+          souhaitons permettre à chacun de vivre la présence de Dieu, nous voulons
+          partager de façon claire l’Evangile de Jésus Christ et souhaitons que tous
+          expérimentent la puissance de l’Esprit.
+        </p>
+
+        <p>
+          La RJ rassemble plusieurs milliers de jeunes de francophonie.
+          Parallèlement, la RJ Login rassemble plusieurs centaines de leaders et
+          co-leaders de groupes de jeunes pour un jour de formation et
+          d'équipement.<br />
+        </p>
+        <p>
+          Bien que <span>son programme</span> corresponde principalement à des jeunes
+          entre 12 et 27 ans, la participation est ouverte à tous. Notre association
+          existe pour être au service des jeunes et plus spécialement pour les groupes
+          de jeunes.
+        </p>
+        <p>
+          Nous équipons les jeunes pour leur appel et nous les édifions dans
+          leur foi. Dans nos événements nous annonçons clairement le message de
+          l'Evangile et Jésus est le centre de tout ce que nous faisons. Nous
+          voulons vivre des temps forts de visitation de l'Esprit.
+        </p>
+        <p>
+          <span>Notre approche</span> est charismatique. Nos rassemblements se veulent
+          rassembleur et interconfessionnel.
+        </p>
+        <p>
+          Un jeune qui a participé à un événement RJ sera encouragé à
+          s'impliquer dans son groupe de jeunes et dans son église. Il désirera
+          exercer une influence positive autour de lui (famille, ami, société).
+        </p>
+      </div>
+      <div class="second-half"></div>
+    </div>
+  </div>
+
+  <div class="banner"></div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+  @import "../../styles/button-bar";
+
+  section {
+    .section-container {
+      max-width: $main-width;
+      padding: 0 $main-padding;
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+
+      div.row-title {
+        display: flex;
+        flex-direction: row;
+
+        div.first-half {
+          flex: 1;
+        }
+
+        div.second-half {
+          flex: 1;
+          width: 60%;
+          flex-grow: 0;
+          padding: 0 70px 40px 0;
+
+          background: #f56953; /* Old browsers */
+          background: -moz-linear-gradient(
+            45deg,
+            #f56953 0%,
+            #5c35a1 100%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            45deg,
+            #f56953 0%,
+            #5c35a1 100%
+          ); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(
+            45deg,
+            #f56953 0%,
+            #5c35a1 100%
+          ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56953', endColorstr='#5c35a1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+          h2 {
+            font-size: $title-size;
+            color: #fff;
+            background-color: #000;
+            line-height: 0.9em;
+            padding: 30px 30px;
+            transform: translate(-40%);
+            width: 120%;
+          }
+        }
+      }
+
+      div.row-text {
+        display: flex;
+        flex-direction: row;
+
+        div.first-half {
+          flex: 3;
+          padding: 90px 0;
+          font-size: $medium-title;
+          font-weight: bold;
+
+          p {
+            padding: 0 0 10px 0;
+
+            span {
+              position: relative;
+
+              &::after {
+                content: "";
+                background-color: #1ae4ad;
+                position: absolute;
+                line-height: 0;
+                right: -0.2em;
+                bottom: -0.2em;
+                left: -0.3em;
+                z-index: -1;
+                padding: 10px 5px;
+                transition: 0.3s;
+              }
+            }
+          }
+        }
+
+        div.second-half {
+          flex: 1;
+        }
+      }
+    }
+
+    div.banner {
+      background-image: url("/vision/intro/banner.jpg");
+      background-size: cover;
+      background-position-y: center;
+      height: 300px;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        div.row-title {
+          flex-direction: column !important;
+
+          div.first-half {
+            flex: 0 !important;
+          }
+
+          div.second-half {
+            flex: 1 !important;
+            width: 100% !important;
+            padding: 0 0 40px 0 !important;
+
+            h2 {
+              transform: translate(-5%) !important;
+              width: 100% !important;
+            }
+          }
+        }
+
+        div.row-text {
+          flex-direction: column !important;
+        }
+      }
+    }
+  }
+</style>
