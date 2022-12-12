@@ -1,0 +1,13 @@
+@import './variables';
+
+html,
+body {
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  font-size: 100%;
+  font-family: "Helvetica neue", "Helvetica", sans-serif;
+
+  @media only screen and (max-width: $mobile-width) {
+    font-size: 80%;
+  }
+}
