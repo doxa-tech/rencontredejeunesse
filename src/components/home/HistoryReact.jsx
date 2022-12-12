@@ -38,6 +38,12 @@ export const HistoryReact = () => {
               2015
             </HistBtn>
             <HistBtn id="10" currentID={currentID} setCurrentID={setCurrentID}>
+              2020 & 2021
+            </HistBtn>
+            <HistBtn id="11" currentID={currentID} setCurrentID={setCurrentID}>
+              2022
+            </HistBtn>
+            <HistBtn id="12" currentID={currentID} setCurrentID={setCurrentID}>
               Aujourd'hui
             </HistBtn>
           </ul>
@@ -108,6 +114,20 @@ export const HistoryReact = () => {
         </HistEl>
 
         <HistEl id="10" currentID={currentID}>
+          <h3>2020 & 2021</h3>
+          <p>
+            RJ en ligne
+          </p>
+        </HistEl>
+
+        <HistEl id="11" currentID={currentID}>
+          <h3>2022</h3>
+          <p>
+            Première RJ en multi-sites.
+          </p>
+        </HistEl>
+
+        <HistEl id="12" currentID={currentID}>
           <h3>Aujourd'hui</h3>
           <p>
             Aujourd’hui, la RJ est à l’étroit à Bulle et des projets d’agrandissement sont à l’étude. La RJ est organisée par une équipe d’ami/es qui sont tous/tes engagés/es dans différentes églises locales de Suisse romande. Elle accueille des jeunes de plus de 10 fédérations d’églises différentes.<br />
