@@ -35,6 +35,7 @@ class Order < ApplicationRecord
 
   before_create :generate_id
   before_validation :assign_amount
+  after_save :assign_payment
 
   def fee
     self.amount == 0 ? 0 : 500
@@ -95,6 +96,13 @@ class Order < ApplicationRecord
     self.order_items.select { |i| !i.marked_for_destruction? }.inject(0) do |sum, obj|
       (obj.quantity > 0 && !obj.item.nil?) ? (sum + obj.quantity * obj.item.price) : sum
     end
+  end
+
+  def assign_payment
+    if !main_payment.nil? && main_payment.state.in?(Payment.progress_states)
+      main_payment.update_attributes(amount: self.amount)
+    end
+    self.status = self.main_payment.try(:order_status, self)
   end
 
   def generate_id

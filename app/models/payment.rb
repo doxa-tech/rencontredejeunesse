@@ -27,14 +27,6 @@ class Payment < ApplicationRecord
 
   scope :pending_on_postfinance, -> { where(payment_type: :addition, method: :postfinance, status: pending_states) }
 
-  def shain
-    chain = "AMOUNT=#{amount}#{KEY}CN=#{user.full_name}#{KEY}CURRENCY=CHF#{KEY}"\
-            "EMAIL=#{user.email}#{KEY}LANGUAGE=fr_FR#{KEY}ORDERID=#{payment_id}#{KEY}"\
-            "OWNERADDRESS=#{user.address}#{KEY}OWNERCTY=#{user.country_name}#{KEY}"\
-            "OWNERTOWN=#{user.city}#{KEY}OWNERZIP=#{user.npa}#{KEY}PSPID=#{PSPID}#{KEY}"
-    return Digest::SHA1.hexdigest(chain)
-  end
-
   def user
     self.order.user
   end
@@ -43,21 +35,21 @@ class Payment < ApplicationRecord
     self.order.update_column(:status, order_status) 
   end
 
-  def order_status
+  def order_status(order = self.order)
     # TODO: refund
-    payments = Payment.where(order: self.order).where.not(id: self.id).to_a << self
+    payments = Payment.where(order: order).where.not(id: self.id).to_a << self
     main = payments.select{ |p| p.main? }.last
-    if self.order.delivered? 
+    if order.delivered? 
       "delivered" # delivered is a final state
-    elsif main.state.in? [:pending, :confirmed, :failed]
+    elsif main.state.in? Payment.progress_states
       "progress" # the order is still opened
-    elsif payments.any{ |p| p.state.in?  pending_states }
+    elsif payments.any? { |p| p.state.in?  Payment.pending_states }
       "pending" # a payment has not reached a final state yet
-    elsif payments.select{ |p| p.state == :fullfill }.inject(0) { |sum, obj| sum + obj.total_amount } >= self.order.amount
+    elsif payments.select{ |p| p.fullfill? }.inject(0) { |sum, obj| sum + obj.total_amount } >= order.amount
       "paid" # the order is paid
     else 
       "unpaid"
-    end
+    end 
   end
 
   def total_amount
@@ -65,18 +57,22 @@ class Payment < ApplicationRecord
     amount
   end
 
-  private
-
-  def pending_states
-    [:processing, :authorized, :completed]
+  def self.progress_states
+    ["pending", "confirmed", "failed"]
   end
+
+  def self.pending_states
+    ["processing", "authorized", "completed"]
+  end
+
+  private
 
   def assign_method
     self.method = (self.amount > Payment::INVOICE_LIMIT ? "invoice" : "postfinance")
   end
 
   def set_time_of_payment
-    self.time = Time.current if self.state == :fullfill
+    self.time = Time.current if self.fullfill?
   end
 
   def generate_id

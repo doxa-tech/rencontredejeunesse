@@ -126,8 +126,10 @@ FactoryBot.define do
   end
 
   factory :payment do
-    payment_type { :addition }
-    amount { 10000 }
+    payment_type { :main }
+    add_attribute(:method) { :postfinance }
+    amount { 0 }
+    state { :confirmed }
   end
 
 end
