@@ -1,0 +1,153 @@
+---
+---
+
+<section class="cont">
+  <div class="section-container">
+    <h2>Vision</h2>
+    <p>
+      La vision de la RJ Login est d'accompagner les leaders dans leur rôle en
+      les encourageant, les bénissant et les équipant. La journée permet de
+      rassembler des centaines de leaders afin qu'ils puissent échanger entre
+      eux et repartir avec une vision large et rafraichie de l'action
+      continuelle de Dieu. Ressourcés et équipés, les leaders peuvent continuer
+      à oeuvrer pour que Son Royaume prenne place sur terre, comme au ciel !
+    </p>
+
+    <div class="activities">
+      <div>
+        <h3>Input</h3>
+        <p>
+          Des messages encourageants et édifiants sont donnés durant la journée
+          avec de la louange pour nous emmener dans la présence de Dieu.
+        </p>
+      </div>
+      <div>
+        <h3>Ateliers</h3>
+        <p>
+          Plusieurs ateliers sont proposés afin de donner des clés concrètes et
+          pertinentes pour le travail de leader.
+        </p>
+      </div>
+      <div>
+        <h3>Connexion</h3>
+        <p>
+          Des temps libres durant l'événement permettent de discuter et partager
+          avec d'autres leaders venant de toute la Suisse romande.
+        </p>
+      </div>
+      <div>
+        <h3>Espace RJ</h3>
+        <p>
+          La journée est une occasion de partager la vision de la RJ, de lever
+          des bénévoles et de distribuer des packs de communication.
+        </p>
+      </div>
+    </div>
+
+    <h2>Horaires</h2>
+
+    <p>08h30 Accueil café/croissant</p>
+    <p>09h30 Plénière #1 avec louange et input</p>
+    <p>11h00 Table ronde</p>
+    <p>12h00 Lunch libre (Food trucks disponibles)</p>
+    <p>13h30 Ateliers #1</p>
+    <p>14h45 Ateliers #2</p>
+    <p>16h45 RJ 2022 !</p>
+    <p>18h15 Repas du soir (inclus)</p>
+    <p>20h00 Plénière #2 avec louange et input</p>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 120px 0;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#131dc6+0,b115c4+100 */
+    background: rgb(19, 29, 198); /* Old browsers */
+    background: -moz-linear-gradient(
+      -45deg,
+      rgba(19, 29, 198, 1) 0%,
+      rgba(177, 21, 196, 1) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      -45deg,
+      rgba(19, 29, 198, 1) 0%,
+      rgba(177, 21, 196, 1) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      135deg,
+      rgba(19, 29, 198, 1) 0%,
+      rgba(177, 21, 196, 1) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131dc6', endColorstr='#b115c4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    .section-container {
+      width: 100%;
+      max-width: $main-width;
+      padding: 0 $main-padding + $sub-padding;
+      margin: auto;
+      color: #fff;
+
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-size: $title-size;
+        line-height: 1.1em;
+        margin: 0;
+        padding: 0 0 30px 0;
+      }
+
+      h2:nth-of-type(2) {
+        padding: 60px 0 30px 0;
+      }
+
+      h3 {
+        font-size: $sub-title;
+        padding: 30px 0 0 0;
+      }
+
+      p {
+        font-weight: bold;
+        padding: 20px 0 0 0;
+        font-size: $large-text;
+      }
+
+      li {
+        list-style-type: circle;
+        padding: 5px 0 0 0;
+      }
+
+      ul {
+        padding: 0 0 0 40px;
+      }
+
+      div.activities {
+        display: flex;
+        flex-direction: column;
+
+        & > div:nth-child(odd) {
+          text-align: left;
+          max-width: 500px;
+        }
+
+        & > div:nth-child(even) {
+          text-align: right;
+          max-width: 500px;
+          align-self: flex-end;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding: 0 $mobile-padding !important;
+      }
+    }
+  }
+</style>

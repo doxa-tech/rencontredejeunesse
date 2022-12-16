@@ -1,0 +1,43 @@
+---
+---
+
+<section class="cont">
+  <div class="section-container">
+    <img src="/login/vitrine/vitrine.png" />
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section.cont {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .section-container {
+      img {
+        width: 800px;
+        max-width: 100%;
+        padding: 20px;
+        animation-name: slogan-fadein;
+        animation-delay: 0.5s;
+        animation-duration: 1.3s;
+        animation-fill-mode: both;
+        animation-timing-function: ease-in-out;
+      }
+    }
+
+    @keyframes slogan-fadein {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+</style>

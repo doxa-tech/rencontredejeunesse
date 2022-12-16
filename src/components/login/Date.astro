@@ -1,0 +1,65 @@
+---
+---
+
+<section class="cont">
+  <div class="section-container">
+    <h3>Réserve le 04 février 2023 !</h3>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section.cont {
+    margin: 0 0 0 $blank-space;
+    padding: 0 $blank-space 0 0;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b115c4+0,131dc6+100 */
+    background: #b115c4; /* Old browsers */
+    background: -moz-linear-gradient(
+      45deg,
+      #b115c4 0%,
+      #131dc6 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      45deg,
+      #b115c4 0%,
+      #131dc6 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      45deg,
+      #b115c4 0%,
+      #131dc6 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b115c4', endColorstr='#131dc6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    .section-container {
+      padding: 50px 0;
+      text-align: right;
+
+      h2 {
+        font-size: $title-size;
+        color: #fff;
+        line-height: 0.9em;
+      }
+
+      h3 {
+        font-size: $sub-title;
+        color: #fff;
+        line-height: 0.9em;
+        padding: 10px 0 10px 0;
+      }
+
+      p {
+        font-size: $normal-text;
+        color: #fff;
+        padding: 20px 0 0 0;
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      margin: 0 !important;
+      padding: 0 $blank-space !important;
+    }
+  }
+</style>
