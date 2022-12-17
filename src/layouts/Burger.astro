@@ -51,30 +51,33 @@
 </section>
 
 <header class="hiddenContent">
-  <img src="layouts/close.svg" id="close-button" />
+  <div class="content-wrap">
+    <img src="layouts/close.svg" id="close-button" />
 
-  <li><a href="/home">Home</a></li>
-  <li><a href="/vision">/Vision</a></li>
-  <li><a href="/volunteers">/Bénévole</a></li>
-  <li><a href="/login">/Login</a></li>
-  <li><a href="/support">/FAQ</a></li>
+    <ul>
+      <li><a href="/home">Home</a></li>
+      <li><a href="/vision">/Vision</a></li>
+      <li><a href="/volunteers">/Bénévole</a></li>
+      <li><a href="/login">/Login</a></li>
+      <li><a href="/support">/FAQ</a></li>
+    </ul>
+  </div>
 </header>
 
 <script>
-const burger = document.getElementById("logo-burger");
-const close = document.getElementById("close-button");
-const menu = document.getElementsByTagName("header")[0];
+  const burger = document.getElementById("logo-burger");
+  const close = document.getElementById("close-button");
+  const menu = document.getElementsByTagName("header")[0];
 
-burger?.addEventListener("click", function () {
-  burger.classList.add("hiddenContent");
-  menu.classList.remove("hiddenContent");
-});
+  burger?.addEventListener("click", function () {
+    burger.classList.add("hiddenContent");
+    menu.classList.remove("hiddenContent");
+  });
 
-close?.addEventListener("click", function () {
-  burger?.classList.remove("hiddenContent");
-  menu.classList.add("hiddenContent");
-});
-
+  close?.addEventListener("click", function () {
+    burger?.classList.remove("hiddenContent");
+    menu.classList.add("hiddenContent");
+  });
 </script>
 
 <style lang="scss">
@@ -161,6 +164,113 @@ close?.addEventListener("click", function () {
           animation-iteration-count: infinite;
           animation-timing-function: linear;
         }
+      }
+    }
+  }
+
+  header {
+    position: fixed;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000;
+    display: none;
+
+    div.content-wrap {
+      overflow-y: scroll;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      text-align: right;
+      margin: 20px 0 0 0;
+      max-width: $main-width;
+      padding: $main-padding $main-padding 0 $main-padding;
+      margin: auto;
+      font-family: "Helvetica neue", "Helvetica", sans-serif;
+
+      img#close-button {
+        width: 30px;
+        cursor: pointer;
+      }
+
+      ul {
+        color: #fff;
+        font-size: $sub-title;
+        font-weight: bold;
+        text-align: right;
+        padding: 30px 100px 0 0;
+        flex: 1;
+
+        li {
+          list-style-type: none;
+          padding: 0 0 20px 0;
+
+          a {
+            position: relative;
+          }
+
+          a.off {
+            color: #666666;
+            pointer-events: none;
+            cursor: default;
+          }
+
+          a.active::after,
+          a:hover::after {
+            content: "";
+            position: absolute;
+            left: -30px;
+            right: -4px;
+            bottom: -5px;
+            top: 25px;
+            z-index: -1;
+            box-sizing: border-box;
+            transition: 0.5s ease-in;
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f56a55+0,b51ad6+100 */
+            background: #f56a55; /* Old browsers */
+            background: -moz-linear-gradient(
+              45deg,
+              #f56a55 0%,
+              #b51ad6 100%
+            ); /* FF3.6-15 */
+            background: -webkit-linear-gradient(
+              45deg,
+              #f56a55 0%,
+              #b51ad6 100%
+            ); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(
+              45deg,
+              #f56a55 0%,
+              #b51ad6 100%
+            ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56a55', endColorstr='#b51ad6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+          }
+        }
+      }
+
+      div.signin {
+        color: #fff;
+        padding: 30px 100px 60px 0;
+        align-self: flex-end;
+        justify-self: flex-end;
+        font-size: $large-text;
+      }
+
+      &::-webkit-scrollbar-track {
+        border: 1px solid black;
+        background-color: rgb(0, 0, 0);
+      }
+
+      &::-webkit-scrollbar {
+        width: 10px;
+        background-color: rgb(27, 27, 27);
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #505050;
       }
     }
   }
