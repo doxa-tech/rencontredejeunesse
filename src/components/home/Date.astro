@@ -1,0 +1,33 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <p class="date">RJ23 : 05-06 mai 2023</p>
+    <p class="location">Multi-sites : Genève, Oron, Tavannes</p>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    .section-container {
+      max-width: $main-width;
+      padding: 80px 50px;
+      text-align: center;
+      margin: auto;
+
+      p.date {
+        font-style: italic;
+        font-weight: bold;
+        font-size: $sub-title;
+      }
+
+      p.location {
+        font-size: $medium-title;
+        padding: 20px 0 0 0;
+      }
+    }
+  }
+</style>
