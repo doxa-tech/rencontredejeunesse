@@ -1,9 +1,9 @@
 ---
-// import "~styles/variables.scss";
 ---
 
-<section id="logo-burger" class="<%= yield :id %>">
+<section id="logo-burger">
   <div>
+    <!-- Logo -->
     <a href="/">
       <svg
         viewBox="0 0 426 426"
@@ -25,6 +25,7 @@
         </g>
       </svg>
     </a>
+    <!-- Burger -->
     <div class="svg" id="header-btn">
       <svg
         viewBox="0 0 426 426"
@@ -49,8 +50,39 @@
   </div>
 </section>
 
+<header class="hiddenContent">
+  <img src="layouts/close.svg" id="close-button" />
+
+  <li><a href="/home">Home</a></li>
+  <li><a href="/vision">/Vision</a></li>
+  <li><a href="/volunteers">/Bénévole</a></li>
+  <li><a href="/login">/Login</a></li>
+  <li><a href="/support">/FAQ</a></li>
+</header>
+
+<script>
+const burger = document.getElementById("logo-burger");
+const close = document.getElementById("close-button");
+const menu = document.getElementsByTagName("header")[0];
+
+burger?.addEventListener("click", function () {
+  burger.classList.add("hiddenContent");
+  menu.classList.remove("hiddenContent");
+});
+
+close?.addEventListener("click", function () {
+  burger?.classList.remove("hiddenContent");
+  menu.classList.add("hiddenContent");
+});
+
+</script>
+
 <style lang="scss">
   @import "../styles/variables";
+
+  .hiddenContent {
+    display: none;
+  }
 
   section#logo-burger {
     position: absolute;
