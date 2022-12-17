@@ -1,15 +1,16 @@
 import "@astrojs/react"
 import { useState } from "react";
+import * as styles from "./HistoryReact.module.scss"
 
 export const HistoryReact = () => {
   const [currentID, setCurrentID] = useState("1");
 
   return (
-    <div className="section-container">
-      <div className="timeline">
-        <div className="wrapper">
+    <div className={styles.sectionContainer}>
+      <div className={styles.timeline}>
+        <div className={styles.wrapper}>
           <h2>histoire</h2>
-          <ul className="history-links">
+          <ul>
             <HistBtn id="1" currentID={currentID} setCurrentID={setCurrentID}>
               1993
             </HistBtn>
@@ -49,7 +50,7 @@ export const HistoryReact = () => {
           </ul>
         </div>
       </div>
-      <div className="show">
+      <div className={styles.show}>
         <HistEl id="1" currentID={currentID}>
           <h3>1993</h3>
           <p>
@@ -150,7 +151,7 @@ export const HistoryReact = () => {
 
 const HistEl = ({ currentID, id, children }) => {
   return (
-    (currentID === id ? <div className={`content content-${id}`} > {children}</div > : <></>)
+    (currentID === id ? <div className={`${styles.content} ${id == 12 ? styles.bigger : ''}`} > {children}</div > : <></>)
   )
 }
 
@@ -161,10 +162,10 @@ const HistBtn = ({ id, currentID, setCurrentID, children }) => {
 
   return (
     <li>
-      <p onClick={clickHandler} className={currentID === id ? "selected" : "arrow"}>
-        <span className="arrow">⎯⎯</span>
+      <p onClick={clickHandler} className={currentID === id ? styles.selected : styles.arrow}>
+        <span className={styles.arrow}>⎯⎯</span>
         {children}
-        <span className="link"></span>
+        <span className={styles.link}></span>
       </p>
     </li>
   )
