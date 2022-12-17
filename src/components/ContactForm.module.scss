@@ -56,7 +56,7 @@ form {
     background-color: transparent;
     border: none;
     color: #000;
-    margin: 40px 0 50px 0;
+    margin: 10px 0 50px 0;
     font-size: $sub-title;
     font-weight: bold;
     text-transform: lowercase;
@@ -99,8 +99,8 @@ form {
   }
 }
 
-.h-captcha {
-  padding: 10px 0 0 0;
+.hCaptcha {
+  padding: 20px 0 0 0;
 }
 
 @media only screen and (max-width: $mobile-width) {

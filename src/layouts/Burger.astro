@@ -54,8 +54,8 @@
   <div class="content-wrap">
     <img src="layouts/close.svg" id="close-button" />
 
-    <ul>
-      <li><a href="/home">Home</a></li>
+    <ul class="links">
+      <li><a href="/">/Home</a></li>
       <li><a href="/vision">/Vision</a></li>
       <li><a href="/volunteers">/Bénévole</a></li>
       <li><a href="/login">/Login</a></li>
@@ -69,15 +69,27 @@
   const close = document.getElementById("close-button");
   const menu = document.getElementsByTagName("header")[0];
 
+  // open menu
   burger?.addEventListener("click", function () {
     burger.classList.add("hiddenContent");
-    menu.classList.remove("hiddenContent");
+    menu?.classList.remove("hiddenContent");
   });
 
+  // close menu
   close?.addEventListener("click", function () {
     burger?.classList.remove("hiddenContent");
-    menu.classList.add("hiddenContent");
+    menu?.classList.add("hiddenContent");
   });
+
+  // set active link
+  const links = document.getElementsByClassName("links")[0].children;
+  for (const link of links) {
+    const a = link.children[0];
+    if (a.getAttribute("href") == window.location.pathname) {
+      a.classList.add("active");
+      break;
+    }
+  }
 </script>
 
 <style lang="scss">

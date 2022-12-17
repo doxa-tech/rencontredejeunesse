@@ -88,10 +88,12 @@ export const ContactForm = () => {
         onChange={(e) => setMessage(e.target.value)}
       />
 
-      <HCaptcha
-        sitekey="b4753cb9-88e5-4594-bda2-ad5a0aab862c"
-        onVerify={(token, _) => setToken(token)}
-      />
+      <div className={styles.hCaptcha}>
+        <HCaptcha
+          sitekey="b4753cb9-88e5-4594-bda2-ad5a0aab862c"
+          onVerify={(token, _) => setToken(token)}
+        />
+      </div>
 
       <div className={styles.input}>
         <button type="submit" disabled={submitting || hToken == ""}>Envoyer</button>
