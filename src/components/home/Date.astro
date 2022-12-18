@@ -3,8 +3,20 @@
 
 <section>
   <div class="section-container">
-    <p class="date">RJ23 : 05-06 mai 2023</p>
-    <p class="location">Multi-sites : Genève, Oron, Tavannes</p>
+    <div class="left">
+      <p class="first"><i>#RJ23</i> 5-6 mai 2023</p>
+      <p class="second">multi-sites : <i>Genève, Oron, Tavannes</i></p>
+    </div>
+    <div class="right">
+      <iframe
+        width="100%"
+        height="100%"
+        src="https://www.youtube.com/embed/IqURtwEiw3A"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
   </div>
 </section>
 
@@ -13,11 +25,6 @@
 
   section {
     .section-container {
-      max-width: $main-width;
-      padding: 80px 50px;
-      text-align: center;
-      margin: auto;
-
       p.date {
         font-style: italic;
         font-weight: bold;
@@ -27,6 +34,80 @@
       p.location {
         font-size: $medium-title;
         padding: 20px 0 0 0;
+      }
+    }
+  }
+</style>
+
+<style lang="scss">
+  @import "../../styles/variables";
+  @import "../../styles/button-bar";
+
+  section {
+    .section-container {
+      height: 330px;
+      padding: 0 0 0 $blank-space;
+
+      display: flex;
+      flex-direction: row;
+
+      div.left {
+        text-align: right;
+        padding: 0 $sub-padding 0 0;
+
+        flex: 2;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-direction: column;
+
+        font-weight: bold;
+
+        background: #2c6425; /* Old browsers */
+        background: linear-gradient(45deg, #8df553 0%, #2c6425 100%);
+
+        &::before {
+          content: "";
+          flex: 1;
+        }
+        &::after {
+          content: "";
+          flex: 1;
+        }
+
+        p.first {
+          color: #fff;
+
+          text-shadow: 0 0 2px #b5ad00, 0 0 18px #eae9d3;
+
+          font-size: $title-size;
+          line-height: 0.9em;
+          padding: 0 0 19px 0;
+        }
+
+        p.second {
+          color: #fff;
+          font-size: $medium-title;
+          line-height: 0.9em;
+        }
+      }
+
+      div.right {
+        background-image: url("/home/vision/background.jpg");
+        background-size: cover;
+        background-position: center left;
+
+        flex: 1;
+      }
+    }
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding: 0 !important;
+
+        div.poster,
+        div.title {
+          flex: 1 !important;
+        }
       }
     }
   }
