@@ -34,8 +34,9 @@ class Order < ApplicationRecord
   validates_with BundleValidator
 
   before_create :generate_id
+  before_save :assign_status
   before_validation :assign_amount
-  after_save :assign_payment
+  after_save :update_payment
 
   def fee
     self.amount == 0 ? 0 : 500
@@ -98,11 +99,20 @@ class Order < ApplicationRecord
     end
   end
 
-  def assign_payment
-    if !main_payment.nil? && main_payment.state.in?(Payment.progress_states)
-      main_payment.update_attributes(amount: self.amount)
+  def update_payment
+    if !main_payment.nil? && main_payment.state.in?(Payment.progress_states) && saved_change_to_attribute?(:amount)
+      # order status is updated by the payment
+      main_payment.update_attributes(amount: self.amount) 
     end
-    self.status = self.main_payment.try(:order_status, self)
+  end
+
+  def assign_status
+    if main_payment.nil? && self.status.nil?
+      # default status if the status is nil and no payment exists
+      self.status = "progress"
+    elsif !main_payment.nil?
+      self.status = self.main_payment.order_status(self)
+    end
   end
 
   def generate_id

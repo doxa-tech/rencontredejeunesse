@@ -1,4 +1,5 @@
 class OrderCompletion
+  include OrdersHelper
 
   def initialize(order)
     @order = order
@@ -23,29 +24,28 @@ class OrderCompletion
   end
 
   def free
-    @order.main_payment.update_attribute(:state, states[@situation])
+    @order.update_column(:status, :paid)  
     send_pass
   end
 
   def invoice
-    @order.main_payment.update_attribute(:state, states[@situation])
+    @order.payments.create!(
+      payment_type: :main, amount: @order.amount, state: :processing
+    ) 
     OrderMailer.invoice_registration(@order).deliver_now
   end
 
   def get_situation
-    if @order.main_payment.invoice?
-      :invoice
+    if is_invoice?(@order.amount)
+      return :invoice
     elsif @order.amount == 0
-      :free
+      return :free
     end
+    return nil
   end
 
   def send_pass
     OrderMailer.pass(@order).deliver_now if @order.order_type == :event
-  end
-
-  def states
-    { invoice: :processing, free: :fullfill }
   end
 
   def situations

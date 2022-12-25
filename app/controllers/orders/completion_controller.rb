@@ -26,7 +26,7 @@ class Orders::CompletionController < Orders::BaseController
     begin
       order_completion = OrderCompletion.new(order)
       order_completion.complete
-      redirect_to confirmed_orders_path
+      redirect_to success_orders_path
     rescue ArgumentError
       redirect_to confirmation_orders_event_path(order.order_id), error: "Une erreur s'est produite"
     end

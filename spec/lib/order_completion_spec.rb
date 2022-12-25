@@ -29,12 +29,11 @@ RSpec.describe OrderCompletion do
 
   describe "#invoice" do
 
-    it "sets the payment state to processing" do
+    it "creates a payment with the state processing" do
       order = create(:event_order)
       item = create(:item_with_bundle, price: 10000)
       order.registrants = create_list(:registrant, 10, order: order, item: item)
       order.save!
-      create(:payment, order: order, amount: order.amount)
       OrderCompletion.new(order).complete
       expect(order.main_payment.state).to eq "processing"
     end
@@ -59,19 +58,26 @@ RSpec.describe OrderCompletion do
       discount = create(:discount, category: :free, number: 1, items: order.items)
       order.discount = discount
       order.save!
-      create(:payment, order: order, amount: order.amount)
       OrderCompletion.new(order).complete
       expect(ActionMailer::Base.deliveries.any? { |mail| mail.subject == "Pass pour ta commande" }).to be true
     end
 
-    it "sets the payment state to fullfill" do
+    it "creates no payment" do
       order = create(:event_order)
       discount = create(:discount, category: :free, number: 1, items: order.items)
       order.discount = discount
       order.save!
-      create(:payment, order: order, amount: order.amount)
       OrderCompletion.new(order).complete
-      expect(order.main_payment.state).to eq "fullfill"
+      expect(order.main_payment).to be_nil
+    end
+
+    it "sets the order status to paid" do
+      order = create(:event_order)
+      discount = create(:discount, category: :free, number: 1, items: order.items)
+      order.discount = discount
+      order.save!
+      OrderCompletion.new(order).complete
+      expect(order.status).to eq "paid"
     end
 
   end

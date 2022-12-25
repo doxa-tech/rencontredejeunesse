@@ -41,4 +41,8 @@ module OrdersHelper
     end
   end
 
+  def is_invoice?(amount)
+    return amount > Payment::INVOICE_LIMIT
+  end
+
 end

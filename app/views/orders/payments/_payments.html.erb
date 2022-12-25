@@ -1,7 +1,7 @@
 <% if @order.amount == 0 %>
   <%= render "orders/payments/free" %>
-<% elsif @order.main_payment.invoice? %>
+<% elsif is_invoice?(@order.amount) %>
   <%= render "orders/payments/invoice" %>
-<% elsif @order.main_payment.postfinance? %>
+<% else %>
   <%= render "orders/payments/postfinance", order: @order %>
 <% end %>

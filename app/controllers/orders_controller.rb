@@ -6,7 +6,6 @@ class OrdersController < Orders::BaseController
     payment = order.payments.create!(
       payment_type: :main, method: :postfinance, amount: order.amount, state: :confirmed
     )
-    order.update(status: :pending)
     transaction = OrderTransaction.new(order, payment)
     payment_url = transaction.execute
     redirect_to payment_url
