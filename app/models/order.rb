@@ -1,7 +1,13 @@
 class Order < ApplicationRecord
+
+  # unique item number
+  FEE_NUMBER = 10
+  DISCOUNT_NUMBER = 11
+  ADDITIONAL_PAYMENT_NUMBER = 12
+
   attr_accessor :conditions, :admin
 
-  enum status: [:unpaid, :paid, :delivered, :pending, :refunded]
+  enum status: [:unpaid, :paid, :delivered, :pending, :refunded, :progress]
 
   belongs_to :user
   belongs_to :discount, optional: true
@@ -29,8 +35,9 @@ class Order < ApplicationRecord
   validates_with BundleValidator
 
   before_create :generate_id
+  before_save :assign_status
   before_validation :assign_amount
-  before_save :assign_payment
+  after_save :update_payment
 
   def fee
     self.amount == 0 ? 0 : 500
@@ -46,7 +53,7 @@ class Order < ApplicationRecord
   end
 
   def main_payment
-    @main_payment ||= Payment.find_by(order_id: self.id, payment_type: :main)
+    @main_payment ||= Payment.where(order_id: self.id, payment_type: :main).last
   end
 
   def invoice_pdf_adapter
@@ -93,13 +100,20 @@ class Order < ApplicationRecord
     end
   end
 
-  def assign_payment
-    if !main_payment.nil? && main_payment.status.nil?
-      main_payment.update_attributes(amount: self.amount)
-    elsif main_payment.nil?
-      @main_payment = self.payments.build(amount: self.amount, payment_type: :main)
+  def update_payment
+    if !main_payment.nil? && main_payment.state.in?(Payment.progress_states) && saved_change_to_attribute?(:amount)
+      # order status is updated by the payment
+      main_payment.update_attributes(amount: self.amount) 
     end
-    self.status = self.main_payment.order_status
+  end
+
+  def assign_status
+    if main_payment.nil? && self.status.nil?
+      # default status if the status is nil and no payment exists
+      self.status = "progress"
+    elsif !main_payment.nil?
+      self.status = self.main_payment.order_status(self)
+    end
   end
 
   def generate_id

@@ -2,27 +2,11 @@ Rails.application.routes.draw do
 
   mount Adeia::Engine => "/admin"
 
-  # get "/", to: "pages#resources", constraints: { subdomain: 'ressources' }
-  
-  root to: "pages#home"
-
-  %w(home login privacy application vision volunteers support).each do |page|
-    get page, to: "pages##{page}"
-  end
-  
-  # RJ highlights
-  get "highlights/:year", to: "pages#highlights", as: :highlights
-
-  # RJ editions
-  %w(2018 2019 2020 2021 2022).each do |year|
-    get year, to: "pages#rj"
-  end
+  root to: redirect('https://rencontredejeunesse.ch')
 
   resources :sessions, only: :create
   delete "signout", to: "sessions#destroy"
   get "signin", to: "sessions#new"
-
-  post "contact", to: "pages#contact"
 
   scope "order_bundles/:key" do
     resources :option_orders, only: [:new, :create]
@@ -75,7 +59,10 @@ Rails.application.routes.draw do
   #
 
   resources :orders, only: :destroy do
-    %w(confirmed canceled uncertain declined).each do |status|
+    # complete the order and proceed to payment
+    post "pay", on: :member
+
+    %w(success failed).each do |status|
       get "#{status}", on: :collection
     end
   end
@@ -88,7 +75,9 @@ Rails.application.routes.draw do
     # complete free or invoice order
     resources :completion, only: :update, controller: :completion
 
-    resources :payments, only: [:show]
+    resources :payments, only: [:show] do
+      post "pay", on: :member
+    end
 
     # user update from order
     scope ":id/user", constraints: { id: /\d*/ }, as: :user do
@@ -104,7 +93,7 @@ Rails.application.routes.draw do
       end
 
       # Order from a bundle
-      resources :bundles, only: [:edit, :update] do
+      resources :bundles, only: [:new, :edit, :update] do
         get "confirmation", on: :member
       end
 
@@ -156,25 +145,4 @@ Rails.application.routes.draw do
 
   end
 
-  #
-  # API
-  #
-
-  namespace :api do
-
-    resources :posts
-    resources :images
-    resources :testimonies
-    resources :comments
-    resources :users do
-      post "signin", on: :collection
-    end
-    resources :devices, only: :create
-    resources :markers, only: :index
-
-  end
-
-  #
-  #
-  #
 end

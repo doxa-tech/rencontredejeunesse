@@ -12,7 +12,7 @@ Feature: Payments
   Scenario: I successfully pay
     Given I have an order with a pending payment
     When I visit the order summary
-    And I click the link "Payer"
+    And I click the link "Payer en ligne"
     Then I should see a confirmation page with the amount
     When I click the button "Payer"
     Then I should see the postfinance page

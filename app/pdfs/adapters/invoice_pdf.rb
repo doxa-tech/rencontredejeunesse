@@ -71,7 +71,7 @@ module Adapters
     end
 
     def payments
-      payments = @order.payments.where("status=?", 9).to_a.map do |payment|
+      payments = @order.payments.where(state: :fullfill).to_a.map do |payment|
         Payment.new(payment.amount, payment.time, 
                     payment.payment_type, payment.method)
       end

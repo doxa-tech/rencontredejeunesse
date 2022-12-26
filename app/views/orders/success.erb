@@ -1,0 +1,29 @@
+<% content_for :id, "orders-confirmed" %>
+
+
+  <section>
+
+    <div class="dino">
+      <p><%= image_tag "orders/dino.png" %></p>
+    </div>
+
+    <div class="text">
+      <div class="text-container">
+        <%= render layout: 'message' do %>
+
+        <h1>Merci pour ta commande !</h1>
+        <p>Ta commande a bien été reçue.</p>
+        <p>Tu revevras un email de confirmation dans les minutes qui suivent. Si ce n'est pas le cas, pense à d'abord regarder dans ton dossier de spam et, le cas échéant, contacte immédiatement le support via le formulaire de contact.</p>
+        <p>Tu peux consulter en tout temps ta commande dans ton <%= link_to "espace client", "/connect" %>.</p>
+
+        <% end %>
+
+        <div class="social">
+          <a href="https://facebook.com/rencontredejeunesse" target="_blank"><svg enable-background="new 0 0 60.734 60.733" viewBox="0 0 60.734 60.733" xmlns="http://www.w3.org/2000/svg"><path d="m57.378.001h-54.026c-1.85 0-3.352 1.499-3.352 3.352v54.026c0 1.853 1.502 3.354 3.352 3.354h29.086v-23.519h-7.914v-9.167h7.914v-6.76c0-7.843 4.789-12.116 11.787-12.116 3.355 0 6.232.251 7.071.36v8.198l-4.854.002c-3.805 0-4.539 1.809-4.539 4.462v5.851h9.078l-1.187 9.166h-7.892v23.52h15.475c1.852 0 3.355-1.503 3.355-3.351v-54.028c-.001-1.851-1.502-3.35-3.354-3.35z" fill="#fff"/></svg></a>
+          <a href="https://www.instagram.com/rencontredejeunesse" target="_blank"><svg enable-background="new 0 0 169.063 169.063" viewBox="0 0 169.063 169.063" xmlns="http://www.w3.org/2000/svg"><g fill="#fff"><path d="m122.406 0h-75.752c-25.725 0-46.654 20.93-46.654 46.655v75.752c0 25.726 20.929 46.655 46.654 46.655h75.752c25.727 0 46.656-20.93 46.656-46.655v-75.752c.001-25.725-20.929-46.655-46.656-46.655zm31.657 122.407c0 17.455-14.201 31.655-31.656 31.655h-75.753c-17.454.001-31.654-14.2-31.654-31.655v-75.752c0-17.454 14.2-31.655 31.654-31.655h75.752c17.455 0 31.656 14.201 31.656 31.655v75.752z"/><path d="m84.531 40.97c-24.021 0-43.563 19.542-43.563 43.563 0 24.02 19.542 43.561 43.563 43.561s43.563-19.541 43.563-43.561c0-24.021-19.542-43.563-43.563-43.563zm0 72.123c-15.749 0-28.563-12.812-28.563-28.561 0-15.75 12.813-28.563 28.563-28.563s28.563 12.813 28.563 28.563c0 15.749-12.814 28.561-28.563 28.561z"/><path d="m129.921 28.251c-2.89 0-5.729 1.17-7.77 3.22-2.051 2.04-3.23 4.88-3.23 7.78 0 2.891 1.18 5.73 3.23 7.78 2.04 2.04 4.88 3.22 7.77 3.22 2.9 0 5.73-1.18 7.78-3.22 2.05-2.05 3.22-4.89 3.22-7.78 0-2.9-1.17-5.74-3.22-7.78-2.04-2.05-4.88-3.22-7.78-3.22z"/></g></svg></a>
+          <a href="https://www.youtube.com/user/RencontredeJeunesse" target="_blank"><svg clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="1.41421" viewBox="0 0 512 360" xmlns="http://www.w3.org/2000/svg"><path d="m492.044 30.769c-18.482-21.97-52.604-30.932-117.77-30.932h-236.553c-66.657 0-101.357 9.54-119.77 32.93-17.951 22.805-17.951 56.408-17.951 102.914v88.64c0 90.097 21.299 135.842 137.721 135.842h236.554c56.512 0 87.826-7.908 108.085-27.296 20.776-19.882 29.64-52.345 29.64-108.546v-88.64c0-49.045-1.389-82.845-19.956-104.912zm-163.338 161.469-107.418 56.14c-2.401 1.256-5.027 1.878-7.65 1.878-2.97 0-5.933-.799-8.557-2.388-4.942-2.994-7.959-8.35-7.959-14.128v-111.92c0-5.767 3.009-11.118 7.941-14.114 4.933-2.996 11.069-3.201 16.187-.542l107.418 55.778c5.465 2.838 8.897 8.48 8.905 14.635.007 6.161-3.41 11.811-8.867 14.661z" fill="#fff" fill-rule="nonzero"/></svg></a>
+        </div>
+      </div>
+    </div>
+
+  </section>

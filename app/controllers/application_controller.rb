@@ -11,8 +11,7 @@ class ApplicationController < ActionController::Base
       username == 'dawn' && password == Rails.application.secrets.basic_pwd
     end
   end
-
-
+  
   private
 
   def check_if_signed_in
@@ -22,7 +21,7 @@ class ApplicationController < ActionController::Base
   def end_of_order(date)
     date = Date.parse(date)
     if Date.current > date && !Rails.env.test?
-      redirect_to root_path, error: "Les commandes ne sont plus possibles."
+      redirect_to connect_root_path, error: "Les commandes ne sont plus possibles."
     end
   end
 end

@@ -4,7 +4,7 @@ Given("I am on the confirmation page with an amount of zero") do
   @discount = create(:discount, category: :free, number: 1, items: [@item])
   @order.discount = @discount
   @order.save!
-  visit confirmation_orders_event_path(@order.order_id)
+  visit confirmation_orders_event_path(@order.order_id, key: @item.order_bundle.key)
 end
 
 When("I fill in a valid discount") do

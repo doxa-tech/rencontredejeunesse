@@ -29,7 +29,7 @@ class OptionOrdersController < ApplicationController
 
   def check_if_signed_up
     option_order = OptionOrder.find_by(order_bundle: order_bundle, user: current_user) if current_user
-    if option_order && option_order.order.status.present?
+    if option_order && option_order.order.status != "progress"
       redirect_to connect_option_order_path(option_order), error: "Tu es déjà inscrit !"
     elsif option_order
       redirect_to order_path(option_order.order), success: "Tu peux continuer ta commande."

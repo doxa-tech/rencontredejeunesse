@@ -8,6 +8,7 @@ RSpec.describe "Order", :type => :model do
   it_should_behave_like "an invoice PDF responder" do
     let(:responder) do
       order = create(:order_with_items)
+      create(:payment, order: order, amount: order.amount)
       order.invoice_pdf_adapter
     end
   end
@@ -15,6 +16,37 @@ RSpec.describe "Order", :type => :model do
   it "generates the IDs" do
     order = create(:order)
     expect(order.order_id).to be_present
+  end
+
+  describe "#assign_payment" do
+
+    it "updates the main payment when in progress" do
+      order = create(:order_with_items)
+      create(:payment, order: order, amount: order.amount)
+      order.order_items << create(:order_item, order: order)
+      order.save!
+      expect(order.main_payment.amount).to eq order.amount
+    end
+
+    it "doesn't update the main payment when it processes" do
+      order = create(:order_with_items)
+      create(:payment, order: order, amount: order.amount)
+      paid_amount = order.amount
+      order.main_payment.update_attributes!(state: :fullfill)
+      order.order_items << create(:order_item, order: order)
+      order.save!
+      expect(order.main_payment.amount).to eq paid_amount
+    end
+
+    it "updates order status" do
+      order = create(:order_with_items)
+      create(:payment, order: order, amount: order.amount)
+      order.main_payment.update_attributes!(state: :fullfill)
+      order.order_items << create(:order_item, order: order)
+      order.save!
+      expect(order.status).to eq "unpaid"
+    end
+
   end
 
   describe "#assign_amount" do
@@ -46,40 +78,6 @@ RSpec.describe "Order", :type => :model do
       order.discount_code = discount.code
       order.save
       expect(order.discount_amount).to eq 2000
-    end
-
-  end
-
-  describe "#assign_payment" do
-
-    it "creates a main payment" do
-      order = create(:order_with_items)
-      expect(order.main_payment.amount).to eq order.amount
-      expect(order.main_payment.payment_type).to eq "main"
-    end
-
-    it "updates the main payment when there is no status" do
-      order = create(:order_with_items)
-      order.order_items << create(:order_item, order: order)
-      order.save!
-      expect(order.main_payment.amount).to eq order.amount
-    end
-
-    it "doesn't update the main when there is a status" do
-      order = create(:order_with_items)
-      paid_amount = order.amount
-      order.main_payment.update_attributes!(status: 9)
-      order.order_items << create(:order_item, order: order)
-      order.save!
-      expect(order.main_payment.amount).to eq paid_amount
-    end
-
-    it "updates order status" do
-      order = create(:order_with_items)
-      order.main_payment.update_attributes!(status: 9)
-      order.order_items << create(:order_item, order: order)
-      order.save!
-      expect(order.status).to eq "unpaid"
     end
 
   end

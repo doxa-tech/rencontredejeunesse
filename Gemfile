@@ -53,7 +53,7 @@ group :development do
 
   gem 'capistrano', '3.6.1'
   gem 'capistrano-maintenance', require: false
-  gem 'capistrano-server', git: 'https://github.com/JS-Tech/capistrano-server'
+  gem 'capistrano-server', git: 'https://github.com/doxa-tech/capistrano-server'
   # rails specific capistrano funcitons
   gem 'capistrano-rails'
   # integrate bundler with capistrano
@@ -72,17 +72,11 @@ gem 'bcrypt'
 
 # inline css in mailer
 gem 'nokogiri'
-gem 'premailer-rails'
+gem 'premailer-rails', '~> 1.11.0'
 
 # error tracking with sentry
-gem 'sentry-raven'
-
-# File upload
-gem 'carrierwave', '~> 1.3'
-gem 'carrierwave-i18n'
-gem 'mini_magick' # brew install graphicsmagick
-gem 'carrierwave-imageoptimizer' # brew install optipng jpegoptim
-gem 'fog-google'
+gem 'sentry-ruby'
+gem 'sentry-rails'
 
 # Pagination
 gem 'will_paginate'
@@ -94,9 +88,6 @@ gem 'prawn'
 gem 'barby'
 gem 'rqrcode'
 
-# Push notifications / rpush init on update
-gem 'rpush', '~> 5'
-
 # HTTP client
 gem 'rest-client'
 
@@ -105,3 +96,6 @@ gem 'livingstyleguide'
 
 # Markdown parser
 gem 'redcarpet'
+
+# Postfinance Flex Checkout
+gem 'postfinancecheckout-ruby-sdk'

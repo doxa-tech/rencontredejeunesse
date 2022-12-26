@@ -8,6 +8,7 @@ module Orders
     it_should_behave_like "an invoice PDF responder" do
       let(:responder) do
         order = create(:event_order, number: 2)
+        create(:payment, order: order, amount: order.amount)
         order.invoice_pdf_adapter
       end
     end
@@ -15,6 +16,7 @@ module Orders
     it_should_behave_like "a ticket PDF responder" do
       let(:responder) do
         order = create(:event_order, number: 2)
+        create(:payment, order: order, amount: order.amount)
         order.ticket_pdf_adapter
       end
     end

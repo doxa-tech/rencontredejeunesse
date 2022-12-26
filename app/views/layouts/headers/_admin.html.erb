@@ -21,8 +21,5 @@
     <li class="text">Bénévoles</li>
     <% if can?(:read, "admin/volunteers") %><li><%= link_to "Bénévoles", admin_volunteers_path %></li><% end %>
     <% if can?(:read, "admin/volunteers") %><li><%= link_to "Badges", admin_badges_path %></li><% end %>
-    <li class="text">Application</li>
-    <% if can?(:read, "admin/testimonies") %><li><%= link_to "Témoignages", admin_testimonies_path %></li><% end %>
-    <% if can?(:read, "admin/posts") %><li><%= link_to "Posts", admin_posts_path %></li><% end %>
   </ul>
 </header>

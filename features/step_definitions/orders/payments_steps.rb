@@ -1,6 +1,7 @@
 Given("I have an order with a pending payment") do
   @order = create(:event_order, user: @user)
-  @payment = create(:payment, order: @order, payment_type: :addition, status: 41)
+  create(:payment, order: @order, amount: @order.amount, state: :fullfill) # main payment
+  @payment = create(:payment, amount: 1000, order: @order, payment_type: :addition, state: :pending)
 end
 
 When("I visit the order summary") do
@@ -12,6 +13,5 @@ Then("I should see a confirmation page with the amount") do
 end
 
 Then("I should see the postfinance page") do
-  expect(page).to have_content(@payment.payment_id)
-  expect(page).to have_content("#{@payment.amount / 100}.00 CHF")
+  expect(page).to have_content("#{@payment.amount / 100},00 CHF")
 end

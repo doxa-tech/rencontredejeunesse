@@ -9,7 +9,7 @@ class FormsController < ApplicationController
     @custom_form = CustomForm.new(form, forms_path, view_context, email: true)
     @custom_form.assign_attributes(params[:custom_form])
     if @custom_form.save
-      redirect_to root_path, success: "Votre formulaire a été envoyé !"
+      redirect_to signin_path, success: "Votre formulaire a été envoyé !"
     else
       render 'new'
     end
@@ -18,7 +18,7 @@ class FormsController < ApplicationController
   private
 
   def check_if_active
-    redirect_to root_path, error: "Le formulaire n'est plus disponible" unless form.active?
+    redirect_to signin_path, error: "Le formulaire n'est plus disponible" unless form.active?
   end
 
   def form

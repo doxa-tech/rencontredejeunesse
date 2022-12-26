@@ -30,6 +30,6 @@ class Admin::PaymentsController < Admin::BaseController
   private
 
   def payment_params
-    params.require(:payment).permit(:payment_type, :amount, :status)
+    params.require(:payment).permit(:payment_type, :amount, :state)
   end
 end

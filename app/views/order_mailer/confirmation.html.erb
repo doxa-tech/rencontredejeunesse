@@ -1,13 +1,13 @@
 <h1>Confirmation de commande</h1>
 <p>Merci pour ta commande sur <a href="https://rencontredejeunesse.ch" target="_blank">rencontredejeunesse.ch<a/></p>
 
-<% if @order.main_payment.postfinance? %>
+<% if is_invoice?(@order.amount) %>
 <p>
-  Ton paiement a bien été reçu et ta commande n°<%= link_to @order.order_id, connect_order_url(@order.order_id) %> est validée.
+  Ta commande a bien été reçue. Tu as reçu une facture par email et une fois celle-ci payée, ta commande sera validée.
 </p>
 <% else %>
 <p>
-  Ta commande a bien été reçue. Tu as reçu une facture par email et une fois celle-ci payée, ta commande sera validée.
+  Ton paiement a bien été reçu et ta commande n°<%= link_to @order.order_id, connect_order_url(@order.order_id) %> est validée.
 </p>
 <% end %>
 

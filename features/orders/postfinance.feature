@@ -8,7 +8,8 @@ Feature: Postfinance
   Background:
     Given I am a confirmed user
     And I am signed in
-    Given I am on the confirmation page for an entry
+    Given there is an event
+    And I am on the confirmation page for an entry
     And I confirm my order
 
   Scenario: I successfully complete my payment
@@ -18,7 +19,3 @@ Feature: Postfinance
   Scenario: I cancel the payment
     When I cancel the payment
     Then I should see the cancel page
-
-  Scenario: The payment is uncertain
-    When I make a uncertain payment
-    Then I should see the uncertain page

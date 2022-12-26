@@ -22,9 +22,10 @@
     <%= f.number_field :amount %>
   </div>
   <div class="row">
-    <%= f.label :status %>
+    <%= f.label :state %>
     <div class="select">
-      <%= f.select :status, [["En attente", 41], ["Payé", 9], ["Annulé", 1]] %>
+      <!-- TODO: do not use status anymore -->
+      <%= f.select :state, [["En attente", :pending], ["Payé", :fullfill], ["Annulé", :failed]] %>
     </div>
   </div>
   <div class="row">

@@ -21,7 +21,7 @@ namespace :seed do
 
   desc "Initialize adeia elements"
   task adeia_elements: :environment do
-    ENV['elements'] = "api/comments, api/users, api/testimonies, api/posts, admin/volunteers, admin/discounts, admin/orders/events, admin/orders/registrants, admin/users, admin/payments, admin/orders/checkin, admin/option_orders"
+    ENV['elements'] = "api/comments, api/users, api/testimonies, api/posts, admin/volunteers, admin/discounts, admin/orders/events, admin/orders/registrants, admin/users, admin/payments, admin/orders/checkin, admin/option_orders, admin/items"
     Rake::Task["adeia:permissions"].invoke
   end
 

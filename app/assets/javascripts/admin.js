@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require gumshoe
 //= require snaptable
 //= require raven.min
 //= require_tree ./admin
