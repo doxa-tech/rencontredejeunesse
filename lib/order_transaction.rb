@@ -7,11 +7,25 @@ class OrderTransaction
     @user = order.user
   end
 
-  def execute
+  # payment for an order
+  def execute_order
+    items = line_items.push(fee_item)
+    items.push(discount_item) if @order.discount_amount > 0
+    execute(items)
+  end
+
+  # payment for an additional payment
+  def execute_payment
+    execute([payment_item])
+  end
+
+  # complete order
+  def execute(items)
     space_id = Rails.application.secrets.postfinance_space_id
     transaction_service = PostFinanceCheckout::TransactionService.new
     transaction_payment_page_service = PostFinanceCheckout::TransactionPaymentPageService.new
-    
+    transaction = transaction_create(items)
+
     begin
       service = transaction_service.create(space_id, transaction)
       return transaction_payment_page_service.payment_page_url(space_id, service.id)
@@ -23,10 +37,7 @@ class OrderTransaction
 
   private
 
-  def transaction
-    line_items = items.push(fee)
-    line_items.push(discount) if @order.discount_amount > 0
-
+  def transaction_create(items)
     PostFinanceCheckout::TransactionCreate.new({
       billingAddress: address,
       shippingAddress: address,
@@ -39,11 +50,11 @@ class OrderTransaction
       invoiceMerchantReference: @payment.payment_id,
       merchantReference: @payment.payment_id,
       language: "fr_CH",
-      lineItems: line_items
+      lineItems: items
     })
   end
 
-  def items
+  def line_items
     @order.order_items.includes(:item).map do |oi|
       PostFinanceCheckout::LineItemCreate.new({
         amountIncludingTax: oi.item.price / 100,
@@ -56,7 +67,18 @@ class OrderTransaction
     end
   end
 
-  def fee
+  def payment_item
+    PostFinanceCheckout::LineItemCreate.new({
+      amountIncludingTax: @payment.amount / 100,
+      name: "Paiement supplémentaire",
+      quantity: 1,
+      shippingRequired: false,
+      type: PostFinanceCheckout::LineItemType::PRODUCT,
+      uniqueId: Order::ADDITIONAL_PAYMENT_NUMBER
+    })
+  end
+
+  def fee_item
     PostFinanceCheckout::LineItemCreate.new({
       amountIncludingTax: @order.fee / 100,
       name: "Frais de transaction",
@@ -67,7 +89,7 @@ class OrderTransaction
     })
   end
 
-  def discount
+  def discount_item
     PostFinanceCheckout::LineItemCreate.new({
       amountIncludingTax: @order.discount_amount / 100,
       name: "Rabais",

@@ -3,6 +3,7 @@ class Order < ApplicationRecord
   # unique item number
   FEE_NUMBER = 10
   DISCOUNT_NUMBER = 11
+  ADDITIONAL_PAYMENT_NUMBER = 12
 
   attr_accessor :conditions, :admin
 

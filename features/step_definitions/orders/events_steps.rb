@@ -8,7 +8,7 @@ end
 
 Given(/^I am on the confirmation page for an entry$/) do
   @order = create(:event_order, user: @user)
-  visit confirmation_orders_event_path(@order.order_id)
+  visit confirmation_orders_event_path(@order.order_id, key: @item.order_bundle.key)
 end
 
 When(/^I complete the event form$/) do

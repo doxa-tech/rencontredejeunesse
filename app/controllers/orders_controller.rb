@@ -3,11 +3,12 @@ class OrdersController < Orders::BaseController
   before_action :closed, only: :pay
 
   def pay
+    # creates the main payment and redirect to Postfinance
     payment = order.payments.create!(
       payment_type: :main, method: :postfinance, amount: order.amount, state: :confirmed
     )
     transaction = OrderTransaction.new(order, payment)
-    payment_url = transaction.execute
+    payment_url = transaction.execute_order
     redirect_to payment_url
   end
 

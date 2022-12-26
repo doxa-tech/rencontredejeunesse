@@ -7,7 +7,8 @@ Feature: Edit my account from the order
   Background:
     Given I am a confirmed user
     And I am signed in
-    Given I am on the confirmation page for an entry
+    Given there is an event 
+    And I am on the confirmation page for an entry
 
   Scenario: I successfully update my account
     When I click the link "Editer mon compte"

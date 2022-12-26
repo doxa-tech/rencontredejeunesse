@@ -6,7 +6,8 @@ end
 Given("I already signed up as a volunteer and I completed my order") do
   visit new_option_order_path(key: @order_bundle.key)
   step "I successfully submit my volunteering preferences"
-  Order.last.main_payment.update_attributes(status: 9)
+  @order = Order.last
+  create(:payment, order: @order, amount: @order.amount, state: :fullfill)
 end
 
 When("I successfully submit my volunteering preferences") do

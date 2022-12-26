@@ -25,7 +25,7 @@ class Payment < ApplicationRecord
   validates :amount, presence: true
   validates :payment_type, presence: true
 
-  scope :pending_on_postfinance, -> { where(payment_type: :addition, method: :postfinance, status: pending_states) }
+  scope :pending_on_postfinance, -> { where(payment_type: :addition, method: :postfinance, state: :pending) }
 
   def user
     self.order.user
