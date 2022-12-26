@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require gumshoe
 //= require raven.min
 //= require_tree ./application
 //= require_tree ./sitewide

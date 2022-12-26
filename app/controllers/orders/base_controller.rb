@@ -18,11 +18,11 @@ class Orders::BaseController < ApplicationController
   end
 
   def closed
-    redirect_to root_path, error: "Cette commande est déjà traitée." unless order.progress?
+    redirect_to connect_root_path, error: "Cette commande est déjà traitée." unless order.progress?
   end
 
   def not_pending
-    redirect_to root_path, error: "Cette commande est en cours." if order.pending
+    redirect_to connect_root_path, error: "Cette commande est en cours." if order.pending
   end
 
   def order

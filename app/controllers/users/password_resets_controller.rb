@@ -11,7 +11,7 @@ class Users::PasswordResetsController < ApplicationController
       user.save!
       UserMailer.password_reset(user).deliver_now
     end
-    redirect_to root_path, success: "Un email avec les instructions t'a été envoyé"
+    redirect_to signin_path, success: "Un email avec les instructions t'a été envoyé"
   end
 
   def edit
@@ -27,7 +27,7 @@ class Users::PasswordResetsController < ApplicationController
       @user.reset_token = nil
       @user.reset_sent_at = nil
       @user.save!
-      redirect_to root_path, success: "Mot de passe changé"
+      redirect_to signin_path, success: "Mot de passe changé"
     else
       render 'edit'
     end

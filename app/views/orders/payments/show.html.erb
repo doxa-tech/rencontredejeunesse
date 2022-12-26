@@ -5,5 +5,3 @@
   <p>Montant du paiement: <%= display_price(@payment.amount) %></p>
   <%= render "orders/payments/postfinance", url: pay_orders_payment_path(@payment.payment_id) %>
 </div>
-
-<%= render "layouts/headers/application" %>
