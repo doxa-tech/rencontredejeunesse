@@ -1,6 +1,5 @@
 class Orders::CompletionController < Orders::BaseController
   before_action :closed, :not_pending, :check_if_not_signed_in, only: :update
-  skip_before_action :verify_authenticity_token, only: :postfinance
 
   def update
     begin
