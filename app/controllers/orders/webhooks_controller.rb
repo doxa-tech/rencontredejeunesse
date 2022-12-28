@@ -4,12 +4,23 @@ class Orders::WebhooksController < ApplicationController
     entity_id = params[:entityId]
     space_id = Rails.application.secrets.postfinance_space_id
 
+    if entity_id.nil?
+      head :bad_request
+      return
+    end
+
     # read request
     begin
       transaction_service = PostFinanceCheckout::TransactionService.new
       transaction = transaction_service.read(space_id, entity_id)
     rescue PostFinanceCheckout::ApiError
       head :bad_request
+      return
+    end
+
+    if transaction.nil?
+      head :bad_request
+      return
     end
 
     # update payment

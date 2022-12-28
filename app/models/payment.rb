@@ -1,6 +1,4 @@
 class Payment < ApplicationRecord
-  KEY = Rails.application.secrets.postfinance_key
-  PSPID = Rails.application.secrets.postfinance_pspid
   INVOICE_LIMIT = 80000
   FDIV = 100 # Float division
 

@@ -70,7 +70,7 @@ Rails.application.routes.draw do
   namespace :orders do
 
     # postfinance
-    post "postfinance", to: "completion#postfinance"
+    get "state_update", to: "webhooks#state_update"
 
     # complete free or invoice order
     resources :completion, only: :update, controller: :completion
