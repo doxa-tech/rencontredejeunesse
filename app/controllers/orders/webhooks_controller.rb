@@ -26,7 +26,16 @@ class Orders::WebhooksController < ApplicationController
 
     # update payment
     payment = Payment.find_by!(payment_id: transaction.merchant_reference)
+    order = payment.order
+    old_status = order.status
+
     payment.update(state: transation.state)
+  
+    if old_status != "paid" && order.reload.status == "paid"
+      order_completion = OrderCompletion.new(@payment.order)
+      order_completion.complete(:postfinance)
+    end
+
     head :ok
   end
 
