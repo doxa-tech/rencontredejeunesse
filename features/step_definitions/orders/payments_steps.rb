@@ -1,6 +1,6 @@
 Given("I have an order with a pending payment") do
   @order = create(:event_order, user: @user)
-  create(:payment, order: @order, amount: @order.amount, state: :fullfill) # main payment
+  create(:payment, order: @order, amount: @order.amount, state: :fulfill) # main payment
   @payment = create(:payment, amount: 1000, order: @order, payment_type: :addition, state: :pending)
 end
 

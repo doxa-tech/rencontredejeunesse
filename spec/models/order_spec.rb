@@ -32,7 +32,7 @@ RSpec.describe "Order", :type => :model do
       order = create(:order_with_items)
       create(:payment, order: order, amount: order.amount)
       paid_amount = order.amount
-      order.main_payment.update_attributes!(state: :fullfill)
+      order.main_payment.update_attributes!(state: :fulfill)
       order.order_items << create(:order_item, order: order)
       order.save!
       expect(order.main_payment.amount).to eq paid_amount
@@ -41,7 +41,7 @@ RSpec.describe "Order", :type => :model do
     it "updates order status" do
       order = create(:order_with_items)
       create(:payment, order: order, amount: order.amount)
-      order.main_payment.update_attributes!(state: :fullfill)
+      order.main_payment.update_attributes!(state: :fulfill)
       order.order_items << create(:order_item, order: order)
       order.save!
       expect(order.status).to eq "unpaid"

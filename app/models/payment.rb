@@ -6,13 +6,13 @@ class Payment < ApplicationRecord
   enum method: [:postfinance, :invoice, :cash]
   
   # Postfinance transaction states
-  # failed, voided, fullfill, decline are final states
+  # failed, voided, fulfill, decline are final states
   # transaction:
   # - created -> pending
   # - payment url fetched -> confirmed
   # - client reached payment page -> processing
   # if a payment is failed, we let the client retry
-  enum state: [:pending, :confirmed, :processing, :authorized, :completed, :failed, :voided, :fullfill, :decline]
+  enum state: [:pending, :confirmed, :processing, :authorized, :completed, :failed, :voided, :fulfill, :decline]
 
   belongs_to :order
 
@@ -43,7 +43,7 @@ class Payment < ApplicationRecord
       "progress" # the order is still opened
     elsif payments.any? { |p| p.state.in?  Payment.pending_states }
       "pending" # a payment has not reached a final state yet
-    elsif payments.select{ |p| p.fullfill? }.inject(0) { |sum, obj| sum + obj.total_amount } >= order.amount
+    elsif payments.select{ |p| p.fulfill? }.inject(0) { |sum, obj| sum + obj.total_amount } >= order.amount
       "paid" # the order is paid
     else 
       "unpaid"
@@ -70,7 +70,7 @@ class Payment < ApplicationRecord
   end
 
   def set_time_of_payment
-    self.time = Time.current if self.fullfill?
+    self.time = Time.current if self.time.nil? && self.fulfill?
   end
 
   def generate_id

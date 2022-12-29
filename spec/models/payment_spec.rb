@@ -5,7 +5,7 @@ RSpec.describe "Payment", :type => :model do
   it "updates order status" do
     order = create(:event_order)
     create(:payment, order: order, amount: order.amount)
-    order.main_payment.update_attributes!(state: :fullfill)
+    order.main_payment.update_attributes!(state: :fulfill)
     order.reload
     expect(order.status).to eq "paid"
   end
@@ -35,15 +35,15 @@ RSpec.describe "Payment", :type => :model do
       order = create(:event_order)
       create(:payment, order: order, amount: order.amount)
       order.main_payment.update_attributes!(state: :decline)
-      order.payments.create!(amount: 4500, state: :fullfill, payment_type: "addition")
-      order.payments.create!(amount: 2000, state: :fullfill, payment_type: "addition")
+      order.payments.create!(amount: 4500, state: :fulfill, payment_type: "addition")
+      order.payments.create!(amount: 2000, state: :fulfill, payment_type: "addition")
       expect(order.main_payment.order_status).to eq "paid"
     end
 
     it "return unpaid if the valid payments do not equal the order amount" do
       order = create(:event_order)
       create(:payment, order: order, amount: order.amount - 1000)
-      order.main_payment.update_attributes!(state: :fullfill)
+      order.main_payment.update_attributes!(state: :fulfill)
       expect(order.main_payment.order_status).to eq "unpaid"
     end
 
@@ -52,7 +52,7 @@ RSpec.describe "Payment", :type => :model do
       create(:payment, order: order, amount: order.amount)
       order.update_attributes!(status: :delivered)
       order.reload
-      order.main_payment.update_attributes!(state: :fullfill)
+      order.main_payment.update_attributes!(state: :fulfill)
       expect(order.main_payment.order_status).to eq "delivered"
     end
 
@@ -91,7 +91,7 @@ RSpec.describe "Payment", :type => :model do
     it "set the time if the payment is completed" do
       order = create(:event_order)
       create(:payment, order: order, amount: order.amount)
-      order.main_payment.update_attributes!(state: :fullfill)
+      order.main_payment.update_attributes!(state: :fulfill)
       expect(order.main_payment.time).not_to be nil
     end
 
