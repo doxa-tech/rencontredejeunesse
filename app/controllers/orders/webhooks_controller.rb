@@ -29,7 +29,7 @@ class Orders::WebhooksController < ApplicationController
     order = payment.order
     old_status = order.status
 
-    payment.update(state: transation.state)
+    payment.update(state: transaction.state)
   
     if old_status != "paid" && order.reload.status == "paid"
       order_completion = OrderCompletion.new(@payment.order)

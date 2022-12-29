@@ -28,6 +28,13 @@ Order bundles: an order bundle is a collection of `items`. In case of an event f
 The table is called `order_bundles`. A record has many `items`, a `key` as an identifier and belongs to an `order_type`.
 An `order_type` defines the type of the bundle, i.g the type of order it matches (`regular` or `event`). A type can belong to another type (self inheritance), allowing subtypes of `regular` or `event`.
 
+### Create a bundle
+
+```ruby
+options = {"loc1"=>"CDV", "loc2"=>"Mille-Boilles 4", "loc3"=>"2000 Neuchâtel", "loc4"=>"Suisse", "dates"=>"04.02.23", "orga1"=>"Association Rencontre de Jeunesse", "orga2"=>"1607 Palézieux", "orga3"=>"Suisse", "orga4"=>"www.rencontredejeunesse.ch", "times"=>"09h00-22h00", "upinfo"=>"https://rencontredejeunesse.ch", "contact"=>"info@rencontredejeunesse.ch", "sub1_code"=>"#login23", "subtitle3"=>"À présenter le jour de l'événement"} 
+
+OrderBundle.create(name: "RJ Login 23", description: "La journée qui réunit les leaders de Suisse romande", key: "rj-login-23", open: true, options: options, order_type: "event")
+```
 
 ## Volunteers (with Option Order)
 
