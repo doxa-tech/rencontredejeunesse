@@ -1,5 +1,5 @@
 
-Rails.application.routes.default_url_options = { host: "https://rencontredejeunesse.ch" }
+Rails.application.routes.default_url_options = { host: "https://tickets.rencontredejeunesse.ch" }
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
@@ -64,8 +64,8 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "rencontredejeunesse_#{Rails.env}"
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { host: "https://rencontredejeunesse.ch" }
-  config.action_mailer.asset_host = "https://rencontredejeunesse.ch"
+  config.action_mailer.default_url_options = { host: "https://tickets.rencontredejeunesse.ch" }
+  config.action_mailer.asset_host = "https://tickets.rencontredejeunesse.ch"
 
 
   # Ignore bad email addresses and do not raise email delivery errors.
