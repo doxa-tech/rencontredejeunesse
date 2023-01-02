@@ -11,15 +11,6 @@
       <%= f.field_with_errors :text, :discount_code %>
     </div>
 
-    <div class="price row">
-      <div>Frais d'inscription</div>
-      <div><b><%= display_price(@order.fee) %></b></div>
-    </div>
-    <div class="row">
-      <div>Total</div>
-      <div><b><span id="amount"><%= display_price(@order.amount) %></span></b></div>
-    </div>
-
     <div class="conditions checkbox row">
       <div>
         <%= f.label :conditions do %>
@@ -33,11 +24,7 @@
 
     <div class="row">
       <span></span>
-      <p class="infos">Paiement par PostFinance Card, e-finance ou carte de crédit. Vous pourrez encore confirmer vos informations avant de payer.</p>
-    </div>
-    <div class="row">
-      <span></span>
-      <p><%= image_tag "orders/pay-cards.png" %></p>
+      <p class="infos">Tu pourras voir un résumé de ta commande et confirmer avant de payer.</p>
     </div>
 
     <div class="row">

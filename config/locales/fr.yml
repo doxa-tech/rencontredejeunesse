@@ -7,10 +7,10 @@ fr:
   helpers:
     submit:
       orders_event:
-        create: "S'inscrire"
+        create: "Vers la confirmation"
         update: "Enregistrer"
       option_order:
-        create: "S'inscrire"
+        create: "Vers la confirmation"
       create: "Créer"
       submit: "Envoyer"
       update: "Enregistrer"

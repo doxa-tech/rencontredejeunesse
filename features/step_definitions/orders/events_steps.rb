@@ -20,7 +20,7 @@ end
 
 When(/^I miscomplete the event form$/) do
   fill_in "Prénom", with: ""
-  click_button "S'inscrire"
+  click_button "Vers la confirmation"
 end
 
 When(/^I visit the order update page$/) do
