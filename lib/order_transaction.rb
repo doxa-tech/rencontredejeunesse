@@ -30,8 +30,8 @@ class OrderTransaction
       service = transaction_service.create(space_id, transaction)
       return transaction_payment_page_service.payment_page_url(space_id, service.id)
     rescue PostFinanceCheckout::ApiError => e
-      puts e.response_body
-      fail e
+      Rails.logger.fatal e
+      raise e
     end
   end
 

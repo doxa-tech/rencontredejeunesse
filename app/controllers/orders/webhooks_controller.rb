@@ -14,7 +14,8 @@ class Orders::WebhooksController < ApplicationController
     begin
       transaction_service = PostFinanceCheckout::TransactionService.new
       transaction = transaction_service.read(space_id, entity_id)
-    rescue PostFinanceCheckout::ApiError
+    rescue PostFinanceCheckout::ApiError => e
+      Rails.logger.fatal 
       head :bad_request
       return
     end
