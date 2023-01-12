@@ -40,8 +40,7 @@ class Order < ApplicationRecord
   after_save :update_payment
 
   def fee
-    # self.amount == 0 ? 0 : 500
-    0
+    self.amount == 0 ? 0 : 500
   end
 
   def discount_code

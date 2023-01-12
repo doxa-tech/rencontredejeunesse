@@ -17,7 +17,7 @@ When("I fill in a invalid discount") do
 end
 
 Then("I should see a discount") do
-  price = (@item.price - @discount.reduction) / 100
+  price = (@item.price + 500 - @discount.reduction) / 100
   expect(find ".price").to have_content "#{price} CHF"
 end
 

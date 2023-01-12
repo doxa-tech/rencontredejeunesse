@@ -24,7 +24,7 @@ end
 
 Then("I should see the confirmation page for my volunteer order") do
   expect(page).to have_content "Récapitulatif"
-  expect(page).to have_content "#{@order_bundle.items.first.price / 100} CHF"
+  expect(page).to have_content "#{@order_bundle.items.first.price / 100 + 5} CHF"
 end
 
 Then("I should see the volunteering management page") do
