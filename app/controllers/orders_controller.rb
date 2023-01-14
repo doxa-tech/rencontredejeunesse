@@ -4,7 +4,8 @@ class OrdersController < Orders::BaseController
 
   def pay
     # creates the main payment and redirect to Postfinance
-    payment = order.payments.create!(
+    payment = order.main_payment
+    payment ||= order.payments.create!(
       payment_type: :main, method: :postfinance, amount: order.amount, state: :confirmed
     )
     transaction = OrderTransaction.new(order, payment)
