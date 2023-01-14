@@ -30,7 +30,8 @@ class OrderTransaction
       service = transaction_service.create(space_id, transaction)
       return transaction_payment_page_service.payment_page_url(space_id, service.id)
     rescue PostFinanceCheckout::ApiError => e
-      Rails.logger.fatal e
+      Rails.logger.fatal "Postfinance API error:"
+      Rails.logger.fatal e.response_body
       return nil
     end
   end
@@ -55,14 +56,20 @@ class OrderTransaction
   end
 
   def line_items
-    @order.order_items.includes(:item).map do |oi|
+    # group and count items (each item must appear at most 1 time)
+    items = Hash.new(0)
+    @order.order_items.includes(:item).each do |oi|
+      items[oi.item] += oi.quantity
+    end
+
+    items.map do |item, quantity|
       PostFinanceCheckout::LineItemCreate.new({
-        amountIncludingTax: oi.item.price / 100,
-        name: oi.item.name,
-        quantity: oi.quantity,
+        amountIncludingTax: item.price / 100,
+        name: item.name,
+        quantity: quantity,
         shippingRequired: true,
         type: PostFinanceCheckout::LineItemType::PRODUCT,
-        uniqueId: oi.item.number
+        uniqueId: item.number
       })
     end
   end
