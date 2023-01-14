@@ -11,12 +11,12 @@ class OrderTransaction
   def execute_order
     items = line_items.push(fee_item)
     items.push(discount_item) if @order.discount_amount > 0
-    execute(items)
+    return execute(items)
   end
 
   # payment for an additional payment
   def execute_payment
-    execute([payment_item])
+    return execute([payment_item])
   end
 
   # complete order
@@ -31,7 +31,7 @@ class OrderTransaction
       return transaction_payment_page_service.payment_page_url(space_id, service.id)
     rescue PostFinanceCheckout::ApiError => e
       Rails.logger.fatal e
-      raise e
+      return nil
     end
   end
 

@@ -9,7 +9,11 @@ class OrdersController < Orders::BaseController
     )
     transaction = OrderTransaction.new(order, payment)
     payment_url = transaction.execute_order
-    redirect_to payment_url
+    if payment_url != nil
+      redirect_to payment_url
+    else
+      redirect_to confirmation_orders_event_path(order.order_id, key: order.bundle.key), error: "Une erreur s'est produite avec le paiement, réessaye plus tard."
+    end
   end
 
   def destroy
