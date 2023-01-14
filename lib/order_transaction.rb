@@ -64,7 +64,7 @@ class OrderTransaction
 
     items.map do |item, quantity|
       PostFinanceCheckout::LineItemCreate.new({
-        amountIncludingTax: item.price / 100,
+        amountIncludingTax: quantity*item.price / 100,
         name: item.name,
         quantity: quantity,
         shippingRequired: true,
