@@ -24,7 +24,7 @@ $(document).on("DOMContentLoaded", function() {
   
   function onScanFailure(error) {
     // handle scan failure, usually better to ignore and keep scanning.
-    console.warn(`Code scan error = ${error}`);
+    console.warn(error);
   }
   
   var html5QrcodeScanner = new Html5QrcodeScanner(
