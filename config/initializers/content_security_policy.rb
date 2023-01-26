@@ -9,7 +9,7 @@ Rails.application.config.content_security_policy do |policy|
 #   policy.font_src    :self, :https, :data
 #   policy.img_src     :self, :https, :data
 #   policy.object_src  :none
-    policy.script_src  :self, "https://hcaptcha.com", "https://*.hcaptcha.com", "https://maps.googleapis.com"
+    policy.script_src  :self, "https://hcaptcha.com", "https://*.hcaptcha.com", "https://maps.googleapis.com", "https://unpkg.com"
     policy.style_src   :self, :unsafe_inline, "https://hcaptcha.com", "https://*.hcaptcha.com", "https://fonts.googleapis.com"
     policy.frame_src   :self, "https://hcaptcha.com", "https://*.hcaptcha.com", "https://www.youtube.com", "https://www.youtube-nocookie.com"
     policy.connect_src :self, "https://hcaptcha.com", "https://*.hcaptcha.com"

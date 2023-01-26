@@ -14,6 +14,9 @@
     <%= submit_tag "Afficher", class: "button" %>
 
   <% end %>
+
+  <div id="reader"></div>
 </div>
 
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
 <%= javascript_include_tag "orders/checkin" %>
