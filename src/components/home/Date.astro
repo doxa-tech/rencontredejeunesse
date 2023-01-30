@@ -5,7 +5,9 @@
   <div class="section-container">
     <div class="left">
       <p class="first"><i>#RJ23</i> 5-6 mai 2023</p>
-      <!--<p class="second">multi-sites : <i>Genève, Oron, Tavannes</i></p>-->  
+      <a class="global-link" href="/2023"></a>
+      <div class="mask"></div>
+      <!--<p class="second">multi-sites : <i>Genève, Oron, Tavannes</i></p>-->
     </div>
     <div class="right">
       <iframe
@@ -54,6 +56,7 @@
       div.left {
         text-align: right;
         padding: 0 $sub-padding 0 0;
+        position: relative;
 
         flex: 2;
         display: flex;
@@ -89,6 +92,32 @@
           color: #fff;
           font-size: $medium-title;
           line-height: 0.9em;
+        }
+
+        a.global-link {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transition: all 0.5s;
+          z-index: 2;
+        }
+
+        .mask {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          transition: all 0.5s;
+          z-index: 1;
+        }
+
+        &:hover {
+          & .mask {
+            background-color: rgba($color: rgb(255, 255, 255), $alpha: 0.2);
+          }
         }
       }
 

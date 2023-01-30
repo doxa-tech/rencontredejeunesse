@@ -1,0 +1,87 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <div class="rows-container">
+      <div class="row1">
+        <h1>Chadash</h1>
+        <p class="subtitle"><b>Esaï 43:13</b> toutes choses nouvelles</p>
+      </div>
+
+      <div class="row2">
+        <p>05-06 mai 2023</p>
+        <p>Oron - Genève - Tavannes</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    background-image: url("/2023/welcome/background.jpg");
+    background-size: cover;
+
+    width: 100%;
+    height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .section-container {
+      height: 100%;
+      width: 100%;
+      max-width: $main-width;
+      padding: $logo-burger-height $main-padding 0 $main-padding;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+
+      div.rows-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div.row1 {
+          text-align: center;
+          padding: 50px 0 0 0;
+
+          h1 {
+            font-size: $title-size * 1.5;
+            margin: 0;
+            font-family: "Helvetica neue", "Helvetica", sans-serif;
+            color: #fff;
+            text-transform: uppercase;
+          }
+
+          p.subtitle {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: $medium-title;
+          }
+        }
+
+        div.row2 {
+          padding: 100px 0 0 30px;
+          text-align: left;
+          color: #fff;
+          text-transform: uppercase;
+          font-size: $medium-title;
+          align-self: flex-start;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding: 0 $mobile-padding !important;
+      }
+    }
+  }
+</style>
