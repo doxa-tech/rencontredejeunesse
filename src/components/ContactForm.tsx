@@ -5,11 +5,11 @@ import * as styles from "./ContactForm.module.scss"
 
 export const ContactForm = () => {
 
-  const CONTACT_EMAILS: {[key: string]: string} = {
-    "order" : "QGjjhQ33",
-    "group_order" : "QGjjhQ33",
-    "bug" : "QGjjhQ33",
-    "general" : "QGjjhQ33"
+  const CONTACT_EMAILS: { [key: string]: string } = {
+    "order": "QGjjhQ33",
+    "group_order": "QGjjhQ33",
+    "bug": "QGjjhQ33",
+    "general": "QGjjhQ33"
   }
 
   let formId = "QGjjhQ33"; // default form
@@ -30,7 +30,7 @@ export const ContactForm = () => {
         "Accept": "application/json"
       },
       body: JSON.stringify({
-        "email" : email,
+        "email": email,
         "Nom": name,
         "Message": message,
         "h-captcha-response": hToken,

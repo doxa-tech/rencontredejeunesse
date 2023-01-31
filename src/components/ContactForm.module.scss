@@ -60,6 +60,7 @@ form {
     font-size: $sub-title;
     font-weight: bold;
     text-transform: lowercase;
+    cursor: pointer;
   }
 
   &::after {

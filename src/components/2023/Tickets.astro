@@ -169,6 +169,41 @@
             background: #fece00;
             padding: 10px 30px;
             border-radius: 5px;
+            transition: all 300ms;
+
+            &:hover {
+              background: #d3ac00;
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding-top: 50px;
+
+        div.prices {
+          flex-direction: column;
+          align-items: center;
+
+          div.price {
+            width: 150px;
+
+            div.day {
+              &::after {
+                bottom: -0.35em;
+              }
+            }
+          }
+        }
+
+        div.locations {
+          flex-direction: column;
+          align-items: center;
+
+          div.location {
+            width: 150px;
           }
         }
       }
