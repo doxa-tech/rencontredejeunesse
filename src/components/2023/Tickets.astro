@@ -67,6 +67,8 @@
     .section-container {
       max-width: $main-width;
       padding: 80px 50px;
+      font-family: bebas, sans-serif;
+      letter-spacing: 0.05em;
 
       div.prices {
         display: flex;
@@ -86,13 +88,16 @@
             text-transform: uppercase;
             font-size: $large-text;
             position: relative;
-            height: 55px;
+            height: 65px;
             vertical-align: middle;
             display: flex;
             flex-direction: row;
             align-items: center;
             justify-content: center;
             border-bottom: 3px solid #617a64;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            padding: 7px 0 0 0;
 
             &.full {
               background-color: #617a64;
@@ -102,7 +107,7 @@
             &::after {
               content: "";
               position: absolute;
-              bottom: -0.23em;
+              bottom: -0.19em;
               left: -3px;
               right: -3px;
               height: 3px;
@@ -124,6 +129,7 @@
           & > p:nth-of-type(2) {
             padding: 0 0px 12px 30px;
             font-size: $small-text;
+            font-weight: 200;
           }
         }
       }
@@ -154,6 +160,7 @@
           p:nth-of-type(1) {
             font-size: $large-text;
             padding: 30px 0 20px 0;
+            letter-spacing: 0.1em;
           }
 
           p:nth-of-type(2),
@@ -161,6 +168,7 @@
           p:nth-of-type(4) {
             font-size: $small-text;
             padding: 0 0 7px 0;
+            font-weight: 300;
           }
 
           a {
@@ -170,6 +178,7 @@
             padding: 10px 30px;
             border-radius: 5px;
             transition: all 300ms;
+            letter-spacing: 0.1em;
 
             &:hover {
               background: #d3ac00;
@@ -192,7 +201,7 @@
 
             div.day {
               &::after {
-                bottom: -0.35em;
+                bottom: -0.27em;
               }
             }
           }

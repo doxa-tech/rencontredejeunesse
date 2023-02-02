@@ -71,6 +71,7 @@
 
   // open menu
   burger?.addEventListener("click", function () {
+    console.log("open menu");
     burger.classList.add("hiddenContent");
     menu?.classList.remove("hiddenContent");
   });
@@ -188,10 +189,14 @@
     right: 0;
     bottom: 0;
     background-color: #000;
-    display: none;
+    display: block;
+
+    .hiddenContent {
+      display: none;
+    }
 
     div.content-wrap {
-      overflow-y: scroll;
+      overflow-y: auto;
       height: 100%;
       display: flex;
       flex-direction: column;

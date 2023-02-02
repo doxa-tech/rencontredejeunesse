@@ -5,7 +5,7 @@
   <div class="section-container">
     <div class="rows-container">
       <div class="row1">
-        <h1>Chadash</h1>
+        <img src="2023/welcome/title.png" />
         <p class="subtitle"><b>Esaï 43:13</b> toutes choses nouvelles</p>
       </div>
 
@@ -14,6 +14,10 @@
         <p>Oron - Genève - Tavannes</p>
       </div>
     </div>
+
+    <button onclick="window.scrollBy(0, 600);"
+      ><img class="arrow" src="2023/welcome/arrow.png" />
+    </button>
   </div>
 </section>
 
@@ -25,7 +29,7 @@
     background-size: cover;
 
     width: 100%;
-    height: 600px;
+    height: 700px;
 
     display: flex;
     justify-content: center;
@@ -42,6 +46,8 @@
       justify-content: center;
       align-items: flex-start;
 
+      position: relative;
+
       div.rows-container {
         display: flex;
         flex-direction: column;
@@ -52,18 +58,23 @@
           text-align: center;
           padding: 50px 0 0 0;
 
-          h1 {
-            font-size: $title-size * 1.5;
-            margin: 0;
-            font-family: "Helvetica neue", "Helvetica", sans-serif;
-            color: #fff;
-            text-transform: uppercase;
+          img {
+            width: 600px;
+            max-width: 100%;
           }
 
           p.subtitle {
             color: #fff;
             text-transform: uppercase;
-            font-size: $medium-title;
+            font-size: $sub-title;
+            font-family: bebas, sans-serif;
+            font-weight: 200;
+            font-stretch: 2em;
+            letter-spacing: 0.01em;
+
+            b {
+              font-weight: 400;
+            }
           }
         }
 
@@ -74,11 +85,44 @@
           text-transform: uppercase;
           font-size: $medium-title;
           align-self: flex-start;
+          font-family: bebas, sans-serif;
+          font-weight: 400;
+          letter-spacing: 0.1em;
+        }
+      }
+
+      img.arrow {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 0px;
+        width: 80px;
+
+        &:hover {
+          animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+          0%,
+          20%,
+          50%,
+          80%,
+          100% {
+            transform: translate(-50%, 0);
+          }
+          40% {
+            transform: translate(-50%, -30px);
+          }
+          60% {
+            transform: translate(-50%, -15px);
+          }
         }
       }
     }
 
     @media only screen and (max-width: $mobile-width) {
+      height: 550px;
+
       .section-container {
         padding: 0 $mobile-padding !important;
 

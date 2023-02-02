@@ -2,3 +2,33 @@
   font-family: swiss;
   src: url("/fonts/Swiss_721_Black_Condensed_Italic_BT.ttf");
 }
+
+@font-face {
+  font-family: bebas;
+  src: url("/fonts/bebasneue/BebasNeue Thin.ttf");
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: bebas;
+  src: url("/fonts/bebasneue/BebasNeue Light.ttf");
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: bebas;
+  src: url("/fonts/bebasneue/BebasNeue Book.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: bebas;
+  src: url("/fonts/bebasneue/BebasNeue Regular.ttf");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: bebas;
+  src: url("/fonts/bebasneue/BebasNeue Bold.ttf");
+  font-weight: bold;
+}
