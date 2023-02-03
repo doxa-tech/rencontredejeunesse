@@ -102,7 +102,7 @@ fr:
     statuses:
       paid: "Payé"
       unpaid: "Impayé"
-      progess: "En cours"
+      progress: "En cours"
       pending: "En attente de paiement"
       delivered: "Livré"
       refunded: "Remboursé"
