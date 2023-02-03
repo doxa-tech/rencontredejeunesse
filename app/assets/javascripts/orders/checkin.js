@@ -22,15 +22,8 @@ $(document).on("DOMContentLoaded", function() {
     $ticket_id.val(decodedText);
   }
   
-  function onScanFailure(error) {
-    // handle scan failure, usually better to ignore and keep scanning.
-    console.warn(error);
-  }
+  const html5QrCode = new Html5Qrcode("reader");
+  const config = { fps: 10, qrbox: { width: 250, height: 250 } };
+  html5QrCode.start({ facingMode: "environment" }, config, onScanSuccess);
   
-  var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader",
-    { fps: 10, qrbox: {width: 250, height: 250} },
-    /* verbose= */ false);
-  html5QrcodeScanner.render(onScanSuccess, onScanFailure);
-
 });
