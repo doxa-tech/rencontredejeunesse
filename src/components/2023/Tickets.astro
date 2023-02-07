@@ -8,7 +8,8 @@
         <div class="day full">
           <p>vendredi<br />samedi<span>+</span></p>
         </div>
-        <p>CHF 50 jusqu'au 4 avril</p>
+        <p>CHF 50</p>
+        <p>jusqu'au 4 avril</p>
         <p>CHF 55 jusqu'au 4 mai</p>
         <p>CHF 80 sur place</p>
       </div>
@@ -16,7 +17,8 @@
         <div class="day">
           <p>vendredi</p>
         </div>
-        <p>CHF 20 jusqu'au 4 avril</p>
+        <p>CHF 20</p>
+        <p>jusqu'au 4 avril</p>
         <p>CHF 25 jusqu'au 4 mai</p>
         <p>CHF 30 sur place</p>
       </div>
@@ -24,9 +26,10 @@
         <div class="day">
           <p>samedi</p>
         </div>
-        <p>CHF 40 jusqu'au 4 avril</p>
+        <p>CHF 40</p>
+        <p>jusqu'au 4 avril</p>
         <p>CHF 45 jusqu'au 4 mai</p>
-        <p>CHF 50 sur place (CHF 30 dès 19h)</p>
+        <p>CHF 50 sur place<br />(CHF 30 dès 19h)</p>
       </div>
     </div>
 
@@ -77,7 +80,7 @@
         display: flex;
         flex-direction: row;
         justify-content: center;
-        align-items: flex-start;
+        align-items: flex-end;
         flex-wrap: wrap-reverse;
 
         div.price {
@@ -129,7 +132,7 @@
             font-size: $large-text;
           }
 
-          & > p:nth-of-type(2) {
+          & > p:not(:nth-of-type(1)) {
             padding: 0 0px 12px 30px;
             font-size: $small-text;
             font-weight: 200;
@@ -205,6 +208,10 @@
             div.day {
               &::after {
                 bottom: -0.27em;
+              }
+
+              span {
+                top: 25px;
               }
             }
           }
