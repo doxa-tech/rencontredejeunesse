@@ -7,26 +7,30 @@
 Oui ! Tu peux acheter des pass weekend et journalier (soit vendredi, soit samedi).<br>
 Le paiement peut se faire en cash ou avec TWINT. Si tu peux, on t’encourage donc à prendre tes billets en avance !
 
-Prix **en ligne**:
+Prix **en ligne** jusqu'au **4 avril**:
 
 - Le pass 2 jour (vendredi et samedi) 50.-
 - Le vendredi (soir) CHF 20.-
 - Le samedi (tout la journée) CHF 40.-
-- Il n'y a pas d'autres forfaits.
-- Un montant forfaitaire de 5.-/commande en ligne est facturé pour couvrir les frais de transactions.
 
-Prix **sur place**:
+Prix **en ligne** jusqu'au **4 mai**:
 
 - Le pass 2 jour (vendredi et samedi) 55.-
 - Le vendredi (soir) CHF 25.-
 - Le samedi (tout la journée) CHF 45.-
-- Il n'y a pas d'autres forfaits.
+
+Prix **sur place**:
+
+- Le pass 2 jour (vendredi et samedi) 80.-
+- Le vendredi (soir) CHF 30.-
+- Le samedi (tout la journée) CHF 50.-
+- Le samedi (soir) CHF 30.-
 
 ### Où se déroule la rencontre ?
 
 La RJ se déroule sur trois sites:
-- Genève: Salle Centrale de la Madeleine, Rue de la Madeleine 10, 1204 Genève
-- Neuchâtel: Centre de Vie, Rue des Mille Boilles 4, 2000 Neuchâtel
+- Genève: Esther House, Rue Voltaire 27, 1201 Genève
+- Tavannes: CET, La Combe 10, 2710 Tavannes
 - Oron: Gospel Center Oron, Route du Flon 28, 1610 Oron
 
 ### Dans le passé, il y avait les fameux dortoirs, est-ce qu’il y a des possibilités cette année encore de dormir sur place?
