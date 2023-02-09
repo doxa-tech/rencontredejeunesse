@@ -30,8 +30,8 @@ Prix **sur place**:
 
 La RJ se déroule sur trois sites:
 - Genève: Esther House, Rue Voltaire 27, 1201 Genève
-- Tavannes: CET, La Combe 10, 2710 Tavannes
 - Oron: Gospel Center Oron, Route du Flon 28, 1610 Oron
+- Tavannes: CET, La Combe 10, 2710 Tavannes
 
 ### Dans le passé, il y avait les fameux dortoirs, est-ce qu’il y a des possibilités cette année encore de dormir sur place?
 
