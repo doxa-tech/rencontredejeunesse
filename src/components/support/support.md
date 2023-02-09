@@ -1,6 +1,6 @@
 # FAQ
 
-## Rencontre de jeunesse 2022
+## Rencontre de jeunesse 2023
 
 ### Est-ce que je peux acheter mon entrée sur place?
 
