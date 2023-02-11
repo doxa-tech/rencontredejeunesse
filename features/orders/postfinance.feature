@@ -19,3 +19,9 @@ Feature: Postfinance
   Scenario: I cancel the payment
     When I cancel the payment
     Then I should see the cancel page
+ 
+  Scenario: I leave the payment page and come back
+    When I come back to the confirmation page
+    And I confirm my order
+    And I successfully pay online
+    Then I should see the success page

@@ -2,7 +2,7 @@ class Payment < ApplicationRecord
   INVOICE_LIMIT = 80000
   FDIV = 100 # Float division
 
-  enum payment_type: [:main, :refund, :addition]
+  enum payment_type: [:main, :refund, :addition, :discarded]
   enum method: [:postfinance, :invoice, :cash]
   
   # Postfinance transaction states
@@ -35,9 +35,10 @@ class Payment < ApplicationRecord
 
   def order_status(order = self.order)
     # TODO: refund
-    payments = Payment.where(order: order).where.not(id: self.id).to_a << self
+    #Payment.where("order_id = ? AND id != self.id AND status != ?", order, self.id, :discarded)
+    payments = Payment.where(order: order).where.not(id: self.id).where.not(payment_type: :discarded).to_a << self
     main = payments.select{ |p| p.main? }.last
-    if order.delivered? 
+    if order.delivered?
       "delivered" # delivered is a final state
     elsif main.state.in? Payment.progress_states
       "progress" # the order is still opened

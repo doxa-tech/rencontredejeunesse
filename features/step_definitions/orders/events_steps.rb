@@ -11,6 +11,10 @@ Given(/^I am on the confirmation page for an entry$/) do
   visit confirmation_orders_event_path(@order.order_id, key: @item.order_bundle.key)
 end
 
+When("I come back to the confirmation page") do
+  visit confirmation_orders_event_path(@order.order_id, key: @item.order_bundle.key)
+end
+
 When(/^I complete the event form$/) do
   within(".registrants-wrap") do
     select "Rencontre de jeunesse 2018 - WE", from: "Produit"
