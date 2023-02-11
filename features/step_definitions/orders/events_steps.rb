@@ -50,7 +50,7 @@ Then(/^I should see errors for the event form$/) do
 end
 
 Then("I should see the right amount for the event order") do
-  amount = (@item.price + 500) / 100
+  amount = (@item.price) / 100
   expect(find ".price").to have_content "#{amount} CHF"
 end
 
