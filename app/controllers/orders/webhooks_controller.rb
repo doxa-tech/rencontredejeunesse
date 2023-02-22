@@ -67,7 +67,7 @@ class Orders::WebhooksController < ApplicationController
     end
 
     # update payment
-    payment = Payment.find_by!(payment_id: refund.merchant_reference)
+    payment = Payment.find_by!(payment_id: refund.transaction.merchant_reference)
     payment.update(refund_amount: refund.amount, refund_state: refund.state.downcase)
     
     head :ok
