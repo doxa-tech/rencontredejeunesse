@@ -52,7 +52,7 @@ class Orders::WebhooksController < ApplicationController
 
     # read request
     begin
-      refund_service = PostFinanceCheckout::Refund.new
+      refund_service = PostFinanceCheckout::RefundService.new
       refund = refund_service.read(space_id, entity_id)
     rescue PostFinanceCheckout::ApiError => e
       Rails.logger.fatal "Postfinance API error:"
