@@ -13,6 +13,7 @@ class Payment < ApplicationRecord
   # - client reached payment page -> processing
   # if a payment is failed, we let the client retry
   enum state: [:pending, :confirmed, :processing, :authorized, :completed, :failed, :voided, :fulfill, :decline]
+  enum refund_state: [:successful]
 
   belongs_to :order
 
@@ -35,7 +36,6 @@ class Payment < ApplicationRecord
 
   def order_status(order = self.order)
     # TODO: refund
-    #Payment.where("order_id = ? AND id != self.id AND status != ?", order, self.id, :discarded)
     payments = Payment.where(order: order).where.not(id: self.id).where.not(payment_type: :discarded).to_a << self
     main = payments.select{ |p| p.main? }.last
     if order.delivered?
@@ -46,14 +46,15 @@ class Payment < ApplicationRecord
       "pending" # a payment has not reached a final state yet
     elsif payments.select{ |p| p.fulfill? }.inject(0) { |sum, obj| sum + obj.total_amount } >= order.amount
       "paid" # the order is paid
+    elsif payments.any? { |p| p.refund_state == "successful" }
+      "refunded"
     else 
       "unpaid"
     end 
   end
 
   def total_amount
-    # TODO: refund
-    amount
+    refund_state == "successful" ? amount - refund_amount : amount
   end
 
   def self.progress_states

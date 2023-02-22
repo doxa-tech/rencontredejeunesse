@@ -71,18 +71,19 @@ RSpec.describe "Payment", :type => :model do
       expect(order.main_payment.order_status).to eq "progress"
     end
 
-    # TODO: refund
-    # it "returns refunded if there is a completed refund" do
-    #   order = create(:event_order)
-    #   order.main_payment.update_attributes!(status: 9, refund_amount: 20, refund_status: 8)
-    #   expect(order.main_payment.order_status).to eq "refunded"
-    # end
+    it "returns paid even if there is a refund" do
+      order = create(:event_order)
+      create(:payment, order: order, amount: order.amount + 2000)
+      order.main_payment.update_attributes!(state: :fulfill, refund_amount: 2000, refund_state: :successful)
+      expect(order.main_payment.order_status).to eq "paid"
+    end
 
-    # it "returns paid if the refund is not completed" do
-    #   order = create(:event_order)
-    #   order.main_payment.update_attributes!(status: 9, refund_amount: 20, refund_status: 81)
-    #   expect(order.main_payment.order_status).to eq "paid"
-    # end
+    it "returns refunded if there is a completed refund" do
+      order = create(:event_order)
+      create(:payment, order: order, amount: order.amount)
+      order.main_payment.update_attributes!(state: :fulfill, refund_amount: 2000, refund_state: :successful)
+      expect(order.main_payment.order_status).to eq "refunded"
+    end
 
   end
 

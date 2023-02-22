@@ -15,7 +15,8 @@ class Orders::WebhooksController < ApplicationController
       transaction_service = PostFinanceCheckout::TransactionService.new
       transaction = transaction_service.read(space_id, entity_id)
     rescue PostFinanceCheckout::ApiError => e
-      Rails.logger.fatal 
+      Rails.logger.fatal "Postfinance API error:"
+      Rails.logger.fatal e.response_body
       head :bad_request
       return
     end
@@ -40,8 +41,36 @@ class Orders::WebhooksController < ApplicationController
     head :ok
   end
 
-  def refund
-    # TODO
+  def refund_update
+    entity_id = params[:entityId]
+    space_id = Rails.application.secrets.postfinance_space_id
+
+    if entity_id.nil?
+      head :bad_request
+      return
+    end
+
+    # read request
+    begin
+      refund_service = PostFinanceCheckout::Refund.new
+      refund = refund_service.read(space_id, entity_id)
+    rescue PostFinanceCheckout::ApiError => e
+      Rails.logger.fatal "Postfinance API error:"
+      Rails.logger.fatal e.response_body
+      head :bad_request
+      return
+    end
+
+    if refund.nil?
+      head :bad_request
+      return
+    end
+
+    # update payment
+    payment = Payment.find_by!(payment_id: refund.merchant_reference)
+    payment.update(refund_amount: refund.amount, refund_state: refund.state.downcase)
+    
+    head :ok
   end
 
 end

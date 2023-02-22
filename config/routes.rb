@@ -71,6 +71,7 @@ Rails.application.routes.draw do
 
     # postfinance
     post "state_update", to: "webhooks#state_update"
+    post "refund_update", to: "webhooks#refund_update"
 
     # complete free or invoice order
     resources :completion, only: :update, controller: :completion
