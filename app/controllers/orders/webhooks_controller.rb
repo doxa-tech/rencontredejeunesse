@@ -67,8 +67,9 @@ class Orders::WebhooksController < ApplicationController
     end
 
     # update payment
+    # the amount is multiplied by 100, because PF does not give the amount in cents
     payment = Payment.find_by!(payment_id: refund.transaction.merchant_reference)
-    payment.update(refund_amount: refund.amount, refund_state: refund.state.downcase)
+    payment.update(refund_amount: refund.amount * 100, refund_state: refund.state.downcase)
     
     head :ok
   end
