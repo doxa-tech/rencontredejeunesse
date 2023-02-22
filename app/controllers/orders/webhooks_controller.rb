@@ -1,5 +1,5 @@
 class Orders::WebhooksController < ApplicationController
-  skip_before_action :verify_authenticity_token, only: :state_update
+  skip_before_action :verify_authenticity_token, only: [:state_update, :refund_update]
 
   def state_update
     entity_id = params[:entityId]
