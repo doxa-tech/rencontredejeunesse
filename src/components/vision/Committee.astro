@@ -10,7 +10,6 @@ const parameterize = (str: string) => {
 const Someone = (fullname: string, title: string) => {
   return `
     <div class="someone">
-      <img src="/vision/comitee/${parameterize(fullname)}.jpg" />
       <p>${fullname}</p>
       <p>${title}</p>
     </div>
@@ -18,15 +17,14 @@ const Someone = (fullname: string, title: string) => {
 };
 
 const people = [
-  { fullname: "Yves Matthey", title: "Président" },
-  { fullname: "Catherine Matthey" },
-  { fullname: "Yves Bulundwe" },
-  { fullname: "Daniel Darcey" },
-  { fullname: "Sabine Christen" },
-  { fullname: "Jeremie Bader" },
-  { fullname: "David Tripet" },
-  { fullname: "Shékina Favre" },
-  { fullname: "Sylvain Riard" },
+  { fullname: "Yves Bulundwe", title: "Directeur" },
+  { fullname: "David Van der Mass" },
+  { fullname: "Cyril Chollet" },
+  { fullname: "Shékina Vauthier" },
+  { fullname: "Yannis Vauthier" },
+  { fullname: "Keran Kocher" },
+  { fullname: "Stéphane Huguenin" },
+  { fullname: "Antoine Bourgeois" }
 ];
 ---
 
@@ -34,7 +32,7 @@ const people = [
   <div class="section-container">
     <div class="title">
       <div class="first-half">
-        <h2>Team Vision</h2>
+        <h2>Pilotage</h2>
         <div class="background-layer"></div>
       </div>
       <div class="second-half"></div>
@@ -44,7 +42,6 @@ const people = [
       {
         people.map((person) => (
           <div class="someone">
-            <img src={`/vision/comitee/${parameterize(person.fullname)}.jpg`} />
             <p>{person.fullname}</p>
             <p>{person.title}</p>
           </div>
@@ -135,7 +132,7 @@ const people = [
           font-weight: bold;
           padding: 30px 0;
           width: 320px;
-          height: 300px;
+          height: 100px;
 
           img {
             width: 214px;
