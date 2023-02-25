@@ -132,7 +132,7 @@ export const HistoryReact = () => {
           <h3>Aujourd'hui</h3>
           <p>
             Aujourd’hui, la RJ est à l’étroit à Bulle et des projets d’agrandissement sont à l’étude. La RJ est organisée par une équipe d’ami/es qui sont tous/tes engagés/es dans différentes églises locales de Suisse romande. Elle accueille des jeunes de plus de 10 fédérations d’églises différentes.<br />
-            Durant toutes ces années, la RJ a permis à :
+            Durant toutes ces années, la RJ a permis à :
             <ul>
               <li>des centaines de jeunes de donner leur vie à Jésus. (Certains pasteurs actuels en Suisse romande ont rencontré Jésus à la RJ.)</li>
               <li>des centaines de jeunes de vivre des guérisons physiques</li>

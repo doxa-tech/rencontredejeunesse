@@ -28,16 +28,15 @@
       }
 
       ul {
+        position: relative; 
+
         li {
           padding: 65px 0 0 0;
           font-size: $large-text;
           //border-left: 1px solid #fff;
           position: relative;
           z-index: 3;
-
-          &:not(:first-child) {
-            border-left: 1px solid #fff;
-          }
+          line-height: 1.6em;
 
           p {
             cursor: pointer;
@@ -65,7 +64,7 @@
             }
 
             span.arrow {
-              white-space: 0;
+              margin-left: 1px;
             }
 
             span.link {
@@ -79,6 +78,17 @@
               display: block;
             }
           }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 60px;
+          bottom: 4px;
+          z-index: 99;
+
+          border-left: 1px solid #fff;
         }
       }
     }
@@ -144,6 +154,11 @@
                 display: none !important;
               }
             }
+          }
+
+          &:after {
+            top: 21px;
+            left: -17px;
           }
         }
       }
