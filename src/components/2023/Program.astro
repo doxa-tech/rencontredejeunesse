@@ -4,53 +4,39 @@
 <section>
   <div class="section-container">
     <h2>Programme</h2>
-    <h3>Oron</h3>
+    <h3>Tous les sites</h3>
     <div class="days">
       <div class="day">
         <h4>Vendredi</h4>
-        <p>18h00: ouverture des portes</p>
+        <p>18h00: Ouverture</p>
         <p>20h00: Plénière</p>
-        <p>23h00: Fin de la soirée</p>
+        <p>22h00: Fin de la soirée</p>
+        <p>00h00: Fermeture</p>
       </div>
       <div class="day">
         <h4>Samedi</h4>
-        <p>9h00: ouverture des portes</p>
+        <p>09h00: Ouverture</p>
         <p>10h00: Plénière</p>
-        <p>14h00: Atelier</p>
+        <p>12h00: Fin de la matinée</p>
+        <p>14h00: Ateliers</p>
+        <p>17h00: Fin des ateliers</p>
         <p>20h00: Plénière</p>
-        <p>00h00: Fermeture des portes</p>
-      </div>
-      <div class="day">
-        <h4>Dimanche</h4>
-        <p>9h00: ouverture des portes</p>
-        <p>10h00: Plénière</p>
-        <p>14h00: Plénière</p>
-        <p>15h00: FIN</p>
+        <p>22h00: Fin de la soirée</p>
+        <p>00h00: Fermeture</p>
       </div>
     </div>
-
-    <h3>Tavane</h3>
+    <h3>Fun Zone</h3>
     <div class="days">
       <div class="day">
         <h4>Vendredi</h4>
-        <p>18h00: ouverture des portes</p>
-        <p>20h00: Plénière</p>
-        <p>23h00: Fin de la soirée</p>
+        <p>18h00 à 19h30</p>
+        <p>22h00 à 00h00</p>
       </div>
       <div class="day">
         <h4>Samedi</h4>
-        <p>9h00: ouverture des portes</p>
-        <p>10h00: Plénière</p>
-        <p>14h00: Atelier</p>
-        <p>20h00: Plénière</p>
-        <p>00h00: Fermeture des portes</p>
-      </div>
-      <div class="day">
-        <h4>Dimanche</h4>
-        <p>9h00: ouverture des portes</p>
-        <p>10h00: Plénière</p>
-        <p>14h00: Plénière</p>
-        <p>15h00: FIN</p>
+        <p>09h00 à 09h30</p>
+        <p>12h00 à 19h30</p>
+        <p>22h00 à 00h00</p>
       </div>
     </div>
   </div>
@@ -68,7 +54,8 @@
 
     .section-container {
       max-width: $main-width;
-      padding: 80px 50px;
+      width: 100%;
+      padding: 80px 100px;
 
       h2 {
         font-size: $sub-title;
@@ -95,8 +82,10 @@
         padding: 20px 0 10px 0;
 
         .day {
+          flex: 1 1 0;
+
           &:not(:last-of-type) {
-            padding: 0px 25px 0px 0;
+            padding: 0 0 0 0;
           }
 
           h4 {
