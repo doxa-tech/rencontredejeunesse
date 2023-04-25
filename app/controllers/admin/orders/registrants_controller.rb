@@ -35,7 +35,7 @@ class Admin::Orders::RegistrantsController < Admin::BaseController
   private
 
   def filter_by_key(collection, key)
-    @bundle = OrderBundle.find_by(key: params[:key])
+    @bundle = OrderBundle.find_by(key: params[:bundle_key])
     if @bundle
       collection = collection.joins(:item).where(items: { order_bundle_id: @bundle.id }).distinct
     end
