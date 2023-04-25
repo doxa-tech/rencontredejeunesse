@@ -50,19 +50,19 @@
 <style>
   #checkin.admin-orders-registrants-show {
     <% case @state %>
-    <% when "ok" %>
+    <% when "green" %>
     background: rgb(171,255,0);
     background: -moz-linear-gradient(top, rgba(171,255,0,1) 0%, rgba(1,242,0,1) 100%);
     background: -webkit-linear-gradient(top, rgba(171,255,0,1) 0%,rgba(1,242,0,1) 100%);
     background: linear-gradient(to bottom, rgba(171,255,0,1) 0%,rgba(1,242,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#abff00', endColorstr='#01f200',GradientType=0 );
-    <% when "infos" %>
+    <% when "orange" %>
     background: rgb(255,238,0);
     background: -moz-linear-gradient(top, rgba(255,238,0,1) 0%, rgba(255,204,0,1) 100%);
     background: -webkit-linear-gradient(top, rgba(255,238,0,1) 0%,rgba(255,204,0,1) 100%);
     background: linear-gradient(to bottom, rgba(255,238,0,1) 0%,rgba(255,204,0,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffee00', endColorstr='#ffcc00',GradientType=0 );
-    <% when "nok" %>
+    <% when "red" %>
     background: rgb(255,129,0);
     background: -moz-linear-gradient(top, rgba(255,129,0,1) 0%, rgba(255,1,0,1) 100%);
     background: -webkit-linear-gradient(top, rgba(255,129,0,1) 0%,rgba(255,1,0,1) 100%);

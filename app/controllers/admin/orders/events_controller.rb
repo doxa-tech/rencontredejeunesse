@@ -3,21 +3,25 @@ class Admin::Orders::EventsController < Admin::BaseController
   load_and_authorize(model: ::Orders::Event)
 
   def index
+    if params[:redirect_key]
+      redirect_to "/admin/orders/#{params[:redirect_key]}/events"
+    end
+
     @keys = OrderBundle.pluck(:key)
-    @bundle = OrderBundle.find_by(key: params[:key])
-    @events = @events.joins(:tickets).where(status: [:paid, :pending], items: { order_bundle_id: @bundle.id }).distinct if @bundle
-    @count = @events.size
+    @bundle = OrderBundle.find_by(key: params[:bundle_key])
+    @events = @events.joins(:tickets).where(items: { order_bundle_id: @bundle.id }).distinct if @bundle
+    @count = @events.where(status: :paid).size
     @table = OrderTable.new(self, @events, search: true)
     @table.respond
   end
 
   def show
-    @state = if @event.unpaid? || @event.delivered?
-      "nok"
+    @state = if !@event.paid? || @event.delivered?
+      "red"
     elsif !@event.note.blank?
-      "infos"
+      "orange"
     else
-      "ok"
+      "green"
     end
   end
 

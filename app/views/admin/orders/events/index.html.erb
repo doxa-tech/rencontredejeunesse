@@ -3,7 +3,7 @@
 <%= form_tag nil, method: :get do %>
   
   <%= hidden_field_tag :token, params[:token] %>
-  <%= select_tag :key, options_for_select(@keys, params[:key]) %>
+  <%= select_tag :redirect_key, options_for_select(@keys) %>
 
   <%= submit_tag "Sélectionner" %>
 
@@ -12,7 +12,6 @@
 <p>
   La recherche fonctionne sur les champs Id ainsi que le prénom, nom et email de la personne.<br>
   Certaines colonnes sont "triables" en cliquant sur les en-têtes.<br>
-  Explication des statuts: <a target="_blank" href="https://e-payment-postfinance.v-psp.com/fr/guides/user%20guides/statuses-and-errors">Guide Postfinance</a>. Les commandes valides ont le statut 5 ou 9.
 </p>
 <p>Nombre d'entrées: <%= @count %></p>
 

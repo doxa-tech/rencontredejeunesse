@@ -130,10 +130,21 @@ Rails.application.routes.draw do
 
     namespace :orders do
 
-      resources :events
-      resources :registrants, only: [:index, :show, :update] do
+
+      resources :events, except: :index
+
+      scope "(/:bundle_key)" do
+        resources :events, only: :index
+      end
+
+      resources :registrants, only: [:show, :update] do
         get "export", on: :collection
       end
+
+      scope "(/:bundle_key)" do
+        resources :registrants, only: :index
+      end
+
       resources :checkin, only: [:index, :create, :update]
 
     end
