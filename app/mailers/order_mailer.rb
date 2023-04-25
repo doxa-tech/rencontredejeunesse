@@ -22,6 +22,11 @@ class OrderMailer < ApplicationMailer
     mail(to: order.user.email, bcc: ["kocher.ke@gmail.com"], subject: "Votre facture pour la commande #{@order.order_id}")
   end
 
+  def anomalous_delivery(order)
+    @order = order
+    mail(to: "keran.k@rencontredejeunesse.ch", subject: "Anomalous delivery")
+  end
+
   def announcement(emails)
     mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
   end
