@@ -3,7 +3,7 @@
 <%= form_tag nil, method: :get do %>
   
   <%= hidden_field_tag :token, params[:token] %>
-  <%= select_tag :redirect_key, options_for_select(@keys) %>
+  <%= select_tag :redirect_key, options_for_select(@keys, params[:bundle_key]) %>
 
   <%= submit_tag "Sélectionner" %>
 
