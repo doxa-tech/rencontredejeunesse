@@ -21,15 +21,15 @@ class Admin::Orders::CheckinController < Admin::BaseController
   # Deliver the order
   def update
     authorize!
-    # notify
-    if !@event.paid? || @event.delivered?
-      OrderMailer.anomalous_delivery(@event).deliver_now
-    end
+
     @registrant = Registrant.find_by(ticket_id: params[:id])
     @registrant.update_attribute(:delivered, true)
+    # notify
+    order = @registrant.order
+    if !order.paid? || order.delivered?
+      OrderMailer.anomalous_delivery(order).deliver_now
+    end
     redirect_to admin_orders_checkin_index_path, success: "Livré"
   end
-
-  private
 
 end
