@@ -16,7 +16,7 @@ class Admin::Orders::RegistrantsController < Admin::BaseController
 
   def show
     @order = @registrant.order
-    @state = if !@order.paid? || @order.delivered?
+    @state = if !@order.paid? || @registrant.delivered?
       "red"
     elsif !@order.note.blank?
       "orange"
