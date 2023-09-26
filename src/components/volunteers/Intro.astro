@@ -3,53 +3,158 @@
 
 <section class="cont">
   <div class="section-container">
-    <h2>Être bénévole à la Rencontre de Jeunesse</h2>
-    <p>
-      En tant que conférence et organisation pour la jeunesse, nous avons
-      l’opportunité d’organiser annuellement un week-end dédié à la jeunesse en
-      Suisse romande mais aussi pour la francophonie. Notre cœur est
-      d’accompagner ces jeunes et de les équiper au travers de ce rassemblement.
-    </p>
-    <p>
-      Cela n’est possible que grâce aux nombreuses personnes qui décident d’y
-      participer en tant que bénévoles et qui œuvrent pour rendre cette
-      conférence possible. Chaque volontaire qui sert durant la Rencontre de
-      Jeunesse apporte une aide précieuse au bon déroulement du week-end.
-    </p>
+    <div class="row-title">
+      <div class="first-half"></div>
+      <div class="second-half">
+        <h2>Servir la RJ</h2>
+      </div>
+    </div>
+
+    <div class="row-text">
+      <div class="first-half">
+        <p>
+          En tant qu'organisation pour la jeunesse, nous avons l’opportunité 
+          d’organiser annuellement un week-end dédié à la jeunesse francophone 
+          et une journée pour les leaders de groupe de jeunes. 
+        </p>
+        <p>
+          Ces évenements ne sont possibles que grâce aux nombreuses personnes qui décident d’y
+          participer en tant que bénévoles. Chaque volontaire qui sert durant la <span>Rencontre de
+          Jeunesse</span> ou la <span>Login</span> apporte une aide précieuse à la réussite de ces journées.
+        </p>
+      </div>
+    </div>
   </div>
 </section>
 
 <style lang="scss">
   @import "../../styles/variables";
+  @import "../../styles/button-bar";
 
-  section.cont {
-    background-color: #eaeaea;
-
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-
+  section {
     .section-container {
-      height: 100%;
-      width: 100%;
       max-width: $main-width;
-      padding: 150px $main-padding;
-      color: #464646;
-      text-align: center;
+      padding: 0 $main-padding;
+      margin: auto;
 
-      h2 {
-        font-size: $sub-title;
-        padding: 0 0 40px 0;
-        color: #898989;
+      display: flex;
+      flex-direction: column;
+
+      div.row-title {
+        display: flex;
+        flex-direction: row;
+
+        div.first-half {
+          flex: 1;
+        }
+
+        div.second-half {
+          flex: 1;
+          width: 60%;
+          flex-grow: 0;
+          padding: 0 70px 40px 0;
+
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+35,d10cc0+65 */
+          background: #141dc6; /* Old browsers */
+          background: -moz-linear-gradient(
+            45deg,
+            #141dc6 35%,
+            #d10cc0 65%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            45deg,
+            #141dc6 35%,
+            #d10cc0 65%
+          ); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(
+            45deg,
+            #141dc6 35%,
+            #d10cc0 65%
+          ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141dc6', endColorstr='#d10cc0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+          h2 {
+            font-size: $title-size;
+            color: #fff;
+            background-color: #000;
+            line-height: 0.9em;
+            padding: 30px 30px;
+            transform: translate(-40%);
+            width: 120%;
+          }
+        }
       }
 
-      p {
-        font-size: $large-text;
-        padding: 10px $sub-padding 0 $sub-padding;
-        line-height: 1.6em;
+      div.row-text {
+        display: flex;
+        flex-direction: row;
+
+        div.first-half {
+          flex: 3;
+          padding: 90px 0;
+          font-size: $medium-title;
+          font-weight: bold;
+
+          p {
+            padding: 0 0 10px 0;
+
+            span {
+              position: relative;
+
+              &::after {
+                content: "";
+                background-color: #ef0edc;
+                position: absolute;
+                line-height: 0;
+                right: -0.2em;
+                bottom: -0.2em;
+                left: -0.1em;
+                z-index: -1;
+                padding: 10px 5px;
+                transition: 0.3s;
+              }
+            }
+          }
+        }
+
+        div.second-half {
+          flex: 1;
+        }
+      }
+    }
+
+    div.banner {
+      background-image: url("/vision/intro/banner.jpg");
+      background-size: cover;
+      background-position-y: center;
+      height: 300px;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        div.row-title {
+          flex-direction: column !important;
+
+          div.first-half {
+            flex: 0 !important;
+          }
+
+          div.second-half {
+            flex: 1 !important;
+            width: 100% !important;
+            padding: 0 0 40px 0 !important;
+
+            h2 {
+              transform: translate(-5%) !important;
+              width: 100% !important;
+            }
+          }
+        }
+
+        div.row-text {
+          flex-direction: column !important;
+        }
       }
     }
   }
