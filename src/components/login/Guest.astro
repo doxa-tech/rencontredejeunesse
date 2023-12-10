@@ -3,22 +3,21 @@
 
 <section class="cont">
   <div class="section-container">
+    <!--
     <div class="guests">
       <div class="guest">
-        <img src="/login/guest/avatar.jpg" />
         <p>Stève Rivière</p>
         <p>
-          <a href="https://extravagance.re" target="_blank"
-            >Pasteur à Extravagance</a
-          >
+          Pasteur à Extravagance
         </p>
       </div>
     </div>
+    -->
+    <p class="theme">Le thème de notre journée ?</p>
 
-    <p>
-      Vous serez inspirés durant la journée par plusieurs intervenants: Stève
-      Rivière sera notre orateur principal pour la journée et vous pourrez
-      écouter durant les ateliers plusieurs invités. <!-- De plus, Etienne et Salomé Jaquier du Gospel Center Oron nous conduirons dans la louange.-->
+    <h1>Big Picture</h1>
+    <p class="theme">
+      Prépare toi à te plonger au cœur d'une aventure épique, à la quête du grand récit biblique qui donne une direction à nos vies. Rejoins une génération déterminée à retrouver des repères oubliés dans notre culture. Est-tu prêt à établir les clés pour mieux accompagner les jeunes dans le contexte actuel ? 
     </p>
   </div>
 </section>
@@ -31,7 +30,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding: 150px 0 100px 0;
+    padding: 40px 0 80px 0;
 
     .section-container {
       text-align: center;
@@ -44,12 +43,20 @@
       flex-direction: column;
       justify-content: center;
 
+      h1 {
+        font-size: 5em;
+      }
+
+      p.theme {
+        font-size: 1.8em;
+      }
+
       div.guests {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: center;
-        padding: 0 0 40px 0;
+        padding: 0 0 0 0;
 
         div.guest {
           padding: 20px;
