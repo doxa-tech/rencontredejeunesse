@@ -1,0 +1,92 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <div class="first-half"></div>
+    <div class="second-half">
+      <a href="/volunteers">
+        <h2>devenir<br />bénévole</h2>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+  @import "../../styles/button-bar";
+
+  section {
+    padding: 0 0 0 $blank-space;
+
+    .section-container {
+      height: 460px;
+      display: flex;
+      flex-direction: row;
+      background-image: url("/home/volunteer/background.jpg");
+      background-size: cover;
+      background-position: center;
+
+      div.first-half {
+        flex: 1;
+      }
+
+      div.second-half {
+        flex: 1;
+        color: #fff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        h2 {
+          position: relative;
+          z-index: 0;
+          font-size: $title-size;
+          line-height: 0.9em;
+          padding: 0 0 0 35px;
+
+          &::after {
+            @include button-bar(-2em, 0, right, 20px);
+
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+35,d10cc0+65 */
+            background: #141dc6; /* Old browsers */
+            background: -moz-linear-gradient(
+              45deg,
+              #141dc6 35%,
+              #d10cc0 65%
+            ); /* FF3.6-15 */
+            background: -webkit-linear-gradient(
+              45deg,
+              #141dc6 35%,
+              #d10cc0 65%
+            ); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(
+              45deg,
+              #141dc6 35%,
+              #d10cc0 65%
+            ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141dc6', endColorstr='#d10cc0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+          }
+
+          &:hover::after {
+            @include button-bar-hover-right();
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      padding: 0 !important;
+
+      .section-container {
+        div.first-half {
+          display: none !important;
+        }
+        div.second-half {
+          justify-content: flex-end !important;
+          padding: 0 50px 0 0 !important;
+        }
+      }
+    }
+  }
+</style>

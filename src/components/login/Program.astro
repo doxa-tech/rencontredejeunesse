@@ -1,0 +1,187 @@
+---
+---
+
+<section class="cont">
+  <div class="section-container">
+    <div class="center"><h2>Vision</h2></div>
+    <p>
+      La vision de la RJ Login est d'accompagner les leaders dans leur rôle en les encourageant, les bénissant et les équipant. La journée permet de rassembler des centaines de leaders afin qu'ils puissent échanger entre eux et repartir avec une vision large et rafraichie de l'action continuelle de Dieu. Ressourcés et équipés, les leaders peuvent continuer à oeuvrer pour que Son Royaume prenne place sur terre, comme au ciel !
+    </p>
+    <p>
+      Tu vivras différents moments dans cette journée, du temps tous ensemble pour vivre l'unité à l'atelier en petit groupe pour approfondir un sujet et partager. Nous préparons également la prochaine édition de la Rencontre de Jeunesse, un événement qui se construit avec les forces de toute la Suisse Romande !
+    </p>
+    
+    <!--
+    <div class="activities">
+      <div>
+        <h3>Input</h3>
+        <p>
+          Des messages encourageants et édifiants sont donnés durant la journée avec de la louange pour nous emmener dans la présence de Dieu.
+        </p>
+      </div>
+      <div>
+        <h3>Ateliers</h3>
+        <p>
+          Plusieurs ateliers sont proposés afin de donner des clés concrètes et pertinentes pour le travail de leader.
+        </p>
+      </div>
+      <div>
+        <h3>Connexion</h3>
+        <p>
+          Des temps libres durant l'événement permettent de discuter et partager avec d'autres leaders venant de toute la Suisse romande.
+        </p>
+      </div>
+      <div>
+        <h3>Espace RJ</h3>
+        <p>
+          La journée est une occasion de partager la vision de la RJ, de lever des bénévoles et de distribuer des packs de communication.
+        </p>
+      </div>
+    </div>
+    -->
+    
+    <div class="center">
+      <h2>Horaires</h2>
+    </div>
+
+    <p>
+      09h00   Accueil café
+    </p>
+    <p>
+      09h30   Session #1: louange et enseignement de Manuel Rapold
+    </p>
+    <p>
+      11h00   Ateliers participatifs
+    </p>
+    <p>
+      11h45   Présentation de la Formation Jeunesse
+    </p>
+    <p>
+      12h05   Lunch libre (stand disponible)
+    </p>
+    <p>
+      13h20   Session #2: louange et enseignement de Michael Gonin
+    </p>
+    <p>
+      14h30   Ateliers<br>
+    </p>
+    <p class="add-on">
+      1. L'enseignement par Simon Grunder<br>
+      2. La croissance dans le groupe de jeune par Nicolas Grosbety
+    </p>
+    <p>
+      15h30   RJ 2024 ! Présentation du programme, des invités et autres surprises !
+    </p>
+    <p>
+      17h00   Session #3: enseignement de Léa Rychen
+    </p>
+    <p>
+      17h45   Table ronde
+    </p>
+    <p>
+      18h15   Repas du soir (inclus)
+    </p>
+    <p>
+      20h00   Session #4: louange et enseignement de Kévin Roulin
+    </p>
+  </div>
+
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 120px 0;
+
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#131dc6+0,b115c4+100 */
+    background: rgb(19, 29, 198); /* Old browsers */
+    background: -moz-linear-gradient(
+      -45deg,
+      rgba(19, 29, 198, 1) 0%,
+      rgba(177, 21, 196, 1) 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      -45deg,
+      rgba(19, 29, 198, 1) 0%,
+      rgba(177, 21, 196, 1) 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      135deg,
+      rgba(19, 29, 198, 1) 0%,
+      rgba(177, 21, 196, 1) 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131dc6', endColorstr='#b115c4',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    .section-container {
+      width: 100%;
+      max-width: $main-width;
+      padding: 0 $main-padding + $sub-padding;
+      margin: auto;
+      color: #fff;
+
+      display: flex;
+      flex-direction: column;
+
+      h2 {
+        font-size: $title-size;
+        line-height: 1.1em;
+        margin: 0;
+        padding: 30px 0 0 0;
+      }
+
+      h3 {
+        font-size: $sub-title;
+        padding: 30px 0 0 0;
+      }
+
+      p {
+        font-weight: bold;
+        padding: 20px 0 10px 0;
+        font-size: $large-text;
+
+        &.add-on {
+          padding: 0 0 10px 20px;
+        }
+      }
+
+      li {
+        list-style-type: circle;
+        padding: 5px 0 0 0;
+      }
+
+      ul {
+        padding: 0 0 0 40px;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      div.activities {
+        display: flex;
+        flex-direction: column;
+
+        & > div:nth-child(odd) {
+          text-align: left;
+          max-width: 500px;
+        }
+
+        & > div:nth-child(even) {
+          text-align: right;
+          max-width: 500px;
+          align-self: flex-end;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding: 0 $mobile-padding !important;
+      }
+    }
+  }
+</style>

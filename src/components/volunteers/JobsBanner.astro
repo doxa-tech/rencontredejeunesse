@@ -1,0 +1,84 @@
+---
+---
+
+<section class="cont">
+  <div class="section-container">
+    <h1>Le recrutement</h1>
+    <!--<div class="link"><a href="#register">S'engager</a></div>-->
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+  @import "../../styles/button-bar";
+
+  section.cont {
+    background-image: url("/volunteers/thanks/background.jpg");
+    background-size: cover;
+
+    width: 100%;
+    min-height: 650px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    .section-container {
+      height: 100%;
+      width: 100%;
+      max-width: $main-width;
+      padding: $logo-burger-height $main-padding 0 $main-padding;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      h1 {
+        font-size: $title-size;
+        color: #fff;
+        padding: 0 0 0 $sub-padding;
+      }
+
+      div.link {
+        padding: 0 0 0 $sub-padding;
+
+        a {
+          color: #fff;
+          font-size: $medium-title;
+          line-height: 0.9em;
+          position: relative;
+          z-index: 0;
+          padding: 0 $sub-padding 0 0;
+
+          &::after {
+            @include button-bar(-2em, -2em, right, 30px);
+
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+35,d10cc0+65 */
+            background: #141dc6; /* Old browsers */
+            background: -moz-linear-gradient(
+              45deg,
+              #141dc6 35%,
+              #d10cc0 65%
+            ); /* FF3.6-15 */
+            background: -webkit-linear-gradient(
+              45deg,
+              #141dc6 35%,
+              #d10cc0 65%
+            ); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(
+              45deg,
+              #141dc6 35%,
+              #d10cc0 65%
+            ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141dc6', endColorstr='#d10cc0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+          }
+
+          &:hover::after {
+            @include button-bar-hover-right();
+          }
+        }
+      }
+    }
+  }
+</style>

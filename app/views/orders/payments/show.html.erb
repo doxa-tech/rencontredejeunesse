@@ -1,7 +1,0 @@
-<% content_for :id, "orders-payments-show" %>
-
-<div class="content-wrap">
-  <h2>Faire un paiement</h2>
-  <p>Montant du paiement: <%= display_price(@payment.amount) %></p>
-  <%= render "orders/payments/postfinance", url: pay_orders_payment_path(@payment.payment_id) %>
-</div>

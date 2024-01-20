@@ -1,0 +1,175 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <div class="row-title">
+      <div class="first-half"></div>
+      <div class="second-half">
+        <h2>Plus qu'une<br />conférence</h2>
+      </div>
+    </div>
+
+    <div class="row-text">
+      <div class="first-half">
+        <p>
+          <span>La RJ</span> (Rencontre de Jeunesse) a pour mission d'inspirer 
+          et d'équiper la jeunesse de Suisse romande et de la francophonie 
+          notamment au travers de rassemblements. Notre vision est simple : 
+          offrir à chaque jeune l'occasion d'entendre la Bonne Nouvelle de Jésus Christ,
+          d'expérimenter la puissance de Son Esprit et de vivre la présence de Dieu.
+        </p>
+
+        <p>
+          Notre événement majeur rassemble des milliers de jeunes pour un weekend, 
+          tandis que la <span>Login</span> forme les leaders de groupes de jeunes 
+          pendant une journée.
+        </p>
+
+        <p>
+          <span>Notre approche</span> est charismatique, sensible et ouverte. 
+          Notre programme cible en priorité les jeunes de 12 à 22 ans 
+          ainsi que les groupes de jeunes. Finalement, chaque participant est encouragé 
+          à s'impliquer activement dans son groupe de jeune et son église, 
+          afin de devenir une influence positive pour son entourage et la société.
+        </p>
+        
+      </div>
+      <div class="second-half"></div>
+    </div>
+  </div>
+
+  <div class="banner"></div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+  @import "../../styles/button-bar";
+
+  section {
+    .section-container {
+      max-width: $main-width;
+      padding: 0 $main-padding;
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+
+      div.row-title {
+        display: flex;
+        flex-direction: row;
+
+        div.first-half {
+          flex: 1;
+        }
+
+        div.second-half {
+          flex: 1;
+          width: 60%;
+          flex-grow: 0;
+          padding: 0 70px 40px 0;
+
+          background: #f56953; /* Old browsers */
+          background: -moz-linear-gradient(
+            45deg,
+            #f56953 0%,
+            #5c35a1 100%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            45deg,
+            #f56953 0%,
+            #5c35a1 100%
+          ); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(
+            45deg,
+            #f56953 0%,
+            #5c35a1 100%
+          ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56953', endColorstr='#5c35a1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+          h2 {
+            font-size: $title-size;
+            color: #fff;
+            background-color: #000;
+            line-height: 0.9em;
+            padding: 30px 30px;
+            transform: translate(-40%);
+            width: 120%;
+          }
+        }
+      }
+
+      div.row-text {
+        display: flex;
+        flex-direction: row;
+
+        div.first-half {
+          flex: 3;
+          padding: 90px 0;
+          font-size: $medium-title;
+          font-weight: bold;
+
+          p {
+            padding: 0 0 10px 0;
+
+            span {
+              position: relative;
+
+              &::after {
+                content: "";
+                background-color: #1ae4ad;
+                position: absolute;
+                line-height: 0;
+                right: -0.2em;
+                bottom: -0.2em;
+                left: -0.3em;
+                z-index: -1;
+                padding: 10px 5px;
+                transition: 0.3s;
+              }
+            }
+          }
+        }
+
+        div.second-half {
+          flex: 1;
+        }
+      }
+    }
+
+    div.banner {
+      background-image: url("/vision/intro/banner.jpg");
+      background-size: cover;
+      background-position-y: center;
+      height: 300px;
+      width: 100%;
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        div.row-title {
+          flex-direction: column !important;
+
+          div.first-half {
+            flex: 0 !important;
+          }
+
+          div.second-half {
+            flex: 1 !important;
+            width: 100% !important;
+            padding: 0 0 40px 0 !important;
+
+            h2 {
+              transform: translate(-5%) !important;
+              width: 100% !important;
+            }
+          }
+        }
+
+        div.row-text {
+          flex-direction: column !important;
+        }
+      }
+    }
+  }
+</style>

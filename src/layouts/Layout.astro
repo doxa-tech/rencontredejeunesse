@@ -1,0 +1,38 @@
+---
+export interface Props {
+	title: string;
+}
+
+import Favicon from "./Favicon.astro";
+import Burger from "./Burger.astro";
+import Footer from "./Footer.astro";
+
+import "../styles/normalize.scss";
+import "../styles/reset.scss";
+import "../styles/global.scss";
+import "../styles/fonts.scss";
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+
+		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<Favicon />
+
+		<title>{title}</title>
+	</head>
+	<body>
+		<Burger />
+
+		<slot />
+
+		<Footer />
+	</body>
+</html>

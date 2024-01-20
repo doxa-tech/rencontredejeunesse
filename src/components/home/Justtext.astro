@@ -1,0 +1,39 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <p class="citation">
+      “Je suis allée à la RJ en 2017 pour la première fois et c'était juste
+      génial. La louange, les temps de plénières, les animations, l'ambiance,
+      bref un weekend total dans la présence de Dieu. J'y retourne l'année
+      prochaine, c'est sûr!”
+    </p>
+    <p class="author">Léna</p>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    display: flex;
+    justify-content: center;
+
+    .section-container {
+      max-width: $main-width;
+      padding: 80px 50px;
+
+      p.citation {
+        font-style: italic;
+        font-weight: bold;
+        font-size: $medium-title;
+      }
+
+      p.author {
+        font-size: $small-text;
+        padding: 20px 0 0 0;
+      }
+    }
+  }
+</style>

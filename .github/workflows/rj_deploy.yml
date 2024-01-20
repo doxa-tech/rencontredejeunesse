@@ -32,7 +32,7 @@ jobs:
     
     - name: Install dependencies
       run: |
-        npm install
+        npm ci
         
     - name: Build
       env:
@@ -40,7 +40,7 @@ jobs:
         BUILD_URL: ${{ steps.get_version.outputs.buildurl }}
         SHORT_SHA: ${{ steps.get_version.outputs.shortsha }}
         BUILD_DATE: ${{ steps.get_version.outputs.date }}
-      run: astro build
+      run: npm run build --if-present
 
     - name: Create tar.gz
       run: |

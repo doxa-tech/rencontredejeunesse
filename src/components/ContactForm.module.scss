@@ -1,0 +1,115 @@
+@import "../styles/variables";
+
+form {
+  width: 80%;
+  margin: auto;
+
+  input:not([type="submit"]) {
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    margin: 0 0 15px 0;
+    background-color: #ebebeb;
+    border: none;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    background-color: #ebebeb;
+    border: none;
+    padding: 5px 10px;
+    //color: #aaa;
+  }
+
+  select {
+    background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50px' height='50px'><polyline points='46.139,15.518 25.166,36.49 4.193,15.519'/></svg>");
+    background-color: #3498db;
+    background-repeat: no-repeat;
+    background-position: right 10px top 15px;
+    background-size: 16px 16px;
+    margin: 0 0 15px 0;
+    padding: 12px;
+    width: auto;
+    color: #6d6869;
+    background-color: #ebebeb;
+    width: 100%;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    -webkit-transition: 0.3s ease all;
+    -moz-transition: 0.3s ease all;
+    -ms-transition: 0.3s ease all;
+    -o-transition: 0.3s ease all;
+    transition: 0.3s ease all;
+  }
+}
+
+.input {
+  position: relative;
+  z-index: 0;
+
+  button[type="submit"] {
+    display: block;
+    background-color: transparent;
+    border: none;
+    color: #000;
+    margin: 10px 0 50px 0;
+    font-size: $sub-title;
+    font-weight: bold;
+    text-transform: lowercase;
+    cursor: pointer;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background-color: #1ae4ad;
+    left: 0;
+    bottom: -5px;
+    height: 20px;
+    width: 150px;
+    z-index: -1;
+    transition: background-color 0.5s ease-out;
+  }
+
+  @keyframes contact-button {
+    0% {
+      background-color: #17a4ac;
+    }
+    50% {
+      background-color: #17a4ac;
+    }
+    80% {
+      background-color: #1ae4ad;
+    }
+    100% {
+      background-color: #17a4ac;
+    }
+  }
+
+  &:hover::after {
+    background-color: #17a4ac;
+    animation-name: contact-button;
+    animation-duration: 5s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+.hCaptcha {
+  padding: 20px 0 0 0;
+}
+
+@media only screen and (max-width: $mobile-width) {
+  form {
+    width: 100% !important;
+
+    input[type="submit"] {
+      margin: 20px 0 30px 0 !important;
+    }
+  }
+}

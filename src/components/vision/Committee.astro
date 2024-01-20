@@ -1,0 +1,167 @@
+---
+const parameterize = (str: string) => {
+  return str
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-zA-Z0-9 -]/, "")
+    .replace(/\s/g, "-");
+};
+
+const Someone = (fullname: string, title: string) => {
+  return `
+    <div class="someone">
+      <p>${fullname}</p>
+      <p>${title}</p>
+    </div>
+  `;
+};
+
+const people = [
+  { fullname: "Yves Bulundwe", title: "Directeur" },
+  { fullname: "David Van der Mass" },
+  { fullname: "Cyril Chollet" },
+  { fullname: "Shékina Vauthier" },
+  { fullname: "Yannis Vauthier" },
+  { fullname: "Keran Kocher" },
+  { fullname: "Stéphane Huguenin" },
+  { fullname: "Antoine Bourgeois" }
+];
+---
+
+<section>
+  <div class="section-container">
+    <div class="title">
+      <div class="first-half">
+        <h2>Pilotage</h2>
+        <div class="background-layer"></div>
+      </div>
+      <div class="second-half"></div>
+    </div>
+
+    <div class="people">
+      {
+        people.map((person) => (
+          <div class="someone">
+            <p>{person.fullname}</p>
+            <p>{person.title}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    background-color: #000;
+    width: 100%;
+
+    .section-container {
+      height: 100%;
+      width: 100%;
+      max-width: $main-width;
+      padding: 0 $main-padding;
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+
+      div.title {
+        background-color: #000;
+        display: flex;
+        flex-direction: row;
+
+        div.first-half {
+          flex: 1;
+          position: relative;
+
+          h2 {
+            font-size: $title-size;
+            color: #fff;
+            padding: 30px 0 30px $sub-padding;
+            z-index: 1;
+            position: relative;
+          }
+
+          div.background-layer {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: -100%;
+            z-index: 0;
+
+            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f56a55+49,1e21c2+100 */
+            background: #f56a55; /* Old browsers */
+            background: -moz-linear-gradient(
+              45deg,
+              #f56a55 49%,
+              #1e21c2 100%
+            ); /* FF3.6-15 */
+            background: -webkit-linear-gradient(
+              45deg,
+              #f56a55 49%,
+              #1e21c2 100%
+            ); /* Chrome10-25,Safari5.1-6 */
+            background: linear-gradient(
+              45deg,
+              #f56a55 49%,
+              #1e21c2 100%
+            ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56a55', endColorstr='#1e21c2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+          }
+        }
+
+        div.second-half {
+          flex: 1;
+        }
+      }
+
+      div.people {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        padding: 90px 0;
+
+        div.someone {
+          text-align: center;
+          color: #fff;
+          font-weight: bold;
+          padding: 30px 0;
+          width: 320px;
+          height: 100px;
+
+          img {
+            width: 214px;
+            border-radius: 50%;
+          }
+
+          p:first-of-type {
+            font-size: $medium-title;
+          }
+
+          p:nth-of-type(2) {
+            font-size: $normal-text;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        div.title {
+          flex-direction: column !important;
+
+          div.first-half {
+            h2 {
+              padding: $mobile-padding !important;
+            }
+          }
+        }
+      }
+    }
+  }
+</style>

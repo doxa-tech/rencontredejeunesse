@@ -1,9 +1,0 @@
-<h1>Facture pour ta commande</h1>
-
-<p>Tu trouveras la facture de ta commande <%= @order.order_id %> en annexe de cet e-mail. Tu peux également ouvrir cette facture dans ton compte client, depuis l'aperçu de la commande:
-<%= link_to connect_order_url(@order.order_id), connect_order_url(@order.order_id) %></p>
-
-<p>
-  Pour tout complément d'information ou problème, utilise le formulaire de contact du site afin de nous contacter.</p>
-</p>
-

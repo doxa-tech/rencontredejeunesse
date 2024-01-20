@@ -1,0 +1,162 @@
+---
+---
+
+<section id="register" class="cont">
+  <div class="section-container">
+    <h2>Pratique</h2>
+    <p>La RJ Login se déroule toute la journée du samedi 3 février 2024.</p>
+    <p>Cette journée sera déroulera au Centre de Vie de Neuchâtel, dès 09h00</p>
+    <p>
+      Prix de la journée: 25 CHF avec inscription en ligne.<br>
+      Possibilité de prendre une entrée sur place, en liquide au prix de 30 CHF
+    </p>
+    <p>Le repas du soir est inclus et le repas de midi est libre. Il y aura un food truck sur place pour vendre des plats chauds à midi.</p>
+
+    <a class="register" href="https://tickets.rencontredejeunesse.ch/orders/rj-login-24/events/new" target="_blank">Inscription</a>
+
+    <p>Nous sommes aussi à la recherche de bénévoles pour la journée. Si tu as à coeur de servir, n'hésite pas à suivre le lien ci-dessous !</p>
+    <a class="register" href="https://forms.gle/DULnQM82p6Qf1acc8" target="_blank">Bénévoles</a>
+
+    <h3>Se rendre sur place</h3>
+
+    <p>
+      Centre de Vie<br>
+      Rue des Mille-Boilles 4, 2000 Neuchâtel
+    </p>
+
+    <p>
+      <b>En transport public:</b> l'église est accessible en bus.<br>
+      <b>En voiture:</b> un parking est disponible sur place. Des personnes vous guideront sur place.
+    </p>
+    
+    <!-- <a href="/parking.pdf" target="_blank">Un plan est diponible en suivant ce lien.</a>-->
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section.cont {
+    background-color: #000;
+    color: #fff;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0 50px 0;
+
+    .section-container {
+      width: 100%;
+      max-width: $main-width;
+      padding: 0 $main-padding + $sub-padding;
+      padding-bottom: 40px;
+      margin: auto;
+
+      display: flex;
+      flex-direction: column;
+
+      img {
+        float: left;
+        padding: 10px;
+      }
+
+      h2 {
+        font-size: $title-size;
+        line-height: 1.1em;
+        margin: 0;
+        padding: 30px 0 10px 0;
+      }
+
+      h3 {
+        font-size: $sub-title;
+        padding: 20px 0 10px 0;
+      }
+
+      ul {
+        font-size: $large-text;
+        padding: 10px 0 10px 20px;
+      }
+
+      p {
+        padding: 20px 0 0 0;
+        font-size: $large-text;
+
+        &.last {
+          padding-bottom: 30px;
+          padding-top: 50px;
+          font-weight: bold;
+        }
+      }
+
+      a.register {
+        position: relative;
+        z-index: 0;
+
+        display: block;
+        background-color: transparent;
+        border: none;
+        color: #fff;
+        margin: 20px 0 40px 0;
+        font-size: $medium-title;
+        font-weight: bold;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: -5px;
+          height: 20px;
+          width: 190px;
+          z-index: -1;
+
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+66,131ec7+100 */
+          background: #1e5799; /* Old browsers */
+          background: -moz-linear-gradient(
+            45deg,
+            #1e5799 66%,
+            #131ec7 100%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            45deg,
+            #1e5799 66%,
+            #131ec7 100%
+          ); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(
+            45deg,
+            #1e5799 66%,
+            #131ec7 100%
+          ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#131ec7',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        }
+
+        &:hover::after {
+          /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#131ec7+0,1e5799+34 */
+          background: rgb(19, 30, 199); /* Old browsers */
+          background: -moz-linear-gradient(
+            -45deg,
+            rgba(19, 30, 199, 1) 0%,
+            rgba(30, 87, 153, 1) 34%
+          ); /* FF3.6-15 */
+          background: -webkit-linear-gradient(
+            -45deg,
+            rgba(19, 30, 199, 1) 0%,
+            rgba(30, 87, 153, 1) 34%
+          ); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(
+            135deg,
+            rgba(19, 30, 199, 1) 0%,
+            rgba(30, 87, 153, 1) 34%
+          ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#131ec7', endColorstr='#1e5799',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+          animation-name: register-login-button;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding: 0 $mobile-padding !important;
+      }
+    }
+  }
+</style>

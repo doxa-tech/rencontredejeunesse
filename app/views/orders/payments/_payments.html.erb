@@ -1,7 +1,0 @@
-<% if @order.amount == 0 %>
-  <%= render "orders/payments/free" %>
-<% elsif is_invoice?(@order.amount) %>
-  <%= render "orders/payments/invoice" %>
-<% else %>
-  <%= render "orders/payments/postfinance", url: pay_order_path(@order.order_id) %>
-<% end %>

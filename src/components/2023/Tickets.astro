@@ -1,0 +1,256 @@
+---
+---
+
+<section>
+  <div class="section-container">
+
+    <div class="prices">
+      <div class="price">
+        <div class="day full">
+          <p>vendredi<br />samedi<span>+</span></p>
+        </div>
+        <p>CHF 50</p>
+        <p>jusqu'au 4 avril</p>
+        <p>CHF 55 jusqu'au 4 mai</p>
+        <p>CHF 80 sur place</p>
+      </div>
+      <div class="price">
+        <div class="day">
+          <p>vendredi</p>
+        </div>
+        <p>CHF 20</p>
+        <p>jusqu'au 4 avril</p>
+        <p>CHF 25 jusqu'au 4 mai</p>
+        <p>CHF 30 sur place</p>
+      </div>
+      <div class="price">
+        <div class="day">
+          <p>samedi</p>
+        </div>
+        <p>CHF 40</p>
+        <p>jusqu'au 4 avril</p>
+        <p>CHF 45 jusqu'au 4 mai</p>
+        <p>CHF 50 sur place</p>
+      </div>
+    </div>
+
+    <div class="faq">
+      <p>
+        Des billets sont vendus sur place. Attention, il ne reste plus beaucoup de places à Genève !<br>
+        Conditions et prix des billets dans <a href="/support">notre FAQ.</a>
+      </p>
+    </div>
+
+    <div class="locations">
+      <div class="location">
+        <p>Genève</p>
+        <p>Esther House</p>
+        <p>Rue Voltaire 27</p>
+        <p>1201 Genève</p>
+        <a class="disabled">Sur place</a>
+      </div>
+      <div class="location">
+        <p>Oron</p>
+        <p>Gospel Center Oron</p>
+        <p>Route du Flon 28</p>
+        <p>1610 Oron</p>
+        <a class="disabled">Sur place</a>
+      </div>
+      <div class="location">
+        <p>Tavannes</p>
+        <p>CET</p>
+        <p>La Combe 10</p>
+        <p>2710 Tavannes</p>
+        <a class="disabled">Sur place</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    display: flex;
+    justify-content: center;
+
+    .section-container {
+      max-width: $main-width;
+      padding: 80px 50px;
+      font-family: bebas, sans-serif;
+      letter-spacing: 0.05em;
+
+      div.flash {
+        margin: 10px;
+        padding: 10px 0 10px 0;
+        background-color: #fece00;
+        border: 3px solid #fece00;
+        border-radius: 5px;
+
+        font-size: $large-text;
+        color: #fff;
+        text-align: center;
+      }
+
+      div.prices {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        flex-wrap: wrap-reverse;
+
+        div.price {
+          border: 3px solid #617a64;
+          border-radius: 5px;
+          margin: 10px;
+          color: #617a64;
+          width: 200px;
+
+          div.day {
+            text-transform: uppercase;
+            font-size: $large-text;
+            position: relative;
+            height: 65px;
+            vertical-align: middle;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid #617a64;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            padding: 7px 0 0 0;
+
+            &.full {
+              background-color: #617a64;
+              color: #fff;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -0.19em;
+              left: -3px;
+              right: -3px;
+              height: 3px;
+              background: url("/2023/tickets/border.svg");
+            }
+
+            span {
+              position: absolute;
+              top: 12px;
+              left: 30px;
+            }
+          }
+
+          & > p:nth-of-type(1) {
+            padding: 12px 0px 0 30px;
+            font-size: $large-text;
+          }
+
+          & > p:not(:nth-of-type(1)) {
+            padding: 0 0px 12px 30px;
+            font-size: $small-text;
+            font-weight: 200;
+          }
+        }
+      }
+
+      div.faq {
+        text-transform: uppercase;
+        color: #617a64;
+        font-size: $small-text;
+        padding: 20px 0 50px 0;
+      }
+
+      div.locations {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: center;
+
+        div.location {
+          background-color: #617a64;
+          color: #fff;
+          border: 3px solid #617a64;
+          border-radius: 5px;
+          margin: 10px;
+          width: 200px;
+          text-transform: uppercase;
+
+          p:nth-of-type(1) {
+            font-size: $large-text;
+            padding: 30px 0 20px 0;
+            letter-spacing: 0.1em;
+          }
+
+          p:nth-of-type(2),
+          p:nth-of-type(3),
+          p:nth-of-type(4) {
+            font-size: $small-text;
+            padding: 0 0 7px 0;
+            font-weight: 300;
+          }
+
+          a {
+            display: inline-block;
+            margin: 30px 0 30px 0;
+            background: #fece00;
+            padding: 10px 30px;
+            border-radius: 5px;
+            transition: all 300ms;
+            letter-spacing: 0.1em;
+            
+            &.disabled {
+              background: #f8e8a7;
+            }
+            
+            &.disabled:hover {
+              cursor: not-allowed;
+            }
+            
+            &:hover {
+              background: #d3ac00;
+            }
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding-top: 50px;
+        font-size: 1.2em;
+
+        div.prices {
+          flex-direction: column;
+          align-items: center;
+
+          div.price {
+            width: 190px;
+
+            div.day {
+              &::after {
+                bottom: -0.27em;
+              }
+
+              span {
+                top: 25px;
+              }
+            }
+          }
+        }
+
+        div.locations {
+          flex-direction: column;
+          align-items: center;
+
+          div.location {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+</style>
