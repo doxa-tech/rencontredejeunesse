@@ -4,10 +4,10 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 
-gem 'pg', '~> 1.2'
+gem 'pg', '~> 1.4.0'
 
 # Use Puma as the app server
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.6'
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 2.1'
 # Use Uglifier as compressor for JavaScript assets
@@ -26,7 +26,7 @@ gem 'rails-i18n'
 gem 'database_cleaner'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.6.0'
 
 # Speed up boot time
 gem 'bootsnap', require: false
@@ -34,11 +34,11 @@ gem 'bootsnap', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails', '~> 4.0'
   gem 'rails-controller-testing'
   gem 'cucumber-rails', :require => false
   gem 'selenium-webdriver'
-  gem 'factory_bot_rails'
+  gem 'factory_bot_rails', '~> 6.2.0'
   gem 'email_spec'
   gem 'simplecov', require: false
 end
@@ -98,4 +98,4 @@ gem 'livingstyleguide'
 gem 'redcarpet'
 
 # Postfinance Flex Checkout
-gem 'postfinancecheckout-ruby-sdk'
+gem 'postfinancecheckout-ruby-sdk', '~> 3.3'

@@ -13,5 +13,5 @@ Then("I should see a confirmation page with the amount") do
 end
 
 Then("I should see the postfinance page") do
-  expect(page).to have_content("#{@payment.amount / 100},00 CHF")
+  expect(page).to have_content("#{@payment.amount / 100}.00 CHF")
 end
