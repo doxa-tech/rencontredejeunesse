@@ -32,3 +32,21 @@
   src: url("/fonts/bebasneue/BebasNeue Bold.ttf");
   font-weight: bold;
 }
+
+@font-face {
+  font-family: lato;
+  src: url("/fonts/lato/Lato-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: lato;
+  src: url("/fonts/lato/Lato-Light.ttf");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: lato;
+  src: url("/fonts/lato/Lato-Regular.ttf");
+  font-weight: normal;
+}

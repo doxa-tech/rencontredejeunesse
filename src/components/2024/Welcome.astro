@@ -1,0 +1,151 @@
+---
+import Title from "./Title.astro";
+---
+
+<section>
+  <div class="section-container">
+    <div class="rows-container">
+      <div class="row1">
+        <div class="svg">
+          <Title />
+        </div>
+      </div>
+
+      <div class="row2">
+        <p>03-05 mai 2024</p>
+        <p>Espace-gruyère, Bulle</p>
+      </div>
+    </div>
+
+    <a class="inscription" href="#inscription"> s'inscrire</a>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    background-image: url("/2024/welcome/background.jpg");
+    background-size: cover;
+
+    width: 100%;
+    height: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .section-container {
+      height: 100%;
+      width: 100%;
+      max-width: $main-width;
+      padding: $logo-burger-height $main-padding 0 $main-padding;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+
+      position: relative;
+
+      div.rows-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        div.row1 {
+          text-align: center;
+          padding: 100px 0 0 0;
+
+          div.svg {
+            width: 800px;
+            max-width: 100%;
+          }
+
+          p.subtitle {
+            color: #fff;
+            text-transform: uppercase;
+            font-size: $sub-title;
+            font-family: bebas, sans-serif;
+            font-weight: 200;
+            font-stretch: 2em;
+            letter-spacing: 0.01em;
+
+            b {
+              font-weight: 400;
+            }
+          }
+        }
+
+        div.row2 {
+          padding: 100px 0 0 0;
+          text-align: center;
+          color: #fff;
+          font-family: lato, sans-serif;
+
+          p:nth-child(1) {
+            font-weight: bold;
+            font-size: $sub-title;
+            letter-spacing: 0.12em;
+          }
+
+          p:nth-child(2) {
+            font-weight: 300;
+            text-transform: uppercase;
+            font-size: $medium-title;
+            padding: 10px 0 0 0;
+          }
+        }
+      }
+
+      a.inscription {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+        bottom: 80px;
+        background: white;
+        text-transform: uppercase;
+        padding: 5px 140px;
+
+        font-size: $small-text;
+        color: #507d82;
+        border-radius: 4px;
+
+        box-shadow: inset 0 0 0 0 white;
+        transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+        &:hover {
+          color: white;
+          box-shadow: inset 400px 0 0 0 #507d82, 0px 0px 30px white;
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      height: 550px;
+
+      .section-container {
+        padding: 0 $mobile-padding !important;
+
+        div.rows-container {
+          div.row1 {
+            padding: 100px 0 0 0;
+
+            div.svg {
+              width: inherit;
+            }
+          }
+
+          div.row2 {
+            padding-left: 0;
+          }
+        }
+
+        a.inscription {
+          padding: 5px 20px !important;
+        }
+      }
+    }
+  }
+</style>
