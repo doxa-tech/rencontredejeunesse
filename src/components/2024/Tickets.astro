@@ -5,62 +5,60 @@
   <div class="section-container">
     <div class="prices">
       <div class="price">
-        <div class="day full">
-          <p>WKND ENTIER</p>
+        <div class={ new Date() <= new Date('2024-02-11') ? 'day full' : 'day' }>
+          <p>FLASH</p>
         </div>
         <div class="amount first">
-          <p>CHF 50</p>
-          <p>jusqu'au 4 avril</p>
+          <p>CHF 79</p>
+          <p>jusqu'au 11 fév</p>
         </div>
 
         <div class="amount">
-          <p>CHF 55</p>
-          <p>jusqu'au 4 mai</p>
-        </div>
-        <div class="amount">
-          <p>CHF 80</p>
-          <p>sur place</p>
-        </div>
-      </div>
-      <div class="price">
-        <div class="day">
-          <p>vendredi</p>
-        </div>
-        <div class="amount first">
-          <p>CHF 20</p>
-          <p>jusqu'au 4 avril</p>
-        </div>
-        <div class="amount">
-          <p>CHF 25</p>
-          <p>jusqu'au 4 mai</p>
-        </div>
-        <div class="amount">
-          <p>CHF 30</p>
-          <p>sur place</p>
+          <p>+ CHF 35</p>
+          <p>
+            hébergement<br>
+            & déjeuner
+          </p>
         </div>
       </div>
       <div class="price">
-        <div class="day">
-          <p>samedi</p>
+        <div class={ new Date() > new Date('2024-02-11') && new Date() < new Date('2024-05-3') ? 'day full' : 'day' }>
+          <p>PRELOC</p>
         </div>
         <div class="amount first">
-          <p>CHF 40</p>
-          <p>jusqu'au 4 avril</p>
-        </div>
-        <div class="amount">
-          <p>CHF 45</p>
+          <p>CHF 99</p>
           <p>jusqu'au 4 mai</p>
         </div>
+       
         <div class="amount">
-          <p>CHF 50</p>
+          <p>+ CHF 35</p>
+          <p>
+            hébergement<br>
+            & déjeuner
+          </p>
+        </div>
+      </div>
+      <div class="price">
+        <div class={ new Date() > new Date('2024-05-03') ? 'day full' : 'day' }>
+          <p>SUR PLACE</p>
+        </div>
+        <div class="amount first">
+          <p>CHF 119</p>
           <p>sur place</p>
         </div>
+        
       </div>
     </div>
 
     <div class="faq">
       <p>
-        Conditions et prix des billets dans <a href="/support">notre FAQ.</a>
+        Dimanche matin gratuit et ouvert à tous !
+      </p>
+      <p>
+        Conditions et prix des billets dans <a href="/support">notre FAQ</a>
+      </p>
+      <p>
+        Pour les bénévoles: <a href="/volunteers">Information et inscription</a>
       </p>
     </div>
 
@@ -107,7 +105,8 @@
           border-radius: 5px;
           margin: 10px;
           color: #507d82;
-          width: 200px;
+          width: 220px;
+          min-height: 220px;
 
           div.day {
             text-transform: uppercase;
@@ -164,6 +163,18 @@
         color: #507d82;
         font-size: $small-text;
         padding: 20px 0 50px 0;
+
+        p {
+          padding: 0 0 10px 0;
+        }
+
+        a {
+          text-decoration-line: underline;
+        }
+
+        a:hover  {
+          color: #32595e;
+        }
       }
 
       div.inscription {
