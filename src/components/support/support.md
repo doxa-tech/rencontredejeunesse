@@ -9,20 +9,20 @@ Le paiement peut se faire en liquide ou avec TWINT. Si tu peux, on t’encourage
 
 Prix **en ligne** jusqu'au **11 février**:
 
-- Le pass weekend 79.-
+- Pass weekend 79.-
 
-Prix **en ligne** jusqu'au **4 mai**:
+Prix **en ligne** jusqu'au **26 avril**:
 
-- Le pass weekend 99.-
+- Pass weekend 99.-
 
-Prix **sur place**:
+Prix **en ligne** jusqu'au **4 mai** et **sur place**:
 
-- Le pass weekend 119.-
-- Le vendredi (soir) 49.-
-- Le samedi (tout la journée) 69.-
-- Le samedi (soir) 49.-
-- Le dimanche matin est gratuit
-- Le dimanche après-midi 25.-
+- Pass weekend 119.-
+- Vendredi (soir) 49.-
+- Samedi (tout la journée) 69.-
+- Samedi (soir) 49.-
+- Dimanche matin est gratuit
+- Dimanche après-midi: à venir
 
 ### Où se déroule la rencontre ?
 
@@ -38,7 +38,7 @@ Dès 12 ans. Même si le programme s’adresse principalement à des 12-22 an
 
 ### Est-ce que les repas seront inclus?
 
-Non.
+Non, les repas ne sont pas compris. Cependant, des stands de nourriture seront à votre disposition.
 
 ### Comment puis-je soutenir cet évènement?
 

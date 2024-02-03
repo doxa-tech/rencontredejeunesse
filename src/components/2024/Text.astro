@@ -4,7 +4,7 @@
 <section>
   <div class="section-container">
     <h2>La Rencontre de Jeunesse</h2>
-    <p>
+    <p class="uppercase">
       Ezéchiel 47.9 : Là où cette eau parviendra, tout sera assaini. Là où parviendra le torrent, il y aura profusion de vie.
     </p>
     <p>
@@ -45,12 +45,15 @@
       }
 
       p {
-        text-transform: uppercase;
         font-size: $large-text;
         color: #fff;
         font-weight: normal;
         line-height: 1.2em;
         padding: 0 0 10px 0;
+
+        &.uppercase {
+          text-transform: uppercase;
+        }
       }
     }
   }
