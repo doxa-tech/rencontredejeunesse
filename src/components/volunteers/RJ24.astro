@@ -1,0 +1,86 @@
+---
+---
+
+<section id="register" class="cont">
+  <div class="section-container">
+
+    <div class="row-text">
+      <p>
+        Tu veux participer à l'oeuvre de Dieu pour la jeunesse en francophonie ?<br>Tu veux vivre une expérience unique dans les coulisses ?<br> Alors viens mettre ton talent pour la photo ou ta passion pour le nettoyage en action ! Qu'importe tes dons, il y a une place pour toi dans la Team RJ, une équipe de bénévoles passionés qui souhaite se mettre au service de leur génération.<br>
+        Ta présence fait la différence !
+      </p>
+    </div>
+    <div class="apply"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdhlBfsm0V_umDrtlIuwjsGK5g_VePDyAW1cyB26IblJ17PWg/viewform?usp=send_form" target="_blank">→ Rejoins la Team RJ24</a></div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+  @import "../../styles/button-bar";
+
+  section {
+    .section-container {
+      max-width: $main-width;
+      padding: 0 10px 100px 10px;
+      margin: auto;
+
+      div.apply {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        a {
+          font-size: $medium-title;
+          font-weight: bold;
+          color: #fff;
+          text-align: center;
+          
+          padding: 10px 30px;
+          margin: 0 0 0 40px;
+          background-color: #ef0edc;
+          border-radius: 2px;
+
+          &:hover {
+            background-color: #c60bb7;
+          }
+        }
+      }
+      
+      div.row-text {
+        font-size: $medium-title;
+        font-weight: bold;
+
+        margin: 60px 0;
+
+        span {
+          position: relative;
+
+          &::after {
+            content: "";
+            background-color: #ef0edc;
+            position: absolute;
+            line-height: 0;
+            right: -0.2em;
+            bottom: -0.2em;
+            left: -0.1em;
+            z-index: -1;
+            padding: 10px 5px;
+            transition: 0.3s;
+          }
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: $mobile-width) {
+    section {
+      .section-container {
+        div.apply { 
+          a {
+            padding: 10px 5px;
+          }
+        }
+      }
+    }
+  }
+</style>

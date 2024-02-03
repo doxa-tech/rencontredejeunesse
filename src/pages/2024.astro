@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Welcome from "../components/2024/Welcome.astro";
+import Text from "../components/2024/Text.astro";
+import Tickets from "../components/2024/Tickets.astro";
+import Contact from "../components/Contact.astro";
+---
+
+<Layout title="RJ 2024">
+  <section>
+    <Welcome />
+    <Text />
+    <Tickets />
+    <Contact />
+  </section>
+</Layout>
+
+<style lang="scss">
+  @import "../styles/variables";
+
+  section {
+    min-height: 100%;
+    font-size: 130%;
+  }
+</style>

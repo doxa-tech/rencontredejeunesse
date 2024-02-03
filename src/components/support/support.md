@@ -1,41 +1,36 @@
 # FAQ
 
-## Rencontre de jeunesse 2023
+## Rencontre de jeunesse 2024
 
 ### Est-ce que je peux acheter mon entrée sur place?
 
-Oui ! Tu peux acheter des pass weekend et journalier (soit vendredi, soit samedi).<br>
-Le paiement peut se faire en cash ou avec TWINT. Si tu peux, on t’encourage donc à prendre tes billets en avance !
+Oui ! Tu peux acheter des pass weekend et journalier (soit vendredi, samedi ou dimanche après-midi).<br>
+Le paiement peut se faire en liquide ou avec TWINT. Si tu peux, on t’encourage donc à prendre tes billets en avance !
 
-Prix **en ligne** jusqu'au **4 avril**:
+Prix **en ligne** jusqu'au **11 février**:
 
-- Le pass 2 jour (vendredi et samedi) 50.-
-- Le vendredi (soir) CHF 20.-
-- Le samedi (tout la journée) CHF 40.-
+- Pass weekend 79.-
 
-Prix **en ligne** jusqu'au **4 mai**:
+Prix **en ligne** jusqu'au **26 avril**:
 
-- Le pass 2 jour (vendredi et samedi) 55.-
-- Le vendredi (soir) CHF 25.-
-- Le samedi (tout la journée) CHF 45.-
+- Pass weekend 99.-
 
-Prix **sur place**:
+Prix **en ligne** jusqu'au **4 mai** et **sur place**:
 
-- Le pass 2 jour (vendredi et samedi) 80.-
-- Le vendredi (soir) CHF 30.-
-- Le samedi (tout la journée) CHF 50.-
-- Le samedi (soir) CHF 30.-
+- Pass weekend 119.-
+- Vendredi (soir) 49.-
+- Samedi (tout la journée) 69.-
+- Samedi (soir) 49.-
+- Dimanche matin est gratuit
+- Dimanche après-midi: à venir
 
 ### Où se déroule la rencontre ?
 
-La RJ se déroule sur trois sites:
-- Genève: Esther House, Rue Voltaire 27, 1201 Genève
-- Oron: Gospel Center Oron, Route du Flon 28, 1610 Oron
-- Tavannes: CET, La Combe 10, 2710 Tavannes
+La RJ se déroule à l'Espace Gruyère de Bulle. L'adresse est Rue de Vevey 136-144, 1630 Bulle.
 
 ### Dans le passé, il y avait les fameux dortoirs, est-ce qu’il y a des possibilités cette année encore de dormir sur place?
 
-Non, étant donné ce retour à l’essentiel et le multi-site, nous estimons qu’il est possible de ne pas être trop loin de chez soi et on ne propose donc pas de solution pour la nuit de vendredi à samedi. Mais on est sûr que tu sauras être créatif !
+Oui, il est possible de dormir sur place. Il est nécessaire de prendre un billet qui comprends l'hébergement (supplément de 35 CHF). Nous ne fournissons pas de matériel pour dormir, chacun doit prendre son matelas et son sac de couchage. Le petit déjeuner du samedi et dimanche matin est compris dans le prix.
 
 ### A partir de quel âge est-ce que je peux participer à la RJ?
 
@@ -43,7 +38,7 @@ Dès 12 ans. Même si le programme s’adresse principalement à des 12-22 an
 
 ### Est-ce que les repas seront inclus?
 
-Non.
+Non, les repas ne sont pas compris. Cependant, des stands de nourriture seront à votre disposition.
 
 ### Comment puis-je soutenir cet évènement?
 

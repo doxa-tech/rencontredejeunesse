@@ -1,0 +1,116 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <h2>Programme</h2>
+    <h3>Tous les sites</h3>
+    <div class="days">
+      <div class="day">
+        <h4>Vendredi</h4>
+        <p>18h00: Ouverture</p>
+        <p>20h00: Plénière</p>
+        <p>22h00: Fin de la soirée</p>
+        <p>00h00: Fermeture</p>
+      </div>
+      <div class="day">
+        <h4>Samedi</h4>
+        <p>09h00: Ouverture</p>
+        <p>10h00: Plénière</p>
+        <p>12h00: Fin de la matinée</p>
+        <p>14h00: Ateliers</p>
+        <p>17h00: Fin des ateliers</p>
+        <p>20h00: Plénière</p>
+        <p>22h00: Fin de la soirée</p>
+        <p>00h00: Fermeture</p>
+      </div>
+    </div>
+    <h3>Fun Zone</h3>
+    <div class="days">
+      <div class="day">
+        <h4>Vendredi</h4>
+        <p>18h00 à 19h30</p>
+        <p>22h00 à 00h00</p>
+      </div>
+      <div class="day">
+        <h4>Samedi</h4>
+        <p>09h00 à 09h30</p>
+        <p>12h00 à 19h30</p>
+        <p>22h00 à 00h00</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    display: flex;
+    justify-content: center;
+    background-color: #507d82;
+    font-family: lato, sans-serif;
+    letter-spacing: 0.1em;
+
+    .section-container {
+      max-width: $main-width;
+      width: 100%;
+      padding: 80px 100px;
+
+      h2 {
+        font-size: $sub-title;
+        text-transform: uppercase;
+        padding: 0 0 30px 0;
+        color: #fff;
+
+        &:not(:nth-of-type(1)) {
+          padding-top: 40px;
+        }
+      }
+
+      h3 {
+        color: #fff;
+        padding: 40px 0 20px 0;
+      }
+
+      .days {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-top: 2px dashed white;
+        padding: 20px 0 10px 0;
+
+        .day {
+          flex: 1 1 0;
+
+          &:not(:last-of-type) {
+            padding: 0 0 0 0;
+          }
+
+          h4 {
+            color: #fff;
+            padding: 0px 0 10px 0;
+          }
+        }
+      }
+
+      p {
+        text-transform: uppercase;
+        font-size: $large-text;
+        color: #fff;
+        font-weight: 200;
+        line-height: 1.2em;
+        padding: 0 0 10px 0;
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        .days {
+          flex-direction: column;
+        }
+      }
+    }
+  }
+</style>

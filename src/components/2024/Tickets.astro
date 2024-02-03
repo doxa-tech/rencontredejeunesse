@@ -1,0 +1,235 @@
+---
+---
+
+<section id="inscription">
+  <div class="section-container">
+    <div class="prices">
+      <div class="price">
+        <div class={ new Date() <= new Date('2024-02-11') ? 'day full' : 'day' }>
+          <p>FLASH</p>
+        </div>
+        <div class="amount first">
+          <p>CHF 79</p>
+          <p>jusqu'au 11 fév</p>
+        </div>
+
+        <div class="amount">
+          <p>+ CHF 35</p>
+          <p>
+            hébergement<br>
+            & déjeuner
+          </p>
+        </div>
+      </div>
+      <div class="price">
+        <div class={ new Date() > new Date('2024-02-11') && new Date() <= new Date('2024-04-26') ? 'day full' : 'day' }>
+          <p>PRELOC</p>
+        </div>
+        <div class="amount first">
+          <p>CHF 99</p>
+          <p>jusqu'au 26 avril</p>
+        </div>
+       
+        <div class="amount">
+          <p>+ CHF 35</p>
+          <p>
+            hébergement<br>
+            & déjeuner
+          </p>
+        </div>
+      </div>
+      <div class="price">
+        <div class={ new Date() > new Date('2024-04-26') ? 'day full' : 'day' }>
+          <p>LAST</p>
+        </div>
+        <div class="amount first">
+          <p>CHF 119</p>
+          <p>jusqu'au 4 mai<br>et sur place</p>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="faq">
+      <p>
+        Dimanche matin gratuit et ouvert à tous !
+      </p>
+      <p>
+        Conditions et prix des billets dans <a href="/support">notre FAQ</a>
+      </p>
+      <p>
+        Pour les bénévoles: <a href="/volunteers#register">Informations et inscription</a>
+      </p>
+    </div>
+
+    <div class="inscription">
+      <a class="inscription" href="https://tickets.rencontredejeunesse.ch/orders/rj-2024/events/new">s'inscrire</a>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    display: flex;
+    justify-content: center;
+
+    .section-container {
+      max-width: $main-width;
+      padding: 80px 50px;
+      font-family: lato, sans-serif;
+      letter-spacing: 0.05em;
+
+      div.flash {
+        margin: 10px;
+        padding: 10px 0 10px 0;
+        background-color: #fece00;
+        border: 3px solid #fece00;
+        border-radius: 5px;
+
+        font-size: $large-text;
+        color: #fff;
+        text-align: center;
+      }
+
+      div.prices {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-end;
+        flex-wrap: wrap-reverse;
+
+        div.price {
+          border: 3px solid #507d82;
+          border-radius: 5px;
+          margin: 10px;
+          color: #507d82;
+          width: 220px;
+          min-height: 220px;
+
+          div.day {
+            text-transform: uppercase;
+            font-size: $normal-text;
+            position: relative;
+            height: 65px;
+            vertical-align: middle;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 3px solid #507d82;
+            font-weight: bold;
+            letter-spacing: 0.1em;
+            padding: 7px 0 0 0;
+
+            &.full {
+              background-color: #507d82;
+              color: #fff;
+            }
+
+            span {
+              position: absolute;
+              top: 12px;
+              left: 30px;
+            }
+          }
+
+          & > div.amount {
+            padding: 12px 0 10px 30px;
+            font-size: $small-text;
+
+            &.first {
+              font-size: $large-text;
+            }
+
+            & > p:nth-of-type(2) {
+              font-size: $small-text;
+              line-height: $small-text;
+              font-weight: 300;
+            }
+          }
+
+          & > p:not(:nth-of-type(1)) {
+            padding: 0 0px 12px 30px;
+            font-size: $small-text;
+            font-weight: 200;
+          }
+        }
+      }
+
+      div.faq {
+        text-transform: uppercase;
+        color: #507d82;
+        font-size: $small-text;
+        padding: 20px 0 50px 0;
+
+        p {
+          padding: 0 0 10px 0;
+        }
+
+        a {
+          text-decoration-line: underline;
+        }
+
+        a:hover  {
+          color: #32595e;
+        }
+      }
+
+      div.inscription {
+        text-align: center;
+
+        a.inscription {
+          text-align: center;
+          bottom: 80px;
+          background: #507d82;
+          text-transform: uppercase;
+          padding: 3px 140px;
+
+          font-size: $small-text;
+          color: white;
+          border-radius: 4px;
+
+          box-shadow: inset 0 0 0 0 #54b3d6;
+          transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+          &:hover {
+            color: #507d82;
+            box-shadow: inset 400px 0 0 0 white;
+          }
+        }
+      }
+    }
+
+    @media only screen and (max-width: $mobile-width) {
+      .section-container {
+        padding-top: 50px;
+        font-size: 1.2em;
+
+        div.prices {
+          flex-direction: column;
+          align-items: center;
+
+          div.price {
+            width: 190px;
+
+            div.day {
+              &::after {
+                bottom: -0.27em;
+              }
+
+              span {
+                top: 25px;
+              }
+            }
+          }
+        }
+
+        a.inscription {
+          padding: 5px 20px !important;
+        }
+      }
+    }
+  }
+</style>
