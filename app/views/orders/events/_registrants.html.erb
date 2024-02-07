@@ -24,8 +24,10 @@
         </div>
 
         <div class="row">
-          <%= f.label :item_id %>
-          <div class="select"><%= f.collection_select_with_errors :item_id, items, :id, :name_with_price, prompt: true %></div>
+          <%= f.label :item_id, "Produit à choix" %>
+          <div class="select">
+            <%= f.collection_select_with_errors :item_id, items, :id, :name_with_price, prompt: true %>
+          </div>
         </div>
       </div>
       
