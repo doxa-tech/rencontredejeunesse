@@ -5,7 +5,7 @@
   <div class="section-container">
     <div class="prices">
       <div class="price">
-        <div class={ new Date() <= new Date('2024-02-11') ? 'day full' : 'day' }>
+        <div class={ new Date() <= new Date('2024-02-11 23:59') ? 'day full' : 'day' }>
           <p>FLASH</p>
         </div>
         <div class="amount first">
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="price">
-        <div class={ new Date() > new Date('2024-02-11') && new Date() <= new Date('2024-04-26') ? 'day full' : 'day' }>
+        <div class={ new Date() > new Date('2024-02-11 23:59') && new Date() <= new Date('2024-04-26 23:59') ? 'day full' : 'day' }>
           <p>PRELOC</p>
         </div>
         <div class="amount first">
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div class="price">
-        <div class={ new Date() > new Date('2024-04-26') ? 'day full' : 'day' }>
+        <div class={ new Date() > new Date('2024-04-26 23:59') ? 'day full' : 'day' }>
           <p>LAST</p>
         </div>
         <div class="amount first">
