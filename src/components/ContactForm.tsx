@@ -56,7 +56,6 @@ export const ContactForm = () => {
 
       <select name="Catégorie" onChange={onCategoryChange}>
         <option value="Commandes">Commandes</option>
-        <option value="Commandes pour un groupe">Commande pour un groupe</option>
         <option value="Signaler un bug">Signaler un bug</option>
         <option value="Question générale">Question générale</option>
       </select>

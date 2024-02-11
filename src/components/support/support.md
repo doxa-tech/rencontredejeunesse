@@ -24,6 +24,10 @@ Prix **en ligne** jusqu'au **4 mai** et **sur place**:
 - Dimanche matin est gratuit
 - Dimanche après-midi: à venir
 
+### Avez-vous des prix pour les familles ?
+
+Oui, nous offrons des réductions sur les pass weekend pour les enfants d'une même famille. Le premier enfant paie le prix normal, le deuxième a une réduction de 20 CHF, le troisième et les suivants une réduction de 30 CHF. Par exemple, le prix pour 3 enfants serait de 99 + 79 + 69 = 247 CHF. Pour bénéficier de l'offre, vous pouvez nous contacter via le formulaire de contact.
+
 ### Où se déroule la rencontre ?
 
 La RJ se déroule à l'Espace Gruyère de Bulle. L'adresse est Rue de Vevey 136-144, 1630 Bulle.
