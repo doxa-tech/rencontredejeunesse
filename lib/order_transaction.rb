@@ -98,7 +98,7 @@ class OrderTransaction
 
   def discount_item
     PostFinanceCheckout::LineItemCreate.new({
-      amountIncludingTax: @order.discount_amount / 100,
+      amountIncludingTax: -@order.discount_amount / 100,
       name: "Rabais",
       quantity: 1,
       shippingRequired: false,
