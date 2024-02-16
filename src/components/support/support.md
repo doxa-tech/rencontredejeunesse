@@ -24,6 +24,8 @@ Prix **en ligne** jusqu'au **4 mai** et **sur place**:
 - Dimanche matin est gratuit
 - Dimanche après-midi: à venir
 
+L'entrée est gratuit pour les enfants de 0 à 10 ans (inclus). L'accompagnant peut se rendre à l'accueil avec la carte d'identité de l'enfant pour obtenir son entrée gratuite.
+
 ### Avez-vous des prix pour les familles ?
 
 Oui, nous offrons des réductions sur les pass weekend pour les enfants d'une même famille. Le premier enfant paie le prix normal, le deuxième a une réduction de 20 CHF, le troisième et les suivants une réduction de 30 CHF. Par exemple, le prix pour 3 enfants serait de 99 + 79 + 69 = 247 CHF. Pour bénéficier de l'offre, vous pouvez nous contacter via le formulaire de contact.
