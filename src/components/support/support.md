@@ -31,7 +31,7 @@ L'entrée est gratuit pour les enfants de 0 à 10 ans (inclus). L'accompagnant p
 Oui, nous offrons des réductions sur les pass weekend pour les enfants d'une même famille. Le premier enfant paie le prix normal, le deuxième a une réduction de 20 CHF, le troisième et les suivants une réduction de 30 CHF. Par exemple, le prix pour 3 enfants serait de 99 + 79 + 69 = 247 CHF. 
 
 Pour bénéficier de l'offre, vous pouvez commander un pack famille en suivant ce lien:
-[Commander](https://tickets.rencontredejeunesse.ch/orders/rj-2024-family/events/new). Sur place, les billets du pack famille peuvent être retirés sur présentation des pièces d'identité des enfants concernés afin d'attester qu'ils appartiennent à la même famille.
+[Commander](https://tickets.rencontredejeunesse.ch/orders/rj-2024-family/events/new). Sur place, les billets du pack famille peuvent être retirés sur présentation des pièces d'identité des enfants concernés afin d'attester qu'ils appartiennent à la même famille. Si vous souhaitez commander des hébergements, vous pouvez les acheter séparement via la page standard: [Commander](https://tickets.rencontredejeunesse.ch/orders/rj-2024/events/new).
 
 
 ### Où se déroule la rencontre ?
