@@ -3,60 +3,78 @@
 
 <section>
     <div class="section-container">
-      <div class="speakers">
-        <div id="orateurs">
-            <h4>Orateurs</h4>
+        <div class="speakers">
+            <div id="orateurs">
+                <h4>Orateurs</h4>
+                <div class="align">
+                    <div class="box">
+                        <img
+                            src="/2024/welcome/speakers/Luca Martini.png"
+                            alt="Luca Martini, orateur à la RJ"
+                        />
+                        <span class="name">Luca Martini</span>
+                        <i>Londres</i>
+                    </div>
+                    <div class="box">
+                        <img
+                            src="/2024/welcome/speakers/Stephen Hilar.png"
+                            alt="Stephen Hilar, orateur à la RJ"
+                        />
+                        <span class="name">Stephen Hilar</span>
+                        <i>Montréal</i>
+                    </div>
+                    <div class="box">
+                        <img
+                            src="/2024/welcome/speakers/Yves Bulundwe.png"
+                            alt="Yves Bulundwe, orateur à la RJ"
+                        />
+                        <span class="name">Yves Bulundwe</span>
+                        <i>Lausanne</i>
+                    </div>
+                </div>
+            </div>
             <div class="align">
-                <div class="box">
-                    <img src="/2024/welcome/speakers/Luca Martini.png" alt="Luca Martini, orateur à la RJ">
-                    <span class="name">Luca Martini</span>
-                    <i>Londres</i>
+                <div id="groupe-de-louange">
+                    <h4>Groupe de louange</h4>
+                    <div class="box">
+                        <img
+                            src="/2024/welcome/speakers/Horizon Louange.png"
+                            alt="Horizon Louange, groupe de louange à la RJ"
+                        />
+                        <span class="name">Horizon Louange</span>
+                        <i>Paris</i>
+                    </div>
                 </div>
-                <div class="box">
-                    <img src="/2024/welcome/speakers/Stephen Hilar.png" alt="Stephen Hilar, orateur à la RJ">
-                    <span class="name">Stephen Hilar</span>
-                    <i>Montréal</i>
+                <div id="showcase">
+                    <h4>Showcase</h4>
+                    <div class="box">
+                        <img
+                            src="/2024/welcome/speakers/Conozco.png"
+                            alt="Conozco effectue le showcase à la RJ"
+                        />
+                        <span class="name">Conozco</span>
+                        <i>Paris</i>
+                    </div>
                 </div>
-                <div class="box">
-                    <img src="/2024/welcome/speakers/Yves Bulundwe.png" alt="Yves Bulundwe, orateur à la RJ">
-                    <span class="name">Yves Bulundwe</span>
-                    <i>Lausanne</i>
-                </div>
-            </div>
-        </div>
-        <div class="align">
-            <div id="groupe-de-louange">
-                <h4>Groupe de louange</h4>
-                <div class="box">
-                    <img src="/2024/welcome/speakers/Horizon Louange.png" alt="Horizon Louange, groupe de louange à la RJ">
-                    <span class="name">Horizon Louange</span>
-                    <i>Paris</i>
-                </div>
-            </div>
-            <div id="showcase">
-                <h4>Showcase</h4>
-                <div class="box">
-                    <img src="/2024/welcome/speakers/Conozco.png" alt="Conozco effectue le showcase à la RJ">
-                    <span class="name">Conozco</span>
-                    <i>Paris</i>
-                </div>
-            </div>
-            <div id="concert">
-                <h4>Concert</h4>
-                <div class="box">
-                    <img src="/2024/welcome/speakers/CrazyHope.png" alt="CrazyHope joue à la RJ">
-                    <span class="name">CrazyHope</span>
-                    <i>Bruxelles</i>
+                <div id="concert">
+                    <h4>Concert</h4>
+                    <div class="box">
+                        <img
+                            src="/2024/welcome/speakers/CrazyHope.png"
+                            alt="CrazyHope joue à la RJ"
+                        />
+                        <span class="name">CrazyHope</span>
+                        <i>Bruxelles</i>
+                    </div>
                 </div>
             </div>
         </div>
-      </div>
     </div>
-  </section>
-  
-  <style lang="scss">
+</section>
+
+<style lang="scss">
     @import "../../styles/variables";
-  
+
     section {
         display: flex;
         justify-content: center;
@@ -64,47 +82,58 @@
         color: #fff;
         font-family: lato, sans-serif;
         letter-spacing: 0.1em;
-  
+
         .section-container {
             max-width: $main-width;
             width: 100%;
             padding: 80px 50px;
+
             .speakers {
                 display: flex;
                 flex-direction: column;
                 gap: 80px;
+
                 .align {
                     display: flex;
                     justify-content: space-around;
                     flex-wrap: wrap;
                     gap: 10px;
                 }
-                #orateurs, #concert, #showcase, #groupe-de-louange {
+
+                #orateurs,
+                #concert,
+                #showcase,
+                #groupe-de-louange {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     gap: 30px;
                 }
+
                 .box {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
                     width: 300px;
                     gap: 3px;
+
                     .name {
                         font-size: $large-text;
                     }
                 }
+
                 img {
                     border-radius: 50%;
                     border: 5px solid #fff;
                     width: 200px;
                     margin-bottom: 10px;
                 }
+
                 h4 {
                     text-transform: uppercase;
                     font-size: $large-text;
                 }
+
                 @media only screen and (max-width: $mobile-width) {
                     img {
                         width: 170px;
@@ -116,4 +145,4 @@
             }
         }
     }
-</style>  
+</style>
