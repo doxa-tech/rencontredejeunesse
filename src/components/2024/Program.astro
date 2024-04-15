@@ -3,40 +3,73 @@
 
 <section>
   <div class="section-container">
-    <h2>Programme</h2>
-    <h3>Tous les sites</h3>
     <div class="days">
       <div class="day">
-        <h4>Vendredi</h4>
-        <p>18h00: Ouverture</p>
-        <p>20h00: Plénière</p>
-        <p>22h00: Fin de la soirée</p>
-        <p>00h00: Fermeture</p>
+        <h4>Vendredi soir</h4>
+        <div class="timetable">
+          <div class="line">
+            <span>18h00</span><div><p>Ouverture de la billetterie</p></div>
+          </div>
+          <div class="line">
+            <span>18h30</span><div><p>Village des stands et fun zone</p></div>
+          </div>
+          <div class="line">
+            <span>19h30</span><div>
+              <p>Ouverture des portes</p><p>Plénière</p>
+            </div>
+          </div>
+          <div class="line">
+            <span>22h30</span><div><p>Fin plénière</p><p>After</p></div>
+          </div>
+          <div class="line"><span>00h30</span><div><p>Fermeture</p></div></div>
+        </div>
       </div>
       <div class="day">
         <h4>Samedi</h4>
-        <p>09h00: Ouverture</p>
-        <p>10h00: Plénière</p>
-        <p>12h00: Fin de la matinée</p>
-        <p>14h00: Ateliers</p>
-        <p>17h00: Fin des ateliers</p>
-        <p>20h00: Plénière</p>
-        <p>22h00: Fin de la soirée</p>
-        <p>00h00: Fermeture</p>
+        <div class="timetable">
+          <div class="line">
+            <span>07h00</span><div><p>Espace déjeuner</p></div>
+          </div>
+          <div class="line">
+            <span>09h30</span><div>
+              <p>Ouverture des portes</p><p>Plénière</p>
+            </div>
+          </div>
+          <div class="line">
+            <span>11h30</span><div>
+              <p>
+                Journée festival! Plusieurs activités, 25 ateliers, le village
+                des stands, la fun zone, les artistes sur la scène libre
+              </p>
+            </div>
+          </div>
+          <div class="line">
+            <span>19h30</span><div>
+              <p>Ouverture des portes</p><p>Plénière</p>
+            </div>
+          </div>
+          <div class="line">
+            <span>22h30</span><div><p>Fin plénière</p><p>After</p></div>
+          </div>
+          <div class="line"><span>00h30</span><div><p>Fermeture</p></div></div>
+        </div>
       </div>
-    </div>
-    <h3>Fun Zone</h3>
-    <div class="days">
       <div class="day">
-        <h4>Vendredi</h4>
-        <p>18h00 à 19h30</p>
-        <p>22h00 à 00h00</p>
-      </div>
-      <div class="day">
-        <h4>Samedi</h4>
-        <p>09h00 à 09h30</p>
-        <p>12h00 à 19h30</p>
-        <p>22h00 à 00h00</p>
+        <h4>Dimanche</h4>
+        <div class="timetable">
+          <div class="line">
+            <span>07h00</span><div><p>Espace déjeuner</p></div>
+          </div>
+          <div class="line">
+            <span>09h30</span><div>
+              <p>Ouverture des portes</p><p>Plénière</p>
+            </div>
+          </div>
+          <div class="line"><span>14h00</span><div><p>Concert</p></div></div>
+          <div class="line">
+            <span>16h00</span><div><p>Fin officielle</p></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -46,69 +79,83 @@
   @import "../../styles/variables";
 
   section {
-    display: flex;
-    justify-content: center;
-    background-color: #507d82;
+    color: #507d82;
     font-family: lato, sans-serif;
     letter-spacing: 0.1em;
+    display: flex;
+    justify-content: center;
 
     .section-container {
       max-width: $main-width;
-      width: 100%;
-      padding: 80px 100px;
-
-      h2 {
-        font-size: $sub-title;
-        text-transform: uppercase;
-        padding: 0 0 30px 0;
-        color: #fff;
-
-        &:not(:nth-of-type(1)) {
-          padding-top: 40px;
-        }
-      }
-
-      h3 {
-        color: #fff;
-        padding: 40px 0 20px 0;
-      }
+      padding: 80px 50px;
+      overflow: auto;
 
       .days {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        border-top: 2px dashed white;
-        padding: 20px 0 10px 0;
+        gap: 30px;
+      }
 
-        .day {
-          flex: 1 1 0;
+      .day {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
 
-          &:not(:last-of-type) {
-            padding: 0 0 0 0;
-          }
+        h4 {
+          text-transform: uppercase;
+          font-weight: bold;
+        } 
 
-          h4 {
-            color: #fff;
-            padding: 0px 0 10px 0;
+        .timetable {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          .line {
+            display: flex;
+            gap: 5px;
+            width: 300px;
+
+            span {
+              font-weight: bold;
+            }
+
+            div {
+              display: flex;
+              flex-direction: column;
+              gap: 0px;
+
+              p {
+                display: flex;
+                gap: 5px;
+
+                &::before {
+                  content: "|";
+                  font-weight: bold;
+                }
+              }
+            }
           }
         }
       }
-
-      p {
-        text-transform: uppercase;
-        font-size: $large-text;
-        color: #fff;
-        font-weight: 200;
-        line-height: 1.2em;
-        padding: 0 0 10px 0;
-      }
     }
+  }
 
-    @media only screen and (max-width: $mobile-width) {
+  @media only screen and (max-width: $main-width) {
+
+    section {
+
       .section-container {
+        padding: 30px 0 50px 0;
+
         .days {
           flex-direction: column;
+
+          .day {
+
+            h4 {
+              margin: 20px 0 0 0;
+            }
+          }
         }
       }
     }
