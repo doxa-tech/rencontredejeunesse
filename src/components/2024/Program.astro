@@ -100,6 +100,11 @@
         flex-direction: column;
         gap: 25px;
 
+        h4 {
+          text-transform: uppercase;
+          font-weight: bold;
+        } 
+
         .timetable {
           display: flex;
           flex-direction: column;
@@ -132,10 +137,26 @@
           }
         }
       }
+    }
+  }
 
-      h4 {
-        text-transform: uppercase;
-        font-weight: bold;
+  @media only screen and (max-width: $main-width) {
+
+    section {
+
+      .section-container {
+        padding: 30px 0 50px 0;
+
+        .days {
+          flex-direction: column;
+
+          .day {
+
+            h4 {
+              margin: 20px 0 0 0;
+            }
+          }
+        }
       }
     }
   }
