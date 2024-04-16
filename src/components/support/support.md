@@ -22,7 +22,7 @@ Prix **en ligne** jusqu'au **4 mai** et **sur place**:
 - Samedi (tout la journée) 69.-
 - Samedi (soir) 49.-
 - Dimanche matin est gratuit
-- Dimanche après-midi: à venir
+- Dimanche après-midi: 25.-
 
 L'entrée est gratuit pour les enfants de 0 à 10 ans (inclus). L'accompagnant peut se rendre à l'accueil avec la carte d'identité de l'enfant pour obtenir son entrée gratuite.
 
