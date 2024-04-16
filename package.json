@@ -11,15 +11,15 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^1.2.2",
-    "@hcaptcha/react-hcaptcha": "^1.4.4",
+    "@astrojs/react": "^2.2.1",
+    "@hcaptcha/react-hcaptcha": "^1.10.1",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
-    "astro": "^1.6.14",
+    "astro": "^2.10.15",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "sass": "^1.56.2"
+    "sass": "^1.75.0"
   }
 }
