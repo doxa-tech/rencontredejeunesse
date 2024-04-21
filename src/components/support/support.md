@@ -15,16 +15,16 @@ Prix **en ligne** jusqu'au **26 avril**:
 
 - Pass weekend 99.-
 
-Prix **en ligne** jusqu'au **4 mai** et **sur place**:
+Prix **en ligne** du **22 avril** jusqu'au **5 mai** et **sur place** (dans la limite des stocks disponibles):
 
 - Pass weekend 119.-
 - Vendredi (soir) 49.-
 - Samedi (tout la journée) 69.-
-- Samedi (soir) 49.-
+- Samedi soir (dès 18h00) 49.-
 - Dimanche matin est gratuit
-- Dimanche après-midi: 25.-
+- Dimanche après-midi (dès 11h30): 25.-
 
-L'entrée est gratuit pour les enfants de 0 à 10 ans (inclus). L'accompagnant peut se rendre à l'accueil avec la carte d'identité de l'enfant pour obtenir son entrée gratuite.
+L'entrée est gratuite pour les enfants de 0 à 10 ans (inclus). L'accompagnant peut se rendre à l'accueil avec la carte d'identité de l'enfant pour obtenir son entrée gratuite.
 
 ### Avez-vous des prix pour les familles ?
 
