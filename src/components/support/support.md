@@ -2,10 +2,16 @@
 
 ## Rencontre de jeunesse 2024
 
-### Est-ce que je peux acheter mon entrée sur place?
+### A partir de quel âge est-ce que je peux participer à la RJ ?
 
-Oui ! Tu peux acheter des pass weekend et journalier (soit vendredi, samedi ou dimanche après-midi).<br>
-Le paiement peut se faire en liquide ou avec TWINT. Si tu peux, on t’encourage donc à prendre tes billets en avance !
+Dès 12 ans. Même si le programme s’adresse principalement à des 12-22 ans, il n’y a pas d’âge limite (les accompagnants et parents sont les bienvenus). Les entrées sont payantes dès 11 ans.
+
+Nous vous rendez attentif que par ordre du Préfet de la Gruyère, la participation à la RJ de mineurs **de moins de 15 ans** est interdite sans la présence d'accompagnants majeurs.
+
+### Billets
+
+Tu peux acheter des billets pour le weekend et journalier sur notre site et sur place (soit vendredi, samedi ou dimanche après-midi).<br>
+Le paiement peut se faire en liquide ou avec TWINT. Si tu peux, nous t’encourageons donc à prendre tes billets en avance !
 
 Prix **en ligne** jusqu'au **11 février**:
 
@@ -33,18 +39,13 @@ Oui, nous offrons des réductions sur les pass weekend pour les enfants d'une m�
 Pour bénéficier de l'offre, vous pouvez commander un pack famille en suivant ce lien:
 [Commander](https://tickets.rencontredejeunesse.ch/orders/rj-2024-family/events/new). Sur place, les billets du pack famille peuvent être retirés sur présentation des pièces d'identité des enfants concernés afin d'attester qu'ils appartiennent à la même famille. Si vous souhaitez commander des hébergements, vous pouvez les acheter séparement via la page standard: [Commander](https://tickets.rencontredejeunesse.ch/orders/rj-2024/events/new).
 
-
 ### Où se déroule la rencontre ?
 
 La RJ se déroule à l'Espace Gruyère de Bulle. L'adresse est Rue de Vevey 136-144, 1630 Bulle.
 
-### Dans le passé, il y avait les fameux dortoirs, est-ce qu’il y a des possibilités cette année encore de dormir sur place?
+### Est-il possible de dormir sur place ?
 
-Oui, il est possible de dormir sur place. Il est nécessaire de prendre un billet qui comprends l'hébergement (supplément de 35 CHF). Nous ne fournissons pas de matériel pour dormir, chacun doit prendre son matelas et son sac de couchage. Le petit déjeuner du samedi et dimanche matin est compris dans le prix.
-
-### A partir de quel âge est-ce que je peux participer à la RJ?
-
-Dès 12 ans. Même si le programme s’adresse principalement à des 12-22 ans, il n’y a pas d’âge limite (les encadrants, accompagnants,... sont les bienvenus!). Les entrées sont payantes dès 11 ans.
+Oui, il est possible de dormir sur place. Il y a un dortoir pour les garçons et un pour les filles. Il est nécessaire de prendre un billet qui comprend l'hébergement (supplément de 35 CHF). Nous ne fournissons pas de matériel pour dormir, chacun doit prendre son matelas et son sac de couchage. Le petit déjeuner du samedi et dimanche matin est compris dans le prix.
 
 ### Est-ce que les repas seront inclus?
 
