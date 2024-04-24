@@ -4,6 +4,7 @@ class Admin::BadgesController < Admin::BaseController
 
   def index
     @sectors = SECTORS
+    @zones = ZONES
   end
 
   def create

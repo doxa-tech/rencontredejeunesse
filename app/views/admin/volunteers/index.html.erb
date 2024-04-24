@@ -1,13 +1,21 @@
-<h1>Bénévoles</h1>
 
-<%= form_tag nil, method: :get do %>
+<div class="header">
+  <div>
+    <h1>Bénévoles</h1>
+  </div>
+  <%= image_tag "admin/icons/user", class: "icon-img" %>
+</div>
 
-  <%= hidden_field_tag :token, params[:token] %>
-  <%= select_tag :key, options_for_select(keys, params[:key]) %>
-  <%= select_tag :sector, options_for_select(sectors, params[:sector]), include_blank: true %>
+<div class="container">
+  <%= form_tag nil, method: :get do %>
 
-  <%= submit_tag "Sélectionner" %>
+    <%= hidden_field_tag :token, params[:token] %>
+    <%= select_tag :key, options_for_select(keys, params[:key]) %>
+    <%= select_tag :sector, options_for_select(sectors, params[:sector]), include_blank: true %>
 
-<% end %>
+    <%= submit_tag "Sélectionner" %>
 
-<%= @table.present(buttons: "buttons") %>
+  <% end %>
+
+  <%= @table.present(buttons: "buttons") %>
+</div>

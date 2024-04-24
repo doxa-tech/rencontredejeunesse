@@ -133,11 +133,10 @@ ActiveRecord::Schema.define(version: 2023_02_22_203101) do
   create_table "fields", force: :cascade do |t|
     t.string "name"
     t.integer "field_type"
-    t.boolean "required"
+    t.boolean "required", default: false
     t.bigint "form_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
     t.jsonb "options"
     t.string "label"
     t.index ["form_id"], name: "index_fields_on_form_id"

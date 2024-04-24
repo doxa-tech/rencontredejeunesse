@@ -2,6 +2,39 @@
   
   width: 100%;
   overflow: auto;
-  padding: 10px;
 
+  div.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 10px 10px 10px 15px;
+    color: white;
+
+    background: rgb(61, 61, 62);
+    background: linear-gradient(0deg, rgba(61, 61, 62, 1) 0%, rgba(61, 61, 62, 0.9177871832326681) 100%);
+
+    &>div {
+      flex: 1;
+
+      h1 {
+        margin: 20px 0 10px 0;
+      }
+      
+    }
+
+    .icon-img {
+      max-height: 130px;
+      max-width: 130px;
+      padding: 10px;
+    }
+  }
+
+  div.container {
+    padding: 20px 10px 40px 15px;
+
+    h2:not(:first-of-type) {
+      padding-top: 10px;
+    }
+  }
 }
