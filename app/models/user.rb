@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :gender, presence: true
   validate :uniqueness_of_email
 
-  validates :phone, format: { with: /\A\+\d{11}\z/ }
+  validates :phone, format: { with: /\A\+\d{6,}\z/ }
   validates :npa, numericality: { only_integer: true, greater_than: 0 }
   validates :city, presence: true, length: { maximum: 30 }
   validates :address, presence: true, length: { maximum: 50 }
