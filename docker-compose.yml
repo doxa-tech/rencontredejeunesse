@@ -1,9 +1,11 @@
 version: '3'
 services:
   db:
-    image: postgres:10
+    image: postgres:16
     volumes:
       - ./data/postgresql:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: not_a_password
   web:
     build: .
     command: >
@@ -19,3 +21,4 @@ services:
     environment:
       - POSTGRES_HOST="db"
       - POSTGRES_USER="postgres"
+      - POSTGRES_PASSWORD="not_a_password"
