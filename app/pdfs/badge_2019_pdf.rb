@@ -1,4 +1,4 @@
-class BadgePdf < Prawn::Document
+class Badge2019Pdf < Prawn::Document
   require "prawn/measurement_extensions"
 
   def initialize(data, sectors, zones)
@@ -35,7 +35,6 @@ class BadgePdf < Prawn::Document
       :bold => Rails.root.join("app/assets/fonts/pdf/omnes-semibold.ttf"),
     })
     font "omnes"
-    fill_color "ffffff"
 
     # stroke_axis
     # draw_horizontal_layout(true)
@@ -74,131 +73,71 @@ class BadgePdf < Prawn::Document
   # with maximum 10 elements
   # with cursor at the bottom left
   def draw_page(data, row_reverse)
-    row_reverse ? draw_back_page(data) : draw_front_page(data)
-  end
-
-  def draw_front_page(data)
     canvas do
-      text_box "#{page_number}", :at => [bounds.left+3.mm, bounds.top-3.mm], size: 8
-    end
-
-    data.each.with_index do |el, i|
-      col = i%5
-      row = i/5
-      bounding_box([col*55.mm, 85.mm*2+10.mm - row*(85.mm+10.mm)], :width => 55.mm, :height => 85.mm) do
-
-        image "#{Rails.root}/app/assets/images/pdf/badges/2024/background2.jpg", width: 55.mm, height: 95.mm, at: [0.mm, 90.mm]
-        image "#{Rails.root}/app/assets/images/pdf/badges/2024/logo.png", height: 25, at: [38.mm, 83.mm]
-        image "#{Rails.root}/app/assets/images/pdf/badges/2024/slogan.png", width: 22.mm, at: [17.mm, 80.mm]
-
-        fill_color "ffffff"
-
-        bounding_box(
-          [0.mm, 44.mm], 
-          :width => 55.mm,
-          valign: :center
-        ) do
-          text "#{el[:firstname]} #{el[:lastname]}", 
-            align: :center,
-            size: 11,
-            overflow: :shrink_to_fit
-
-          bounding_box(
-            [2.5.mm, 0],
-            width: 50.mm,
-            height: 10.mm
-          ) do
-            text @sectors[el[:sec_id]][:name], 
-              size: 16, 
-              style: :bold,
-              align: :center,
-              overflow: :shrink_to_fit
-          end
-        end
-
-        num_zone = @sectors[el[:sec_id]][:zones].size
-        from_bottom = 10.mm
-        margin = -4.mm
-        growth_factor = 1 + (7-num_zone)**1.3*0.1
-        shape_w = 5.mm * growth_factor
-        shape_h = 17.mm
-        shapes_width = num_zone * shape_w*2 + (num_zone-1) * margin
-        position_from_left = (55.mm - shapes_width) / 2
-        angle = -Math.atan(shape_h / shape_w) * 180 / Math::PI
-
-        @sectors[el[:sec_id]][:zones].each.with_index do |zone_id, i|
-          local_position_from_left = position_from_left + i*(shape_w*2 + margin)
-          fill_color @zones[@sectors[el[:sec_id]][:zones][i]][:color]
-          stroke_color "ffffff"
-          self.line_width = 0.2.mm
-          fill_and_stroke_polygon [local_position_from_left, from_bottom], 
-                       [local_position_from_left+shape_w, from_bottom], 
-                       [local_position_from_left+shape_w*2, from_bottom + shape_h], 
-                       [local_position_from_left+shape_w, from_bottom + shape_h], 
-                       [local_position_from_left, from_bottom]
-          fill_color "000000"
-          text_box @zones[@sectors[el[:sec_id]][:zones][i]][:abb].upcase, 
-                    at: [local_position_from_left+shape_w/2, from_bottom-1.mm],
-                    rotate: angle, size: 8, style: :bold, rotate_around: :upper_left
-        end
-      end
-    end
-  end
-
-  def draw_back_page(data)
-    canvas do
-      a = "- copie inversée horizontalement, reliure côté court"
+      a = row_reverse ? "- copie inversée horizontalement, reliure côté court" : ""
       text_box "#{page_number} #{a}" , :at => [bounds.left+3.mm, bounds.top-3.mm], size: 8
     end
 
-    border = BorderCallback.new(radius: 0.5.mm, document: self)
-    arrow = ArrowCallback.new(self)
-
     data.each.with_index do |el, i|
       col = i%5
       row = i/5
-      col = 4 - col # adjust for odd page
+      col = 4 - col if row_reverse
       bounding_box([col*55.mm, 85.mm*2+10.mm - row*(85.mm+10.mm)], :width => 55.mm, :height => 85.mm) do
 
-        image "#{Rails.root}/app/assets/images/pdf/badges/2024/background2.jpg", width: 55.mm, height: 95.mm, at: [0.mm, 90.mm]
-        # image "#{Rails.root}/app/assets/images/pdf/badges/2024/logo.png", height: 25, at: [38.mm, 83.mm]
+        image "#{Rails.root}/app/assets/images/pdf/badges/2019/logo.png", height: 45, at: [35.mm, 80.mm]
+        image "#{Rails.root}/app/assets/images/pdf/badges/2019/logo_changemoi_noir.png", width: 60, at: [4.mm, 70.mm]
+
+        text_box "2019", :at => [5.mm, 76.mm],
+                                     :width => 55.mm,
+                                     :align => :left,
+                                     size: 18, style: :bold
+
+        text_box el[:firstname], :at => [0, 55.mm],
+                                     :width => 55.mm,
+                                     :align => :center,
+                                     size: 11
+
+        text_box el[:lastname], :at => [0, 50.mm],
+                                     :width => 55.mm,
+                                     :align => :center,
+                                     size: 11
+
+        text_box @sectors[el[:sec_id]][:name], :at => [2.5.mm, 44.mm],
+                                     :width => 50.mm,
+                                     :align => :center  ,
+                                     size: 16, style: :bold
         
-        bounding_box(
-          [3.mm, 82.mm],
-          width: 50.mm,
-          valign: :top,
-        ) do
-          font_size 8
-          fill_color "ffffff"
-          text "Zones d'accès:", style: :bold
-          move_down 2.mm
-          @zones.each do |zone|
-            bounding_box(
-              [3.mm, 0.mm],
-              # valign: :center,
-              # align: :center,
-              # height: 4.mm,
-              width: 50.mm
-            ) do
-              formatted_text [
-                {text: "#{zone[:human_color]}", callback: border},
-                {text: '         '},
-                {text: "#{zone[:name]} (#{zone[:abb]})", callback: arrow},
-              ]
-            end
-            move_down 1.mm
-          end
-          move_down 2.mm
-          text "Link tree Team24:", style: :bold
-          move_down 1.mm
-          bounding_box(
-            [0.mm, 0.mm],
-            width: 30.mm
-          ) do
-            text "stage timer à fermer après chaque consultation"
-          end
-          image "#{Rails.root}/app/assets/images/pdf/badges/2024/linktree.png", height: 42, at: [30.mm, 15.mm]
-        end
+        # Uses rounds. This is a variant that we found less
+        # good.
+        #
+        # radius = 6.mm
+        # margin = 0.5.mm
+        # if num_zone < 4
+        #   circles_width = num_zone*radius*2 + (num_zone - 1)*margin
+        #   circles_from_left = (55.mm-circles_width)/2 + radius
+        #   @sectors[el[:sec_id]][:zones].each.with_index do |zone_id, i|
+        #     fill_color @zones[zone_id][:color]
+        #     fill_circle [circles_from_left + i*(radius*2+margin), 24.mm], radius
+        #   end
+        # else
+        #   num_first_row = (num_zone-1)/2 + 1
+        #   num_second_row = num_zone - num_first_row
+          
+        #   circles_width = num_first_row*radius*2 + (num_first_row - 1)*margin
+        #   circles_from_left = (55.mm-circles_width)/2 + radius
+
+        #   num_first_row.times do |i|
+        #     fill_color @zones[@sectors[el[:sec_id]][:zones][i]][:color]
+        #     fill_circle [circles_from_left + i*(radius*2+margin), 24.mm], radius
+        #   end
+
+        #   circles_width = num_second_row*radius*2 + (num_second_row - 1)*margin
+        #   circles_from_left = (55.mm-circles_width)/2 + radius
+        #   num_second_row.times do |i|
+        #     fill_color @zones[@sectors[el[:sec_id]][:zones][i+num_first_row]][:color]
+        #     fill_circle [circles_from_left + i*(radius*2+margin), 11.7.mm], radius
+        #   end
+        # end
 
         num_zone = @sectors[el[:sec_id]][:zones].size
         from_bottom = 10.mm
@@ -213,9 +152,7 @@ class BadgePdf < Prawn::Document
         @sectors[el[:sec_id]][:zones].each.with_index do |zone_id, i|
           local_position_from_left = position_from_left + i*(shape_w*2 + margin)
           fill_color @zones[@sectors[el[:sec_id]][:zones][i]][:color]
-          stroke_color "ffffff"
-          self.line_width = 0.2.mm
-          fill_and_stroke_polygon [local_position_from_left, from_bottom], 
+          fill_polygon [local_position_from_left, from_bottom], 
                        [local_position_from_left+shape_w, from_bottom], 
                        [local_position_from_left+shape_w*2, from_bottom + shape_h], 
                        [local_position_from_left+shape_w, from_bottom + shape_h], 
@@ -227,6 +164,12 @@ class BadgePdf < Prawn::Document
         end
       end
     end
+
+    draw_special_line(0, 44.mm, 300.mm, 1.mm)
+    draw_special_line(0, 74.mm, 300.mm, 1.mm)
+
+    draw_special_line(0, 44.mm + 95.mm, 300.mm, 1.mm)
+    draw_special_line(0, 74.mm + 95.mm, 300.mm, 1.mm)
   end
 
   # This method uses absolute positions to draw a layout with
@@ -290,33 +233,4 @@ class BadgePdf < Prawn::Document
     end
   end
 
-end
-
-class BorderCallback
-  def initialize(options)
-    @radius, @document = options.values_at(:radius, :document)
-  end
-  def render_in_front(fragment)
-    @document.fill_circle([fragment.top_left[0]/2-2.mm, fragment.bottom_left[1]+(fragment.height/2)+0.3.mm] , @radius)
-  end
-end
-
-class ArrowCallback
-  def initialize(document)
-    @document = document
-  end
-  def render_in_front(fragment)
-    @document.join_style = :round
-    @document.stroke do
-      start_x = fragment.bottom_left[0]-3.mm
-      middle_y = fragment.bottom_left[1]+fragment.height/2+0.1.mm
-      arrow_height = 0.6.mm
-      @document.move_to(start_x,middle_y)
-      @document.line_to(start_x + 1.8.mm, middle_y)
-
-      @document.move_to(start_x + 1.mm, middle_y+arrow_height)
-      @document.line_to(start_x + 2.mm, middle_y)
-      @document.line_to(start_x + 1.mm, middle_y-arrow_height)
-    end
-  end
 end

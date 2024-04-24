@@ -32,6 +32,23 @@ class Admin::BadgesController < Admin::BaseController
     end
   end
 
+  def dev
+    data = [
+      {sec_id: 0, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 1, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 2, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 3, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 4, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 5, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 6, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 7, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 8, firstname: "Noémien", lastname: "kocher"},
+      {sec_id: 9, firstname: "Noémien", lastname: "kocher"}
+    ]
+    pdf = BadgePdf.new(data, SECTORS, ZONES)
+    send_data pdf.render, filename: "Badges.pdf", type: "application/pdf", disposition: 'inline'
+  end
+
   def volunteer
     respond_to do |format|
       format.pdf do
@@ -51,13 +68,13 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   ZONES = [
-    {name: "Village & Fun Park", color: "00FF00", abb: "vlg"},
-    {name: "Plénière & Backstage", color: "0000FF", abb: "plb"},
-    {name: "Régies", color: "7F00FF", abb: "reg"},
-    {name: "Espace Lounge", color: "FF0000", abb: "lng"},
-    {name: "Caisse", color: "5B3C11", abb: "css"},
-    {name: "Espace médias", color: "C0C0C0", abb: "med"},
-    {name: "Dortoirs", color: "FFA500", abb: "doo"}
+    {name: "Village & Fun Park", color: "00FF00", abb: "vlg", human_color: "Vert"},
+    {name: "Plénière & Backstage", color: "0000FF", abb: "plb", human_color: "Bleu"},
+    {name: "Régies", color: "7F00FF", abb: "reg", human_color: "Bordeau"},
+    {name: "Espace Lounge", color: "FF0000", abb: "lng", human_color: "Rouge"},
+    {name: "Caisse", color: "5B3C11", abb: "css", human_color: "Brun"},
+    {name: "Espace médias", color: "C0C0C0", abb: "med", human_color: "Gris"},
+    {name: "Dortoirs", color: "FFA500", abb: "doo", human_color: "Orange"}
   ]
 
   SECTORS = [

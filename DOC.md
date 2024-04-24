@@ -3,7 +3,8 @@
 ## Getting started
 
 Create the superuser:
-```
+
+```sh
 # create the user
 rails seed:superuser
 # create the permissions
@@ -14,6 +15,7 @@ rake adeia:superuser user_id=1
 rails c
 User.find(1).update_attribute :confirmed, true
 ```
+
 You can now use the superuser with the email "kocher.ke@gmail.com" and the password "12341".
 
 ## Order
@@ -21,6 +23,7 @@ You can now use the superuser with the email "kocher.ke@gmail.com" and the passw
 Database design:
 
 The core table is `orders`. Every order made by a client has a record in it. There are two types of order, designed with a single table inheritance: `regular` and `event`.
+
 - `regular`: an order of `items`, the record has many `items` (many-to-many association).
 - `event`: an order of `tickets`, the record has many `tickets` (many-to-many association). In fact, `tickets` are `items` (the table is called `items`) . The difference is in the junctions table: the junctions table `registrants` contains the personal information of the client ordering a ticket.
 
@@ -39,6 +42,7 @@ OrderBundle.create(name: "RJ Login 23", description: "La journée qui réunit le
 ## Volunteers (with Option Order)
 
 To create the volunteer form:
+
 ```ruby
 # create the form
 form = Form.create!(name: "volunteers-1")
@@ -60,6 +64,7 @@ The project uses the adeia gem to manage the permissions. ([see documentation](h
 
 The application can send push notifications using the gem RPush. 
 In order to work, you have to:
+
 - Include the `fcm_server_key` in your secrets.yml. You find it in the Firebase console.
 - Create an RPush app using these instructions: https://github.com/rpush/rpush#firebase-cloud-messaging
 
@@ -67,6 +72,7 @@ In order to work, you have to:
 
 The project uses Cucumber and Rspec for testing. Both use Capybara to interact with the app. Cucumber uses Selenium with the headless chrome driver.
 Run the tests:
+
 ```
 rake cucumber
 rspec spec/
