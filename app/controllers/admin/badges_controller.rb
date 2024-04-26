@@ -27,7 +27,6 @@ class Admin::BadgesController < Admin::BaseController
       redirect_to admin_badges_path, error: "Nous n'avons pas trouvé ce/ces secteurs:\n#{items_not_found}"   
     else
       # At this stage, we assume everything went good.
-      p data
       pdf = BadgePdf.new(data, SECTORS, ZONES)
       send_data pdf.render, filename: "Badges.pdf", type: "application/pdf", disposition: 'inline'
     end
@@ -58,18 +57,18 @@ class Admin::BadgesController < Admin::BaseController
   end
 
   ZONES = [
-    {name: "All access", color: "f70000", abb: "all", human_color: "Rouge"},
-    {name: "Village", color: "138c01", abb: "vil", human_color: "Vert"},
-    {name: "Scène & Backstage", color: "0c00fc", abb: "sce", human_color: "Bleu"},
+    {name: "All Access", color: "f70000", abb: "all", human_color: "Rouge"},
+    {name: "Village & Fun Park", color: "138c01", abb: "vil", human_color: "Vert"},
+    {name: "Grande Scène & Backstage", color: "0c00fc", abb: "sce", human_color: "Bleu"},
     {name: "Espace bénévoles", color: "fc8f00", abb: "ben", human_color: "Orange"},
-    {name: "Loge intervenants", color: "da00fc", abb: "log", human_color: "Violet"},
+    {name: "Loge intervenants principaux", color: "da00fc", abb: "log", human_color: "Violet"},
     {name: "Billeterie", color: "8c0801", abb: "bil", human_color: "Bordeau"},
     {name: "Espace médias", color: "fc009f", abb: "med", human_color: "Rose"},
-    {name: "Chalet", color: "969696", abb: "cha", human_color: "Gris"},
+    {name: "Staff Chalet", color: "969696", abb: "cha", human_color: "Gris"},
   ]
 
   SECTORS = [
-    {name: "Adjoint Coord Générale", zones: [0], id: 0},
+    {name: "Team Intercession", zones: [3], id: 0},
     {name: "Adjoint Coord Générale", zones: [0], id: 1},
     {name: "Ami de la RJ", zones: [3], id: 2},
     {name: "Amie de la RJ", zones: [3], id: 3},
@@ -130,10 +129,43 @@ class Admin::BadgesController < Admin::BaseController
     {name: "Resp Shop RJ", zones: [1,3], id: 58},
     {name: "Resp Stage Manager", zones: [1,2,3,4,6], id: 59},
     {name: "Resp Studio Photo Village", zones: [1,3], id: 60},
-    {name: "Resp Fun Zones", zones: [1,3], id: 61},
+    {name: "Resp Fun Zone", zones: [1,3], id: 61},
     {name: "Resp Team Médical", zones: [0], id: 62},
     {name: "Resp Tech Scène Artistes", zones: [1,2,3], id: 63},
     {name: "Resp Village De Stand", zones: [1,3], id: 64},
     {name: "Sécurité - Resp Dortoirs", zones: [0], id: 65},
+    {name: "Sponsor RJ", zones: [3], id: 66},
+    {name: "Stage Manager", zones: [1,2,3,4,6], id: 67},
+    {name: "Team Accueil", zones: [3], id: 68},
+    {name: "Team Billetterie", zones: [3,5], id: 69},
+    {name: "Team Chalet Staff", zones: [3,7], id: 70},
+    {name: "Team Dortoirs", zones: [1,2,3], id: 71},
+    {name: "Team Espace Bénévoles", zones: [3,4,7], id: 72},
+    {name: "Team Espace Guérison", zones: [3], id: 73},
+    {name: "Team Espace Prière", zones: [3], id: 74},
+    {name: "Team Espace Prophétique", zones: [3], id: 75},
+    {name: "Team Fun Zone", zones: [1,3], id: 76},
+    {name: "Team Installation Technique", zones: [3], id: 77},
+    {name: "Team Logistique", zones: [1,2,3], id: 78},
+    {name: "Team Médias - Photos", zones: [1,2,3,6], id: 79},
+    {name: "Team Médias - RS", zones: [1,2,3,6], id: 80},
+    {name: "Team Médias - Vidéos", zones: [1,2,3,6], id: 81},
+    {name: "Team Médical", zones: [0], id: 82},
+    {name: "Team Opening", zones: [3], id: 83},
+    {name: "Team Parking", zones: [3], id: 84},
+    {name: "Team Restaurant Staff", zones: [3], id: 85},
+    {name: "Team RJ", zones: [3], id: 86},
+    {name: "Team Sécurité", zones: [0], id: 87},
+    {name: "Team Shop RJ", zones: [1,3], id: 88},
+    {name: "Team Technique", zones: [1,2,3], id: 89},
+    {name: "Team Technique - GS", zones: [1,2,3], id: 90},
+    {name: "Team Technique - Studio", zones: [1,2,3], id: 91},
+    {name: "Team Technique - Vidéo", zones: [1,2,3], id: 92},
+    {name: "Team Village", zones: [1,3], id: 93},
+    {name: "Traducteur", zones: [1,2,3,4], id: 94},
+    {name: "Worship", zones: [1,2,3,4], id: 95},
+    {name: "Resp Espace Guérison", zones: [3], id: 96},
+    {name: "RJ24 - Joker", zones: [0], id: 97},
+    {name: "Resp Relation d'Aide", zones: [3], id: 98},
   ]
 end
