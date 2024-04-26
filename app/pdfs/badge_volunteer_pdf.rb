@@ -51,8 +51,8 @@ class BadgeVolunteerPdf < Prawn::Document
       row = i/5
       bounding_box([col*55.mm, 85.mm*2+10.mm - row*(85.mm+10.mm)], :width => 55.mm, :height => 85.mm) do
 
-        image "#{Rails.root}/app/assets/images/pdf/badges/logo.png", height: 45, at: [35.mm, 80.mm]
-        image "#{Rails.root}/app/assets/images/pdf/badges/logo_changemoi_noir.png", width: 60, at: [4.mm, 70.mm]
+        image "#{Rails.root}/app/assets/images/pdf/badges/2019/logo.png", height: 45, at: [35.mm, 80.mm]
+        image "#{Rails.root}/app/assets/images/pdf/badges/2019/logo_changemoi_noir.png", width: 60, at: [4.mm, 70.mm]
 
         text_box "2019", :at => [5.mm, 76.mm],
                                      :width => 55.mm,

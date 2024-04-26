@@ -114,9 +114,10 @@ Rails.application.routes.draw do
     root to: "base#index"
 
     resources :volunteers, only: [:index, :show]
-    resources :badges, only: [:index, :create] do
+    resources :badges, only: [:index, :create, :dev] do
       get "volunteer", on: :collection
       get "prayer", on: :collection
+      get "dev", on: :collection
     end
     resources :option_orders
     resources :items
