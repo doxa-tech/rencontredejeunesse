@@ -1,38 +1,76 @@
-<h1>Badges</h1>
 
-<div id="form">
-  <%= form_tag admin_badges_path, multipart: true do %>
+<% content_for :id, "badge" %>
 
-    <p>
-      Fichier d'exemple CSV: <%= link_to "exemple.csv", "/exemple.csv", download: "exemple" %><br>
-      Si vous avez une erreur alors que le secteur est juste, il s'agit parfois de caractères invisibles qui gènent.<br>
-      Réécrivez la ligne en question à main.
-    </p>
-
-    <%= label_tag :file, "Fichier" %>
-    <%= file_field_tag :file, accept: '.csv' %>
-
-    <%= submit_tag "Télécharger les badges", class: "button" %>
-
-  <% end %>
+<div class="header">
+  <div>
+    <h1>Badges</h1>
+    <p>Création des badges pour les bénévoles</p>
+  </div>
+  <%= image_tag "admin/icons/badge", class: "icon-img" %>
 </div>
 
-<h3>Autres badges</h3>
+<div class="container">
 
-<ul>
-  <li><%= link_to "> Badges bénévoles", volunteer_admin_badges_path(format: "pdf") %></li>
-  <li><%= link_to "> Badges équipiers", prayer_admin_badges_path(format: "pdf") %></li>
-  <li><%= link_to "> PDF d'explication!", "https://github.com/JS-Tech/rencontredejeunesse/blob/master/doc/badges/README.md"%></li>
-</ul>
-<hr>
-<h3>Secteurs autorisés</h3>
-<ul>
-<% @sectors.each do |sector| %>
-  <li><%= sector[:name] %></li>
-<% end %>
-</ul>
+  <h2>Intro</h2>
 
-<style>
-  li { padding: 5px;}
-  li a:hover { color: blue;}
-</style>
+  <p>
+    Fichier d'exemple CSV: <%= link_to "exemple.csv", "/exemple.csv", download: "exemple" %><br>
+    Si vous avez une erreur alors que le secteur est juste, il s'agit parfois de caractères invisibles qui gènent.<br>
+    Réécrivez la ligne en question à main.
+  </p>
+
+  <h2>Formulaire de création</h2>
+
+  <div id="form">
+    <%= form_tag admin_badges_path, multipart: true do %>
+
+      <%= label_tag :file, "Fichier" %>
+      <%= file_field_tag :file, accept: '.csv' %>
+
+      <%= submit_tag "Télécharger les badges", class: "button" %>
+
+    <% end %>
+  </div>
+
+  <h2>Autres badges</h2>
+
+  <p>
+    <%= link_to "> Badges bénévoles", volunteer_admin_badges_path(format: "pdf") %></li>
+  </p>
+  <p>
+    <%= link_to "> Badges équipiers", prayer_admin_badges_path(format: "pdf") %></li>
+  </p>
+  <p>
+    <%= link_to "> PDF d'explication!", "https://github.com/JS-Tech/rencontredejeunesse/blob/master/doc/badges/README.md"%></li>
+  </p>
+
+  <h2>Secteurs autorisés</h2>
+
+  <div class="sectors">
+  <% @sectors.each do |sector| %>
+    <div class="sector">
+      <div class="name">
+        <%= text_field_tag :aa, sector[:name], readonly: true %>
+      </div>
+      <div class="zones">
+        <% sector[:zones].each do |zone_idx| %>
+          <% rgb = @zones[zone_idx][:color].match(/^(..)(..)(..)$/).captures.map(&:hex) %>
+          <% r = rgb[0] %>
+          <% g = rgb[1] %>
+          <% b = rgb[2] %>
+          <% brightness = (r*299 + g*587 + b*114) / 1000 %>
+          <% final = brightness > 125 ? "#222" : "#e6e6e6" %>
+          <%= content_tag :span, style: "color: #{final}; background: ##{@zones[zone_idx][:color]}" do %>
+            <%= @zones[zone_idx][:name] %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  </div>
+
+  <style>
+    li { padding: 5px;}
+    li a:hover { color: blue;}
+  </style>
+</div>

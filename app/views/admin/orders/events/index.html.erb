@@ -1,18 +1,26 @@
-<h1>Commandes</h1>
 
-<%= form_tag nil, method: :get do %>
-  
-  <%= hidden_field_tag :token, params[:token] %>
-  <%= select_tag :redirect_key, options_for_select(@keys, params[:bundle_key]) %>
+<div class="header">
+  <div>
+    <h1>Commandes</h1>
+  </div>
+  <%= image_tag "admin/icons/user", class: "icon-img" %>
+</div>
 
-  <%= submit_tag "Sélectionner" %>
+<div class="container">
+  <%= form_tag nil, method: :get do %>
+    
+    <%= hidden_field_tag :token, params[:token] %>
+    <%= select_tag :redirect_key, options_for_select(@keys, params[:bundle_key]) %>
 
-<% end %>
+    <%= submit_tag "Sélectionner" %>
 
-<p>
-  La recherche fonctionne sur les champs Id ainsi que le prénom, nom et email de la personne.<br>
-  Certaines colonnes sont "triables" en cliquant sur les en-têtes.<br>
-</p>
-<p>Nombre d'entrées: <%= @count %></p>
+  <% end %>
 
-<%= @table.present(buttons: "buttons") %>
+  <p>
+    La recherche fonctionne sur les champs Id ainsi que le prénom, nom et email de la personne.<br>
+    Certaines colonnes sont "triables" en cliquant sur les en-têtes.<br>
+  </p>
+  <p>Nombre d'entrées: <%= @count %></p>
+
+  <%= @table.present(buttons: "buttons") %>
+</div>

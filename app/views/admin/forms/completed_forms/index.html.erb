@@ -1,12 +1,20 @@
-<h1>Formulaires</h1>
 
-<%= form_tag nil, method: :get do %>
+<div class="header">
+  <div>
+    <h1>Formulaires</h1>
+  </div>
+  <%= image_tag "admin/icons/user", class: "icon-img" %>
+</div>
 
-  <%= hidden_field_tag :token, params[:token] %>
-  <%= select_tag :key, options_for_select(@keys, params[:key]) %>
+<div class="container">
+  <%= form_tag nil, method: :get do %>
 
-  <%= submit_tag "Sélectionner" %>
+    <%= hidden_field_tag :token, params[:token] %>
+    <%= select_tag :key, options_for_select(@keys, params[:key]) %>
 
-<% end %>
+    <%= submit_tag "Sélectionner" %>
 
-<%= @table.present(buttons: "buttons") %>
+  <% end %>
+
+  <%= @table.present(buttons: "buttons") %>
+</div>
