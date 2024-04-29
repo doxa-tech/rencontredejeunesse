@@ -26,6 +26,8 @@ Prix **en ligne** du **22 avril** jusqu'au **5 mai** et **sur place** (dans la l
 
 L'entrée est gratuite pour les enfants de 0 à 10 ans (inclus). L'accompagnant peut se rendre à l'accueil avec la carte d'identité de l'enfant pour obtenir son entrée gratuite.
 
+Il est également possible de commander une place pour dormir à l'Espace Gruyère pour 35.- jusqu'au vendredi **3 mai 2024**.
+
 ### Avez-vous des prix pour les familles ?
 
 Oui, nous offrons des réductions sur les pass weekend pour les enfants d'une même famille. Le premier enfant paie le prix normal, le deuxième a une réduction de 20 CHF, le troisième et les suivants une réduction de 30 CHF. Par exemple, le prix pour 3 enfants serait de 99 + 79 + 69 = 247 CHF. 
