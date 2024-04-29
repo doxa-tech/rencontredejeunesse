@@ -167,5 +167,6 @@ class Admin::BadgesController < Admin::BaseController
     {name: "Resp Espace Guérison", zones: [3], id: 96},
     {name: "RJ24 - Joker", zones: [0], id: 97},
     {name: "Resp Relation d'Aide", zones: [3], id: 98},
+    {name: "Staff Espace Gruyère", zones: [0], id: 99}
   ]
 end
