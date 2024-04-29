@@ -17,4 +17,9 @@ class OrderPreview < ActionMailer::Preview
     order = Order.last
     OrderMailer.invoice_registration(order)
   end
+
+  def hosting
+    OrderMailer.hosting([])
+  end
+
 end

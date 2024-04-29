@@ -38,4 +38,22 @@ namespace :mailer do
     
   end
 
+  namespace :information do
+
+    desc "Send the information about hosting"
+    task hosting: :environment do
+      emails = User.joins(orders: :registrants).where(
+        orders: { status: :paid, 
+          registrants: { item_id: [80, 71, 68, 69] }
+        }
+      ).where("orders.created_at <= ?", DateTime.parse("2024-04-29 20:00")).distinct.pluck(:email)
+      emails.each_slice(50) do |g|
+        OrderMailer.hosting(g).deliver_now
+        puts "#{g.length} give emails sent"
+        sleep(10)
+      end
+    end
+
+  end
+
 end

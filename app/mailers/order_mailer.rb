@@ -31,6 +31,10 @@ class OrderMailer < ApplicationMailer
     mail(to: "Commandes <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Annulation de la Rencontre de Jeunesse")
   end
 
+  def hosting(emails)
+    mail(to: "RJ <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Information pour l'hébergement à la RJ")
+  end
+
   # def emails_from_order(keys)
   #   User.joins(orders: [registrants: [item: :order_bundle]]).where(
   #     orders: { status: :paid, 
