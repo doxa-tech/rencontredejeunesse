@@ -18,6 +18,10 @@ class OrderPreview < ActionMailer::Preview
     OrderMailer.invoice_registration(order)
   end
 
+  def announcement
+    OrderMailer.announcement([])
+  end
+
   def hosting
     OrderMailer.hosting([])
   end

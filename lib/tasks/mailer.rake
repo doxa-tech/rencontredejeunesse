@@ -54,6 +54,20 @@ namespace :mailer do
       end
     end
 
+    desc "Send an announcement"
+    task announcement: :environment do
+      emails = User.joins(orders: :registrants).where(
+        orders: { status: :paid, registrants: {
+          item_id: [67,68,70,71,72,73,74]
+        }}
+      ).where("registrants.birthday >= ?", Date.parse("2009-05-03")).distinct.pluck(:email)
+      emails.each_slice(50) do |g|
+        OrderMailer.announcement(g).deliver_now
+        puts "#{g.length} give emails sent"
+        sleep(10)
+      end
+    end
+
   end
 
 end
