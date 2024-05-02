@@ -7,9 +7,9 @@ class Admin::Orders::RegistrantsController < Admin::BaseController
       redirect_to "/admin/orders/#{params[:redirect_key]}/registrants"
     end
 
-    @keys = OrderBundle.pluck(:key)
+    @keys = OrderBundle.where(active: true).pluck(:key)
     @registrants = filter_by_key(@registrants, params[:key])
-    @count = @registrants.joins(:order).where(orders: { status: [:paid, :pending]}).size
+    @count = @registrants.joins(:order).where(orders: { status: [:paid]}).size
     @table = RegistrantTable.new(self, @registrants, search: true)
     @table.respond
   end
@@ -36,9 +36,8 @@ class Admin::Orders::RegistrantsController < Admin::BaseController
 
   def filter_by_key(collection, key)
     @bundle = OrderBundle.find_by(key: params[:bundle_key])
-    if @bundle
-      collection = collection.joins(:item).where(items: { order_bundle_id: @bundle.id }).distinct
-    end
+    collection = collection.joins(item: :order_bundle).where(items: { order_bundles: { active: true }})
+    collection = collection.where(items: { order_bundle_id: @bundle.id }).distinct if @bundle
     return collection
   end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_22_203101) do
+ActiveRecord::Schema.define(version: 2024_05_02_180608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "hstore"
@@ -206,6 +206,7 @@ ActiveRecord::Schema.define(version: 2023_02_22_203101) do
     t.bigint "form_id"
     t.integer "bundle_type"
     t.integer "order_type"
+    t.boolean "active", default: true
     t.index ["form_id"], name: "index_order_bundles_on_form_id"
   end
 

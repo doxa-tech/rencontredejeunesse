@@ -7,9 +7,10 @@ class Admin::Orders::EventsController < Admin::BaseController
       redirect_to "/admin/orders/#{params[:redirect_key]}/events"
     end
 
-    @keys = OrderBundle.pluck(:key)
+    @keys = OrderBundle.where(active: true).pluck(:key)
     @bundle = OrderBundle.find_by(key: params[:bundle_key])
-    @events = @events.joins(:tickets).where(items: { order_bundle_id: @bundle.id }).distinct if @bundle
+    @events = @events.joins(tickets: :order_bundle).where(items: { order_bundles: { active: true }})
+    @events = @events.where(items: { order_bundle_id: @bundle.id }).distinct if @bundle
     @count = @events.where(status: :paid).size
     @table = OrderTable.new(self, @events, search: true)
     @table.respond
