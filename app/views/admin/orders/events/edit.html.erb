@@ -1,35 +1,55 @@
 <% content_for :id, "orders-events-show" %>
 
-<div class="content-wrap">
+<div class="header">
+  <div>
+    <h1>Modifier la commande <%= @event.order_id %></h1>
+  </div>
+  <%= image_tag "admin/icons/user", class: "icon-img" %>
+</div>
 
-  <h1>Modifier la commande <%= @event.order_id %></h1>
+<div class="container">
+  <div class="buttons">
+    <%= link_to "Checkin", admin_orders_checkin_index_path, class: "grey" %>
+    <%= link_to "Voir la commande", admin_orders_event_path(@event.id) %>
+  </div>
 
-  <%= form_for [:admin, @event] do |f| %>
+  <div class="form-wrap">
+    <div class="content-wrap">
+      <div class="standard-form-row">
+        <%= form_for [:admin, @event] do |f| %>
 
-    <%= render 'error_messages', object: f.object %>
+          <%= render 'error_messages', object: f.object %>
 
-    <h3>Produits commandés</h3>
-    <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.all %>
-    <div class="standard-form-row">
-      <div class="row">
-        <%= f.label :note %>
-        <%= f.text_area :note, cols: "50", rows: "6" %>
-      </div>
-      <div class="row">
-        <span></span>
-        <%= f.submit nil, class: "button" %>
+          <h3>Produits commandés</h3>
+          <%= render "orders/events/registrants", parent_f: f, registrants: @event.registrants, items: Item.all %>
+          <div class="standard-form-row">
+            <div class="row">
+              <%= f.label :note %>
+              <%= f.text_area :note, cols: "50", rows: "6" %>
+            </div>
+            <div class="row">
+              <span></span>
+              <%= f.submit nil, class: "button" %>
+            </div>
+          </div>
+
+        <% end %>
       </div>
     </div>
+  </div>
 
-  <% end %>
+  <h2>Paiements</h2>
 
-  <h3>Paiements</h3>
   <p>Montant de la commande: <%= display_price(@event.amount) %></p>
   <%= render "admin/payments/summary", payments: @event.payments %>
 
-  <h3>Ajouter un paiement</h3>
+  <h2>Ajouter un paiement</h2>
 
-  <div class="standard-form-row">
-    <%= render "admin/payments/form", order: @event %>
+  <div class="form-wrap">
+    <div class="content-wrap">
+      <div class="standard-form-row">
+        <%= render "admin/payments/form", order: @event %>
+      </div>
+    </div>
   </div>
 </div>

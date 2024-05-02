@@ -1,41 +1,84 @@
-<div id="show">
+<% content_for :id, "orders-events-show" %>
 
-  <h1>Commande <%= @event.order_id %></h1>
+<div class="header">
+  <div>
+    <h1>Commande <%= @event.order_id %></h1>
+  </div>
+  <%= image_tag "admin/icons/user", class: "icon-img" %>
+</div>
 
-  <%= link_to "Editer", { action: "edit" }, class: "edit" if can?(:edit, "admin/orders/events") %>
+<div class="container">
+  <div class="buttons">
+    <%= link_to "Retour au checkin", admin_orders_checkin_index_path, class: "grey" %>
+    <%= link_to "Editer la commande", { action: "edit" }, class: "edit, edit-btn" if can?(:edit, "admin/orders/events") %>
+  </div>
 
   <!-- Order information -->
 
-  <h3>Information sur la commande</h3>
-  <ul>
-    <li><b>Montant:</b> <%= display_price(@event.amount) %></li>
-    <li><b>Réduction:</b> <%= display_price(@event.discount_amount) %></li>
-    <li><b>Statut:</b> <%= human_order_status(@event) %></li>
-    <li><b>N° de commande:</b> <%= @event.order_id %></li>
-  </ul>
+  <h2>Information sur la commande</h2>
 
-  <h3>Note</h3>
+  <table class="first-col-header">
+    <tr>
+      <td>Montant</td>
+      <td><%= display_price(@event.amount) %></td>
+    </tr>
+    <tr>
+      <td>Réduction</td>
+      <td><%= display_price(@event.discount_amount) %></td>
+    </tr>
+    <tr>
+      <td>Statut</td> 
+      <td><%= human_order_status(@event) %></td>
+    </tr>
+    <tr>
+      <td>N° de commande</td> 
+      <td><%= @event.order_id %></td>
+    </tr>
+  </table>
+
+  <h2>Note</h2>
 
   <p><%= @event.note %></p>
 
   <!-- Paiements -->
 
-  <h3>Paiements</h3>
+  <h2>Paiements</h2>
+
   <%= render "admin/payments/summary", payments: @event.payments %>
 
   <!-- Items -->
 
-  <h3>Produits commandés</h3>
-  <ul>
-  <% @event.registrants.includes(:item).each do |registrant| %>
-    <li><%= registrant.firstname %> · <%= registrant.lastname %> · <%= registrant.age %> ans · <%= registrant.item.name %> · <%= registrant.item.price %> 
-    | Livré ? : <%= t("activerecord.attributes.registrant.#{registrant.delivered}") %> | <%= link_to "LIVRER", admin_orders_checkin_path(registrant.ticket_id), method: :patch %></li>
-  <% end %>
-  </ul>
+  <h2>Produits commandés</h2>
+
+  <table class="first-row-header">
+    <tr class="header">
+      <td>Prénom</td>
+      <td>Nom</td>
+      <td>Age</td>
+      <td>Produit</td>
+      <td>Prix</td>
+      <td>Livré?</td>
+      <td>Action</td>
+    </tr>
+    
+    <% @event.registrants.includes(:item).each do |registrant| %>
+      <tr>
+        <td><%= registrant.firstname %></td>
+        <td><%= registrant.lastname %></td>
+        <td><%= registrant.age %> ans</td>
+        <td><%= registrant.item.name %></td>
+        <td><%= registrant.item.price %></td> 
+        <td><%= t("activerecord.attributes.registrant.#{registrant.delivered}") %></td>
+        <td><%= link_to "livrer", admin_orders_checkin_path(registrant.ticket_id), method: :patch %></td>
+      </tr>
+    <% end %>
+
+  </table>
   
   <!-- User information -->
 
-  <h3>Information de la personne</h3>
+  <h2>Information de la personne</h2>
+
   <%= render 'admin/users/show', user: @event.user %>
 
 </div>
