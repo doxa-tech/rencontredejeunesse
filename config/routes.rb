@@ -149,6 +149,10 @@ Rails.application.routes.draw do
 
     end
 
+    scope "/rj24" do
+      get "stats", to: "rj24#stats"
+    end
+
   end
 
 end
