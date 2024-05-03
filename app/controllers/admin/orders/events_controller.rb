@@ -34,7 +34,7 @@ class Admin::Orders::EventsController < Admin::BaseController
   def update
     @event.admin = true
     if @event.update_attributes(order_params)
-      redirect_to admin_orders_event_path(@event), success: "Commande mise à jour"
+      redirect_to admin_orders_event_path(id: @event.id), success: "Commande mise à jour"
     else
       @payment = Payment.new
       render 'edit'

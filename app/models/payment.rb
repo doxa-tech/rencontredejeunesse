@@ -57,6 +57,7 @@ class Payment < ApplicationRecord
     refund_state == "successful" ? amount - refund_amount : amount
   end
 
+  # why is failed in the progress_state ?
   def self.progress_states
     ["pending", "confirmed", "failed"]
   end
