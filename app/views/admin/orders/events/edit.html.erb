@@ -10,7 +10,7 @@
 <div class="container">
   <div class="buttons">
     <%= link_to "Checkin", admin_orders_checkin_index_path, class: "grey" %>
-    <%= link_to "Voir la commande", admin_orders_event_path(@event.id) %>
+    <%= link_to "Voir la commande", admin_orders_event_path(id: @event.id) %>
   </div>
 
   <div class="form-wrap">

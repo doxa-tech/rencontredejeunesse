@@ -3,7 +3,7 @@
 <div class="checkin-header">
   <%= link_to "Retour au CHECKIN", admin_orders_checkin_index_path, class: "back" %>
   <h1>Ticket <i><%= @registrant.ticket_id %></i></h1>
-  <%= link_to "Livrer", admin_orders_checkin_path(@registrant.ticket_id), method: :patch, class: "deliver" %>
+  <%= link_to "Livrer", admin_orders_checkin_path(id: @registrant.ticket_id), method: :patch, class: "deliver" %>
   <p>N°<%= @registrant.ticket_id %></p>
 </div>
 
@@ -42,7 +42,7 @@
   </div>
 
   <div>
-    <%= link_to "Voir la commande", admin_orders_event_path(@order), class: "show-order" %>
+    <%= link_to "Voir la commande", admin_orders_event_path(id: @order), class: "show-order" %>
   </div>
 
 </div>

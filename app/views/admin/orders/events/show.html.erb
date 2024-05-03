@@ -69,7 +69,7 @@
         <td><%= registrant.item.name %></td>
         <td><%= registrant.item.price %></td> 
         <td><%= t("activerecord.attributes.registrant.#{registrant.delivered}") %></td>
-        <td><%= link_to "livrer", admin_orders_checkin_path(registrant.ticket_id), method: :patch %></td>
+        <td><%= link_to "livrer", admin_orders_checkin_path(id: registrant.ticket_id), method: :patch %></td>
       </tr>
     <% end %>
 
