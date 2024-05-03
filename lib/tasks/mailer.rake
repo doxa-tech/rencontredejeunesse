@@ -46,7 +46,7 @@ namespace :mailer do
         orders: { status: :paid, 
           registrants: { item_id: [80, 71, 68, 69] }
         }
-      ).where("orders.created_at > ? AND orders.created_at <= ?", DateTime.parse("2024-04-29 20:00"), DateTime.parse("2024-05-02 20:00")).distinct.pluck(:email)
+      ).where("orders.created_at > ? AND orders.created_at <= ?", DateTime.parse("2024-05-02 20:00"), DateTime.parse("2024-05-03 14:30")).distinct.pluck(:email)
       emails.each_slice(50) do |g|
         OrderMailer.hosting(g).deliver_now
         puts "#{g.length} give emails sent"
