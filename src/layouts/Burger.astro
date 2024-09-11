@@ -55,12 +55,14 @@
     <img src="/layouts/close.svg" id="close-button" />
 
     <ul class="links">
-      <li><a href="/">/Home</a></li>
-      <li><a href="/2024">/RJ24</a></li>
-      <li><a href="/vision">/Vision</a></li>
-      <li><a href="/volunteers">/Bénévole</a></li>
-      <li><a href="/login">/Login</a></li>
-      <li><a href="/support">/FAQ</a></li>
+      <!--<li><a href="/">Home</a></li>-->
+      <li><a href="/2025">RJ25</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/photos">Photos</a></li>
+      <li><a href="/volunteers">Bénévole</a></li>
+      <li><a href="/soutenir">Soutenir</a></li>
+      <li><a href="/support">FAQ</a></li>
     </ul>
   </div>
 </header>
@@ -223,7 +225,8 @@
 
         li {
           list-style-type: none;
-          padding: 0 0 20px 0;
+          padding: 0 0 20px 0px;
+          margin-right: 10px;
 
           a {
             position: relative;
@@ -240,31 +243,35 @@
             content: "";
             position: absolute;
             left: -30px;
-            right: -4px;
+            right: -14px;
             bottom: -5px;
             top: 25px;
             z-index: -1;
             box-sizing: border-box;
             transition: 0.5s ease-in;
-            /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f56a55+0,b51ad6+100 */
-            background: #f56a55; /* Old browsers */
-            background: -moz-linear-gradient(
-              45deg,
-              #f56a55 0%,
-              #b51ad6 100%
-            ); /* FF3.6-15 */
-            background: -webkit-linear-gradient(
-              45deg,
-              #f56a55 0%,
-              #b51ad6 100%
-            ); /* Chrome10-25,Safari5.1-6 */
-            background: linear-gradient(
-              45deg,
-              #f56a55 0%,
-              #b51ad6 100%
-            ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56a55', endColorstr='#b51ad6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
           }
+        }
+
+        li:nth-child(1) a:hover::after {
+          background: #288084;
+        }
+        li:nth-child(2) a:hover::after {
+          background: #4f2c92;
+        }
+        li:nth-child(3) a:hover::after {
+          background: #b21d77;
+        }
+        li:nth-child(4) a:hover::after {
+          background: #0127a6;
+        }
+        li:nth-child(5) a:hover::after {
+          background: #ad870d;
+        }
+        li:nth-child(6) a:hover::after {
+          background: #e7d42b;
+        }
+        li:nth-child(7) a:hover::after {
+          background: #12550b;
         }
       }
 
