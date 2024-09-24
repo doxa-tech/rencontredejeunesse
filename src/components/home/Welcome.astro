@@ -4,21 +4,12 @@
 <section>
   <div class="section-container">
     <div class="row1">
-      <h1>Bienvenue<br />à la <span>rencontre</span><br />de jeunesse</h1>
+      <img src="/2025/icons/his_name_is_life.png" />
     </div>
-
-    <div class="row1-2">
-      <!-- <a href="/2024#inscription">S'inscrire</a>  -->
-    </div>
-    <!--
     <div class="row2">
-      <div class="app">
-        <h3>Télécharge notre appli!</h3>
-        <a target="_blank" href="https://itunes.apple.com/us/app/rj/id1102561198?l=fr&ls=1&mt=8"><%= image_tag "home/welcome/app-store.svg" %></a>
-        <a target="_blank" href="https://play.google.com/store/apps/details?id=com.id1lnx0as1aunq3r129xr5d"><%= image_tag "home/welcome/google-play.svg" %></a>
-      </div>
+      <h1>3-5 MAI<br> 2024</h1>
+      <button>INSCRIPTION</button>
     </div>
-    -->
   </div>
 </section>
 
@@ -26,7 +17,8 @@
   @import "../../styles/variables";
 
   section {
-    background-image: url("/home/welcome/background.jpg");
+    background-image: url("/2025/photos/background.jpg");
+    background-position: top center;
     background-size: cover;
 
     width: 100%;
@@ -44,87 +36,43 @@
       padding: $logo-burger-height $main-padding 0 $main-padding;
 
       display: flex;
+      justify-content: end;
+      align-items: center;
       flex-direction: column;
 
+      gap: 20px;
+
+      box-shadow: inset 0 -40vh 10vh -10vh #000000;
+
       div.row1 {
-        flex: 1;
-        display: flex;
-        align-items: center;
-
-        h1 {
-          font-size: $title-size;
-          line-height: 1.1em;
-          font-family: "Helvetica neue", "Helvetica", sans-serif;
-          color: #fff;
-          padding: 0 0 0 $sub-padding;
-
-          span {
-            position: relative;
-            z-index: 1;
-
-            &::after {
-              position: absolute;
-              content: "";
-              left: -0.1em;
-              right: -0.3em;
-              bottom: 0.1em;
-              height: 20px;
-              background-color: #f56953;
-              z-index: -1;
-            }
-          }
-        }
-      }
-
-      div.row1-2 {
-        padding: 0 0 0 $sub-padding;
-
-        a {
-          position: relative;
-          z-index: 0;
-          display: block;
-          background-color: transparent;
-          border: none;
-          color: #fff;
-          margin: 40px 0 50px 0;
-          font-size: $sub-title;
-          font-weight: bold;
-          text-transform: lowercase;
-
-          &::after {
-            content: "";
-            position: absolute;
-            background-color: #fbbaa4;
-            left: 0;
-            bottom: -5px;
-            height: 20px;
-            width: 4.8em;
-            z-index: -1;
-            transition: background-color 0.5s ease-out;
-          }
-
-          &:hover::after {
-            background-color: #fc8ae1;
-          }
+        img {
+          height: 37.5vh;
         }
       }
 
       div.row2 {
-        color: #fff;
-        height: 200px;
         display: flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        padding-bottom: 7.5vh;
 
-        div.app {
-          padding: 0 0 0 $sub-padding;
+        h1 {
+          color: #fff;
+          font-size: $title-size;
+          text-align: center;
+        }
+        button {
+          background: #fff;
+          color: #288084;
+          border: none;
 
-          h3 {
-            padding: 0 0 20px 0;
-          }
+          font-size: $sub-title;
+          font-weight: bold;
+          width: fit-content;
 
-          img {
-            width: 100px;
-          }
+          padding: ($main-padding / 3) ($main-padding / 2) ($main-padding / 3) ($main-padding / 2);
+          border-radius: $title-size;
         }
       }
     }
@@ -132,22 +80,6 @@
     @media only screen and (max-width: $mobile-width) {
       .section-container {
         padding: 0 $mobile-padding !important;
-
-        div.row2 {
-          h1 {
-            padding: 100px 0 40px 0 !important;
-          }
-
-          p {
-            padding: 0 !important;
-          }
-        }
-
-        div.row3 {
-          div.app {
-            padding: 0 !important;
-          }
-        }
       }
     }
   }

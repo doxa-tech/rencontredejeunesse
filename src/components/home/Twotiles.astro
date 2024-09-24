@@ -4,36 +4,18 @@
 <section>
   <div class="section-container">
     <div class="next">
-      <div class="rj">
-        <h3>
-          <span class="only-hash">#</span><span class="hashtag">RJ25</span>
-          <!-- <span class="up"></span> -->
-          <br />
-          <small>La Rencontre de Jeunesse</small>
-          <br />
-          <!-- <span class="soon">Inscription ouverte</span> -->
-          <small><i>du 2 au 3 mai 2025 en multisite</i></small>
-        </h3>
-        <a href="#" class="global-link"></a> 
-        <div class="mask"></div>
-      </div>
       <div class="login">
-        <h3>
-          <span class="only-hash">#</span><span class="hashtag">RJLOGIN</span>
-          <br />
-          <small>La journée pour les leaders jeunesse</small>
-          <br />
-          <small><i>le 1 février 2025</i></small>
-        </h3>
+        <h3>RJ LOGIN</h3>
+        <p>1 février 2025<br>Neuchâtel</p>
         <a href="/login" class="global-link"></a>
         <div class="mask"></div>
       </div>
-    </div>
-
-    <div class="highlights">
-      <h3>Les highlights<br />de l'édition 2022</h3>
-      <a href="/highlights" class="global-link"></a>
-      <div class="mask"></div>
+      <div class="rj">
+        <h3>RJ25</h3>
+        <p>2 et 3 mai 2025<br>Multisites</p>
+        <a href="#" class="global-link"></a> 
+        <div class="mask"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -89,124 +71,21 @@
         }
       }
 
-      div.highlights {
-        @extend ._common-tiles;
-        color: #fff;
-        background-image: url("/home/twotiles/highlights.jpg");
-        font-size: $medium-title;
-
-        &:hover {
-          background-position: 46% 29%;
-
-          & .mask {
-            background-color: rgba($color: #fff, $alpha: 0.1);
-          }
-        }
-      }
-
       div.next {
         display: flex;
         flex-direction: column;
-        flex: 4;
+        flex: 2;
+        background: #000;
+        color: #fff;
 
-        div.rj {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-        }
+        .login {
+          background-image: url("/2025/photos/hands_1.jpg");
+          background-size: cover;
+          background-position: center center;
+          
+          box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);
 
-        .up {
-          font-size: 0.6em;
-          vertical-align: top;
-        }
-
-        & > div {
-          @extend ._common-tiles;
-          background: #fff;
-
-          span.only-hash {
-            font-size: $medium-title;
-            font-style: normal;
-          }
-
-          span.hashtag {
-            font-size: $sub-title;
-            font-family: swiss;
-          }
-          span.soon {
-            // font-style: italic;
-          }
-
-          &:nth-child(1) {
-            justify-content: flex-end;
-            // padding-right: 20px;
-            // background: black;
-            // color: #fff;
-            background: rgb(255, 255, 255);
-            background: -moz-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: -webkit-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: linear-gradient(
-              135deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=1 );
-
-            &:hover {
-              background-position: 46% 29%;
-
-              & .mask {
-                background-color: rgba($color: #fff, $alpha: 0.1);
-              }
-            }
-          }
-
-          &:nth-child(2) {
-            justify-content: flex-start;
-            // text-align: right;
-            // align-items: flex-end;
-            // padding-right: 20px;
-            // background: black;
-            // color: #fff;
-            background: rgb(255, 255, 255);
-            background: -moz-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: -webkit-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: linear-gradient(
-              135deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=1 );
-
-            &:hover {
-              background-position: 46% 29%;
-
-              & .mask {
-                background-color: rgba($color: #fff, $alpha: 0.1);
-              }
-            }
-          }
-
-          &:hover {
-            background: #fff;
-          }
+          height: 40%;
         }
       }
     }
