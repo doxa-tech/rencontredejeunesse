@@ -3,9 +3,15 @@
 
 <section>
   <div class="section-container">
-    <div class="poster"></div>
-    <div class="title">
-      <a href="/vision"><h2>voir la<br />vision</h2></a>
+    <div class="fade">
+    </div>
+    <div class="content">
+      <div class="row">
+        <h3>VISION</h3>
+        <img src="/2025/icons/eye.png">
+      </div>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus mauris tempor nunc finibus, viverra ullamcorper libero aliquet. Nam a mollis ante. Aliquam erat volutpat.</p>
+      <button>PARCOURIR LA VISION</button>
     </div>
   </div>
 </section>
@@ -16,71 +22,90 @@
 
   section {
     .section-container {
-      height: 460px;
-      padding: 0 $blank-space 0 0;
+      min-height: fit-content;
+      padding: $blank-space;
+      position: relative;
+      padding-bottom: $blank-space * 2.5;
 
       display: flex;
       flex-direction: row;
 
-      div.poster {
-        background-image: url("/home/vision/background.jpg");
-        background-size: cover;
-        background-position: center left;
+      background-image: url("/2025/photos/crowd_1.jpg");
+      background-size: cover;
+      background-position: center center;
 
-        flex: 2;
+      .fade {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0.6;
+
       }
-      div.title {
-        text-align: right;
-        padding: 0 $sub-padding 0 0;
 
-        flex: 1;
+      .content {
         display: flex;
-        justify-content: flex-end;
-        align-items: center;
+        flex-direction: column;
+        padding: $blank-space;
+        padding-bottom: $blank-space * 2.5;
+        z-index: 2;
 
-        background: #f56953; /* Old browsers */
-        background: -moz-linear-gradient(
-          45deg,
-          #f56953 0%,
-          #5c35a1 100%
-        ); /* FF3.6-15 */
-        background: -webkit-linear-gradient(
-          45deg,
-          #f56953 0%,
-          #5c35a1 100%
-        ); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(
-          45deg,
-          #f56953 0%,
-          #5c35a1 100%
-        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56953', endColorstr='#5c35a1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        .row {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding-bottom: $blank-space;
 
-        &::before {
-          content: "";
-          flex: 2;
+          h3 {
+            font-size: $title-size;
+            position: relative;
+            max-width: fit-content;
+            z-index: 1;
+            color: #fff;
+
+            &:after {
+              content: "";
+
+              width: 100%;
+              height: $title-size / 10;
+              background: red;
+              padding-right: $title-size / 10;
+              left: 0px;
+
+              position: absolute;
+              background: #b21d77;
+              bottom: calc($blank-space - ($title-size / 100));
+              z-index: -1;
+            }
+          }
+
+          img {
+            max-height: 70px;
+            transform: rotate(20deg);
+          }
         }
-        &::after {
-          content: "";
-          flex: 1;
-        }
 
-        h2 {
+        p {
+          font-size: $medium-title;
+          line-height: 130%;
           color: #fff;
-          font-size: $title-size;
-          line-height: 0.9em;
-          position: relative;
-          z-index: 0;
-          cursor: pointer;
+          padding-bottom: $blank-space;
+        }
 
-          &::after {
-            @include button-bar(-1em, -2.5em, left, 20px);
-            background-color: #000;
-          }
+        button {
+          background: #fff;
+          color: #b21d77;
+          border: none;
 
-          &:hover::after {
-            @include button-bar-hover-left();
-          }
+          font-family: lato;
+          font-size: $medium-title;
+          font-weight: bold;
+          width: fit-content;
+
+          padding: ($main-padding / 2) ($main-padding) ($main-padding / 2) ($main-padding);
+          border-radius: $title-size;
         }
       }
     }

@@ -9,6 +9,7 @@ import Partner from "../components/home/Partner.astro";
 import History from "../components/home/History.astro";
 import Contact from "../components/Contact.astro";
 import Date from "../components/home/Date.astro";
+import Photos from "../components/home/Photos.astro";
 ---
 
 <Layout title="RJ - Rencontre de Jeunesse">
@@ -17,16 +18,17 @@ import Date from "../components/home/Date.astro";
 		<!-- <Date /> -->
 		<Twotiles />
 		<Vision />
-		<Justtext />
+		<Photos />
 		<Volunteer />
 		<Partner />
-		<History />
-		<Contact />
 	</section>
 </Layout>
 
 <style lang="scss">
+	@import "../styles/variables";
+
 	section {
 		min-height: 100%;
+		max-width: $main-width;
 	}
 </style>

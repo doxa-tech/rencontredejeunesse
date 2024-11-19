@@ -1,0 +1,128 @@
+---
+
+---
+
+<section>
+    <div class="center">
+        <h3>PHOTOS</h3>
+    </div>
+    <div class="photo">
+        <img src={`/2025/photos/${'crowd_4.jpg'}`} alt="Image" id="carousel-before">
+        <button class="prev-btn">{"<"}</button>
+        <img src={`/2025/photos/${'crowd_2.jpg'}`} alt="Image" id="carousel-img">
+        <button class="next-btn">{">"}</button>
+        <img src={`/2025/photos/${'hands_1.jpg'}`} alt="Image" id="carousel-after">
+    </div>
+    <div class="center">
+        <button>INSTAGRAM</button>
+    </div>
+</section>
+
+<script>
+    // Le JavaScript client doit être dans une balise script
+    const images = ['crowd_4.jpg', 'crowd_2.jpg', 'hands_1.jpg'];
+    let beforeIndex = 0;
+    let afterIndex = 2;
+    let currentIndex = 1;
+    const img = document.getElementById('carousel-img');
+    const before = document.getElementById('carousel-before');
+    const after = document.getElementById('carousel-after');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        beforeIndex = (currentIndex - 1 + images.length) % images.length;
+        afterIndex = (currentIndex + 1) % images.length;
+        img.src = `/2025/photos/${images[currentIndex]}`;
+        before.src = `/2025/photos/${images[beforeIndex]}`;
+        after.src = `/2025/photos/${images[afterIndex]}`;
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        beforeIndex = (currentIndex - 1 + images.length) % images.length;
+        afterIndex = (currentIndex + 1) % images.length;
+        img.src = `/2025/photos/${images[currentIndex]}`;
+        before.src = `/2025/photos/${images[beforeIndex]}`;
+        after.src = `/2025/photos/${images[afterIndex]}`;
+    });
+</script>
+
+<style lang="scss">
+    @import "../../styles/variables";
+    @import "../../styles/button-bar";
+    @import "../../styles/tooltip";
+
+    section {
+        background: #000;
+        overflow: hidden;
+
+        .center {
+            padding-top: $blank-space * 2;
+            padding-bottom: $blank-space * 2;
+            display: flex;
+            justify-content: center;
+        
+            h3 {
+                font-size: $title-size;
+                position: relative;
+                max-width: fit-content;
+                z-index: 1;
+                color: #fff;
+
+                &:after {
+                    content: "";
+
+                    width: 100%;
+                    height: $title-size / 10;
+                    background: red;
+                    padding-right: $title-size / 10;
+                    left: 0px;
+
+                    position: absolute;
+                    background: #0127a6;
+                    bottom: calc($blank-space - ($title-size / 100));
+                    z-index: -1;
+                }
+            }
+
+            button {
+                background: #fff;
+                color: #0127a6;
+                border: none;
+
+                font-family: lato;
+                font-size: $medium-title;
+                font-weight: bold;
+                width: fit-content;
+
+                padding: ($main-padding / 2) ($main-padding) ($main-padding / 2) ($main-padding);
+                border-radius: $title-size;
+            }
+        }
+
+        .photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: $blank-space / 2;
+
+            button {
+                background: none;
+                border: none;
+                font-family: bebas;
+                font-size: $title-size;
+                color: #fff;
+            }
+        }
+
+        img {
+            max-height: 130px;
+        }
+
+        #carousel-img {
+            max-height: 200px;
+        }
+    }
+</style>

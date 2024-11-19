@@ -27,12 +27,24 @@ const { title } = Astro.props;
 		<Favicon />
 
 		<title>{title}</title>
+
+		<style>
+			.wrapper {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				background: black;
+			}
+		</style>
 	</head>
 	<body>
-		<Burger />
+		<div class="wrapper">
+			<Burger />
 
-		<slot />
+			<slot />
 
-		<Footer />
+			<Footer />
+		</div>
 	</body>
 </html>

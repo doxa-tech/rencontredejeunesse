@@ -2,12 +2,11 @@
 ---
 
 <section>
-  <div class="section-container">
-    <a class="tooltip">
-      <h2>soutenir<br />la RJ</h2>
-      <span class="tooltiptext"> Coming soon</span>
-    </a>
-  </div>
+  <h3>PARTENAIRES</h3>
+  <img src="/2025/parteners/topchretien.png">
+  <img src="/2025/parteners/doxatech.png">
+  <img src="/2025/parteners/cashsolutions.png">
+  <button>DEVENIR PARTENAIRE</button>
 </section>
 
 <style lang="scss">
@@ -16,57 +15,56 @@
   @import "../../styles/tooltip";
 
   section {
-    margin: 0 $blank-space 0 0;
-    padding: 0 0 0 $blank-space; // pour compenser
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+0,d10cc0+100 */
-    background: #141dc6; /* Old browsers */
-    background: -moz-linear-gradient(
-      45deg,
-      #141dc6 0%,
-      #d10cc0 100%
-    ); /* FF3.6-15 */
-    background: -webkit-linear-gradient(
-      45deg,
-      #141dc6 0%,
-      #d10cc0 100%
-    ); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(
-      45deg,
-      #141dc6 0%,
-      #d10cc0 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141dc6', endColorstr='#d10cc0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    img {
+      padding-top: $blank-space * 2;
+      max-width: 60%;
+    }
 
-    .section-container {
-      height: 460px;
-      display: flex;
-      flex-direction: row;
-      max-width: $main-width;
-      padding: 0 $main-padding;
-      margin: auto;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
+    h3 {
+      font-size: $title-size;
+      position: relative;
+      max-width: fit-content;
+      z-index: 1;
+      color: #fff;
+      padding-top: $blank-space * 2;
 
-      h2 {
-        color: #fff;
-        font-size: $title-size;
-        line-height: 0.9em;
-        position: relative;
-        z-index: 0;
-        cursor: not-allowed;
-        padding: 0 0 0 $sub-padding;
+      &:after {
+        content: "";
 
-        &::after {
-          @include button-bar(-2em, 0, right, 20px);
-          background-color: #000;
-        }
+        width: 100%;
+        height: $title-size / 10;
+        background: red;
+        padding-right: $title-size / 10;
+        left: 0px;
 
-        &:hover::after {
-          // @include button-bar-hover-right();
-        }
+        position: absolute;
+        background: #c32828;
+        bottom: calc($blank-space - ($title-size / 100));
+        z-index: -1;
       }
+    }
+
+    button {
+      background: #fff;
+      color: #c32828;
+      border: none;
+
+      margin-top: $blank-space * 2;
+      margin-bottom: $blank-space * 3;
+
+      font-family: lato;
+      font-size: $medium-title;
+      font-weight: bold;
+      width: fit-content;
+
+      padding: ($main-padding / 2) ($main-padding) ($main-padding / 2) ($main-padding);
+      border-radius: $title-size;
     }
 
     @media only screen and (max-width: $mobile-width) {
