@@ -2,106 +2,108 @@
 ---
 
 <section>
-  <div class="section-container">
-    <div class="row1">
-      <img src="/2025/icons/his_name_is_life.png" id="logo" />
+  <div class="resizer">
+    <div class="content">
+      <div class="row1">
+        <img src="/2025/icons/his_name_is_life.png" id="logo" />
+      </div>
+      <div class="row2">
+        <h1>3-5 MAI<br> 2025</h1>
+        <button>INSCRIPTION</button>
+      </div>
+      <div class="row1">
+        <img src="/2025/icons/his_name_is_life.png" id="logo" />
+      </div>
     </div>
-    <div class="row2">
-      <h1>3-5 MAI<br> 2024</h1>
-      <button>INSCRIPTION</button>
-    </div>
+    <div class="shadow"></div>
   </div>
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
+  @import "../../styles/variables.scss";
 
   section {
     background-image: url("/2025/photos/background.jpg");
     background-position: top center;
     background-size: cover;
+    position: relative;
 
     width: 100%;
     height: 100vh;
     min-height: 650px;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: end;
 
-    .section-container {
-      height: 100%;
+    .resizer {
+      position: absolute;
+      top: 0px;
+      left: 0px;
       width: 100%;
+      height: 100%;
 
-      padding: $logo-burger-height $main-padding 0 $main-padding;
-
-      display: flex;
-      justify-content: end;
-      align-items: center;
-      flex-direction: column;
-
-      gap: 20px;
-
-      box-shadow: inset 0 -40vh 10vh -10vh #000000;
-
-      div.row1 {
-        img {
-          height: 37.5vh;
-        }
-      }
-
-      div.row2 {
+      .content {
         display: flex;
-        flex-direction: column;
         justify-content: center;
-        align-items: center;
-        padding-bottom: 7.5vh;
-
-        h1 {
-          color: #fff;
-          font-size: $title-size;
-          text-align: center;
-        }
-        button {
-          background: #fff;
-          color: #288084;
-          border: none;
-
-          font-family: lato;
-          font-size: $sub-title;
-          font-weight: bold;
-          width: fit-content;
-
-          padding: ($main-padding / 3) ($main-padding) ($main-padding / 3) ($main-padding);
-          border-radius: $title-size;
-        }
-      }
-    }
-
-    @media only screen and (min-width: $mobile-width) {
-      .section-container {
         flex-direction: row-reverse;
-        justify-content: center;
+        height: 85%;
+        padding-top: 70px;
         position: relative;
 
         .row1 {
-          position: absolute;
-          top: 0px;
-          left: 0px;
-          width: 100%;
-          height: 100%;
           display: flex;
-          justify-content: flex-end;
-          align-items: center;
+          justify-content: center;
+          align-items: end;
+          max-width: calc(100% / 3);
 
-          #logo {
-            position: relative;
-            width: 30%;
-            height: auto;
-            padding-right: 2 * $blank-space;
+          padding: $blank-space;
+        }
+        .row1:last-child {
+          opacity: 0;
+        }
+        .row2 {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: end;
+
+          color: #fff;
+          text-align: center;
+          gap: $blank-space;
+          width: fit-content;
+          min-width: max-content;
+          padding: $blank-space;
+          padding-left: 0;
+          padding-right: 0;
+
+          h1 {
+            font-size: $title-size * 0.8;
+          }
+          button {
+            color: #288084;
+            font-size: $large-text * 2;
+            font-weight: bold;
+            padding: $large-text / 2;
+            padding-top: $large-text / 4;
+            padding-bottom: $large-text / 4;
+            border: none;
+            border-radius: $large-text;
           }
         }
+        img {
+          max-height: 100%;
+          max-width: 100%;
+          aspect-ratio: 3751 / 5348; 
+        }
+      }
+      .shadow {
+        background: rgb(0,0,0);
+        background: linear-gradient(0deg, rgba(0,0,0,1) 25%, rgba(255, 255, 255, 0) 100%);
+        width: 100%;
+        height: 15%;
       }
     }
   }
+  /* LAPTOP & LOWER - mobile */
 </style>

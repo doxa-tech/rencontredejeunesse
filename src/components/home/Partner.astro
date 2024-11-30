@@ -3,16 +3,16 @@
 
 <section>
   <h3>PARTENAIRES</h3>
-  <img src="/2025/parteners/topchretien.png">
-  <img src="/2025/parteners/doxatech.png">
-  <img src="/2025/parteners/cashsolutions.png">
+  <div class="partners">
+    <img src="/2025/parteners/topchretien.png">
+    <img src="/2025/parteners/doxatech.png">
+    <img src="/2025/parteners/cashsolutions.png">
+  </div>
   <button>DEVENIR PARTENAIRE</button>
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
-  @import "../../styles/tooltip";
+  @import "../../styles/variables.scss";
 
   section {
     background: #000;
@@ -20,62 +20,51 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
 
-    img {
-      padding-top: $blank-space * 2;
-      max-width: 60%;
+    .partners {
+      display: flex;
+      justify-content: center;
+      gap: $blank-space;
+      padding-top: $blank-space;
+      padding-bottom: $blank-space;
+    
+      img {
+        max-width: 25%;
+        height: auto;
+        object-fit: contain;
+      }
     }
 
     h3 {
-      font-size: $title-size;
+      font-size: $sub-title;
       position: relative;
       max-width: fit-content;
       z-index: 1;
       color: #fff;
-      padding-top: $blank-space * 2;
 
-      &:after {
+      &::after {
         content: "";
-
-        width: 100%;
-        height: $title-size / 10;
-        background: red;
-        padding-right: $title-size / 10;
-        left: 0px;
-
         position: absolute;
+        bottom: 0px;
+        left: $sub-title / 8;
+        width: calc(100% + $sub-title / 4);
+        height: $sub-title / 4;
         background: #c32828;
-        bottom: calc($blank-space - ($title-size / 100));
         z-index: -1;
       }
     }
 
     button {
-      background: #fff;
       color: #c32828;
-      border: none;
-
-      margin-top: $blank-space * 2;
-      margin-bottom: $blank-space * 3;
-
-      font-family: lato;
-      font-size: $medium-title;
+      font-size: $large-text;
       font-weight: bold;
-      width: fit-content;
-
-      padding: ($main-padding / 2) ($main-padding) ($main-padding / 2) ($main-padding);
-      border-radius: $title-size;
-    }
-
-    @media only screen and (max-width: $mobile-width) {
-      margin: 0 !important;
-      padding: 0 !important;
-
-      .section-container {
-        h2 {
-          padding: 0 0 0 10px !important;
-        }
-      }
+      padding: $large-text;
+      padding-top: $large-text / 1.5;
+      padding-bottom: $large-text / 1.5;
+      border: none;
+      border-radius: $large-text * 1.5;
+      margin-bottom: $blank-space * 2;
     }
   }
 </style>

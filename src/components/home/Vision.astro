@@ -2,121 +2,96 @@
 ---
 
 <section>
-  <div class="section-container">
-    <div class="fade">
-    </div>
-    <div class="content">
-      <div class="row">
-        <h3>VISION</h3>
-        <img src="/2025/icons/eye.png">
-      </div>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus mauris tempor nunc finibus, viverra ullamcorper libero aliquet. Nam a mollis ante. Aliquam erat volutpat.</p>
-      <button>PARCOURIR LA VISION</button>
-    </div>
+  <div class="content">
+    <h3>VISION</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec rhoncus mauris tempor nunc finibus, viverra ullamcorper libero aliquet. Nam a mollis ante. Aliquam erat volutpat.</p>
+    <button>PARCOURIR LA VISION</button>
+  </div>
+  <div class="background">
   </div>
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
-
+  @import "../../styles/variables.scss";
+  
   section {
-    .section-container {
-      min-height: fit-content;
-      padding: $blank-space;
-      position: relative;
-      padding-bottom: $blank-space * 2.5;
+    padding: $blank-space;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: $blank-space * 2;
+    color: #fff;
 
+    p {
+      font-size: $normal-text;
+    }
+    .content {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
 
-      background-image: url("/2025/photos/crowd_1.jpg");
-      background-size: cover;
-      background-position: center center;
-
-      .fade {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 100%;
-        height: 100%;
-        background: #000;
-        opacity: 0.6;
-
+      button {
+        color: #b21d77;
+        font-size: $large-text;
+        font-weight: bold;
+        padding: $large-text;
+        padding-top: $large-text / 1.5;
+        padding-bottom: $large-text / 1.5;
+        border: none;
+        border-radius: $large-text * 1.5;
       }
 
-      .content {
-        display: flex;
-        flex-direction: column;
-        padding: $blank-space;
-        padding-bottom: $blank-space * 2.5;
-        z-index: 2;
+      p {
+        margin-top: $blank-space;
+        margin-bottom: $blank-space;
+      }
 
-        .row {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding-bottom: $blank-space;
+      h3 {
+        font-size: $sub-title;
+        position: relative;
 
-          h3 {
-            font-size: $title-size;
-            position: relative;
-            max-width: fit-content;
-            z-index: 1;
-            color: #fff;
-
-            &:after {
-              content: "";
-
-              width: 100%;
-              height: $title-size / 10;
-              background: red;
-              padding-right: $title-size / 10;
-              left: 0px;
-
-              position: absolute;
-              background: #b21d77;
-              bottom: calc($blank-space - ($title-size / 100));
-              z-index: -1;
-            }
-          }
-
-          img {
-            max-height: 70px;
-            transform: rotate(20deg);
-          }
-        }
-
-        p {
-          font-size: $medium-title;
-          line-height: 130%;
-          color: #fff;
-          padding-bottom: $blank-space;
-        }
-
-        button {
-          background: #fff;
-          color: #b21d77;
-          border: none;
-
-          font-family: lato;
-          font-size: $medium-title;
-          font-weight: bold;
-          width: fit-content;
-
-          padding: ($main-padding / 2) ($main-padding) ($main-padding / 2) ($main-padding);
-          border-radius: $title-size;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: $sub-title / 8;
+          width: calc(100% + $sub-title / 4);
+          height: $sub-title / 4;
+          background: #b21d77;
+          z-index: -1;
         }
       }
     }
-    @media only screen and (max-width: $mobile-width) {
-      .section-container {
-        padding: 0 !important;
+    .background {
+      background-image: url("/2025/photos/crowd_1.jpg");
+      background-size: cover;
+      background-position: center center;
+      position: relative;
 
-        div.poster,
-        div.title {
-          flex: 1 !important;
-        }
+      width: 100%;
+      min-width: 50%;
+      aspect-ratio: 1987 / 1325;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -1px;
+        width: 25%;
+        height: 100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(270deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: -1px;
+        width: 20%;
+        aspect-ratio: 1 / 1;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("/2025/icons/eye.png");
+        z-index: 100;
+        transform: translateY(-25%) rotate(15deg);
       }
     }
   }

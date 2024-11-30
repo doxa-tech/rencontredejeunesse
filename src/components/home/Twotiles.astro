@@ -2,144 +2,151 @@
 ---
 
 <section>
-  <div class="section-container">
-    <div class="next">
-      <div class="login">
-        <h3>RJ LOGIN</h3>
-        <p>1 février 2025<br>Neuchâtel</p>
-        <a href="/login" class="global-link"></a>
-      </div>
-      <div class="rj">
-        <h3>RJ25</h3>
-        <p>2 et 3 mai 2025<br>Multisites</p>
-        <a href="#" class="global-link"></a> 
-      </div>
-    </div>
+  <div class="login">
+    <h3>RJ LOGIN</h3>
+    <p>1 février 2025<br>Neuchâtel</p>
+    <a href="/login" class="global-link"></a>
+    <div class="background"></div>
+  </div>
+  <div class="rj">
+    <h3>RJ25</h3>
+    <p>2 et 3 mai 2025<br>Multisites</p>
+    <a href="#" class="global-link"></a> 
+    <div class="background"></div>
   </div>
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
+  @import "../../styles/variables.scss";
 
   section {
-    .section-container {
+    display: flex;
+    flex-direction: column-reverse;
+    color: #fff;
+    padding-top: $blank-space;
+    padding-bottom: $blank-space;
+
+    p {
+      font-size: $large-text;
+    }
+    .login {
+      position: relative;
+      padding: $blank-space;
+      padding-left: 0px;
+      padding-right: 0px;
+
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
       
-
-      ._common-tiles {
-        font-size: $large-text;
-        padding: 20px 30px 30px 30px;
+      h3 {
+        font-size: $sub-title;
         position: relative;
-        transition: all 0.5s;
 
-        background-size: cover;
-        background-position: 50% 30%;
-
-        display: flex;
-        flex: 6;
-        align-items: left;
-        justify-content: flex-end;
-        flex-direction: column;
-
-        h3 {
-          position: relative;
-          z-index: 2;
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: $sub-title / 8;
+          width: calc(100% + $sub-title / 4);
+          height: $sub-title / 4;
+          background: #4f2c92;
+          z-index: -1;
         }
       }
+      p, h3 {
+        margin-left: $blank-space;
+      }
 
-      div.next {
-        display: flex;
-        flex-direction: column;
-        flex: 2;
-        background: #000;
-        color: #fff;
-        min-height: max-content;
-        gap: $blank-space;
+      .background {
+        position: absolute;
+        top: 0px;
+        z-index: -10;
 
-        div {
-          min-height: fit-content;
-          padding: $blank-space;
-          position: relative;
-          padding-bottom: $blank-space * 2.5;
-          margin-bottom: $blank-space * 2;
+        width: 50%;
+        height: 100%;
+        background-image: url("/2025/photos/hands_1.jpg");
+        background-size: cover;
+        background-position: center center;
+        box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);
 
-          h3 {
-            font-size: $title-size;
-            position: relative;
-            max-width: fit-content;
-            padding-bottom: $blank-space;
-            z-index: 1;
-
-            &:after {
-              content: "";
-
-              width: 100%;
-              height: $title-size / 10;
-              background: red;
-              padding-right: $title-size / 10;
-              left: 0px;
-
-              position: absolute;
-              background: #4f2c92;
-              bottom: ($title-size / 10);
-              z-index: -1;
-            }
-          }
-
-          p {
-            font-size: $sub-title;
-            font-weight: bold;
-          }
-
-          a {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-          }
-        }
-
-        .login {
-          background-image: url("/2025/photos/hands_1.jpg");
-          background-size: cover;
-          background-position: center center;
-          
-          box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);
-
-          height: 40%;
-        }
-
-        .rj {
-          background-image: url("/2025/photos/crowd_6.jpg");
-          background-size: cover;
-          background-position: center center;
-          
-          box-shadow: inset 220px 0 250px -70px rgba(0,0,0,1);
-
-          height: 40%;
-
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-
-          text-align: right;
-
-          h3:after {
-            transform: translateX(-$title-size / 10);
-            right: 0px;
-          }
+        &::after {
+          content: "";
+          position: absolute;
+          right: -1px;
+          width: 25%;
+          height: 100%;
+          background: rgb(0,0,0);
+          background: linear-gradient(270deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
         }
       }
     }
 
-    @media only screen and (max-width: $mobile-width) {
-      .section-container {
-        flex-direction: column;
+    .rj {
+      position: relative;
+      padding: $blank-space;
+      padding-left: 0px;
+      padding-right: 0px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      gap: 10px;
+
+      p {
+        text-align: right;
       }
+      h3 {
+        font-size: $sub-title;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          right: $sub-title / 8;
+          width: calc(100% + $sub-title / 4);
+          height: $sub-title / 4;
+          background: #4f2c92;
+          z-index: -1;
+        }
+      }
+      p, h3 {
+        margin-right: $blank-space;
+      }
+
+      .background {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: -10;
+
+        width: 50%;
+        height: 100%;
+        background-image: url("/2025/photos/crowd_6.jpg");
+        background-size: cover;
+        background-position: center center;
+        box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 25%;
+          height: 100%;
+          left: -1px;
+          background: rgb(0,0,0);
+          background: linear-gradient(90deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+        }
+      }
+    }
+    .rj a, .login a {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      z-index: 10;
     }
   }
 </style>

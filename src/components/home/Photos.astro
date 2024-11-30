@@ -8,12 +8,12 @@
     </div>
     <div class="photo">
         <img src={`/2025/photos/${'crowd_4.jpg'}`} alt="Image" id="carousel-before">
-        <button class="prev-btn">{"<"}</button>
+        <button class="prev-btn"></button>
         <img src={`/2025/photos/${'crowd_2.jpg'}`} alt="Image" id="carousel-img">
-        <button class="next-btn">{">"}</button>
+        <button class="next-btn"></button>
         <img src={`/2025/photos/${'hands_1.jpg'}`} alt="Image" id="carousel-after">
     </div>
-    <div class="center">
+    <div class="button">
         <button>INSTAGRAM</button>
     </div>
 </section>
@@ -30,7 +30,7 @@
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
 
-    nextBtn.addEventListener('click', () => {
+    nextBtn?.addEventListener('click', () => {
         currentIndex = (currentIndex - 1 + images.length) % images.length;
         beforeIndex = (currentIndex - 1 + images.length) % images.length;
         afterIndex = (currentIndex + 1) % images.length;
@@ -39,7 +39,7 @@
         after.src = `/2025/photos/${images[afterIndex]}`;
     });
 
-    prevBtn.addEventListener('click', () => {
+    prevBtn?.addEventListener('click', () => {
         currentIndex = (currentIndex + 1) % images.length;
         beforeIndex = (currentIndex - 1 + images.length) % images.length;
         afterIndex = (currentIndex + 1) % images.length;
@@ -50,55 +50,53 @@
 </script>
 
 <style lang="scss">
-    @import "../../styles/variables";
-    @import "../../styles/button-bar";
-    @import "../../styles/tooltip";
+    @import "../../styles/variables.scss";
 
     section {
         background: #000;
         overflow: hidden;
 
         .center {
-            padding-top: $blank-space * 2;
-            padding-bottom: $blank-space * 2;
+            padding-top: $blank-space;
+            padding-bottom: $blank-space / 2;
             display: flex;
             justify-content: center;
         
             h3 {
-                font-size: $title-size;
+                font-size: $sub-title;
                 position: relative;
                 max-width: fit-content;
                 z-index: 1;
                 color: #fff;
 
-                &:after {
+                &::after {
                     content: "";
-
-                    width: 100%;
-                    height: $title-size / 10;
-                    background: red;
-                    padding-right: $title-size / 10;
-                    left: 0px;
-
                     position: absolute;
+                    bottom: 0px;
+                    left: $sub-title / 8;
+                    width: calc(100% + $sub-title / 4);
+                    height: $sub-title / 4;
                     background: #0127a6;
-                    bottom: calc($blank-space - ($title-size / 100));
                     z-index: -1;
                 }
             }
+        }
+
+        .button {
+            padding-top: $blank-space / 2;
+            padding-bottom: $blank-space * 2;
+            display: flex;
+            justify-content: center;
 
             button {
-                background: #fff;
                 color: #0127a6;
-                border: none;
-
-                font-family: lato;
-                font-size: $medium-title;
+                font-size: $large-text;
                 font-weight: bold;
-                width: fit-content;
-
-                padding: ($main-padding / 2) ($main-padding) ($main-padding / 2) ($main-padding);
-                border-radius: $title-size;
+                padding: $large-text;
+                padding-top: $large-text / 1.5;
+                padding-bottom: $large-text / 1.5;
+                border: none;
+                border-radius: $large-text * 1.5;
             }
         }
 
@@ -114,15 +112,25 @@
                 font-family: bebas;
                 font-size: $title-size;
                 color: #fff;
+                min-width: 35px;
+                aspect-ratio: 2 / 3;
+                background-size: contain;
+                background-repeat: no-repeat;
+                opacity: 0.5;
             }
-        }
+            .prev-btn {
+                background-image: url("/2025/icons/arrow_back.svg");
+            }
+            .next-btn {
+                background-image: url("/2025/icons/arrow_forward.svg");
+            }
 
-        img {
-            max-height: 130px;
-        }
-
-        #carousel-img {
-            max-height: 200px;
+            img {
+                width: 25%;
+            }
+            #carousel-img {
+                width: 40%;
+            }
         }
     }
 </style>
