@@ -34,6 +34,7 @@
         font-size: $title-size;
         color: #fff;
         position: relative;
+        text-align: center;
         z-index: 2;
         margin-bottom: $blank-space * 2;
 
@@ -66,7 +67,7 @@
             padding-bottom: $large-text * 0.5;
             border: none;
             border-radius: $large-text;
-            width: min-content;
+            width: fit-content;
             margin-bottom: 2 * $blank-space;
             background: #fff;
         }
@@ -80,6 +81,15 @@
         background: #000;
         opacity: 0.5;
         z-index: 0;
+      }
+    }
+
+    @media screen and (max-width: $mobile-width) {
+      section .buttons {
+        grid-template-columns: 1fr;
+      }
+      h1 {
+        width: min-content;
       }
     }
     /* LAPTOP & LOWER - mobile */
