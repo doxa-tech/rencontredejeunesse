@@ -31,10 +31,12 @@ export const ContactForm = () => {
       },
       body: JSON.stringify({
         "email": email,
-        "_email.from": name,
-        "_email.subject": subject,
         "message": message,
         "h-captcha-response": hToken,
+        "_email" : {
+          "from": name,
+          "subject": subject,
+        }
       })
     });
 
@@ -83,8 +85,8 @@ export const ContactForm = () => {
         placeholder="Sujet"
         required
         type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={subject}
+        onChange={(e) => setSubject(e.target.value)}
       />
 
       <textarea
