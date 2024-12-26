@@ -30,12 +30,12 @@ export const ContactForm = () => {
         "Accept": "application/json"
       },
       body: JSON.stringify({
+        "email": email,
         "message": message,
         "h-captcha-response": hToken,
         "_email" : {
           "from": name,
           "subject": subject,
-          "replyto": `${ name } <${ email }>`
         }
       })
     });
