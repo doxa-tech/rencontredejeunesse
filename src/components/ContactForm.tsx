@@ -1,5 +1,5 @@
 import "@astrojs/react"
-import React, { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import * as styles from "./ContactForm.module.scss"
 
@@ -7,7 +7,6 @@ export const ContactForm = () => {
 
   const CONTACT_EMAILS: { [key: string]: string } = {
     "order": "QGjjhQ33",
-    "group_order": "QGjjhQ33",
     "bug": "QGjjhQ33",
     "general": "QGjjhQ33"
   }
@@ -16,10 +15,11 @@ export const ContactForm = () => {
   let submitting = false;
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
   const [hToken, setToken] = useState("");
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: FormEvent) => {
     e.preventDefault();
     submitting = true;
     // send
@@ -31,8 +31,9 @@ export const ContactForm = () => {
       },
       body: JSON.stringify({
         "email": email,
-        "Nom": name,
-        "Message": message,
+        "_email.from": name,
+        "_email.subject": subject,
+        "message": message,
         "h-captcha-response": hToken,
       })
     });
@@ -42,22 +43,24 @@ export const ContactForm = () => {
       setEmail("");
       setMessage("");
       setName("");
+      setSubject("");
     } else {
       alert("Nous avons rencontré un problème lors de l'envoi du message.");
     }
   };
 
-  const onCategoryChange = function (e) {
-    formId = CONTACT_EMAILS[e.value];
+  const onCategoryChange = function (e: ChangeEvent<HTMLSelectElement>) {
+    console.log(e.target.value)
+    formId = CONTACT_EMAILS[e.target.value];
   }
 
   return (
     <form id="contact-form" onSubmit={onSubmit}>
 
       <select name="Catégorie" onChange={onCategoryChange}>
-        <option value="Commandes">Commandes</option>
-        <option value="Signaler un bug">Signaler un bug</option>
-        <option value="Question générale">Question générale</option>
+        <option value="order">Commandes</option>
+        <option value="bug">Signaler un bug</option>
+        <option value="general">Question générale</option>
       </select>
 
       <input
@@ -72,7 +75,14 @@ export const ContactForm = () => {
         placeholder="Email"
         required
         type="email"
-        name="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+
+      <input
+        placeholder="Sujet"
+        required
+        type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
