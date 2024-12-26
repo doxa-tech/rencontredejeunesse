@@ -36,6 +36,7 @@ export const ContactForm = () => {
         "_email" : {
           "from": name,
           "subject": subject,
+          "replyto": `${ name } <${ email }>`
         }
       })
     });
