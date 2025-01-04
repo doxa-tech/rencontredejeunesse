@@ -1,81 +1,74 @@
----
----
+  ---
+  ---
 
-<section class="cont">
-  <div class="section-container">
-    <!--
-    <div class="guests">
-      <div class="guest">
-        <p>Stève Rivière</p>
-        <p>
-          Pasteur à Extravagance
-        </p>
-      </div>
+  <section class="cont">
+    <div class="section-container">
+  
+      <p class="theme">Le thème de notre journée ?</p>
+
+      <h1>Nouvelle vague 🌊</h1>
+      <p class="theme">
+        La hauteur de nos attentes nous conduit à nous appuyer sur nos propres forces ou celle de Dieu. Dans cette journée, nous voulons refuser un style de vie marqué par de la distraction, le découragement, et des attentes limitées et focalisées sur soi. Nous prions d’être bousculés par le Saint Esprit afin de recevoir un nouvel élan pour poursuivre des attentes divines centrées sur Christ. Nous voulons choisir de placer entièrement notre confiance en la puissance et l’amour de Jésus pour sauver et transformer notre vie, notre groupe de jeunes et notre génération.
+      </p>
+
     </div>
-    -->
-    <p class="theme">Le thème de notre journée ?</p>
 
-    <h1>Nouvelle vague 🌊</h1>
-    <p class="theme">
-      La hauteur de nos attentes nous conduit à nous appuyer sur nos propres forces ou celle de Dieu. Dans cette journée, nous voulons refuser un style de vie marqué par de la distraction, le découragement, et des attentes limitées et focalisées sur soi. Nous prions d’être bousculés par le Saint Esprit afin de recevoir un nouvel élan pour poursuivre des attentes divines centrées sur Christ. Nous voulons choisir de placer entièrement notre confiance en la puissance et l’amour de Jésus pour sauver et transformer notre vie, notre groupe de jeunes et notre génération.
-    </p>
-  </div>
-</section>
+  </section>
 
-<style lang="scss">
-  @import "../../styles/variables";
+  <style lang="scss">
+    @import "../../styles/variables";
 
-  section.cont {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 40px 0 80px 0;
-
-    .section-container {
-      text-align: center;
-      font-weight: bold;
-
-      max-width: $main-width;
-      margin: auto;
-
+    section.cont {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       justify-content: center;
+      align-items: center;
+      padding: 40px 0 80px 0;
 
-      h1 {
-        font-size: 5em;
-      }
+      .section-container {
+        text-align: center;
+        font-weight: bold;
 
-      p.theme {
-        font-size: 1.8em;
-      }
+        max-width: $main-width;
+        margin: auto;
 
-      div.guests {
         display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+        flex-direction: column;
         justify-content: center;
-        padding: 0 0 0 0;
 
-        div.guest {
-          padding: 20px;
+        h1 {
+          font-size: 5em;
+        }
 
-          img {
-            border-radius: 50%;
-            width: 200px;
-          }
+        p.theme {
+          font-size: 1.8em;
+        }
 
-          p:first-of-type {
-            font-size: $medium-title;
-            padding: 10px 0 0 0;
-          }
+        div.guests {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          padding: 0 0 0 0;
 
-          p:nth-of-type(2) {
-            font-size: $normal-text;
+          div.guest {
+            padding: 20px;
+
+            img {
+              border-radius: 50%;
+              width: 200px;
+            }
+
+            p:first-of-type {
+              font-size: $medium-title;
+              padding: 10px 0 0 0;
+            }
+
+            p:nth-of-type(2) {
+              font-size: $normal-text;
+            }
           }
         }
       }
     }
-  }
-</style>
+  </style>
