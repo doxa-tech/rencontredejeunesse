@@ -1,0 +1,55 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <img src="/2025/textures/Brush_J4.png" class="section-background">
+    <h2>Mattieu 5.14-16</h2>
+    <p>"Vous êtes la lumière du monde. Une ville située sur une montagne ne peut pas être cachée, et on n'allume pas non plus une lampe pour la mettre sous un seau, mais on la met sur un support et elle éclaire tous ceux qui sont dans la maison. Que, de la même manière, votre lumière brille devant les hommes afin qu'ils voient votre belle manière d'agir et qu'ainsi ils célèbrent la gloire de votre Père céleste."</p>
+    <b>Imagine une lampe qui éclaire tout autour d'elle. C'est ce que Dieu nous invite à être : des témoins visibles de Son amour et de Sa gloire, transformant notre quotidien et inspirant ceux qui nous entourent !</b>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    background-size: cover;
+
+    width: 100%;
+    max-width: $main-width;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    aspect-ratio: 2000 / 1565;
+
+    .section-background {
+      z-index: -10;
+      opacity: 0.6;
+      position: absolute;
+      width: 100%;
+      max-width: $main-width;
+      aspect-ratio: 2000 / 1565;
+      object-fit: scale-down;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      max-width: $main-width;
+      flex-direction: column;
+      gap: 40px;
+
+      h2 {
+        margin: 0px;
+        font-size: 30px;
+      }
+    }
+  }
+</style>

@@ -25,6 +25,16 @@
         </g>
       </svg>
     </a>
+    <ul class="links">
+      <!--<li><a href="/">Home</a></li>-->
+      <li><a href="/2025">RJ25</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/vision">Vision</a></li>
+      <li><a href="/photos">Photos</a></li>
+      <li><a href="/volunteers">Bénévole</a></li>
+      <li><a href="/support">Soutenir</a></li>
+      <li><a href="/faq">FAQ</a></li>
+    </ul>
     <!-- Burger -->
     <div class="svg" id="header-btn">
       <svg
@@ -106,6 +116,11 @@
     position: absolute;
     z-index: 1;
 
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    -webkit-backdrop-filter: blur(10px);
+
+    padding-bottom: 20px;
+
     left: 0;
     right: 0;
     top: 0;
@@ -114,10 +129,23 @@
     justify-content: center;
     align-items: center;
 
+    .links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      color: #fff;
+      font-size: $large-text * 1.25;
+    }
+    @media screen and (max-width: $mobile-width) {
+      .links {
+        display: none;
+      }    
+    }
+
     & > div {
+      max-width: $main-width;
       height: 100%;
       width: 100%;
-      max-width: $main-width;
       padding: 0 $main-padding;
       height: 50px;
       margin: 20px 0 0 0;
@@ -137,14 +165,19 @@
       }
 
       div#header-btn {
-        display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: row;
+        display: none;
         cursor: pointer;
 
         svg {
           width: 30px;
+        }
+      }
+      @media screen and (max-width: $mobile-width) {
+        div#header-btn {
+          display: flex;
         }
       }
       div.keep {

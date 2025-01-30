@@ -1,0 +1,98 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <img src="/2025/textures/Brush_Bl2.png" class="section-background">
+    <div class="section-content">
+        <h1>Let it shine</h1>
+        <h2>2 - 3 mai 2025</h2>
+        <button>INSCRIPTION</button>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  @import "../../styles/variables";
+
+  section {
+    background-size: cover;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .section-container {
+      min-height: 100%;
+      width: 100%;
+      padding: $logo-burger-height $main-padding 0 $main-padding;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+
+      position: relative;
+      padding-top: 110px;
+
+      overflow: hidden;
+
+      .section-background {
+        position: absolute;
+        width: auto;
+        max-width: 100%;
+        height: 200%;
+        min-width: 1500px;
+        object-fit: scale-down;
+        transform: rotate(-15deg) translateY(-40%);
+        left: 0px;
+        z-index: -10;
+        opacity: 0.6;
+      }
+      @media screen and (max-width: $mobile-width) {
+        .section-background {
+          left: auto;
+          right: 120px;
+        }    
+      }
+
+      .section-content {
+        max-width: $main-width;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        min-height: 700px;
+
+        h1 {
+            font-size: 140px;
+            margin: 0px;
+            margin-bottom: -20px;
+        }
+
+        h2 {
+            font-size: 60px;
+        }
+
+        h1, h2 {
+            color: #fad45b;
+            line-height: 100%;
+            text-align: center;
+        }
+
+        button {
+            color: #fff;
+            font-weight: bold;
+            font-size: 30px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background: #fad45b;
+        }
+      }
+    }
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+---
+
+<section>
+    <div>
+        <img src="/2025/maps/tavannes.png" alt="Tavannes">
+        <span>TAVANNES</span>
+    </div>
+    <div>
+        <img src="/2025/maps/oron.png" alt="Tavannes">
+        <span>ORON</span>
+    </div>
+    <div>
+        <img src="/2025/maps/aigle.png" alt="Tavannes">
+        <span>AIGLE</span>
+    </div>
+    <div>
+        <img src="/2025/maps/ambilly.png" alt="Tavannes">
+        <span>AMBILLY</span>
+    </div>
+</section>
+
+<style lang="scss">
+@import "../../styles/variables";
+
+section {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 80px 20px;
+    max-width: 1300px;
+    margin: $blank-space 0;
+
+    & > div {
+        width: min(100%, 600px);
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+            width: 100%;
+            height: auto;
+            margin-bottom: -30px;
+        }
+        span {
+            font-size: 50px;
+            font-weight: bold;
+            color: #fad45b;
+        }
+    }
+}
+</style>
+  

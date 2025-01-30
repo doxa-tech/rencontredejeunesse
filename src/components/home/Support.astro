@@ -20,6 +20,31 @@
     @import "../../styles/variables.scss";
   
     section {
+        h3 {
+            font-size: $sub-title * 1.5;
+            position: relative;
+            max-width: fit-content;
+            z-index: 1;
+            color: #fff;
+
+            &:after {
+                content: "";
+
+                width: 100%;
+                height: $title-size / 10;
+                padding-right: $title-size / 10;
+                left: 0px;
+
+                position: absolute;
+                background: #e7d42b;
+                bottom: calc($blank-space - ($title-size / 100));
+                z-index: -1;
+            }
+        }
+
+        img {
+            max-height: 20px;
+        }
     }
   </style>
   

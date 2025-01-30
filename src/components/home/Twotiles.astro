@@ -19,6 +19,8 @@
 <style lang="scss">
   @import "../../styles/variables.scss";
 
+  $sub-title: $large-text * 2;
+
   section {
     display: flex;
     flex-direction: column-reverse;
@@ -27,7 +29,7 @@
     padding-bottom: $blank-space;
 
     p {
-      font-size: $large-text;
+      font-size: $large-text * 1.25;
     }
     .login {
       position: relative;
@@ -41,7 +43,7 @@
       gap: 10px;
       
       h3 {
-        font-size: $sub-title;
+        font-size: $sub-title * 1.5;
         position: relative;
 
         &::after {
@@ -98,7 +100,7 @@
         text-align: right;
       }
       h3 {
-        font-size: $sub-title;
+        font-size: $sub-title * 1.5;
         position: relative;
 
         &::after {

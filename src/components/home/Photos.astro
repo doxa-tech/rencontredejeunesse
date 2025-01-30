@@ -58,12 +58,12 @@
 
         .center {
             padding-top: $blank-space;
-            padding-bottom: $blank-space / 2;
+            padding-bottom: $blank-space;
             display: flex;
             justify-content: center;
         
             h3 {
-                font-size: $sub-title;
+                font-size: $sub-title * 1.5;
                 position: relative;
                 max-width: fit-content;
                 z-index: 1;
@@ -83,14 +83,14 @@
         }
 
         .button {
-            padding-top: $blank-space / 2;
+            padding-top: $blank-space;
             padding-bottom: $blank-space * 2;
             display: flex;
             justify-content: center;
 
             button {
                 color: #0127a6;
-                font-size: $large-text;
+                font-size: $large-text * 1.25;
                 font-weight: bold;
                 padding: $large-text;
                 padding-top: $large-text / 1.5;
@@ -131,6 +131,12 @@
             #carousel-img {
                 width: 40%;
             }
+        }
+    }
+
+    @media screen and (max-width: $mobile-width) {
+        section {
+            padding-top: $blank-space;
         }
     }
 </style>

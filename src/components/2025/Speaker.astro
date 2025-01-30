@@ -1,0 +1,99 @@
+---
+---
+
+<section>
+    <div class="section-container">
+        <img src="/2025/textures/Brush_Bl6.png" class="section-background">
+        <h2>GROUPES DE LOUANGE</h2>
+        <div>
+            <div>
+                <img src="/2025/speakers/reichor.png" alt="">
+                <span>Darja Reichör</span> 
+            </div>
+            <div>
+                <img src="/2025/speakers/bamenaw.png" alt="">
+                <span>David Bamenaw</span> 
+            </div>
+            <div>
+                <img src="/2025/speakers/bader.png" alt="">
+                <span>Jérémie Bader</span> 
+            </div>
+            <div>
+                <img src="/2025/speakers/bingono.png" alt="">
+                <span>Luc Berlrand Bingono</span> 
+            </div>
+        </div>
+        <div></div>
+    </div>
+</section>
+
+<style lang="scss">
+@import "../../styles/variables";
+
+section {
+    background-size: cover;
+
+    width: 100%;
+    max-width: $main-width;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    aspect-ratio: 2000 / 1000;
+    color: #fad45b;
+    margin: $blank-space 0;
+
+    .section-background {
+        z-index: -10;
+        opacity: 0.6;
+        position: absolute;
+        width: 100%;
+        max-width: $main-width;
+        aspect-ratio: 2000 / 1000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    & > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: $main-width;
+        flex-direction: column;
+        gap: 40px;
+
+        h2 {
+            margin: 0px;
+            font-size: 40px;
+        }
+
+        img {
+            width: 150px;
+        }
+
+        & > div {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            font-size: 20px;
+
+            & > div {
+                max-width: 20%;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            span {
+                width: 130px;
+                font-weight: bold;
+            }
+        }
+    }
+}
+</style>
+  
