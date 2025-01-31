@@ -37,18 +37,20 @@ section {
     max-width: $main-width;
     display: flex;
     justify-content: center;
+    
     padding: 20px;
     position: relative;
-    aspect-ratio: 2000 / 1000;
     color: #fad45b;
     margin: $blank-space 0;
+    height: 200%;
+    min-height: fit-content;
 
     .section-background {
         z-index: -10;
         opacity: 0.6;
         position: absolute;
-        width: 100%;
-        max-width: $main-width;
+        height: 100%;
+        width: auto;
         aspect-ratio: 2000 / 1000;
         top: 50%;
         left: 50%;
@@ -56,6 +58,7 @@ section {
     }
 
     & > div {
+        margin: 40px 0px;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -64,6 +67,7 @@ section {
         max-width: $main-width;
         flex-direction: column;
         gap: 40px;
+        min-height: fit-content;
 
         h2 {
             margin: 0px;
@@ -76,21 +80,25 @@ section {
 
         & > div {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 40px;
             width: 100%;
             max-width: 800px;
             font-size: 20px;
+            flex-wrap: wrap;
 
             & > div {
-                max-width: 20%;
+                max-width: max(20%, 150px);
                 display: flex;
                 flex-direction: column;
+                align-items: center;
                 gap: 20px;
             }
 
             span {
                 width: 130px;
                 font-weight: bold;
+                text-align: center;
             }
         }
     }

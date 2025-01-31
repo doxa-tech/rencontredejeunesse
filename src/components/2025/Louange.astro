@@ -59,7 +59,9 @@ section {
 
         & > div {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
             width: 100%;
             max-width: 700px;
             font-size: 30px;
@@ -68,6 +70,13 @@ section {
                 width: min-content;
                 font-weight: bold;
             }
+        }
+
+        @media screen and (max-width: $mobile-width) {
+            & > div {
+                font-size: 20px;
+                padding: 0px 20px;
+            }   
         }
     }
 }
