@@ -24,6 +24,7 @@
         justify-content: center;
         padding: $blank-space;
         gap: $blank-space;
+        position: relative;
 
         h3 {
             font-size: $sub-title * 1.5;
@@ -38,7 +39,7 @@
                 width: 100%;
                 height: $title-size / 10;
                 padding-right: $title-size / 10;
-                left: 0px;
+                left: $sub-title / 8;
 
                 position: absolute;
                 background: #e7d42b;
@@ -54,6 +55,34 @@
 
         img {
             max-height: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: $blank-space * 2;
+
+            img {
+                display: none;
+            }
+
+            #buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                button {
+                    width: fit-content;
+                    color: #000;
+                    font-size: $large-text * 1.25;
+                    font-weight: bold;
+                    padding: $large-text;
+                    padding-top: $large-text / 1.5;
+                    padding-bottom: $large-text / 1.5;
+                    border: none;
+                    border-radius: $large-text * 1.5;
+                }
+            }
         }
 
         .background {
@@ -79,6 +108,52 @@
                 background-image: url("/2025/icons/support.png");
                 z-index: 100;
                 transform: rotate(15deg);
+            }
+        }
+
+        @media screen and (max-width: $mobile-width) {
+            h3 {
+                margin-top: $blank-space;
+            }
+
+            .background {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                z-index: -10;
+                left: 0px;
+                background-size: auto 100% ;
+                aspect-ratio: auto;
+
+                &::before {
+                display: none;
+                }
+                &::after {
+                display: none;
+                }
+            }
+
+            .content {
+                gap: 30px;
+                align-items: center;
+
+                #text {
+                    display: flex;
+                    gap: 30px;
+                    max-height: fit-content;
+                    position: relative;
+                    align-items: center;
+
+                    img {
+                        display: flex;
+                        height: 100px;
+                        max-height: 100%;
+                    }
+                }
+            }
+
+            .content #buttons {
+                flex-direction: row;
             }
         }
     }
