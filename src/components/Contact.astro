@@ -3,6 +3,9 @@ import { ContactForm } from "./ContactForm";
 ---
 
 <section>
+  <div class="menu">
+
+  </div>
   <div class="section-container">
     <div class="form">
       <h2>contact</h2>
@@ -25,6 +28,12 @@ import { ContactForm } from "./ContactForm";
 
   section {
     position: relative;
+    background-color: #fafafa;
+
+    .menu {
+      height: 90px;
+      background-color: #000;
+    }
 
     .section-container {
       display: flex;
@@ -36,7 +45,6 @@ import { ContactForm } from "./ContactForm";
 
       div.form {
         flex: 1;
-        background-color: #fff;
         z-index: 1;
 
         h2 {

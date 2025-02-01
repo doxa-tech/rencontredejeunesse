@@ -5,21 +5,24 @@
         <h2>INSCRIPTION</h2>
         <div class="columns">
            <div class="column">
+                <p class="head"></p>
                 <p>Vendredi soir</p>
                 <p>Samedi journée</p>
                 <p>Samedi soir</p>
                 <p>Weekend</p>
            </div>
            <div class="column">
+                <p class="head">en ligne</p>
                 <p>30.-</p>
                 <p>40.-</p>
                 <p>30.-</p>
                 <p>60.-</p>
            </div>
            <div class="column">
-                <p>35.-</p>
+                <p class="head">sur place<br>dès 26.04</p>
                 <p>40.-</p>
-                <p>35.-</p>
+                <p>50.-</p>
+                <p>40.-</p>
                 <p>70.-</p>
            </div>
         </div>
@@ -68,7 +71,14 @@
 
                 p {
                     margin: 0 0 6px 0;
+
+                    &.head {
+                        font-style: italic;
+                        height: 60px;
+                        font-size: 20px;
+                    }
                 }
+
             }
         }
 
