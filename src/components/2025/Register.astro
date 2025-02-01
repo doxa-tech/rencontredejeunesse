@@ -57,6 +57,7 @@
         .columns {
             display: flex;
             flex-direction: row;
+            justify-content: space-around;
             font-weight: bold;
             font-size: 30px;
 
@@ -80,6 +81,7 @@
         .register {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
 
             a {
                 color: #fff;
@@ -93,6 +95,25 @@
             }
         }
        
+    }
+
+    @media screen and (max-width: $mobile-width) {
+
+        .columns {
+            font-size: 20px !important;
+
+            .column {
+                margin: 0 20px 0 20px !important;
+            }
+        }
+
+        .register {
+            flex-direction: column;
+
+            a {
+                margin: 15px !important;
+            }
+        } 
     }
 </style>
       
