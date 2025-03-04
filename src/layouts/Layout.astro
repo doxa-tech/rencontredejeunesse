@@ -14,6 +14,7 @@ import "../styles/global.scss";
 import "../styles/fonts.scss";
 
 const { title, dark=false } = Astro.props;
+const hideFooter = Astro.url.pathname === "/vision";
 ---
 
 <!DOCTYPE html>
@@ -63,7 +64,7 @@ const { title, dark=false } = Astro.props;
 
 				<slot />
 
-				<Footer />
+				{!hideFooter && <Footer />}
 			</div>
 		</div>
 	</body>
