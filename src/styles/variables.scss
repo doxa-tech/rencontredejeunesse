@@ -10,7 +10,7 @@ $blank-space: 5%;
 
 $mobile-padding: 30px;
 
-$title-size: 4.5em;   // 100pt
+/*$title-size: 4.5em;   // 100pt
 $sub-title: 2.3em;    // 50pt
 $medium-title: 1.7em; // 35pt
 
@@ -18,9 +18,45 @@ $large-text: 1.2em;   // 25pt
 $normal-text: 1em;    // 20pt
 $small-text: 0.9em;   // 14pt
 
-$mobile-width: 768px;
+$mobile-width: 768px;*/
 
 $logo-burger-height: 75px;
+
+// Font Sizes
+$title-size: 3rem; // 48px
+$sub-title: 2.25rem; // 36px
+$medium-title: 1.75rem; // 28px
+
+$large-text: 1.25rem; // 24px
+$normal-text: 1rem; // 16px
+$small-text: 0.875rem; // 14px
+
+// Responsive Breakpoints
+$mobile-width: 640px;
+$tablet-width: 1024px;
+
+// Spacing
+$spacing-desktop: 32px;
+$spacing-tablet: 24px;
+$spacing-mobile: 16px;
+
+// Mobile Multiplier
+$mobile-multiplier: 1.1;
+
+// Responsive Typography Mixin
+@mixin responsive-text {
+  @media (max-width: $tablet-width) {
+    $title-size: $title-size * $mobile-multiplier;
+    $sub-title-size: $sub-title * $mobile-multiplier;
+    $medium-title-size: $medium-title * $mobile-multiplier;
+    $large-text-size: $large-text * $mobile-multiplier;
+    $normal-text-size: $normal-text * $mobile-multiplier;
+    $small-text-size: $small-text * $mobile-multiplier;
+  }
+}
+
+// Apply the mixin globally
+@include responsive-text;
 
 // Linear proportionality between {a,b} <=> {a',b'}
 // a is min and b is max
