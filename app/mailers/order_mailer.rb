@@ -29,7 +29,7 @@ class OrderMailer < ApplicationMailer
 
   def announcement(emails)
     recipient_variables = emails.map { |v| [v, {}] }.to_h
-    mail(to: emails, subject: "Information pour la RJ à Oron", "recipient-variables" => recipient_variables)
+    mail(to: emails, subject: "Information pour la RJ à Oron", "X-Mailgun-Recipient-Variables" => recipient_variables)
   end
 
   def hosting(emails)
