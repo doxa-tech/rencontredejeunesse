@@ -28,7 +28,8 @@ class OrderMailer < ApplicationMailer
   end
 
   def announcement(emails)
-    mail(to: "RJ <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Information pour la RJ à Oron")
+    recipient_variables = emails.map { |v| [v, {}] }.to_h
+    mail(to: emails, subject: "Information pour la RJ à Oron", "recipient-variables" => recipient_variables)
   end
 
   def hosting(emails)
