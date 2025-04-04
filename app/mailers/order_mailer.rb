@@ -28,7 +28,7 @@ class OrderMailer < ApplicationMailer
   end
 
   def announcement(emails)
-    mail(to: "RJ <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Information pour la RJ")
+    mail(to: "RJ <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Information pour la RJ à Oron")
   end
 
   def hosting(emails)
