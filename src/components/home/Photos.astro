@@ -73,9 +73,9 @@
                     content: "";
                     position: absolute;
                     bottom: 0px;
-                    left: $sub-title / 8;
+                    left: calc($sub-title / 8);
                     width: calc(100% + $sub-title / 4);
-                    height: $sub-title / 4;
+                    height: calc($sub-title / 4);
                     background: #0127a6;
                     z-index: -1;
                 }
@@ -94,8 +94,8 @@
                 font-size: $large-text * 1.25;
                 font-weight: bold;
                 padding: $large-text;
-                padding-top: $large-text / 1.5;
-                padding-bottom: $large-text / 1.5;
+                padding-top: calc($large-text / 1.5);
+                padding-bottom: calc($large-text / 1.5);
                 border: none;
                 border-radius: $large-text * 1.5;
             }
@@ -105,7 +105,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: $blank-space / 2;
+            gap: calc($blank-space / 2);
 
             button {
                 background: none;
