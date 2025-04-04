@@ -29,9 +29,8 @@ class OrderMailer < ApplicationMailer
     mail(to: "keran.k@rencontredejeunesse.ch", subject: "Anomalous delivery")
   end
 
-  def announcement(emails)
-    recipient_variables = emails.map { |v| [v, { useless_value: 42 }] }.to_h
-    mail(to: emails, subject: "Information pour la RJ à Oron", "X-Mailgun-Recipient-Variables" => recipient_variables.to_json)
+  def announcement(email)
+    mail(to: email, subject: "Information pour la RJ à Oron")
   end
 
   def hosting(emails)
