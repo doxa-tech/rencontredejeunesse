@@ -1,3 +1,5 @@
+require 'json'
+
 class OrderMailer < ApplicationMailer
   default reply_to: "billetterie@rencontredejeunesse.ch"
   helper OrdersHelper
@@ -29,7 +31,7 @@ class OrderMailer < ApplicationMailer
 
   def announcement(emails)
     recipient_variables = emails.map { |v| [v, {}] }.to_h
-    mail(to: emails, subject: "Information pour la RJ à Oron", "X-Mailgun-Recipient-Variables" => recipient_variables)
+    mail(to: emails, subject: "Information pour la RJ à Oron", "X-Mailgun-Recipient-Variables" => recipient_variables.to_json)
   end
 
   def hosting(emails)
