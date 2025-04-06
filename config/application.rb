@@ -35,8 +35,8 @@ module Rencontredejeunesse
     # Mailer
     config.action_mailer.smtp_settings = {
       address:              Rails.application.secrets.email_smtp,
-      port:                 587,
-      user_name:            Rails.application.secrets.email_address,
+      port:                 Rails.application.secrets.email_port,
+      user_name:            Rails.application.secrets.email_username,
       password:             Rails.application.secrets.email_pwd,
     }
     config.action_mailer.logger = nil
