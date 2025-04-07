@@ -19,11 +19,8 @@ class OrderPreview < ActionMailer::Preview
   end
 
   def announcement
-    OrderMailer.announcement([])
+    OrderMailer.announcement([], "Information", "rj25_oron")
   end
 
-  def hosting
-    OrderMailer.hosting([])
-  end
 
 end

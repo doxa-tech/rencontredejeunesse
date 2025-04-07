@@ -38,31 +38,16 @@ namespace :mailer do
     
   end
 
-  namespace :information do
-
-    desc "Send the information about hosting"
-    task hosting: :environment do
-      emails = User.joins(orders: :registrants).where(
-        orders: { status: :paid, 
-          registrants: { item_id: [80, 71, 68, 69] }
-        }
-      ).where("orders.created_at > ? AND orders.created_at <= ?", DateTime.parse("2024-05-02 20:00"), DateTime.parse("2024-05-03 14:30")).distinct.pluck(:email)
-      emails.each_slice(50) do |g|
-        OrderMailer.hosting(g).deliver_now
-        puts "#{g.length} give emails sent"
-        sleep(10)
-      end
-    end
+  namespace :announcement do
 
     desc "Send an announcement"
-    task announcement: :environment do
+    task rj25_oron: :environment do
       emails = User.joins(orders: :registrants).where(
-        orders: { status: :paid, registrants: {
-          item_id: [67,68,70,71,72,73,74]
-        }}
-      ).where("registrants.birthday >= ?", Date.parse("2009-05-03")).distinct.pluck(:email)
+        orders: { status: :paid, created_at: Date.new(2025, 02, 01)..Date.new(2025, 04, 04), 
+        registrants: { item_id: [103, 99, 95, 91, 87] }}
+      ).pluck(:email).uniq
       emails.each_slice(50) do |g|
-        OrderMailer.announcement(g).deliver_now
+        OrderMailer.announcement(g, "Information pour la RJ à Oron", "rj25_oron").deliver_now
         puts "#{g.length} give emails sent"
         sleep(10)
       end

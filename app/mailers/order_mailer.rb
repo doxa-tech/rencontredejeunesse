@@ -29,20 +29,13 @@ class OrderMailer < ApplicationMailer
     mail(to: "keran.k@rencontredejeunesse.ch", subject: "Anomalous delivery")
   end
 
-  def announcement(email)
-    mail(to: email, subject: "Information pour la RJ à Oron")
+  def announcement(emails, subject, template)
+    mail(to: "RJ <noreply@rencontredejeunesse.ch>", 
+      bcc: emails << "kocher.ke@gmail.com", 
+      subject: subject,
+      template_path: "announcements",
+      template_name: template
+    )
   end
-
-  def hosting(emails)
-    mail(to: "RJ <noreply@rencontredejeunesse.ch>", bcc: emails << "kocher.ke@gmail.com", subject: "Information pour l'hébergement à la RJ")
-  end
-
-  # def emails_from_order(keys)
-  #   User.joins(orders: [registrants: [item: :order_bundle]]).where(
-  #     orders: { status: :paid, 
-  #       registrants: { items: { order_bundles: { key: keys }}}
-  #     }
-  #   ).distinct.pluck(:email)
-  # end
 
 end
