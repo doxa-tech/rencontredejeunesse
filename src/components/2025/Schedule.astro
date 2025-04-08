@@ -1,0 +1,98 @@
+---
+---
+<section id="inscription">
+    <div class="section-container">
+        <h2>HORAIRE</h2>
+        <div class="columns">
+           <div class="column">
+                <p class="head">vendredi</p>
+                <p><span class="time">18h00</span> Ouverture du village</p>
+                <p><span class="time">19h30</span> Ouverture des portes</p>
+                <p><span class="time">20h00</span> Plénière du matin</p>
+                <p><span class="time">22h00</span> Fin de la session</p>
+                <p><span class="time">22h00</span> Ouverture du village</p>
+                <p><span class="time">24h00</span> Fermeture du village</p>
+           </div>
+           <div class="column">
+                <p class="head">samedi</p>
+                <p><span class="time">08h30</span> Ouverture du village</p>
+                <p><span class="time">09h00</span> Ouverture des portes</p>
+                <p><span class="time">09h30</span> Plénière de l'après-midi</p>
+                <p><span class="time">11h15</span> Fin de la session</p>
+                <p><span class="time">11h15</span> Ouverture du village</p>
+                <p><span class="time">13h45</span> Ouverture des portes</p>
+                <p><span class="time">14h00</span> Plénière</p>
+                <p><span class="time">15h30</span> Fin de la session</p>
+                <p><span class="time">15h30</span> Ouverture du village</p>
+                <p><span class="time">16h00</span> Atelier 1</p>
+                <p><span class="time">16h45</span> Atelier 2</p>
+                <p><span class="time">19h30</span> Ouverture des portes</p>
+                <p><span class="time">20h00</span> Plénière du soir</p>
+                <p><span class="time">22h00</span> Fin de la session</p>
+                <p><span class="time">22h00</span> Ouverture du village</p>
+                <p><span class="time">24h00</span> Fermeture du village</p>
+           </div>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @import "../../styles/variables";
+    
+    section {
+        background-size: cover;
+    
+        width: 100%;
+        max-width: $main-width;
+        display: flex;
+        justify-content: center;
+        
+        padding: 20px;
+        position: relative;
+        margin: $blank-space 0;
+        height: 200%;
+        min-height: fit-content;
+
+        h2 {
+            margin: 0 0 40px 0;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .columns {
+            display: flex;
+            flex-direction: column;
+            font-size: 26px;
+
+            .column {
+                display: flex;
+                flex-direction: column;
+
+                p {
+
+                    span.time {
+                        display: inline-block;
+                        width: 90px;
+                        font-size: 22px;
+                    }
+
+                    &.head {
+                        margin: 20px 0 10px 0;
+                        font-style: italic;
+                        text-align: center;
+                    }
+                }
+
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobile-width) {
+
+        .columns {
+            font-size: 20px !important;
+        }
+
+    }
+</style>
+      
