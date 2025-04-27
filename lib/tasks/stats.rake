@@ -4,28 +4,28 @@ namespace :stats do
   task rj25: :environment do
     data = {
       "Aigle": {
-        "weekend": [92, 88],
-        "friday": [96],
-        "saturday": [104],
-        "saturday night": [100]
+        "weekend": [92, 88, 108],
+        "friday": [96, 112],
+        "saturday": [104, 116],
+        "saturday night": [100, 120]
       },
       "Oron": {
-        "weekend": [91, 87],
-        "friday": [95],
-        "saturday": [103],
-        "saturday night": [99]
+        "weekend": [91, 87, 106],
+        "friday": [95, 110],
+        "saturday": [103, 114],
+        "saturday night": [99, 118]
       },
       "Tavannes": {
-        "weekend": [90, 86],
-        "friday": [97],
-        "saturday": [105],
-        "saturday night": [101]
+        "weekend": [90, 86, 107],
+        "friday": [97, 111],
+        "saturday": [105, 115],
+        "saturday night": [101, 119]
       },
       "Ambilly": {
-        "weekend": [93, 89],
-        "friday": [94],
-        "saturday": [102],
-        "saturday night": [98]
+        "weekend": [93, 89, 109],
+        "friday": [94, 113],
+        "saturday": [102, 117],
+        "saturday night": [98, 121]
       }
     }
     data.each do |site, tickets|
