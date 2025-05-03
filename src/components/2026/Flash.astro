@@ -1,0 +1,122 @@
+---
+---
+
+<script>
+    const countDownDate = new Date(2025, 4, 7).getTime();
+    const setCountdown = () => {
+    
+        const now = new Date().getTime();
+        const distance = countDownDate - now;
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+        const countdown = document.getElementById("countdown");
+        const register = document.getElementById("register");
+        if (!countdown || !register) {
+            return 0;
+        }
+
+        if (distance < 0) {
+            countdown.innerHTML = "Vente terminée";
+            register.remove();
+            return 0;
+        } 
+
+        countdown.innerHTML = days + "j " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+        return distance;
+    };
+    setCountdown();
+    const x = setInterval(() => {
+        const distance = setCountdown();
+
+        if (distance < 0) {
+            clearInterval(x);
+        } 
+    }, 1000);
+</script>
+
+<section>
+    <p>Rencontre de Jeunesse</p>
+    <p>Du 1 au 3 mai 2026 à Bulle</p>
+    <p class="theme">Roi des rois</p>
+    <div class="verse">
+        <p>L'Eternel des armées: Voilà le roi de gloire !</p>
+        <p>Psaumes 24:10</p>
+    </div>
+    <div class="flash">
+        <p>500 pass weekend à prix exclusif pendant 72h</p>
+        <p class="price">79 CHF</p>
+        <a id="register" href="https://tickets.rencontredejeunesse.ch/orders/rj-2026/events/new">Je m'inscris</a>
+        <p id="countdown"></p>
+    </div>
+</section>
+
+<style lang="scss">
+    @import "../../styles/variables";
+    section {
+        // background-color: black;
+        background: url(2026/background.jpg) no-repeat center center fixed; 
+        color: #fff;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 24px;
+
+        .theme {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #D4AF37;
+            margin: 30px 0 0 0;
+        }
+
+        .verse {
+            margin: 0 0 20px 0;
+            font-style: italic;
+            text-align: right;
+
+            p {
+                margin: 10px 0;
+            }
+        }
+
+        #countdown {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #D4AF37;
+            margin: 30px 0;
+        }
+
+        .price {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #D4AF37;
+            margin: 30px;
+        }
+
+        a#register {
+            background-color: #D4AF37;
+            padding: 6px 26px;
+            display: inline-block;
+            color: #000;
+            font-size: 2em;
+            border-radius: 8px;
+
+            &:hover {
+                background-color: #fff;
+            }
+        }
+
+        @media screen and (max-width: $mobile-width) {
+            font-size: 18px;
+        }
+    }
+
+
+</style>    
