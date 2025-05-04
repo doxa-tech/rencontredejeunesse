@@ -1,0 +1,88 @@
+---
+---
+
+<section>
+    <div class="section-container">
+      <div class="section-content">
+          <h1>Roi des rois</h1>
+          <h2>1 au 3 mai 2026</h2>
+          <a href="/2026">Vente flash</a>
+      </div>
+    </div>
+  </section>
+  
+  <style lang="scss">
+    @import "../../styles/variables";
+  
+    @font-face {
+      font-family: playfairDisplay;
+      src: url('/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
+    }
+  
+    section {
+      background-size: cover;
+  
+      width: 100%;
+      height: min(800px, 100vh);
+      min-height: 100vh;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      font-family: playfairDisplay;
+  
+      .section-container {
+        min-height: 100%;
+        width: 100%;
+        padding: $logo-burger-height $main-padding 0 $main-padding;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+  
+        position: relative;
+        padding-top: 110px;
+  
+        overflow: hidden;
+  
+        .section-content {
+          max-width: $main-width;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 60px;
+          min-height: 700px;
+  
+          h1 {
+              font-size: max(min(12vw, 120px), 60px);
+              font-weight: normal;
+              margin: 0px;
+              margin-bottom: -20px;
+          }
+  
+          h2 {
+              font-size: 50px;
+          }
+  
+          h1, h2 {
+              color: #D4AF37;
+              line-height: 100%;
+              text-align: center;
+          }
+  
+          a {
+              color: #fff;
+              font-weight: bold;
+              font-size: 30px;
+              padding: 7px 20px;
+              border: none;
+              border-radius: 20px;
+              background: #D4AF37;
+          }
+        }
+      }
+    }
+  </style>
+  
