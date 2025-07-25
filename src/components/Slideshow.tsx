@@ -1,10 +1,9 @@
-import "@astrojs/react"
-import { useEffect, useRef, useState } from "react";
+import { type KeyboardEventHandler, useEffect, useRef, useState } from "react";
 import * as styles from "./Slideshow.module.scss"
 
 export const SlideShow = ({ imagesFolder, numImages }) => {
   const [showModal, setShowModal] = useState(false);
-  const [numbers, setNumbers] = useState(Array.from({ length: numImages }, (v, k) => k))
+  const [numbers, setNumbers] = useState(Array.from({ length: numImages }, (_, k) => k))
   const [modalImg, setModalImg] = useState(<></>)
   const current = useRef(0);
   const ref = useRef(null);
@@ -20,7 +19,7 @@ export const SlideShow = ({ imagesFolder, numImages }) => {
   }
 
   useEffect(() => {
-    const a = Array.from({ length: numImages }, (v, k) => k)
+    const a = Array.from({ length: numImages }, (_, k) => k)
     shuffleArray(a)
     setNumbers(a)
   }, [])
