@@ -1,5 +1,4 @@
-import "@astrojs/react"
-import { ChangeEvent, FormEvent, useState } from "react";
+import { type ChangeEvent, type FormEvent, useState } from "react";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import * as styles from "./ContactForm.module.scss"
 
