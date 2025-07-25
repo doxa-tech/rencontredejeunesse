@@ -8,5 +8,9 @@ export default defineConfig({
   integrations: [react()],
   redirects: {
     "/2024": "/2025"
+  },
+  vite: {
+    // fsevents was causing an exception when starting the app
+    optimizeDeps: { exclude: ["fsevents"] }
   }
 });
