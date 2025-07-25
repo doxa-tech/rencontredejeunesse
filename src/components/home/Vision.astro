@@ -2,96 +2,142 @@
 ---
 
 <section>
-  <div class="section-container">
-    <div class="poster"></div>
-    <div class="title">
-      <a href="/vision"><h2>voir la<br />vision</h2></a>
-    </div>
+  <div class="content">
+    <div class="title"><div><h3>VISION</h3></div><img src="/2025/icons/eye.png"></div>
+    <p>La RJ (Rencontre de Jeunesse) a pour mission d'inspirer et d'équiper la jeunesse de Suisse romande et de la francophonie notamment au travers de rassemblements.</p>
+    <a href="/vision">PARCOURIR LA VISION</a>
+  </div>
+  <div class="background">
   </div>
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
+  @import "../../styles/variables.scss";
 
   section {
-    .section-container {
-      height: 460px;
-      padding: 0 $blank-space 0 0;
+    padding: $blank-space;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: $blank-space * 2;
+    color: #fff;
+    position: relative;
 
+    p {
+      font-size: $large-text * 1.25;
+    }
+    .content {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
 
-      div.poster {
-        background-image: url("/home/vision/background.jpg");
-        background-size: cover;
-        background-position: center left;
-
-        flex: 2;
+      a {
+        color: #b21d77;
+        background-color: #fff;
+        font-size: $large-text * 1.25;
+        font-weight: bold;
+        padding: $large-text * 1.25;
+        padding-top: calc($large-text / 1.5);
+        padding-bottom: calc($large-text / 1.5);
+        border: none;
+        border-radius: $large-text * 1.5;
       }
-      div.title {
-        text-align: right;
-        padding: 0 $sub-padding 0 0;
 
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+      p {
+        margin-top: $blank-space * 1.25;
+        margin-bottom: $blank-space * 1.25;
+      }
 
-        background: #f56953; /* Old browsers */
-        background: -moz-linear-gradient(
-          45deg,
-          #f56953 0%,
-          #5c35a1 100%
-        ); /* FF3.6-15 */
-        background: -webkit-linear-gradient(
-          45deg,
-          #f56953 0%,
-          #5c35a1 100%
-        ); /* Chrome10-25,Safari5.1-6 */
-        background: linear-gradient(
-          45deg,
-          #f56953 0%,
-          #5c35a1 100%
-        ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f56953', endColorstr='#5c35a1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+      h3 {
+        font-size: $sub-title * 1.5;
+        position: relative;
 
-        &::before {
-          content: "";
-          flex: 2;
-        }
         &::after {
           content: "";
-          flex: 1;
-        }
-
-        h2 {
-          color: #fff;
-          font-size: $title-size;
-          line-height: 0.9em;
-          position: relative;
-          z-index: 0;
-          cursor: pointer;
-
-          &::after {
-            @include button-bar(-1em, -2.5em, left, 20px);
-            background-color: #000;
-          }
-
-          &:hover::after {
-            @include button-bar-hover-left();
-          }
+          position: absolute;
+          bottom: 0px;
+          left: calc($sub-title / 8);
+          width: calc(100% + $sub-title / 4);
+          height: calc($sub-title / 4);
+          background: #b21d77;
+          z-index: -1;
         }
       }
     }
-    @media only screen and (max-width: $mobile-width) {
-      .section-container {
-        padding: 0 !important;
+    .title img {
+      display: none;
+    }
+    .background {
+      background-image: url("/2025/photos/crowd_1.jpg");
+      background-size: cover;
+      background-position: center center;
+      position: relative;
 
-        div.poster,
-        div.title {
-          flex: 1 !important;
+      width: 100%;
+      min-width: 50%;
+      aspect-ratio: 1987 / 1325;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: -1px;
+        width: 25%;
+        height: 100%;
+        background: rgb(0,0,0);
+        background: linear-gradient(270deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: -1px;
+        width: 20%;
+        aspect-ratio: 1 / 1;
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-image: url("/2025/icons/eye.png");
+        z-index: 100;
+        transform: translateY(-25%) rotate(15deg);
+      }
+    }
+    @media screen and (max-width: $mobile-width) {
+      .background {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: -10;
+        left: 0px;
+        opacity: 0.3;
+
+        &::before {
+          display: none;
         }
+        &::after {
+          display: none;
+        }
+      }
+
+      .title {
+        position: relative;
+        width: 100%;
+        padding-top: $blank-space;
+
+        div {
+          width: fit-content;
+        }
+
+        img {
+          max-width: 15%;
+          max-height: 100%;
+          display: flex;
+          position: absolute;
+          right: 0px;
+          top: $blank-space;
+          transform: rotate(15deg);
+        }
+      }
+      .content {
+        padding-top: $blank-space;
+        padding-bottom: $blank-space;
       }
     }
   }

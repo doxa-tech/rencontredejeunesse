@@ -1,0 +1,126 @@
+---
+---
+<section id="inscription">
+    <div class="section-container">
+        <h2>INSCRIPTION</h2>
+        <div class="columns">
+           <div class="column">
+                <p class="head"></p>
+                <p>Vendredi soir</p>
+                <p>Samedi journée</p>
+                <p>Samedi soir</p>
+                <p>Weekend</p>
+           </div>
+           <div class="column">
+                <p class="head">en ligne</p>
+                <p>30.-</p>
+                <p>40.-</p>
+                <p>30.-</p>
+                <p>60.-</p>
+           </div>
+           <div class="column">
+                <p class="head">sur place<br>dès 26.04</p>
+                <p>40.-</p>
+                <p>50.-</p>
+                <p>40.-</p>
+                <p>70.-</p>
+           </div>
+        </div>
+        <div class="register">
+            <a href="https://tickets.rencontredejeunesse.ch/orders/rj-25/events/new">S'INSCRIRE</a>
+        </div>
+    </div>
+</section>
+
+<style lang="scss">
+    @import "../../styles/variables";
+    
+    section {
+        background-size: cover;
+    
+        width: 100%;
+        max-width: $main-width;
+        display: flex;
+        justify-content: center;
+        
+        padding: 20px;
+        position: relative;
+        margin: $blank-space 0;
+        height: 200%;
+        min-height: fit-content;
+
+        h2 {
+            margin: 0 0 40px 0;
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .columns {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            font-weight: bold;
+            font-size: 30px;
+
+            .column {
+                display: flex;
+                flex-direction: column;
+                margin: 0 30px 0 30px;
+
+                p {
+                    margin: 0 0 6px 0;
+
+                    &.head {
+                        font-style: italic;
+                        height: 60px;
+                        font-size: 20px;
+                    }
+                }
+
+            }
+        }
+
+        .register {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 60px 0 40px 0;
+
+            a {
+                color: #fff;
+                font-weight: bold;
+                font-size: $large-text;
+                padding: 7px 20px;
+                margin: 0 15px 0 15px;
+                border: none;
+                border-radius: 20px;
+                background: #fad45b;
+            }
+        }
+       
+    }
+
+    @media screen and (max-width: $mobile-width) {
+
+        .columns {
+            font-size: 20px !important;
+
+            .column {
+                margin: 0 10px 0 10px !important;
+
+                p.head {
+                    font-size: 10px !important;
+                }
+            }
+        }
+
+        .register {
+            flex-direction: column;
+
+            a {
+                margin: 15px !important;
+            }
+        } 
+    }
+</style>
+      

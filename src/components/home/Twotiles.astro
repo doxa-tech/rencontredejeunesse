@@ -2,219 +2,159 @@
 ---
 
 <section>
-  <div class="section-container">
-    <div class="next">
-      <div class="rj">
-        <h3>
-          <span class="only-hash">#</span><span class="hashtag">RJ25</span>
-          <!-- <span class="up"></span> -->
-          <br />
-          <small>La Rencontre de Jeunesse</small>
-          <br />
-          <!-- <span class="soon">Inscription ouverte</span> -->
-          <small><i>du 2 au 3 mai 2025 en multisite</i></small>
-        </h3>
-        <a href="#" class="global-link"></a> 
-        <div class="mask"></div>
-      </div>
-      <div class="login">
-        <h3>
-          <span class="only-hash">#</span><span class="hashtag">RJLOGIN</span>
-          <br />
-          <small>La journée pour les leaders jeunesse</small>
-          <br />
-          <small><i>le 1 février 2025</i></small>
-        </h3>
-        <a href="/login" class="global-link"></a>
-        <div class="mask"></div>
-      </div>
-    </div>
-
-    <div class="highlights">
-      <h3>Les highlights<br />de l'édition 2022</h3>
-      <a href="/highlights" class="global-link"></a>
-      <div class="mask"></div>
-    </div>
+  <div class="login">
+    <h3>RJ LOGIN</h3>
+    <p>31 janvier 2026<br></p>
+    <a href="/login" class="global-link"></a>
+    <div class="background"></div>
+  </div>
+  <div class="rj">
+    <h3>RJ26</h3>
+    <p>1 au 3 mai 2026<br>Bulle</p>
+    <a href="/2026" class="global-link"></a> 
+    <div class="background"></div>
   </div>
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
+  @import "../../styles/variables.scss";
+
+  $sub-title: $large-text * 2;
 
   section {
-    .section-container {
+    display: flex;
+    flex-direction: column-reverse;
+    color: #fff;
+    padding-top: $blank-space;
+    padding-bottom: $blank-space;
+
+    p {
+      font-size: $large-text * 1.25;
+    }
+
+    div {
+      max-height: 300px;
+    }
+
+    .login {
+      position: relative;
+      padding: $blank-space;
+      padding-left: 0px;
+      padding-right: 0px;
+      justify-content: center;
       display: flex;
-      flex-direction: row;
-      height: 340px;
-
-      ._common-tiles {
-        font-size: $large-text;
-        padding: 20px 30px 30px 30px;
+      flex-direction: column;
+      align-items: start;
+      gap: 10px;
+      
+      h3 {
+        font-size: $sub-title * 1.5;
         position: relative;
-        transition: all 0.5s;
 
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          left: calc($sub-title / 8);
+          width: calc(100% + $sub-title / 4);
+          height: calc($sub-title / 4);
+          background: #4f2c92;
+          z-index: -1;
+        }
+      }
+      p, h3 {
+        margin-left: $blank-space;
+      }
+
+      .background {
+        position: absolute;
+        top: 0px;
+        z-index: -10;
+
+        width: 50%;
+        height: 100%;
+        background-image: url("/2025/photos/hands_1.jpg");
         background-size: cover;
-        background-position: 50% 30%;
+        background-position: center center;
+        box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);
 
-        display: flex;
-        flex: 6;
-        align-items: left;
-        justify-content: flex-end;
-        flex-direction: column;
-
-        h3 {
-          position: relative;
-          z-index: 2;
-        }
-
-        a.global-link {
+        &::after {
+          content: "";
           position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          transition: all 0.5s;
-          z-index: 2;
-        }
-
-        .mask {
-          position: absolute;
-          top: 0;
-          right: 0;
-          bottom: 0;
-          left: 0;
-          transition: all 0.5s;
-          z-index: 1;
-        }
-      }
-
-      div.highlights {
-        @extend ._common-tiles;
-        color: #fff;
-        background-image: url("/home/twotiles/highlights.jpg");
-        font-size: $medium-title;
-
-        &:hover {
-          background-position: 46% 29%;
-
-          & .mask {
-            background-color: rgba($color: #fff, $alpha: 0.1);
-          }
-        }
-      }
-
-      div.next {
-        display: flex;
-        flex-direction: column;
-        flex: 4;
-
-        div.rj {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .up {
-          font-size: 0.6em;
-          vertical-align: top;
-        }
-
-        & > div {
-          @extend ._common-tiles;
-          background: #fff;
-
-          span.only-hash {
-            font-size: $medium-title;
-            font-style: normal;
-          }
-
-          span.hashtag {
-            font-size: $sub-title;
-            font-family: swiss;
-          }
-          span.soon {
-            // font-style: italic;
-          }
-
-          &:nth-child(1) {
-            justify-content: flex-end;
-            // padding-right: 20px;
-            // background: black;
-            // color: #fff;
-            background: rgb(255, 255, 255);
-            background: -moz-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: -webkit-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: linear-gradient(
-              135deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=1 );
-
-            &:hover {
-              background-position: 46% 29%;
-
-              & .mask {
-                background-color: rgba($color: #fff, $alpha: 0.1);
-              }
-            }
-          }
-
-          &:nth-child(2) {
-            justify-content: flex-start;
-            // text-align: right;
-            // align-items: flex-end;
-            // padding-right: 20px;
-            // background: black;
-            // color: #fff;
-            background: rgb(255, 255, 255);
-            background: -moz-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: -webkit-linear-gradient(
-              -45deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            background: linear-gradient(
-              135deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(232, 232, 232, 1) 100%
-            );
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e8e8e8',GradientType=1 );
-
-            &:hover {
-              background-position: 46% 29%;
-
-              & .mask {
-                background-color: rgba($color: #fff, $alpha: 0.1);
-              }
-            }
-          }
-
-          &:hover {
-            background: #fff;
-          }
+          right: -1px;
+          width: 25%;
+          height: 100%;
+          background: rgb(0,0,0);
+          background: linear-gradient(270deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
         }
       }
     }
 
-    @media only screen and (max-width: $mobile-width) {
-      .section-container {
-        flex-direction: column;
+    .rj {
+      position: relative;
+      padding: $blank-space;
+      padding-left: 0px;
+      padding-right: 0px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: center;
+      gap: 10px;
+
+      p {
+        text-align: right;
       }
+      h3 {
+        font-size: $sub-title * 1.5;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0px;
+          right: calc($sub-title / 8);
+          width: calc(100% + $sub-title / 4);
+          height: calc($sub-title / 4);
+          background: #4f2c92;
+          z-index: -1;
+        }
+      }
+      p, h3 {
+        margin-right: $blank-space;
+      }
+
+      .background {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        z-index: -10;
+
+        width: 50%;
+        height: 100%;
+        background-image: url("/2025/photos/crowd_6.jpg");
+        background-size: cover;
+        background-position: center center;
+        box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 25%;
+          height: 100%;
+          left: -1px;
+          background: rgb(0,0,0);
+          background: linear-gradient(90deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+        }
+      }
+    }
+    .rj a, .login a {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      height: 100%;
+      width: 100%;
+      z-index: 10;
     }
   }
 </style>

@@ -2,80 +2,82 @@
 ---
 
 <section>
-  <div class="section-container">
-    <a class="tooltip">
-      <h2>soutenir<br />la RJ</h2>
-      <span class="tooltiptext"> Coming soon</span>
-    </a>
+  <h3>PARTENAIRES</h3>
+  <div class="partners">
+    <img src="/2025/parteners/topchretien.png">
+    <img src="/2025/parteners/doxatech.png">
+    <img src="/2025/parteners/cashsolutions.png">
   </div>
+  <!--
+  <button>DEVENIR PARTENAIRE</button>
+  -->
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
-  @import "../../styles/tooltip";
+  @import "../../styles/variables.scss";
 
   section {
-    margin: 0 $blank-space 0 0;
-    padding: 0 0 0 $blank-space; // pour compenser
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
 
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#141dc6+0,d10cc0+100 */
-    background: #141dc6; /* Old browsers */
-    background: -moz-linear-gradient(
-      45deg,
-      #141dc6 0%,
-      #d10cc0 100%
-    ); /* FF3.6-15 */
-    background: -webkit-linear-gradient(
-      45deg,
-      #141dc6 0%,
-      #d10cc0 100%
-    ); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(
-      45deg,
-      #141dc6 0%,
-      #d10cc0 100%
-    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#141dc6', endColorstr='#d10cc0',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
-    .section-container {
-      height: 460px;
+    .partners {
       display: flex;
-      flex-direction: row;
-      max-width: $main-width;
-      padding: 0 $main-padding;
-      margin: auto;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      h2 {
-        color: #fff;
-        font-size: $title-size;
-        line-height: 0.9em;
-        position: relative;
-        z-index: 0;
-        cursor: not-allowed;
-        padding: 0 0 0 $sub-padding;
-
-        &::after {
-          @include button-bar(-2em, 0, right, 20px);
-          background-color: #000;
-        }
-
-        &:hover::after {
-          // @include button-bar-hover-right();
-        }
+      justify-content: center;
+      gap: $blank-space;
+      padding-top: $blank-space;
+      padding-bottom: $blank-space;
+    
+      img {
+        max-width: 25%;
+        height: auto;
+        object-fit: contain;
       }
     }
 
-    @media only screen and (max-width: $mobile-width) {
-      margin: 0 !important;
-      padding: 0 !important;
+    h3 {
+      font-size: $sub-title * 1.5;
+      position: relative;
+      max-width: fit-content;
+      z-index: 1;
+      color: #fff;
 
-      .section-container {
-        h2 {
-          padding: 0 0 0 10px !important;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: calc($sub-title / 8);
+        width: calc(100% + $sub-title / 4);
+        height: calc($sub-title / 4);
+        background: #c32828;
+        z-index: -1;
+      }
+    }
+
+    button {
+      color: #c32828;
+      font-size: $large-text * 1.25;
+      font-weight: bold;
+      padding: $large-text;
+      padding-top: calc($large-text / 1.5);
+      padding-bottom: calc($large-text / 1.5);
+      border: none;
+      border-radius: $large-text * 1.5;
+      margin-bottom: $blank-space * 2;
+    }
+
+    @media screen and (max-width: $mobile-width) {
+      .partners {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-top: 30px;
+
+        img {
+          max-width: 60%;
         }
       }
     }

@@ -1,32 +1,34 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Welcome from "../components/home/Welcome.astro";
+import Welcome from "../components/2026/Welcome.astro";
 import Twotiles from "../components/home/Twotiles.astro";
 import Vision from "../components/home/Vision.astro";
-import Justtext from "../components/home/Justtext.astro";
 import Volunteer from "../components/home/Volunteer.astro";
 import Partner from "../components/home/Partner.astro";
-import History from "../components/home/History.astro";
+import Photos from "../components/home/Photos.astro";
+import Support from "../components/home/Support.astro";
+import Testify from "../components/home/Testify.astro";
 import Contact from "../components/Contact.astro";
-import Date from "../components/home/Date.astro";
 ---
 
-<Layout title="RJ - Rencontre de Jeunesse">
+<Layout title="RJ - Rencontre de Jeunesse" dark={true}>
 	<section>
 		<Welcome />
 		<!-- <Date /> -->
 		<Twotiles />
 		<Vision />
-		<Justtext />
-		<Volunteer />
+		<Photos />
+		<Support />
 		<Partner />
-		<History />
-		<Contact />
 	</section>
 </Layout>
 
 <style lang="scss">
+	@import "../styles/variables.scss";
+
 	section {
 		min-height: 100%;
 	}
+
+	
 </style>

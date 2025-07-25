@@ -1,0 +1,143 @@
+---
+
+---
+
+<section>
+    <div class="center">
+        <h3>PHOTOS</h3>
+    </div>
+    <div class="photo">
+        <img src={`/2025/photos/${'crowd_4.jpg'}`} alt="Image" id="carousel-before">
+        <button class="prev-btn"></button>
+        <img src={`/2025/photos/${'crowd_2.jpg'}`} alt="Image" id="carousel-img">
+        <button class="next-btn"></button>
+        <img src={`/2025/photos/${'hands_1.jpg'}`} alt="Image" id="carousel-after">
+    </div>
+    <div class="button">
+        <a href="https://www.instagram.com/rencontredejeunesse" target="_blank">INSTAGRAM</a>
+    </div>
+</section>
+
+<script>
+    // Le JavaScript client doit être dans une balise script
+    const images = ['crowd_4.jpg', 'crowd_2.jpg', 'hands_1.jpg'];
+    let beforeIndex = 0;
+    let afterIndex = 2;
+    let currentIndex = 1;
+    const img = document.getElementById('carousel-img');
+    const before = document.getElementById('carousel-before');
+    const after = document.getElementById('carousel-after');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+
+    nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        beforeIndex = (currentIndex - 1 + images.length) % images.length;
+        afterIndex = (currentIndex + 1) % images.length;
+        img.src = `/2025/photos/${images[currentIndex]}`;
+        before.src = `/2025/photos/${images[beforeIndex]}`;
+        after.src = `/2025/photos/${images[afterIndex]}`;
+    });
+
+    prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        beforeIndex = (currentIndex - 1 + images.length) % images.length;
+        afterIndex = (currentIndex + 1) % images.length;
+        img.src = `/2025/photos/${images[currentIndex]}`;
+        before.src = `/2025/photos/${images[beforeIndex]}`;
+        after.src = `/2025/photos/${images[afterIndex]}`;
+    });
+</script>
+
+<style lang="scss">
+    @import "../../styles/variables.scss";
+
+    section {
+        background: #000;
+        overflow: hidden;
+
+        .center {
+            padding-top: $blank-space;
+            padding-bottom: $blank-space;
+            display: flex;
+            justify-content: center;
+        
+            h3 {
+                font-size: $sub-title * 1.5;
+                position: relative;
+                max-width: fit-content;
+                z-index: 1;
+                color: #fff;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    bottom: 0px;
+                    left: calc($sub-title / 8);
+                    width: calc(100% + $sub-title / 4);
+                    height: calc($sub-title / 4);
+                    background: #0127a6;
+                    z-index: -1;
+                }
+            }
+        }
+
+        .button {
+            padding-top: $blank-space;
+            padding-bottom: $blank-space * 2;
+            display: flex;
+            justify-content: center;
+
+            a {
+                color: #0127a6;
+                background-color: #fff;
+                font-size: $large-text * 1.25;
+                font-weight: bold;
+                padding: $large-text;
+                padding-top: calc($large-text / 1.5);
+                padding-bottom: calc($large-text / 1.5);
+                border: none;
+                border-radius: $large-text * 1.5;
+            }
+        }
+
+        .photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: calc($blank-space / 2);
+
+            button {
+                background: none;
+                border: none;
+                font-family: bebas;
+                font-size: $title-size;
+                color: #fff;
+                min-width: 35px;
+                aspect-ratio: 2 / 3;
+                background-size: contain;
+                background-repeat: no-repeat;
+                opacity: 0.5;
+            }
+            .prev-btn {
+                background-image: url("/2025/icons/arrow_back.svg");
+            }
+            .next-btn {
+                background-image: url("/2025/icons/arrow_forward.svg");
+            }
+
+            img {
+                width: 25%;
+            }
+            #carousel-img {
+                width: 40%;
+            }
+        }
+    }
+
+    @media screen and (max-width: $mobile-width) {
+        section {
+            padding-top: $blank-space;
+        }
+    }
+</style>

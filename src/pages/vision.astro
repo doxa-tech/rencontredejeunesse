@@ -1,18 +1,461 @@
 ---
-import Contact from "../components/Contact.astro";
-import Banner from "../components/vision/Banner.astro";
-import Committee from "../components/vision/Committee.astro";
-import Donation from "../components/vision/donation.astro";
-import Intro from "../components/vision/Intro.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="RJ - Rencontre de Jeunesse">
-  <section>
-    <Banner />
-    <Intro />
-    <Committee />
-    <Donation />
-    <Contact />
+<Layout title="RJ - Rencontre de Jeunesse" dark={true}>
+  <section id="scrollContainer">
+    <div class="bg-img1"></div>
+    <div class="content">
+      <div class="text">
+        <h1>LA VISION</h1>
+        <p>
+          La RJ (Rencontre de Jeunesse) a pour mission d'inspirer et d'équiper la jeunesse de Suisse romande
+          et de la francophonie notamment au travers de rassemblements. Notre vision est simple : offrir à
+          chaque jeune l'occasion d'entendre la Bonne Nouvelle de Jésus Christ, d'expérimenter la puissance
+          de Son Esprit et de vivre la présence de Dieu.
+        </p>
+        <p>
+          Notre événement majeur rassemble des milliers de jeunes pour un weekend, tandis que la Login
+          forme les leaders de groupes de jeunes pendant une journée.
+        </p>
+        <p>
+          Notre approche est charismatique, sensible et ouverte. Notre programme cible en priorité les jeunes
+          de 12 à 22 ans ainsi que les groupes de jeunes. Finalement, chaque participant est encouragé à
+          s'impliquer activement dans son groupe de jeune et son église, afin de devenir une influence positive
+          pour son entourage et la société.
+        </p>
+        <div>
+          <p>
+            Durant toutes ces années, la RJ a permis à :
+          </p>
+          <ul>
+            <li>- des centaines de jeunes de donner leur vie à Jésus. (Certains pasteurs actuels en Suisse romande ont rencontré Jésus à la RJ.)</li>
+            <li>- des centaines de jeunes de vivre des guérisons physiques</li>
+            <li>- des centaines de jeunes d'être baptisés du Saint-Esprit</li>
+            <li>- des centaines de jeunes de vivre des délivrances</li>
+            <li>- des centaines de jeunes de recevoir des appels précis pour leur vie</li>
+            <li>- des milliers de jeunes d'être encouragés dans leur foi…</li>
+          </ul>
+        </div>
+        <p>
+          L'aventure continue…
+        </p>
+      </div>
+      <div class="background"></div>
+    </div>
+    <div class="timeline">
+      <div>
+        <div class="box">
+          <b>1993</b>
+          <p>
+            La RJ est fondée et dirigée par le précieux
+            homme de foi et regretté Jean Blanc. Il sera
+            secondé rapidement par Olivier Zaugg.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>1993</b>
+          <p>
+            1re RJ à Orvin avec environ 150 jeunes.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>1994 & 1995</b>
+          <p>
+            2e et 3e RJ à Péry avec environ 300 jeunes.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>1996 - 2010</b>
+          <p>
+            La RJ se vit au Landeron, et le nombre de
+            participants augmente chaque année par
+            centaine.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>1998</b>
+          <p>
+            La RJ passe le cap des 1000 participants.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>2005</b>
+          <p>
+            Jean et Olivier passent le flambeau à une équipe d'amis qu'ils
+            ont su lever à leurs côtés. Yves et Catherine Matthey, Blaise et
+            Edith Thomi, Christophe Konrad, Christophe Monnot, David
+            Guyaz, David Tripet, Christian Kuhn, Eddy Jeanneret
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>2011</b>
+          <p>
+            Grâce à son succès, la RJ émigre en terre
+            fribourgeoise dans les locaux de l'Espace Gruyère à
+            Bulle. Elle passe le cap des 1500 participants.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>2012</b>
+          <p>
+            Le cap des 2000 participants est franchi.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>2015</b>
+          <p>
+            Le cap des 3000 participants est franchi.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>2020 & 2021</b>
+          <p>
+            RJ en ligne.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>2022</b>
+          <p>
+            Première RJ en multi-sites.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+      <div>
+        <div class="box">
+          <b>AUJOURD'HUI</b>
+          <p>
+            Aujourd'hui, la RJ est à l'étroit à Bulle et des projets
+            d'agrandissement sont à l'étude. La RJ est organisée par une
+            équipe d'ami/es qui sont tous/tes engagés/es dans différentes
+            églises locales de Suisse romande. Elle accueille des jeunes
+            de plus de 10 fédérations d'églises différentes.
+          </p>
+        </div>
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="bg-img2"><div></div></div>
   </section>
+  <script>
+    const container = document.getElementById('scrollContainer');
+    const box1 = document.querySelector('.bg-img1'), box2 = document.querySelector('.bg-img2');
+    container?.addEventListener('wheel', (e) => {
+      const isAtStart = container.scrollLeft <= 2;
+      const isAtEnd = container.scrollLeft + container.offsetWidth >= container.scrollWidth - 2;
+
+      if ((!isAtStart && e.deltaY < 0) || (!isAtEnd && e.deltaY > 0)) {
+        e.preventDefault(); // Only prevent default scrolling if not at boundaries
+        container.scrollLeft += e.deltaY;
+      }
+    });
+
+    // @ts-ignore
+    box1.style.setProperty('--width', `${container.offsetWidth}px`) 
+    // @ts-ignore
+    box2.style.setProperty('--width', `${container.offsetWidth}px`) 
+    // @ts-ignore
+    box2.style.setProperty('--height', `${window.innerHeight}px`) 
+    window?.addEventListener('resize', () => {
+      // @ts-ignore
+      box1.style.setProperty('--width', `${container.offsetWidth}px`) 
+      // @ts-ignore
+      box2.style.setProperty('--width', `${container.offsetWidth}px`) 
+      // @ts-ignore
+      box2.style.setProperty('--height', `${window.innerHeight}px`) 
+    })
+  </script>
 </Layout>
+
+<style lang="scss">
+	@import "../styles/variables.scss";
+
+	section {
+		min-height: 100%;
+    color: #fff;
+    padding-top: 70px;
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .content {
+    min-width: min(50%, 700px);
+    min-height: 100%;
+  }
+
+  .content > .text {
+    padding: $blank-space;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    height: 100%;
+  }
+
+  .timeline {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+  }
+
+  .bg-img1, .bg-img2 {
+    position: relative;
+  }
+  .bg-img1::after {
+    position: absolute;
+    content: "";
+    z-index: -100;
+
+    min-width: calc(var(--width) * 0.7);
+    min-height: calc(100% + 70px);
+    top: -70px;
+    background-size: cover;
+    background: url("/2025/photos/crowd_8.jpg");
+    opacity: 0.3;
+  }
+  .bg-img1::before {
+    z-index: -80;
+    min-width: calc(var(--width) * 0.7 * 0.3);
+    content: "";
+    position: absolute;
+    left: calc(var(--width) * 0.7);
+    transform: translateX(-90%);
+    min-height: calc(100% + 70px);
+    top: -70px;
+    background: #000;
+    background: linear-gradient(270deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+  }
+  .bg-img2::after {
+    position: absolute;
+    content: "";
+    z-index: -100;
+
+    min-width: calc(var(--width) * 0.7);
+    min-height: calc(100% + 70px);
+    top: -70px;
+    right: 0px;
+    background: url("/2025/photos/scene_4.jpg");
+    background-size: cover;
+    opacity: 0.3;
+  }
+  .bg-img2::before {
+    z-index: -80;
+    min-width: calc(var(--width) * 0.7 * 0.3);
+    content: "";
+    position: absolute;
+    right: calc(var(--width) * 0.7);
+    transform: translateX(100%);
+    min-height: calc(100% + 70px);
+    top: -70px;
+    background: #000;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+  }
+
+  @media screen and (max-width: $mobile-width) {
+    .bg-img1::after {
+      min-width: 100%;
+      min-height: 80vh;
+    }
+    .bg-img1::before {
+      min-width: 100%;
+      left: 0px;
+      top: calc(70vh + 70px);
+      transform: translateY(-100%);
+      min-height: 25vh;
+      background: linear-gradient(0deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+    }
+    .bg-img2::after {
+      min-width: 100%;
+      min-height: 80vh;
+      bottom: 0px;
+      right: 0px;
+      transform: translateY(calc(-100% + 40px));
+    }
+    .bg-img2::before {
+      min-width: 100%;
+      left: 0px;
+      top: 100%;
+      min-height: 25vh;
+      transform: translateY(-100%);
+      background: linear-gradient(0deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+    }
+    .bg-img2 > div {
+      z-index: -40;
+      position: absolute;
+      bottom: 60vh;
+      background: linear-gradient(180deg, rgba(0,0,0,1) 22%, rgba(0,212,255,0) 100%);
+      min-width: 100%;
+      min-height: 25vh;
+    }
+    section {
+      flex-direction: column;
+    }
+    .timeline {
+      flex-direction: column;
+    }
+    .timeline > div {
+      width: calc(50% - 30px);
+      align-self: flex-start;
+      text-align: center;
+      position: relative;
+    }
+    .timeline > div:nth-child(even):not(:last-child) {
+      align-self: flex-end;
+    } 
+    .box {
+      position: relative;
+    }
+    .timeline > div:not(:last-child) > .box::after {
+      content: "";
+      position: absolute;
+      height: 10px;
+      width: 10px;
+      background: #b21d77;
+      left: -35px;
+      bottom: 50%;
+      transform: translate(2.5px, 50%);
+      border-radius: 10px;
+    }
+    .timeline > div:not(:last-child) > .box::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 5px;
+      background: #fff;
+      left: -30px;
+      bottom: 0px;
+    }
+    .timeline > div:first-child > .box::before {
+      height: 50%;
+    }
+    .timeline > div:nth-child(odd):not(:last-child) > .box::after {
+      left: auto;
+      right: -35px;
+    }
+    .timeline > div:nth-child(odd):not(:last-child) > .box::before {
+      left: auto;
+      right: -35px;
+    }
+    .timeline > div:last-child {
+      margin-top: 60px;
+      align-self: center;
+      width: 100%;
+    }
+    .line {
+      border-top: 5px solid #fff;
+      width: 30px;
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: -1;
+    }
+    div:nth-child(even) > .line {
+      left: -30px;
+    }
+    .timeline > div:last-child .line {
+      left: 50%;
+      transform: translateX(-50% 
+      + 2,5px);
+      top: -30px;
+      height: 60px;
+      width: 5px;
+      border-top: none;
+      background: linear-gradient(to bottom, transparent 50%, #000 50%), #fff;
+      background-size: 2px 16px, 2px 100%;
+    }
+    .box {
+      padding: 20px;
+    }
+  }
+  @media screen and (min-width: calc($mobile-width + 1px)) {
+    .timeline::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(100% - 580px);
+      height: 5px;
+      background: #fff;
+      z-index: -1;
+    }
+    .timeline > div {
+      width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: fit-content;
+      transform: translateY(-50%);
+      position: relative;
+    }
+    .timeline > div::after {
+      content: "";
+      position: absolute;
+      bottom: 0px;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      background: #b21d77;
+      z-index: 100;
+    }
+    .timeline > div:nth-child(even)::after {
+      top: 0px;
+      transform: translate(-50%, -50%); 
+    }
+    .timeline > div:nth-child(even) {
+      width: 500px;
+      display: flex;
+      flex-direction: column-reverse;
+      transform: translateY(50%);
+    }
+    .timeline > div:last-child:after {
+      content: "";
+      position: absolute;
+      left: 50%;
+    }
+    .timeline .box {
+      padding: 20px;
+    }
+
+    .line {
+      border-left: 5px solid #fff;
+      height: 100px;
+    }
+  }
+</style>

@@ -1,0 +1,47 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Welcome from "../components/2025/Welcome.astro";
+import Verset from "../components/2025/Verset.astro";
+import Fade from '../components/2025/Fade.astro';
+import Towns from '../components/2025/Towns.astro';
+import Louange from '../components/2025/Louange.astro';
+import Speaker from '../components/2025/Speaker.astro';
+import Register from "../components/2025/Register.astro";
+import Schedule from "../components/2025/Schedule.astro";
+---
+
+<Layout title="RJ 2025">
+  <section>
+    <Welcome />
+    <Verset />
+    <Towns />
+    <Louange />
+    <Speaker />
+    <Register />
+    <Schedule />
+    <Fade />
+  </section>
+</Layout>
+
+<style lang="scss">
+  @import "../styles/variables";
+
+  @font-face {
+    font-family: playfairDisplay;
+    src: url('/fonts/Playfair_Display/PlayfairDisplay-VariableFont_wght.ttf');
+  }
+
+  section {
+    min-height: 100%;
+    font-size: 130%;
+    font-family: playfairDisplay;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  body {
+    background: black;
+  }
+</style>

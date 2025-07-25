@@ -1,0 +1,84 @@
+---
+---
+
+<section>
+    <div class="section-container">
+        <img src="/2025/textures/Brush_J1.png" class="section-background">
+        <h2>GROUPES DE LOUANGE</h2>
+        <div>
+            <span>C3 Youth</span> 
+            <span>Collectif Riviera</span> 
+            <span>Echo</span> 
+            <span>Homemade Worship</span>
+        </div>
+        <div></div>
+    </div>
+</section>
+
+<style lang="scss">
+@import "../../styles/variables";
+
+section {
+    background-size: cover;
+
+    width: 100%;
+    max-width: $main-width;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    aspect-ratio: 2000 / 1000;
+    margin: $blank-space 0;
+
+    .section-background {
+        z-index: -10;
+        opacity: 0.6;
+        position: absolute;
+        width: 100%;
+        max-width: $main-width;
+        aspect-ratio: 2000 / 1000;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    & > div {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        max-width: $main-width;
+        flex-direction: column;
+        gap: 40px;
+
+        h2 {
+            margin: 0px;
+            font-size: 40px;
+        }
+
+        & > div {
+            display: flex;
+            justify-content: center;
+            gap: 20px 40px;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 700px;
+            font-size: 30px;
+
+            span {
+                width: min-content;
+                font-weight: bold;
+            }
+        }
+
+        @media screen and (max-width: $mobile-width) {
+            & > div {
+                font-size: 20px;
+                padding: 0px 20px;
+            }   
+        }
+    }
+}
+</style>
+  

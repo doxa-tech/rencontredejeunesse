@@ -1,0 +1,139 @@
+---
+
+---
+
+<section>
+    <div class="center">
+        <h3>TÉMOIGNAGES</h3>
+    </div>
+    <div class="texts">
+        <p>Je suis allée à la RJ en 2017 pour la première fois et c'était juste génial. La louange, les temps de plénières, les animations, l'ambiance, bref un weekend total dans la présence de Dieu. J'y retourne l'année prochaine, c'est sûr!</p>
+        <!--
+        <p id="carousel-before">1. Vestibulum sed mi orci. Mauris tortor lacus, egestas ac porttitor a, maximus at metus. Etiam aliquam nec lacus ac tincidunt. Pellentesque quis hendrerit quam, ac ultrices eros.</p>
+        <button class="prev-btn">{"<"}</button>
+        <p id="carousel">2. Vestibulum sed mi orci. Mauris tortor lacus, egestas ac porttitor a, maximus at metus. Etiam aliquam nec lacus ac tincidunt. Pellentesque quis hendrerit quam, ac ultrices eros.</p>
+        <button class="next-btn">{">"}</button>
+        <p id="carousel-after">3. Vestibulum sed mi orci. Mauris tortor lacus, egestas ac porttitor a, maximus at metus. Etiam aliquam nec lacus ac tincidunt. Pellentesque quis hendrerit quam, ac ultrices eros.</p>
+        -->
+    </div>
+</section>
+
+<script>
+    // Le JavaScript client doit être dans une balise script
+    const texts = ["Je suis allée à la RJ en 2017 pour la première fois et c'était juste génial. La louange, les temps de plénières, les animations, l'ambiance, bref un weekend total dans la présence de Dieu. J'y retourne l'année prochaine, c'est sûr!"];
+    let beforeIndex = 0;
+    let afterIndex = 2;
+    let currentIndex = 1;
+    const current = document.querySelector('.texts > #carousel');
+    const before = document.querySelector('.texts > #carousel-before');
+    const after = document.querySelector('.texts > #carousel-after');
+    const prevBtn = document.querySelector('.texts > .prev-btn');
+    const nextBtn = document.querySelector('.texts > .next-btn');
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % texts.length;
+        beforeIndex = (currentIndex - 1 + texts.length) % texts.length;
+        afterIndex = (currentIndex + 1) % texts.length;
+
+        current.innerText = texts[currentIndex];
+        before.innerText = texts[beforeIndex];
+        after.innerText = texts[afterIndex];
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + texts.length) % texts.length;
+        beforeIndex = (currentIndex - 1 + texts.length) % texts.length;
+        afterIndex = (currentIndex + 1) % texts.length;
+
+        current.innerText = texts[currentIndex];
+        before.innerText = texts[beforeIndex];
+        after.innerText = texts[afterIndex];
+    });
+</script>
+
+<style lang="scss">
+    @import "../../styles/variables.scss";
+
+    section {
+        background: #000;
+        overflow: hidden;
+        margin-bottom: $blank-space * 2;
+
+        .center {
+            padding-top: $blank-space * 2;
+            padding-bottom: $blank-space;
+            display: flex;
+            justify-content: center;
+        
+            h3 {
+                font-size: $sub-title * 1.5;
+                position: relative;
+                max-width: fit-content;
+                z-index: 1;
+                color: #fff;
+
+                &:after {
+                    content: "";
+
+                    width: 100%;
+                    height: calc($title-size / 10);
+                    padding-right: calc($title-size / 10);
+                    left: calc($sub-title / 8);
+
+                    position: absolute;
+                    background: #0fad92;
+                    bottom: calc($blank-space - ($title-size / 100));
+                    z-index: -1;
+                }
+            }
+
+            button {
+                background: #fff;
+                color: #0127a6;
+                border: none;
+
+                font-family: lato;
+                font-size: $medium-title;
+                font-weight: bold;
+                width: fit-content;
+
+                padding: ($main-padding / 2) ($main-padding) ($main-padding / 2) ($main-padding);
+                border-radius: $title-size;
+            }
+        }
+
+        .texts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: calc($blank-space / 2);
+            padding: $blank-space;
+
+            button {
+                background: none;
+                border: none;
+                font-family: bebas;
+                font-size: $title-size;
+                color: #fff;
+            }
+
+            p {
+                font-size: $large-text * 1.25;
+                color: #fff;
+            }
+            /*
+            p:first-child, p:last-child {
+                display: none;
+            }
+            */
+        }
+
+        img {
+            max-height: 130px;
+        }
+
+        #carousel-img {
+            max-height: 200px;
+        }
+    }
+</style>

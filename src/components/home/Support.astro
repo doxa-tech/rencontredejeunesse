@@ -1,0 +1,162 @@
+---
+---
+
+<section>
+    <div class="content">
+        <h3>NOUS SOUTENIR</h3>
+        <div id="text">
+            <p>La Rencontre de Jeunesse est une oeuvre à but non lucratif qui existe grâce aux travails de ses nombreux bénévoles. Vous pouvez nous soutenir financièrement ou en vous engageant comme bénébole.</p>
+            <img src="/2025/icons/support.png" alt="">
+        </div>
+        <div id="buttons">
+            <a href="/volunteers">DEVENIR BÉNÉVOLE</a>
+        </div>
+    </div>
+    <div class="background">
+    </div>
+  </section>
+  
+  <style lang="scss">
+    @import "../../styles/variables.scss";
+  
+    section {
+        display: flex;
+        justify-content: center;
+        padding: $blank-space;
+        gap: $blank-space;
+        position: relative;
+
+        h3 {
+            font-size: $sub-title * 1.5;
+            position: relative;
+            max-width: fit-content;
+            z-index: 1;
+            color: #fff;
+
+            &:after {
+                content: "";
+
+                width: 100%;
+                height: calc($title-size / 10);
+                padding-right: calc($title-size / 10);
+                left: calc($sub-title / 8);
+
+                position: absolute;
+                background: #e7d42b;
+                bottom: calc($blank-space - ($title-size / 100));
+                z-index: -1;
+            }
+        }
+
+        p {
+            color: #fff;
+            font-size: $large-text * 1.25;
+        }
+
+        img {
+            max-height: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            gap: $blank-space * 2;
+
+            img {
+                display: none;
+            }
+
+            #buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                a {
+                    width: fit-content;
+                    color: #000;
+                    background-color: #fff;
+                    font-size: $large-text * 1.25;
+                    font-weight: bold;
+                    padding: $large-text;
+                    padding-top: calc($large-text / 1.5);
+                    padding-bottom: calc($large-text / 1.5);
+                    border: none;
+                    border-radius: $large-text * 1.5;
+                }
+            }
+        }
+
+        .background {
+            background-image: url("/2025/photos/scene_3.jpg");
+            background-size: cover;
+            background-position: center center;
+            position: relative;
+            opacity: 0.7;
+
+            width: 50%;
+            min-width: 50%;
+            aspect-ratio: 1987 / 1325;
+
+            &::before {
+                content: "";
+                position: absolute;
+                left: -1px;
+                bottom: 0px;
+                width: 20%;
+                aspect-ratio: 1 / 1;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-image: url("/2025/icons/support.png");
+                z-index: 100;
+                transform: rotate(15deg);
+            }
+        }
+
+        @media screen and (max-width: $mobile-width) {
+            h3 {
+                margin-top: $blank-space;
+            }
+
+            .background {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                z-index: -10;
+                left: 0px;
+                background-size: auto 100% ;
+                aspect-ratio: auto;
+
+                &::before {
+                display: none;
+                }
+                &::after {
+                display: none;
+                }
+            }
+
+            .content {
+                gap: 30px;
+                align-items: center;
+
+                #text {
+                    display: flex;
+                    gap: 30px;
+                    max-height: fit-content;
+                    position: relative;
+                    align-items: center;
+
+                    img {
+                        display: flex;
+                        height: 100px;
+                        max-height: 100%;
+                    }
+                }
+            }
+
+            .content #buttons {
+                flex-direction: row;
+            }
+        }
+    }
+  </style>
+  

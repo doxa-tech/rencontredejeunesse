@@ -1,0 +1,103 @@
+---
+const { src, children, id, style } = Astro.props;
+---
+
+<section style={`--background-url: url('${src}'); ${style}`} id={id}>
+    <div class="content">
+        {children.map((child: any) => (
+            <child.type>{child.content}</child.type>
+        ))}
+    </div>
+    <div class="background" >
+    </div>
+</section>
+
+<style lang="scss">
+    @import "../../styles/variables";
+  
+    section {
+        position: relative;
+        display: flex;
+        color: #fff;
+        padding: $blank-space * 2;
+        gap: $blank-space * 2;
+        overflow: hidden;
+    }
+    section:nth-child(odd) {
+        flex-direction: row-reverse;
+    }
+
+    .content {
+        * {
+            margin-bottom: $blank-space * 2;
+        }
+        h2 {
+            font-size: $sub-title * 1.5;
+            position: relative;
+            width: fit-content;
+            color: #e7d42b;
+
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0px;
+                left: $sub-title * 0.1;
+                width: calc(100% + $sub-title * 0.1);
+                height: $sub-title * 0.2;
+                background: #2d2d2d;
+                z-index: -1;
+            }
+        }
+        p {
+            font-size: $large-text * 1.25;
+        }
+        button {
+            font-size: $large-text * 1.25;
+            font-weight: bold;
+            padding: $large-text * 1.25;
+            padding-top: $large-text * 0.5;
+            padding-bottom: $large-text * 0.5;
+            border: none;
+            border-radius: $large-text;
+            width: fit-content;
+            margin-bottom: 2 * $blank-space;
+            color: #000;
+            background: #fff;
+        }
+    }
+    .background {
+        background-image: var(--background-url); /* Use the CSS variable */
+        background-size: cover;
+        background-position: center;
+
+        min-width: 50%;
+        aspect-ratio: 4 / 3;
+    }
+
+    @media screen and (max-width: $mobile-width) {
+        .content {
+            position: relative;
+            width: 80%;
+        }
+        section:nth-child(odd) .content {
+            display: flex;
+            flex-direction: column;
+            align-items: end;
+            text-align: right;
+            h2::after {
+                right: 0px;
+                left: auto;
+            }
+        }
+        .background {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -2;
+            opacity: 0.5;
+        }
+    }
+    /* LAPTOP & LOWER - mobile */
+</style>
