@@ -11,6 +11,17 @@
         <div id="buttons">
             <a href="/volunteers">DEVENIR BÉNÉVOLE</a>
         </div>
+        <div class="finance">
+            <h4>
+                Nous soutenir financièrement
+            </h4>
+            <p>
+                CH91 0900 0000 1717 2886 0<br>
+                Rencontre de Jeunesse<br>
+                Chemin des Sires 10<br>
+                1618 Châtel-St-Denis
+            </p>
+        </div>
     </div>
     <div class="background">
     </div>
@@ -25,6 +36,7 @@
         padding: $blank-space;
         gap: $blank-space;
         position: relative;
+        margin: 0 0 80px 0;
 
         h3 {
             font-size: $sub-title * 1.5;
@@ -46,6 +58,12 @@
                 bottom: calc($blank-space - ($title-size / 100));
                 z-index: -1;
             }
+        }
+
+        h4 {
+            font-size: $sub-title;
+            color: #fff;
+            margin: 0 0 12px 0;
         }
 
         p {
