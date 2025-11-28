@@ -1,0 +1,64 @@
+---
+export interface Props {
+	title: string;
+	blurStyle?: 'extended' | 'compact';
+}
+
+import Favicon from "../Favicon.astro";
+import Menu from "./Menu.astro";
+import Footer from "./Footer.astro";
+
+import "../../styles/normalize.scss";
+import "../../styles/reset.scss";
+import "../../styles/global.scss";
+import "../../styles/fonts.scss";
+
+const { title, blurStyle = 'compact' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<Favicon />
+
+		<title>{title}</title>
+	</head>
+	<body>
+		<header class="sticky-header">
+			<Menu blurStyle={blurStyle} />
+		</header>
+		
+		<main>
+			<slot />
+		</main>
+
+		<Footer />
+	</body>
+</html>
+
+<style lang="scss">
+	body {
+		margin: 0;
+		padding: 0;
+		background: linear-gradient(to bottom, var(--background-color), var(--background-complement-color));
+	}
+
+	.sticky-header {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		z-index: 100;
+	}
+
+	main {
+		margin: 0;
+		padding: 0;
+	}
+</style>
+

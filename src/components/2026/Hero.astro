@@ -1,0 +1,440 @@
+---
+function generateStars(count: number) {
+	const stars = [];
+	const seed = 42069;
+	
+	function seededRandom(index: number) {
+		const x = Math.sin(seed + index * 12.9898) * 43758.5453;
+		return x - Math.floor(x);
+	}
+	
+	function checkCollision(x: number, y: number, size: number, existingStars: any[]) {
+		const minDistance = 3;
+		
+		for (const star of existingStars) {
+			const dx = x - star.x;
+			const dy = y - star.y;
+			const distance = Math.sqrt(dx * dx + dy * dy);
+			const combinedSize = (size + star.size) / 10;
+			
+			if (distance < combinedSize + minDistance) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	let attempts = 0;
+	const maxAttempts = count * 10;
+	
+	for (let i = 0; i < count && attempts < maxAttempts; i++) {
+		let placed = false;
+		let tryCount = 0;
+		
+		while (!placed && tryCount < 20) {
+			const index = i * 20 + tryCount;
+			const rand1 = seededRandom(index * 4);
+			const rand2 = seededRandom(index * 4 + 1);
+			const rand3 = seededRandom(index * 4 + 2);
+			const rand4 = seededRandom(index * 4 + 3);
+			
+			const yPosition = rand3 * 66.667;
+			
+			const plusPattern = rand1 < 0.65;
+			
+			let x, y;
+			if (plusPattern) {
+				const isHorizontal = rand2 < 0.5;
+				if (isHorizontal) {
+					x = (rand2 - 0.5) * 80;
+					y = yPosition * 0.35;
+				} else {
+					x = (rand2 - 0.5) * 25;
+					y = yPosition;
+				}
+			} else {
+				x = (rand2 - 0.5) * 90;
+				y = yPosition * 0.8;
+			}
+			
+			const size = Math.floor(rand4 * 8) + 10;
+			
+			if (!checkCollision(x, y, size, stars)) {
+				const heightRatio = y / 66.667;
+				const centerDistance = Math.abs(x) / 45;
+				const heightFactor = heightRatio * heightRatio;
+				const centerFactor = 1 - (centerDistance * centerDistance);
+				const combinedFactor = (heightFactor * 0.7) + (centerFactor * 0.3);
+				const baseOpacity = rand4 * 0.1 + 0.1;
+				const uShapedOpacity = baseOpacity + (combinedFactor * 0.8);
+				
+				// Vertical gradient: 10% at bottom, 100% at top
+				const verticalGradient = 0.1 + (heightRatio * 0.9);
+				const opacity = uShapedOpacity * verticalGradient;
+				
+				const parallaxSpeed = 0.2 + (heightRatio * 0.5);
+				
+				// Random glow properties
+				const shouldGlow = rand1 > 0.65; // ~35% of stars will glow
+				const glowDelay = rand2 * 5; // Random delay 0-5s
+				const glowDuration = 2 + (rand3 * 3); // Random duration 2-5s
+				
+				stars.push({ 
+					x, y, size, opacity, parallaxSpeed, 
+					hideOnMobile: i > 25, 
+					hideOnTablet: i > 45,
+					shouldGlow,
+					glowDelay,
+					glowDuration
+				});
+				placed = true;
+			}
+			
+			tryCount++;
+			attempts++;
+		}
+	}
+	
+	return stars;
+}
+
+const stars = generateStars(60);
+---
+
+<section class="hero">
+	<div class="stars-container">
+		{stars.map((star, i) => (
+			<img 
+				src="/2026/star.svg" 
+				alt="" 
+				class={`star ${star.hideOnMobile ? 'hide-mobile' : ''} ${star.hideOnTablet ? 'hide-tablet' : ''} ${star.shouldGlow ? 'star-glow' : ''}`}
+				data-x={star.x}
+				data-y={star.y}
+				data-speed={star.parallaxSpeed}
+				style={`
+					width: ${star.size}px; 
+					height: ${star.size - 1}px;
+					opacity: ${star.opacity};
+					transform: translate(calc(-50% + ${star.x}vw), ${-star.y}vh);
+					${star.shouldGlow ? `animation-delay: ${star.glowDelay}s; animation-duration: ${star.glowDuration}s;` : ''}
+				`}
+			/>
+		))}
+	</div>
+	
+	<div class="hero-top">
+	</div>
+	
+	<div class="hero-middle">
+		<h1>KING OF KINGS</h1>
+	</div>
+	
+	<div class="hero-bottom">
+		<div class="cloud-text-container">
+			<img src="/2026/cloud1.png" alt="" class="cloud cloud-1" />
+			<h5>1 au 3 mai 2026</h5>
+			<img src="/2026/cloud2.png" alt="" class="cloud cloud-2" />
+		</div>
+	</div>
+</section>
+
+<style lang="scss">
+	.hero {
+		height: 100vh;
+		min-height: 600px;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		
+		@media (max-width: 768px) {
+			min-height: 500px;
+		}
+		
+		.stars-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 33.333%;
+			overflow: visible;
+			pointer-events: none;
+			z-index: 1;
+
+			.star {
+				position: absolute;
+				left: 50%;
+				bottom: 0;
+				filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))
+				        drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+			}
+			
+			.star-glow {
+				animation: starGlow infinite ease-in-out;
+			}
+
+			@media (max-width: 768px) {
+				.hide-mobile {
+					display: none;
+				}
+			}
+
+			@media (min-width: 769px) and (max-width: 1024px) {
+				.hide-tablet {
+					display: none;
+				}
+			}
+		}
+		
+		.hero-top {
+			flex: 1;
+			position: relative;
+		}
+		
+		.hero-middle {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			z-index: 2;
+			
+			h1 {
+				font-size: var(--h1-size);
+				font-family: var(--font-title);
+				font-weight: 700;
+				text-align: center;
+				margin: var(--spacing-lg);
+				position: relative;
+				background: linear-gradient(
+					110deg,
+					rgba(227, 227, 227, 1) 0%,
+					rgba(227, 227, 227, 1) 35%,
+					rgba(240, 240, 240, 1) 47%,
+					rgba(255, 255, 255, 1.2) 50%,
+					rgba(240, 240, 240, 1) 53%,
+					rgba(227, 227, 227, 1) 65%,
+					rgba(227, 227, 227, 1) 100%
+				);
+				background-size: 200% 100%;
+				background-clip: text;
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				animation: metallicReflect 6s cubic-bezier(0.3, 0, 0.8, 1) infinite;
+			}
+		}
+		
+		.hero-bottom {
+			flex: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			overflow: hidden;
+			padding: 0 var(--spacing-lg);
+			z-index: 2;
+			
+			.cloud-text-container {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				max-width: var(--content-max-width);
+				width: 100%;
+				min-height: 15vh;
+				
+				.cloud {
+					position: absolute;
+					mix-blend-mode: screen;
+					opacity: 0.6;
+					filter: blur(1px);
+				}
+				
+				.cloud-1 {
+					height: 12vh;
+					min-height: 80px;
+					max-height: 150px;
+					width: auto;
+					left: -5%;
+					top: 50%;
+					animation: float-bottom 20s ease-in-out infinite;
+				}
+				
+				.cloud-2 {
+					height: 15vh;
+					min-height: 100px;
+					max-height: 180px;
+					width: auto;
+					right: -5%;
+					top: 50%;
+					animation: float-top 25s ease-in-out infinite;
+				}
+				
+				h5 {
+					font-size: var(--h5-size);
+					font-family: var(--font-title);
+					font-weight: 400;
+					color: var(--text-color);
+					text-align: center;
+					margin: 0;
+					position: relative;
+					z-index: 2;
+					padding: 0 var(--spacing-xl);
+					
+					@media (max-width: 768px) {
+						padding: 0 var(--spacing-lg);
+					}
+				}
+			}
+		}
+	}
+	
+	@keyframes float-bottom {
+		0%, 100% {
+			transform: translateY(-100%) translateX(0px);
+		}
+		25% {
+			transform: translateY(calc(-100% - 10px)) translateX(5px);
+		}
+		50% {
+			transform: translateY(calc(-100% - 20px)) translateX(-5px);
+		}
+		75% {
+			transform: translateY(calc(-100% - 10px)) translateX(5px);
+		}
+	}
+	
+	@keyframes float-top {
+		0%, 100% {
+			transform: translateY(0%) translateX(0px);
+		}
+		25% {
+			transform: translateY(-10px) translateX(-5px);
+		}
+		50% {
+			transform: translateY(-20px) translateX(5px);
+		}
+		75% {
+			transform: translateY(-10px) translateX(-5px);
+		}
+	}
+	
+	@keyframes starGlow {
+		0%, 100% {
+			filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))
+			        drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+		}
+		50% {
+			filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.8))
+			        drop-shadow(0 0 24px rgba(255, 255, 255, 0.6))
+			        drop-shadow(0 0 32px rgba(255, 255, 255, 0.4));
+		}
+	}
+	
+	@keyframes metallicReflect {
+		0%, 100% {
+			background-position: 150% center;
+		}
+		40% {
+			background-position: -50% center;
+		}
+		40.1% {
+			background-position: 150% center;
+		}
+	}
+</style>
+
+<script>
+	const stars = document.querySelectorAll('.star');
+	let currentScroll = 0;
+	let targetScroll = 0;
+	let lastScroll = 0;
+	let scrollVelocity = 0;
+	let scrollDirection = 0;
+	let lastTime = Date.now();
+	let ticking = false;
+	let viewportScale = 1;
+
+	const starPositions = new Map();
+	stars.forEach((star) => {
+		starPositions.set(star, { current: 0, target: 0 });
+	});
+
+	function updateViewportScale() {
+		const width = window.innerWidth;
+		const height = window.innerHeight;
+		const baseSize = 1920;
+		viewportScale = Math.sqrt((width * height) / (baseSize * (baseSize * 0.5625)));
+		viewportScale = Math.max(0.7, Math.min(viewportScale, 1.8));
+	}
+
+	function lerp(start: number, end: number, factor: number) {
+		return start + (end - start) * factor;
+	}
+
+	function updateParallax() {
+		const now = Date.now();
+		const deltaTime = (now - lastTime) / 1000;
+		lastTime = now;
+
+		const scrollDelta = targetScroll - lastScroll;
+		scrollVelocity = lerp(scrollVelocity, Math.abs(scrollDelta) / deltaTime, 0.1);
+		
+		// Determine scroll direction: 1 for down, -1 for up
+		if (Math.abs(scrollDelta) > 0.5) {
+			scrollDirection = scrollDelta > 0 ? 1 : -1;
+		}
+		
+		lastScroll = targetScroll;
+
+		const velocityFactor = Math.min(scrollVelocity / 1000, 1);
+		const adaptiveLerp = 0.05 + (velocityFactor * 0.15);
+
+		currentScroll = lerp(currentScroll, targetScroll, adaptiveLerp);
+		
+		stars.forEach((star) => {
+			const x = parseFloat(star.getAttribute('data-x') || '0');
+			const y = parseFloat(star.getAttribute('data-y') || '0');
+			const speed = parseFloat(star.getAttribute('data-speed') || '0.15');
+			
+			const pos = starPositions.get(star);
+			if (pos) {
+				// Apply different speed multiplier based on scroll direction
+				// Scrolling down: normal speed
+				// Scrolling up: faster (1.5x speed) for more dynamic feel
+				const directionMultiplier = scrollDirection < 0 ? 1.5 : 1.0;
+				
+				// Limit parallax movement to maximum 80 pixels
+				const parallaxMovement = currentScroll * speed * viewportScale * directionMultiplier;
+				pos.target = Math.max(-80, Math.min(80, parallaxMovement));
+				const starLerp = 0.08 + (velocityFactor * 0.12);
+				pos.current = lerp(pos.current, pos.target, starLerp);
+				
+				(star as HTMLElement).style.transform = `translate(calc(-50% + ${x}vw), ${-y}vh) translateY(${pos.current}px)`;
+			}
+		});
+		
+		if (Math.abs(currentScroll - targetScroll) > 0.5 || scrollVelocity > 1) {
+			requestAnimationFrame(updateParallax);
+		} else {
+			ticking = false;
+		}
+	}
+
+	function onScroll() {
+		targetScroll = window.pageYOffset;
+		
+		if (!ticking) {
+			ticking = true;
+			lastTime = Date.now();
+			requestAnimationFrame(updateParallax);
+		}
+	}
+
+	function onResize() {
+		updateViewportScale();
+	}
+
+	updateViewportScale();
+	window.addEventListener('scroll', onScroll, { passive: true });
+	window.addEventListener('resize', onResize, { passive: true });
+</script>
+
