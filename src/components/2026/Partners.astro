@@ -1,0 +1,61 @@
+---
+---
+
+<section class="partners">
+  <div class="content-wrapper">
+    <h2>PARTENAIRES</h2>
+    <div class="logos-column">
+      <img src="/2025/parteners/cashsolutions.png" alt="Cash Solutions" />
+      <img src="/2025/parteners/doxatech.png" alt="Doxa Tech" />
+      <img src="/2025/parteners/topchretien.png" alt="Top Chrétien" />
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .partners {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+
+    .content-wrapper {
+      width: 100%;
+      max-width: var(--content-max-width);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    h2 {
+      font-size: var(--h2-size);
+      font-family: var(--font-title);
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 0;
+    }
+
+    .logos-column {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+      align-items: center;
+    }
+
+    img {
+      max-width: min(350px, calc(100% - (var(--spacing-md) * 2)));
+      height: auto;
+      padding: var(--spacing-md);
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
+
+      &:hover {
+        filter: grayscale(0%);
+        opacity: 1;
+      }
+    }
+  }
+</style>
+

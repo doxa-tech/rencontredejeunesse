@@ -1,0 +1,70 @@
+---
+---
+
+<section class="support">
+  <div class="content-wrapper">
+    <h2>NOUS SOUTENIR</h2>
+    <p>La Rencontre de Jeunesse est une oeuvre à but non lucratif qui existe grâce aux travails de ses nombreux bénévoles. Vous pouvez nous soutenir financièrement ou en vous engageant comme bénébole.</p>
+    <div class="button-group">
+      <button>Devenir bénévole</button>
+      <button>Nous financer</button>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .support {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-xl);
+
+    .content-wrapper {
+      width: 100%;
+      max-width: var(--content-max-width);
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    h2 {
+      font-size: var(--h2-size);
+      font-family: var(--font-title);
+      font-weight: 700;
+      color: var(--text-color);
+      margin: 0;
+    }
+
+    p {
+      font-size: var(--text-size);
+      color: var(--text-color);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .button-group {
+      display: flex;
+      gap: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: var(--spacing-sm) calc(var(--spacing-sm) * 2);
+      font-size: var(--text-size);
+      font-family: var(--font-body);
+      font-weight: 600;
+      color: var(--text-color);
+      background: var(--primary-color);
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: var(--secondary-color);
+      }
+    }
+  }
+</style>
+

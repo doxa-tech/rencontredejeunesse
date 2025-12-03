@@ -1,0 +1,300 @@
+---
+import { Menu as MenuIcon, X } from 'lucide-react';
+
+export interface Props {
+	blurStyle?: 'extended' | 'compact';
+}
+
+const { blurStyle = 'compact' } = Astro.props;
+---
+
+<nav class={`blur-${blurStyle}`}>
+	<div class="menu-container">
+		<a href="/" class="logo">
+			<svg
+				viewBox="0 0 426 426"
+				version="1.1"
+				xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xml:space="preserve"
+				style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"
+			>
+				<g id="Calque-1">
+					<path
+						d="M35.784,208.023l59.765,0c6.431,0 12.497,-0.682 18.186,-2.043c5.696,-1.354 10.635,-3.65 14.846,-6.869c4.207,-3.212 7.483,-7.295 9.843,-12.249c2.345,-4.946 3.525,-11.005 3.525,-18.186c0,-6.926 -1.24,-12.807 -3.717,-17.632c-2.473,-4.822 -5.813,-8.72 -10.02,-11.695c-4.211,-2.967 -9.094,-5.131 -14.665,-6.495c-5.565,-1.358 -11.318,-2.044 -17.252,-2.044l-26.356,0l-67.931,0l0,-61.985l87.599,0c7.427,0 14.91,0.128 22.458,0.369c7.547,0.249 15.031,0.992 22.461,2.228c7.423,1.24 14.597,3.216 21.527,5.941c6.925,2.726 13.481,6.436 19.672,11.134c11.381,9.405 19.923,20.787 25.616,34.155c5.686,13.357 8.535,27.34 8.535,41.941c0,10.646 -1.545,20.848 -4.641,30.623c-3.094,9.78 -7.607,18.56 -13.549,26.356c-5.933,7.796 -13.179,14.348 -21.715,19.672c-8.535,5.33 -18.246,8.848 -29.138,10.582l74.981,94.648l-80.915,0l-99.115,-138.451Z"
+						style="fill-rule:nonzero;"
+					></path>
+					<path
+						d="M422.193,68.451l0,164.442c0,6.681 -0.064,13.489 -0.184,20.411c-0.135,6.936 -0.739,13.738 -1.862,20.425c-1.109,6.673 -2.843,13.176 -5.195,19.487c-2.352,6.304 -5.75,12.053 -10.206,17.255c-9.161,11.641 -20.602,20.546 -34.333,26.729c-13.738,6.19 -27.908,9.274 -42.499,9.274c-6.446,0 -12.814,-0.554 -19.124,-1.662c-6.304,-1.116 -12.31,-2.786 -18.002,-5.018c-19.302,-7.178 -33.281,-18.378 -41.945,-33.587c-8.663,-15.223 -12.991,-32.861 -12.991,-52.903l74.238,0c0.242,3.468 0.618,7.05 1.116,10.774c0.497,3.71 1.478,7.107 2.97,10.198c1.486,3.106 3.583,5.636 6.311,7.612c2.722,1.99 6.311,2.97 10.76,2.97c4.954,0 8.848,-1.044 11.698,-3.155c2.843,-2.096 4.946,-4.818 6.304,-8.166c1.364,-3.34 2.231,-7.05 2.608,-11.136c0.369,-4.08 0.554,-7.974 0.554,-11.691l0,-121.381l-36.749,0l0,-60.878l106.531,0Z"
+						style="fill-rule:nonzero;"
+					></path>
+				</g>
+			</svg>
+		</a>
+
+		<button class="burger-menu" id="burger-btn">
+			<MenuIcon size={28} />
+		</button>
+	</div>
+</nav>
+
+<div class="menu-overlay hidden" id="menu-overlay">
+	<div class="overlay-content">
+		<div class="overlay-header">
+			<a href="/" class="logo">
+				<svg
+					viewBox="0 0 426 426"
+					version="1.1"
+					xmlns="http://www.w3.org/2000/svg"
+					xmlns:xlink="http://www.w3.org/1999/xlink"
+					xml:space="preserve"
+					style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"
+				>
+					<g id="Calque-1">
+						<path
+							d="M35.784,208.023l59.765,0c6.431,0 12.497,-0.682 18.186,-2.043c5.696,-1.354 10.635,-3.65 14.846,-6.869c4.207,-3.212 7.483,-7.295 9.843,-12.249c2.345,-4.946 3.525,-11.005 3.525,-18.186c0,-6.926 -1.24,-12.807 -3.717,-17.632c-2.473,-4.822 -5.813,-8.72 -10.02,-11.695c-4.211,-2.967 -9.094,-5.131 -14.665,-6.495c-5.565,-1.358 -11.318,-2.044 -17.252,-2.044l-26.356,0l-67.931,0l0,-61.985l87.599,0c7.427,0 14.91,0.128 22.458,0.369c7.547,0.249 15.031,0.992 22.461,2.228c7.423,1.24 14.597,3.216 21.527,5.941c6.925,2.726 13.481,6.436 19.672,11.134c11.381,9.405 19.923,20.787 25.616,34.155c5.686,13.357 8.535,27.34 8.535,41.941c0,10.646 -1.545,20.848 -4.641,30.623c-3.094,9.78 -7.607,18.56 -13.549,26.356c-5.933,7.796 -13.179,14.348 -21.715,19.672c-8.535,5.33 -18.246,8.848 -29.138,10.582l74.981,94.648l-80.915,0l-99.115,-138.451Z"
+							style="fill-rule:nonzero;"
+						></path>
+						<path
+							d="M422.193,68.451l0,164.442c0,6.681 -0.064,13.489 -0.184,20.411c-0.135,6.936 -0.739,13.738 -1.862,20.425c-1.109,6.673 -2.843,13.176 -5.195,19.487c-2.352,6.304 -5.75,12.053 -10.206,17.255c-9.161,11.641 -20.602,20.546 -34.333,26.729c-13.738,6.19 -27.908,9.274 -42.499,9.274c-6.446,0 -12.814,-0.554 -19.124,-1.662c-6.304,-1.116 -12.31,-2.786 -18.002,-5.018c-19.302,-7.178 -33.281,-18.378 -41.945,-33.587c-8.663,-15.223 -12.991,-32.861 -12.991,-52.903l74.238,0c0.242,3.468 0.618,7.05 1.116,10.774c0.497,3.71 1.478,7.107 2.97,10.198c1.486,3.106 3.583,5.636 6.311,7.612c2.722,1.99 6.311,2.97 10.76,2.97c4.954,0 8.848,-1.044 11.698,-3.155c2.843,-2.096 4.946,-4.818 6.304,-8.166c1.364,-3.34 2.231,-7.05 2.608,-11.136c0.369,-4.08 0.554,-7.974 0.554,-11.691l0,-121.381l-36.749,0l0,-60.878l106.531,0Z"
+							style="fill-rule:nonzero;"
+						></path>
+					</g>
+				</svg>
+			</a>
+			
+			<button class="close-menu" id="close-btn">
+				<X size={32} />
+			</button>
+		</div>
+		
+		<ul class="menu-links">
+			<li><a href="/2026">RJ26</a></li>
+			<li><a href="/login">Login</a></li>
+			<li><a href="/vision">Vision</a></li>
+			<li><a href="/volunteers">Bénévole</a></li>
+			<li><a href="/contact">Contact</a></li>
+		</ul>
+	</div>
+</div>
+
+<script>
+	const burgerBtn = document.getElementById('burger-btn');
+	const closeBtn = document.getElementById('close-btn');
+	const menuOverlay = document.getElementById('menu-overlay');
+
+	burgerBtn?.addEventListener('click', () => {
+		menuOverlay?.classList.remove('hidden');
+		document.documentElement.style.overflow = 'hidden';
+		document.body.style.overflow = 'hidden';
+	});
+
+	closeBtn?.addEventListener('click', () => {
+		menuOverlay?.classList.add('hidden');
+		document.documentElement.style.overflow = '';
+		document.body.style.overflow = '';
+	});
+</script>
+
+<style lang="scss">
+	.hidden {
+		display: none !important;
+	}
+
+	nav {
+		position: relative;
+		
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			backdrop-filter: blur(5px);
+			-webkit-backdrop-filter: blur(5px);
+			pointer-events: none;
+			z-index: 1;
+		}
+		
+		.menu-container {
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: var(--spacing-lg);
+			z-index: 2;
+
+			.logo {
+				display: flex;
+				align-items: center;
+
+				svg {
+					width: 50px;
+					height: 50px;
+
+					path {
+						fill: var(--text-color);
+					}
+				}
+			}
+
+			.burger-menu {
+				background: transparent;
+				border: none;
+				cursor: pointer;
+				padding: var(--spacing-sm);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--text-color);
+				transition: filter 0.3s ease;
+
+				&:hover {
+					filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))
+					        drop-shadow(0 0 12px rgba(255, 255, 255, 0.24))
+					        drop-shadow(0 0 16px rgba(255, 255, 255, 0.15));
+				}
+			}
+		}
+	}
+	
+	// Compact blur style (1.5x menu size)
+	nav.blur-compact {
+		background: transparent;
+		padding-bottom: 50px;
+		
+		&::before {
+			mask-image: linear-gradient(to bottom, 
+				rgba(0, 0, 0, 1) 0%, 
+				rgba(0, 0, 0, 1) 66.67%,
+				rgba(0, 0, 0, 0.95) 70%,
+				rgba(0, 0, 0, 0.85) 75%,
+				rgba(0, 0, 0, 0.7) 80%,
+				rgba(0, 0, 0, 0.5) 85%,
+				rgba(0, 0, 0, 0.3) 90%,
+				rgba(0, 0, 0, 0.15) 95%,
+				rgba(0, 0, 0, 0) 100%);
+			-webkit-mask-image: linear-gradient(to bottom, 
+				rgba(0, 0, 0, 1) 0%, 
+				rgba(0, 0, 0, 1) 66.67%,
+				rgba(0, 0, 0, 0.95) 70%,
+				rgba(0, 0, 0, 0.85) 75%,
+				rgba(0, 0, 0, 0.7) 80%,
+				rgba(0, 0, 0, 0.5) 85%,
+				rgba(0, 0, 0, 0.3) 90%,
+				rgba(0, 0, 0, 0.15) 95%,
+				rgba(0, 0, 0, 0) 100%);
+		}
+	}
+	
+	// Extended blur style (longer transition)
+	nav.blur-extended {
+		background: transparent;
+		padding-bottom: 150px;
+		
+		&::before {
+			mask-image: linear-gradient(to bottom, 
+				rgba(0, 0, 0, 1) 0%, 
+				rgba(0, 0, 0, 1) 66.67%,
+				rgba(0, 0, 0, 0.95) 70%,
+				rgba(0, 0, 0, 0.85) 75%,
+				rgba(0, 0, 0, 0.7) 80%,
+				rgba(0, 0, 0, 0.5) 85%,
+				rgba(0, 0, 0, 0.3) 90%,
+				rgba(0, 0, 0, 0.15) 95%,
+				rgba(0, 0, 0, 0) 100%);
+			-webkit-mask-image: linear-gradient(to bottom, 
+				rgba(0, 0, 0, 1) 0%, 
+				rgba(0, 0, 0, 1) 66.67%,
+				rgba(0, 0, 0, 0.95) 70%,
+				rgba(0, 0, 0, 0.85) 75%,
+				rgba(0, 0, 0, 0.7) 80%,
+				rgba(0, 0, 0, 0.5) 85%,
+				rgba(0, 0, 0, 0.3) 90%,
+				rgba(0, 0, 0, 0.15) 95%,
+				rgba(0, 0, 0, 0) 100%);
+		}
+	}
+
+	.menu-overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1000;
+		background: linear-gradient(to bottom, var(--background-color), var(--background-complement-color));
+		overflow: hidden;
+
+		.overlay-content {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			padding: var(--spacing-lg);
+
+			.overlay-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: var(--spacing-lg);
+
+				.logo {
+					display: flex;
+					align-items: center;
+
+					svg {
+						width: 50px;
+						height: 50px;
+
+						path {
+							fill: var(--text-color);
+						}
+					}
+				}
+
+				.close-menu {
+					background: transparent;
+					border: none;
+					cursor: pointer;
+					padding: var(--spacing-sm);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					color: var(--text-color);
+					transition: filter 0.3s ease;
+
+					&:hover {
+						filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))
+						        drop-shadow(0 0 12px rgba(255, 255, 255, 0.24))
+						        drop-shadow(0 0 16px rgba(255, 255, 255, 0.15));
+					}
+				}
+			}
+
+			.menu-links {
+				list-style: none;
+				display: flex;
+				flex-direction: column;
+				gap: var(--spacing-lg);
+				padding: var(--spacing-lg);
+
+				li {
+					a {
+						font-size: var(--text-size);
+						font-family: var(--font-body);
+						color: var(--text-color);
+						text-decoration: none;
+						transition: all 0.3s ease;
+
+						&:hover {
+							filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3))
+							        drop-shadow(0 0 12px rgba(255, 255, 255, 0.24));
+						}
+					}
+				}
+			}
+		}
+	}
+</style>
+

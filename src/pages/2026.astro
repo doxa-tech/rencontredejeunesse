@@ -1,7 +1,28 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Flash from "../components/2026/Flash.astro";
+import Layout from "../layouts/landingPage/Layout.astro";
+import Hero from "../components/2026/Hero.astro";
 ---
+
 <Layout title="RJ 2026">
-    <Flash></Flash>
+    <Hero>
+        <div slot="cloud-content" class="slot">
+            <p>L'Eternel des armées: Voilà le roi de gloire !</p>
+            <p>Psaumes 24:10</p>
+        </div>
+    </Hero>
 </Layout>
+
+<style>
+    .slot {
+        p {
+            font-size: 14px;
+        }
+        p:last-child {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: right;
+            color: red;
+        }
+    }
+</style>
+
