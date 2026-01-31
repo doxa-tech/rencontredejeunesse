@@ -1,0 +1,117 @@
+---
+---
+
+<section>
+    <div class="section-container">
+        <h2>ARTISTES</h2>
+        <div>
+            <div>
+                <h3>MLK Music</h3>
+                <span>Paris, FR</span>
+            </div>
+            <div>
+                <h3>NERIH</h3>
+                <span>Paris, FR</span>
+            </div>
+            <div>
+                <h3>CONOZCO</h3>
+                <span>Paris, FR</span>
+            </div>
+            <div>
+                <h3>ECHO</h3>
+                <span>Genève, CH</span>
+            </div>
+        </div>
+        <h2>INTERVENANTS</h2>
+        <div>
+            <div>
+                <img src="/2026/photos/johanna2.jpg" alt="">
+                <span>Johanna<br> Exbrayat</span>
+            </div>
+            <div>
+                <img src="/2026/photos/yves.jpg" alt="">
+                <span>Yves<br> Bulundwe</span>
+            </div>
+        </div>
+        <div></div>
+    </div>
+</section>
+
+<style lang="scss">
+@import "../../styles/variables";
+
+section {
+    background-size: cover;
+    background-color: #32173d;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    position: relative;
+    height: 200%;
+    min-height: fit-content;
+
+    h2 {
+        font-family: CormorantGaramond;
+        margin: 40px 0 0 0;
+        font-size: 45px;
+        color: #e9e9d6;
+    }
+
+    h3 {
+        font-size: 35px;
+    }
+
+    & > div {
+        margin: 40px 0px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        flex-direction: column;
+        gap: 40px;
+        min-height: fit-content;
+
+        img {
+            width: 150px;
+            border-radius: 10px;
+        }
+
+        & > div {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            width: 100%;
+            font-size: 20px;
+            flex-wrap: wrap;
+
+            & > div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            span {
+                width: 130px;
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+    } 
+
+    @media screen and (max-width: $mobile-width) {
+        h2 {
+            font-size: 35px !important;
+        }
+
+        h3 {
+            font-size: 25px !important;
+        }
+    } 
+}
+
+</style>
+  

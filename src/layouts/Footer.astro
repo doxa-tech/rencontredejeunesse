@@ -26,7 +26,7 @@
         </a>
       </div>
       <b>Rencontre de Jeunesse<br>Chemin des Sires 10<br>1618 Châtel-St-Denis</b>
-      <b>@ Rencontre de jeunesse 2025</b>
+      <b>@ Rencontre de jeunesse 2026</b>
     </div>
   </div>
 </section>
@@ -42,6 +42,10 @@
 
       display: flex;
       justify-content: space-between;
+
+      #logo {
+        display: none;
+      }
     
       img {
         width: 50px;
@@ -50,7 +54,7 @@
       #links {
         display: flex;
         flex-direction: column;
-        font-size: $medium-title;
+        font-size: $large-text;
         font-weight: bold;
         gap: 10px;
       }
@@ -59,14 +63,14 @@
         display: flex;
         flex-direction: column;
         gap: 20px;
-        font-size: $large-text;
+        font-size: $normal-text;
         
         #socials {
           display: flex;
-          gap: 20px;
+          gap: 15px;
 
           img {
-            width: 35px;
+            width: 25px;
           }
         }
 
@@ -79,9 +83,14 @@
 
   @media only screen and (min-width: $mobile-width) {
     section {    
-      #box {     
+      #box {
+
+        #logo {
+          display: block;
+        }
+
         img {
-          width: 150px;
+          width: 80px;
         }
         
         #links {

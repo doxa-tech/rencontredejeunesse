@@ -1,7 +1,38 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Flash from "../components/2026/Flash.astro";
+import Welcome from "../components/2026/Welcome.astro";
+import Speaker from '../components/2026/Speaker.astro';
+import Register from "../components/2026/Register.astro";
 ---
+
 <Layout title="RJ 2026">
-    <Flash></Flash>
+  <section>
+    <Welcome />
+    <Speaker />
+    <Register />
+  </section>
 </Layout>
+
+<style lang="scss">
+  @import "../styles/variables";
+
+  @font-face {
+    font-family: CormorantGaramond;
+    src: url('/fonts/Cormorant/CormorantGaramond-VariableFont_wght.ttf');
+  }
+
+  @font-face {
+    font-family: Montserrat;
+    src: url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
+  }
+
+  section {
+    min-height: 100%;
+    font-size: 130%;
+    font-family: Montserrat;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+</style>
