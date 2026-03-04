@@ -1,7 +1,7 @@
 ---
 export interface Props {
 	title: string;
-	dark: boolean;
+	dark?: boolean;
 }
 
 import Favicon from "./Favicon.astro";
@@ -31,6 +31,9 @@ const hideFooter = Astro.url.pathname === "/vision";
 		<title>{title}</title>
 
 		<style>
+			.wrapper.dark {
+				background: black;
+			}
 			.wrapper {
 				display: flex;
 				flex-direction: column;
@@ -48,8 +51,7 @@ const hideFooter = Astro.url.pathname === "/vision";
 			}
 			.resizer {
 				position: absolute;
-				left: 50%;
-				transform: translateX(-50%);
+				left: 0;
 				top: 0px;
 
 				height: 100%;
@@ -58,7 +60,7 @@ const hideFooter = Astro.url.pathname === "/vision";
 		</style>
 	</head>
 	<body>
-		<div class="wrapper" style={dark ? `background: black;` : ''}>
+		<div class={`wrapper${dark ? ' dark' : ''}`}>
 			<div class="resizer">
 				<Burger />
 

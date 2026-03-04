@@ -199,7 +199,7 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 
 <style lang="scss">
-	@import "../styles/variables.scss";
+	@use "../styles/variables" as *;
 
 	section {
 		min-height: 100%;
@@ -212,6 +212,8 @@ import Layout from "../layouts/Layout.astro";
   .content {
     min-width: min(50%, 700px);
     min-height: 100%;
+    position: relative;
+    z-index: 0;
   }
 
   .content > .text {
@@ -228,10 +230,12 @@ import Layout from "../layouts/Layout.astro";
     align-items: center;
     padding: 40px;
     position: relative;
+    z-index: 1;
   }
 
   .bg-img1, .bg-img2 {
     position: relative;
+    z-index: 0;
   }
   .bg-img1::after {
     position: absolute;
@@ -242,7 +246,7 @@ import Layout from "../layouts/Layout.astro";
     min-height: calc(100% + 70px);
     top: -70px;
     background-size: cover;
-    background: url("/2025/photos/crowd_8.jpg");
+    background: url("/vision/photos/crowd_8.jpg");
     opacity: 0.3;
   }
   .bg-img1::before {
@@ -266,7 +270,7 @@ import Layout from "../layouts/Layout.astro";
     min-height: calc(100% + 70px);
     top: -70px;
     right: 0px;
-    background: url("/2025/photos/scene_4.jpg");
+    background: url("/vision/photos/scene_4.jpg");
     background-size: cover;
     opacity: 0.3;
   }

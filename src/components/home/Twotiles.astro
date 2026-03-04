@@ -17,7 +17,7 @@
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables.scss";
+  @use "../../styles/variables" as *;
 
   $sub-title: $large-text * 2;
 
@@ -38,6 +38,7 @@
 
     .login {
       position: relative;
+      z-index: 0;
       padding: $blank-space;
       padding-left: 0px;
       padding-right: 0px;
@@ -73,7 +74,7 @@
 
         width: 50%;
         height: 100%;
-        background-image: url("/2025/photos/hands_1.jpg");
+        background-image: url("/home/photos/hands_1.jpg");
         background-size: cover;
         background-position: center center;
         box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);
@@ -92,6 +93,7 @@
 
     .rj {
       position: relative;
+      z-index: 0;
       padding: $blank-space;
       padding-left: 0px;
       padding-right: 0px;
@@ -132,7 +134,7 @@
 
         width: 50%;
         height: 100%;
-        background-image: url("/2025/photos/crowd_6.jpg");
+        background-image: url("/home/photos/crowd_6.jpg");
         background-size: cover;
         background-position: center center;
         box-shadow: inset -220px 0 250px -70px rgba(0,0,0,1);

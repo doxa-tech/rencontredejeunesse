@@ -24,10 +24,11 @@ import { ContactForm } from "./ContactForm";
 </section>
 
 <style lang="scss">
-  @import "../styles/variables";
+  @use "../styles/variables" as *;
 
   section {
     position: relative;
+    z-index: 0;
     background-color: #fafafa;
 
     .menu {

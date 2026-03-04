@@ -13,10 +13,11 @@ const { src, children, id, style } = Astro.props;
 </section>
 
 <style lang="scss">
-    @import "../../styles/variables";
+    @use "../../styles/variables" as *;
   
     section {
         position: relative;
+        z-index: 0;
         display: flex;
         color: #fff;
         padding: $blank-space * 2;
