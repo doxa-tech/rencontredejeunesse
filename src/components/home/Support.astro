@@ -6,7 +6,7 @@
         <h3>NOUS SOUTENIR</h3>
         <div id="text">
             <p>La Rencontre de Jeunesse est une oeuvre à but non lucratif qui existe grâce aux travails de ses nombreux bénévoles. Vous pouvez nous soutenir financièrement ou en vous engageant comme bénébole.</p>
-            <img src="/2025/icons/support.png" alt="">
+            <img src="/home/icons/support.png" alt="">
         </div>
         <div id="buttons">
             <a href="/volunteers">DEVENIR BÉNÉVOLE</a>
@@ -28,7 +28,7 @@
   </section>
   
   <style lang="scss">
-    @import "../../styles/variables.scss";
+    @use "../../styles/variables" as *;
   
     section {
         display: flex;
@@ -36,6 +36,7 @@
         padding: $blank-space;
         gap: $blank-space;
         position: relative;
+        z-index: 0;
         margin: 0 0 80px 0;
 
         h3 {
@@ -105,7 +106,7 @@
         }
 
         .background {
-            background-image: url("/2025/photos/scene_3.jpg");
+            background-image: url("/home/photos/scene_3.jpg");
             background-size: cover;
             background-position: center center;
             position: relative;
@@ -124,7 +125,7 @@
                 aspect-ratio: 1 / 1;
                 background-size: contain;
                 background-repeat: no-repeat;
-                background-image: url("/2025/icons/support.png");
+                background-image: url("/home/icons/support.png");
                 z-index: 100;
                 transform: rotate(15deg);
             }
