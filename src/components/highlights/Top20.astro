@@ -14,7 +14,7 @@ import { SlideShow } from "../Slideshow";
     <SlideShow
       client:load
       imagesFolder="/highlights/top20/images"
-      numImages="30"
+      numImages={30}
     />
   </div>
 
@@ -22,8 +22,8 @@ import { SlideShow } from "../Slideshow";
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
+  @use "../../styles/variables" as *;
+  @use "../../styles/button-bar" as *;
 
   section.cont {
     .section-container {

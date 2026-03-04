@@ -1,6 +1,6 @@
 import { type ChangeEvent, type FormEvent, useState } from "react";
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import * as styles from "./ContactForm.module.scss"
+import styles from "./ContactForm.module.scss"
 
 export const ContactForm = () => {
 
@@ -90,8 +90,8 @@ export const ContactForm = () => {
 
       <textarea
         placeholder="Message"
-        cols="30"
-        rows="10"
+        cols={30}
+        rows={10}
         required
         name="Message"
         value={message}

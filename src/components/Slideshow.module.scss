@@ -15,8 +15,7 @@
       width: 100%;
       height: 100%;
 
-      img,
-      source {
+      img {
         position: absolute;
         width: 150%;
         top: 50%;
@@ -33,21 +32,20 @@
   }
 }
 
-/* The Modal (background) */
 .modal {
   position: fixed;
-  z-index: 2;
+  z-index: 100;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
   overflow: auto;
+  overscroll-behavior: contain;
   background-color: black;
-  transition: 0.5s all;
 
   .modal-content {
     position: relative;
-    background-color: #000000;
+    background-color: #000;
     margin: auto;
     padding: 0;
     width: 100%;
@@ -71,7 +69,6 @@
     }
   }
 
-  /* Next & previous buttons */
   .prev,
   .next {
     cursor: pointer;
@@ -86,14 +83,12 @@
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    -webkit-user-select: none;
 
     &:hover {
       background-color: rgba(0, 0, 0, 0.8);
     }
   }
 
-  /* Position the "next button" to the right */
   .next {
     right: 0;
     border-radius: 3px 0 0 3px;
@@ -106,7 +101,9 @@
   right: 50px;
   bottom: 50px;
   left: 50px;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   .numbertext {
     color: #f2f2f2;

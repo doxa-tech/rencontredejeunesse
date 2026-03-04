@@ -4,13 +4,13 @@ import { SlideShow } from "../Slideshow";
 
 <section class="cont">
   <div class="section-container">
-    <SlideShow client:load imagesFolder="/login/photos" numImages="8" />
+    <SlideShow client:load imagesFolder="/login/photos" numImages={8} />
   </div>
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-  @import "../../styles/button-bar";
+  @use "../../styles/variables" as *;
+  @use "../../styles/button-bar" as *;
 
   section.cont {
     .section-container {
