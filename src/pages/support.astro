@@ -7,24 +7,24 @@ import Block from "../components/support/Block.astro"
 <Layout title="RJ - Rencontre de Jeunesse" dark={true}>
 	<section>
         <Main></Main>
-        <Block src="/2025/photos/scene_6.jpg" id="staff" children={[
+        <Block src="/support/photos/scene_6.jpg" id="staff" children={[
             { type: 'h2', content: 'STAFF À L\'ANNÉE' },
             { type: 'p', content: 'Cras id porta libero, ut rutrum neque. Sed ac neque id turpis euismod tincidunt sed sit amet nulla. Curabitur risus justo, consectetur vel venenatis quis, dapibus eget ipsum. In gravida ex vel nulla lobortis, sit amet maximus libero hendrerit.per dolor ac mi dapibus, at accumsan urna feugiat.' }
         ]}>
         </Block>
-        <Block src="/2025/photos/benevol_1.jpg" id="benevole" children={[
+        <Block src="/support/photos/benevol_1.jpg" id="benevole" children={[
             { type: 'h2', content: 'BÉNÉVOLE' },
             { type: 'p', content: 'Cras id porta libero, ut rutrum neque. Sed acneque id turpis euismod tincidunt sed sit ametnulla. Curabitur risus justo, consectetur velvenenatis quis, dapibus eget ipsum. In gravida exvel nulla lobortis, sit amet maximus liberohendrerit. Cras posuere varius turpis, elementumelementum arcu consectetur non.' },
             { type: 'button', content: 'INSCRIPTION' }
         ]}>
         </Block>
-        <Block src="/2025/photos/technic_2.jpg" id="finances" children={[
+        <Block src="/support/photos/technic_2.jpg" id="finances" children={[
             { type: 'h2', content: 'FINANCES' },
             { type: 'p', content: 'Cras id porta libero, ut rutrum neque. Sed acneque id turpis euismod tincidunt sed sit ametnulla. Curabitur risus justo, consectetur velvenenatis quis, dapibus eget ipsum. In gravidaex vel nulla lobortis, sit amet maximus libero' },
             { type: 'button', content: 'SOUTENIR FINANCIÈREMENT' }
         ]}>
         </Block>
-        <Block src="/2025/photos/crowd_4.jpg" id="priere" children={[
+        <Block src="/home/photos/crowd_4.jpg" id="priere" children={[
             { type: 'h2', content: 'PRIÈRE' },
             { type: 'p', content: 'Cras id porta libero, ut rutrum neque. Sedac neque id turpis euismod tincidunt sed sitamet nulla. Curabitur risus justo,consectetur vel venenatis quis, dapibuseget ipsum. In gravida ex vel nulla lobortis' }
         ]} style="margin-bottom: -20px;">
@@ -33,7 +33,7 @@ import Block from "../components/support/Block.astro"
 </Layout>
 
 <style lang="scss">
-	@import "../styles/variables";
+	@use "../styles/variables" as *;
 
 	section {
 		min-height: 100%;

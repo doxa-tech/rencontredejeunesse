@@ -38,25 +38,26 @@
 </section>
 
 <style lang="scss">
-@import "../../styles/variables";
+@use "../../styles/variables" as *;
+@use "theme" as *;
 
 section {
     background-size: cover;
-    background-color: #32173d;
+    background-color: $color-bg;
 
     width: 100%;
     display: flex;
     justify-content: center;
-    
+
     position: relative;
     height: 200%;
     min-height: fit-content;
 
     h2 {
-        font-family: CormorantGaramond;
+        font-family: $font-display;
         margin: 40px 0 0 0;
         font-size: 45px;
-        color: #e9e9d6;
+        color: $color-text-light;
     }
 
     h3 {
@@ -100,7 +101,7 @@ section {
                 text-align: center;
             }
         }
-    } 
+    }
 
     @media screen and (max-width: $mobile-width) {
         h2 {
@@ -110,8 +111,7 @@ section {
         h3 {
             font-size: 25px !important;
         }
-    } 
+    }
 }
 
 </style>
-  

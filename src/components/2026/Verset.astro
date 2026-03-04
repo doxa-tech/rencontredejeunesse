@@ -1,0 +1,44 @@
+---
+---
+
+<section>
+  <div class="section-container">
+    <p>L'Eternel des armées:<br> Voilà le roi de gloire !</p>
+    <p class="verse">Psaumes 24:10</p>
+  </div>
+</section>
+
+<style lang="scss">
+  @use "../../styles/variables" as *;
+  @use "theme" as *;
+
+  section {
+    background-size: cover;
+    background-color: $color-bg-dark;
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+    position: relative;
+
+    & > div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      max-width: $main-width;
+      flex-direction: column;
+      gap: 40px;
+      font-size: $large-text;
+      padding: 0px 35px;
+
+      p {
+        color: #fff;
+        font-family: $font-display;
+        font-size: 50px;
+      }
+
+    }
+  }
+</style>

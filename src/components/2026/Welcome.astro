@@ -14,17 +14,8 @@
 </section>
 
 <style lang="scss">
-  @import "../../styles/variables";
-
-  @font-face {
-    font-family: CormorantGaramond;
-    src: url('/fonts/Cormorant/CormorantGaramond-VariableFont_wght.ttf');
-  }
-
-  @font-face {
-    font-family: Montserrat;
-    src: url('/fonts/Montserrat/Montserrat-VariableFont_wght.ttf');
-  }
+  @use "../../styles/variables" as *;
+  @use "theme" as *;
 
   section {
     background-image: url("/2026/background2.jpg");
@@ -61,7 +52,7 @@
         min-height: 700px;
 
         h1 {
-            font-family: CormorantGaramond;
+            font-family: $font-display;
             color: #fff;
             line-height: 100%;
             font-size: 100px;
@@ -71,7 +62,7 @@
 
         p {
             color: #fff;
-            font-family: Montserrat;
+            font-family: $font-body;
             font-size: 25px;
             text-transform: uppercase;
             margin: 20px 0;
@@ -88,10 +79,10 @@
                 padding: 10px 25px;
                 border: none;
                 border-radius: 20px;
-                background: #ff823e;
+                background: $color-accent;
 
                 &:hover {
-                    background: #ee631d;
+                    background: $color-accent-hover;
                 }
             }
         }
@@ -110,6 +101,6 @@
             }
         }
       }
-    }    
+    }
   }
 </style>
