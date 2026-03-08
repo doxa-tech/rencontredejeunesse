@@ -6,31 +6,39 @@
         <div class="columns">
            <div class="column">
                 <p class="head">vendredi</p>
-                <p><span class="time">18h00</span> Ouverture du village</p>
-                <p><span class="time">19h30</span> Ouverture des portes</p>
-                <p><span class="time">20h00</span> Plénière du soir</p>
-                <p><span class="time">22h00</span> Fin de la session</p>
-                <p><span class="time">22h00</span> Ouverture du village</p>
-                <p><span class="time">24h00</span> Fermeture du village</p>
+                <p><span class="time">18h30</span> Ouverture des portes</p>
+                <p><span class="time">19h30</span> Session 1</p>
+                <p><span class="time">22h00</span> Fin de session et ouverture du village</p>
+                <p><span class="time">00h30</span> Fin de journée</p>
            </div>
            <div class="column">
                 <p class="head">samedi</p>
+                <p><span class="time">07h00</span> Ouverture espace déjeuners</p>
                 <p><span class="time">08h30</span> Ouverture du village</p>
-                <p><span class="time">09h00</span> Ouverture des portes</p>
-                <p><span class="time">09h30</span> Plénière du matin</p>
-                <p><span class="time">11h15</span> Fin de la session</p>
-                <p><span class="time">11h15</span> Ouverture du village</p>
-                <p><span class="time">13h45</span> Ouverture des portes</p>
-                <p><span class="time">14h00</span> Plénière de l'après-midi</p>
-                <p><span class="time">15h30</span> Fin de la session</p>
-                <p><span class="time">15h30</span> Ouverture du village</p>
-                <p><span class="time">16h00</span> Atelier 1</p>
-                <p><span class="time">16h45</span> Atelier 2</p>
-                <p><span class="time">19h30</span> Ouverture des portes</p>
-                <p><span class="time">20h00</span> Plénière du soir</p>
-                <p><span class="time">22h00</span> Fin de la session</p>
-                <p><span class="time">22h00</span> Ouverture du village</p>
-                <p><span class="time">24h00</span> Fermeture du village</p>
+                <p><span class="time">09h30</span> Session 2</p>
+                <p><span class="time">11h30</span> Fin de session et ouverture du village</p>
+                <p><span class="time">13h00</span> Atelier 1: Saint Esprit</p>
+                <p><span class="time">à 14h00</span> <span class="speaker">avec Téo Ayashi</span></p>
+                <p><span class="time">13h00</span> Atelier 2: Être un témoin dans son quotidien</p>
+                <p><span class="time">à 14h30</span> <span class="speaker">avec Mehdi Damiano</span></p>
+                <p><span class="time">14h15</span> Atelier 3: Une vie de disciple</p>
+                <p><span class="time">à 15h15</span> <span class="speaker">avec Johanna Exbrayat</span></p>
+                <p><span class="time">15h00</span> Atelier 4: Table ronde interactive</p>
+                <p><span class="time">à 16h00</span> <span class="speaker">avec Yves Bulundwe</span></p>
+                <p><span class="time">16h30</span> Atelier 5: Masterclass artistique</p>
+                <p><span class="time">à 18h30</span> <span class="speaker">avec Conozco</span></p>
+                <p><span class="time">19h30</span> Session 3</p>
+                <p><span class="time">22h00</span> Fin de session et ouverture du village</p>
+                <p><span class="time">00h30</span> Fin de journée</p>
+           </div>
+           <div class="column">
+                <p class="head">dimanche</p>
+                <p><span class="time">07h00</span> Ouverture espace déjeuners</p>
+                <p><span class="time">08h30</span> Ouverture du village</p>
+                <p><span class="time">09h30</span> Session 4</p>
+                <p><span class="time">11h30</span> Fin de session et ouverture du village</p>
+                <p><span class="time">13h30</span> Session 5</p>
+                <p><span class="time">16h00</span> Fin de la RJ26, à l'année prochaine !</p>
            </div>
         </div>
     </div>
@@ -38,31 +46,27 @@
 
 <style lang="scss">
     @use "../../styles/variables" as *;
+    @use "theme" as *;
     
     section {
-        background-size: cover;
-    
+        background-color: $color-text-light;
+        color: $color-bg;
+
         width: 100%;
-        max-width: $main-width;
         display: flex;
         justify-content: center;
+        padding: 60px 0;
         
-        padding: 20px;
-        position: relative;
-        margin: $blank-space 0;
-        height: 200%;
-        min-height: fit-content;
-
         h2 {
-            margin: 0 0 40px 0;
-            font-size: 40px;
+            font-family: $font-display;
+            font-size: 45px;
             text-align: center;
         }
 
         .columns {
             display: flex;
             flex-direction: column;
-            font-size: 26px;
+            font-size: 20px;
 
             .column {
                 display: flex;
@@ -73,14 +77,24 @@
                     span.time {
                         display: inline-block;
                         width: 90px;
-                        font-size: 22px;
                     }
+
+                    span.speaker {                                                                                                                         
+                        display: inline-block;                                                                                                             
+                        margin: 0 0 5px 20px;                                                                                                      
+                        font-size: 18px;                                                                                                                   
+                        font-style: italic;                                                                                                                
+                        opacity: 0.8;                                                                                                                      
+                    }  
 
                     &.head {
                         margin: 20px 0 10px 0;
                         font-style: italic;
+                        font-size: 22px;
                         text-align: center;
                     }
+
+
                 }
 
             }
