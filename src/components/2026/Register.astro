@@ -3,7 +3,7 @@
 <section id="inscription">
     <div class="section-container">
         <h2>INSCRIPTION</h2>
-        <div>
+        <div class="prices">
            <div>
                 <p>Préloc</p>
                 <h3>89 CHF</h3>
@@ -23,8 +23,10 @@
         <div class="register">
             <a href="https://tickets.rencontredejeunesse.ch/orders/rj-2026/events/new">S'INSCRIRE</a>
         </div>
-        <p>Hébergement disponible sur place pour +20 CHF</p>
-        <a href="/faq">→ Visite notre <span class="underline">FAQ</span> pour avoir plus d'informations</a>
+        <div class="info">
+            <p>Hébergement disponible sur place pour +20 CHF</p>
+            <a href="/faq">→ Visite notre <span class="underline">FAQ</span> pour avoir plus d'informations</a>
+        </div>
     </div>
 </section>
 
@@ -56,7 +58,7 @@ section {
         font-size: 35px;
     }
 
-    & > div {
+    div.section-container {
 
         p {
             margin: 10px 0;
@@ -66,7 +68,7 @@ section {
             }
         }
 
-        & > div {
+        div.prices {
             display: flex;
             justify-content: center;
             gap: 80px;
@@ -87,7 +89,6 @@ section {
         font-weight: bold;
         font-size: 25px;
         padding: 10px 25px;
-        margin: 0 15px 0 15px;
         border: none;
         border-radius: 20px;
         background: $color-accent;
@@ -97,18 +98,25 @@ section {
         }
     }
 
-    a {
-        &:hover {
-            color: $color-text-warm;
+    .info {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        margin: 60px 0 0 0;
+
+        a {
+            &:hover {
+                color: $color-text-light;
+            }
+
+            .underline {
+                text-decoration: underline;
+            }
         }
-    }
 
-    p {
-        margin: 0 0 5px 0;
-    }
-
-    .underline {
-        text-decoration: underline;
+        p {
+            margin: 0 0 5px 0;
+        }
     }
 
     @media screen and (max-width: $mobile-width) {
