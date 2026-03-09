@@ -19,7 +19,7 @@
                 <p><span class="time">11h30</span> Fin de session et ouverture du village</p>
                 <p><span class="time">13h00</span> Atelier 1: Saint Esprit</p>
                 <p><span class="time">à 14h00</span> <span class="speaker">avec Téo Ayashi</span></p>
-                <p><span class="time">13h00</span> Atelier 2: Être un témoin dans son quotidien</p>
+                <p><span class="time">13h00</span> Atelier 2: Témoin dans son quotidien</p>
                 <p><span class="time">à 14h30</span> <span class="speaker">avec Mehdi Damiano</span></p>
                 <p><span class="time">14h15</span> Atelier 3: Une vie de disciple</p>
                 <p><span class="time">à 15h15</span> <span class="speaker">avec Johanna Exbrayat</span></p>
@@ -67,12 +67,14 @@
             display: flex;
             flex-direction: column;
             font-size: 20px;
+            padding: 0 20px;
 
             .column {
                 display: flex;
                 flex-direction: column;
 
                 p {
+                    margin: 2px 0;
 
                     span.time {
                         display: inline-block;
@@ -82,7 +84,6 @@
                     span.speaker {                                                                                                                         
                         display: inline-block;                                                                                                             
                         margin: 0 0 5px 20px;                                                                                                      
-                        font-size: 18px;                                                                                                                   
                         font-style: italic;                                                                                                                
                         opacity: 0.8;                                                                                                                      
                     }  
@@ -103,8 +104,16 @@
 
     @media screen and (max-width: $mobile-width) {
 
+        h2 {
+            font-size: 35px !important;
+        }
+
+        h3 {
+            font-size: 25px !important;
+        }
+
         .columns {
-            font-size: 20px !important;
+            font-size: 12px !important;
         }
 
     }
