@@ -1,23 +1,27 @@
 namespace :stats do
 
   desc "Statistics for RJ 26"
-  task rj25: :environment do
+  task rj26: :environment do
     data = {
       "Early": {
-        "weekend": [122]
+        "weekend": [122],
+        "weekend + hébergement": [127]
       },
       "Préloc": {
-        "weekend": [124]
+        "weekend": [124],
+        "weekend + hébergement": [128]
       },
       "Standard": {
-        "weekend": [125]
+        "weekend": [125],
+        "weekend + hébergement": [129]
       },
       "Last minute": {
         "weekend": [126],
         "friday": [130],
         "saturday": [131],
         "saturday night": [132],
-        "saturday": [133]
+        "saturday": [133],
+        "hébergement onyl": [134]
       }
     }
     data.each do |site, tickets|
